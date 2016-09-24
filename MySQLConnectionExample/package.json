@@ -1,0 +1,23 @@
+{
+  "name": "hyf",
+  "version": "1.0.0",
+  "description": "# Database Systems A (hopefully) practical introduction to databases",
+  "main": "MySQL-connection-example-1.js",
+  "dependencies": {
+    "mysql": "^2.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkaria/hyf.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkaria/hyf/issues"
+  },
+  "homepage": "https://github.com/tkaria/hyf#readme"
+}
