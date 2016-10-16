@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Databases homework</title>
+</head>
+<body>
+	<h3>A todo list</h3>
+	<button id="get_list_button">Get To Dos</button>
+	<div id="todo_list"></div>
+	<button id="remove_all_button">Remove All</button>
+	<h4>Add To Do</h4>
+	<input type="text" name="New To DO" id="add_todo"><button id="add_todo_button">Add</button>
+  <div id="errormsg" style="color:red;font-weight:bold;"></div>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+    		$("#get_list_button").click(function(){
+        		console.log("get list clicked");
+        		$.ajax({
+        			url: "http://localhost:8080/todo",
+        			method: "GET",
+        			success: showTodos,
+              error:showError,
+        		})
+        	});
+    		$("#remove_all_button").click(function(){
+        		console.log("remove all clicked");
+        		$.ajax({
+        			url: "http://localhost:8080/todo",
+        			method: "DELETE",
+        			success: showTodos,
+              error:showError,
+        		})
+        	});
+    		$("#deleteTodoItem").click(function(){
+        		console.log("delete todo item clicked");
+        		$.ajax({
+        			url: "http://localhost:8080/todo",
+        			method: "DELETE",
+        			success: showTodos,
+              error:showError,
+        		})
+        	});
+    		$("#add_todo_button").click(function(){
+        		console.log("add todo clicked")
+        		console.log("add this todo: " + $("#add_todo").val())
+        		$.ajax({
+        			url: "http://localhost:8080/todo",
+        			method: "POST",
+              contentType: 'application/json; charset=utf-8',
+              dataType: 'json',
+        			data: JSON.stringify({
+                "text": $("#add_todo").val(),
+              }),
+        			success: showTodos,
+              error:showError,
+        		})
+        	});
+      function showError(resp, status) {
+        if (resp.responseJSON && resp.responseJSON.error) {
+          $("#errormsg").text(resp.responseJSON.error)
+        } else {
+          $("#errormsg").text(resp.responseText)
+        }
+      }
+			function showTodos(data, status) {
+				$("#todo_list").empty();
+				if ($.isEmptyObject(data)) {
+					$("#todo_list").append("<h4>You have nothing to do!</h4>");
+				} else {
+					$.each(data, function (i, todoObject) {
+            $("#todo_list").append(
+              $('<div>')
+                .append($('<span>').css({display:'inline-block', width: '50px'}).text(todoObject.todoId))
+                .append($('<span>').css({display:'inline-block', width: '200px'}).text(todoObject.label))
+                .append($('<button>').text('Remove Item').click(function(){
+  			    			$.ajax({
+  			    				url: "http://localhost:8080/todos/" + i,
+  			    				method: "DELETE",
+  			    				success: showTodos
+  			    			})
+  		        	})
+              )
+            )
+					});
+				}
+			}
+    	});
+	</script>
+</body>
+</html>
