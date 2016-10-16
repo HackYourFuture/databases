@@ -13,7 +13,7 @@ var app = express();
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: '20002000',
     database: 'todos'
 });
 
@@ -24,24 +24,41 @@ connection.connect(function(err) {
         console.log("Error connecting database ...");
     }
 });
+// Use body parser middleware.
+app.use(bodyParser.json())
 
-// Use JSON body parser middleware.
-app.use(bodyParser.json());
+//Send HTML file
+app.get('/', function(request, response) {
+  response.sendFile('./index.html', {root:__dirname});
+})
 
 // Actions
 app.get('/todo', function(request, response) {
     var id = request.params.id;
+
+    // The html expects the todos as an arry of objects such as this:
+    response.json([{
+      todoId: 1,
+      label: 'somelabel'
+    }])
+
+    /**
+
+    Remove response abobe and uncomment query below to start using the database instead!
+    **/
+    /**
     var rows = todosAPI.getTodos(connection, id, function(rows) {
-        console.log('Rows received by get: ', rows);
-        response.json(rows);
-        response.end();
+      // Make sure you change the database results (rows) below into the eample,
+      // otherwise the html website won't work
+      response.json(rows);
+      response.end();
     });
+    **/
 });
 
 // Insert a todo
 app.post('/todo', function(request, response) {
     var todo = request.body;
-
     if (todo.text == null || todo.text == '') {
         sendError(response, 400, 'No text specified');
     } else {
@@ -54,7 +71,16 @@ app.post('/todo', function(request, response) {
 app.delete('/todo/:id', function(request, response) {
     var id = request.params.id;
 
+
     // Delete it using the todosAPI deleteTodo function
+});
+// Delete all todos
+app.delete('/todo', function(request, response) {
+    var id = request.params.id;
+
+
+    // Delete it using the todosAPI deleteTodos function
+
 });
 
 // Update a todo
