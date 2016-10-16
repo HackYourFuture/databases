@@ -26,7 +26,7 @@ Creating new tables (spaces in the database to store data) using the command
 create table todos (
 	Id int, 
 	Done boolean, 
-	Name string
+	Name varchar(200)
 );
 ```
 
