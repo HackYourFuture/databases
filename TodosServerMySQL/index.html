@@ -76,7 +76,7 @@
                 .append($('<span>').css({display:'inline-block', width: '200px'}).text(todoObject.label))
                 .append($('<button>').text('Remove Item').click(function(){
   			    			$.ajax({
-  			    				url: "http://localhost:8080/todos/" + i,
+  			    				url: "http://localhost:8080/todo/" + i,
   			    				method: "DELETE",
   			    				success: showTodos
   			    			})
