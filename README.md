@@ -16,8 +16,8 @@ ACID vs BASE
 *Extra reading*  
 MEAN (Mongo, Express, Angular, Node) vs LAMP (Linux, Apache, MySQL, PHP) - relational vs NoSQL databases and key value stores
 http://www.cs.tut.fi/~tjm/seminars/nosql2012/NoSQL-Intro.pdf 
-![CAP theorem](http://maxivak.com/wp-content/uploads/2011/07/media_httpfarm5static_mevIk.png)  
-Source: [rdbms vs nosql](http://maxivak.com/rdbms-vs-nosql-databases/)
+<!-- ![CAP theorem](http://maxivak.com/wp-content/uploads/2011/07/media_httpfarm5static_mevIk.png)  
+Source: [rdbms vs nosql](http://maxivak.com/rdbms-vs-nosql-databases/) -->
 
 ## Installing MySQL
 [http://dev.mysql.com/doc/refman/5.7/en/windows-installation.html] USE THE MSI INSTALLER PLEASE! 
