@@ -6,9 +6,6 @@ Objective: Students should be able to build CRUD functionality using SQL stateme
 
 ## Main Topics
 
-- JOIN
-    - Selecting composite data from multiple tables
-    - Compare JOIN WHERE with cartesian product
 - INSERT INTO
 - UPDATE
 - DELETE
@@ -23,7 +20,6 @@ Objective: Students should be able to build CRUD functionality using SQL stateme
 
 ## Reference Material
 
-- [Types of SQL JOINs](http://www.khankennels.com/blog/index.php/archives/2007/04/20/getting-joins/)
 
 - [MySQL SHOW GRANTS](https://dev.mysql.com/doc/refman/5.7/en/show-grants.html)
 - [OWASP on SQL Injection](https://www.owasp.org/index.php/SQL_injection)
