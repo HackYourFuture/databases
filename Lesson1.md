@@ -14,6 +14,8 @@ Objective: Students should be able to retrieve data from a database table using 
 - JOIN
     - Selecting composite data from multiple tables
     - Compare JOIN WHERE with cartesian product
+- Naming Conventions: UpperCamelCase, lowerCamelCase, snake_case, hnHungarianNotation
+- Character Sets in Databases (hint: always use UTF-8 encoding, called 'utf8mb4' in MySQL
 
 ## Reference Material
 
