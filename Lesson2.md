@@ -8,21 +8,20 @@ Objective: Students should be able to build CRUD functionality using SQL stateme
 
 - INSERT INTO
 - UPDATE
-- DELETE
-- CREATE TABLE, DROP TABLE
+- CREATE TABLE
+- DELETE, TRUNCATE TABLE, DROP TABLE
 - Writing SQL in your application
     - Raw SQL strings
     - Prepared statements
     - Stored procedures
 - Security
-    - User GRANTS
     - SQL Injection
+    - User GRANTS
 
 ## Reference Material
 
-
-- [MySQL SHOW GRANTS](https://dev.mysql.com/doc/refman/5.7/en/show-grants.html)
 - [OWASP on SQL Injection](https://www.owasp.org/index.php/SQL_injection)
+- [MySQL SHOW GRANTS](https://dev.mysql.com/doc/refman/5.7/en/show-grants.html)
 
 ## Homework
 
