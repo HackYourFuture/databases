@@ -9,6 +9,7 @@ Objective: Students should be able to retrieve data from a database table using 
 - The relational model of data
 - The concept of a schema
 - The properties of an 'entity' (or 'row')
+- Basic entity relationship diagrams
 - A basic SELECT statement
 - Constructing more complex SELECT statements
 - JOIN

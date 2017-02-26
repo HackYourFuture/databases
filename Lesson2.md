@@ -8,20 +8,25 @@ Objective: Students should be able to build CRUD functionality using SQL stateme
 
 - INSERT INTO
 - UPDATE
-- CREATE TABLE
-- DELETE, TRUNCATE TABLE, DROP TABLE
 - Writing SQL in your application
     - Raw SQL strings
+    - Parameter validation
+    - Escaping
     - Prepared statements
     - Stored procedures
 - Security
     - SQL Injection
     - User GRANTS
+    - Enumeration
 
 ## Reference Material
 
 - [OWASP on SQL Injection](https://www.owasp.org/index.php/SQL_injection)
+- [Parameter Validation on Wikipedia](https://en.wikipedia.org/wiki/Parameter_validation)
+- [Node MySQL Escaping Query Values](https://github.com/mysqljs/mysql#escaping-query-values)
+- [Node MySQL Preparing Queries (automatic escaping)](https://github.com/mysqljs/mysql#preparing-queries)
 - [MySQL SHOW GRANTS](https://dev.mysql.com/doc/refman/5.7/en/show-grants.html)
+
 
 ## Homework
 

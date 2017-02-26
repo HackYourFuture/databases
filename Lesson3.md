@@ -4,6 +4,16 @@ In the final week, additional theory will be covered to discuss more complex rel
 
 Objective: Students should be able to create an entity relationship diagram based on a qualatative description of data requirements, and translate that into a MySQL database schema. Students should also be able to compare and contrast relational (like MySQL) and NoSQL databases (considering their benefits and drawbacks).
 
+## Main Topics
+
+- More complex entity relationship diagrams
+- Foreign key constraints
+- Introduction to normalisation
+- CREATE TABLE syntax
+- DELETE, TRUNCATE TABLE, DROP TABLE
+- NoSQL and non-relational data
+- Basic entity-attribute-value data in MongoDB
+
 ## Reference Material
 
 ## Homework
