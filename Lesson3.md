@@ -6,15 +6,26 @@ Objective: Students should be able to create an entity relationship diagram base
 
 ## Main Topics
 
+
 - More complex entity relationship diagrams
+    - Associative entities from many-to-many relationships
+    - Introduction to normalisation
 - Foreign key constraints
-- Introduction to normalisation
+- Complicated values to store in MySQL
+    - Storing prices (floating point errors)
+    - Storing dates (datetime vs. timestamp)
 - CREATE TABLE syntax
-- DELETE, TRUNCATE TABLE, DROP TABLE
-- NoSQL and non-relational data
-- Basic entity-attribute-value data in MongoDB
+- Brief introduction to non-relational data
+- Scaffolding and application generators
 
 ## Reference Material
+
+- [Floating Point Inaccuracy](http://stackoverflow.com/questions/2100490/floating-point-inaccuracy-examples#2100502)
+- [Example Entity Relationship Diagram (including associative entities)](http://users.csc.calpoly.edu/~jdalbey/308/Lectures/HOWTO-ERD.html)
+- Scaffolding tools:
+    - [Yeoman](http://yeoman.io) - General framework for creating and scaffolding all types of projects
+    - [Sails](http://sails.js) - Lightweight framework for generating APIs and web server apps in Node
+    - [Loopback](http://loopback.io/) - A more "enterprise-ready" framework for generating and managing APIs.
 
 ## Homework
 
