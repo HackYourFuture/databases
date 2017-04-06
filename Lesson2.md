@@ -27,13 +27,6 @@ Objective: Students should be able to build CRUD functionality using SQL stateme
 - [Node MySQL Preparing Queries (automatic escaping)](https://github.com/mysqljs/mysql#preparing-queries)
 - [MySQL SHOW GRANTS](https://dev.mysql.com/doc/refman/5.7/en/show-grants.html)
 
-
 ## Homework
 
 - Write the necessary SQL statements to complete the functionality of your application.
-
-## Readings for Next Week
-
-- [Defining Table Relationships](https://www.youtube.com/watch?v=V5DyvUfsboA)
-- [What is a Database Foreign Key](http://databases.about.com/cs/specificproducts/g/foreignkey.htm)
-- [Many to Many Relationships](https://www.youtube.com/watch?v=iCbDHPg2-Cs)

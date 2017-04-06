@@ -4,8 +4,14 @@ In the final week, additional theory will be covered to discuss more complex rel
 
 Objective: Students should be able to create an entity relationship diagram based on a qualatative description of data requirements, and translate that into a MySQL database schema. Students should also be able to compare and contrast relational (like MySQL) and NoSQL databases (considering their benefits and drawbacks).
 
-## Main Topics
+## Pre-Class Readings
 
+- [Defining Table Relationships](https://www.youtube.com/watch?v=V5DyvUfsboA)
+- [What is a Database Foreign Key](http://databases.about.com/cs/specificproducts/g/foreignkey.htm)
+- [Many to Many Relationships](https://www.youtube.com/watch?v=iCbDHPg2-Cs)
+- [NoSQL databases](https://www.youtube.com/watch?v=3T79h-vyYzc&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0&index=39)
+
+## Main Topics
 
 - More complex entity relationship diagrams
     - Associative entities from many-to-many relationships

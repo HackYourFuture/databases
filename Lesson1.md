@@ -4,9 +4,24 @@ In this class, students will be introduced to relational data terminology (row, 
 
 Objective: Students should be able to retrieve data from a database table using SELECT statements that include WHERE, GROUP BY, and ORDER BY.
 
+## Pre-Class Readings
+
+- [What are databases?](https://www.youtube.com/watch?v=Ls_LzOZ7x0c)
+- [Exploring databases and database management systems](https://www.youtube.com/watch?v=7jsWu7ONSNg&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0&index=4)
+- [The features of a relational database](https://www.youtube.com/watch?v=6fojQYSOSB4&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0&index=5)
+- [Introduction to database modeling](https://www.youtube.com/watch?v=rBCXhbA3hPg&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0&index=11)
+- [SQL: Using the basic SELECT statement](https://www.youtube.com/watch?v=4hU3K8Gm0YM&index=12&list=PLcVWkhzl1ZGRERTB2vEN5vepWZaYuoSTz)
+- [Creating SQL queries](https://www.youtube.com/watch?v=uR2hDQvM9Bo&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0&index=26)
+- [Creating the WHERE clause](https://www.youtube.com/watch?v=5KY2Ci0UWe8&index=27&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0)
+- [Sorting query results](https://www.youtube.com/watch?v=VYyEZHTx-3c&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0&index=28)
+- [Using aggregate function](https://www.youtube.com/watch?v=r1TsKlGXes0&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0&index=29)
+- [Joining tables](https://www.youtube.com/watch?v=8Mo2ka8PSpw&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0&index=30)
+
+
 ## Main Topics
 
 - The relational model of data
+- A 'database' vs. a 'DBMS' (database management system)
 - The concept of a schema
 - The properties of an 'entity' (or 'row')
 - Basic entity relationship diagrams
@@ -15,8 +30,9 @@ Objective: Students should be able to retrieve data from a database table using 
 - JOIN
     - Selecting composite data from multiple tables
     - Compare JOIN WHERE with cartesian product
-- Naming Conventions: UpperCamelCase, lowerCamelCase, snake_case, hnHungarianNotation
-- Character Sets in Databases (hint: always use UTF-8 encoding, called 'utf8mb4' in MySQL
+- Naming Conventions: UpperCamelCase/PascalCase, lowerCamelCase, snake_case, hnHungarianNotation/HNHungarianNotation
+- Character Sets in Databases (hint: always use UTF-8 encoding, called 'utf8mb4' in MySQL)
+
 
 ## Reference Material
 
