@@ -1,12 +1,12 @@
 const dbConnect = require('../DB-connection/db-connect.js'),
     queries = require('./queries.js')
 
-module.exports = function recent(request, response) {
+module.exports = function allDB(request, response) {
     dbConnect.connection()
-        .query(queries.recent, (err, results, fields) => {
+        .query(queries.allDB, (err, results, fields) => {
             if (err) throw err
 
-            response.render("../public/pages/recent", { results })
+            response.render("../public/pages/database", { results })
             response.end()
         })
 

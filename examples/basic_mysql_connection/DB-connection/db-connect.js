@@ -1,5 +1,5 @@
 const mysql = require('mysql'),
-      fs = require('fs')
+    fs = require('fs')
 
 class DB {
 
@@ -9,7 +9,7 @@ class DB {
     }
 
     connection() {
-        var connection = mysql.createConnection({
+      var connection = mysql.createConnection({
             host: this.config().host,
             user: this.config().user,
             password: this.config().password,

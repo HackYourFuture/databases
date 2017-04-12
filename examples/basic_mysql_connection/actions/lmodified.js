@@ -1,13 +1,15 @@
 const dbConnect = require('../DB-connection/db-connect.js'),
     queries = require('./queries.js')
 
-module.exports = function added(request, response) {
+module.exports = function lModified(request, response) {
 
     dbConnect.connection()
-    .query(queries.lastAdded, (err, results, fields) => {
+        .query(queries.lastAdded, (err, results, fields) => {
             if (err) throw err
 
-            response.send(JSON.stringify(results))
+            response.render("../public/pages/lmodified", {
+                results
+            })
             response.end()
         })
 

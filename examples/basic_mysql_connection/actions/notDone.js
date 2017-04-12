@@ -6,7 +6,9 @@ module.exports = function notDone(request, response) {
         .query(queries.notDone, (err, results, fields) => {
             if (err) throw err
 
-            response.send(JSON.stringify(results))
+            response.render("../public/pages/notDone", {
+                results
+            })
             response.end()
         })
 
