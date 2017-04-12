@@ -1,20 +1,13 @@
-var fs = require('fs');
-var mysql = require('mysql');
+const express = require('express'),
+	  app = express()
 
-var config = JSON.parse(fs.readFileSync("config-secret.json"))
+const { count, done, notDone, recent, added, all } = require('./actions')
 
-var connection = mysql.createConnection({
-	host: config.host,
-	user: config.user,
-	password: config.password,
-	port: config.port,
-    database: config.database
-});
+app.get('/count', count)
+app.get('/done', done)
+app.get('/notdone', notDone)
+app.get('/recent', recent)
+app.get('/added', added)
+app.get('/all', all)
 
-connection.connect();
-
-connection.query('SELECT * FROM todos', function (error, results, fields) {
-    console.log(results);
-});
-
-connection.end();
+app.listen(1033)
