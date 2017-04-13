@@ -4,6 +4,15 @@ In this class, students will learn how to use more complex SQL queries to retrie
 
 Objective: Students should be able to build CRUD functionality using SQL statements, including INSERT INTO, UPDATE, etc.
 
+## Pre-Class Readings
+
+- [Inserting, Updating, and Deleting](https://www.youtube.com/watch?v=JeBYdqKferQ&index=31&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0)
+- [The ACID Database Model](https://www.thoughtco.com/the-acid-model-1019731)
+- [Conflicts and Isolation](https://www.youtube.com/watch?v=oMijxWh01O8&index=34&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0)
+- [Planning Your Database](https://www.youtube.com/watch?v=R4lzIRmZaLA&index=12&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0)
+- [The Data Definition Language](https://www.youtube.com/watch?v=Yz9XHMsR9WU&index=32&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0)
+- [Understanding Stored Procedures and Injection Attacks](https://www.youtube.com/watch?v=jjK3dc0UYdA&index=35&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0)
+
 ## Main Topics
 
 - INSERT INTO
