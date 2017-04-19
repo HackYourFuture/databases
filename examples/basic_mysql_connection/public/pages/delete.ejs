@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../parts/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../parts/header %>
+    </header>
+
+    <main>
+            <form action="/deleteSend" method="post">
+                <label>Choose a task to delete it</label>
+                <select name="todoId" class="form-control">
+                    <% results.forEach(function(t) { %>
+                    <option value=<%= t.Id %> ><%= t.Name %></option>
+                     <% }); %>
+                </select>
+
+                <button class="btn btn-primary">Submit</button>
+            </form>
+    </main>
+
+    <footer>
+        <% include ../parts/footer %>
+    </footer>
+    
+</body>
+</html>

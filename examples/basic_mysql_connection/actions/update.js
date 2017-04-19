@@ -3,10 +3,9 @@ const dbConnect = require('../DB-connection/db-connect.js'),
 
 module.exports = function count(request, response) {
     dbConnect.connection
-    .query(queries.count, (err, results, fields) => {
+    .query("SELECT * FROM todos", (err, results, fields) => {
             try {
-                var results = JSON.stringify(results[0].total)
-                response.render("../public/pages/count", { results })
+                response.render("../public/pages/update", { results })
                 response.end()
             }
             catch(err){ throw err }
