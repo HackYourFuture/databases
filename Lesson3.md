@@ -15,6 +15,7 @@ Objective: Students should be able to create an entity relationship diagram base
 - [Defining Table Relationships](https://www.youtube.com/watch?v=V5DyvUfsboA)
 - [What is a Database Foreign Key](http://databases.about.com/cs/specificproducts/g/foreignkey.htm)
 - [NoSQL databases](https://www.youtube.com/watch?v=3T79h-vyYzc&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0&index=39)
+- [Rewatch previously recorded session of this week]( https://www.youtube.com/watch?v=ZNLhHUDj6jo)
 
 ## Main Topics
 
