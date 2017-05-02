@@ -35,7 +35,12 @@ Objective: Students should be able to build CRUD functionality using SQL stateme
 - [Node MySQL Escaping Query Values](https://github.com/mysqljs/mysql#escaping-query-values)
 - [Node MySQL Preparing Queries (automatic escaping)](https://github.com/mysqljs/mysql#preparing-queries)
 - [MySQL SHOW GRANTS](https://dev.mysql.com/doc/refman/5.7/en/show-grants.html)
+- [Rewatch the previously recorded session: part 1](https://www.youtube.com/watch?v=G6v1po3zvNk)
+- [Rewatch the previously recorded session: part 2](https://www.youtube.com/watch?v=5fv1vV1TciM)
+
 
 ## Homework
 
 - Write the necessary SQL statements to complete the functionality of your application.
+
+
