@@ -58,5 +58,5 @@ Build a simple Node application to connect to the class database (using `require
 
 Watch the previous session recorded on video here:
 
-Part 1 : https://www.youtube.com/watch?v=NbB-EXAdKks&t
+Part 1 : https://www.youtube.com/watch?v=NbB-EXAdKks&t /n
 Part 2 : https://www.youtube.com/watch?v=yN5XyVSUj8k&t=4055s
