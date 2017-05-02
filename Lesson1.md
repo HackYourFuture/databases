@@ -55,3 +55,8 @@ Design queries that retrieve the following data sets. Compare with classmates to
 - Get all todo items about 'databases'
 
 Build a simple Node application to connect to the class database (using `require('mysql')`). Run the above SQL statements through your Node app (either command-line input or hard-coded) and print the results on the command line.
+
+Watch the previous session recorded on video here:
+
+Part 1 : https://www.youtube.com/watch?v=NbB-EXAdKks&t
+Part 2 : https://www.youtube.com/watch?v=yN5XyVSUj8k&t=4055s
