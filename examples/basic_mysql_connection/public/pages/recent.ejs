@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../parts/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../parts/header %>
+    </header>
+
+    <main>
+    
+        <ul class="list-group">
+            <% results.forEach(function(t) { %>
+            <li class="list-group-item">
+            <p><%= t.Name %>        <small class="badge badge-default badge-pill"><%= t.Due %></small></p>
+            </li>
+            <% }); %>
+            </ul>
+    </main>
+
+    <footer>
+        <% include ../parts/footer %>
+    </footer>
+    
+</body>
+</html>

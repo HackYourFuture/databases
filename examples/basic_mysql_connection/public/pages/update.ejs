@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../parts/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../parts/header %>
+    </header>
+
+    <main>
+            <form action="/updateSend" method="post">
+                <label>Todo Name</label>
+                
+                <select name="todoId" class="form-control">
+                    <% results.forEach(function(t) { %>
+                    <option value=<%= t.Id %> ><%= t.Name %></option>
+                     <% }); %>
+                </select>
+                
+                <label>Name </label>
+                <input type="text" name="todoName" class="form-control" required>
+                
+                <label>Done</label> 
+                <select name="todoDone" class="form-control">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>  
+                </select>   
+
+                <label>Due</label> 
+                <input type="date" name="todoDue" class="form-control" required>
+                
+                <button class="btn btn-primary">Submit</button>
+            </form>
+    </main>
+
+    <footer>
+        <% include ../parts/footer %>
+    </footer>
+    
+</body>
+</html>
