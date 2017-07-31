@@ -17,7 +17,7 @@ let query=['select count(*) as items from todos',
            'select *  from todos where !done',
 					 'select *  from todos order by due DESC',
 					 'select * from todos where due=(select max(due) from todos)',
-					 'select * from todos where name like "%homework%"'
+					 'select * from todos where name like "%databases%"'
 				  ]
 let sql = query.map(function(i) {
   connection.query(i, function(error, results, fields) {
