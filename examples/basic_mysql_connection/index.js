@@ -13,9 +13,9 @@ var connection = mysql.createConnection({
 
 connection.connect();
 let query=['select count(*) as items from todos',
-           'select *  from todos where done',
-           'select *  from todos where !done',
-					 'select *  from todos order by due DESC',
+           'select * from todos where done',
+           'select * from todos where !done',
+					 'select * from todos order by due DESC',
 					 'select * from todos where due=(select max(due) from todos)',
 					 'select * from todos where name like "%databases%"'
 				  ]
