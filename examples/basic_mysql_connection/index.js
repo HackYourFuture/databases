@@ -8,13 +8,22 @@ var connection = mysql.createConnection({
 	user: config.user,
 	password: config.password,
 	port: config.port,
-    database: config.database
+  database: config.database
 });
 
 connection.connect();
-
-connection.query('SELECT * FROM todos', function (error, results, fields) {
+let query=['select count(*) as items from todos',
+           'select *  from todos where done',
+           'select *  from todos where !done',
+					 'select *  from todos order by due DESC',
+					 'select * from todos where due=(select max(due) from todos)',
+					 'select * from todos where name like "%homework%"'
+				  ]
+let sql = query.map(function(i) {
+  connection.query(i, function(error, results, fields) {
     console.log(results);
-});
+  });
 
+
+})
 connection.end();
