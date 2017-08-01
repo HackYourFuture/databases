@@ -16,8 +16,8 @@ const sqlStatments=['SELECT COUNT(*) as "Total No of Todos" FROM todos',
 					'SELECT * FROM todos WHERE Done',
 					'SELECT * FROM todos WHERE !Done',	
 					'SELECT * FROM todos GROUP BY Id DESC',
-					'SELECT max(id) FROM todos ',
-					' SELECT * FROM todos  ORDER BY id DESC LIMIT 1',
+					'SELECT * FROM todos  ORDER BY id DESC LIMIT 1',
+					'SELECT * FROM todos WHERE Name like "%databases%"',
 
 				  ]
 let sql = sqlStatments.map(function(value) {
