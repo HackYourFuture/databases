@@ -13,11 +13,11 @@ var connection = mysql.createConnection({
 
 connection.connect();
 const sqlStatments=['SELECT COUNT(*) as "Total No of Todos" FROM todos',
-					'SELECT * FROM todos WHERE Done=1',
-					'SELECT * FROM todos WHERE Done=0',
-					'SELECT * FROM todos GROUP BY Due DESC',
-					'SELECT * FROM todos WHERE Id=(SELECT MAX(Id) FROM todos) ',
-					'SELECT * FROM todos WHERE Name like "%databases%"',
+					'SELECT * FROM todos WHERE Done',
+					'SELECT * FROM todos WHERE !Done',	
+					'SELECT * FROM todos GROUP BY Id DESC',
+					'SELECT max(id) FROM todos ',
+					' SELECT * FROM todos  ORDER BY id DESC LIMIT 1',
 
 				  ]
 let sql = sqlStatments.map(function(value) {
