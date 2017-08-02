@@ -12,9 +12,16 @@ var connection = mysql.createConnection({
 });
 
 connection.connect();
-
-connection.query('SELECT * FROM todos', function (error, results, fields) {
+let sql = ['SELECT COUNT(*) as todo-Items FROM todos',
+			'SELECT * FROM todos where done',
+			'SELECT * FROM todos where !done',
+			'SELECT * FROM todos ORDER BY Id DESC',
+			'SELECT * FROM todos ORDER BY Id DESC LIMIT 1',
+			'SELECT * FROM todos WHERE Name like "%databases%"'
+			]
+let mySql = sql.map(function(value) {
+	connection.query('SELECT * FROM todos', function (error, results, fields) {
     console.log(results);
-});
-
+	});
+})
 connection.end();
