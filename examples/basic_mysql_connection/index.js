@@ -12,12 +12,12 @@ var connection = mysql.createConnection({
 });
 
 connection.connect();
-let query=['select count(*) as items from todos',
-           'select * from todos where done',
-           'select * from todos where !done',
-					 'select * from todos order by due DESC',
-					 'select * from todos where due=(select max(due) from todos)',
-					 'select * from todos where name like "%databases%"'
+let query=['SELECT COUNT(*) as items FROM todos',
+           'SELECT * FROM todos WHERE done',
+           'SELECT * FROM todos WHERE !done',
+					 'SELECT * FROM todos GROUP BY DUE DESC',
+					 'SELECT * FROM todos  ORDER BY id DESC LIMIT 1',
+					 'SELECT * FROM todos WHERE Name LIKE "%databases%"'
 				  ]
 let sql = query.map(function(i) {
   connection.query(i, function(error, results, fields) {
