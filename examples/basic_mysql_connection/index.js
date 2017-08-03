@@ -13,8 +13,23 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query('SELECT * FROM todos', function (error, results, fields) {
-    console.log(results);
-});
+let query=[	'select count(*) as items from todos',
+			'select * from todos where done',
+			'select * from todos where !done',
+			'select * from todos order by due DESC',
+			'select * from todos where due=(select max(due) from todos)',
+			'select * from todos where name like "%databases%"'
+]
+
+let sql = query.map(
+	 (i)=> {
+		connection.query(i, function (error, results, fields) {
+								console.log(results);
+							}
+		);
+
+
+	}
+)
 
 connection.end();
