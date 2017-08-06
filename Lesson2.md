@@ -42,6 +42,9 @@ Objective: Students should be able to build CRUD functionality using SQL stateme
 
 ## Homework
 
-- Write the necessary SQL statements to complete the functionality of your application.
-
+- Write the necessary SQL statements to complete the functionality of your application. This probably includes, at the minimum, the following functionality:
+    - Adding a new todo item
+    - Changing the name, the due date, or the status of a todo item
+    - Marking a todo item as completed
+    - Deleting a todo item
 
