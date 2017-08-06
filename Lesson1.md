@@ -48,11 +48,15 @@ Objective: Students should be able to retrieve data from a database table using 
 Design queries that retrieve the following data sets. Compare with classmates to see if your answers were correct.
 
 - Find out how many todo items are on the list
+- Find out how many todo items on the list do not have a valid due date
 - Find all the todo items that are marked as done
 - Find all the todo items that are not marked as done
 - Get all the todo items, sorted with the most recent first
 - Get the single most recently added todo item
-- Get all todo items about 'databases'
+- Get the name and due date of all todo items about 'databases'
+- Get the name and status (as a string) of all todos
+- Get the name of each status, along with a count of how many todos have that status
+- Get the names of all statuses, sorted by most todos with that status to least
 
 Build a simple Node application to connect to the class database (using `require('mysql')`). Run the above SQL statements through your Node app (either command-line input or hard-coded) and print the results on the command line.
 
