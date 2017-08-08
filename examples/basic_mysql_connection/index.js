@@ -12,12 +12,12 @@ var connection = mysql.createConnection({
 });
 
 connection.connect();
-let query=['SELECT COUNT(*) as items FROM todos',
-           'SELECT * FROM todos WHERE done',
-           'SELECT * FROM todos WHERE !done',
-					 'SELECT * FROM todos GROUP BY DUE DESC',
-					 'SELECT * FROM todos  ORDER BY id DESC LIMIT 1',
-					 'SELECT * FROM todos WHERE Name LIKE "%databases%"'
+let query=['INSERT INTO todos(id,done) VALUES (18,0)',
+           'UPDATE todos SET name="ali",due="2019-08-31" WHERE id=5',
+           'DELETE FROM todos WHERE NAME="ali"',
+					 'UPDATE todos SET done=1 where id=9',
+					 'SELECT * FROM todos'
+
 				  ]
 let sql = query.map(function(i) {
   connection.query(i, function(error, results, fields) {
