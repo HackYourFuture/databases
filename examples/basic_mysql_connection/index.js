@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
 	user: config.user,
 	password: config.password,
 	port: config.port,
-    database: config.database
+    database: config.database 
 });
 
 connection.connect();
@@ -17,7 +17,11 @@ let sql = ['SELECT COUNT(*) as todo-Items FROM todos',
 			'SELECT * FROM todos where !done',
 			'SELECT * FROM todos ORDER BY Id DESC',
 			'SELECT * FROM todos ORDER BY Id DESC LIMIT 1',
-			'SELECT * FROM todos WHERE Name like "%databases%"'
+			'SELECT * FROM todos WHERE Name like "%databases%"',
+			'INSERT INTO todos (Name,Done) VALUES ("go climbing",0)',
+			'UPDATE todos SET Due="2017-9-10" WHERE Name="repair my bike"',
+			'UPDATE todos SET Done=1 WHERE Name="repair my bike"',
+			'DELETE FROM todos WHERE Name="go climbing"'
 			]
 
 let mySql = sql.map(function(value) {
