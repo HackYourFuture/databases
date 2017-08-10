@@ -15,7 +15,7 @@ var connection = mysql.createConnection({
 const sqlStatments=[
 				'INSERT INTO todos (Name, Done) VALUES ("Odai",1)',
 				'UPDATE todos SET Name = "Odai" WHERE Id=20',
-				`UPDATE todos SET StatusId=(select Id FROM statuses WHERE Name='odai') WHERE Id=20`, 
+				`UPDATE todos SET StatusId=2  WHERE Name="odai"`, 
 				'DELETE FROM todos WHERE Name="odai"',
 ]
 
