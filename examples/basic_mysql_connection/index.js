@@ -13,15 +13,15 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-let query=[	'select count(*) as items from todos',
-			'select * from todos where done',
-			'select * from todos where !done',
-			'select * from todos order by due DESC',
-			'select * from todos where due=(select max(due) from todos)',
-			'select * from todos where name like "%databases%"'
-]
+var userInput = 'do your task';
+var sql = [
+		'INSERT INTO todos (name,due) VALUES(' + mysql.escape(userInput) + ', "2017-8-8")',
+		'UPDATE todos SET done= 1   WHERE name= ' + mysql.escape(userInput),
+		'UPDATE todos SET StatusId= 3   WHERE name= ' + mysql.escape(userInput),
+		'DELETe FROM todos WHERE name=' + mysql.escape(userInput)
+	];
 
-let sql = query.map(
+let query = sql.map(
 	 (i)=> {
 		connection.query(i, function (error, results, fields) {
 								console.log(results);
