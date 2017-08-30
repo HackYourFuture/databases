@@ -33,8 +33,10 @@ order by Id desc;
 -- Get the single most recently added todo item
 select *
 from todos
-order by Id desc
-limit 1;
+where Id = (
+	select max(Id)
+    from todos
+);
 
 -- Get the name and due date of all todo items about 'databases'
 select Name, Due
