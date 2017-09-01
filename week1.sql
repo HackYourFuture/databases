@@ -68,7 +68,7 @@ on
 
 -- Get the name of each status, along with a count of how many todos have that status
 select
-	statuses.Name, count(todos.StatusId) AS Total
+	statuses.Name, count(todos.StatusId) AS result
 from
 	todos 
 inner join
@@ -80,7 +80,7 @@ group by
 
 -- Get the names of all statuses, sorted by most todos with that status to least
 select
-	statuses.Name, count(todos.StatusId) AS Total
+	statuses.Name, count(todos.StatusId) AS result
 from 
 	todos 
 inner join 
@@ -90,5 +90,5 @@ on
 group by 
 	statuses.Name
 ORDER BY 
-	Total 
+	 result
 DESC;
