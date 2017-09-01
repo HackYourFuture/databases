@@ -38,7 +38,7 @@ from
 	todos 
 ORDER BY 
 	Id 
-ASC;
+desc;
 -- Get the single most recently added todo item
 select
 	* 
