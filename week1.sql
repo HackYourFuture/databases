@@ -12,7 +12,8 @@ select
 from 
 	todos
 WHERE
-	Due is NULL;
+	Due 
+is NULL;
 
 -- Find all the todo items that are marked as done
 select
@@ -31,11 +32,13 @@ WHERE
 	Done = 0;
 
 -- Get all the todo items, sorted with the most recent first
-select * 
+select
+	* 
 from 
 	todos 
 ORDER BY 
-	Id ASC;
+	Id 
+ASC;
 -- Get the single most recently added todo item
 select
 	* 
@@ -63,8 +66,7 @@ left outer join
 on 
 	todos.StatusId = statuses.Id;
 
--- Get the name of each status, 
--- along with a count of how many todos have that status
+-- Get the name of each status, along with a count of how many todos have that status
 select
 	statuses.Name, count(todos.StatusId) AS Total
 from
@@ -76,8 +78,7 @@ on
 group by
 	statuses.Name;
 
--- Get the names of all statuses, 
--- sorted by most todos with that status to least
+-- Get the names of all statuses, sorted by most todos with that status to least
 select
 	statuses.Name, count(todos.StatusId) AS Total
 from 
@@ -89,4 +90,5 @@ on
 group by 
 	statuses.Name
 ORDER BY 
-	Total DESC;
+	Total 
+DESC;
