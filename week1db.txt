@@ -1,0 +1,29 @@
+
+- select count(*) from todos;
+
+- select count(*) from todos WHERE Due is null;
+
+- select * from todos WHERE Done = 1;
+
+- select * from todos WHERE Done != 1;
+
+- select * from todos ORDER BY Id desc;
+
+- select * from todos ORDER BY id DESC LIMIT 1;
+
+- select `Name`, `Due` from todos where `Name` like '%databases%';
+
+- select todos.Name, statuses.Name from todos 
+left join statuses
+on todos.StatusId = statuses.Id;
+
+- select statuses.Name, count(todos.StatusId) from todos 
+left join statuses
+on todos.StatusId = statuses.Id
+group by statuses.Name;
+
+- select statuses.Name, count(todos.StatusId) from todos
+ inner join statuses
+on todos.StatusId = statuses.Id
+group by statuses.Name
+ORDER BY count(todos.StatusId) DESC;
