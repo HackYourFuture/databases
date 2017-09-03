@@ -12,9 +12,36 @@ var connection = mysql.createConnection({
 });
 
 connection.connect();
+//my input
+
+const input= "New Name";
+connection.query(`
+	INSERT INTO
+		todos
+		(
+			Name
+		)
+		VALUES(
+			?
+		)
+`,
+[
+	input
+],
+function (error, results){
+	if(error) {
+		//Handel error
+		console.log(error);
+	}else{
+		//Process results
+		console.log(results);
+	}
+}
+);
 
 connection.query('SELECT * FROM todos', function (error, results, fields) {
-    console.log(results);
+	console.log(results);
+	if (error) console.log(error);
 });
 
 connection.end();
