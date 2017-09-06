@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mysql": "^2.14.1"
+    "mysql": "^2.14.1",
+    "prompt": "^1.0.0"
   }
 }
