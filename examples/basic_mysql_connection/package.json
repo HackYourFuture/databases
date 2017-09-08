@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mysql": "^2.13.0"
+    "mysql": "^2.14.1"
   }
 }
