@@ -1,0 +1,23 @@
+
+{{vm.title}}
+<hr>
+<ol>
+    <li ng-repeat="todo in vm.todos">
+       <per ng-style="{'background-color': todo.Done == 0 ? 'red' : 'green'}">
+            <h3>{{todo.Name}}</h3>{{todo.statuses}}
+            <br> 
+        </per>    
+        <label> 
+             <input type="checkbox" ng-model="vm.checkboxModel.val[todo.Id]"
+           ng-true-value="1" ng-false-value="0" ng-change="vm.updateDone(todo.Id)" ng-checked="todo.Done == 1" >
+        </label>
+        <button ng-click="vm.remove(todo.Id)">remove</button>
+       
+    </li>
+</ol>
+<hr>
+<h3 ng-if="vm.error">{{vm.error}}</h3>
+<hr>
+<input type="text" class="form-control" ng-model="vm.user.name" placeholder="Add ToDo">
+<br>
+<button class="btn btn-success" ng-click="vm.addTodo()">Add</button>
