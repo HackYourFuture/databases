@@ -6,7 +6,7 @@ Objective: Students should be able to create an entity relationship diagram base
 
 ## Pre-Class Readings
 
-Before arriving to class on Sunday, please watch all of the videos in [this video playlist](https://www.lynda.com/SharedPlaylist/0d62f3e4428e44ada89466cdbc296fc0) on Lynda.
+Before arriving to class on Sunday, please watch all of the videos in [this video playlist](https://www.lynda.com/SharedPlaylist/ae29ea2f495c432793abc220da47baa6) on Lynda.
 - Choosing Primary Keys
 - Defining One-to-Many Relationships
 - Exploring One-to-One Relationships
