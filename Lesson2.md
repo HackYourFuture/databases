@@ -6,12 +6,15 @@ Objective: Students should be able to build CRUD functionality using SQL stateme
 
 ## Pre-Class Readings
 
-- [Inserting, Updating, and Deleting](https://www.youtube.com/watch?v=JeBYdqKferQ&index=31&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0)
+Before arriving to class on Sunday, please watch all of the videos in [this video playlist](https://www.lynda.com/SharedPlaylist/0d62f3e4428e44ada89466cdbc296fc0) on Lynda.
+- Inserting, Updating, and Deleting
+- Understanding Write Conflicts
+- Planning Your Database
+- The Data Definition Language
+- Understanding Stored Procedures and Injection Attacks
+
+Also, please read the following page that explains the ACID database model.
 - [The ACID Database Model](https://www.thoughtco.com/the-acid-model-1019731)
-- [Conflicts and Isolation](https://www.youtube.com/watch?v=oMijxWh01O8&index=34&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0)
-- [Planning Your Database](https://www.youtube.com/watch?v=R4lzIRmZaLA&index=12&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0)
-- [The Data Definition Language](https://www.youtube.com/watch?v=Yz9XHMsR9WU&index=32&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0)
-- [Understanding Stored Procedures and Injection Attacks](https://www.youtube.com/watch?v=jjK3dc0UYdA&index=35&list=PLYlr48f6CaXtlkXcGMUD49wHmvC7ZTiD0)
 
 ## Main Topics
 
