@@ -11,7 +11,7 @@ module.exports = function (id) {
     });
     connection.connect();
     connection.query(
-        `delete from todos where Id = ${id}`,
+        `delete from todos where Id = ?`, [id],
         function (error, results, fields) {
             if (error) {
                 console.error(error);
