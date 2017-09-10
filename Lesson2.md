@@ -17,6 +17,7 @@ Objective: Students should be able to build CRUD functionality using SQL stateme
 
 - INSERT INTO
 - UPDATE
+- DELETE
 - Writing SQL in your application
     - Raw SQL strings
     - Parameter validation
