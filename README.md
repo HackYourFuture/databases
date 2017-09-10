@@ -28,13 +28,13 @@ The login information for the student practice database will be provided during 
 
 In this class, students will be introduced to retrieving data from a MySQL database using SELECT queries.
 
-Objective: Students should be able to retrieve data from a database table using SELECT statements that include WHERE, GROUP BY, and ORDER BY.
+Objective: Students should be able to retrieve data from a database table using SELECT statements that include WHERE, GROUP BY, ORDER BY, LIMIT, and JOIN.
 
 ### Lesson 2: Practical Database Usage
 
 In this class, students will learn how to use more complex SQL queries to retrieve information across tables, and interact with data including write operations.
 
-Objective: Students should be able to build CRUD functionality using SQL statements, including INSERT INTO, UPDATE WHERE, etc.
+Objective: Students should be able to build CRUD functionality using SQL statements, including INSERT INTO, UPDATE WHERE, etc. Students will also have a basic understanding of database usage in a web application, including parameter validation, escaping, and prepared statements.
 
 ### Lesson 3: Data Models, Relationships, and Schemas
 
