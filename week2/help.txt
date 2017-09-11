@@ -1,0 +1,27 @@
+
+Instructions:
+=============
+
+
+help:
+-----
+To display this set of instructions:
+node index.js help
+
+
+add:
+----
+To add a new mission to your todo's:
+node index.js add
+
+
+remove:
+-------
+To remove an item from your todo's:
+node index.js remove
+
+
+update:
+-------
+To update an existing item from your todo list with a new mission:
+node index.js update
