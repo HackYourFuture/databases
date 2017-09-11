@@ -1,0 +1,23 @@
+{
+  "name": "basic_mysql_connection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.13.0",
+    "angular-jwt": "^0.1.9",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "jsonwebtoken": "^7.4.1",
+    "nodemon": "^1.11.0",
+    "settings-and-secrets": "^1.0.3"
+  },
+  "keywords": []
+}
