@@ -52,3 +52,6 @@ Using an entity relationship diagram, design the data model for an application o
 Next, using the entity relationship diagram as a starting point, write all the necessary `CREATE TABLE` statements to create all tables and relationships (foreign key constraints) for this data model.
 
 Submit an image or PDF of your entity relationship diagram, and a `.sql` file with the `CREATE TABLE` statements.
+
+## Check out the React repo [here](https://github.com/HackYourFuture/React)
+And find out how you can prepare for the first React lecture :dancers:
