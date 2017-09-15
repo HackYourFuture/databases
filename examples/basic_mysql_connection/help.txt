@@ -1,0 +1,32 @@
+
+This is the help page for CLI ToDo app
+
+To display :
+=============
+e.g.
+node index.js help
+
+
+To add an item to your todo's:
+==============================
+e.g.
+node index.js add type something
+
+
+To update an item from your todo's to done"1":
+=================================
+e.g.
+node index.js update Id number  1
+like this:
+node index.js update 2  1
+
+To list all your todo's:
+========================
+e.g.
+node index.js list
+
+
+To remove an item from your todo's:
+=================================== 
+e.g.
+node index.js remove 2
