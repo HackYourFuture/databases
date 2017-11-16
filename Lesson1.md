@@ -18,6 +18,9 @@ Before arriving to class on Sunday, please watch all of the videos in [this vide
 - Using aggregate functions
 - Joining tables
 
+## Pre-Class Preparation
+- Install MySQL windows guys can follow the [official docs](https://dev.mysql.com/doc/refman/5.7/en/windows-installation.html) unix users have it easyier as usual 😉
+
 
 ## Main Topics
 
