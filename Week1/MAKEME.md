@@ -17,7 +17,7 @@ this app a user can:
 - Add tags to the TODO items, like `homework`, `groceries` etc..
 - Mark a TODO item as done
 
-*Bonus round:*
+**Bonus round:**
 
 Write a `todo.sql` file and put it in the homework folder where you create the
 database structure from your ERD
