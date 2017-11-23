@@ -1,4 +1,4 @@
-Answers for the world queries go here:
+﻿Answers for the world queries go here:
 
 For example:
 
@@ -37,3 +37,213 @@ SELECT name AS city FROM city WHERE CountryCode = 'NLD';
 | Heerlen           |
 | Alkmaar           |
 +-------------------+
+
+2. What is the population of Rotterdam ?
+-select population from city where name = 'Rotterdam';
+
+3. What's the name of all the countries on the continent ‘North America’ ? 
+-select name from country WHERE continent = 'North America';
++----------------------------------+
+| name                             |
++----------------------------------+
+| Aruba                            |
+| Anguilla                         |
+| Netherlands Antilles             |
+| Antigua and Barbuda              |
+| Bahamas                          |
+| Belize                           |
+| Bermuda                          |
+| Barbados                         |
+| Canada                           |
+| Costa Rica                       |
+| Cuba                             |
+| Cayman Islands                   |
+| Dominica                         |
+| Dominican Republic               |
+| Guadeloupe                       |
+| Grenada                          |
+| Greenland                        |
+| Guatemala                        |
+| Honduras                         |
+| Haiti                            |
+| Jamaica                          |
+| Saint Kitts and Nevis            |
+| Saint Lucia                      |
+| Mexico                           |
+| Montserrat                       |
+| Martinique                       |
+| Nicaragua                        |
+| Panama                           |
+| Puerto Rico                      |
+| El Salvador                      |
+| Saint Pierre and Miquelon        |
+| Turks and Caicos Islands         |
+| Trinidad and Tobago              |
+| United States                    |
+| Saint Vincent and the Grenadines |
+| Virgin Islands, British          |
+| Virgin Islands, U.S.             |
++----------------------------------+
+
+4. What's the top 10 countries by SurfaceArea ?
++--------------------+-------------+
+| name               | SurfaceArea |
++--------------------+-------------+
+| Russian Federation | 17075400.00 |
+| Antarctica         | 13120000.00 |
+| Canada             |  9970610.00 |
+| China              |  9572900.00 |
+| United States      |  9363520.00 |
+| Brazil             |  8547403.00 |
+| Australia          |  7741220.00 |
+| India              |  3287263.00 |
+| Argentina          |  2780400.00 |
+| Kazakstan          |  2724900.00 |
++--------------------+-------------+
+
+5. What's the top 10 most populated cities?
+- select name, Population from city order by Population DESC LIMIT 10;
++-------------------+------------+
+| name              | Population |
++-------------------+------------+
+| Mumbai (Bombay)   |   10500000 |
+| Seoul             |    9981619 |
+| São Paulo         |    9968485 |
+| Shanghai          |    9696300 |
+| Jakarta           |    9604900 |
+| Karachi           |    9269265 |
+| Istanbul          |    8787958 |
+| Ciudad de México  |    8591309 |
+| Moscow            |    8389200 |
+| New York          |    8008278 |
++-------------------+------------+
+
+6. Select the top 3 countries by population that their names start with the later ‘P’
+- select name, Population from country WHERE name LIKE 'P%' ORDER by Population DESC LIMIT 3;
++-------------+------------+
+| name        | Population |
++-------------+------------+
+| Pakistan    |  156483000 |
+| Philippines |   75967000 |
+| Poland      |   38653600 |
++-------------+------------+
+
+7. What is the population in Asia?
+- select name AS country, population from country where continent = 'Asia';
++----------------------+------------+
+| country              | population |
++----------------------+------------+
+| Afghanistan          |   22720000 |
+| United Arab Emirates |    2441000 |
+| Armenia              |    3520000 |
+| Azerbaijan           |    7734000 |
+| Bangladesh           |  129155000 |
+| Bahrain              |     617000 |
+| Brunei               |     328000 |
+| Bhutan               |    2124000 |
+| China                | 1277558000 |
+| Cyprus               |     754700 |
+| Georgia              |    4968000 |
+| Hong Kong            |    6782000 |
+| Indonesia            |  212107000 |
+| India                | 1013662000 |
+| Iran                 |   67702000 |
+| Iraq                 |   23115000 |
+| Israel               |    6217000 |
+| Jordan               |    5083000 |
+| Japan                |  126714000 |
+| Kazakstan            |   16223000 |
+| Kyrgyzstan           |    4699000 |
+| Cambodia             |   11168000 |
+| South Korea          |   46844000 |
+| Kuwait               |    1972000 |
+| Laos                 |    5433000 |
+| Lebanon              |    3282000 |
+| Sri Lanka            |   18827000 |
+| Macao                |     473000 |
+| Maldives             |     286000 |
+| Myanmar              |   45611000 |
+| Mongolia             |    2662000 |
+| Malaysia             |   22244000 |
+| Nepal                |   23930000 |
+| Oman                 |    2542000 |
+| Pakistan             |  156483000 |
+| Philippines          |   75967000 |
+| North Korea          |   24039000 |
+| Palestine            |    3101000 |
+| Qatar                |     599000 |
+| Saudi Arabia         |   21607000 |
+| Singapore            |    3567000 |
+| Syria                |   16125000 |
+| Thailand             |   61399000 |
+| Tajikistan           |    6188000 |
+| Turkmenistan         |    4459000 |
+| East Timor           |     885000 |
+| Turkey               |   66591000 |
+| Taiwan               |   22256000 |
+| Uzbekistan           |   24318000 |
+| Vietnam              |   79832000 |
+| Yemen                |   18112000 |
++----------------------+------------+
+8. Which languages are spoken in the Region of ‘South America’
+- select country.name AS country, countrylanguage.language from country JOIN countrylanguage ON countrylanguage.countrycode = country.code where continent = 'South America';
++------------------+------------------+
+| country          | language         |
++------------------+------------------+
+| Argentina        | Indian Languages |
+| Argentina        | Italian          |
+| Argentina        | Spanish          |
+| Bolivia          | Aimará           |
+| Bolivia          | Guaraní          |
+| Bolivia          | Ketšua           |
+| Bolivia          | Spanish          |
+| Brazil           | German           |
+| Brazil           | Indian Languages |
+| Brazil           | Italian          |
+| Brazil           | Japanese         |
+| Brazil           | Portuguese       |
+| Chile            | Aimará           |
+| Chile            | Araucan          |
+| Chile            | Rapa nui         |
+| Chile            | Spanish          |
+| Colombia         | Arawakan         |
+| Colombia         | Caribbean        |
+| Colombia         | Chibcha          |
+| Colombia         | Creole English   |
+| Colombia         | Spanish          |
+| Ecuador          | Ketšua           |
+| Ecuador          | Spanish          |
+| Falkland Islands | English          |
+| French Guiana    | Creole French    |
+| French Guiana    | Indian Languages |
+| Guyana           | Arawakan         |
+| Guyana           | Caribbean        |
+| Guyana           | Creole English   |
+| Peru             | Aimará           |
+| Peru             | Ketšua           |
+| Peru             | Spanish          |
+| Paraguay         | German           |
+| Paraguay         | Guaraní          |
+| Paraguay         | Portuguese       |
+| Paraguay         | Spanish          |
+| Suriname         | Hindi            |
+| Suriname         | Sranantonga      |
+| Uruguay          | Spanish          |
+| Venezuela        | Goajiro          |
+| Venezuela        | Spanish          |
+| Venezuela        | Warrau           |
++------------------+------------------+
+
+9. What are the languages spoken on all cities named ‘Barcelona’?
+- select country.name AS country, city.name, countrylanguage.language from country join countrylanguage on countrylanguage.countrycode = country.code join city on country.code = city.countrycode where city.name = 'Barcelona';
++-----------+-----------+----------+
+| country   | name      | language |
++-----------+-----------+----------+
+| Spain     | Barcelona | Basque   |
+| Spain     | Barcelona | Catalan  |
+| Spain     | Barcelona | Galecian |
+| Spain     | Barcelona | Spanish  |
+| Venezuela | Barcelona | Goajiro  |
+| Venezuela | Barcelona | Spanish  |
+| Venezuela | Barcelona | Warrau   |
++-----------+-----------+----------+
