@@ -1,59 +1,22 @@
+// jshint esnext: true
+//use strict
 // This is the connector (also known as driver)
 // that we can use to connect to a MySQL process
 // and access its databases.
 const mysql = require('mysql');
+const TodoModel = require('./todoClass');
 
-class TodoModel {
-    constructor(dbConnection) {
-        this.dbConnection = dbConnection;
-    }
 
-    // Loads all the TODOs in the database
-    load(callback) {
-        const selectTodoItems = "SELECT * FROM todo_items";
-        this.dbConnection.query(selectTodoItems, function(err, results, fields) {
-            if(err) {
-                callback(err);
-                return;
-            }
-
-            callback(null, results);
-        });
-    }
-
-    create(description, callback) {
-        // Write code and query to create a new TODO item
-    }
-
-    update(id, description, callback) {
-        // Write code and query to update and existing TODO item
-    }
-
-    delete(id, callback) {
-        // Write code and query to delete an existing TODO item
-    }
-
-    tagTodoItem(todoItemId, tagId, callback) {
-        // Write code and query add a tag to a TODO item
-    }
-        
-    untagTodoItem(todoItemId, tagId, callback) {
-        // Write code and query remove a tag from a TODO item
-    }
-
-    markCompleted(todoItemId, callback) {
-        // Write code to mark a TODO item as completed
-    }
-}
 
 const dbConnection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : '',
-    database : 'todo_app'
+    host: 'localhost',
+    user: 'user1',
+    password: '',
+    database: 'todo_app'
 });
 
-dbConnection.connect(function(err) {
+
+dbConnection.connect(function (err) {
     if (err != null) {
         console.error('error connecting: ' + err.stack);
         return;
@@ -62,11 +25,50 @@ dbConnection.connect(function(err) {
     console.log('connected as id ' + dbConnection.threadId);
 
     const todoModel = new TodoModel(dbConnection);
-    todoModel.load(function(err, todoItems) {
-        if(err) {
-            console.log("error loading TODO items:", err);
-        }
 
-        console.log("existing todo items:", todoItems);
-    });
+
+    // todoModel.load(renderResultOrErr);//listing the items
+
+    // todoModel.create('wash cloth', renderResultOrErr);//creating a todo item
+
+    // todoModel.update(48, 'Distroy the car', renderResultOrErr);
+
+    // todoModel.delete(48, renderResultOrErr);
+
+    // todoModel.tagTodoItem(42, 1, renderResultOrErr);
+
+    // todoModel.untagTodoItem(42, 1, renderResultOrErr);
+
+    // todoModel.markCompleted(42, renderResultOrErr);
+
+    // todoModel.markNotComplete(42, renderResultOrErr);
+
+
+    
+
+
+    dbConnection.end();
+
 });
+
+
+function renderResultOrErr(error, results) {
+    if (error) {
+        console.log(error);
+        return;
+    }
+    console.log(results);
+}
+
+
+function demoList(query) {
+    const listQuery = 'SELECT * FROM todo_items;';
+
+    dbConnection.query(query, (err, results, fields) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.log(results);
+    })
+}
