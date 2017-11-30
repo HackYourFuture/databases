@@ -1,7 +1,5 @@
 Answers for the world queries go here:
 
-For example:
-
 1. What are the names of all the cities in the Netherlands?
 
 SELECT name AS city FROM city WHERE CountryCode = 'NLD';
@@ -37,3 +35,182 @@ SELECT name AS city FROM city WHERE CountryCode = 'NLD';
 | Heerlen           |
 | Alkmaar           |
 +-------------------+
+
+
+2. What is the population of Rotterdam ?
+
+ SELECT population FROM city WHERE Name='Rotterdam';
+
++------------+
+| population |
++------------+
+|     593321 |
++------------+
+
+
+3. What's the name of all the countries on the continent ‘North America’ ? 
+
+ SELECT Name FROM Country WHERE Continent='North America';
+
++----------------------------------+
+| Name                             |
++----------------------------------+
+| Aruba                            |
+| Anguilla                         |
+| Netherlands Antilles             |
+| Antigua and Barbuda              |
+| Bahamas                          |
+| Belize                           |
+| Bermuda                          |
+| Barbados                         |
+| Canada                           |
+| Costa Rica                       |
+| Cuba                             |
+| Cayman Islands                   |
+| Dominica                         |
+| Dominican Republic               |
+| Guadeloupe                       |
+| Grenada                          |
+| Greenland                        |
+| Guatemala                        |
+| Honduras                         |
+| Haiti                            |
+| Jamaica                          |
+| Saint Kitts and Nevis            |
+| Saint Lucia                      |
+| Mexico                           |
+| Montserrat                       |
+| Martinique                       |
+| Nicaragua                        |
+| Panama                           |
+| Puerto Rico                      |
+| El Salvador                      |
+| Saint Pierre and Miquelon        |
+| Turks and Caicos Islands         |
+| Trinidad and Tobago              |
+| United States                    |
+| Saint Vincent and the Grenadines |
+| Virgin Islands, British          |
+| Virgin Islands, U.S.             |
++----------------------------------+
+
+
+
+4. What's the top 10 countries by SurfaceArea ?
+
+
+SELECT Name, surfaceArea
+    -> FROM country
+    -> ORDER BY surfaceArea DESC
+    -> LIMIT 10;
++--------------------+-------------+
+| Name               | surfaceArea |
++--------------------+-------------+
+| Russian Federation | 17075400.00 |
+| Antarctica         | 13120000.00 |
+| Canada             |  9970610.00 |
+| China              |  9572900.00 |
+| United States      |  9363520.00 |
+| Brazil             |  8547403.00 |
+| Australia          |  7741220.00 |
+| India              |  3287263.00 |
+| Argentina          |  2780400.00 |
+| Kazakstan          |  2724900.00 |
++--------------------+-------------+
+
+
+
+5. What's the top 10 most populated cities?
+
+SELECT Name, population
+    -> FROM city
+    -> ORDER BY population DESC
+    -> LIMIT 3;
++-----------------+------------+
+| Name            | population |
++-----------------+------------+
+| Mumbai (Bombay) |   10500000 |
+| Seoul           |    9981619 |
+| São Paulo       |    9968485 |
++-----------------+------------+
+
+
+6. Select the top 3 countries by population that their names start with the later ‘P’
+
+SELECT Name, Population
+    -> FROM country
+    -> WHERE Name LIKE 'p%'
+    -> ORDER BY population DESC
+    -> LIMIT 3;
+
++-------------+------------+
+| Name        | Population |
++-------------+-----------+
+| Pakistan    |  156483000 |
+| Philippines |   75967000 |
+| Poland      |   38653600 |
++-------------+------------+
+
+
+7. What is the population in Asia?
+
+SELECT Continent, SUM(population)
+    -> FROM country
+    -> WHERE Continent='Asia';
++-----------+-----------------+
+| Continent | SUM(population) |
++-----------+-----------------+
+| Asia      |      3705025700 |
++-----------+-----------------+
+
+
+8. Which languages are spoken in the Region of ‘South America’
+
+ SELECT DISTINCT Countrylanguage.Language, Country.Region
+    -> FROM Countrylanguage
+    -> JOIN Country ON Country.code=Countrylanguage.CountryCode
+    -> WHERE Country.Region='South America';
++------------------+---------------+
+| Language         | Region        |
++------------------+---------------+
+| Indian Languages | South America |
+| Italian          | South America |
+| Spanish          | South America |
+| Aimará           | South America |
+| Guaraní          | South America |
+| Ket?ua           | South America |
+| German           | South America |
+| Japanese         | South America |
+| Portuguese       | South America |
+| Araucan          | South America |
+| Rapa nui         | South America |
+| Arawakan         | South America |
+| Caribbean        | South America |
+| Chibcha          | South America |
+| Creole English   | South America |
+| English          | South America |
+| Creole French    | South America |
+| Hindi            | South America |
+| Sranantonga      | South America |
+| Goajiro          | South America |
+| Warrau           | South America |
++------------------+---------------+
+
+9. What are the languages spoken on all cities named ‘Barcelona’ (you may need to join 3 tables =) )
+
+SELECT DISTINCT Countrylanguage.language
+    -> FROM Country
+    -> JOIN city ON City.countryCode=Country.code
+    -> JOIN Countrylanguage ON Country.code=Countrylanguage.countryCode
+    -> WHERE City.name='Barcelona';
+    
++----------+
+| language |
++----------+
+| Basque   |
+| Catalan  |
+| Galecian |
+| Spanish  |
+| Goajiro  |
+| Warrau   |
++----------+
