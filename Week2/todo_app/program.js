@@ -1,5 +1,5 @@
 // jshint esnext: true
-//use strict
+'use strict';
 // This is the connector (also known as driver)
 // that we can use to connect to a MySQL process
 // and access its databases.
