@@ -31,7 +31,7 @@ dbConnection.connect(function (err) {
 
     // todoModel.create('wash cloth', renderResultOrErr);//creating a todo item
 
-    // todoModel.update(48, 'Distroy the car', renderResultOrErr);
+    // todoModel.update(48, 'wash the car', renderResultOrErr);
 
     // todoModel.delete(48, renderResultOrErr);
 
