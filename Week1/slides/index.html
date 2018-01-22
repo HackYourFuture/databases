@@ -57,6 +57,39 @@ class: center, middle
 
 ---
 
+class: center, middle
+
+# Information storage
+# Information access
+
+---
+
+class: middle
+
+# A database in javascript
+
+Information storage:
+
+```js
+const musicians = [
+  "John Coltrane",
+  "Miles David",
+  "Thelonious Monk",
+  "Sonny Rollins"];
+```
+
+Storing new information:
+```js
+musicians.push("Steve Lehman");
+```
+
+Information access:
+```js
+console.log(musicians[0]); // 'John Coltrane'
+```
+
+---
+
 # Structured information (1): facts
 
 `frank likes programming`
@@ -121,14 +154,6 @@ A table stores information structured in such a way that each row is a
         <td>1978</td>
     </tr>
 </table>
-
-As facts:
-
-```
-'Thelonious Monk' FirstName Thelonious
-'Thelonious Monk' LastName Monk
-'Thelonious Monk' Born 1917
-```
 
 ---
 
@@ -454,7 +479,7 @@ The **Musician** column is a **foreign key**
 
 class: middle, center
 
-# Queries
+# Accessing information with queries
 
 ---
 
@@ -462,7 +487,7 @@ class: middle, center
 
 Now that we structured our information what can we do with it?
 
-We can ask the database questions!
+We can ask the database questions using a query language!
 
 ---
 
