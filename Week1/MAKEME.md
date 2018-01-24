@@ -46,7 +46,7 @@ use keywords that we did not see in class: `ORDER BY`, `LIMIT`, `GROUP BY`:
 3. What's the name of all the countries on the continent ‘North America’ ? 
 4. What's the top 10 countries by SurfaceArea ?
 5. What's the top 10 most populated cities?
-6. Select the top 3 countries by population that their names start with the later ‘P’
+6. Select the top 3 countries by population that their names start with the letter ‘P’
 7. What is the population in Asia?
 8. Which languages are spoken in the Region of ‘South America’
 9. What are the languages spoken on all cities named ‘Barcelona’ (you may need to join 3 tables =) )
