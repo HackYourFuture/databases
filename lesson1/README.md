@@ -65,4 +65,5 @@ Design queries that retrieve the following data sets. Compare with classmates to
 Watch the previous session recorded on video here:
 
 Part 1 : https://www.youtube.com/watch?v=NbB-EXAdKks&t 
+
 Part 2 : https://www.youtube.com/watch?v=yN5XyVSUj8k&t=4055s
