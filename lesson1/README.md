@@ -28,6 +28,10 @@ Before arriving to class on Sunday, please watch all of the videos in [this vide
 - Basic entity relationship diagrams
 - A basic SELECT statement
 - Constructing more complex SELECT statements
+- Pattern matching with LIKE
+- Limiting and ordering results with LIMIT and ORDER
+- Grouping results with GROUP BY
+- Aggregate functions like AVG, COUNT, SUM, MIN and MAX
 - JOIN
     - Selecting composite data from multiple tables
     - Compare JOIN WHERE with cartesian product
@@ -40,28 +44,25 @@ Before arriving to class on Sunday, please watch all of the videos in [this vide
 - [TutorialsPoint MySQL Introduction](http://www.tutorialspoint.com/mysql/mysql-introduction.htm)
 - [Official MySQL Documentation](https://dev.mysql.com/doc/refman/5.7/en/)
 - [Official MySQL Tutorial (pretty dense)](https://dev.mysql.com/doc/refman/5.7/en/tutorial.html)
-- [Node MySQL Documentation on Github](https://github.com/mysqljs/mysql)
 - [Joel Spolsky - Character Sets and Unicode](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
 
 ## Homework
 
 Design queries that retrieve the following data sets. Compare with classmates to see if your answers were correct.
 
-- Find out how many todo items are on the list
-- Find out how many todo items on the list do not have a valid due date
-- Find all the todo items that are marked as done
-- Find all the todo items that are not marked as done
-- Get all the todo items, sorted with the most recent first
-- Get the single most recently added todo item
-- Get the name and due date of all todo items about 'databases'
-- Get the name and status (as a string) of all todos
-- Get the name of each status, along with a count of how many todos have that status
-- Get the names of all statuses, sorted by most todos with that status to least
+1. Find out how many todo items are on the list
+2. Find out how many todo items on the list do not have a valid due date
+3. Find all the todo items that are marked as done
+4. Find all the todo items that are not marked as done
+5. Get all the todo items, sorted with the most recent first
+6. Get the single most recently added todo item
+7. Get the name and due date of all todo items about 'databases'
+8. Get the name and status (as a string) of all todos
+9. Get the name of each status, along with a count of how many todos have that status
+10. Get the names of all statuses, sorted by most todos with that status to least
 
-Build a simple Node application to connect to the class database (using `require('mysql')`). Run the above SQL statements through your Node app (either command-line input or hard-coded) and print the results on the command line.
 
 Watch the previous session recorded on video here:
 
 Part 1 : https://www.youtube.com/watch?v=NbB-EXAdKks&t 
-
 Part 2 : https://www.youtube.com/watch?v=yN5XyVSUj8k&t=4055s
