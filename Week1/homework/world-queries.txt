@@ -1,39 +1,39 @@
-Answers for the world queries go here:
 
-For example:
 
-1. What are the names of all the cities in the Netherlands?
+1- SELECT name AS city FROM city WHERE CountryCode = 'NLD';
 
-SELECT name AS city FROM city WHERE CountryCode = 'NLD';
-+-------------------+
-| city              |
-+-------------------+
-| Amsterdam         |
-| Rotterdam         |
-| Haag              |
-| Utrecht           |
-| Eindhoven         |
-| Tilburg           |
-| Groningen         |
-| Breda             |
-| Apeldoorn         |
-| Nijmegen          |
-| Enschede          |
-| Haarlem           |
-| Almere            |
-| Arnhem            |
-| Zaanstad          |
-| ´s-Hertogenbosch  |
-| Amersfoort        |
-| Maastricht        |
-| Dordrecht         |
-| Leiden            |
-| Haarlemmermeer    |
-| Zoetermeer        |
-| Emmen             |
-| Zwolle            |
-| Ede               |
-| Delft             |
-| Heerlen           |
-| Alkmaar           |
-+-------------------+
+2- SELECT name,population FROM city WHERE name = 'Rotterdam' AND CountryCode = 'NLD';
+
+3- SELECT name AS country FROM country WHERE continent = 'North America';
+
+4- SELECT name AS country, surfaceArea
+ FROM country 
+ ORDER BY surfaceArea DESC 
+ LIMIT 10;
+
+5- SELECT name AS city, population 
+FROM city 
+ORDER BY population DESC 
+LIMIT 10;
+
+6- SELECT name AS country, population 
+FROM country 
+WHERE name LIKE 'P%' 
+ORDER BY population DESC 
+LIMIT 3;
+
+7- SELECT SUM(population) AS 'Population in Asia' 
+FROM country 
+WHERE continent = "Asia";
+
+8- SELECT COUNT(DISTINCT l.language) AS 'number of languages'
+FROM countrylanguage AS l
+JOIN country AS c ON c.code = l.countryCode
+WHERE c.continent = 'South America';
+
+9- SELECT city.name AS city, country.name AS country, COUNT(DISTINCT language) AS languages
+FROM city
+join country ON country.code = city.countryCode
+join countrylanguage ON countrylanguage.countryCode = city.countryCode
+WHERE city.name = 'Barcelona'
+GROUP BY country.name;
