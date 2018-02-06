@@ -2,7 +2,7 @@
 
 In the final week, additional theory will be covered to discuss more complex relational data. Students will learn about entity relationship modelling and how to convert these models to a database schema using normalisation and foreign-key constraints. Non-relational data will also be considered, as well as the benefits and drawbacks of relational and non-relational models.
 
-Objective: Students should be able to create an entity relationship diagram based on a qualatative description of data requirements, and translate that into a MySQL database schema. Students should also be able to compare and contrast relational (like MySQL) and NoSQL databases (considering their benefits and drawbacks).
+Objective: Students should be able to create an entity relationship diagram based on a qualitative description of data requirements, and translate that into a MySQL database schema. Students should also be able to compare and contrast relational (like MySQL) and NoSQL databases (considering their benefits and drawbacks).
 
 ## Pre-Class Readings
 
@@ -28,10 +28,11 @@ Also, please read the following page that explains database foreign keys.
 - Foreign key constraints
 - Complicated values to store in MySQL
     - Storing prices (floating point errors)
-    - Storing dates (datetime vs. timestamp)
-- CREATE TABLE syntax
+    - Storing date and time (datetime vs. timestamp)
+    - Timezones when storing date and time
 - Brief introduction to non-relational data
 - Scaffolding and application generators
+- Creating an ER model and a database from existing data
 
 ## Reference Material
 
@@ -53,5 +54,5 @@ Next, using the entity relationship diagram as a starting point, write all the n
 
 Submit an image or PDF of your entity relationship diagram, and a `.sql` file with the `CREATE TABLE` statements.
 
-## Check out the React repo [here](https://github.com/HackYourFuture/React)
+## Check out the [React repo](https://github.com/HackYourFuture-cph/React)
 And find out how you can prepare for the first React lecture :dancers:
