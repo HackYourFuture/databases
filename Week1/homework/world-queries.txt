@@ -37,3 +37,194 @@ SELECT name AS city FROM city WHERE CountryCode = 'NLD';
 | Heerlen           |
 | Alkmaar           |
 +-------------------+
+
+2. What is the population of Rotterdam ?
+
+SELECT population FROM city WHERE name = 'Rotterdam';
+
++------------+
+| population |
++------------+
+|     593321 |
++------------+
+
+3. What's the name of all the countries on the continent ‘North America’ ?
+
+SELECT name FROM country WHERE Continent = 'North America';
+
++----------------------------------+
+| name                             |
++----------------------------------+
+| Aruba                            |
+| Anguilla                         |
+| Netherlands Antilles             |
+| Antigua and Barbuda              |
+| Bahamas                          |
+| Belize                           |
+| Bermuda                          |
+| Barbados                         |
+| Canada                           |
+| Costa Rica                       |
+| Cuba                             |
+| Cayman Islands                   |
+| Dominica                         |
+| Dominican Republic               |
+| Guadeloupe                       |
+| Grenada                          |
+| Greenland                        |
+| Guatemala                        |
+| Honduras                         |
+| Haiti                            |
+| Jamaica                          |
+| Saint Kitts and Nevis            |
+| Saint Lucia                      |
+| Mexico                           |
+| Montserrat                       |
+| Martinique                       |
+| Nicaragua                        |
+| Panama                           |
+| Puerto Rico                      |
+| El Salvador                      |
+| Saint Pierre and Miquelon        |
+| Turks and Caicos Islands         |
+| Trinidad and Tobago              |
+| United States                    |
+| Saint Vincent and the Grenadines |
+| Virgin Islands, British          |
+| Virgin Islands, U.S.             |
++----------------------------------+
+
+4. What's the top 10 countries by SurfaceArea ?
+
+SELECT name FROM country ORDER BY SurfaceArea DESC LIMIT 10;
+
++--------------------+
+| name               |
++--------------------+
+| Russian Federation |
+| Antarctica         |
+| Canada             |
+| China              |
+| United States      |
+| Brazil             |
+| Australia          |
+| India              |
+| Argentina          |
+| Kazakstan          |
++--------------------+
+
+5. What's the top 10 most populated cities?
+
+SELECT * FROM city ORDER BY population DESC LIMIT 10;
+
++------+---------------------+-------------+------------------+------------+
+| ID   | Name                | CountryCode | District         | Population |
++------+---------------------+-------------+------------------+------------+
+| 1024 | Mumbai (Bombay)     | IND         | Maharashtra      |   10500000 |
+| 2331 | Seoul               | KOR         | Seoul            |    9981619 |
+|  206 | SÃ£o Paulo          | BRA         | SÃ£o Paulo       |    9968485 |
+| 1890 | Shanghai            | CHN         | Shanghai         |    9696300 |
+|  939 | Jakarta             | IDN         | Jakarta Raya     |    9604900 |
+| 2822 | Karachi             | PAK         | Sindh            |    9269265 |
+| 3357 | Istanbul            | TUR         | Istanbul         |    8787958 |
+| 2515 | Ciudad de MÃ©xico   | MEX         | Distrito Federal |    8591309 |
+| 3580 | Moscow              | RUS         | Moscow (City)    |    8389200 |
+| 3793 | New York            | USA         | New York         |    8008278 |
++------+---------------------+-------------+------------------+------------+
+
+6. Select the top 3 countries by population that their names start with the later ‘P’
+
+SELECT name FROM country WHERE name LIKE 'p%' ORDER BY population DESC LIMIT 3;
+
++-------------+
+| name        |
++-------------+
+| Pakistan    |
+| Philippines |
+| Poland      |
++-------------+
+
+7. What is the population in Asia?
+
+SELECT SUM(population) FROM country WHERE continent = 'asia';
+
++-----------------+
+| SUM(population) |
++-----------------+
+|      3705025700 |
++-----------------+
+
+8. Which languages are spoken in the Region of ‘South America’
+
+SELECT language, countrylanguage.countrycode, country.name AS country 
+FROM countrylanguage 
+JOIN country 
+ON countrylanguage.countrycode = country.code 
+WHERE region = 'south america';
+
++------------------+-------------+------------------+
+| language         | countrycode | country          |
++------------------+-------------+------------------+
+| Indian Languages | ARG         | Argentina        |
+| Italian          | ARG         | Argentina        |
+| Spanish          | ARG         | Argentina        |
+| AimarÃ¡          | BOL         | Bolivia          |
+| GuaranÃ­          | BOL         | Bolivia          |
+| KetÂšua          | BOL         | Bolivia          |
+| Spanish          | BOL         | Bolivia          |
+| German           | BRA         | Brazil           |
+| Indian Languages | BRA         | Brazil           |
+| Italian          | BRA         | Brazil           |
+| Japanese         | BRA         | Brazil           |
+| Portuguese       | BRA         | Brazil           |
+| AimarÃ¡          | CHL         | Chile            |
+| Araucan          | CHL         | Chile            |
+| Rapa nui         | CHL         | Chile            |
+| Spanish          | CHL         | Chile            |
+| Arawakan         | COL         | Colombia         |
+| Caribbean        | COL         | Colombia         |
+| Chibcha          | COL         | Colombia         |
+| Creole English   | COL         | Colombia         |
+| Spanish          | COL         | Colombia         |
+| KetÂšua          | ECU         | Ecuador          |
+| Spanish          | ECU         | Ecuador          |
+| English          | FLK         | Falkland Islands |
+| Creole French    | GUF         | French Guiana    |
+| Indian Languages | GUF         | French Guiana    |
+| Arawakan         | GUY         | Guyana           |
+| Caribbean        | GUY         | Guyana           |
+| Creole English   | GUY         | Guyana           |
+| AimarÃ¡          | PER         | Peru             |
+| KetÂšua          | PER         | Peru             |
+| Spanish          | PER         | Peru             |
+| German           | PRY         | Paraguay         |
+| GuaranÃ­          | PRY         | Paraguay         |
+| Portuguese       | PRY         | Paraguay         |
+| Spanish          | PRY         | Paraguay         |
+| Hindi            | SUR         | Suriname         |
+| Sranantonga      | SUR         | Suriname         |
+| Spanish          | URY         | Uruguay          |
+| Goajiro          | VEN         | Venezuela        |
+| Spanish          | VEN         | Venezuela        |
+| Warrau           | VEN         | Venezuela        |
++------------------+-------------+------------------+
+
+9. What are the languages spoken on all cities named ‘Barcelona’
+
+SELECT * 
+FROM countrylanguage
+INNER JOIN city
+ON city.countrycode = countrylanguage.countrycode
+WHERE city.name = 'barcelona';
+
++-------------+----------+------------+------------+------+-----------+-------------+---------------+------------+
+| CountryCode | Language | IsOfficial | Percentage | ID   | Name      | CountryCode | District      | Population |
++-------------+----------+------------+------------+------+-----------+-------------+---------------+------------+
+| ESP         | Basque   | F          |        1.6 |  654 | Barcelona | ESP         | Katalonia     |    1503451 |
+| ESP         | Catalan  | F          |       16.9 |  654 | Barcelona | ESP         | Katalonia     |    1503451 |
+| ESP         | Galecian | F          |        6.4 |  654 | Barcelona | ESP         | Katalonia     |    1503451 |
+| ESP         | Spanish  | T          |       74.4 |  654 | Barcelona | ESP         | Katalonia     |    1503451 |
+| VEN         | Goajiro  | F          |        0.4 | 3546 | Barcelona | VEN         | AnzoÃ¡tegui   |     322267 |
+| VEN         | Spanish  | T          |       96.9 | 3546 | Barcelona | VEN         | AnzoÃ¡tegui   |     322267 |
+| VEN         | Warrau   | F          |        0.1 | 3546 | Barcelona | VEN         | AnzoÃ¡tegui   |     322267 |
++-------------+----------+------------+------------+------+-----------+-------------+---------------+------------+
