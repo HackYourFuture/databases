@@ -4,7 +4,7 @@ For example:
 
 1. What are the names of all the cities in the Netherlands?
 
-SELECT name AS city FROM city WHERE CountryCode = 'NLD';
+SELECT name FROM city WHERE CountryCode = 'NLD';
 +-------------------+
 | city              |
 +-------------------+
@@ -42,7 +42,7 @@ SELECT name AS city FROM city WHERE CountryCode = 'NLD';
 
 select population 
     -> from city 
-    -> where name="rotterdam";
+    -> where name='rotterdam';
 +------------+
 | population |
 +------------+
@@ -98,68 +98,58 @@ select name
 **************************************************************************************************************************
 4. What's the top 10 countries by SurfaceArea ?
 
-select name 
-    -> from country 
-    -> order by surfaceArea desc 
+ select name,Surfacearea
+    -> from country
+    -> order by SurfaceArea desc
     -> limit 10;
-+--------------------+
-| name               |
-+--------------------+
-| Russian Federation |
-| Antarctica         |
-| Canada             |
-| China              |
-| United States      |
-| Brazil             |
-| Australia          |
-| India              |
-| Argentina          |
-| Kazakstan          |
-+--------------------+
++--------------------+-------------+
+| name               | Surfacearea |
++--------------------+-------------+
+| Russian Federation | 17075400.00 |
+| Antarctica         | 13120000.00 |
+| Canada             |  9970610.00 |
+| China              |  9572900.00 |
+| United States      |  9363520.00 |
+| Brazil             |  8547403.00 |
+| Australia          |  7741220.00 |
+| India              |  3287263.00 |
+| Argentina          |  2780400.00 |
+| Kazakstan          |  2724900.00 |
++--------------------+-------------+
 **************************************************************************************************************************
 5. What's the top 10 most populated cities?
 
-select name 
-    -> from city 
-    -> order by population desc 
+select name,population
+    -> from city
+    -> order by population desc
     -> limit 10;
-+-------------------+
-| name              |
-+-------------------+
-| Mumbai (Bombay)   |
-| Seoul             |
-| São Paulo         |
-| Shanghai          |
-| Jakarta           |
-| Karachi           |
-| Istanbul          |
-| Ciudad de México  |
-| Moscow            |
-| New York          |
-+-------------------+
++-------------------+------------+
+| name              | population |
++-------------------+------------+
+| Mumbai (Bombay)   |   10500000 |
+| Seoul             |    9981619 |
+| São Paulo         |    9968485 |
+| Shanghai          |    9696300 |
+| Jakarta           |    9604900 |
+| Karachi           |    9269265 |
+| Istanbul          |    8787958 |
+| Ciudad de México  |    8591309 |
+| Moscow            |    8389200 |
+| New York          |    8008278 |
++-------------------+------------+
 **************************************************************************************************************************
-6. Select the top 3 countries by population that their names start with the later ‘P’
+6. Select the top 3 countries by population that their names start with the letter ‘P’
 
-select name 
-    -> from country 
-    -> where name like 'p%' 
-    -> order by population desc;
-+------------------+
-| name             |
-+------------------+
-| Pakistan         |
-| Philippines      |
-| Poland           |
-| Peru             |
-| Portugal         |
-| Paraguay         |
-| Papua New Guinea |
-| Puerto Rico      |
-| Palestine        |
-| Panama           |
-| Palau            |
-| Pitcairn         |
-+------------------+
+select name from country where name like 'p%'
+    -> order by population desc
+    -> limit 3;
++-------------+
+| name        |
++-------------+
+| Pakistan    |
+| Philippines |
+| Poland      |
++-------------+
 **************************************************************************************************************************
 7. What is the population in Asia?
 
@@ -227,9 +217,11 @@ select language from countrylanguage
 **************************************************************************************************************************
 9. What are the languages spoken on all cities named ‘Barcelona’ (you may need to join 3 tables =) )
 
-select city.name,city.countrycode,countryLanguage.language     -> from city 
+select city.name,city.countrycode,countryLanguage.language    
+    -> from city 
     -> left join countrylanguage 
-    -> on city.countrycode = countrylanguage.countrycode     -> where city.name='barcelona';
+    -> on city.countrycode = countrylanguage.countrycode
+    -> where city.name='barcelona';
 +-----------+-------------+----------+
 | name      | countrycode | language |
 +-----------+-------------+----------+
