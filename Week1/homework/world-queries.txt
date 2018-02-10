@@ -26,14 +26,13 @@ LIMIT 3;
 FROM country 
 WHERE continent = "Asia";
 
-8- SELECT COUNT(DISTINCT l.language) AS 'number of languages'
+8- SELECT l.language AS 'spoken languages'
 FROM countrylanguage AS l
 JOIN country AS c ON c.code = l.countryCode
 WHERE c.continent = 'South America';
 
-9- SELECT city.name AS city, country.name AS country, COUNT(DISTINCT language) AS languages
+9- SELECT city.name AS city, country.name AS country, language AS languages
 FROM city
 join country ON country.code = city.countryCode
 join countrylanguage ON countrylanguage.countryCode = city.countryCode
-WHERE city.name = 'Barcelona'
-GROUP BY country.name;
+WHERE city.name = 'Barcelona';
