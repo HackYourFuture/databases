@@ -96,53 +96,53 @@ SELECT name FROM country WHERE Continent = 'North America';
 
 4. What's the top 10 countries by SurfaceArea ?
 
-SELECT name FROM country ORDER BY SurfaceArea DESC LIMIT 10;
+SELECT name, surfaceArea FROM country ORDER BY SurfaceArea DESC LIMIT 10;
 
-+--------------------+
-| name               |
-+--------------------+
-| Russian Federation |
-| Antarctica         |
-| Canada             |
-| China              |
-| United States      |
-| Brazil             |
-| Australia          |
-| India              |
-| Argentina          |
-| Kazakstan          |
-+--------------------+
++--------------------+-------------+
+| name               | surfaceArea |
++--------------------+-------------+
+| Russian Federation | 17075400.00 |
+| Antarctica         | 13120000.00 |
+| Canada             |  9970610.00 |
+| China              |  9572900.00 |
+| United States      |  9363520.00 |
+| Brazil             |  8547403.00 |
+| Australia          |  7741220.00 |
+| India              |  3287263.00 |
+| Argentina          |  2780400.00 |
+| Kazakstan          |  2724900.00 |
++--------------------+-------------+
 
 5. What's the top 10 most populated cities?
 
-SELECT * FROM city ORDER BY population DESC LIMIT 10;
+SELECT name, CountryCode, Population FROM city ORDER BY population DESC LIMIT 10;
 
-+------+---------------------+-------------+------------------+------------+
-| ID   | Name                | CountryCode | District         | Population |
-+------+---------------------+-------------+------------------+------------+
-| 1024 | Mumbai (Bombay)     | IND         | Maharashtra      |   10500000 |
-| 2331 | Seoul               | KOR         | Seoul            |    9981619 |
-|  206 | SÃ£o Paulo          | BRA         | SÃ£o Paulo       |    9968485 |
-| 1890 | Shanghai            | CHN         | Shanghai         |    9696300 |
-|  939 | Jakarta             | IDN         | Jakarta Raya     |    9604900 |
-| 2822 | Karachi             | PAK         | Sindh            |    9269265 |
-| 3357 | Istanbul            | TUR         | Istanbul         |    8787958 |
-| 2515 | Ciudad de MÃ©xico   | MEX         | Distrito Federal |    8591309 |
-| 3580 | Moscow              | RUS         | Moscow (City)    |    8389200 |
-| 3793 | New York            | USA         | New York         |    8008278 |
-+------+---------------------+-------------+------------------+------------+
++---------------------+-------------+------------+
+| Name                | CountryCode | Population |
++---------------------+-------------+------------+
+| Mumbai (Bombay)     | IND         |   10500000 |
+| Seoul               | KOR         |    9981619 |
+| SÃ£o Paulo          | BRA         |    9968485 |
+| Shanghai            | CHN         |    9696300 |
+| Jakarta             | IDN         |    9604900 |
+| Karachi             | PAK         |    9269265 |
+| Istanbul            | TUR         |    8787958 |
+| Ciudad de MÃ©xico   | MEX         |    8591309 |
+| Moscow              | RUS         |    8389200 |
+| New York            | USA         |    8008278 |
++---------------------+-------------+------------+
 
 6. Select the top 3 countries by population that their names start with the later ‘P’
 
-SELECT name FROM country WHERE name LIKE 'p%' ORDER BY population DESC LIMIT 3;
+SELECT name, population FROM country WHERE name LIKE 'p%' ORDER BY population DESC LIMIT 3;
 
-+-------------+
-| name        |
-+-------------+
-| Pakistan    |
-| Philippines |
-| Poland      |
-+-------------+
++-------------+------------+
+| name        | population |
++-------------+------------+
+| Pakistan    |  156483000 |
+| Philippines |   75967000 |
+| Poland      |   38653600 |
++-------------+------------+
 
 7. What is the population in Asia?
 
@@ -211,20 +211,20 @@ WHERE region = 'south america';
 
 9. What are the languages spoken on all cities named ‘Barcelona’
 
-SELECT * 
+SELECT CountryCode, Language, IsOfficial, Percentage, Name, CountryCode, Population
 FROM countrylanguage
 INNER JOIN city
 ON city.countrycode = countrylanguage.countrycode
 WHERE city.name = 'barcelona';
 
-+-------------+----------+------------+------------+------+-----------+-------------+---------------+------------+
-| CountryCode | Language | IsOfficial | Percentage | ID   | Name      | CountryCode | District      | Population |
-+-------------+----------+------------+------------+------+-----------+-------------+---------------+------------+
-| ESP         | Basque   | F          |        1.6 |  654 | Barcelona | ESP         | Katalonia     |    1503451 |
-| ESP         | Catalan  | F          |       16.9 |  654 | Barcelona | ESP         | Katalonia     |    1503451 |
-| ESP         | Galecian | F          |        6.4 |  654 | Barcelona | ESP         | Katalonia     |    1503451 |
-| ESP         | Spanish  | T          |       74.4 |  654 | Barcelona | ESP         | Katalonia     |    1503451 |
-| VEN         | Goajiro  | F          |        0.4 | 3546 | Barcelona | VEN         | AnzoÃ¡tegui   |     322267 |
-| VEN         | Spanish  | T          |       96.9 | 3546 | Barcelona | VEN         | AnzoÃ¡tegui   |     322267 |
-| VEN         | Warrau   | F          |        0.1 | 3546 | Barcelona | VEN         | AnzoÃ¡tegui   |     322267 |
-+-------------+----------+------------+------------+------+-----------+-------------+---------------+------------+
++-------------+----------+------------+------------+-----------+-------------+------------+
+| CountryCode | Language | IsOfficial | Percentage | Name      | CountryCode | Population |
++-------------+----------+------------+------------+-----------+-------------+------------+
+| ESP         | Basque   | F          |        1.6 | Barcelona | ESP         |    1503451 |
+| ESP         | Catalan  | F          |       16.9 | Barcelona | ESP         |    1503451 |
+| ESP         | Galecian | F          |        6.4 | Barcelona | ESP         |    1503451 |
+| ESP         | Spanish  | T          |       74.4 | Barcelona | ESP         |    1503451 |
+| VEN         | Goajiro  | F          |        0.4 | Barcelona | VEN         |     322267 |
+| VEN         | Spanish  | T          |       96.9 | Barcelona | VEN         |     322267 |
+| VEN         | Warrau   | F          |        0.1 | Barcelona | VEN         |     322267 |
++-------------+----------+------------+------------+-----------+-------------+------------+
