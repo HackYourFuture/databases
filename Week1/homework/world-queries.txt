@@ -1,0 +1,39 @@
+Answers for the world queries go here:
+
+For example:
+
+1. What are the names of all the cities in the Netherlands?
+
+SELECT name AS city FROM city WHERE CountryCode = 'NLD';
++-------------------+
+| city              |
++-------------------+
+| Amsterdam         |
+| Rotterdam         |
+| Haag              |
+| Utrecht           |
+| Eindhoven         |
+| Tilburg           |
+| Groningen         |
+| Breda             |
+| Apeldoorn         |
+| Nijmegen          |
+| Enschede          |
+| Haarlem           |
+| Almere            |
+| Arnhem            |
+| Zaanstad          |
+| ´s-Hertogenbosch  |
+| Amersfoort        |
+| Maastricht        |
+| Dordrecht         |
+| Leiden            |
+| Haarlemmermeer    |
+| Zoetermeer        |
+| Emmen             |
+| Zwolle            |
+| Ede               |
+| Delft             |
+| Heerlen           |
+| Alkmaar           |
++-------------------+
