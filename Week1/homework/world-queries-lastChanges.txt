@@ -1,0 +1,35 @@
+Answers for the world queries go here:
+
+For example:
+
+1. What are the names of all the cities in the Netherlands?
+
+SELECT name AS city FROM city WHERE CountryCode = 'NLD';
+
+2. What is the poapulation of Rotterdam?
+
+SELECT Population from city WHERE name = "Rotterdam";
+
+3. What's the name of all countries on the continent 'North America'?
+
+SELECT Name from country WHERE Continent = "North America";
+
+4. What's the top countries by SurfaceArea?
+
+SELECT Name from country order by SurfaceArea desc limit 10;
+
+5. What's the top 10 most populated cities?
+
+SELECT Name from city order by Population desc limit 10;
+
+6. Select the top 3 countries by population that thier names start with the later "P"
+
+SELECT Name from country where name like "P%" or "%p" order by papulation desc limit 3;
+
+7. What's the population in Asia?
+
+SELECT Population form country where Cntinent = "Asia";
+
+8. Which languages are spoken in the Region of 'South America'?
+
+a
