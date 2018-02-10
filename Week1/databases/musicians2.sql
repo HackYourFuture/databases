@@ -30,13 +30,13 @@ INSERT INTO Musicians (Id, FirstName, LastName, Born) VALUES (1, 'Thelonious', '
 INSERT INTO Musicians (Id, FirstName, LastName, Born) VALUES (2, 'Sonny', 'Rollins', 1930);
 INSERT INTO Musicians (Id, FirstName, LastName, Born) VALUES (3, 'Steve', 'Lehman', 1978);
 
-INSERT INTO Instruments (Id, FirstName, LastName, Born) VALUES (1, 'Piano', 'Keys');
-INSERT INTO Instruments (Id, FirstName, LastName, Born) VALUES (2, 'Tenor saxophone', 'Wind');
-INSERT INTO Instruments (Id, FirstName, LastName, Born) VALUES (3, 'Soprano saxophone', 'Wind');
-INSERT INTO Instruments (Id, FirstName, LastName, Born) VALUES (4, 'Alto saxophone', 'Wind');
-INSERT INTO Instruments (Id, FirstName, LastName, Born) VALUES (5, 'Guitar', 'String');
+INSERT INTO Instruments (Id, Name, Type) VALUES (1, 'Piano', 'Keys');
+INSERT INTO Instruments (Id, Name, Type) VALUES (2, 'Tenor saxophone', 'Wind');
+INSERT INTO Instruments (Id, Name, Type) VALUES (3, 'Soprano saxophone', 'Wind');
+INSERT INTO Instruments (Id, Name, Type) VALUES (4, 'Alto saxophone', 'Wind');
+INSERT INTO Instruments (Id, Name, Type) VALUES (5, 'Guitar', 'String');
 
 INSERT INTO InstrumentsPlayed (Id, Musician, Instrument) VALUES (1, 1, 1);
 INSERT INTO InstrumentsPlayed (Id, Musician, Instrument) VALUES (2, 2, 2);
 INSERT INTO InstrumentsPlayed (Id, Musician, Instrument) VALUES (3, 2, 3);
-INSERT INTO InstrumentsPlayed (Id, Musician, Instrument) VALUES (3, 3, 4);
+INSERT INTO InstrumentsPlayed (Id, Musician, Instrument) VALUES (4, 3, 4);
