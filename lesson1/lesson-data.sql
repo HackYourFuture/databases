@@ -22,7 +22,7 @@ CREATE TABLE `task` (
   `updated` DATETIME NOT NULL,
   `due_date` DATETIME NULL DEFAULT NULL,
   `status_id` int(10) unsigned NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
+  `user_id` int(10) unsigned,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_status` FOREIGN KEY (`status_id`) REFERENCES `status` (`id`) ON DELETE CASCADE,
   CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
@@ -42,6 +42,7 @@ insert into user (id, name, email, phone) values (8, 'Hedy Gerault', 'hgerault7@
 insert into user (id, name, email, phone) values (9, '王秀英', 'wang.xiuying@weebly.com', '891-952-6749');
 insert into user (id, name, email, phone) values (10, 'إلياس', 'elias@github.com', '202-517-6983');
 insert into user (id, name, email, phone) values (11, 'Donald Duck', 'donald@duck.com', NULL);
+insert into user (id, name, email, phone) values (12, 'Adam Smith', 'smith@bla.com', NULL);
 
 -- Statuses
 insert into status (id, name) values (1, 'Not started');
@@ -72,7 +73,7 @@ insert into task (id, title, description, created, updated, due_date, status_id,
 insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (20, 'Buy beer for the company party', '2 or 3 cases should be enough', '2017-10-08 01:39:02', '2017-10-13 23:07:41', null, 3, 4);
 insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (21, 'Knit sweater', NULL, '2017-09-22 17:14:55', '2017-10-08 09:01:35', '2017-12-15 20:33:57', 2, 9);
 insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (22, 'Charge electric bicycle', 'It sucks to ride it without a battery!', '2017-10-10 12:25:07', '2017-10-07 21:45:01', '2017-12-10 19:02:17', 1, 7);
-insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (23, 'Buy new phone', 'The battery in the current one only lasts 5 hours 😞', '2017-09-17 00:25:34', '2017-10-09 11:48:12', null, 3, 4);
+insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (23, 'Buy new phone', 'The battery in the current one only lasts 5 hours 😞', '2017-09-17 00:25:34', '2017-10-09 11:48:12', null, 3, NULL);
 insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (24, 'Ride bike aroud Sjælland', 'Remember rainclothes and tire repair kit!', '2017-10-20 19:21:13', '2017-10-07 01:38:06', '2017-12-19 15:08:18', 2, 7);
 insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (25, 'Look at apartments in Ørestad', '2 or 3 rooms', '2017-10-30 09:47:00', '2017-10-19 06:11:26', null, 1, 6);
 insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (26, 'Empty Mr Fluffy\'s litterbox', NULL, '2017-09-28 03:09:06', '2017-10-13 10:38:34', '2017-12-20 23:37:18', 2, 8);
@@ -84,5 +85,6 @@ insert into task (id, title, description, created, updated, due_date, status_id,
 insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (32, 'Put up the new lamp in the hallway', NULL, '2017-10-15 05:45:54', '2017-10-16 14:05:35', '2017-12-29 02:29:26', 3, 3);
 insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (33, 'Hang up paintings in living room', NULL, '2017-09-10 05:36:11', '2017-10-09 17:40:42', null, 3, 4);
 insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (34, 'Buy plane ticket to Auckland', 'Check prices online first!', '2017-09-05 09:07:22', '2017-10-15 09:36:06', '2017-12-07 11:10:05', 1, 9);
-insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (35, 'Learn about NoSQL databases', 'MongoDB, CouchDB, etc.', '2017-10-20 01:41:53', '2017-10-04 07:19:56', '2017-12-23 10:13:42', 2, 5);
+insert into task (id, title, description, created, updated, due_date, status_id, user_id) values (35, 'Learn about NoSQL databases', 'MongoDB, CouchDB, etc.', '2017-10-20 01:41:53', '2017-10-04 07:19:56', '2017-12-23 10:13:42', 2, NULL);
+
 
