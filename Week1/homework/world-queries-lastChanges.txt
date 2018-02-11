@@ -32,4 +32,5 @@ SELECT Population form country where Cntinent = "Asia";
 
 8. Which languages are spoken in the Region of 'South America'?
 
-a
+9.
+
