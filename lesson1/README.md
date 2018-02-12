@@ -50,16 +50,16 @@ Before arriving to class on Sunday, please watch all of the videos in [this vide
 
 Design queries that retrieve the following data sets. Compare with classmates to see if your answers were correct.
 
-1. Find out how many todo items are on the list
-2. Find out how many todo items on the list do not have a valid due date
-3. Find all the todo items that are marked as done
-4. Find all the todo items that are not marked as done
-5. Get all the todo items, sorted with the most recent first
-6. Get the single most recently added todo item
-7. Get the name and due date of all todo items about 'databases'
-8. Get the name and status (as a string) of all todos
-9. Get the name of each status, along with a count of how many todos have that status
-10. Get the names of all statuses, sorted by most todos with that status to least
+1. Find out how many tasks are on the task table
+2. Find out how many tasks on the task table do not have a valid due date
+3. Find all the tasks that are marked as done
+4. Find all the tasks that are not marked as done
+5. Get all the tasks, sorted with the most recent first
+6. Get the single most recently added task
+7. Get the name and due date of all tasks about 'databases'
+8. Get the name and status (as a string) of all tasks
+9. Get the name of each status, along with a count of how many tasks have that status
+10. Get the names of all statuses, sorted by most tasks with that status to least
 
 
 Watch the previous session recorded on video here:
