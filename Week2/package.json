@@ -1,0 +1,17 @@
+{
+  "name": "node-sql",
+  "version": "1.0.0",
+  "description": "query database using node",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chileshe",
+  "license": "ISC"
+}
