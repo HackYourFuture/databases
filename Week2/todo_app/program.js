@@ -1,7 +1,13 @@
-// This is the connector (also known as driver)
-// that we can use to connect to a MySQL process
-// and access its databases.
+
 const mysql = require('mysql');
+
+const express = require("express");
+const app = express();
+
+const fs = require("fs");
+
+const bodyParser = require('body-parser');
+
 
 class TodoModel {
     constructor(dbConnection) {
@@ -11,8 +17,8 @@ class TodoModel {
     // Loads all the TODOs in the database
     load(callback) {
         const selectTodoItems = "SELECT * FROM todo_items";
-        this.dbConnection.query(selectTodoItems, function(err, results, fields) {
-            if(err) {
+        this.dbConnection.query(selectTodoItems, function (err, results, fields) {
+            if (err) {
                 callback(err);
                 return;
             }
@@ -21,39 +27,108 @@ class TodoModel {
         });
     }
 
+
     create(description, callback) {
-        // Write code and query to create a new TODO item
+
+        const createNewItem = "INSERT INTO `todo_app`.`todo_items` (`text`, `is_completed`, `user_id`) VALUES ('?', '?', '?')";
+        this.dbConnection.query(createNewItem,[description],function (err, results, fields) {
+            if (err) {
+                callback(err);
+                return;
+            }
+
+            callback(null, results);
+        });
+
+
+
     }
 
     update(id, description, callback) {
-        // Write code and query to update and existing TODO item
+
+
+        const updateItem = "UPDATE `todo_app`.`todo_items` SET `id`='?', `text`='?', `user_id`='?' WHERE `id`='?'";
+        this.dbConnection.query(updateItem, [description, id], function (err, results, fields) {
+            if (err) {
+                callback(err);
+                return;
+            }
+
+            callback(null, results);
+        });
+
+
     }
 
     delete(id, callback) {
-        // Write code and query to delete an existing TODO item
+  
+        const deleteItem = "DELETE FROM `todo_app`.`todo_items` WHERE `id`='?'";
+        this.dbConnection.query(deleteItem, [id], function (err, results, fields) {
+            if (err) {
+                callback(err);
+                return;
+            }
+
+            callback(null, results);
+        });
+
+
     }
 
     tagTodoItem(todoItemId, tagId, callback) {
-        // Write code and query add a tag to a TODO item
-    }
         
+
+        const addTag = "INSERT INTO `todo_app`.`todo_item_tag` (`todo_item_id`, `tag_id`) VALUES ('?', '?')";
+        this.dbConnection.query(addTag, [todoItemId, tagId ], function (err, results, fields) {
+            if (err) {
+                callback(err);
+                return;
+            }
+
+            callback(null, results);
+        });
+
+    }
+
     untagTodoItem(todoItemId, tagId, callback) {
-        // Write code and query remove a tag from a TODO item
+        
+
+        const unTagItem = "DELETE FROM `todo_app`.`todo_items` WHERE `id`='?'";
+        this.dbConnection.query(unTagItem, [todoItemId, tagId ], function (err, results, fields) {
+            if (err) {
+                callback(err);
+                return;
+            }
+
+            callback(null, results);
+        });
+
     }
 
     markCompleted(todoItemId, callback) {
-        // Write code to mark a TODO item as completed
+
+        const markComplete = "UPDATE `todo_app`.`todo_items` SET `is_completed`='1' WHERE `id`='?'";
+        this.dbConnection.query(markComplete, [todoItemId], function (err, results, fields) {
+            if (err) {
+                callback(err);
+                return;
+            }
+
+            callback(null, results);
+        });
+
+
     }
 }
 
 const dbConnection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : '',
-    database : 'todo_app'
+    host: 'localhost',
+    user: 'root',
+    password: 'root',
+    database: 'todo_app'
 });
 
-dbConnection.connect(function(err) {
+dbConnection.connect(function (err) {
     if (err != null) {
         console.error('error connecting: ' + err.stack);
         return;
@@ -62,8 +137,8 @@ dbConnection.connect(function(err) {
     console.log('connected as id ' + dbConnection.threadId);
 
     const todoModel = new TodoModel(dbConnection);
-    todoModel.load(function(err, todoItems) {
-        if(err) {
+    todoModel.load(function (err, todoItems) {
+        if (err) {
             console.log("error loading TODO items:", err);
         }
 
