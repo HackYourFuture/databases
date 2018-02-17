@@ -87,6 +87,45 @@ class TodoModel {
         })
     }
 }
+class User {
+    constructor(dbConnection) {
+        this.dbConnection = dbConnection;
+    }
+    create(newUser,callback) {
+        let split = newUser.split(" ");
+        let firstName = split[0];
+        let lastName = split[1];
+        let createQuery = "INSERT INTO users (first_name,last_name) VALUES (?,?)";
+        this.dbConnection.query(createQuery, [firstName, lastName], function (err, results, fields) {
+            if (err) {
+                callback(err);
+                return;
+            }
+            callback(null, results);
+        })
+    }
+    delete(userId, callback) {
+        let deleteQuery = "DELETE FROM users WHERE id = ?";
+        this.dbConnection.query(deleteQuery, userId, function (err, results, fields) {
+            if (err) {
+                callback(err);
+                return;
+            }
+            callback(null, results);
+        })
+    }
+    load(callback) {
+        let loadQuery = "SELECT * FROM users";
+        this.dbConnection.query(loadQuery, function (err, results, fields) {
+            if (err) {
+                callback(err);
+                return;
+            }
+            callback(null, results);
+        })
+    }
+
+}
 
 const dbConnection = mysql.createConnection({
     host: 'localhost',
@@ -104,6 +143,7 @@ dbConnection.connect(function (err) {
     console.log('connected as id ' + dbConnection.threadId);
 
     const todoModel = new TodoModel(dbConnection);
+    const usersModel = new User(dbConnection);
     todoModel.load(function (err, todoItems) {
         if (err) {
             console.log("error loading TODO items:", err);
@@ -115,7 +155,7 @@ dbConnection.connect(function (err) {
     // testing for the class methods 
 
 
-    /*todoModel.create('hello world',2, function (err) {
+    /*todoModel.create('do sport',2, function (err) {
         if (err) {
             console.log("error occurred while creating a todo item",err)
         } 
@@ -150,8 +190,25 @@ dbConnection.connect(function (err) {
             console.log("an error occurred while marking the item as completed", err);
         }
         console.log("an todo item has been marked as completed")
-    })*/
-
-
+    }) 
+    usersModel.create("Talal Alamdar", function (err) {
+        if (err) {
+            console.log("an error occurred while creation new user");
+        }
+        console.log("new user has been created")
+    })
+    
+    usersModel.delete(6, function (err) {
+        if (err) {
+            console.log("error happened");
+        }
+        console.log("user has been deleted")
+    }) */
+    usersModel.load(function (err, users) {
+        if (err) {
+            console.log("an error happened");
+        }
+        console.log ("existing users :", users)
+    })
     //dbConnection.end();
 });
