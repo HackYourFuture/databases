@@ -54,11 +54,11 @@ Also, please read the following pages that explains the ACID database model and 
 
 ## Homework
 
-- Write the necessary SQL statements to complete the functionality of the node todo application. This includes, at the minimum, the following functionality:
-    - Adding a new todo item
-    - Changing the name, the due date, or the status of a todo item
-    - Marking a todo item as completed
-    - Deleting a todo item
+- Write the necessary SQL statements to complete the functionality of the node task application. This includes, at the minimum, the following functionality:
+    - Adding a new task item
+    - Changing the name, the due date, or the status of a task item
+    - Marking a task item as completed
+    - Deleting a task item
     - Deleting a user
 - Create a new database containing the following tables:
     - **Class** with the columns: id, name, begins (date), ends (data)
