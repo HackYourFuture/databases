@@ -63,4 +63,3 @@ function callback(error) {
 
 
 module.exports = User;
-
