@@ -1,11 +1,10 @@
 {
   "name": "week3",
   "version": "1.0.0",
-  "description": "password hashing in mongodb",
-  "main": "server.js",
+  "description": "password hashing & authentication",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon index.js"
   },
   "author": "Chileshe",
   "license": "ISC",
@@ -13,6 +12,10 @@
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "mongoose": "^5.0.6"
+    "jsonwebtoken": "^8.1.1",
+    "mongoose": "^5.0.6",
+    "nodemon": "^1.15.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1"
   }
 }
