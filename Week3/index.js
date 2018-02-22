@@ -1,8 +1,8 @@
 "use strict";
 
-const passport = require("./passport");
+const passport = require("./util/passport");
 const User = require("./models/users");
-const jwt_secret = require("./secret-config");
+const jwt_secret = require("./util/secret-config");
 
 const express = require("express");
 const bodyParser = require("body-parser");

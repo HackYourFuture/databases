@@ -1,6 +1,6 @@
 "use strict";
 
-const mongoose = require("../connection");
+const mongoose = require("../util/connection");
 const bcrypt = require("bcrypt");
 const saltRounds = 9;
 
@@ -63,3 +63,4 @@ function callback(error) {
 
 
 module.exports = User;
+
