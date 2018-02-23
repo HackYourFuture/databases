@@ -56,7 +56,7 @@ app.post("/login", async (req, res) => {
     const existingUser = await User.findOne({ email });
 
     if (!existingUser) {
-        res.status(400).json({
+        return res.status(400).json({
             success: false,
             message: "Incorrect email. Please try again"
         });
@@ -64,20 +64,21 @@ app.post("/login", async (req, res) => {
     const passwordMatch = await bcrypt.compare(password, existingUser.password);
 
     if (!passwordMatch) {
-        res.status(401).json({
+        return res.status(401).json({
             success: false,
             message: "Incorrect password. Please try again"
         });
-    } else {
-        // send token to user
-        const token = signToken(existingUser);
-        res.status(200).json({ token });
-    }   
+    } 
+
+    // send token to user
+    const token = signToken(existingUser);
+    res.status(200).json({ token });         
 });
 
 
 // check GET request headers for jwt sent to user at login/signup 
 // allow access to app if token valid
+
 app.get("/account", passport.authenticate("jwt", { session: false }), (req, res) => {
     res.status(200).json({
         success: true,

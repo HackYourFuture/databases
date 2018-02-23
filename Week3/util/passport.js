@@ -1,6 +1,6 @@
 "use strict";
 
-const User = require("./models/users");
+const User = require("../models/users");
 const jwt_secret = require("./secret-config");
 
 const passport = require("passport");
