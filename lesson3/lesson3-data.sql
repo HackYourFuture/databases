@@ -105,7 +105,6 @@ insert into user_task (user_id, task_id) values(3, 13);
 insert into user_task (user_id, task_id) values(3, 19);
 insert into user_task (user_id, task_id) values(4, 24);
 insert into user_task (user_id, task_id) values(4, 20);
-insert into user_task (user_id, task_id) values(4, 24);
 insert into user_task (user_id, task_id) values(5, 20);
 insert into user_task (user_id, task_id) values(5, 18);
 insert into user_task (user_id, task_id) values(5, 15);
