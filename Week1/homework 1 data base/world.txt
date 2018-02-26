@@ -1,0 +1,327 @@
+- the answer of the first question:
+1. What are the names of all the cities in the Netherlands?
+mysql> select name from city where CountryCode = 'NLD';
++---------------------+
+| name                |
++---------------------+
+| Amsterdam           |
+| Rotterdam           |
+| Haag                |
+| Utrecht             |
+| Eindhoven           |
+| Tilburg             |
+| Groningen           |
+| Breda               |
+| Apeldoorn           |
+| Nijmegen            |
+| Enschede            |
+| Haarlem             |
+| Almere              |
+| Arnhem              |
+| Zaanstad            |
+| Â´s-Hertogenbosch   |
+| Amersfoort          |
+| Maastricht          |
+| Dordrecht           |
+| Leiden              |
+| Haarlemmermeer      |
+| Zoetermeer          |
+| Emmen               |
+| Zwolle              |
+| Ede                 |
+| Delft               |
+| Heerlen             |
+| Alkmaar             |
++---------------------+
+28 rows in set (0.14 sec);
+2.What is the population of Rotterdam ?
+mysql> select Population from city where name = 'Rotterdam';
++------------+
+| Population |
++------------+
+|     593321 |
++------------+
+1 row in set (0.06 sec);
+3.What's the name of all the countries on the continent ‘North America’ ?
+mysql> select * from country where Continent = 'North America';
++------+----------------------------------+---------------+-----------------+---
+----------+-----------+------------+----------------+------------+------------+-
+------------------------------------+-------------------------------------------
+---+--------------------------------------------+---------+-------+
+| Code | Name                             | Continent     | Region          | Su
+rfaceArea | IndepYear | Population | LifeExpectancy | GNP        | GNPOld     |
+LocalName                           | GovernmentForm
+   | HeadOfState                                | Capital | Code2 |
++------+----------------------------------+---------------+-----------------+---
+----------+-----------+------------+----------------+------------+------------+-
+------------------------------------+-------------------------------------------
+---+--------------------------------------------+---------+-------+
+| ABW  | Aruba                            | North America | Caribbean       |
+   193.00 |      NULL |     103000 |           78.4 |     828.00 |     793.00 |
+Aruba                               | Nonmetropolitan Territory of The Netherlan
+ds | Beatrix                                    |     129 | AW    |
+| AIA  | Anguilla                         | North America | Caribbean       |
+    96.00 |      NULL |       8000 |           76.1 |      63.20 |       NULL |
+Anguilla                            | Dependent Territory of the UK
+   | Elisabeth II                               |      62 | AI    |
+| ANT  | Netherlands Antilles             | North America | Caribbean       |
+   800.00 |      NULL |     217000 |           74.7 |    1941.00 |       NULL |
+Nederlandse Antillen                | Nonmetropolitan Territory of The Netherlan
+ds | Beatrix                                    |      33 | AN    |
+| ATG  | Antigua and Barbuda              | North America | Caribbean       |
+   442.00 |      1981 |      68000 |           70.5 |     612.00 |     584.00 |
+Antigua and Barbuda                 | Constitutional Monarchy
+   | Elisabeth II                               |      63 | AG    |
+| BHS  | Bahamas                          | North America | Caribbean       |
+ 13878.00 |      1973 |     307000 |           71.1 |    3527.00 |    3347.00 |
+The Bahamas                         | Constitutional Monarchy
+   | Elisabeth II                               |     148 | BS    |
+| BLZ  | Belize                           | North America | Central America |
+ 22696.00 |      1981 |     241000 |           70.9 |     630.00 |     616.00 |
+Belize                              | Constitutional Monarchy
+   | Elisabeth II                               |     185 | BZ    |
+| BMU  | Bermuda                          | North America | North America   |
+    53.00 |      NULL |      65000 |           76.9 |    2328.00 |    2190.00 |
+Bermuda                             | Dependent Territory of the UK
+   | Elisabeth II                               |     191 | BM    |
+| BRB  | Barbados                         | North America | Caribbean       |
+   430.00 |      1966 |     270000 |           73.0 |    2223.00 |    2186.00 |
+Barbados                            | Constitutional Monarchy
+   | Elisabeth II                               |     174 | BB    |
+| CAN  | Canada                           | North America | North America   |  9
+970610.00 |      1867 |   31147000 |           79.4 |  598862.00 |  625626.00 |
+Canada                              | Constitutional Monarchy, Federation
+   | Elisabeth II                               |    1822 | CA    |
+| CRI  | Costa Rica                       | North America | Central America |
+ 51100.00 |      1821 |    4023000 |           75.8 |   10226.00 |    9757.00 |
+Costa Rica                          | Republic
+   | Miguel Ã?ngel RodrÃ­guez EcheverrÃ­a       |     584 | CR    |
+| CUB  | Cuba                             | North America | Caribbean       |
+110861.00 |      1902 |   11201000 |           76.2 |   17843.00 |   18862.00 |
+Cuba                                | Socialistic Republic
+   | Fidel Castro Ruz                           |    2413 | CU    |
+| CYM  | Cayman Islands                   | North America | Caribbean       |
+   264.00 |      NULL |      38000 |           78.9 |    1263.00 |    1186.00 |
+Cayman Islands                      | Dependent Territory of the UK
+   | Elisabeth II                               |     553 | KY    |
+| DMA  | Dominica                         | North America | Caribbean       |
+   751.00 |      1978 |      71000 |           73.4 |     256.00 |     243.00 |
+Dominica                            | Republic
+   | Vernon Shaw                                |     586 | DM    |
+| DOM  | Dominican Republic               | North America | Caribbean       |
+ 48511.00 |      1844 |    8495000 |           73.2 |   15846.00 |   15076.00 |
+RepÃºblica Dominicana               | Republic
+   | HipÃ³lito MejÃ­a DomÃ­nguez                |     587 | DO    |
+| GLP  | Guadeloupe                       | North America | Caribbean       |
+  1705.00 |      NULL |     456000 |           77.0 |    3501.00 |       NULL |
+Guadeloupe                          | Overseas Department of France
+   | Jacques Chirac                             |     919 | GP    |
+| GRD  | Grenada                          | North America | Caribbean       |
+   344.00 |      1974 |      94000 |           64.5 |     318.00 |       NULL |
+Grenada                             | Constitutional Monarchy
+   | Elisabeth II                               |     916 | GD    |
+| GRL  | Greenland                        | North America | North America   |  2
+166090.00 |      NULL |      56000 |           68.1 |       0.00 |       NULL |
+Kalaallit Nunaat/GrÃ¸nland          | Part of Denmark
+   | Margrethe II                               |     917 | GL    |
+| GTM  | Guatemala                        | North America | Central America |
+108889.00 |      1821 |   11385000 |           66.2 |   19008.00 |   17797.00 |
+Guatemala                           | Republic
+   | Alfonso Portillo Cabrera                   |     922 | GT    |
+| HND  | Honduras                         | North America | Central America |
+112088.00 |      1838 |    6485000 |           69.9 |    5333.00 |    4697.00 |
+Honduras                            | Republic
+   | Carlos Roberto Flores FacussÃ©             |     933 | HN    |
+| HTI  | Haiti                            | North America | Caribbean       |
+ 27750.00 |      1804 |    8222000 |           49.2 |    3459.00 |    3107.00 |
+HaÃ¯ti/Dayti                        | Republic
+   | Jean-Bertrand Aristide                     |     929 | HT    |
+| JAM  | Jamaica                          | North America | Caribbean       |
+ 10990.00 |      1962 |    2583000 |           75.2 |    6871.00 |    6722.00 |
+Jamaica                             | Constitutional Monarchy
+   | Elisabeth II                               |    1530 | JM    |
+| KNA  | Saint Kitts and Nevis            | North America | Caribbean       |
+   261.00 |      1983 |      38000 |           70.7 |     299.00 |       NULL |
+Saint Kitts and Nevis               | Constitutional Monarchy
+   | Elisabeth II                               |    3064 | KN    |
+| LCA  | Saint Lucia                      | North America | Caribbean       |
+   622.00 |      1979 |     154000 |           72.3 |     571.00 |       NULL |
+Saint Lucia                         | Constitutional Monarchy
+   | Elisabeth II                               |    3065 | LC    |
+| MEX  | Mexico                           | North America | Central America |  1
+958201.00 |      1810 |   98881000 |           71.5 |  414972.00 |  401461.00 |
+MÃ©xico                             | Federal Republic
+   | Vicente Fox Quesada                        |    2515 | MX    |
+| MSR  | Montserrat                       | North America | Caribbean       |
+   102.00 |      NULL |      11000 |           78.0 |     109.00 |       NULL |
+Montserrat                          | Dependent Territory of the UK
+   | Elisabeth II                               |    2697 | MS    |
+| MTQ  | Martinique                       | North America | Caribbean       |
+  1102.00 |      NULL |     395000 |           78.3 |    2731.00 |    2559.00 |
+Martinique                          | Overseas Department of France
+   | Jacques Chirac                             |    2508 | MQ    |
+| NIC  | Nicaragua                        | North America | Central America |
+130000.00 |      1838 |    5074000 |           68.7 |    1988.00 |    2023.00 |
+Nicaragua                           | Republic
+   | Arnoldo AlemÃ¡n Lacayo                     |    2734 | NI    |
+| PAN  | Panama                           | North America | Central America |
+ 75517.00 |      1903 |    2856000 |           75.5 |    9131.00 |    8700.00 |
+PanamÃ¡                             | Republic
+   | Mireya Elisa Moscoso RodrÃ­guez            |    2882 | PA    |
+| PRI  | Puerto Rico                      | North America | Caribbean       |
+  8875.00 |      NULL |    3869000 |           75.6 |   34100.00 |   32100.00 |
+Puerto Rico                         | Commonwealth of the US
+   | George W. Bush                             |    2919 | PR    |
+| SLV  | El Salvador                      | North America | Central America |
+ 21041.00 |      1841 |    6276000 |           69.7 |   11863.00 |   11203.00 |
+El Salvador                         | Republic
+   | Francisco Guillermo Flores PÃ©rez          |     645 | SV    |
+| SPM  | Saint Pierre and Miquelon        | North America | North America   |
+   242.00 |      NULL |       7000 |           77.6 |       0.00 |       NULL |
+Saint-Pierre-et-Miquelon            | Territorial Collectivity of France
+   | Jacques Chirac                             |    3067 | PM    |
+| TCA  | Turks and Caicos Islands         | North America | Caribbean       |
+   430.00 |      NULL |      17000 |           73.3 |      96.00 |       NULL |
+The Turks and Caicos Islands        | Dependent Territory of the UK
+   | Elisabeth II                               |    3423 | TC    |
+| TTO  | Trinidad and Tobago              | North America | Caribbean       |
+  5130.00 |      1962 |    1295000 |           68.0 |    6232.00 |    5867.00 |
+Trinidad and Tobago                 | Republic
+   | Arthur N. R. Robinson                      |    3336 | TT    |
+| USA  | United States                    | North America | North America   |  9
+363520.00 |      1776 |  278357000 |           77.1 | 8510700.00 | 8110900.00 |
+United States                       | Federal Republic
+   | George W. Bush                             |    3813 | US    |
+| VCT  | Saint Vincent and the Grenadines | North America | Caribbean       |
+   388.00 |      1979 |     114000 |           72.3 |     285.00 |       NULL |
+Saint Vincent and the Grenadines    | Constitutional Monarchy
+   | Elisabeth II                               |    3066 | VC    |
+| VGB  | Virgin Islands, British          | North America | Caribbean       |
+   151.00 |      NULL |      21000 |           75.4 |     612.00 |     573.00 |
+British Virgin Islands              | Dependent Territory of the UK
+   | Elisabeth II                               |     537 | VG    |
+| VIR  | Virgin Islands, U.S.             | North America | Caribbean       |
+   347.00 |      NULL |      93000 |           78.1 |       0.00 |       NULL |
+Virgin Islands of the United States | US Territory
+   | George W. Bush                             |    4067 | VI    |
++------+----------------------------------+---------------+-----------------+---
+----------+-----------+------------+----------------+------------+------------+-
+------------------------------------+-------------------------------------------
+---+--------------------------------------------+---------+-------+
+37 rows in set (0.00 sec);
+4.What's the top 10 countries by SurfaceArea ?
+mysql> select name from country order by SurfaceArea DESC limit 10;
++--------------------+
+| name               |
++--------------------+
+| Russian Federation |
+| Antarctica         |
+| Canada             |
+| China              |
+| United States      |
+| Brazil             |
+| Australia          |
+| India              |
+| Argentina          |
+| Kazakstan          |
++--------------------+
+10 rows in set (0.06 sec);
+5.What's the top 10 most populated cities?
+mysql> select name from city order by Population DESC limit 10;
++---------------------+
+| name                |
++---------------------+
+| Mumbai (Bombay)     |
+| Seoul               |
+| SÃ£o Paulo          |
+| Shanghai            |
+| Jakarta             |
+| Karachi             |
+| Istanbul            |
+| Ciudad de MÃ©xico   |
+| Moscow              |
+| New York            |
++---------------------+
+10 rows in set (0.01 sec);
+6.Select the top 3 countries by population that their names start with the later ‘P’?
+mysql> select name from country where name like 'P%' order by Population DESC li
+mit 3;
++-------------+
+| name        |
++-------------+
+| Pakistan    |
+| Philippines |
+| Poland      |
++-------------+
+3 rows in set (0.00 sec);
+7.What is the population in Asia?
+mysql> select Population from country where Continent = 'Asia';
++------------+
+| Population |
++------------+
+|   22720000 |
+|    2441000 |
+|    3520000 |
+|    7734000 |
+|  129155000 |
+|     617000 |
+|     328000 |
+|    2124000 |
+| 1277558000 |
+|     754700 |
+|    4968000 |
+|    6782000 |
+|  212107000 |
+| 1013662000 |
+|   67702000 |
+|   23115000 |
+|    6217000 |
+|    5083000 |
+|  126714000 |
+|   16223000 |
+|    4699000 |
+|   11168000 |
+|   46844000 |
+|    1972000 |
+|    5433000 |
+|    3282000 |
+|   18827000 |
+|     473000 |
+|     286000 |
+|   45611000 |
+|    2662000 |
+|   22244000 |
+|   23930000 |
+|    2542000 |
+|  156483000 |
+|   75967000 |
+|   24039000 |
+|    3101000 |
+|     599000 |
+|   21607000 |
+|    3567000 |
+|   16125000 |
+|   61399000 |
+|    6188000 |
+|    4459000 |
+|     885000 |
+|   66591000 |
+|   22256000 |
+|   24318000 |
+|   79832000 |
+|   18112000 |
++------------+
+51 rows in set (0.00 sec);
+
+mysql> select SUM(Population) from country where Continent = 'Asia'
++-----------------+
+| SUM(Population) |
++-----------------+
+|      3705025700 |
++-----------------+
+1 row in set (0.00 sec);
+8.Which languages are spoken in the Region of ‘South America’?
+mysql> select l.language from countrylanguage as l join country as c on c.code =
+ l.language where c.continent = 'South America';
+Empty set (0.01 sec);
+9.What are the languages spoken on all cities named ‘Barcelona’ (you may need to join 3 tables =) )
