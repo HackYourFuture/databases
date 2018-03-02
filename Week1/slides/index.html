@@ -57,6 +57,39 @@ class: center, middle
 
 ---
 
+class: center, middle
+
+# Information storage
+# Information access
+
+---
+
+class: middle
+
+# A database in javascript
+
+Information storage:
+
+```js
+const musicians = [
+  "John Coltrane",
+  "Miles David",
+  "Thelonious Monk",
+  "Sonny Rollins"];
+```
+
+Storing new information:
+```js
+musicians.push("Steve Lehman");
+```
+
+Information access:
+```js
+console.log(musicians[0]); // 'John Coltrane'
+```
+
+---
+
 # Structured information (1): facts
 
 `frank likes programming`
@@ -77,7 +110,7 @@ class: center, middle
 
 `programming`: **object**
 
-*what or who the subject relates to*
+*who or what the subject relates to*
 
 ---
 
@@ -121,14 +154,6 @@ A table stores information structured in such a way that each row is a
         <td>1978</td>
     </tr>
 </table>
-
-As facts:
-
-```
-'Thelonious Monk' FirstName Thelonious
-'Thelonious Monk' LastName Monk
-'Thelonious Monk' Born 1917
-```
 
 ---
 
@@ -265,6 +290,8 @@ Now with a solution that's more structured.
 class: middle, center
 
 # Identity
+
+![Thelonious Monk](media/thelonious-monk.jpg)
 
 ---
 
@@ -454,7 +481,7 @@ The **Musician** column is a **foreign key**
 
 class: middle, center
 
-# Queries
+# Accessing information with queries
 
 ---
 
@@ -462,7 +489,7 @@ class: middle, center
 
 Now that we structured our information what can we do with it?
 
-We can ask the database questions!
+We can ask the database questions using a query language!
 
 ---
 
@@ -502,6 +529,123 @@ WHERE FirstName = 'Thelonious'
 +----+------------+----------+------+
 1 row in set (0.00 sec)
 ```
+
+---
+
+class: center, middle
+
+# More relationships
+
+---
+
+# Many-to-many relationship
+
+How do we model which instruments the muscians played?
+
+<table class="db-table">
+    <tr>
+        <th>Musicians</th>
+    </tr>
+    <tr>
+        <th>Id</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Born</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Thelonious</td>
+        <td>Monk</td>
+        <td>1917</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Sonny</td>
+        <td>Rollins</td>
+        <td>1930</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Steve</td>
+        <td>Lehman</td>
+        <td>1978</td>
+    </tr>
+</table>
+
+<br/>
+
+<table class="db-table">
+    <tr>
+        <th>Instruments</th>
+    </tr>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Type</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Piano</td>
+        <td>Key</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Tenor Saxophone</td>
+        <td>Wind</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Soprano Saxophone</td>
+        <td>Wind</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Alto-saxophone</td>
+        <td>Wind</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Guitar</td>
+        <td>String</td>
+    </tr>
+</table>
+
+---
+
+class: center, middle
+
+# Answer: with another table!
+
+<table class="db-table">
+    <tr>
+        <th>InstrumentsPlayed</th>
+    </tr>
+    <tr>
+        <th>Id</th>
+        <th>Musician</th>
+        <th>Instrument</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+</table>
 
     </textarea>
     <script src="js/remark.js">
