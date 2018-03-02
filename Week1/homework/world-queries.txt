@@ -37,3 +37,194 @@ SELECT name AS city FROM city WHERE CountryCode = 'NLD';
 | Heerlen           |
 | Alkmaar           |
 +-------------------+
+
+2. What is the population of Rotterdam ?
+
+SELECT population FROM city WHERE name = 'Rotterdam';
+
++------------+
+| population |
++------------+
+|     593321 |
++------------+
+
+3. What's the name of all the countries on the continent ‘North America’ ?
+
+SELECT name FROM country WHERE Continent = 'North America';
+
++----------------------------------+
+| name                             |
++----------------------------------+
+| Aruba                            |
+| Anguilla                         |
+| Netherlands Antilles             |
+| Antigua and Barbuda              |
+| Bahamas                          |
+| Belize                           |
+| Bermuda                          |
+| Barbados                         |
+| Canada                           |
+| Costa Rica                       |
+| Cuba                             |
+| Cayman Islands                   |
+| Dominica                         |
+| Dominican Republic               |
+| Guadeloupe                       |
+| Grenada                          |
+| Greenland                        |
+| Guatemala                        |
+| Honduras                         |
+| Haiti                            |
+| Jamaica                          |
+| Saint Kitts and Nevis            |
+| Saint Lucia                      |
+| Mexico                           |
+| Montserrat                       |
+| Martinique                       |
+| Nicaragua                        |
+| Panama                           |
+| Puerto Rico                      |
+| El Salvador                      |
+| Saint Pierre and Miquelon        |
+| Turks and Caicos Islands         |
+| Trinidad and Tobago              |
+| United States                    |
+| Saint Vincent and the Grenadines |
+| Virgin Islands, British          |
+| Virgin Islands, U.S.             |
++----------------------------------+
+
+4. What's the top 10 countries by SurfaceArea ?
+
+SELECT name, surfaceArea FROM country ORDER BY SurfaceArea DESC LIMIT 10;
+
++--------------------+-------------+
+| name               | surfaceArea |
++--------------------+-------------+
+| Russian Federation | 17075400.00 |
+| Antarctica         | 13120000.00 |
+| Canada             |  9970610.00 |
+| China              |  9572900.00 |
+| United States      |  9363520.00 |
+| Brazil             |  8547403.00 |
+| Australia          |  7741220.00 |
+| India              |  3287263.00 |
+| Argentina          |  2780400.00 |
+| Kazakstan          |  2724900.00 |
++--------------------+-------------+
+
+5. What's the top 10 most populated cities?
+
+SELECT name, CountryCode, Population FROM city ORDER BY population DESC LIMIT 10;
+
++---------------------+-------------+------------+
+| Name                | CountryCode | Population |
++---------------------+-------------+------------+
+| Mumbai (Bombay)     | IND         |   10500000 |
+| Seoul               | KOR         |    9981619 |
+| SÃ£o Paulo          | BRA         |    9968485 |
+| Shanghai            | CHN         |    9696300 |
+| Jakarta             | IDN         |    9604900 |
+| Karachi             | PAK         |    9269265 |
+| Istanbul            | TUR         |    8787958 |
+| Ciudad de MÃ©xico   | MEX         |    8591309 |
+| Moscow              | RUS         |    8389200 |
+| New York            | USA         |    8008278 |
++---------------------+-------------+------------+
+
+6. Select the top 3 countries by population that their names start with the later ‘P’
+
+SELECT name, population FROM country WHERE name LIKE 'p%' ORDER BY population DESC LIMIT 3;
+
++-------------+------------+
+| name        | population |
++-------------+------------+
+| Pakistan    |  156483000 |
+| Philippines |   75967000 |
+| Poland      |   38653600 |
++-------------+------------+
+
+7. What is the population in Asia?
+
+SELECT SUM(population) FROM country WHERE continent = 'asia';
+
++-----------------+
+| SUM(population) |
++-----------------+
+|      3705025700 |
++-----------------+
+
+8. Which languages are spoken in the Region of ‘South America’
+
+SELECT language, countrylanguage.countrycode, country.name AS country 
+FROM countrylanguage 
+JOIN country 
+ON countrylanguage.countrycode = country.code 
+WHERE region = 'south america';
+
++------------------+-------------+------------------+
+| language         | countrycode | country          |
++------------------+-------------+------------------+
+| Indian Languages | ARG         | Argentina        |
+| Italian          | ARG         | Argentina        |
+| Spanish          | ARG         | Argentina        |
+| AimarÃ¡          | BOL         | Bolivia          |
+| GuaranÃ­          | BOL         | Bolivia          |
+| KetÂšua          | BOL         | Bolivia          |
+| Spanish          | BOL         | Bolivia          |
+| German           | BRA         | Brazil           |
+| Indian Languages | BRA         | Brazil           |
+| Italian          | BRA         | Brazil           |
+| Japanese         | BRA         | Brazil           |
+| Portuguese       | BRA         | Brazil           |
+| AimarÃ¡          | CHL         | Chile            |
+| Araucan          | CHL         | Chile            |
+| Rapa nui         | CHL         | Chile            |
+| Spanish          | CHL         | Chile            |
+| Arawakan         | COL         | Colombia         |
+| Caribbean        | COL         | Colombia         |
+| Chibcha          | COL         | Colombia         |
+| Creole English   | COL         | Colombia         |
+| Spanish          | COL         | Colombia         |
+| KetÂšua          | ECU         | Ecuador          |
+| Spanish          | ECU         | Ecuador          |
+| English          | FLK         | Falkland Islands |
+| Creole French    | GUF         | French Guiana    |
+| Indian Languages | GUF         | French Guiana    |
+| Arawakan         | GUY         | Guyana           |
+| Caribbean        | GUY         | Guyana           |
+| Creole English   | GUY         | Guyana           |
+| AimarÃ¡          | PER         | Peru             |
+| KetÂšua          | PER         | Peru             |
+| Spanish          | PER         | Peru             |
+| German           | PRY         | Paraguay         |
+| GuaranÃ­          | PRY         | Paraguay         |
+| Portuguese       | PRY         | Paraguay         |
+| Spanish          | PRY         | Paraguay         |
+| Hindi            | SUR         | Suriname         |
+| Sranantonga      | SUR         | Suriname         |
+| Spanish          | URY         | Uruguay          |
+| Goajiro          | VEN         | Venezuela        |
+| Spanish          | VEN         | Venezuela        |
+| Warrau           | VEN         | Venezuela        |
++------------------+-------------+------------------+
+
+9. What are the languages spoken on all cities named ‘Barcelona’
+
+SELECT CountryCode, Language, IsOfficial, Percentage, Name, CountryCode, Population
+FROM countrylanguage
+INNER JOIN city
+ON city.countrycode = countrylanguage.countrycode
+WHERE city.name = 'barcelona';
+
++-------------+----------+------------+------------+-----------+-------------+------------+
+| CountryCode | Language | IsOfficial | Percentage | Name      | CountryCode | Population |
++-------------+----------+------------+------------+-----------+-------------+------------+
+| ESP         | Basque   | F          |        1.6 | Barcelona | ESP         |    1503451 |
+| ESP         | Catalan  | F          |       16.9 | Barcelona | ESP         |    1503451 |
+| ESP         | Galecian | F          |        6.4 | Barcelona | ESP         |    1503451 |
+| ESP         | Spanish  | T          |       74.4 | Barcelona | ESP         |    1503451 |
+| VEN         | Goajiro  | F          |        0.4 | Barcelona | VEN         |     322267 |
+| VEN         | Spanish  | T          |       96.9 | Barcelona | VEN         |     322267 |
+| VEN         | Warrau   | F          |        0.1 | Barcelona | VEN         |     322267 |
++-------------+----------+------------+------------+-----------+-------------+------------+
