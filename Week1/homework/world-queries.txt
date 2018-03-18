@@ -4,9 +4,9 @@ For example:
 
 1. What are the names of all the cities in the Netherlands?
 
-SELECT name AS city FROM city WHERE CountryCode = 'NLD';
+SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Name = 'Netherlands';
 +-------------------+
-| city              |
+| Name              |
 +-------------------+
 | Amsterdam         |
 | Rotterdam         |
@@ -37,3 +37,4 @@ SELECT name AS city FROM city WHERE CountryCode = 'NLD';
 | Heerlen           |
 | Alkmaar           |
 +-------------------+
+28 rows in set (0.00 sec)
