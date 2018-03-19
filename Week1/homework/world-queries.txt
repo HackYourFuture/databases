@@ -200,7 +200,7 @@ mysql> SELECT Language FROM countrylanguage JOIN country WHERE (countrylanguage.
 42 rows in set (0.00 sec)
 
 9. What are the languages spoken on all cities named ‘Barcelona’
-mysql> SELECT Language FROM countrylanguage JOIN (city) WHERE (countrylanguage.CountryCode = 'ESP' AND city.Name = 'Barcelona');
+mysql> SELECT Language FROM countrylanguage JOIN (city) WHERE (countrylanguage.CountryCode = city.CountryCode AND city.Name = 'Barcelona');
 +----------+
 | Language |
 +----------+
@@ -208,10 +208,8 @@ mysql> SELECT Language FROM countrylanguage JOIN (city) WHERE (countrylanguage.C
 | Catalan  |
 | Galecian |
 | Spanish  |
-| Basque   |
-| Catalan  |
-| Galecian |
+| Goajiro  |
 | Spanish  |
+| Warrau   |
 +----------+
-8 rows in set (0.00 sec)
-
+7 rows in set (0.00 sec)
