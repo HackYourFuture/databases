@@ -38,3 +38,627 @@ SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE
 | Alkmaar           |
 +-------------------+
 28 rows in set (0.00 sec)
+
+ select Population,Name from city where Name='Rotterdam';
++------------+-----------+
+| Population | Name      |
++------------+-----------+
+|     593321 | Rotterdam |
++------------+-----------+
+1 row in set (0,00 sec)
+
+3
+
+mysql> select Name ,continent from country where continent = 'North America';
++----------------------------------+---------------+
+| Name                             | continent     |
++----------------------------------+---------------+
+| Aruba                            | North America |
+| Anguilla                         | North America |
+| Netherlands Antilles             | North America |
+| Antigua and Barbuda              | North America |
+| Bahamas                          | North America |
+| Belize                           | North America |
+| Bermuda                          | North America |
+| Barbados                         | North America |
+| Canada                           | North America |
+| Costa Rica                       | North America |
+| Cuba                             | North America |
+| Cayman Islands                   | North America |
+| Dominica                         | North America |
+| Dominican Republic               | North America |
+| Guadeloupe                       | North America |
+| Grenada                          | North America |
+| Greenland                        | North America |
+| Guatemala                        | North America |
+| Honduras                         | North America |
+| Haiti                            | North America |
+| Jamaica                          | North America |
+| Saint Kitts and Nevis            | North America |
+| Saint Lucia                      | North America |
+| Mexico                           | North America |
+| Montserrat                       | North America |
+| Martinique                       | North America |
+| Nicaragua                        | North America |
+| Panama                           | North America |
+| Puerto Rico                      | North America |
+| El Salvador                      | North America |
+| Saint Pierre and Miquelon        | North America |
+| Turks and Caicos Islands         | North America |
+| Trinidad and Tobago              | North America |
+| United States                    | North America |
+| Saint Vincent and the Grenadines | North America |
+| Virgin Islands, British          | North America |
+| Virgin Islands, U.S.             | North America |
++----------------------------------+---------------+
+37 rows in set (0,00 sec)
+
+
+4
+
+mysql> select SurfaceArea,Name from country ORDER BY SurfaceArea  DESC LIMIT 10 ;
++-------------+--------------------+
+| SurfaceArea | Name               |
++-------------+--------------------+
+| 17075400.00 | Russian Federation |
+| 13120000.00 | Antarctica         |
+|  9970610.00 | Canada             |
+|  9572900.00 | China              |
+|  9363520.00 | United States      |
+|  8547403.00 | Brazil             |
+|  7741220.00 | Australia          |
+|  3287263.00 | India              |
+|  2780400.00 | Argentina          |
+|  2724900.00 | Kazakstan          |
++-------------+--------------------+
+10 rows in set (0,00 sec)
+
+mysql> 
+
+
+
+5
+
+
+mysql> select Population,Name from city ORDER BY Population DESC LIMIT 10 ;
++------------+-------------------+
+| Population | Name              |
++------------+-------------------+
+|   10500000 | Mumbai (Bombay)   |
+|    9981619 | Seoul             |
+|    9968485 | São Paulo         |
+|    9696300 | Shanghai          |
+|    9604900 | Jakarta           |
+|    9269265 | Karachi           |
+|    8787958 | Istanbul          |
+|    8591309 | Ciudad de México  |
+|    8389200 | Moscow            |
+|    8008278 | New York          |
++------------+-------------------+
+10 rows in set (0,09 sec)
+
+
+6
+
+
+select Name,Population  from country where Name LIKE 'p%'  ORDER BY Population DESC LIMIT 3 ;
++-------------+------------+
+| Name        | Population |
++-------------+------------+
+| Pakistan    |  156483000 |
+| Philippines |   75967000 |
+| Poland      |   38653600 |
++-------------+------------+
+3 rows in set (0,00 sec)
+
+
+
+7 
+
+
+
+mysql> select SUM(Population) from country where  Continent = 'Asia';
++-----------------+
+| SUM(Population) |
++-----------------+
+|      3705025700 |
++-----------------+
+1 row in set (0,00 sec)
+
+
+8
+
+
+mysql> select distinct  country.Region , countrylanguage.Language from country,countrylanguage where country.Region = 'South America';
++---------------+---------------------------+
+| Region        | Language                  |
++---------------+---------------------------+
+| South America | Dutch                     |
+| South America | English                   |
+| South America | Papiamento                |
+| South America | Spanish                   |
+| South America | Balochi                   |
+| South America | Dari                      |
+| South America | Pashto                    |
+| South America | Turkmenian                |
+| South America | Uzbek                     |
+| South America | Ambo                      |
+| South America | Chokwe                    |
+| South America | Kongo                     |
+| South America | Luchazi                   |
+| South America | Luimbe-nganguela          |
+| South America | Luvale                    |
+| South America | Mbundu                    |
+| South America | Nyaneka-nkhumbi           |
+| South America | Ovimbundu                 |
+| South America | Albaniana                 |
+| South America | Greek                     |
+| South America | Macedonian                |
+| South America | Catalan                   |
+| South America | French                    |
+| South America | Portuguese                |
+| South America | Arabic                    |
+| South America | Hindi                     |
+| South America | Indian Languages          |
+| South America | Italian                   |
+| South America | Armenian                  |
+| South America | Azerbaijani               |
+| South America | Samoan                    |
+| South America | Tongan                    |
+| South America | Creole English            |
+| South America | Canton Chinese            |
+| South America | German                    |
+| South America | Serbo-Croatian            |
+| South America | Vietnamese                |
+| South America | Czech                     |
+| South America | Hungarian                 |
+| South America | Polish                    |
+| South America | Romanian                  |
+| South America | Slovene                   |
+| South America | Turkish                   |
+| South America | Lezgian                   |
+| South America | Russian                   |
+| South America | Kirundi                   |
+| South America | Swahili                   |
+| South America | Adja                      |
+| South America | Aizo                      |
+| South America | Bariba                    |
+| South America | Fon                       |
+| South America | Ful                       |
+| South America | Joruba                    |
+| South America | Somba                     |
+| South America | Busansi                   |
+| South America | Dagara                    |
+| South America | Dyula                     |
+| South America | Gurma                     |
+| South America | Mossi                     |
+| South America | Bengali                   |
+| South America | Chakma                    |
+| South America | Garo                      |
+| South America | Khasi                     |
+| South America | Marma                     |
+| South America | Santhali                  |
+| South America | Tripuri                   |
+| South America | Bulgariana                |
+| South America | Romani                    |
+| South America | Creole French             |
+| South America | Belorussian               |
+| South America | Ukrainian                 |
+| South America | Garifuna                  |
+| South America | Maya Languages            |
+| South America | Aimará                    |
+| South America | Guaraní                   |
+| South America | Ketšua                    |
+| South America | Japanese                  |
+| South America | Bajan                     |
+| South America | Chinese                   |
+| South America | Malay                     |
+| South America | Malay-English             |
+| South America | Asami                     |
+| South America | Dzongkha                  |
+| South America | Nepali                    |
+| South America | Khoekhoe                  |
+| South America | Ndebele                   |
+| South America | San                       |
+| South America | Shona                     |
+| South America | Tswana                    |
+| South America | Banda                     |
+| South America | Gbaya                     |
+| South America | Mandjia                   |
+| South America | Mbum                      |
+| South America | Ngbaka                    |
+| South America | Sara                      |
+| South America | Eskimo Languages          |
+| South America | Punjabi                   |
+| South America | Romansh                   |
+| South America | Araucan                   |
+| South America | Rapa nui                  |
+| South America | Dong                      |
+| South America | Hui                       |
+| South America | Mantšu                    |
+| South America | Miao                      |
+| South America | Mongolian                 |
+| South America | Puyi                      |
+| South America | Tibetan                   |
+| South America | Tujia                     |
+| South America | Uighur                    |
+| South America | Yi                        |
+| South America | Zhuang                    |
+| South America | Akan                      |
+| South America | Gur                       |
+| South America | Kru                       |
+| South America | Malinke                   |
+| South America | [South]Mande              |
+| South America | Bamileke-bamum            |
+| South America | Duala                     |
+| South America | Fang                      |
+| South America | Maka                      |
+| South America | Mandara                   |
+| South America | Masana                    |
+| South America | Tikar                     |
+| South America | Boa                       |
+| South America | Luba                      |
+| South America | Mongo                     |
+| South America | Ngala and Bangi           |
+| South America | Rundi                     |
+| South America | Rwanda                    |
+| South America | Teke                      |
+| South America | Zande                     |
+| South America | Mbete                     |
+| South America | Mboshi                    |
+| South America | Punu                      |
+| South America | Sango                     |
+| South America | Maori                     |
+| South America | Arawakan                  |
+| South America | Caribbean                 |
+| South America | Chibcha                   |
+| South America | Comorian                  |
+| South America | Comorian-Arabic           |
+| South America | Comorian-French           |
+| South America | Comorian-madagassi        |
+| South America | Comorian-Swahili          |
+| South America | Crioulo                   |
+| South America | Moravian                  |
+| South America | Silesiana                 |
+| South America | Slovak                    |
+| South America | Southern Slavic Languages |
+| South America | Afar                      |
+| South America | Somali                    |
+| South America | Danish                    |
+| South America | Norwegian                 |
+| South America | Swedish                   |
+| South America | Berberi                   |
+| South America | Sinaberberi               |
+| South America | Bilin                     |
+| South America | Hadareb                   |
+| South America | Saho                      |
+| South America | Tigre                     |
+| South America | Tigrinja                  |
+| South America | Basque                    |
+| South America | Galecian                  |
+| South America | Estonian                  |
+| South America | Finnish                   |
+| South America | Amhara                    |
+| South America | Gurage                    |
+| South America | Oromo                     |
+| South America | Sidamo                    |
+| South America | Walaita                   |
+| South America | Saame                     |
+| South America | Fijian                    |
+| South America | Faroese                   |
+| South America | Kosrean                   |
+| South America | Mortlock                  |
+| South America | Pohnpei                   |
+| South America | Trukese                   |
+| South America | Wolea                     |
+| South America | Yap                       |
+| South America | Mpongwe                   |
+| South America | Punu-sira-nzebi           |
+| South America | Gaeli                     |
+| South America | Kymri                     |
+| South America | Abhyasi                   |
+| South America | Georgiana                 |
+| South America | Osseetti                  |
+| South America | Ewe                       |
+| South America | Ga-adangme                |
+| South America | Kissi                     |
+| South America | Kpelle                    |
+| South America | Loma                      |
+| South America | Susu                      |
+| South America | Yalunka                   |
+| South America | Diola                     |
+| South America | Soninke                   |
+| South America | Wolof                     |
+| South America | Balante                   |
+| South America | Mandyako                  |
+| South America | Bubi                      |
+| South America | Greenlandic               |
+| South America | Cakchiquel                |
+| South America | Kekchí                    |
+| South America | Mam                       |
+| South America | Quiché                    |
+| South America | Chamorro                  |
+| South America | Korean                    |
+| South America | Philippene Languages      |
+| South America | Chiu chau                 |
+| South America | Fukien                    |
+| South America | Hakka                     |
+| South America | Miskito                   |
+| South America | Haiti Creole              |
+| South America | Bali                      |
+| South America | Banja                     |
+| South America | Batakki                   |
+| South America | Bugi                      |
+| South America | Javanese                  |
+| South America | Madura                    |
+| South America | Minangkabau               |
+| South America | Sunda                     |
+| South America | Gujarati                  |
+| South America | Kannada                   |
+| South America | Malajalam                 |
+| South America | Marathi                   |
+| South America | Orija                     |
+| South America | Tamil                     |
+| South America | Telugu                    |
+| South America | Urdu                      |
+| South America | Irish                     |
+| South America | Bakhtyari                 |
+| South America | Gilaki                    |
+| South America | Kurdish                   |
+| South America | Luri                      |
+| South America | Mazandarani               |
+| South America | Persian                   |
+| South America | Assyrian                  |
+| South America | Icelandic                 |
+| South America | Hebrew                    |
+| South America | Friuli                    |
+| South America | Sardinian                 |
+| South America | Circassian                |
+| South America | Ainu                      |
+| South America | Kazakh                    |
+| South America | Tatar                     |
+| South America | Gusii                     |
+| South America | Kalenjin                  |
+| South America | Kamba                     |
+| South America | Kikuyu                    |
+| South America | Luhya                     |
+| South America | Luo                       |
+| South America | Masai                     |
+| South America | Meru                      |
+| South America | Nyika                     |
+| South America | Turkana                   |
+| South America | Kirgiz                    |
+| South America | Tadzhik                   |
+| South America | Khmer                     |
+| South America | Tšam                      |
+| South America | Kiribati                  |
+| South America | Tuvalu                    |
+| South America | Lao                       |
+| South America | Lao-Soung                 |
+| South America | Mon-khmer                 |
+| South America | Thai                      |
+| South America | Bassa                     |
+| South America | Gio                       |
+| South America | Grebo                     |
+| South America | Mano                      |
+| South America | Mixed Languages           |
+| South America | Singali                   |
+| South America | Sotho                     |
+| South America | Zulu                      |
+| South America | Lithuanian                |
+| South America | Luxembourgish             |
+| South America | Latvian                   |
+| South America | Mandarin Chinese          |
+| South America | Monegasque                |
+| South America | Gagauzi                   |
+| South America | Malagasy                  |
+| South America | Dhivehi                   |
+| South America | Mixtec                    |
+| South America | Náhuatl                   |
+| South America | Otomí                     |
+| South America | Yucatec                   |
+| South America | Zapotec                   |
+| South America | Marshallese               |
+| South America | Bambara                   |
+| South America | Senufo and Minianka       |
+| South America | Songhai                   |
+| South America | Tamashek                  |
+| South America | Maltese                   |
+| South America | Burmese                   |
+| South America | Chin                      |
+| South America | Kachin                    |
+| South America | Karen                     |
+| South America | Kayah                     |
+| South America | Mon                       |
+| South America | Rakhine                   |
+| South America | Shan                      |
+| South America | Bajad                     |
+| South America | Buryat                    |
+| South America | Dariganga                 |
+| South America | Dorbet                    |
+| South America | Carolinian                |
+| South America | Chuabo                    |
+| South America | Lomwe                     |
+| South America | Makua                     |
+| South America | Marendje                  |
+| South America | Nyanja                    |
+| South America | Ronga                     |
+| South America | Sena                      |
+| South America | Tsonga                    |
+| South America | Tswa                      |
+| South America | Hassaniya                 |
+| South America | Tukulor                   |
+| South America | Zenaga                    |
+| South America | Bhojpuri                  |
+| South America | Chichewa                  |
+| South America | Ngoni                     |
+| South America | Yao                       |
+| South America | Dusun                     |
+| South America | Iban                      |
+| South America | Mahoré                    |
+| South America | Afrikaans                 |
+| South America | Caprivi                   |
+| South America | Herero                    |
+| South America | Kavango                   |
+| South America | Nama                      |
+| South America | Ovambo                    |
+| South America | Malenasian Languages      |
+| South America | Polynesian Languages      |
+| South America | Hausa                     |
+| South America | Kanuri                    |
+| South America | Songhai-zerma             |
+| South America | Bura                      |
+| South America | Edo                       |
+| South America | Ibibio                    |
+| South America | Ibo                       |
+| South America | Ijo                       |
+| South America | Tiv                       |
+| South America | Sumo                      |
+| South America | Niue                      |
+| South America | Fries                     |
+| South America | Maithili                  |
+| South America | Newari                    |
+| South America | Tamang                    |
+| South America | Tharu                     |
+| South America | Nauru                     |
+| South America | Brahui                    |
+| South America | Hindko                    |
+| South America | Saraiki                   |
+| South America | Sindhi                    |
+| South America | Cuna                      |
+| South America | Embera                    |
+| South America | Guaymí                    |
+| South America | Pitcairnese               |
+| South America | Bicol                     |
+| South America | Cebuano                   |
+| South America | Hiligaynon                |
+| South America | Ilocano                   |
+| South America | Maguindanao               |
+| South America | Maranao                   |
+| South America | Pampango                  |
+| South America | Pangasinan                |
+| South America | Pilipino                  |
+| South America | Waray-waray               |
+| South America | Palau                     |
+| South America | Papuan Languages          |
+| South America | Tahitian                  |
+| South America | Avarian                   |
+| South America | Bashkir                   |
+| South America | Chechen                   |
+| South America | Chuvash                   |
+| South America | Mari                      |
+| South America | Mordva                    |
+| South America | Udmur                     |
+| South America | Bari                      |
+| South America | Beja                      |
+| South America | Chilluk                   |
+| South America | Dinka                     |
+| South America | Fur                       |
+| South America | Lotuko                    |
+| South America | Nubian Languages          |
+| South America | Nuer                      |
+| South America | Serer                     |
+| South America | Bullom-sherbro            |
+| South America | Kono-vai                  |
+| South America | Kuranko                   |
+| South America | Limba                     |
+| South America | Mende                     |
+| South America | Temne                     |
+| South America | Nahua                     |
+| South America | Sranantonga               |
+| South America | Czech and Moravian        |
+| South America | Ukrainian and Russian     |
+| South America | Swazi                     |
+| South America | Seselwa                   |
+| South America | Gorane                    |
+| South America | Hadjarai                  |
+| South America | Kanem-bornu               |
+| South America | Mayo-kebbi                |
+| South America | Ouaddai                   |
+| South America | Tandjile                  |
+| South America | Ane                       |
+| South America | Kabyé                     |
+| South America | Kotokoli                  |
+| South America | Moba                      |
+| South America | Naudemba                  |
+| South America | Watyi                     |
+| South America | Kuy                       |
+| South America | Tokelau                   |
+| South America | Arabic-French             |
+| South America | Arabic-French-English     |
+| South America | Ami                       |
+| South America | Atayal                    |
+| South America | Min                       |
+| South America | Paiwan                    |
+| South America | Chaga and Pare            |
+| South America | Gogo                      |
+| South America | Ha                        |
+| South America | Haya                      |
+| South America | Hehet                     |
+| South America | Luguru                    |
+| South America | Makonde                   |
+| South America | Nyakusa                   |
+| South America | Nyamwesi                  |
+| South America | Shambala                  |
+| South America | Acholi                    |
+| South America | Ganda                     |
+| South America | Gisu                      |
+| South America | Kiga                      |
+| South America | Lango                     |
+| South America | Lugbara                   |
+| South America | Nkole                     |
+| South America | Soga                      |
+| South America | Teso                      |
+| South America | Tagalog                   |
+| South America | Karakalpak                |
+| South America | Goajiro                   |
+| South America | Warrau                    |
+| South America | Man                       |
+| South America | Muong                     |
+| South America | Nung                      |
+| South America | Tho                       |
+| South America | Bislama                   |
+| South America | Futuna                    |
+| South America | Wallis                    |
+| South America | Samoan-English            |
+| South America | Soqutri                   |
+| South America | Northsotho                |
+| South America | Southsotho                |
+| South America | Venda                     |
+| South America | Xhosa                     |
+| South America | Bemba                     |
+| South America | Chewa                     |
+| South America | Lozi                      |
+| South America | Nsenga                    |
++---------------+---------------------------+
+457 rows in set (0,02 sec)
+
+mysql> 
+
+
+
+9 
+
+
+mysql> select city.Name , city.CountryCode,countrylanguage.Language  from city INNER  JOIN  countrylanguage ON countrylanguage.CountryCode = city.CountryCode where city.Name = 'Barcelona' ;
++-----------+-------------+----------+
+| Name      | CountryCode | Language |
++-----------+-------------+----------+
+| Barcelona | ESP         | Basque   |
+| Barcelona | ESP         | Catalan  |
+| Barcelona | ESP         | Galecian |
+| Barcelona | ESP         | Spanish  |
+| Barcelona | VEN         | Goajiro  |
+| Barcelona | VEN         | Spanish  |
+| Barcelona | VEN         | Warrau   |
++-----------+-------------+----------+
+7 rows in set (0,00 sec)
+
+mysql> 
+
+
+
+
+
+
+
