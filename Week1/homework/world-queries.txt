@@ -150,7 +150,68 @@ mysql> SELECT SUM(Population) FROM country WHERE Continent = 'Asia';
 1 row in set (0.00 sec)
 
 8. Which languages are spoken in the Region of ‘South America’
-mysql> SELECT Language FROM countrylanguage WHERE CountryCode = (SELECT Code FROM country WHERE Region = 'South America');
+mysql> SELECT Language FROM countrylanguage JOIN country WHERE (countrylanguage.CountryCode = country.Code AND Region = 'South America');
++------------------+
+| Language         |
++------------------+
+| Indian Languages |
+| Italian          |
+| Spanish          |
+| Aimará           |
+| Guaraní          |
+| Ketšua           |
+| Spanish          |
+| German           |
+| Indian Languages |
+| Italian          |
+| Japanese         |
+| Portuguese       |
+| Aimará           |
+| Araucan          |
+| Rapa nui         |
+| Spanish          |
+| Arawakan         |
+| Caribbean        |
+| Chibcha          |
+| Creole English   |
+| Spanish          |
+| Ketšua           |
+| Spanish          |
+| English          |
+| Creole French    |
+| Indian Languages |
+| Arawakan         |
+| Caribbean        |
+| Creole English   |
+| Aimará           |
+| Ketšua           |
+| Spanish          |
+| German           |
+| Guaraní          |
+| Portuguese       |
+| Spanish          |
+| Hindi            |
+| Sranantonga      |
+| Spanish          |
+| Goajiro          |
+| Spanish          |
+| Warrau           |
++------------------+
+42 rows in set (0.00 sec)
 
 9. What are the languages spoken on all cities named ‘Barcelona’
-mysql> SELECT Language FROM countrylanguage WHERE CountryCode = (SELECT CountryCode FROM city JOIN country WHERE city.CountryCode = country.Code);
+mysql> SELECT Language FROM countrylanguage JOIN (city) WHERE (countrylanguage.CountryCode = 'ESP' AND city.Name = 'Barcelona');
++----------+
+| Language |
++----------+
+| Basque   |
+| Catalan  |
+| Galecian |
+| Spanish  |
+| Basque   |
+| Catalan  |
+| Galecian |
+| Spanish  |
++----------+
+8 rows in set (0.00 sec)
+
