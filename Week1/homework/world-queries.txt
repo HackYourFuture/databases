@@ -141,12 +141,12 @@ SELECT Name AS CountryName FROM Country WHERE Name LIKE 'P%' ORDER BY Population
 
 7. What is the population in Asia?
 
- SELECT Continent, Population FROM Country WHERE Continent='Asia' GROUP BY Continent;
-+-----------+------------+
-| Continent | Population |
-+-----------+------------+
-| Asia      |   22720000 |
-+-----------+------------+
+ SELECT Continent, SUM(Population) FROM Country WHERE Continent='Asia' GROUP BY Continent;
++-----------+-----------------+
+| Continent | SUM(Population) |
++-----------+-----------------+
+| Asia      |      3705025700 |
++-----------+-----------------+
 
 8. Which languages are spoken in the Region of ‘South America’
 
