@@ -2,6 +2,14 @@
 // that we can use to connect to a MySQL process
 // and access its databases.
 const mysql = require('mysql');
+const conf = require('./db-secret.json');
+console.log(conf);
+const dbConnection = mysql.createConnection({
+    host: conf.host,
+    user: conf.user,
+    password: conf.password,
+    database: conf.database
+});
 
 class TodoModel {
     constructor(dbConnection) {
@@ -46,12 +54,6 @@ class TodoModel {
     }
 }
 
-const dbConnection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : '',
-    database : 'todo_app'
-});
 
 dbConnection.connect(function(err) {
     if (err != null) {
@@ -69,4 +71,5 @@ dbConnection.connect(function(err) {
 
         console.log("existing todo items:", todoItems);
     });
+    dbConnection.end()
 });
