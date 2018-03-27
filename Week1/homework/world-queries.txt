@@ -38,3 +38,180 @@ SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE
 | Alkmaar           |
 +-------------------+
 28 rows in set (0.00 sec)
+
+2. What is the population of Rotterdam ?
+
+SELECT Population FROM city WHERE city.Name="Rotterdam";
++------------+
+| Population |
++------------+
+|     593321 |
++------------+
+1 row in set (0.00 sec)
+
+3. What's the name of all the countries on the continent ‘North America’ ?
+
+ SELECT Name FROM country WHERE country.Continent="North America";
++----------------------------------+
+| Name                             |
++----------------------------------+
+| Aruba                            |
+| Anguilla                         |
+| Netherlands Antilles             |
+| Antigua and Barbuda              |
+| Bahamas                          |
+| Belize                           |
+| Bermuda                          |
+| Barbados                         |
+| Canada                           |
+| Costa Rica                       |
+| Cuba                             |
+| Cayman Islands                   |
+| Dominica                         |
+| Dominican Republic               |
+| Guadeloupe                       |
+| Grenada                          |
+| Greenland                        |
+| Guatemala                        |
+| Honduras                         |
+| Haiti                            |
+| Jamaica                          |
+| Saint Kitts and Nevis            |
+| Saint Lucia                      |
+| Mexico                           |
+| Montserrat                       |
+| Martinique                       |
+| Nicaragua                        |
+| Panama                           |
+| Puerto Rico                      |
+| El Salvador                      |
+| Saint Pierre and Miquelon        |
+| Turks and Caicos Islands         |
+| Trinidad and Tobago              |
+| United States                    |
+| Saint Vincent and the Grenadines |
+| Virgin Islands, British          |
+| Virgin Islands, U.S.             |
++----------------------------------+
+37 rows in set (0.00 sec)
+
+4. What's the top 10 countries by SurfaceArea ?
+SELECT Name FROM country WHERE SurfaceArea LIMIT 0, 10;
++----------------------+
+| Name                 |
++----------------------+
+| Aruba                |
+| Afghanistan          |
+| Angola               |
+| Anguilla             |
+| Albania              |
+| Andorra              |
+| Netherlands Antilles |
+| United Arab Emirates |
+| Argentina            |
+| Armenia              |
++----------------------+
+10 rows in set (0.00 sec)
+
+5. What's the top 10 most populated cities?
+SELECT Name, Population FROM city ORDER BY Population DESC LIMIT 10;
++---------------------+------------+
+| Name                | Population |
++---------------------+------------+
+| Mumbai (Bombay)     |   10500000 |
+| Seoul               |    9981619 |
+| SÃ£o Paulo          |    9968485 |
+| Shanghai            |    9696300 |
+| Jakarta             |    9604900 |
+| Karachi             |    9269265 |
+| Istanbul            |    8787958 |
+| Ciudad de MÃ©xico   |    8591309 |
+| Moscow              |    8389200 |
+| New York            |    8008278 |
++---------------------+------------+
+10 rows in set (0.12 sec)
+
+6. Select the top 3 countries by population that their names start with the letter ‘P’
+SELECT Name, Population FROM country WHERE Name LIKE 'P%' ORDER BY Population DESC LIMIT 3;
++-------------+------------+
+| Name        | Population |
++-------------+------------+
+| Pakistan    |  156483000 |
+| Philippines |   75967000 |
+| Poland      |   38653600 |
++-------------+------------+
+3 rows in set (0.00 sec)
+
+7. What is the population in Asia?
+SELECT Continent, SUM(Population) FROM country WHERE country.Continent='Asia';
++-----------+-----------------+
+| Continent | SUM(Population) |
++-----------+-----------------+
+| Asia      |      3705025700 |
++-----------+-----------------+
+1 row in set (0.10 sec)
+
+8. Which languages are spoken in the Region of ‘South America’
+SELECT Language FROM countrylanguage JOIN country ON countrylanguage.CountryCode=country.Code WHERE country.Region='South America';
++------------------+
+| Language         |
++------------------+
+| Indian Languages |
+| Italian          |
+| Spanish          |
+| AimarÃ¡          |
+| GuaranÃ­         |
+| KetÂšua          |
+| Spanish          |
+| German           |
+| Indian Languages |
+| Italian          |
+| Japanese         |
+| Portuguese       |
+| AimarÃ¡          |
+| Araucan          |
+| Rapa nui         |
+| Spanish          |
+| Arawakan         |
+| Caribbean        |
+| Chibcha          |
+| Creole English   |
+| Spanish          |
+| KetÂšua          |
+| Spanish          |
+| English          |
+| Creole French    |
+| Indian Languages |
+| Arawakan         |
+| Caribbean        |
+| Creole English   |
+| AimarÃ¡          |
+| KetÂšua          |
+| Spanish          |
+| German           |
+| GuaranÃ­         |
+| Portuguese       |
+| Spanish          |
+| Hindi            |
+| Sranantonga      |
+| Spanish          |
+| Goajiro          |
+| Spanish          |
+| Warrau           |
++------------------+
+42 rows in set (0.00 sec)
+
+9. What are the languages spoken on all cities named ‘Barcelona’ (you may need to JOIN 3 tables =) )
+SELECT Language FROM countrylanguage JOIN country ON countrylanguage.CountryCode=country.Code JOIN city ON country.Code=city.CountryCode WHERE city.Name='Barcelona';
++----------+
+| Language |
++----------+
+| Basque   |
+| Catalan  |
+| Galecian |
+| Spanish  |
+| Goajiro  |
+| Spanish  |
+| Warrau   |
++----------+
+7 rows in set (0.00 sec)
