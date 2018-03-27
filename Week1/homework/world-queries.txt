@@ -41,7 +41,7 @@ SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE
 
 2. What is the population of Rotterdam ?
 
-select Population from city where city.Name="Rotterdam";
+SELECT Population FROM city WHERE city.Name="Rotterdam";
 +------------+
 | Population |
 +------------+
@@ -51,7 +51,7 @@ select Population from city where city.Name="Rotterdam";
 
 3. What's the name of all the countries on the continent ‘North America’ ?
 
- select Name from country where country.Continent="North America";
+ SELECT Name FROM country WHERE country.Continent="North America";
 +----------------------------------+
 | Name                             |
 +----------------------------------+
@@ -96,7 +96,7 @@ select Population from city where city.Name="Rotterdam";
 37 rows in set (0.00 sec)
 
 4. What's the top 10 countries by SurfaceArea ?
-select Name from country where country.SurfaceArea limit 0, 10;
+SELECT Name FROM country WHERE SurfaceArea LIMIT 0, 10;
 +----------------------+
 | Name                 |
 +----------------------+
@@ -114,7 +114,7 @@ select Name from country where country.SurfaceArea limit 0, 10;
 10 rows in set (0.00 sec)
 
 5. What's the top 10 most populated cities?
-select Name, Population from city order by Population desc limit 10;
+SELECT Name, Population FROM city ORDER BY Population DESC LIMIT 10;
 +---------------------+------------+
 | Name                | Population |
 +---------------------+------------+
@@ -132,27 +132,27 @@ select Name, Population from city order by Population desc limit 10;
 10 rows in set (0.12 sec)
 
 6. Select the top 3 countries by population that their names start with the letter ‘P’
-select Name, Population from city where Name like 'P%' order by Population desc limit 3;
-+-----------+------------+
-| Name      | Population |
-+-----------+------------+
-| Peking    |    7472000 |
-| Pusan     |    3804522 |
-| Pyongyang |    2484000 |
-+-----------+------------+
+SELECT Name, Population FROM country WHERE Name LIKE 'P%' ORDER BY Population DESC LIMIT 3;
++-------------+------------+
+| Name        | Population |
++-------------+------------+
+| Pakistan    |  156483000 |
+| Philippines |   75967000 |
+| Poland      |   38653600 |
++-------------+------------+
 3 rows in set (0.00 sec)
 
 7. What is the population in Asia?
-select Continent, sum(Population) from country where country.Continent='Asia';
+SELECT Continent, SUM(Population) FROM country WHERE country.Continent='Asia';
 +-----------+-----------------+
-| Continent | sum(Population) |
+| Continent | SUM(Population) |
 +-----------+-----------------+
 | Asia      |      3705025700 |
 +-----------+-----------------+
 1 row in set (0.10 sec)
 
 8. Which languages are spoken in the Region of ‘South America’
-select Language from countrylanguage join country on countrylanguage.CountryCode=country.Code where country.Region='South America';
+SELECT Language FROM countrylanguage JOIN country ON countrylanguage.CountryCode=country.Code WHERE country.Region='South America';
 +------------------+
 | Language         |
 +------------------+
@@ -201,8 +201,8 @@ select Language from countrylanguage join country on countrylanguage.CountryCode
 +------------------+
 42 rows in set (0.00 sec)
 
-9. What are the languages spoken on all cities named ‘Barcelona’ (you may need to join 3 tables =) )
-select Language from countrylanguage join country on countrylanguage.CountryCode=country.Code join city on country.Code=city.CountryCode where city.Name='Barcelona';
+9. What are the languages spoken on all cities named ‘Barcelona’ (you may need to JOIN 3 tables =) )
+SELECT Language FROM countrylanguage JOIN country ON countrylanguage.CountryCode=country.Code JOIN city ON country.Code=city.CountryCode WHERE city.Name='Barcelona';
 +----------+
 | Language |
 +----------+
