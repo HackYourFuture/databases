@@ -1,0 +1,17 @@
+Options:
+
+load        show all to-dos
+
+create      add anything what you want
+
+update      change an existing item
+
+delete      delete a todo item
+
+tag         add a new tag
+
+untag       remove tag
+
+mark        mark as finished
+
+help        you know :)
