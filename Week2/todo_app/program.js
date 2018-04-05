@@ -23,7 +23,7 @@ class TodoModel {
     }
 
     create(description, callback) {
-        const queryString = `INSERT INTO todo_items(text, is_completed, user_id) VALUES (${description}, 0, NULL)`;
+        const queryString = `INSERT INTO todo_items(text, is_completed, user_id) VALUES ('${description}', 0, ${args2})`;
         this.dbConnection.query(queryString, (err, results, fields) => {
             if (err) {
                 callback(err);
@@ -35,7 +35,7 @@ class TodoModel {
     }
 
     update(id, description, callback) {
-        const queryString = `UPDATE todo_items SET text = ${description} WHERE id = ${id}`
+        const queryString = `UPDATE todo_items SET text = '${description}' WHERE id = ${id}`
         this.dbConnection.query(queryString, (err, results, fields) => {
             if (err) {
                 callback(err);
