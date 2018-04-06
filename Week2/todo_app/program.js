@@ -65,14 +65,42 @@ class TodoModel {
 
     tagTodoItem(todoItemId, tagId, callback) {
         // Write code and query add a tag to a TODO item
+        let addingTagTodos = 'INSERT INTO todo_items_tag(todo_item_id,tag_id) VALUES (?,?)';
+        this.dbConnection.query(addingTagTodos, [todoItemId, tagId], function (err, results, fields) {
+            if (err) {
+                callback(err);
+                return;
+            } else {
+                callback(null, results)
+            }
+        });
     }
 
     untagTodoItem(todoItemId, tagId, callback) {
         // Write code and query remove a tag from a TODO item
+        let untagTodos = 'DELETE FROM todo_item_tag WHERE todo_item_id=? AND tag_id=? ';
+        this.dbConnection.query(untagTodos, [todoItemId, tagId], function (err, results, fields) {
+            if (err) {
+                callback(err);
+                return;
+            } else {
+                callback(null, results);
+            }
+
+        });
     }
 
     markCompleted(todoItemId, callback) {
         // Write code to mark a TODO item as completed
+        let markCompletedTodos = 'UPDATE todo_items SET is_completed = true WHERE id = ?';
+        this.dbConnection.query(untagTodos, [todoItemId, tagId], function (err, results, fields) {
+            if (err) {
+                callback(err);
+                return;
+            } else {
+                callback(null, results);
+            }
+        });
     }
 }
 
