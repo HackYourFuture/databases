@@ -40,17 +40,7 @@ class TodoModel {
     create(description, user_id, callback) {
         const queryString = `INSERT INTO todo_items(text , is_completed , user_id) 
         VALUES (${connention.scape(description)} , 0 ,${connention.scape(user_id)} );`
-        // this.dbConnection.query(queryString, () => {
-        //     callback(null, results);
-        // });
-
-
-        this.dbConnection.query(queryString, function (err, results, fields) {
-            if (err) {
-                callback(err);
-                return;
-            }
-
+        this.dbConnection.query(queryString, () => {
             callback(null, results);
         });
         // Write code and query to create a new TODO item
@@ -77,11 +67,7 @@ class TodoModel {
     }
 
     tagTodoItem(todoItemId, tagId, callback) {
-        // const queryString = `INSERT INTO todo_item_tag(todo_item_id , tag_id)
-        // SELECT * FROM (SELECT 'John', 'Doe', '022') AS tmp
-        // WHERE NOT EXISTS (
-        // SELECT name FROM table_listnames WHERE name = 'John'
-        // );`;
+
         const queryString = `INSERT INTO todo_item_tag(todo_item_id , tag_id) 
         VALUES (${connention.scape(todoItemId)} , ${connention.scape(tagId)});`;
         this.dbConnection.query(queryString, () => {
@@ -180,32 +166,12 @@ dbConnection.connect(function (err) {
                 break;
             }
 
-            // case "load":
-            //     todoModel.load();
-            //     break;
-
-
-
         case "help":
         default:
             console.log('PLEASE TYPE ONE OF THE BELOW COMMANDS!\n')
             console.log(helpArray);
 
     }
-
-
-
-
-
-
-
-    // todoModel.load(function (err, todoItems) {
-    //     if (err) {
-    //         console.log("error loading TODO items:", err);
-    //     }
-
-    //     console.log("existing todo items:", todoItems);
-    // });
 
     dbConnection.end();
 });
