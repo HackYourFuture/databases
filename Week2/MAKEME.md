@@ -18,36 +18,110 @@ implement them:
 
 *Read how to [use and escape query values](https://github.com/mysqljs/mysql#escaping-query-values)*
 
-```js
+// This is the connector (also known as driver)
+// that we can use to connect to a MySQL process
+// and access its databases.
+const mysql = require('mysql');
+
 class TodoModel {
-
-    // ...
-
-    create(description, callback) {
-        // Write code and query to create a new TODO item
+    constructor(dbConnection) {
+        this.dbConnection = dbConnection;
     }
 
-    update(id, description, callback) {
-        // Write code and query to update and existing TODO item
+    // Loads all the TODOs in the database
+    load(callback) {
+        const selectTodoItems = "SELECT * FROM todo_items";
+        this.dbConnection.query(selectTodoItems, function (err, results, fields) {
+            if (err) {
+                callback(err);
+                return;
+            }
+
+            callback(null, results);
+        });
     }
 
-    delete(id, callback) {
-        // Write code and query to delete an existing TODO item
-    }
 
-    tagTodoItem(todoItemId, tagId, callback) {
-        // Write code and query add a tag to a TODO item
-    }
-        
-    untagTodoItem(todoItemId, tagId, callback) {
-        // Write code and query remove a tag from a TODO item
-    }
 
-    markCompleted(todoItemId, callback) {
-        // Write code to mark a TODO item as completed
-    }
+
+    function create(id, description, callback) {
+    // Write code and query to create a new TODO item
+    var query = dbConnection.query('INSERT INTO todo_items (text, user_id) VALUES ( ' + description + ' , ' + id + ' )');
+    query.on('Result', function (row) {
+        callback(null, row.id)
+    });
 }
-```
+
+
+
+function update(id, description, callback) {
+    // Write code and query to update and existing TODO item
+    var query = dbConnection.query('UPDATE todo_items SET text = ' + description + 'Where user_id = ' + id);
+    query.on('Result', function (row) {
+        callback(null, row.id)
+    });
+}
+
+
+
+function delete (id, callback) {
+    // Write code and query to delete an existing TODO item
+    var query = dbConnection.query('DELETE FROM todo_items WHERE user_id = ' + id);
+    query.on('Result', function (row) {
+        callback(null, row.id)
+    });
+}
+
+function tagTodoItem(todoItemId, tagId, callback) {
+    // Write code and query add a tag to a TODO item
+    var query = dbConnection.query('INSERT INTO  todo_item_tag(todoItemId, tagId) VALUES ( ' + todoItemId + ' , ' + tagId + ' )');
+    query.on('Result', function (row) {
+        callback(null, row.todoItemId)
+    });
+}
+
+
+function untagTodoItem(todoItemId, tagId, callback) {
+    // Write code and query remove a tag from a TODO item
+    var query = dbConnection.query('DELETE FROM todo_item_tag WHERE todoItemId = ' + todoItemId + 'AND tagId = ' + tagId);
+    query.on('Result', function (row) {
+        callback(null, row.todoItemId)
+    });
+}
+
+function markCompleted(todoItemId, callback) {
+    // Write code to mark a TODO item as completed
+    var query = dbConnection.query('UPDATE todo_items SET is_completed = TRUE WHERE id = ' + todoItemId);
+    query.on('Result', function (row) {
+        callback(null, row.todoItemId)
+    });
+}
+
+const dbConnection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'todo_app'
+});
+
+dbConnection.connect(function (err) {
+    if (err != null) {
+        console.error('error connecting: ' + err.stack);
+        return;
+    }
+
+    console.log('connected as id ' + dbConnection.threadId);
+
+    const todoModel = new TodoModel(dbConnection);
+    todoModel.load(function (err, todoItems) {
+        if (err) {
+            console.log("error loading TODO items:", err);
+        }
+
+        console.log("existing todo items:", todoItems);
+    });
+});
+
 
 # Adding a new database user
 
