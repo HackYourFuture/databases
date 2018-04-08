@@ -39,8 +39,12 @@ class TodoModel {
 
     create(description, user_id, callback) {
         const queryString = `INSERT INTO todo_items(text , is_completed , user_id) 
-        VALUES (${connention.scape(description)} , 0 ,${connention.scape(user_id)} );`
-        this.dbConnection.query(queryString, () => {
+        VALUES (${dbConnection.escape(description)} , 0 ,${dbConnection.escape(user_id)} );`
+        this.dbConnection.query(queryString, (err, results, fields)=> {
+                    if (err) {
+                        callback(err);
+                        return;
+                    }
             callback(null, results);
         });
         // Write code and query to create a new TODO item
@@ -49,9 +53,13 @@ class TodoModel {
 
     update(id, description, callback) {
         const queryString = `UPDATE todo_items
-         SET text = ${connention.scape(description)} 
-         WHERE id = ${connention.scape(id)};`;
-        this.dbConnection.query(queryString, () => {
+         SET text = ${dbConnection.escape(description)} 
+         WHERE id = ${dbConnection.escape(id)};`;
+        this.dbConnection.query(queryString, (err, results, fields) => {
+            if (err) {
+                callback(err);
+                return;
+            }
             callback(null, results);
         });
         // Write code and query to update and existing TODO item
@@ -59,7 +67,7 @@ class TodoModel {
 
     delete(id, callback) {
         const queryString = `DELETE FROM todo_items
-        WHERE id = ${connention.scape(id)};`;
+        WHERE id = ${dbConnection.escape(id)};`;
         this.dbConnection.query(queryString, () => {
             callback(null, results);
         });
@@ -69,7 +77,7 @@ class TodoModel {
     tagTodoItem(todoItemId, tagId, callback) {
 
         const queryString = `INSERT INTO todo_item_tag(todo_item_id , tag_id) 
-        VALUES (${connention.scape(todoItemId)} , ${connention.scape(tagId)});`;
+        VALUES (${dbConnection.escape(todoItemId)} , ${dbConnection.escape(tagId)});`;
         this.dbConnection.query(queryString, () => {
             callback(null, results);
         });
@@ -79,7 +87,7 @@ class TodoModel {
 
     untagTodoItem(todoItemId, tagId, callback) {
         const queryString = `DELETE FROM todo_item_tag
-        WHERE todoItemId = ${connention.scape(todoItemId)} AND tagId = ${connention.scape(tagId)};`;
+        WHERE todoItemId = ${dbConnection.escape(todoItemId)} AND tagId = ${dbConnection.escape(tagId)};`;
         this.dbConnection.query(queryString, () => {
             callback(null, results);
         });
@@ -89,7 +97,7 @@ class TodoModel {
     markCompleted(todoItemId, callback) {
         const queryString = `UPDATE todo_items 
         SET is_completed = 1
-        WHERE ${connention.scape(todoItemId)} = id;`;
+        WHERE ${dbConnection.escape(todoItemId)} = id;`;
         this.dbConnection.query(queryString, () => {
             callback(null, results);
         });
