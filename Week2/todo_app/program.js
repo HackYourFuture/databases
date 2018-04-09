@@ -93,6 +93,7 @@ class TodoModel {
         const untagTodoItemQuery = `
         DELETE FROM todo_item_tag
         WHERE todo_item_id = ${todoItemId}
+        AND tag_id = ${tagId}
         `
         ;
         this.dbConnection.query(untagTodoItemQuery, (err,results, fields) => {
