@@ -1,72 +1,203 @@
-// This is the connector (also known as driver)
-// that we can use to connect to a MySQL process
-// and access its databases.
 const mysql = require('mysql');
+const config = require('./config.json');
+var program = require('commander');
 
 class TodoModel {
-    constructor(dbConnection) {
-        this.dbConnection = dbConnection;
+    constructor(connection) {
+        this.connection = connection;
     }
 
-    // Loads all the TODOs in the database
     load(callback) {
         const selectTodoItems = "SELECT * FROM todo_items";
-        this.dbConnection.query(selectTodoItems, function(err, results, fields) {
-            if(err) {
+        this.connection.query(selectTodoItems, (err, results, fields) => {
+            if (err) {
                 callback(err);
                 return;
             }
-
             callback(null, results);
         });
     }
 
-    create(description, callback) {
-        // Write code and query to create a new TODO item
+    create(description, user_id, callback) {
+        const insertItem =
+            `INSERT INTO todo_items(text,is_completed,user_id)
+            VALUES(${connection.escape(description)} ,0 ,${connection.escape(user_id)} );
+            `;
+        this.connection.query(insertItem, (err, results, fields) => {
+            if (err) {
+                callback(err);
+                return;
+            }
+            callback(null, results);
+        });
     }
 
     update(id, description, callback) {
-        // Write code and query to update and existing TODO item
+        const updateItem =
+            `
+            UPDATE todo_items SET text = ${connection.escape(description)}
+              WHERE id = ${connection.escape(id)}
+             ;`;
+        this.connection.query(updateItem, (err, results, fields) => {
+            if (err) {
+                callback(err);
+                return;
+            }
+            callback(null, results);
+        });
     }
 
     delete(id, callback) {
-        // Write code and query to delete an existing TODO item
+        const deleteItem =
+            `
+            DELETE FROM todo_items 
+            WHERE id = ${connection.escape(id)}
+            ;`;
+        this.connection.query(deleteItem, (err, results, fields) => {
+            if (err) {
+                callback(err);
+                return;
+            }
+            callback(null, results);
+        });
     }
 
     tagTodoItem(todoItemId, tagId, callback) {
-        // Write code and query add a tag to a TODO item
+        const tagItem =
+            `
+            INSERT INTO todo_item_tag(todo_item_id,tag_id)
+            VALUES (${connection.escape(todoItemId)} , ${connection.escape(tagId)});
+            `;
+        this.connection.query(tagItem, (err, results, fields) => {
+            if (err) {
+                callback(err);
+                return;
+            }
+            callback(null, results);
+        });
     }
-        
-    untagTodoItem(todoItemId, tagId, callback) {
-        // Write code and query remove a tag from a TODO item
+
+    unTagTodoItem(todoItemId, tagId, callback) {
+        const unTagItem =
+            `
+            DELETE FROM todo_item_tag
+            WHERE todo_item_id= ${todoItemId}
+            AND tag_Id = ${connection.escape(tagId)}
+            ;`;
+
+        this.connection.query(unTagItem, (err, results, fields) => {
+            if (err) {
+                callback(err);
+                return;
+            }
+            callback(null, results);
+        });
     }
 
     markCompleted(todoItemId, callback) {
-        // Write code to mark a TODO item as completed
+        const markItem =
+            `UPDATE todo_items SET is_completed = 1
+             WHERE id=${connection.escape(todoItemId)}
+            `;
+
+        this.connection.query(markItem, (err, results, fields) => {
+            if (err) {
+                callback(err);
+                return;
+            }
+            callback(null, results);
+        });
     }
+
 }
 
-const dbConnection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : '',
-    database : 'todo_app'
+const connection = mysql.createConnection({
+    host: config.host,
+    user: config.username,
+    password: config.password,
+    database: 'todo_app'
 });
 
-dbConnection.connect(function(err) {
+const cmd = process.argv[2];
+const input = process.argv[3];
+const secondInput = process.argv[4];
+
+
+connection.connect((err) => {
     if (err != null) {
         console.error('error connecting: ' + err.stack);
         return;
     }
+    console.log('');
+    console.log('        connected as id ' + connection.threadId);
+    console.log('');
+    console.log('type ==> --help OR -h <== for more information');
+    console.log('');
 
-    console.log('connected as id ' + dbConnection.threadId);
 
-    const todoModel = new TodoModel(dbConnection);
-    todoModel.load(function(err, todoItems) {
-        if(err) {
-            console.log("error loading TODO items:", err);
-        }
-
-        console.log("existing todo items:", todoItems);
-    });
+    const todoModel = new TodoModel(connection);
+    switch (cmd) {
+        case '-L':
+        case '--load':
+            todoModel.load((err, todoItems) => {
+                err ? console.log("error loading TODO items:", err) :
+                    console.log("existing todo items:", todoItems);
+            });
+            break;
+        case '-C':
+        case 'create':
+            todoModel.create(input, secondInput, (err) => {
+                err ? console.log('there was an error , type ==> --help OR -h <== for more information') :
+                    console.log('Created Successfully');
+            });
+            break;
+        case '-U':
+        case 'update':
+            todoModel.update(input, secondInput, (err) => {
+                err ? console.log('there was an error , type ==> --help OR -h <== for more information') :
+                    console.log('Updated Successfully');
+            });
+            break;
+        case '-D':
+        case 'delete':
+            todoModel.delete(input, (err) => {
+                err ? console.log('there was an error , type ==> --help OR -h <== for more information') :
+                    console.log('Deleted Successfully');
+            });
+            break;
+        case '-T':
+        case 'tagTodoItem':
+            todoModel.tagTodoItem(input, secondInput, (err) => {
+                err ? console.log('there was an error , type ==> --help OR -h <== for more information') :
+                    console.log('Tagged Successfully');
+            });
+            break;
+        case '-UT':
+        case 'unTagTodoItem':
+            todoModel.unTagTodoItem(input, secondInput, (err) => {
+                err ? console.log('there was an error , type ==> --help OR -h <== for more information') :
+                    console.log('UnTagged Successfully');
+            });
+            break;
+        case '-M':
+        case 'markCompleted':
+            todoModel.markCompleted(input, (err) => {
+                err ? console.log('there was an error , type ==> --help OR -h <== for more information') :
+                    console.log('Marked Successfully');
+            });
+            break;
+    }
+    connection.end();
 });
+
+program
+    .version('0.1.0')
+    .option('-L, --load', 'Loads All The Items In Todo ')
+    .option('-C, --create', 'Creat New Item')
+    .option('-U, --update', 'Update New Item')
+    .option('-D, --delete', 'Delete Item')
+    .option('-T, --tagTodoItem', 'Tag Item ')
+    .option('-UT, --unTagTodoItem', 'Un Tag Item')
+    .option('-M, --markCompleted', 'Mark Item As Complete');
+
+program.parse(process.argv);
