@@ -1,0 +1,17 @@
+Options:
+
+load                        shows all to-dos
+
+create 'todo' [userid]      add anything what you want
+
+update todoID 'todo'        change an existing item
+
+delete todoID 'todo'        delete a todo item
+
+tag todoID 'todo'           add a new tag
+
+untag todoID 'todo'         remove tag
+
+mark todoID                 mark as finished
+
+help                        shows help
