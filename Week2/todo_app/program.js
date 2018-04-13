@@ -23,8 +23,8 @@ class TodoModel {
 
     create(description, callback) {
         const createQuery = `
-        INSERT INTO todo_items(text , is_completed , user_id)
-        VALUES (${dbConnection.escape(description)} , 0 ,${dbConnection.escape(args2)} )`;
+        INSERT INTO todo_items(text, is_completed, user_id)
+        VALUES (${dbConnection.escape(description)}, 0, ${dbConnection.escape(args2)} )`;
         this.dbConnection.query(createQuery, (err, results, fields) => {
             if (err) {
                 callback(err);
@@ -62,8 +62,8 @@ class TodoModel {
 
     tagTodoItem(todoItemId, tagId, callback) {
         const tagInsertQuery = `
-        INSERT INTO todo_item_tag(todo_item_id , tag_id) 
-        VALUES (${dbConnection.escape(todoItemId)} , ${dbConnection.escape(tagId)})`;
+        INSERT INTO todo_item_tag(todo_item_id, tag_id) 
+        VALUES (${dbConnection.escape(todoItemId)}, ${dbConnection.escape(tagId)})`;
         this.dbConnection.query(tagInsertQuery, (err, results, fields) => {
             if (err) {
                 callback(err);
@@ -88,7 +88,7 @@ class TodoModel {
 
     markCompleted(todoItemId, callback) {
         const updateQuery = `
-        UPDATE todo_items SET is_completed = 1
+        UPDATE todo_items SET is_completed = TRUE
         WHERE ${dbConnection.escape(todoItemId)} = id`;
         this.dbConnection.query(updateQuery, (err, results, fields) => {
             if (err) {
