@@ -1,57 +1,82 @@
-# Lesson 3: Data Models, Relationships, and Schemas
 
-In the final week, additional theory will be covered to discuss more complex relational data. Students will learn about entity relationship modelling and how to convert these models to a database schema using normalisation and foreign-key constraints. Non-relational data will also be considered, as well as the benefits and drawbacks of relational and non-relational models.
+CREATE DATABASE IF NOT EXISTS supermarket;
 
-Objective: Students should be able to create an entity relationship diagram based on a qualatative description of data requirements, and translate that into a MySQL database schema. Students should also be able to compare and contrast relational (like MySQL) and NoSQL databases (considering their benefits and drawbacks).
+USE supermarket;
 
-## Pre-Class Readings
+CREATE TABLE IF NOT EXISTS supermarket.products(
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(45) NOT NULL
+  unit VARCHAR(15) NOT NULL,
+  minimum_quantity_allowed INT NOT NULL,
+  PRIMARY KEY (id))
+  ENGINE = DB;
 
-Before arriving to class on Sunday, please watch all of the videos in [this video playlist](https://www.lynda.com/SharedPlaylist/ae29ea2f495c432793abc220da47baa6) on Lynda.
-- Choosing Primary Keys
-- Defining One-to-Many Relationships
-- Exploring One-to-One Relationships
-- Exploring Many-to-Many Relationships
-- Understanding Relationship Rules and Referential Integrity
-- Defining Table Relationships
-- NoSQL databases
-- GraphQL: Introduction and History
-- Why use GraphQL?
+CREATE TABLE IF NOT EXISTS supermarket.supplier (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(45) NOT NULL,
+  mobilephone VARCHAR(20) NOT NULL,
+  localphone VARCHAR(20) NULL,
+  email VARCHAR(45) NOT NULL,
+  address VARCHAR(45) NOT NULL,
+  PRIMARY KEY (id))
+  ENGINE = DB;
 
-Also, please read the following page that explains database foreign keys.
-- [What is a Database Foreign Key](http://databases.about.com/cs/specificproducts/g/foreignkey.htm)
+CREATE TABLE IF NOT EXISTS supermarket.purchase (
+  id INT NOT NULL AUTO_INCREMENT,
+  date DATETIME NOT NULL,
+  supplier_id INT NOT NULL,
+  PRIMARY KEY (id, supplier_id),
+  INDEX fk_purchase_supplier_idx (supplier_id ASC),
+  CONSTRAINT fk_purchase_supplier
+  FOREIGN KEY (supplier_id)
+  REFERENCES supermarket.supplier(id)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION)
+  ENGINE = DB;
 
-## Main Topics
+CREATE TABLE IF NOT EXISTS supermarket.purchase_products (
+  id INT NOT NULL AUTO_INCREMENT,
+  products_id INT NOT NULL,
+  purchase_id INT NOT NULL,
+  quantity INT NOT NULL,
+  expiration_date DATE NOT NULL,
+  purchasing_price DECIMAL NOT NULL,
+  selling_price DECIMAL NOT NULL,
+  PRIMARY KEY (id , products_id , purchase_id ),
+  INDEX fk_supermarket_products_idx (products_id ASC),
+  INDEX fk_supermarket_purchase 1_idx (purchase_id  ASC),
+  CONSTRAINT fk_supermarket_product1
+  FOREIGN KEY (products_id)
+  REFERENCES supermarket.products (id)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+  CONSTRAINT  fk_supermarket_purchase1
+  FOREIGN KEY (purchase_id)
+  REFERENCES supermarket.purchase (id)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION)
+ENGINE = DB;
 
-- More complex entity relationship diagrams
-    - Associative entities from many-to-many relationships
-    - Introduction to normalisation
-- Foreign key constraints
-- Complicated values to store in MySQL
-    - Storing prices (floating point errors)
-    - Storing dates (datetime vs. timestamp)
-- CREATE TABLE syntax
-- Brief introduction to non-relational data
-- Scaffolding and application generators
+CREATE TABLE IF NOT EXISTS supermarket.sale (
+  id INT NOT NULL AUTO_INCREMENT,
+  date DATETIME NOT NULL,
+  PRIMARY KEY (id))
+ENGINE = DB;
 
-## Reference Material
-
-- [Floating Point Inaccuracy](http://stackoverflow.com/questions/2100490/floating-point-inaccuracy-examples#2100502)
-- [Example Entity Relationship Diagram (including associative entities)](http://users.csc.calpoly.edu/~jdalbey/308/Lectures/HOWTO-ERD.html)
-- Scaffolding tools:
-    - [Yeoman](http://yeoman.io) - General framework for creating and scaffolding all types of projects
-    - [Sails](http://sails.js) - Lightweight framework for generating APIs and web server apps in Node
-    - [Loopback](http://loopback.io/) - A more "enterprise-ready" framework for generating and managing APIs.
-- [Rewatch the previously recorded session](https://www.youtube.com/watch?v=ZNLhHUDj6jo)
-
-## Homework
-
-For this week's homework:
-
-Using an entity relationship diagram, design the data model for an application of your choice; this could be anything, but previous students have used a small business (with staff, offices, and job titles), a library (with books, genres, racks, members, and a borrowing log), or a farm (with animals, barns, and farmers). Your application must include at least one many-to-many relationship and any supporting tables (associative entities) that are needed. The entity relationship diagram must describe what tables you will need, the columns in these tables, which column is the primary key, and the relationships between tables.
-
-Next, using the entity relationship diagram as a starting point, write all the necessary `CREATE TABLE` statements to create all tables and relationships (foreign key constraints) for this data model.
-
-Submit an image or PDF of your entity relationship diagram, and a `.sql` file with the `CREATE TABLE` statements.
-
-## Check out the React repo [here](https://github.com/HackYourFuture/React)
-And find out how you can prepare for the first React lecture :dancers:
+CREATE TABLE IF NOT EXISTS supermarket_sale.products (
+  purchase_products_id INT NOT NULL,
+  sale_id INT NOT NULL,
+  quantity INT NOT NULL,
+  PRIMARY KEY (purchase_products_id, sale_id),
+  INDEX fk_sale_products_sale1_idx (sale_id ASC),
+  CONSTRAINT fk_sale_products_purchase_part1
+  FOREIGN KEY (purchase_products_id)
+  REFERENCES supermarket.purchase_products (id)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+  CONSTRAINT fk_sale_products_sale1
+  FOREIGN KEY (sale_id)
+  REFERENCES supermarket.sale (id)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION)
+ENGINE = DB; 
