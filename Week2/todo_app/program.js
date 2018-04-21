@@ -40,11 +40,11 @@ class TodoModel {
     create(description, user_id, callback) {
         const queryString = `INSERT INTO todo_items(text , is_completed , user_id) 
         VALUES (${dbConnection.escape(description)} , 0 ,${dbConnection.escape(user_id)} );`
-        this.dbConnection.query(queryString, (err, results, fields)=> {
-                    if (err) {
-                        callback(err);
-                        return;
-                    }
+        this.dbConnection.query(queryString, (err, results, fields) => {
+            if (err) {
+                callback(err);
+                return;
+            }
             callback(null, results);
         });
         // Write code and query to create a new TODO item
@@ -96,7 +96,7 @@ class TodoModel {
 
     markCompleted(todoItemId, callback) {
         const queryString = `UPDATE todo_items 
-        SET is_completed = 1
+        SET is_completed = TRUE
         WHERE ${dbConnection.escape(todoItemId)} = id;`;
         this.dbConnection.query(queryString, () => {
             callback(null, results);
