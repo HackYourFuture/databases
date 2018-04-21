@@ -54,7 +54,7 @@ SELECT Population FROM city WHERE Name = 'Rotterdam';
 
 3.What's the name of all the countries on the continent ‘North America’ ?
 
-SELECT DISTINCT Name FROM country WHERE Continent = 'North America' ;
+SELECT Name FROM country WHERE Continent = 'North America' ;
 
  +------------------------------------+
  | Name                               |
@@ -213,7 +213,7 @@ SELECT SUM(Population) FROM country WHERE Continent = "Asia" ;
 
 9. What are the languages spoken on all cities named ‘Barcelona’ (you may need to join 3 tables =) )
 
-SELECT DISTINCT language FROM countrylanguage WHERE CountryCode IN (SELECT code FROM country WHERE code In ( SELECT CountryCode FROM city WHERE Name = "Barcelona"));
+SELECT Language FROM countrylanguage JOIN country ON countrylanguage.CountryCode=country.Code JOIN city ON country.Code=city.CountryCode WHERE city.Name='Barcelona';
 
  +-------------------------+
  | language                |
