@@ -2,19 +2,21 @@
 
 ## Writing a model to communicate with the TODO database
 
-Look at [todo_app/db.sql](./todo_app/db.sql) and use it to create a database. In
-the [todo_app/program.js](./todo_app/program.js) file there's a little program
+1. Open [todo_app/db.sql](./todo_app/db.sql) and look at it. 
+ 
+2. In the [todo_app/program.js](./todo_app/program.js) file there's a little program
 that should be able to extract TODOs from the database, update them, and delete
-them. The `load` function already extracts all TODOs from the database. 
+them. The `load` function already extracts all TODOs from the database.  
+Use [todo_app/db.sql](./todo_app/db.sql) to create the database.
 
-Run `npm install` inside the `todo_app` directory to download and install the MySQL
+3. Run `npm install mysql` inside the `todo_app` directory to download and install the MySQL
 connector.
 
-Try to understand what happens in this program. How is the database connection
+4. Investigate what happens in this program. How is the database connection
 created? How do we use the connection to query the database?
 
-You'll find the following empty functions in the `program.js` file, please
-implement them:
+5. Implement the usage of the database in your JavaScript program. 
+In the `program.js` file you will find the following empty functions, please implement them:
 
 *Read how to [use and escape query values](https://github.com/mysqljs/mysql#escaping-query-values)*
 
@@ -51,10 +53,10 @@ class TodoModel {
 
 # Adding a new database user
 
-Until now we've always connected to the database as `root`. We don't want to
-allow our TODO app access to other databases than the TODO app itself:
+Until now we've always connected to the database as `root` (make sure you remember what a `root` user is). 
+We don't want to allow our TODO app access to other databases than the TODO app itself:
 
-- Figure out how to create a new user in MySQL.
-- Restrict the access for that user to only the `todo_app` database.
-- Use the newly created user credentials (username, password) in the connector of
+1. Figure out how to create a new user in MySQL.
+2. Restrict the access for that user to only the `todo_app` database.
+3. Use the newly created user credentials (username, password) in the connector of
   the `program.js` file.
