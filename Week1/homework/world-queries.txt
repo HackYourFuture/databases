@@ -173,17 +173,27 @@ Warrau
 
 9. What are the languages spoken on all cities named ‘Barcelona’
 
-SELECT city.Name, countrylanguage.language FROM countrylanguage JOIN city ON city.Countrycode = countrylanguage.Countrycode JOIN country ON city.Countrycode = country.Code WHERE city.Name = 'Barcelona';
+SELECT 
+	city.Name AS 'City',
+    country.name AS 'Country',
+    countrylanguage.language AS 'Language'
+FROM
+    countrylanguage
+        JOIN
+    city ON city.Countrycode = countrylanguage.Countrycode
+        JOIN
+    country ON city.Countrycode = country.Code
+WHERE
+    city.Name = 'Barcelona';
 
-Name	    language
-----------------------
-Barcelona	Basque
-Barcelona	Catalan
-Barcelona	Galecian
-Barcelona	Spanish
-Barcelona	Goajiro
-Barcelona	Spanish
-Barcelona	Warrau
+  City	   Country	   Language
+Barcelona	Spain	    Basque
+Barcelona	Spain	   Catalan
+Barcelona	Spain	   Galecian
+Barcelona	Spain	   Spanish
+Barcelona	Venezuela	Goajiro
+Barcelona	Venezuela	Spanish
+Barcelona	Venezuela	Warrau
 
 
 ++++++++++++++++++++++++++ END ++++++++++++++++++++++++++++++++++
