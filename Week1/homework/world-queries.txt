@@ -145,7 +145,16 @@ Asia's Popluation
 
 8. Which languages are spoken in the Region of ‘South America’
 
-SELECT distinct language as "Languages Spoken in South America" FROM countrylanguage INNER JOIN country ON country.code=countrylanguage.countrycode WHERE country.continent='South America';
+use world;
+SELECT DISTINCT
+    language AS 'Languages Spoken in South America'
+FROM
+    countrylanguage AS cl
+        INNER JOIN
+    country ON country.code = cl.countrycode
+WHERE
+    country.continent = 'South America'
+    
 
 Languages Spoken in South America
 -----------------------------------
@@ -186,7 +195,9 @@ FROM
 WHERE
     city.Name = 'Barcelona';
 
+
   City	   Country	   Language
+--------------------------------
 Barcelona	Spain	    Basque
 Barcelona	Spain	   Catalan
 Barcelona	Spain	   Galecian
