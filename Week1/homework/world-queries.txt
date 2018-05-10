@@ -186,7 +186,10 @@ mysql> SELECT distinct language FROM countrylanguage JOIN country ON country.cod
 
 9. What are the languages spoken on all cities named ‘Barcelona’ (you may need to join 3 tables =) ) 
 
-mysql> SELECT distinct language FROM countrylanguage JOIN city ON countrylanguage.countrycode=city.countrycode WHERE city.name='Barcelona';
+mysql> SELECT distinct language FROM countrylanguage JOIN country 
+    -> on countrylanguage.countrycode=country.code
+    -> JOIN city on country.code=city.countrycode
+    -> WHERE city.name='Barcelona';
 +----------+
 | language |
 +----------+
@@ -197,6 +200,7 @@ mysql> SELECT distinct language FROM countrylanguage JOIN city ON countrylanguag
 | Goajiro  |
 | Warrau   |
 +----------+
-6 rows in set (0.01 sec)
+6 rows in set (0.05 sec)
+
 
 
