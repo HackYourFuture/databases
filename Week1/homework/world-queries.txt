@@ -1,40 +1,362 @@
-Answers for the world queries go here:
+-- MySQL Workbench Forward Engineering
 
-For example:
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-1. What are the names of all the cities in the Netherlands?
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
 
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+USE `mydb` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Users` (
+  `Id_User` INT NOT NULL AUTO_INCREMENT,
+  `FirstName_User` VARCHAR(45) NULL,
+  `LastName_User` VARCHAR(45) NULL,
+  `Email_User` VARCHAR(45) NULL,
+  PRIMARY KEY (`Id_User`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`TO-DO_list`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`TO-DO_list` (
+  `ID_todo` INT NOT NULL AUTO_INCREMENT,
+  `TO-DO_Item` VARCHAR(45) NULL,
+  `TO-DO_text` VARCHAR(45) NULL,
+  `TO-DO_Done` TINYTEXT NULL,
+  `TO-DO_Date` DATE NULL,
+  PRIMARY KEY (`ID_todo`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Users_has_TO-DO_list`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Users_has_TO-DO_list` (
+  `Users_Id_User` INT NOT NULL,
+  `TO-DO_list_ID_todo` INT NOT NULL,
+  PRIMARY KEY (`Users_Id_User`, `TO-DO_list_ID_todo`),
+  INDEX `fk_Users_has_TO-DO_list_TO-DO_list1_idx` (`TO-DO_list_ID_todo` ASC),
+  INDEX `fk_Users_has_TO-DO_list_Users_idx` (`Users_Id_User` ASC),
+  CONSTRAINT `fk_Users_has_TO-DO_list_Users`
+    FOREIGN KEY (`Users_Id_User`)
+    REFERENCES `mydb`.`Users` (`Id_User`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Users_has_TO-DO_list_TO-DO_list1`
+    FOREIGN KEY (`TO-DO_list_ID_todo`)
+    REFERENCES `mydb`.`TO-DO_list` (`ID_todo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+---------------------------------------------------------------------------
+
+1- What are the names of all the cities in the Netherlands?
 SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Name = 'Netherlands';
-+-------------------+
-| Name              |
-+-------------------+
-| Amsterdam         |
-| Rotterdam         |
-| Haag              |
-| Utrecht           |
-| Eindhoven         |
-| Tilburg           |
-| Groningen         |
-| Breda             |
-| Apeldoorn         |
-| Nijmegen          |
-| Enschede          |
-| Haarlem           |
-| Almere            |
-| Arnhem            |
-| Zaanstad          |
-| ´s-Hertogenbosch  |
-| Amersfoort        |
-| Maastricht        |
-| Dordrecht         |
-| Leiden            |
-| Haarlemmermeer    |
-| Zoetermeer        |
-| Emmen             |
-| Zwolle            |
-| Ede               |
-| Delft             |
-| Heerlen           |
-| Alkmaar           |
-+-------------------+
-28 rows in set (0.00 sec)
++-----------------------+
+| Name                  |
++-----------------------+
+| Amsterdam             |
+| Rotterdam             |
+| Haag                  |
+| Utrecht               |
+| Eindhoven             |
+| Tilburg               |
+| Groningen             |
+| Breda                 |
+| Apeldoorn             |
+| Nijmegen              |
+| Enschede              |
+| Haarlem               |
+| Almere                |
+| Arnhem                |
+| Zaanstad              |
+| ï¿½s-Hertogenbosch    |
+| Amersfoort            |
+| Maastricht            |
+| Dordrecht             |
+| Leiden                |
+| Haarlemmermeer        |
+| Zoetermeer            |
+| Emmen                 |
+| Zwolle                |
+| Ede                   |
+| Delft                 |
+| Heerlen               |
+| Alkmaar               |
++-----------------------+
+28 rows in set (0.01 sec)
+
+---------------------------------------------------------------------------------
+2- What is the population of Rotterdam ?
+SELECT name,Population FROM city WHERE name = 'Rotterdam';
++-----------+------------+
+| name      | Population |
++-----------+------------+
+| Rotterdam |     593321 |
++-----------+------------+
+1 row in set (0.00 sec)
+
+---------------------------------------------------------------------------------
+3- What's the name of all the countries on the continent ‘North America’ ?
+SELECT country.Name FROM country WHERE continent = 'North America';
++----------------------------------+
+| Name                             |
++----------------------------------+
+| Aruba                            |
+| Anguilla                         |
+| Netherlands Antilles             |
+| Antigua and Barbuda              |
+| Bahamas                          |
+| Belize                           |
+| Bermuda                          |
+| Barbados                         |
+| Canada                           |
+| Costa Rica                       |
+| Cuba                             |
+| Cayman Islands                   |
+| Dominica                         |
+| Dominican Republic               |
+| Guadeloupe                       |
+| Grenada                          |
+| Greenland                        |
+| Guatemala                        |
+| Honduras                         |
+| Haiti                            |
+| Jamaica                          |
+| Saint Kitts and Nevis            |
+| Saint Lucia                      |
+| Mexico                           |
+| Montserrat                       |
+| Martinique                       |
+| Nicaragua                        |
+| Panama                           |
+| Puerto Rico                      |
+| El Salvador                      |
+| Saint Pierre and Miquelon        |
+| Turks and Caicos Islands         |
+| Trinidad and Tobago              |
+| United States                    |
+| Saint Vincent and the Grenadines |
+| Virgin Islands, British          |
+| Virgin Islands, U.S.             |
++----------------------------------+
+37 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------------
+4- What's the top 10 countries by SurfaceArea ?
+SELECT country.name, country.SurfaceArea FROM country ORDER BY SurfaceArea DESC LIMIT 10;
++--------------------+-------------+
+| name               | SurfaceArea |
++--------------------+-------------+
+| Russian Federation | 17075400.00 |
+| Antarctica         | 13120000.00 |
+| Canada             |  9970610.00 |
+| China              |  9572900.00 |
+| United States      |  9363520.00 |
+| Brazil             |  8547403.00 |
+| Australia          |  7741220.00 |
+| India              |  3287263.00 |
+| Argentina          |  2780400.00 |
+| Kazakstan          |  2724900.00 |
++--------------------+-------------+
+10 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------------
+5- What's the top 10 most populated cities?
+ SELECT city.name, city.population FROM city ORDER BY population DESC LIMIT 10;
++-----------------------+------------+
+| name                  | population |
++-----------------------+------------+
+| Mumbai (Bombay)       |   10500000 |
+| Seoul                 |    9981619 |
+| Sï¿½o Paulo           |    9968485 |
+| Shanghai              |    9696300 |
+| Jakarta               |    9604900 |
+| Karachi               |    9269265 |
+| Istanbul              |    8787958 |
+| Ciudad de Mï¿½xico    |    8591309 |
+| Moscow                |    8389200 |
+| New York              |    8008278 |
++-----------------------+------------+
+10 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------------
+6- Select the top 3 countries by population that their names start with the letter ‘P’?
+ SELECT country.name, country.population FROM country WHERE country.name LIKE 'p%' LIMIT 3;
++----------+------------+
+| name     | population |
++----------+------------+
+| Pakistan |  156483000 |
+| Panama   |    2856000 |
+| Pitcairn |         50 |
++----------+------------+
+3 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------------
+7- What is the population in Asia?
+ SELECT Continent, SUM(population) AS 'TOTAL-POPULATION' FROM country WHERE country.continent = 'Asia';
++-----------+------------------+
+| Continent | TOTAL-POPULATION |
++-----------+------------------+
+| Asia      |       3705025700 |
++-----------+------------------+
+1 row in set (0.00 sec)
+
+---------------------------------------------------------------------------------
+8- Which languages are spoken in the Region of ‘South America’?
+SELECT 
+  DISTINCT 
+	countrylanguage.language,
+	countrylanguage.IsOfficial, 
+	country.region 
+  FROM 
+	countrylanguage, 
+	country 
+  WHERE  
+	country.region = 'South America'
+  AND
+	countrylanguage.countrycode = country.code 
+  AND
+	countrylanguage.IsOfficial = 'T' 
+  ORDER BY
+	countrylanguage.language;
++--------------+------------+---------------+
+| language     | IsOfficial | region        |
++--------------+------------+---------------+
+| Aimarï¿½     | T          | South America |
+| English      | T          | South America |
+| Guaranï¿½    | T          | South America |
+| Ketï¿½ua     | T          | South America |
+| Portuguese   | T          | South America |
+| Spanish      | T          | South America |
++--------------+------------+---------------+
+6 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------------
+9- What are the languages spoken on all cities named ‘Barcelona’ (you may need to join 3 tables =) )
+SELECT DISTINCT countrylanguage.language, city.name FROM countrylanguage, city WHERE CITY.NAME = 'Barcelona'AND countrylanguage.IsOfficial = 'T'ORDER BY countrylanguage.language;
++------------------+-----------+
+| language         | name      |
++------------------+-----------+
+| Afrikaans        | Barcelona |
+| Aimarï¿½         | Barcelona |
+| Albaniana        | Barcelona |
+| Arabic           | Barcelona |
+| Armenian         | Barcelona |
+| Azerbaijani      | Barcelona |
+| Belorussian      | Barcelona |
+| Bengali          | Barcelona |
+| Bislama          | Barcelona |
+| Bulgariana       | Barcelona |
+| Burmese          | Barcelona |
+| Catalan          | Barcelona |
+| Chamorro         | Barcelona |
+| Chichewa         | Barcelona |
+| Chinese          | Barcelona |
+| Comorian         | Barcelona |
+| Czech            | Barcelona |
+| Danish           | Barcelona |
+| Dari             | Barcelona |
+| Dhivehi          | Barcelona |
+| Dutch            | Barcelona |
+| Dzongkha         | Barcelona |
+| English          | Barcelona |
+| Estonian         | Barcelona |
+| Ewe              | Barcelona |
+| Faroese          | Barcelona |
+| Fijian           | Barcelona |
+| Finnish          | Barcelona |
+| French           | Barcelona |
+| Georgiana        | Barcelona |
+| German           | Barcelona |
+| Greek            | Barcelona |
+| Greenlandic      | Barcelona |
+| Guaranï¿½        | Barcelona |
+| Hebrew           | Barcelona |
+| Hindi            | Barcelona |
+| Hungarian        | Barcelona |
+| Icelandic        | Barcelona |
+| Irish            | Barcelona |
+| Italian          | Barcelona |
+| Japanese         | Barcelona |
+| Kabyï¿½          | Barcelona |
+| Kazakh           | Barcelona |
+| Ketï¿½ua         | Barcelona |
+| Khmer            | Barcelona |
+| Kirgiz           | Barcelona |
+| Kiribati         | Barcelona |
+| Kirundi          | Barcelona |
+| Korean           | Barcelona |
+| Lao              | Barcelona |
+| Latvian          | Barcelona |
+| Lithuanian       | Barcelona |
+| Luxembourgish    | Barcelona |
+| Macedonian       | Barcelona |
+| Malagasy         | Barcelona |
+| Malay            | Barcelona |
+| Maltese          | Barcelona |
+| Mandarin Chinese | Barcelona |
+| Maori            | Barcelona |
+| Marshallese      | Barcelona |
+| Mongolian        | Barcelona |
+| Nauru            | Barcelona |
+| Nepali           | Barcelona |
+| Norwegian        | Barcelona |
+| Palau            | Barcelona |
+| Papiamento       | Barcelona |
+| Pashto           | Barcelona |
+| Persian          | Barcelona |
+| Pilipino         | Barcelona |
+| Polish           | Barcelona |
+| Portuguese       | Barcelona |
+| Romani           | Barcelona |
+| Romanian         | Barcelona |
+| Romansh          | Barcelona |
+| Russian          | Barcelona |
+| Rwanda           | Barcelona |
+| Samoan           | Barcelona |
+| Serbo-Croatian   | Barcelona |
+| Singali          | Barcelona |
+| Slovak           | Barcelona |
+| Slovene          | Barcelona |
+| Somali           | Barcelona |
+| Sotho            | Barcelona |
+| Spanish          | Barcelona |
+| Swahili          | Barcelona |
+| Swazi            | Barcelona |
+| Swedish          | Barcelona |
+| Tadzhik          | Barcelona |
+| Tamil            | Barcelona |
+| Thai             | Barcelona |
+| Tigrinja         | Barcelona |
+| Tongan           | Barcelona |
+| Turkish          | Barcelona |
+| Turkmenian       | Barcelona |
+| Tuvalu           | Barcelona |
+| Ukrainian        | Barcelona |
+| Urdu             | Barcelona |
+| Uzbek            | Barcelona |
+| Vietnamese       | Barcelona |
+| Wolof            | Barcelona |
+| Xhosa            | Barcelona |
+| Zulu             | Barcelona |
++------------------+-----------+
+102 rows in set (0.00 sec)
+
+-----------------------------------The End----------------------------------------------
