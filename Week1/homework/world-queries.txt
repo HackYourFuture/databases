@@ -38,3 +38,179 @@ SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE
 | Alkmaar           |
 +-------------------+
 28 rows in set (0.00 sec)
+
+2. What is the population of Rotterdam ?
+mysql> SELECT population
+    -> FROM city
+    -> WHERE name="rotterdam";
++------------+
+| population |
++------------+
+|     593321 |
++------------+
+
+3. What's the name of all the countries on the continent ‘North America’ ?
+mysql> SELECT name
+    -> FROM country
+    -> WHERE continent="North America";
++----------------------------------+
+| name                             |
++----------------------------------+
+| Aruba                            |
+| Anguilla                         |
+| Netherlands Antilles             |
+| Antigua and Barbuda              |
+| Bahamas                          |
+| Belize                           |
+| Bermuda                          |
+| Barbados                         |
+| Canada                           |
+| Costa Rica                       |
+| Cuba                             |
+| Cayman Islands                   |
+| Dominica                         |
+| Dominican Republic               |
+| Guadeloupe                       |
+| Grenada                          |
+| Greenland                        |
+| Guatemala                        |
+| Honduras                         |
+| Haiti                            |
+| Jamaica                          |
+| Saint Kitts and Nevis            |
+| Saint Lucia                      |
+| Mexico                           |
+| Montserrat                       |
+| Martinique                       |
+| Nicaragua                        |
+| Panama                           |
+| Puerto Rico                      |
+| El Salvador                      |
+| Saint Pierre and Miquelon        |
+| Turks and Caicos Islands         |
+| Trinidad and Tobago              |
+| United States                    |
+| Saint Vincent and the Grenadines |
+| Virgin Islands, British          |
+| Virgin Islands, U.S.             |
++----------------------------------+
+4. What's the top 10 countries by SurfaceArea ?
+mysql> SELECT name
+    -> FROm country ORDER by surfacearea DESC LIMIT 10;
++--------------------+
+| name               |
++--------------------+
+| Russian Federation |
+| Antarctica         |
+| Canada             |
+| China              |
+| United States      |
+| Brazil             |
+| Australia          |
+| India              |
+| Argentina          |
+| Kazakstan          |
++--------------------+
+5. What's the top 10 most populated cities?
+mysql> SELECT name
+    -> FROM city ORDER BY population DESC LIMIT 10;
++-------------------+
+| name              |
++-------------------+
+| Mumbai (Bombay)   |
+| Seoul             |
+| São Paulo         |
+| Shanghai          |
+| Jakarta           |
+| Karachi           |
+| Istanbul          |
+| Ciudad de México  |
+| Moscow            |
+| New York          |
++-------------------+
+6. Select the top 3 countries by population that their names start with the letter ‘P’
+mysql> SELECT name
+    -> FROM country
+    -> WHERE name like "p%" ORDER BY population LIMIT 3;
++----------+
+| name     |
++----------+
+| Pitcairn |
+| Palau    |
+| Panama   |
++----------+
+
+7. What is the population in Asia?
+mysql> SELECT sum(population)
+    -> FROM country
+    -> WHERE continent="ASIA";
++-----------------+
+| sum(population) |
++-----------------+
+|      3705025700 |
++-----------------+
+8. Which languages are spoken in the Region of ‘South America’
+mysql> SELECT language
+    -> FROM countrylanguage as cl JOIN country As c ON cl.countrycode=c.code
+    -> WHERE continent="SOUth AMERICA";
++------------------+
+| language         |
++------------------+
+| Indian Languages |
+| Italian          |
+| Spanish          |
+| Aimará           |
+| Guaraní          |
+| Ketšua           |
+| Spanish          |
+| German           |
+| Indian Languages |
+| Italian          |
+| Japanese         |
+| Portuguese       |
+| Aimará           |
+| Araucan          |
+| Rapa nui         |
+| Spanish          |
+| Arawakan         |
+| Caribbean        |
+| Chibcha          |
+| Creole English   |
+| Spanish          |
+| Ketšua           |
+| Spanish          |
+| English          |
+| Creole French    |
+| Indian Languages |
+| Arawakan         |
+| Caribbean        |
+| Creole English   |
+| Aimará           |
+| Ketšua           |
+| Spanish          |
+| German           |
+| Guaraní          |
+| Portuguese       |
+| Spanish          |
+| Hindi            |
+| Sranantonga      |
+| Spanish          |
+| Goajiro          |
+| Spanish          |
+| Warrau           |
++------------------+
+9. What are the languages spoken on all cities named ‘Barcelona’ (you may need to join 3 tables =) )
+mysql> SELECT language
+    -> FROM city JOIN country as c On city.countrycode=c.code JOIN countrylanguage as cl ON c.code=cl.countrycode
+    -> WHERE city.name="barcelona";
++----------+
+| language |
++----------+
+| Basque   |
+| Catalan  |
+| Galecian |
+| Spanish  |
+| Goajiro  |
+| Spanish  |
+| Warrau   |
++----------+
