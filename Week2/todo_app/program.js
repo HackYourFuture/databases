@@ -37,10 +37,8 @@ class TodoModel {
     }
 
     update(id, description, callback) {
-        const sqlUpdate = [description, id];
         const sql = 'UPDATE todo_items SET text=? where id=?';
-
-        this.dbConnection.query(sql, sqlUpdate, (err, result) => {
+        this.dbConnection.query(sql, [description, id], (err, result) => {
             if (err) {
                 callback(err);
                 return;
@@ -50,8 +48,8 @@ class TodoModel {
     }
 
     delete(id, callback) {
-        const sql = `DELETE FROM todo_items where id = ${id}`;
-        this.dbConnection.query(sql, (err, result) => {
+        const sql = `DELETE FROM todo_items where id = ?`;
+        this.dbConnection.query(sql, id, (err, result) => {
             if (err) {
                 callback(err);
                 return;
@@ -61,8 +59,8 @@ class TodoModel {
     }
 
     tagTodoItem(todoItemId, tagId, callback) {
-        const sql = `INSERT INTO todo_item_tag VALUES(${todoItemId}, ${tagId})`
-        this.dbConnection.query(sql, (err, result) => {
+        const sql = `INSERT INTO todo_item_tag VALUES(? , ?)`
+        this.dbConnection.query(sql, [todoItemId, tagId], (err, result) => {
             if (err) {
                 callback(err);
                 return;
@@ -72,8 +70,8 @@ class TodoModel {
     }
 
     untagTodoItem(todoItemId, tagId, callback) {
-        const sql = `DELETE FROM todo_item_tag where tag_id = ${tagId}`
-        this.dbConnection.query(sql, (err, result) => {
+        const sql = `DELETE FROM todo_item_tag where tag_id = ? AND todo_item_id = ?`;
+        this.dbConnection.query(sql, [tagId, todoItemId], (err, result) => {
             if (err) {
                 callback(err);
                 return;
@@ -83,9 +81,9 @@ class TodoModel {
     }
 
     markCompleted(todoItemId, callback) {
-        const sql = `UPDATE todo_items SET is_completed = 1 where id= ${todoItemId}`;
+        const sql = `UPDATE todo_items SET is_completed = 1 where id= ? `;
 
-        this.dbConnection.query(sql, (err, result) => {
+        this.dbConnection.query(sql, todoItemId, (err, result) => {
             if (err) {
                 callback(err);
                 return;
@@ -130,7 +128,7 @@ dbConnection.connect(function (err) {
     // });
 
     //Update a todo example
-    // todoModel.update(49, "training", (err, result) => {
+    // todoModel.update(50, "training", (err, result) => {
     //     if (err) {
     //         console.error("Couldn't update the todo " + err.stack);
     //         return;
@@ -139,7 +137,7 @@ dbConnection.connect(function (err) {
     // })
 
     //Delete a todo example
-    // todoModel.delete(49, (err, result) => {
+    // todoModel.delete(50, (err, result) => {
     //     if (err) {
     //         console.error("Couldn't delete the todo " + err.stack);
     //         return;
@@ -148,7 +146,7 @@ dbConnection.connect(function (err) {
     // })
 
     //Tag a todo example
-    // todoModel.tagTodoItem(30, 25, (err, result) => {
+    // todoModel.tagTodoItem(60, 10, (err, result) => {
     //     if (err) {
     //         console.error("Couldn't tag the todo" + err.stack);
     //         return;
@@ -156,22 +154,21 @@ dbConnection.connect(function (err) {
     //     console.log("The todo is tagged" + result);
     // })
 
-    //Tag a todo example
-    // todoModel.untagTodoItem(30, 25, (err, result) => {
+    //Untag a todo example
+    // todoModel.untagTodoItem(45, 3, (err, result) => {
     //     if (err) {
     //         console.error("Couldn't untag the todo" + err.stack);
     //         return;
     //     }
-    //     console.log("The todo is untagged" + result);
+    //     console.log("The todo is untagged");
     // })
 
     //Mark a todo example
-    // todoModel.markCompleted(42, (err, result) => {
+    // todoModel.markCompleted(43, (err, result) => {
     //     if (err) {
     //         console.error("Couldn't mark the todo as completed" + err.stack);
     //         return;
     //     }
-
     //     console.log("The todo is marked as completed");
     // })
 
