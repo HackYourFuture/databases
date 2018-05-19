@@ -176,12 +176,4 @@ dbConnection.connect(function (err) {
         }
         console.log("existing todo items:", todoItems);
     });
-
-    //mark as uncompleted
-    todoModel.markUnCompleted(52, function (err, todoItems) {
-        if (err) {
-            console.log("error loading TODO items:", err);
-        }
-        console.log("existing todo items:", todoItems);
-    });
 });
