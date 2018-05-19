@@ -31,37 +31,49 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Tags`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Tags` (
-  `idTags` INT NOT NULL,
-  `Homework` VARCHAR(45) NOT NULL,
-  `sport` VARCHAR(45) NOT NULL,
-  `reading` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idTags`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `mydb`.`Todo list`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Todo list` (
   `idTodo list` INT NOT NULL,
   `descrebtoin` VARCHAR(45) NOT NULL,
   `done` TINYINT NULL,
-  `Todo listcol` VARCHAR(45) NULL,
   `Users_idUsers` INT NOT NULL,
-  `Tags_idTags` INT NOT NULL,
-  PRIMARY KEY (`idTodo list`, `Users_idUsers`, `Tags_idTags`),
+  PRIMARY KEY (`idTodo list`, `Users_idUsers`),
   UNIQUE INDEX `idTodo list_UNIQUE` (`idTodo list` ASC),
   INDEX `fk_Todo list_Users1_idx` (`Users_idUsers` ASC),
-  INDEX `fk_Todo list_Tags1_idx` (`Tags_idTags` ASC),
   CONSTRAINT `fk_Todo list_Users1`
     FOREIGN KEY (`Users_idUsers`)
     REFERENCES `mydb`.`Users` (`idUsers`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Tags`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Tags` (
+  `idTags` INT NOT NULL,
+  `describtion` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idTags`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Todo list_has_Tags`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Todo list_has_Tags` (
+  `Todo list_idTodo list` INT NOT NULL,
+  `Tags_idTags` INT NOT NULL,
+  PRIMARY KEY (`Todo list_idTodo list`, `Tags_idTags`),
+  INDEX `fk_Todo list_has_Tags_Tags1_idx` (`Tags_idTags` ASC),
+  INDEX `fk_Todo list_has_Tags_Todo list1_idx` (`Todo list_idTodo list` ASC),
+  CONSTRAINT `fk_Todo list_has_Tags_Todo list1`
+    FOREIGN KEY (`Todo list_idTodo list`)
+    REFERENCES `mydb`.`Todo list` (`idTodo list`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Todo list_Tags1`
+  CONSTRAINT `fk_Todo list_has_Tags_Tags1`
     FOREIGN KEY (`Tags_idTags`)
     REFERENCES `mydb`.`Tags` (`idTags`)
     ON DELETE NO ACTION
