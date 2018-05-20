@@ -63,8 +63,9 @@ class TodoModel {
     }
 
     tagTodoItem(todoItemId, tagId, callback) {
-        const tagATodo = `INSERT INTO todo_item_tag(todo_item_id, tag_id) VALUES(${dbConnection.escape(todoItemId)},
-         ${dbConnection.escape(tagId)})`;
+        const tagATodo = `INSERT INTO todo_item_tag(todo_item_id, tag_id) 
+                        VALUES(${dbConnection.escape(todoItemId)},
+                        ${dbConnection.escape(tagId)})`;
         this.dbConnection.query(tagATodo, function (error, results) {
             if (error) {
                 callback(error);
@@ -79,7 +80,7 @@ class TodoModel {
     untagTodoItem(todoItemId, tagId, callback) {
         const tagDeleteQuery = `
         DELETE FROM todo_item_tag
-        WHERE todoItemId = ${dbConnection.escape(todoItemId)} AND tagId = ${dbConnection.escape(tagId)}`;
+        WHERE todo_Item_Id = ${dbConnection.escape(todoItemId)} AND tag_Id = ${dbConnection.escape(tagId)}`;
         this.dbConnection.query(tagDeleteQuery, (error, results) => {
             if (error) {
                 callback(error);
@@ -128,7 +129,7 @@ dbConnection.connect(function (err) {
     });
 
 
-    // create
+    // // create
     todoModel.create(2, "create anything", function (err, todoItems) {
         if (err) {
             console.log("error loading TODO items:", err);
@@ -137,7 +138,7 @@ dbConnection.connect(function (err) {
         console.log("existing todo items:", todoItems);
     });
 
-    // update
+    // // update
     todoModel.update(49, "update Todo ITEM", function (err, todoItems) {
         if (err) {
             console.log("error loading TODO items:", err);
@@ -145,7 +146,7 @@ dbConnection.connect(function (err) {
         console.log("existing todo items:", todoItems);
     });
 
-    // delete
+    // // delete
     todoModel.delete(52, function (err, todoItems) {
         if (err) {
             console.log("error loading TODO items:", err);
@@ -154,7 +155,7 @@ dbConnection.connect(function (err) {
     });
 
     // Tag Todo Item
-    todoModel.tagTodoItem(50, 2, function (err, todoItems) {
+    todoModel.tagTodoItem(50, 1, function (err, todoItems) {
         if (err) {
             console.log("error loading TODO items:", err);
         }
@@ -162,18 +163,21 @@ dbConnection.connect(function (err) {
     });
 
     //untag Todo Item
-    todoModel.untagTodoItem(56, 2, function (err, todoItems) {
+    todoModel.untagTodoItem(50, 2, function (err, todoItems) {
         if (err) {
             console.log("error loading TODO items:", err);
         }
         console.log("existing todo items:", todoItems);
     });
 
-    //mark completed
-    todoModel.markCompleted(56, function (err, todoItems) {
+    // //mark completed
+    todoModel.markCompleted(5, function (err, todoItems) {
         if (err) {
             console.log("error loading TODO items:", err);
         }
         console.log("existing todo items:", todoItems);
     });
+
+    dbConnection.end();
+
 });
