@@ -10,7 +10,7 @@
   "author": "Frank Versnel",
   "license": "ISC",
   "dependencies": {
-    "mysql": "^2.15.0"
+    "mysql": "github:mysqljs/mysql"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
