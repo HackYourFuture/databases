@@ -190,4 +190,7 @@ dbConnection.connect(function (err) {
         console.log("existing todo items:", todoItems);
     });
 
+    dbConnection.end();
+
+
 });
