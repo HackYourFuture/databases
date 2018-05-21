@@ -23,7 +23,7 @@ class TodoModel {
 
     create(userId, description, callback) {
         // Write code and query to create a new TODO item
-        const createTodoItem = `insert into todo_items (text,user_id) values("${description}",${userId});`;
+        const createTodoItem = `insert into todo_items (text,user_id) values ("${description}",${userId});`;
         this.dbConnection.query(createTodoItem, (err, rows) => {
             if (err) {
                 callback(err);
@@ -135,60 +135,61 @@ dbConnection.connect(function (err) {
     });
 
     //create new TODO
-    todoModel.create(1, "Gaorieh Begin with week2", function (err, todoItems) {
-        if (err) {
-            console.log("error loading TODO items:", err);
-        }
-        console.log("existing todo items:", todoItems);
-    });
+    todoModel.create(parseInt(process.argv[2]), "Gaorieh Begin with week2",
+        function (err, todoItems) {
+            if (err) {
+                console.log("error loading TODO items:", err);
+            }
+            console.log("existing todo items:", todoItems);
+        });
 
-    //update Todo by ID
-    todoModel.update(50, "Gaorieh NEW Todo ITEM", function (err, todoItems) {
-        if (err) {
-            console.log("error loading TODO items:", err);
-        }
-        console.log("existing todo items:", todoItems);
-    });
+    // //update Todo by ID
+    // todoModel.update(50, "Gaorieh NEW Todo ITEM", function (err, todoItems) {
+    //     if (err) {
+    //         console.log("error loading TODO items:", err);
+    //     }
+    //     console.log("existing todo items:", todoItems);
+    // });
 
-    //delete existing Todo by ID
-    todoModel.delete(45, function (err, todoItems) {
-        if (err) {
-            console.log("error loading TODO items:", err);
-        }
-        console.log("existing todo items:", todoItems);
-    });
+    // //delete existing Todo by ID
+    // todoModel.delete(45, function (err, todoItems) {
+    //     if (err) {
+    //         console.log("error loading TODO items:", err);
+    //     }
+    //     console.log("existing todo items:", todoItems);
+    // });
 
-    //tag Todo Item
-    todoModel.tagTodoItem(50, 2, function (err, todoItems) {
-        if (err) {
-            console.log("error loading TODO items:", err);
-        }
-        console.log("existing todo items:", todoItems);
-    });
+    // //tag Todo Item
+    // todoModel.tagTodoItem(50, 2, function (err, todoItems) {
+    //     if (err) {
+    //         console.log("error loading TODO items:", err);
+    //     }
+    //     console.log("existing todo items:", todoItems);
+    // });
 
-    //unTag Todo Item
-    todoModel.untagTodoItem(50, 2, function (err, todoItems) {
-        if (err) {
-            console.log("error loading TODO items:", err);
-        }
-        console.log("existing todo items:", todoItems);
-    });
+    // //unTag Todo Item
+    // todoModel.untagTodoItem(50, 2, function (err, todoItems) {
+    //     if (err) {
+    //         console.log("error loading TODO items:", err);
+    //     }
+    //     console.log("existing todo items:", todoItems);
+    // });
 
-    //mark TODO as completed
-    todoModel.markCompleted(44, function (err, todoItems) {
-        if (err) {
-            console.log("error loading TODO items:", err);
-        }
-        console.log("existing todo items:", todoItems);
-    });
+    // //mark TODO as completed
+    // todoModel.markCompleted(44, function (err, todoItems) {
+    //     if (err) {
+    //         console.log("error loading TODO items:", err);
+    //     }
+    //     console.log("existing todo items:", todoItems);
+    // });
 
-    //mark TODO as Uncompleted
-    todoModel.markUnCompleted(44, function (err, todoItems) {
-        if (err) {
-            console.log("error loading TODO items:", err);
-        }
-        console.log("existing todo items:", todoItems);
-    });
+    // //mark TODO as Uncompleted
+    // todoModel.markUnCompleted(44, function (err, todoItems) {
+    //     if (err) {
+    //         console.log("error loading TODO items:", err);
+    //     }
+    //     console.log("existing todo items:", todoItems);
+    // });
 
     dbConnection.end();
 

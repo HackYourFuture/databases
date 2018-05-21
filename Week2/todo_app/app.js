@@ -23,7 +23,7 @@ class TodoModel {
 
     create(userId, description, callback) {
         // Write code and query to create a new TODO item
-        const createTodoItem = `insert into todo_items (text,user_id) values("${description}",${userId});`;
+        const createTodoItem = `insert into todo_items (text,user_id) values(` + mysql.escape(description) + `,` + mysql.escape(userId) + `);`;
         this.dbConnection.query(createTodoItem, (err, rows) => {
             if (err) {
                 callback(err);
@@ -35,7 +35,7 @@ class TodoModel {
 
     update(id, description, callback) {
         // Write code and query to update and existing TODO item
-        const updateTodoItem = `UPDATE todo_items SET text = "${description}" Where ID = ${id};`;
+        const updateTodoItem = `UPDATE todo_items SET text =` + mysql.escape(description) + ` Where ID =` + mysql.escape(id) + `;`;
         this.dbConnection.query(updateTodoItem, (err, rows) => {
             if (err) {
                 callback(err);
@@ -48,7 +48,7 @@ class TodoModel {
 
     delete(id, callback) {
         // Write code and query to delete an existing TODO item
-        const deleteTodoItem = `delete from todo_items where id=${id};`;
+        const deleteTodoItem = `delete from todo_items where id=` + mysql.escape(id) + `;`;
         this.dbConnection.query(deleteTodoItem, (err, rows) => {
             if (err) {
                 callback(err);
@@ -61,7 +61,7 @@ class TodoModel {
 
     tagTodoItem(todoItemId, tagId, callback) {
         // Write code and query add a tag to a TODO item
-        const addTag = `insert into todo_item_tag values(${todoItemId},${tagId});`;
+        const addTag = `insert into todo_item_tag values(` + mysql.escape(todoItemId) + `,` + mysql.escape(tagId) + `);`;
         this.dbConnection.query(addTag, (err, rows) => {
             if (err) {
                 callback(err);
@@ -73,7 +73,7 @@ class TodoModel {
 
     untagTodoItem(todoItemId, tagId, callback) {
         // Write code and query remove a tag from a TODO item
-        const unTag = `delete from todo_item_tag where todo_item_id=${todoItemId} and tag_id=${tagId};`;
+        const unTag = `delete from todo_item_tag where todo_item_id=` + mysql.escape(todoItemId) + ` and tag_id=` + mysql.escape(tagId) + `;`;
         this.dbConnection.query(unTag, (err, rows) => {
             if (err) {
                 callback(err);
@@ -85,7 +85,7 @@ class TodoModel {
 
     markCompleted(todoItemId, callback) {
         // Write code to mark a TODO item as completed
-        const markCompleted = `UPDATE todo_items SET is_completed=1 Where ID = ${todoItemId};`;
+        const markCompleted = `UPDATE todo_items SET is_completed=1 Where ID = ` + mysql.escape(todoItemId) + `;`;
         this.dbConnection.query(markCompleted, (err, rows) => {
             if (err) {
                 callback(err);
@@ -98,7 +98,7 @@ class TodoModel {
 
     markUnCompleted(todoItemId, callback) {
         // Write code to mark a TODO item as uncompleted
-        const markUnCompleted = `UPDATE todo_items SET is_completed=0 Where ID = ${todoItemId};`;
+        const markUnCompleted = `UPDATE todo_items SET is_completed=0 Where ID = ` + mysql.escape(todoItemId) + `;`;
         this.dbConnection.query(markUnCompleted, (err, rows) => {
             if (err) {
                 callback(err);
@@ -126,6 +126,7 @@ dbConnection.connect(function (err) {
     console.log('connected as id ' + dbConnection.threadId);
 
     const todoModel = new TodoModel(dbConnection);
+
     //Load all TODOs
     todoModel.load(function (err, todoItems) {
         if (err) {
@@ -134,63 +135,61 @@ dbConnection.connect(function (err) {
         console.log("existing todo items:", todoItems);
     });
 
-    //create new TODO
-    todoModel.create(1, "Gaorieh Begin with week2", function (err, todoItems) {
+    // //create new TODO
+    todoModel.create(1, "ESCAPE NEW", function (err, todoItems) {
         if (err) {
             console.log("error loading TODO items:", err);
         }
         console.log("existing todo items:", todoItems);
     });
 
-    //update Todo by ID
-    todoModel.update(50, "Gaorieh NEW Todo ITEM", function (err, todoItems) {
+    // //update Todo by ID
+    todoModel.update(52, "Gaorieh NEW Todo ITEM", function (err, todoItems) {
         if (err) {
             console.log("error loading TODO items:", err);
         }
         console.log("existing todo items:", todoItems);
     });
 
-    //delete existing Todo by ID
-    todoModel.delete(45, function (err, todoItems) {
+    // //delete existing Todo by ID
+    todoModel.delete(42, function (err, todoItems) {
         if (err) {
             console.log("error loading TODO items:", err);
         }
         console.log("existing todo items:", todoItems);
     });
 
-    //tag Todo Item
-    todoModel.tagTodoItem(50, 2, function (err, todoItems) {
+    // //tag Todo Item
+    todoModel.tagTodoItem(52, 1, function (err, todoItems) {
         if (err) {
             console.log("error loading TODO items:", err);
         }
         console.log("existing todo items:", todoItems);
     });
 
-    //unTag Todo Item
-    todoModel.untagTodoItem(50, 2, function (err, todoItems) {
+    // //unTag Todo Item
+    todoModel.untagTodoItem(52, 1, function (err, todoItems) {
         if (err) {
             console.log("error loading TODO items:", err);
         }
         console.log("existing todo items:", todoItems);
     });
 
-    //mark TODO as completed
-    todoModel.markCompleted(44, function (err, todoItems) {
+    // //mark TODO as completed
+    todoModel.markCompleted(52, function (err, todoItems) {
         if (err) {
             console.log("error loading TODO items:", err);
         }
         console.log("existing todo items:", todoItems);
     });
 
-    //mark TODO as Uncompleted
-    todoModel.markUnCompleted(44, function (err, todoItems) {
+    // //mark TODO as Uncompleted
+    todoModel.markUnCompleted(52, function (err, todoItems) {
         if (err) {
             console.log("error loading TODO items:", err);
         }
         console.log("existing todo items:", todoItems);
     });
-
     dbConnection.end();
-
 
 });
