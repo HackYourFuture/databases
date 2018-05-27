@@ -1,4 +1,4 @@
-Answers for the world queries go here:
+﻿Answers for the world queries go here:
 
 For example:
 
@@ -38,3 +38,187 @@ SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE
 | Alkmaar           |
 +-------------------+
 28 rows in set (0.00 sec)
+
+MariaDB [world]> SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Name = 'Netherlands';
++------------------+
+| Name             |
++------------------+
+| Amsterdam        |
+| Rotterdam        |
+| Haag             |
+| Utrecht          |
+| Eindhoven        |
+| Tilburg          |
+| Groningen        |
+| Breda            |
+| Apeldoorn        |
+| Nijmegen         |
+| Enschede         |
+| Haarlem          |
+| Almere           |
+| Arnhem           |
+| Zaanstad         |
+| ´s-Hertogenbosch |
+| Amersfoort       |
+| Maastricht       |
+| Dordrecht        |
+| Leiden           |
+| Haarlemmermeer   |
+| Zoetermeer       |
+| Emmen            |
+| Zwolle           |
+| Ede              |
+| Delft            |
+| Heerlen          |
+| Alkmaar          |
++------------------+
+28 rows in set (0.00 sec)
+
+MariaDB [world]> select population from city where name='Rotterdam';
++------------+
+| population |
++------------+
+|     593321 |
++------------+
+1 row in set (0.00 sec)
+
+MariaDB [world]> select name from country where continent='North America'
+    -> ;
++----------------------------------+
+| name                             |
++----------------------------------+
+| Aruba                            |
+| Anguilla                         |
+| Netherlands Antilles             |
+| Antigua and Barbuda              |
+| Bahamas                          |
+| Belize                           |
+| Bermuda                          |
+| Barbados                         |
+| Canada                           |
+| Costa Rica                       |
+| Cuba                             |
+| Cayman Islands                   |
+| Dominica                         |
+| Dominican Republic               |
+| Guadeloupe                       |
+| Grenada                          |
+| Greenland                        |
+| Guatemala                        |
+| Honduras                         |
+| Haiti                            |
+| Jamaica                          |
+| Saint Kitts and Nevis            |
+| Saint Lucia                      |
+| Mexico                           |
+| Montserrat                       |
+| Martinique                       |
+| Nicaragua                        |
+| Panama                           |
+| Puerto Rico                      |
+| El Salvador                      |
+| Saint Pierre and Miquelon        |
+| Turks and Caicos Islands         |
+| Trinidad and Tobago              |
+| United States                    |
+| Saint Vincent and the Grenadines |
+| Virgin Islands, British          |
+| Virgin Islands, U.S.             |
++----------------------------------+
+37 rows in set (0.00 sec)
+
+MariaDB [world]> SELECT Name, SurfaceArea FROM country ORDER BY SurfaceArea DESC LIMIT 10;
++--------------------+-------------+
+| Name               | SurfaceArea |
++--------------------+-------------+
+| Russian Federation | 17075400.00 |
+| Antarctica         | 13120000.00 |
+| Canada             |  9970610.00 |
+| China              |  9572900.00 |
+| United States      |  9363520.00 |
+| Brazil             |  8547403.00 |
+| Australia          |  7741220.00 |
+| India              |  3287263.00 |
+| Argentina          |  2780400.00 |
+| Kazakstan          |  2724900.00 |
++--------------------+-------------+
+10 rows in set (0.00 sec)
+
+MariaDB [world]> select name,countrycode,population from city order by population desc limit 10;
++------------------+-------------+------------+
+| name             | countrycode | population |
++------------------+-------------+------------+
+| Mumbai (Bombay)  | IND         |   10500000 |
+| Seoul            | KOR         |    9981619 |
+| São Paulo        | BRA         |    9968485 |
+| Shanghai         | CHN         |    9696300 |
+| Jakarta          | IDN         |    9604900 |
+| Karachi          | PAK         |    9269265 |
+| Istanbul         | TUR         |    8787958 |
+| Ciudad de México | MEX         |    8591309 |
+| Moscow           | RUS         |    8389200 |
+| New York         | USA         |    8008278 |
++------------------+-------------+------------+
+10 rows in set (0.00 sec)
+
+MariaDB [world]> select name,population from country where name like 'p%' order by population desc limit 3;
++-------------+------------+
+| name        | population |
++-------------+------------+
+| Pakistan    |  156483000 |
+| Philippines |   75967000 |
+| Poland      |   38653600 |
++-------------+------------+
+3 rows in set (0.00 sec)
+
+MariaDB [world]> select sum(population) as "Asia's Popluation" from country where continent='Asia';
++-------------------+
+| Asia's Popluation |
++-------------------+
+|        3705025700 |
++-------------------+
+1 row in set (0.00 sec)
+
+MariaDB [world]> SELECT distinct language as "Languages Spoken in South America" FROM countrylanguage INNER JOIN country ON country.code=countrylanguage.countrycode WHERE country.continent='South America';
++-----------------------------------+
+| Languages Spoken in South America |
++-----------------------------------+
+| Indian Languages                  |
+| Italian                           |
+| Spanish                           |
+| Aimará                            |
+| Guaraní                           |
+| Ket?ua                            |
+| German                            |
+| Japanese                          |
+| Portuguese                        |
+| Araucan                           |
+| Rapa nui                          |
+| Arawakan                          |
+| Caribbean                         |
+| Chibcha                           |
+| Creole English                    |
+| English                           |
+| Creole French                     |
+| Hindi                             |
+| Sranantonga                       |
+| Goajiro                           |
+| Warrau                            |
++-----------------------------------+
+21 rows in set (0.00 sec)
+
+MariaDB [world]> SELECT city.Name, countrylanguage.language FROM countrylanguage JOIN city ON city.Countrycode = countrylanguage.Countrycode JOIN country ON city.Countrycode = country.Code WHERE city.Name = 'Barcelona';
++-----------+----------+
+| Name      | language |
++-----------+----------+
+| Barcelona | Basque   |
+| Barcelona | Catalan  |
+| Barcelona | Galecian |
+| Barcelona | Spanish  |
+| Barcelona | Goajiro  |
+| Barcelona | Spanish  |
+| Barcelona | Warrau   |
++-----------+----------+
+7 rows in set (0.02 sec)
+
+MariaDB [world]>
