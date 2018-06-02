@@ -7,7 +7,6 @@ CREATE TABLE `author` (
 CREATE TABLE `book` (
   `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `title` varchar(255) NOT NULL,
-  `name` varchar(35) NOT NULL,
   `year` date NOT NULL
 );
 
