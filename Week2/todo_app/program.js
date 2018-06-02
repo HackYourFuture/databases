@@ -131,88 +131,53 @@ dbConnection.connect(function (err) {
         console.log("existing todo items:", todoItems);
     });
 
-    switch (command) {
-
-        case 'load':
-            {
-                todoModel.load(function (err, todoItems) {
-
-                    if (err) {
-                        console.log("error loading TODO items:", err);
-                    }
-                    console.log("existing todo items:", todoItems);
-                });
-                break;
-            }
-
-        case 'create':
-            {
-                todoModel.create(param1, param2, function (err) {
-
-                    if (err) {
-                        console.log("Error: todo item has been not created:", err);
-                    }
-                    console.log('The new todo item has been created successfully:', param1);
-                });
-                break;
-            }
-
-        case 'update':
-            {
-                todoModel.update(param1, param2, function (err) {
-                    if (err) {
-                        console.log("Error: todo item has been not updated:", err);
-                    }
-                    console.log('The todo item has been updated successfully:', param1);
-                });
-                break;
-            }
-
-        case 'delete':
-            {
-                todoModel.delete(param1, function (err) {
-                    if (err) {
-                        console.log("Error: todo item has been not deleted:", err);
-                    }
-                    console.log('The todo item has been deleted successfully:', param1);
-                });
-                break;
-            }
-
-        case 'tagTodoItem':
-            {
-                todoModel.tagTodoItem(param1, param2, function (err) {
-                    if (err) {
-                        console.log("Error: tag has been not added:", err);
-                    }
-                    console.log('The tag has been added successfully:', param1);
-                });
-                break;
-            }
-        case 'untagTodoItem':
-            {
-                todoModel.untagTodoItem(param1, param2, function (err) {
-                    if (err) {
-                        console.log("Error: tag has been not removed:", err);
-                    }
-                    console.log('The tag has been removed successfully:', param1);
-                });
-                break;
-            }
-        case 'markCompleted':
-            {
-                todoModel.markCompleted(param1, function (err) {
-                    if (err) {
-                        console.log("Error: todo item has been not completed:", err);
-                    }
-                    console.log('Todo item has been completed successfully')
-                });
-            }
-
-        default:
-            console.log("404 error: commend Not found!");
+    case 'delete':
+        {
+            todoModel.delete(arg1, function (err) {
+                if (err) {
+                    console.log("error deleting TODO item:", err);
+                }
+                console.log('TODO item:', arg1, 'has been deleted!')
+            });
             break;
-    }
+        }
+
+    case 'tag':
+        {
+            todoModel.tagTodoItem(arg1, arg2, function (err) {
+                if (err) {
+                    console.log("error tagging TODO item:", err);
+                }
+                console.log('TODO item:', arg1, 'has been tagged to', arg2)
+            });
+        }
+
+    case 'untag':
+        {
+            todoModel.untagTodoItem(arg1, arg2, function (err) {
+                if (err) {
+                    console.log("error un_tagging TODO item:", err);
+                }
+                console.log('TODO item:', arg1, 'has been untagged')
+            });
+        }
+
+    case 'mark':
+        {
+            todoModel.markCompleted(arg1, function (err) {
+                if (err) {
+                    console.log("error marking TODO item as complete:", err);
+                }
+                console.log('TODO item:', arg1, 'has been marked as complete.')
+            });
+        }
+
+    default:
+        console.log("Please select what you want to do:");
+        break;
+}
+
+dbConnection.end()
 });
 
 
