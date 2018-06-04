@@ -1,0 +1,81 @@
+Here is the lucidChart diagram:
+https://www.lucidchart.com/documents/edit/00de9f5d-4578-420f-8fed-93e057398424/0
+
+Here are the attempts at the database queries.
+
+1. What are the names of all the cities in the Netherlands?
+
+	SELECT city.Name 
+	FROM city 
+	JOIN country 
+	ON city.CountryCode = country.Code 
+	WHERE country.Name = 'Netherlands';
+
+2. What is the population of Rotterdam ?
+
+	SELECT population 
+	FROM city 
+	WHERE name='Rotterdam';
+
+3. What's the name of all the countries on the continent ‘North America’ ?
+
+	SELECT name 
+	FROM country 
+	WHERE continent='North America';
+
+4. What's the top 10 countries by SurfaceArea ?
+
+	SELECT name 
+	FROM country 
+	ORDER BY SurfaceArea DESC
+	[alternatively, "GROUP BY SurfaceArea DESC"]
+	LIMIT 10;
+
+5. What's the top 10 most populated cities?
+
+	SELECT name 
+	FROM city 
+	ORDER BY population DESC 
+	LIMIT 10;
+
+6. Select the top 3 countries by population that their names start with the letter ‘P’
+
+	SELECT name,population 
+	FROM country 
+	WHERE name LIKE 'p%' 
+	ORDER BY population DESC
+	LIMIT 3 ;
+
+7. What is the population in Asia?
+
+	SELECT sum(population) as 'Popluation of Asia' 
+	FROM country 
+	WHERE continent='Asia';
+
+8. Which languages are spoken in the Region of ‘South America’
+
+	SELECT distinct language 
+	FROM countrylanguage 
+	JOIN country 
+	ON country.code=countrylanguage.countrycode 
+	WHERE country.region='South America';
+
+9. What are the languages spoken on all cities named ‘Barcelona’ (you may need to join 3 tables =) )
+
+	SELECT 
+	
+	city.Name AS 'City',
+	country.name AS 'Country',
+	countrylanguage.language AS 'Language'
+	
+	FROM
+ 	countrylanguage
+	
+	JOIN
+	city ON city.Countrycode = countrylanguage.Countrycode
+	
+	JOIN
+	country ON city.Countrycode = country.Code
+	
+	WHERE
+	city.Name = 'Barcelona';
