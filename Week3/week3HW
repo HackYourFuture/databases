@@ -1,0 +1,44 @@
+ERD is here: https://www.lucidchart.com/documents/view/3f366c6d-dec1-48a4-ae65-d032d98f5923
+
+CREATE TABLE `customer` (
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `telephone_number` varchar(35) NOT NULL,
+  `address` varchar(255) NOT NULL
+);
+
+CREATE TABLE `product` (
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `european_article_number` varchar(13) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `expiry_date` date NOT NULL
+);
+
+
+CREATE TABLE `cart` (
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `product_id` INT NOT NULL,
+  `customer_id` INT NOT NULL,
+  FOREIGN KEY (`product_id`) REFERENCES `product` (`ID`),
+  FOREIGN KEY (`customer_id`) REFERENCES `customer` (`ID`)
+);
+
+CREATE TABLE `order` (
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `date` datetime NOT NULL,
+  `cart_id` int NOT NULL,
+  FOREIGN KEY (`cart_id`) REFERENCES `cart` (`ID`)
+);
+
+CREATE TABLE `shipping` (
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `order_id` INT NOT NULL,
+  `date` datetime NOT NULL,
+  FOREIGN KEY (`order_id`) REFERENCES `order` (`ID`)
+);
+
+
+
+
