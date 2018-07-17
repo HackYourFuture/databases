@@ -1,40 +1,222 @@
 Answers for the world queries go here:
 
-For example:
-
 1. What are the names of all the cities in the Netherlands?
 
-SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Name = 'Netherlands';
-+-------------------+
-| Name              |
-+-------------------+
-| Amsterdam         |
-| Rotterdam         |
-| Haag              |
-| Utrecht           |
-| Eindhoven         |
-| Tilburg           |
-| Groningen         |
-| Breda             |
-| Apeldoorn         |
-| Nijmegen          |
-| Enschede          |
-| Haarlem           |
-| Almere            |
-| Arnhem            |
-| Zaanstad          |
-| ´s-Hertogenbosch  |
-| Amersfoort        |
-| Maastricht        |
-| Dordrecht         |
-| Leiden            |
-| Haarlemmermeer    |
-| Zoetermeer        |
-| Emmen             |
-| Zwolle            |
-| Ede               |
-| Delft             |
-| Heerlen           |
-| Alkmaar           |
-+-------------------+
+mysql> SELECT city.name FROM city JOIN country ON city.countrycode = country.code WHERE country.name
+= 'Netherlands' ORDER BY city.name;
++------------------+
+| name             |
++------------------+
+| Alkmaar          |
+| Almere           |
+| Amersfoort       |
+| Amsterdam        |
+| Apeldoorn        |
+| Arnhem           |
+| Breda            |
+| Delft            |
+| Dordrecht        |
+| Ede              |
+| Eindhoven        |
+| Emmen            |
+| Enschede         |
+| Groningen        |
+| Haag             |
+| Haarlem          |
+| Haarlemmermeer   |
+| Heerlen          |
+| Leiden           |
+| Maastricht       |
+| Nijmegen         |
+| Rotterdam        |
+| Tilburg          |
+| Utrecht          |
+| Zaanstad         |
+| Zoetermeer       |
+| Zwolle           |
+| 's-Hertogenbosch |
++------------------+
 28 rows in set (0.00 sec)
+
+2. What is the population of Rotterdam ?
+
+mysql> SELECT name, population FROM city WHERE city.name = 'Rotterdam';
++-----------+------------+
+| name      | population |
++-----------+------------+
+| Rotterdam |     593321 |
++-----------+------------+
+1 row in set (0.00 sec)
+
+3. What's the name of all the countries on the continent ‘North America’ ?
+
+mysql> SELECT name FROM country WHERE continent = 'North America' ORDER BY name;
++----------------------------------+
+| name                             |
++----------------------------------+
+| Anguilla                         |
+| Antigua and Barbuda              |
+| Aruba                            |
+| Bahamas                          |
+| Barbados                         |
+| Belize                           |
+| Bermuda                          |
+| Canada                           |
+| Cayman Islands                   |
+| Costa Rica                       |
+| Cuba                             |
+| Dominica                         |
+| Dominican Republic               |
+| El Salvador                      |
+| Greenland                        |
+| Grenada                          |
+| Guadeloupe                       |
+| Guatemala                        |
+| Haiti                            |
+| Honduras                         |
+| Jamaica                          |
+| Martinique                       |
+| Mexico                           |
+| Montserrat                       |
+| Netherlands Antilles             |
+| Nicaragua                        |
+| Panama                           |
+| Puerto Rico                      |
+| Saint Kitts and Nevis            |
+| Saint Lucia                      |
+| Saint Pierre and Miquelon        |
+| Saint Vincent and the Grenadines |
+| Trinidad and Tobago              |
+| Turks and Caicos Islands         |
+| United States                    |
+| Virgin Islands, British          |
+| Virgin Islands, U.S.             |
++----------------------------------+
+37 rows in set (0.00 sec)
+
+4. What's the top 10 countries by SurfaceArea ?
+
+mysql> SELECT name, surfaceArea FROM country ORDER BY surfaceArea DESC limit 10;
++--------------------+-------------+
+| name               | surfaceArea |
++--------------------+-------------+
+| Russian Federation | 17075400.00 |
+| Antarctica         | 13120000.00 |
+| Canada             |  9970610.00 |
+| China              |  9572900.00 |
+| United States      |  9363520.00 |
+| Brazil             |  8547403.00 |
+| Australia          |  7741220.00 |
+| India              |  3287263.00 |
+| Argentina          |  2780400.00 |
+| Kazakstan          |  2724900.00 |
++--------------------+-------------+
+10 rows in set (0.00 sec)
+
+5. What's the top 10 most populated cities?
+
+mysql> SELECT city.name, city.population, country.name as country FROM city JOIN country ON city.countrycode
+= country.code ORDER BY city.population DESC limit 10;
++------------------+------------+--------------------+
+| name             | population | country            |
++------------------+------------+--------------------+
+| Mumbai (Bombay)  |   10500000 | India              |
+| Seoul            |    9981619 | South Korea        |
+| Sao Paulo        |    9968485 | Brazil             |
+| Shanghai         |    9696300 | China              |
+| Jakarta          |    9604900 | Indonesia          |
+| Karachi          |    9269265 | Pakistan           |
+| Istanbul         |    8787958 | Turkey             |
+| Ciudad de México |    8591309 | Mexico             |
+| Moscow           |    8389200 | Russian Federation |
+| New York         |    8008278 | United States      |
++------------------+------------+--------------------+
+10 rows in set (0.03 sec)
+
+6. Select the top 3 countries by population that their names start with the letter ‘P’
+
+mysql> SELECT name, population FROM country WHERE name LIKE 'P%' ORDER BY population DESC LIMIT 3;
++-------------+------------+
+| name        | population |
++-------------+------------+
+| Pakistan    |  156483000 |
+| Philippines |   75967000 |
+| Poland      |   38653600 |
++-------------+------------+
+3 rows in set (0.00 sec)
+
+7. What is the population in Asia?
+
+mysql> SELECT continent, SUM(population) as population FROM country WHERE continent = 'Asia';
++-----------+------------+
+| continent | population |
++-----------+------------+
+| Asia      | 3705025700 |
++-----------+------------+
+1 row in set (0.00 sec)
+
+8. Which languages are spoken in the Region of ‘South America’?
+
+mysql> SELECT DISTINCT language FROM countryLanguage JOIN country ON countryLanguage.countrycode = 
+country.code WHERE region = 'South America';
++------------------+
+| language         |
++------------------+
+| Indian Languages |
+| Italian          |
+| Spanish          |
+| Aimará           |
+| Guaraní          |
+| Ket?ua           |
+| German           |
+| Japanese         |
+| Portuguese       |
+| Araucan          |
+| Rapa nui         |
+| Arawakan         |
+| Caribbean        |
+| Chibcha          |
+| Creole English   |
+| English          |
+| Creole French    |
+| Hindi            |
+| Sranantonga      |
+| Goajiro          |
+| Warrau           |
++------------------+
+21 rows in set (0.04 sec)
+
+9. What are the languages spoken on all cities named ‘Barcelona’?
+
+mysql> SELECT DISTINCT language FROM city JOIN countrylanguage ON city.countrycode = countrylanguage.
+countrycode WHERE name = 'Barcelona';
++----------+
+| language |
++----------+
+| Basque   |
+| Catalan  |
+| Galecian |
+| Spanish  |
+| Goajiro  |
+| Warrau   |
++----------+
+6 rows in set (0.01 sec)
+
+>> Join 3 tables to show country name :
+
+mysql> SELECT language, city.name, country.name as country_name FROM city 
+JOIN countrylanguage ON city.countrycode = countrylanguage.countrycode 
+JOIN country on city.countrycode = country.code 
+WHERE city.name = 'Barcelona';
++----------+-----------+--------------+
+| language | name      | country_name |
++----------+-----------+--------------+
+| Basque   | Barcelona | Spain        |
+| Catalan  | Barcelona | Spain        |
+| Galecian | Barcelona | Spain        |
+| Spanish  | Barcelona | Spain        |
+| Goajiro  | Barcelona | Venezuela    |
+| Spanish  | Barcelona | Venezuela    |
+| Warrau   | Barcelona | Venezuela    |
++----------+-----------+--------------+
+7 rows in set (0.01 sec)
