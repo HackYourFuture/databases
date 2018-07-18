@@ -23,18 +23,20 @@ CREATE TABLE `List`(
 
 CREATE TABLE `ToDo`(
     `Id` INT(11) NOT NULL AUTO_INCREMENT,
-    `Listid` INT(11) NOT NULL,
+    `ListId` INT(11) NOT NULL,
+    `UserId` INT(11) NOT NULL,
     `Text` TEXT NOT NULL,
     `Tag` CHAR(25),
     `Done` enum('T','F') NOT NULL DEFAULT 'F',
     `Created` DATETIME(6) NOT NULL,
     `Modified` DATETIME(6) NOT NULL,
     PRIMARY KEY (`Id`),
-    FOREIGN KEY (`Listid`) REFERENCES `List` (`Id`)
+    FOREIGN KEY (`ListId`) REFERENCES `List` (`Id`),
+    FOREIGN KEY (`UserId`) REFERENCES `User` (`Id`)
 );
 
 CREATE TABLE `ListOwner`(
-    `Listid` INT(11) NOT NULL,
+    `ListId` INT(11) NOT NULL,
     `UserId` INT(11) NOT NULL,
     PRIMARY KEY (`Listid`,`UserId`),
     FOREIGN KEY (`Listid`) REFERENCES `List` (`Id`),
