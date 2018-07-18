@@ -1,6 +1,13 @@
 Answers for the world queries go here:
 
-For example:
+create database world;
+source C:/Users/matfe/databases/Week1/databases/world.sql;
+
+mysql> use world;
+mysql> show tables;
+mysql> describe city;
+mysql> describe country;
+mysql> describe countrylanguage;
 
 1. What are the names of all the cities in the Netherlands?
 
@@ -38,3 +45,161 @@ SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE
 | Alkmaar           |
 +-------------------+
 28 rows in set (0.00 sec)
+
+2. What is the population of Rotterdam ?
+mysql> select city.population from city where city.name = 'Rotterdam';
++------------+
+| population |
++------------+
+|     593321 |
++------------+
+1 row in set (0.01 sec)
+
+3. What's the name of all the countries on the continent ‘North America’ ?
+mysql> select country.name from country where country.continent = 'North America';
++----------------------------------+
+| name                             |
++----------------------------------+
+| Aruba                            |
+| Anguilla                         |
+| Netherlands Antilles             |
+| Antigua and Barbuda              |
+| Bahamas                          |
+| Belize                           |
+| Bermuda                          |
+| Barbados                         |
+| Canada                           |
+| Costa Rica                       |
+| Cuba                             |
+| Cayman Islands                   |
+| Dominica                         |
+| Dominican Republic               |
+| Guadeloupe                       |
+| Grenada                          |
+| Greenland                        |
+| Guatemala                        |
+| Honduras                         |
+| Haiti                            |
+| Jamaica                          |
+| Saint Kitts and Nevis            |
+| Saint Lucia                      |
+| Mexico                           |
+| Montserrat                       |
+| Martinique                       |
+| Nicaragua                        |
+| Panama                           |
+| Puerto Rico                      |
+| El Salvador                      |
+| Saint Pierre and Miquelon        |
+| Turks and Caicos Islands         |
+| Trinidad and Tobago              |
+| United States                    |
+| Saint Vincent and the Grenadines |
+| Virgin Islands, British          |
+| Virgin Islands, U.S.             |
++----------------------------------+
+37 rows in set (0.00 sec)
+
+4. What's the top 10 countries by SurfaceArea ?
+mysql> select country.name, country.surfacearea from country order by surfacearea DESC limit 10;
++--------------------+-------------+
+| name               | surfacearea |
++--------------------+-------------+
+| Russian Federation | 17075400.00 |
+| Antarctica         | 13120000.00 |
+| Canada             |  9970610.00 |
+| China              |  9572900.00 |
+| United States      |  9363520.00 |
+| Brazil             |  8547403.00 |
+| Australia          |  7741220.00 |
+| India              |  3287263.00 |
+| Argentina          |  2780400.00 |
+| Kazakstan          |  2724900.00 |
++--------------------+-------------+
+10 rows in set (0.00 sec)
+
+5. What's the top 10 most populated cities?
+mysql> select city.name, city.population from city order by population DESC limit 10;
++------------------+------------+
+| name             | population |
++------------------+------------+
+| Mumbai (Bombay)  |   10500000 |
+| Seoul            |    9981619 |
+| São Paulo        |    9968485 |
+| Shanghai         |    9696300 |
+| Jakarta          |    9604900 |
+| Karachi          |    9269265 |
+| Istanbul         |    8787958 |
+| Ciudad de México |    8591309 |
+| Moscow           |    8389200 |
+| New York         |    8008278 |
++------------------+------------+
+10 rows in set (0.01 sec)
+
+6. Select the top 3 countries by population that their names start with the letter ‘P’
+mysql> select country.Name from country where country.Name LIKE 'p%' ORDER BY population desc limit 3;
++-------------+
+| Name        |
++-------------+
+| Pakistan    |
+| Philippines |
+| Poland      |
++-------------+
+3 rows in set (0.00 sec)
+
+7. What is the population in Asia?
+mysql> select sum(population) from country where Continent = 'Asia';
++-----------------+
+| sum(population) |
++-----------------+
+|      3705025700 |
++-----------------+
+1 row in set (0.04 sec)
+
+8. Which languages are spoken in the Region of ‘South America’?
+mysql> select distinct language from countrylanguage
+join country on countrylanguage.countrycode = country.code
+where country.continent = 'south america' order by language;
++------------------+
+| language         |
++------------------+
+| Aimará           |
+| Araucan          |
+| Arawakan         |
+| Caribbean        |
+| Chibcha          |
+| Creole English   |
+| Creole French    |
+| English          |
+| German           |
+| Goajiro          |
+| Guaraní          |
+| Hindi            |
+| Indian Languages |
+| Italian          |
+| Japanese         |
+| Ket?ua           |
+| Portuguese       |
+| Rapa nui         |
+| Spanish          |
+| Sranantonga      |
+| Warrau           |
++------------------+
+21 rows in set (0.00 sec)
+
+9. What are the languages spoken on all cities named ‘Barcelona’ (you may need to join 3 tables =) )?
+mysql> select distinct language from countrylanguage
+join country on countrylanguage.countrycode = country.code
+join city on countrylanguage.countrycode = city.countrycode 
+where city.name = 'Barcelona';
++----------+
+| language |
++----------+
+| Basque   |
+| Catalan  |
+| Galecian |
+| Spanish  |
+| Goajiro  |
+| Warrau   |
++----------+
+6 rows in set (0.01 sec)
