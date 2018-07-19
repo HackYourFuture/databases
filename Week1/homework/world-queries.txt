@@ -41,6 +41,14 @@ SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE
 
 2. What is the population of Rotterdam ?
 
+MariaDB [world]> SELECT name,Population FROM city WHERE city.Name = 'Rotterdam';
++-----------+------------+
+| name      | Population |
++-----------+------------+
+| Rotterdam |     593321 |
++-----------+------------+
+1 row in set (0.00 sec)
+
 3. What's the name of all the countries on the continent ‘North America’ ?
 
 MariaDB [world]> SELECT Name FROM country WHERE country.Continent = 'North America';
