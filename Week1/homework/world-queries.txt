@@ -1,40 +1,236 @@
 Answers for the world queries go here:
 
-For example:
+mysql> use world
+Database changed
+mysql> show tables
+    ->
+    ->
+    -> ;
++-----------------+
+| Tables_in_world |
++-----------------+
+| city            |
+| country         |
+| countrylanguage |
++-----------------+
+3 rows in set (0.02 sec)
 
 1. What are the names of all the cities in the Netherlands?
 
-SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Name = 'Netherlands';
-+-------------------+
-| Name              |
-+-------------------+
-| Amsterdam         |
-| Rotterdam         |
-| Haag              |
-| Utrecht           |
-| Eindhoven         |
-| Tilburg           |
-| Groningen         |
-| Breda             |
-| Apeldoorn         |
-| Nijmegen          |
-| Enschede          |
-| Haarlem           |
-| Almere            |
-| Arnhem            |
-| Zaanstad          |
-| ´s-Hertogenbosch  |
-| Amersfoort        |
-| Maastricht        |
-| Dordrecht         |
-| Leiden            |
-| Haarlemmermeer    |
-| Zoetermeer        |
-| Emmen             |
-| Zwolle            |
-| Ede               |
-| Delft             |
-| Heerlen           |
-| Alkmaar           |
-+-------------------+
-28 rows in set (0.00 sec)
+mysql> select name from city where countrycode = 'NLD';
++---------------------+
+| name                |
++---------------------+
+| Amsterdam           |
+| Rotterdam           |
+| Haag                |
+| Utrecht             |
+| Eindhoven           |
+| Tilburg             |
+| Groningen           |
+| Breda               |
+| Apeldoorn           |
+| Nijmegen            |
+| Enschede            |
+| Haarlem             |
+| Almere              |
+| Arnhem              |
+| Zaanstad            |
+| Â´s-Hertogenbosch   |
+| Amersfoort          |
+| Maastricht          |
+| Dordrecht           |
+| Leiden              |
+| Haarlemmermeer      |
+| Zoetermeer          |
+| Emmen               |
+| Zwolle              |
+| Ede                 |
+| Delft               |
+| Heerlen             |
+| Alkmaar             |
++---------------------+
+28 rows in set (0.01 sec)
+
+2. What is the population of Rotterdam ?
+
+mysql> select name,population from city where name = 'Rotterdam';
++-----------+------------+
+| name      | population |
++-----------+------------+
+| Rotterdam |     593321 |
++-----------+------------+
+1 row in set (0.01 sec)
+
+3. What's the name of all the countries on the continent ‘North America’ ?
+
+mysql> select name from country where continent = 'North America';
++----------------------------------+
+| name                             |
++----------------------------------+
+| Aruba                            |
+| Anguilla                         |
+| Netherlands Antilles             |
+| Antigua and Barbuda              |
+| Bahamas                          |
+| Belize                           |
+| Bermuda                          |
+| Barbados                         |
+| Canada                           |
+| Costa Rica                       |
+| Cuba                             |
+| Cayman Islands                   |
+| Dominica                         |
+| Dominican Republic               |
+| Guadeloupe                       |
+| Grenada                          |
+| Greenland                        |
+| Guatemala                        |
+| Honduras                         |
+| Haiti                            |
+| Jamaica                          |
+| Saint Kitts and Nevis            |
+| Saint Lucia                      |
+| Mexico                           |
+| Montserrat                       |
+| Martinique                       |
+| Nicaragua                        |
+| Panama                           |
+| Puerto Rico                      |
+| El Salvador                      |
+| Saint Pierre and Miquelon        |
+| Turks and Caicos Islands         |
+| Trinidad and Tobago              |
+| United States                    |
+| Saint Vincent and the Grenadines |
+| Virgin Islands, British          |
+| Virgin Islands, U.S.             |
++----------------------------------+
+37 rows in set (0.01 sec)
+
+4. What's the top 10 countries by SurfaceArea ?
+
+mysql> select name,surfacearea from country order by surfacearea desc limit 10;
++--------------------+-------------+
+| name               | surfacearea |
++--------------------+-------------+
+| Russian Federation | 17075400.00 |
+| Antarctica         | 13120000.00 |
+| Canada             |  9970610.00 |
+| China              |  9572900.00 |
+| United States      |  9363520.00 |
+| Brazil             |  8547403.00 |
+| Australia          |  7741220.00 |
+| India              |  3287263.00 |
+| Argentina          |  2780400.00 |
+| Kazakstan          |  2724900.00 |
++--------------------+-------------+
+10 rows in set (0.00 sec)
+
+5. What's the top 10 most populated cities?
+
+mysql> select name,population from city order by population desc limit 10;
++---------------------+------------+
+| name                | population |
++---------------------+------------+
+| Mumbai (Bombay)     |   10500000 |
+| Seoul               |    9981619 |
+| SÃ£o Paulo          |    9968485 |
+| Shanghai            |    9696300 |
+| Jakarta             |    9604900 |
+| Karachi             |    9269265 |
+| Istanbul            |    8787958 |
+| Ciudad de MÃ©xico   |    8591309 |
+| Moscow              |    8389200 |
+| New York            |    8008278 |
++---------------------+------------+
+10 rows in set (0.00 sec)
+
+6. Select the top 3 countries by population that their names start with the letter ‘P’
+
+mysql> select name,population from country where name like 'P%' order by population desc limit 3;
++-------------+------------+
+| name        | population |
++-------------+------------+
+| Pakistan    |  156483000 |
+| Philippines |   75967000 |
+| Poland      |   38653600 |
++-------------+------------+
+3 rows in set (0.00 sec)
+
+7. What is the population in Asia?
+
+mysql> select continent,sum(population) as population from country where continent = 'Asia';
++-----------+------------+
+| continent | population |
++-----------+------------+
+| Asia      | 3705025700 |
++-----------+------------+
+1 row in set (0.00 sec)
+
+8. Which languages are spoken in the Region of ‘South America’?
+
+mysql> select countrylanguage.language ,country.name as name,country.region as region from countrylanguage join country on countrylanguage.countrycode = country.code where region = 'South America';
++------------------+------------------+---------------+
+| language         | name             | region        |
++------------------+------------------+---------------+
+| Indian Languages | Argentina        | South America |
+| Italian          | Argentina        | South America |
+| Spanish          | Argentina        | South America |
+| AimarÃ¡          | Bolivia          | South America |
+| GuaranÃ­         | Bolivia          | South America |
+| KetÂšua          | Bolivia          | South America |
+| Spanish          | Bolivia          | South America |
+| German           | Brazil           | South America |
+| Indian Languages | Brazil           | South America |
+| Italian          | Brazil           | South America |
+| Japanese         | Brazil           | South America |
+| Portuguese       | Brazil           | South America |
+| AimarÃ¡          | Chile            | South America |
+| Araucan          | Chile            | South America |
+| Rapa nui         | Chile            | South America |
+| Spanish          | Chile            | South America |
+| Arawakan         | Colombia         | South America |
+| Caribbean        | Colombia         | South America |
+| Chibcha          | Colombia         | South America |
+| Creole English   | Colombia         | South America |
+| Spanish          | Colombia         | South America |
+| KetÂšua          | Ecuador          | South America |
+| Spanish          | Ecuador          | South America |
+| English          | Falkland Islands | South America |
+| Creole French    | French Guiana    | South America |
+| Indian Languages | French Guiana    | South America |
+| Arawakan         | Guyana           | South America |
+| Caribbean        | Guyana           | South America |
+| Creole English   | Guyana           | South America |
+| AimarÃ¡          | Peru             | South America |
+| KetÂšua          | Peru             | South America |
+| Spanish          | Peru             | South America |
+| German           | Paraguay         | South America |
+| GuaranÃ­         | Paraguay         | South America |
+| Portuguese       | Paraguay         | South America |
+| Spanish          | Paraguay         | South America |
+| Hindi            | Suriname         | South America |
+| Sranantonga      | Suriname         | South America |
+| Spanish          | Uruguay          | South America |
+| Goajiro          | Venezuela        | South America |
+| Spanish          | Venezuela        | South America |
+| Warrau           | Venezuela        | South America |
++------------------+------------------+---------------+
+42 rows in set (0.00 sec)
+
+9. What are the languages spoken on all cities named ‘Barcelona’?
+
+mysql> select countrylanguage.language ,country.name as country,city.name as city from countrylanguage join country on countrylanguage.countrycode = country.code join city on  countrylanguage.countrycode = city.countrycode where city.name = 'Barcelona';
++----------+-----------+-----------+
+| language | country   | city      |
++----------+-----------+-----------+
+| Basque   | Spain     | Barcelona |
+| Catalan  | Spain     | Barcelona |
+| Galecian | Spain     | Barcelona |
+| Spanish  | Spain     | Barcelona |
+| Goajiro  | Venezuela | Barcelona |
+| Spanish  | Venezuela | Barcelona |
+| Warrau   | Venezuela | Barcelona |
++----------+-----------+-----------+
+7 rows in set (0.00 sec)
