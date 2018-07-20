@@ -143,19 +143,19 @@ LIMIT 10;
 
 6. Select the top 3 countries by population that their names start with the letter ‘P’
 
-SELECT name
+SELECT name, population
 FROM country
 WHERE name LIKE 'P%'
-ORDER BY population
+ORDER BY population desc
 LIMIT 3;
-+----------+
-| name     |
-+----------+
-| Pitcairn |
-| Palau    |
-| Panama   |
-+----------+
-3 rows in set (0.01 sec)
++-------------+------------+
+| name        | population |
++-------------+------------+
+| Pakistan    |  156483000 |
+| Philippines |   75967000 |
+| Poland      |   38653600 |
++-------------+------------+
+3 rows in set (0.00 sec)
 
 7. What is the population in Asia?
 
