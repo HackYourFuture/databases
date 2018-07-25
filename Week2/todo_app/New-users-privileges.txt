@@ -1,0 +1,8 @@
+mysql> show grants for  newuser@localhost;
++---------------------------------------------------------------+
+| Grants for newuser@localhost                                  |
++---------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `newuser`@`localhost`                   |
+| GRANT ALL PRIVILEGES ON `todo_app`.* TO `newuser`@`localhost` |
++---------------------------------------------------------------+
+2 rows in set (0.11 sec)
