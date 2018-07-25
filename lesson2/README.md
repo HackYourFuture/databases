@@ -55,15 +55,14 @@ Also, please read the following pages that explains the ACID database model and 
 ## Homework
 
 - Write the necessary SQL statements to complete the functionality of the node task application. This includes, at the minimum, the following functionality:
-    - Adding a new task item
-    - Changing the name, the due date, or the status of a task item
-    - Marking a task item as completed
-    - Deleting a task item
+    - Adding a new task
+    - Changing the title, due date, or status of a task
+    - Marking a task as completed
+    - Deleting a task
     - Deleting a user
 - Create a new database containing the following tables:
-    - **Class** with the columns: id, name, begins (date), ends (data)
-    - **Student** with the columns: id, name, email, phone, class_id (foreign key)
+    - **Class**: with the columns: id, name, begins (date), ends (date)
+    - **Student**: with the columns: id, name, email, phone, class_id (foreign key)
 - If you are done with the above tasks, you can continue with these advanced tasks:
     - Create an index on the name column of the student table.
-    - Add a new column to the class table named **status** which can only have the following values. not-started, ongoing, finished (hint: enumerations).
-
+    - Add a new column to the class table named **status** which can only have the following values: not-started, ongoing, finished (hint: enumerations).
