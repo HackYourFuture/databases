@@ -32,7 +32,7 @@ class TodoModel {
         writeQuery(this.dbConnection, [selectTodoItems], callback);
     }
 
-    create(description, callback) {
+    create(description, userId, callback) {
         // Write code and query to create a new TODO item
         const todo = `INSERT INTO todo_items(text,is_completed,user_id) Values
       (${dbConnection.escape(description)},0,${dbConnection.escape(userId)})`;
