@@ -108,8 +108,8 @@ const argument2 = process.argv[4];
 
 const dbConnection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: '',
+    user: 'allouh',
+    password: '1980',
     database: 'todo_app'
 });
 
