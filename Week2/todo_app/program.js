@@ -42,7 +42,7 @@ class TodoModel {
     update(id, description, callback) {
         // Write code and query to update and existing TODO item
         dbConnection.query(`UPDATE todo_items SET text = ? ${this.dbConnection.escape(description)} 
-        WHERE id = ${this.dbConnection.escape(id)} `, function (error, results, fields) {
+        WHERE id = ${this.dbConnection.escape(id)}`, function (error, results, fields) {
                 if (err) {
                     callback(error);
                     return;
@@ -149,5 +149,4 @@ dbConnection.end();
 | todo_app           |
 +--------------------+
 2 rows in set (0.00 sec)
-
 */
