@@ -2,6 +2,12 @@
 // that we can use to connect to a MySQL process
 // and access its databases.
 const mysql = require('mysql');
+const express = require('express');
+const app = express();
+
+const cmd = process.argv[2];
+const input1 = process.argv[3];
+const input2 = process.argv[4];
 
 class TodoModel {
     constructor(dbConnection) {
@@ -23,6 +29,14 @@ class TodoModel {
 
     create(description, callback) {
         // Write code and query to create a new TODO item
+        dbConnection.query(`INSERT INTO todo_items(text, is_completed, user_id) VALUES = ? 
+        ${dbConnection.escape(description)},${dbConnection.escape(input1)},${dbConnection.escape(input2)}`, function (err, results, fields) {
+                if (err) {
+                    callback(err);
+                    return;
+                }
+                callback(null, results);
+            });
     }
 
     update(id, description, callback) {
