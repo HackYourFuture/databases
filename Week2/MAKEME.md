@@ -9,7 +9,7 @@ that should be able to extract TODOs from the database, update them, and delete
 them. The `load` function already extracts all TODOs from the database.  
 Use [todo_app/db.sql](./todo_app/db.sql) to create the database.
 
-3. Run `npm install mysql` inside the `todo_app` directory to download and install the MySQL
+3. Run `npm install` inside the `todo_app` directory to download and install the MySQL
 connector.
 
 4. Investigate what happens in this program. How is the database connection
@@ -53,7 +53,7 @@ class TodoModel {
 
 # Adding a new database user
 
-Until now we've always connected to the database as `root` (make sure you remember what a `root` user is). 
+Until now we've always connected to the database as `root` (make sure you know what a `root` user is for a database). 
 We don't want to allow our TODO app access to other databases than the TODO app itself:
 
 1. Figure out how to create a new user in MySQL.
