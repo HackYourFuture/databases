@@ -41,10 +41,25 @@ class TodoModel {
 
     update(id, description, callback) {
         // Write code and query to update and existing TODO item
+        dbConnection.query(`UPDATE todo_items SET text = ? ${this.dbConnection.escape(description)} 
+        WHERE id = ${this.dbConnection.escape(id)} `, function (error, results, fields) {
+                if (err) {
+                    callback(error);
+                    return;
+                }
+                callback(null, results);
+            });
     }
 
     delete(id, callback) {
         // Write code and query to delete an existing TODO item
+        dbConnection.query(`DELETE FROM todo_items WHERE id = ? ${dbConnection.escape(id)} `, function (error, results, fields) {
+            if (err) {
+                callback(error);
+                return;
+            }
+            callback(null, results);
+        });
     }
 
     tagTodoItem(todoItemId, tagId, callback) {
