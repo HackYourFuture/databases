@@ -5,9 +5,9 @@ const mysql = require('mysql');
 const express = require('express');
 const app = express();
 
-const cmd = process.argv[2];
-const input1 = process.argv[3];
-const input2 = process.argv[4];
+// const cmd = process.argv[2];
+// const input1 = process.argv[3];
+// const input2 = process.argv[4];
 
 class TodoModel {
     constructor(dbConnection) {
@@ -29,74 +29,70 @@ class TodoModel {
 
     create(description, callback) {
         // Write code and query to create a new TODO item
-        dbConnection.query(`INSERT INTO todo_items(text, is_completed, user_id) VALUES = ? 
-        ${dbConnection.escape(description)},${dbConnection.escape(input1)},${dbConnection.escape(input2)}`, function (err, results, fields) {
-                if (err) {
+        dbConnection.query('INSERT INTO todo_items (text, is_completed) VALUES = ?', [description], function (error, results, fields) {
+                if (error) {
                     callback(err);
                     return;
                 }
                 callback(null, results);
-            });
+        })
     }
 
     update(id, description, callback) {
         // Write code and query to update and existing TODO item
-        dbConnection.query(`UPDATE todo_items SET text = ? ${this.dbConnection.escape(description)} 
-        WHERE id = ${this.dbConnection.escape(id)}`, function (error, results, fields) {
-                if (err) {
-                    callback(error);
-                    return;
-                }
-                callback(null, results);
-            });
+        dbConnection.query('UPDATE todo_items SET text = ? WHERE id = ?'[description], [id], function (error, results, fields) {
+            if (error) {
+                callback(err);
+                return;
+            }
+            callback(null, results);
+        })
     }
 
     delete(id, callback) {
         // Write code and query to delete an existing TODO item
-        dbConnection.query(`DELETE FROM todo_items WHERE id = ? ${dbConnection.escape(id)} `, function (error, results, fields) {
-            if (err) {
+        dbConnection.query('DELETE FROM todo_items WHERE id = ?', [id], function (error, results, fields) {
+            if (error) {
                 callback(error);
                 return;
             }
             callback(null, results);
-        });
+        })
     }
 
     tagTodoItem(todoItemId, tagId, callback) {
         // Write code and query add a tag to a TODO item
-        dbConnection.query(`INSERT INTO todo_item_tag VALUES = ?) 
-        ${ this.dbConnection.escape(todoItemId)}, ${this.dbConnection.escape(tagId)}`, function (err, results, fields) {
-                if (err) {
-                    callback(err);
-                    return;
-                }
-                callback(null, results);
-            });
+        dbConnection.query('INSERT INTO todo_item_tag VALUES = ?,?', [todoItemId], [tagId], function (error, results, fields) {
+            if (error) {
+                callback(err);
+                return;
+            }
+            callback(null, results)
+        })
     }
-        
+
     untagTodoItem(todoItemId, tagId, callback) {
         // Write code and query remove a tag from a TODO item
-        dbConnection.query(`DELETE FROM todo_item_tag WHERE todo_item_id = ? AND tag_id = ? 
-        ${this.dbConnection.escape(todoItemId)}, ${this.dbConnection.escape(tagId)}`, function (err, results, fields) {
-                if (err) {
-                    callback(err);
-                    return;
-                }
-                callback(null, results);
-            });
+        dbConnection.query('DELETE FROM todo_item_tag WHERE todo_item_id = ? AND tagId = ?', [todoItemId], [tagId], function (error, results, fields) {
+            if (error) {
+                callback(err);
+                return;
+            }
+            callback(null, results);
+        })
     }
 
     markCompleted(todoItemId, callback) {
         // Write code to mark a TODO item as completed
-        dbConnection.query(`UPDATE todo_items SET is_completed = true
-        WHERE id = ? ${this.dbConnection.escape(todoItemId)}`, function (err, results, fields) {
-                if (err) {
-                    callback(err);
-                    return;
-                }
-                callback(null, results);
-            });
-         }
+        dbConnection.query('UPDATE todo_items SET is_completed = true WHERE id = ?', [todoItemId],function (error, results, fields) {
+            if (error) {
+                callback(err);
+                return;
+            }
+            callback(null, results);
+    })
+}
+
     }
 
 const dbConnection = mysql.createConnection({
