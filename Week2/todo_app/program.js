@@ -3,21 +3,15 @@
 // and access its databases.
 const mysql = require('mysql');
 
-//User needs to be defined to be able to correctly perform actions on the todo_items Table
-const userId = process.argv[2];
-const id = process.argv[3];
-const description = process.argv[4];
-const tagId = process.argv[4];
-
 class TodoModel {
     constructor(dbConnection) {
         this.dbConnection = dbConnection;
     }
 
     // Loads all the TODOs in the database
-    load(callback) {
-        if (process.argv.length >= 2) {
-            const selectTodoItems = "SELECT * FROM todo_items WHERE user_id = ?";
+    load(callback, userId) {
+        if (userId) {
+            const selectTodoItems = `SELECT * FROM todo_items WHERE user_id = ?`;
             this.dbConnection.query(selectTodoItems, userId, function(err, results, fields) {
                 if(err) {
                     callback(err);
@@ -27,7 +21,7 @@ class TodoModel {
                 callback(null, results);
             });
         } else {
-            const selectTodoItems = "SELECT * FROM todo_items ";
+            const selectTodoItems = `SELECT * FROM todo_items`;
             this.dbConnection.query(selectTodoItems, function (err, results, fields) {
                 if (err) {
                     callback(err);
@@ -39,7 +33,7 @@ class TodoModel {
         }
     }
 
-    create(description, callback) {
+    create(description, callback, userId) {
         // Write code and query to create a new TODO item
         const createTodoItem = `INSERT INTO todo_items (text, user_id) VALUES (?, ?)`;
         this.dbConnection.query(createTodoItem, description, userId, function(err, results, fields){
@@ -80,8 +74,8 @@ class TodoModel {
 
     tagTodoItem(todoItemId, tagId, callback) {
         // Write code and query add a tag to a TODO item
-        const tagTodo = `UPDATE todo_item_tag SET tag_id = ?, todo_item_id = ?`;
-        this.dbConnection.query(tagTodo, tagId, todoItemId, function (err, results, fields) {
+        const tagTodo = `INSERT INTO todo_item_tag (todo_item_id, tag_id) VALUES (?, ?)`;
+        this.dbConnection.query(tagTodo, todoItemId, tagId, function (err, results, fields) {
             if (err) {
                 callback(err);
                 return;
@@ -94,7 +88,7 @@ class TodoModel {
     untagTodoItem(id, tagId, callback) {
         // Write code and query remove a tag from a TODO item
         const untagTodo = `Delete FROM todo_item_tag WHERE todo_item_id = ? AND tag_id = ?`;
-        this.dbConnection.query(untagTodo, tagId, id, function (err, results, fields) {
+        this.dbConnection.query(untagTodo, id, tagId, function (err, results, fields) {
             if (err) {
                 callback(err);
                 return;
@@ -104,7 +98,7 @@ class TodoModel {
         });
     }
 
-    markCompleted(id, callback) {
+    markCompleted(id, userId, callback) {
         // Write code to mark a TODO item as completed
         const markTodoItem = `UPDATE todo_items SET is_completed = True WHERE id = ? AND user_id = ?`;
         this.dbConnection.query(markTodoItem, id, userId, function (err, results, fields) {
