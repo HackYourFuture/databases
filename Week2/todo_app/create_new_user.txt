@@ -1,0 +1,4 @@
+USE todo_app;
+CREATE USER 'slingershot'@'localhost' IDENTIFIED BY '';
+GRANT ALL ON todo_app.* TO 'slingershot'@'localhost';
+FLUSH PRIVILEGES;
