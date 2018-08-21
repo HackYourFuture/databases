@@ -10,7 +10,7 @@ CREATE TABLE User (
 CREATE TABLE Todo (
   id INT NOT NULL AUTO_INCREMENT,
   text VARCHAR(255),
-  done ENUM('done', 'not done') DEFAULT 'not done',
+  is_done BOOLEAN DEFAULT 0,
   deadline DATETIME,
   user_id INT NOT NULL,
   PRIMARY KEY (id),
