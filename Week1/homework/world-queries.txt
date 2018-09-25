@@ -134,7 +134,7 @@ SELECT name,population FROM city WHERE name LIKE 'P%' ORDER BY population DESC L
 +-----------+------------+
 3 rows in set (0.00 sec)
 7.What is the population in Asia?
- SELECT continent,population FROM country WHERE continent='Asia' GROUP BY continent;
+ SELECT continent,SUM(population) FROM country WHERE continent='Asia' GROUP BY continent;
 +-----------+------------+
 | continent | population |
 +-----------+------------+
