@@ -135,12 +135,12 @@ SELECT name,population FROM city WHERE name LIKE 'P%' ORDER BY population DESC L
 3 rows in set (0.00 sec)
 7.What is the population in Asia?
  SELECT continent,SUM(population) FROM country WHERE continent='Asia' GROUP BY continent;
-+-----------+------------+
-| continent | population |
-+-----------+------------+
-| Asia      |   22720000 |
-+-----------+------------+
-1 row in set (0.00 sec)
++-----------+-----------------+
+| continent | SUM(population) |
++-----------+-----------------+
+| Asia      |      3705025700 |
++-----------+-----------------+
+1 row in set (0.08 sec)
 8.Which languages are spoken in the Region of ‘South America’
  SELECT DISTINCT language FROM countrylanguage JOIN country on countrylanguage.countrycode=country.code WHERE continent='South America';
 language         |
