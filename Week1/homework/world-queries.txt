@@ -169,18 +169,19 @@ language         |
 +------------------+
 21 rows in set (0.01 sec)
 9.What are the languages spoken on all cities named ‘Barcelona’ (you may need to join 3 tables =) )
- SELECT DISTINCT countrylanguage.language from countrylanguage
-    -> JOIN country on countrylanguage.countrycode = country.code
-    -> JOIN city on country.code = city.countrycode
-    -> WHERE city.name='Barcelona';
-+----------+
-| language |
-+----------+
-| Basque   |
-| Catalan  |
-| Galecian |
-| Spanish  |
-| Goajiro  |
-| Warrau   |
-+----------+
-6 rows in set (0.00 sec)
+SELECT city.Name, countrylanguage.Language, country.name FROM city 
+JOIN country ON city.CountryCode = country.Code 
+JOIN countrylanguage ON countrylanguage.CountryCode = country.Code
+WHERE city.Name = 'Barcelona';
++-----------+----------+-----------+
+| Name      | Language | name      |
++-----------+----------+-----------+
+| Barcelona | Basque   | Spain     |
+| Barcelona | Catalan  | Spain     |
+| Barcelona | Galecian | Spain     |
+| Barcelona | Spanish  | Spain     |
+| Barcelona | Goajiro  | Venezuela |
+| Barcelona | Spanish  | Venezuela |
+| Barcelona | Warrau   | Venezuela |
++-----------+----------+-----------+
+7 rows in set (0.04 sec)
