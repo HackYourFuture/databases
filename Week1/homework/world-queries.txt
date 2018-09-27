@@ -38,3 +38,162 @@ SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE
 | Alkmaar           |
 +-------------------+
 28 rows in set (0.00 sec)
+
+
+2. What is the population of Rotterdam ?
+
+select name , Population from city where name = 'Rotterdam' ;
++-----------+------------+
+| name      | Population |
++-----------+------------+
+| Rotterdam |     593321 |
++-----------+------------+
+
+3 .What's the name of all the countries on the continent ‘North America’ ?
+select name , Continent from country where Continent = 'North America'
+    -> ;
++----------------------------------+---------------+
+| name                             | Continent     |
++----------------------------------+---------------+
+| Aruba                            | North America |
+| Anguilla                         | North America |
+| Netherlands Antilles             | North America |
+| Antigua and Barbuda              | North America |
+| Bahamas                          | North America |
+| Belize                           | North America |
+| Bermuda                          | North America |
+| Barbados                         | North America |
+| Canada                           | North America |
+| Costa Rica                       | North America |
+| Cuba                             | North America |
+| Cayman Islands                   | North America |
+| Dominica                         | North America |
+| Dominican Republic               | North America |
+| Guadeloupe                       | North America |
+| Grenada                          | North America |
+| Greenland                        | North America |
+| Guatemala                        | North America |
+| Honduras                         | North America |
+| Haiti                            | North America |
+| Jamaica                          | North America |
+| Saint Kitts and Nevis            | North America |
+| Saint Lucia                      | North America |
+| Mexico                           | North America |
+| Montserrat                       | North America |
+| Martinique                       | North America |
+| Nicaragua                        | North America |
+| Panama                           | North America |
+| Puerto Rico                      | North America |
+| El Salvador                      | North America |
+| Saint Pierre and Miquelon        | North America |
+| Turks and Caicos Islands         | North America |
+| Trinidad and Tobago              | North America |
+| United States                    | North America |
+| Saint Vincent and the Grenadines | North America |
+| Virgin Islands, British          | North America |
+| Virgin Islands, U.S.             | North America |
++----------------------------------+---------------+
+37 rows in set (0.00 sec)
+
+
+4. What's the top 10 countries by SurfaceArea ?
+select name , SurfaceArea from country order by SurfaceArea desc limit 10 ; 
++--------------------+-------------+
+| name               | SurfaceArea |
++--------------------+-------------+
+| Russian Federation | 17075400.00 |
+| Antarctica         | 13120000.00 |
+| Canada             |  9970610.00 |
+| China              |  9572900.00 |
+| United States      |  9363520.00 |
+| Brazil             |  8547403.00 |
+| Australia          |  7741220.00 |
+| India              |  3287263.00 |
+| Argentina          |  2780400.00 |
+| Kazakstan          |  2724900.00 |
++--------------------+-------------+
+10 rows in set (0.00 sec)
+
+5. What's the top 10 most populated cities?
+select name , Population from city order by Population desc limit 10 ; 
++-------------------+------------+
+| name              | Population |
++-------------------+------------+
+| Mumbai (Bombay)   |   10500000 |
+| Seoul             |    9981619 |
+| São Paulo         |    9968485 |
+| Shanghai          |    9696300 |
+| Jakarta           |    9604900 |
+| Karachi           |    9269265 |
+| Istanbul          |    8787958 |
+| Ciudad de México  |    8591309 |
+| Moscow            |    8389200 |
+| New York          |    8008278 |
++-------------------+------------+
+10 rows in set (0.00 sec)
+
+6. Select the top 3 countries by population that their names start with the letter ‘P’
+select name , Population from country where name LIKE "P%" order by Population desc limit 3  ;
++-------------+------------+
+| name        | Population |
++-------------+------------+
+| Pakistan    |  156483000 |
+| Philippines |   75967000 |
+| Poland      |   38653600 |
++-------------+------------+
+3 rows in set (0.00 sec)
+
+7 . What is the population in Asia?
+select Continent , SUM(Population) from country where Continent = 'Asia';
++-----------+-----------------+
+| Continent | SUM(Population) |
++-----------+-----------------+
+| Asia      |      3705025700 |
++-----------+-----------------+
+1 row in set (0.00 sec)
+
+8 .Which languages are spoken in the Region of ‘South America’
+
+select distinct Language from countrylanguage join country on countrylanguage.CountryCode = country.code where Continent = 'South America '
+    -> ;
++------------------+
+| Language         |
++------------------+
+| Indian Languages |
+| Italian          |
+| Spanish          |
+| Aimará           |
+| Guaraní          |
+| Ketšua           |
+| German           |
+| Japanese         |
+| Portuguese       |
+| Araucan          |
+| Rapa nui         |
+| Arawakan         |
+| Caribbean        |
+| Chibcha          |
+| Creole English   |
+| English          |
+| Creole French    |
+| Hindi            |
+| Sranantonga      |
+| Goajiro          |
+| Warrau           |
++------------------+
+21 rows in set (0.00 sec)
+
+9 . What are the languages spoken on all cities named ‘Barcelona’ (you may need to join 3 tables =) )
+select name , Language from countrylanguage as cl join city on cl.CountryCode = city.CountryCode where city.name = 'Barcelona';
++-----------+----------+
+| name      | Language |
++-----------+----------+
+| Barcelona | Basque   |
+| Barcelona | Catalan  |
+| Barcelona | Galecian |
+| Barcelona | Spanish  |
+| Barcelona | Goajiro  |
+| Barcelona | Spanish  |
+| Barcelona | Warrau   |
++-----------+----------+
+7 rows in set (0.01 sec)
