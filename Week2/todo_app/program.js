@@ -1,14 +1,12 @@
-// This is the connector (also known as driver)
-// that we can use to connect to a MySQL process
-// and access its databases.
+
 const mysql = require('mysql');
+const config = require('./config.json');
 
 class TodoModel {
     constructor(dbConnection) {
         this.dbConnection = dbConnection;
     }
 
-    // Loads all the TODOs in the database
     load(callback) {
         const selectTodoItems = "SELECT * FROM todo_items";
         this.dbConnection.query(selectTodoItems, function(err, results, fields) {
@@ -22,34 +20,76 @@ class TodoModel {
     }
 
     create(description, callback) {
-        // Write code and query to create a new TODO item
+        const createNewTodo = "INSERT INTO todo_items SET ?";
+        this.dbConnection.query(createNewTodo, description, function(err, result, fields){
+            if(err){
+                callback(err);
+            }else{
+                callback(null, result);
+            }
+        });
     }
 
     update(id, description, callback) {
-        // Write code and query to update and existing TODO item
+        const updateTodo = "UPDATE todo_items SET ? WHERE id = ?";
+        this.dbConnection.query(updateTodo, [description, id], function(err, result, fields){
+            if(err){
+                callback(err);
+            }else{
+                callback(null, result);
+            }
+        });
     }
 
     delete(id, callback) {
-        // Write code and query to delete an existing TODO item
+        const deleteTodo = "DELETE FROM todo_items WHERE id = ?";
+        this.dbConnection.query(deleteTodo, [id], function(err, result, fields){
+            if(err){
+                callback(err);
+            }else{
+                callback(null, result);
+            }
+        });
     }
 
     tagTodoItem(todoItemId, tagId, callback) {
-        // Write code and query add a tag to a TODO item
+        const insertTodoTag = "INSERT INTO todo_item_tag SET ?";
+        this.dbConnection.query(insertTodoTag, {todo_item_id:todoItemId, tag_id:tagId}, function(err, result, fields){
+            if(err){
+                callback(err);
+            }else{
+                callback(null, result);
+            }
+        });
     }
         
     untagTodoItem(todoItemId, tagId, callback) {
-        // Write code and query remove a tag from a TODO item
+        const untagTodoItemQuery = "DELETE FROM todo_item_tag WHERE todo_item_id = ? AND tag_id = ?";
+        this.dbConnection.query(untagTodoItemQuery, [todoItemId, tagId], function(err, result, fields){
+            if(err){
+                callback(err);
+            }else{
+                callback(null, result);
+            }
+        });
     }
 
     markCompleted(todoItemId, callback) {
-        // Write code to mark a TODO item as completed
+        const updateCompleted = "UPDATE todo_items SET ? WHERE id = ?";
+        this.dbConnection.query(updateCompleted, [{is_completed: true}, todoItemId], function(err, result, fields){
+            if(err){
+                callback(err);
+            }else{
+                callback(null, result);
+            }
+        });
     }
 }
 
 const dbConnection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : '',
+    password : 'password',
     database : 'todo_app'
 });
 
@@ -69,4 +109,14 @@ dbConnection.connect(function(err) {
 
         console.log("existing todo items:", todoItems);
     });
+
+    const description = {text:"create again", is_completed:0, user_id:1};
+    todoModel.markCompleted(47, function(err, todoItems) {
+        if(err) {
+            console.log("error loading TODO items:", err);
+        }
+
+        console.log("existing todo items:", todoItems);
+    });
+    dbConnection.end();
 });
