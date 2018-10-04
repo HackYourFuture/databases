@@ -1,0 +1,7 @@
+For load all todos, type: load
+To create new task, type: create nameOfNewTask userID
+To update existing task ,type: update description taskID
+To delete task, type: delete taskID
+To add task to tag name ,type: item_tag taskID tagID
+To untag todo from tags, type: untag taskID tagID
+To mark todo as completed, type: done taskID

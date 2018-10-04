@@ -59,7 +59,7 @@ CREATE TABLE `todo_item_tag` (
 
 LOCK TABLES `todo_item_tag` WRITE;
 /*!40000 ALTER TABLE `todo_item_tag` DISABLE KEYS */;
-INSERT INTO `todo_item_tag` VALUES (42,1),(42,3),(43,3),(45,1),(45,3);
+INSERT INTO `todo_item_tag` VALUES (42,1),(42,3),(45,1),(45,3),(62,3);
 /*!40000 ALTER TABLE `todo_item_tag` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,7 +78,7 @@ CREATE TABLE `todo_items` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `todo_items_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,7 +87,7 @@ CREATE TABLE `todo_items` (
 
 LOCK TABLES `todo_items` WRITE;
 /*!40000 ALTER TABLE `todo_items` DISABLE KEYS */;
-INSERT INTO `todo_items` VALUES (42,'idi na xuyy',0,4),(43,'Create database week 2 homework',0,4),(44,'Do the dishes',0,3),(45,'Teach class 11 about javascript',0,2);
+INSERT INTO `todo_items` VALUES (42,'idi na xuyy',0,4),(43,'ajskjaUHuh',0,4),(44,'Do the dishes',0,3),(45,'Teach class 11 about javascript',1,2),(49,'Larnaka',0,1),(54,'Sardinia Kingdom',0,2),(60,'Artak the King',1,4),(61,'ravtyytttynuu',0,1),(62,'Limassol',0,4),(63,'Remington',0,4),(64,'Serena',0,1);
 /*!40000 ALTER TABLE `todo_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,7 +103,7 @@ CREATE TABLE `users` (
   `first_name` varchar(1000) NOT NULL,
   `last_name` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,7 +112,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Maartje','Kruijt'),(2,'Joost','Lubach'),(3,'Jim','Cramer'),(4,'Frank','Versnel');
+INSERT INTO `users` VALUES (1,'Maartje','Kruijt'),(2,'Joost','Lubach'),(3,'Jim','Cramer'),(4,'Frank','Versnel'),(5,'Ward','Madoyan');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -125,4 +125,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-02 14:15:51
+-- Dump completed on 2018-10-03 15:03:53
