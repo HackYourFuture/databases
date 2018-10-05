@@ -54,12 +54,14 @@ Also, please read the following pages that explains the ACID database model and 
 
 ## Homework
 
-- Write the necessary SQL statements to complete the functionality of the node task application. This includes, at the minimum, the following functionality:
-    - Adding a new task
-    - Changing the title, due date, or status of a task
-    - Marking a task as completed
-    - Deleting a task
-    - Deleting a user
+Complete the `homework.js` script so that you have a functional node application. In particular, add the necessary code to the functions:
+    - `addNewTask`, to add a new task
+    - `changeTaskTitle`, to change the title of a task
+    - `changeTaskDueDate`, to change the due date of a task
+    - `changeTaskStatus`, to change the status of a task
+    - `markTaskAsCompleted`, to mark a task as completed
+    - `deleteTask`, to delete a task
+    - `deleteUser`, to delete a user
 - Create a new database containing the following tables:
     - **Class**: with the columns: id, name, begins (date), ends (date)
     - **Student**: with the columns: id, name, email, phone, class_id (foreign key)
