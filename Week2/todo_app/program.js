@@ -124,14 +124,16 @@ class TodoModel {
             });
     }
 }
+
 const command = process.argv[2];
 const description = process.argv[3];
 const id = process.argv[4];
 const dbConnection = mysql.createConnection({
-    host: 'localhost',
+    host: '127.0.0.1',
     user: 'userjusttodo',
-    password: '000000',
-    database: 'todo_app'
+    password: '123456',
+    database: 'todo_app',
+    port: 33060
 });
 
 dbConnection.connect(function (err) {
