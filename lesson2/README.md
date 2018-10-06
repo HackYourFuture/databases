@@ -54,7 +54,7 @@ Also, please read the following pages that explains the ACID database model and 
 
 ## Homework
 
-Complete the `homework.js` script so that you have a functional node application. In particular, add the necessary code to the functions:
+- Complete the `homework.js` script so that you have a functional node application. In particular, add the necessary code to the functions:
     - `addNewTask`, to add a new task
     - `changeTaskTitle`, to change the title of a task
     - `changeTaskDueDate`, to change the due date of a task
