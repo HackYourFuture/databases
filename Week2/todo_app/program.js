@@ -6,6 +6,8 @@ const command = process.argv[2];
 const command2 = process.argv[3];
 const command3 = process.argv[4];
 
+const todoUser = 2;
+
 class TodoModel {
     constructor(dbConnection) {
         this.dbConnection = dbConnection;
@@ -23,9 +25,10 @@ class TodoModel {
         });
     }
 
-    create(description) {
+    create(description, user) {
         const newItem = {
-            todo_text: description
+            text: description,
+            user_id: user
         };
         this.dbConnection.query('INSERT INTO todo_items SET ?', newItem, function (err, results, fields) {
             if (err) {
@@ -39,7 +42,7 @@ class TodoModel {
 
     update(description, id) {
         const updateRow = [description, id];
-        this.dbConnection.query('UPDATE todo_items SET todo_text = ? WHERE todo_id = ?', updateRow, function (err, results, fields) {
+        this.dbConnection.query('UPDATE todo_items SET text = ? WHERE id = ?', updateRow, function (err, results, fields) {
             if (err) {
                 throw err;
                 return;
@@ -50,15 +53,18 @@ class TodoModel {
     }
 
     delete(id) {
-        this.dbConnection.query('DELETE FROM todo_items WHERE todo_id = ?', [id], function (error, results, fields) {
+        this.dbConnection.query('DELETE FROM todo_items WHERE id = ?', [id], function (error, results, fields) {
             if (error) throw error;
             console.log('deleted ' + results.affectedRows + ' rows');
         })
     }
 
     tagTodoItem(todoItemId, tagId) {
-        const tag = [tagId, todoItemId];
-        this.dbConnection.query('UPDATE todo_items SET tag_id = ? WHERE todo_id = ?', tag, function (err, results, fields) {
+        const tag = {
+            todo_item_id: todoItemId,
+            tag_id: tagId
+        };
+        this.dbConnection.query('INSERT INTO todo_item_tag SET ?', tag, function (err, results, fields) {
             if (err) {
                 throw err;
                 return;
@@ -68,8 +74,8 @@ class TodoModel {
         })
     }
 
-    untagTodoItem(todoItemId) {
-        this.dbConnection.query('UPDATE todo_items SET tag_id = NULL WHERE todo_id = ?', todoItemId, function (err, results, fields) {
+    untagTodoItem(id) {
+        this.dbConnection.query('DELETE FROM todo_item_tag WHERE todo_item_id = ?', [id], function (err, results, fields) {
             if (err) {
                 throw err;
                 return;
@@ -79,8 +85,8 @@ class TodoModel {
         })
     }
 
-    markCompleted(todoItemId) {
-        this.dbConnection.query('UPDATE todo_items SET done = 1 WHERE todo_id = ?', todoItemId, function (err, results, fields) {
+    markCompleted(id) {
+        this.dbConnection.query('UPDATE todo_items SET is_completed = 1 WHERE id = ?', id, function (err, results, fields) {
             if (err) {
                 throw err;
                 return;
@@ -134,7 +140,7 @@ dbConnection.connect(function (err) {
             });
             break;
         case 'create':
-            todoModel.create(command2);
+            todoModel.create(command2, todoUser);
             break;
         case 'update':
             todoModel.update(command2, command3);
