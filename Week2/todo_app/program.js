@@ -183,11 +183,11 @@ dbConnection.connect(function (err) {
           console.log('Wrong input, check requirements by using command help')
         }
         if (err) {
-          console.log("error loading TODO items:", err);
+          console.log('error loading TODO items:', err);
         }
 
 
-        console.log("existing todo items:", todoItems);
+        console.log('existing todo items:', todoItems);
       });
       break;
     }
@@ -213,11 +213,11 @@ dbConnection.connect(function (err) {
         }
         if (err) {
 
-          console.log("error loading TODO items:", err);
+          console.log('error loading TODO items:', err);
         }
 
 
-        console.log("existing todo items:", todoItems);
+        console.log('existing todo items:', todoItems);
       });
       break;
     }
