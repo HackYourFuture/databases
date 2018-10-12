@@ -1,72 +1,31 @@
-// This is the connector (also known as driver)
-// that we can use to connect to a MySQL process
-// and access its databases.
-const mysql = require('mysql');
+const express = require('express');
+const connection = require('./db').connection;
+const bodyParser = require('body-parser');
+const taskController = require('./taskController');
 
-class TodoModel {
-    constructor(dbConnection) {
-        this.dbConnection = dbConnection;
-    }
 
-    // Loads all the TODOs in the database
-    load(callback) {
-        const selectTodoItems = "SELECT * FROM todo_items";
-        this.dbConnection.query(selectTodoItems, function(err, results, fields) {
-            if(err) {
-                callback(err);
-                return;
-            }
+var app = express();
 
-            callback(null, results);
-        });
-    }
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 
-    create(description, callback) {
-        // Write code and query to create a new TODO item
-    }
 
-    update(id, description, callback) {
-        // Write code and query to update and existing TODO item
-    }
+app.post('/post', taskController.createTask);
 
-    delete(id, callback) {
-        // Write code and query to delete an existing TODO item
-    }
+app.get ('/get', taskController.getTask);
 
-    tagTodoItem(todoItemId, tagId, callback) {
-        // Write code and query add a tag to a TODO item
-    }
-        
-    untagTodoItem(todoItemId, tagId, callback) {
-        // Write code and query remove a tag from a TODO item
-    }
+app.get('/get/id/:taskId',taskController.getTaskByID);
 
-    markCompleted(todoItemId, callback) {
-        // Write code to mark a TODO item as completed
-    }
-}
+app.put('/update/id/:taskId',taskController.upDateTask);
 
-const dbConnection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : '',
-    database : 'todo_app'
-});
+app.delete('/delete/id/:taskId',taskController.deleteRow);
 
-dbConnection.connect(function(err) {
-    if (err != null) {
-        console.error('error connecting: ' + err.stack);
-        return;
-    }
+app.post('/tag', taskController.tagTodoItem);
 
-    console.log('connected as id ' + dbConnection.threadId);
+app.delete('/untag/id/:tagId', taskController.untagTodoItem);
 
-    const todoModel = new TodoModel(dbConnection);
-    todoModel.load(function(err, todoItems) {
-        if(err) {
-            console.log("error loading TODO items:", err);
-        }
 
-        console.log("existing todo items:", todoItems);
-    });
+
+app.listen(5000, ()=>{
+    console.log('Server succesfully started at port 5000')
 });
