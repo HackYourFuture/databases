@@ -1,15 +1,17 @@
-
-const mysql = require('mysql');
-const config = require('./config.json');
+'use strict';
 
 class TodoModel {
     constructor(dbConnection) {
         this.dbConnection = dbConnection;
     }
+   
+    setDbConnection(dbConnection){
+        this.dbConnection = dbConnection;
+    }
 
-    load(callback) {
-        const selectTodoItems = "SELECT * FROM todo_items";
-        this.dbConnection.query(selectTodoItems, function(err, results, fields) {
+    load(id, callback) {
+        const selectTodoItems = "SELECT * FROM todo_items " + (id ? "WHERE id = ?" : "");
+        this.dbConnection.query(selectTodoItems, id, function(err, results, fields) {
             if(err) {
                 callback(err);
                 return;
@@ -52,6 +54,17 @@ class TodoModel {
         });
     }
 
+    deleteAll(callback){
+        const deleteTodo = "DELETE FROM todo_items";
+        this.dbConnection.query(deleteTodo, function(err, result, fields){
+            if(err){
+                callback(err);
+            }else{
+                callback(null, result);
+            }
+        });
+    }
+
     tagTodoItem(todoItemId, tagId, callback) {
         const insertTodoTag = "INSERT INTO todo_item_tag SET ?";
         this.dbConnection.query(insertTodoTag, {todo_item_id:todoItemId, tag_id:tagId}, function(err, result, fields){
@@ -86,37 +99,4 @@ class TodoModel {
     }
 }
 
-const dbConnection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : 'password',
-    database : 'todo_app'
-});
-
-dbConnection.connect(function(err) {
-    if (err != null) {
-        console.error('error connecting: ' + err.stack);
-        return;
-    }
-
-    console.log('connected as id ' + dbConnection.threadId);
-
-    const todoModel = new TodoModel(dbConnection);
-    todoModel.load(function(err, todoItems) {
-        if(err) {
-            console.log("error loading TODO items:", err);
-        }
-
-        console.log("existing todo items:", todoItems);
-    });
-
-    const description = {text:"create again", is_completed:0, user_id:1};
-    todoModel.markCompleted(47, function(err, todoItems) {
-        if(err) {
-            console.log("error loading TODO items:", err);
-        }
-
-        console.log("existing todo items:", todoItems);
-    });
-    dbConnection.end();
-});
+module.exports = TodoModel;
