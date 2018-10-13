@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css" media="screen">
+    <script type="text/javascript" src="/todos.json"></script>
+</head>
+
+<body>
+
+    <div class="big-div" id="todo-div">
+        <div class="input-div">
+            <h2>Plan your day now</h2>
+            <form method="post" action="/todos" enctype="application/json">
+                <input type="text" name="task"><br>
+                <button type="submit" formmethod="post">Add</button>
+            </form>
+        </div>
+
+        <div class="list-div" id="todo-list">
+        </div>
+    </div>
+
+    <div class="big-div" id="tag-div">
+        <div class="input-div">
+            <h2>Add new tags</h2>
+            <form method="post" action="/tags" enctype="application/json">
+                <input type="text" name="tags"><br>
+                <button type="submit" formmethod="post">Add</button>
+            </form>
+        </div>
+
+        <div class="list-div" id="tag-list">
+        </div>
+    </div>
+    <script src="/index.js"></script>
+</body>
+
+</html>
