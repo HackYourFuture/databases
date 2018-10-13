@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div id='form'>
+        <form action='/create/:id' method='POST'>
+            <input type='text' name='task' id='input' placeholder=' add new task' value='' /><br />
+            <button onclick="addT()">Add</button>
+        </form>
+
+
+
+        <input type='submit' id='gel' name='opel' value='TesT' /><br />
+
+
+
+    </div>
+    <script>
+        function addT() {
+            let ul = document.createElement('UL');
+            ul.setAttribute('id', 'ul');
+            let li = document.createElement('LI');
+            li.setAttribute('id', 'list');
+            let deleteBtn = document.createElement('INPUT');
+            deleteBtn.setAttribute('type', 'submit');
+            deleteBtn.setAttribute('name', 'del');
+            deleteBtn.setAttribute('id', 'delete');
+
+            let checkbox = document.createElement('INPUT');
+            checkbox.setAttribute("type", 'checkbox');
+
+            let br = document.createElement("br");
+            let mark = document.createElement('MARK');
+            mark.setAttribute('id', 'xuy');
+            let input = document.getElementById('input').value;
+            let text = document.createTextNode(input);
+            let t = document.createTextNode('remove');
+
+            ul.appendChild(li);
+            li.appendChild(mark);
+            mark.appendChild(text);
+            li.appendChild(checkbox);
+            li.appendChild(deleteBtn);
+            deleteBtn.appendChild(t);
+            li.appendChild(br);
+
+            document.body.appendChild(ul);
+
+            document.getElementById('gel').addEventListener('click', deleteTask);
+        }
+
+        function deleteTask() {
+
+            alert("Delete coman");
+
+            var parent = document.getElementById('ul');
+            var child = document.getElementById('list');
+            parent.removeChild(child);
+
+        }
+    </script>
+</body>
+
+</html>
