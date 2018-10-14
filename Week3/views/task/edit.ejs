@@ -1,0 +1,25 @@
+<%- include ../layouts/header.ejs %>
+
+<% if(messages.error) { %>
+    <p style="color:red"><%- messages.error %></p>
+<% } %>
+
+<% if(messages.succes) { %>
+    <p style="color:palegreen"><%- messages.succes %></p>
+<% } %>
+
+<form action="/tasks/edit/<%= id %>" method="post" name="form1">
+    <table>
+        <tr>
+            <td>Task Name</td>
+            <td><input type="text" name="task_name" value="<%= task_name %>"></td>
+            
+        </tr>
+        <tr>
+            <td></td> 
+            <td><input type="submit" name="Submit" value="Add"></td>
+        </tr>
+    </table>
+</form>
+
+<%- include ../layouts/footer.ejs %>
