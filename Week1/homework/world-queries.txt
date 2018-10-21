@@ -127,20 +127,14 @@ mysql> SELECT name,population FROM city ORDER BY population  DESC LIMIT 10;
 10 rows in set (0,01 sec)
 
 6. Select the top 3 countries by population that their names start with the letter ‘P’
-mysql> SELECT name,population FROM country WHERE name LIKE 'p%' ORDER BY population  DESC LIMIT 10;
+mysql> SELECT name,population FROM country WHERE name LIKE 'p%' ORDER BY population  DESC LIMIT 3;
 +------------------+------------+
 | name             | population |
 +------------------+------------+
 | Pakistan         |  156483000 |
 | Philippines      |   75967000 |
 | Poland           |   38653600 |
-| Peru             |   25662000 |
-| Portugal         |    9997600 |
-| Paraguay         |    5496000 |
-| Papua New Guinea |    4807000 |
-| Puerto Rico      |    3869000 |
-| Palestine        |    3101000 |
-| Panama           |    2856000 |
+
 +------------------+------------+
 10 rows in set (0,00 sec)
 
