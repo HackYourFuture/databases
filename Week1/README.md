@@ -1,9 +1,10 @@
 # Lesson 1: Basics of creation, insertion and retrieval of data
 
-In this class, students will be introduced to relational database terminologies:
-Tables, rows, columns, primary key.
-Creation of a database table and insertion will be demonstrated.
-Retrieving data from a MySQL database using SELECT queries will be demonstrated.
+In this class, students will be introduced to
+
+* Basics of relational databases: Concepts of tables, rows, columns, primary key, foreign key.
+* Creation of a database table and insertion of values.
+* Retrieving data from a MySQL database using SELECT queries.
 
 Objective: Students should be able to create tables,
 insert values in tables and
@@ -24,8 +25,8 @@ Before arriving to class on Sunday, please watch all of the videos in [this vide
 - Joining tables
 
 ## Pre-Class Preparation
-- Install MySQL windows guys can follow the [official docs](https://dev.mysql.com/doc/refman/5.7/en/windows-installation.html)
-Unix users have it easier as usual 😉
+- Install MySQL using the following [official docs](https://dev.mysql.com/downloads/mysql/)
+- MAC users may use `brew install mysql`
 
 
 ## Main Topics
