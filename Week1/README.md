@@ -45,3 +45,4 @@ Before arriving to class on Sunday, please watch all of the videos in [this vide
 - [Official MySQL Tutorial (pretty dense)](https://dev.mysql.com/doc/refman/5.7/en/tutorial.html)
 - [Node MySQL Documentation on Github](https://github.com/mysqljs/mysql)
 - [Joel Spolsky - Character Sets and Unicode](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
+- [SQL Fundamentals - SoloLearn](https://www.sololearn.com/Course/SQL/)
