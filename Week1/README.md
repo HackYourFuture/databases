@@ -1,8 +1,13 @@
-# Lesson 1: Retrieving Data
+# Lesson 1: Basics of creation, insertion and retrieval of data
 
-In this class, students will be introduced to relational data terminology (row, column), the function of a primary key, and retrieving data from a MySQL database using SELECT queries.
+In this class, students will be introduced to relational database terminologies:
+Tables, rows, columns, primary key.
+Creation of a database table and insertion will be demonstrated.
+Retrieving data from a MySQL database using SELECT queries will be demonstrated.
 
-Objective: Students should be able to retrieve data from a database table using SELECT statements that include WHERE, GROUP BY, and ORDER BY.
+Objective: Students should be able to create tables,
+insert values in tables and
+retrieve data from tables using SELECT statements that include FROM, WHERE clauses.
 
 ## Pre-Class Readings
 
@@ -19,19 +24,21 @@ Before arriving to class on Sunday, please watch all of the videos in [this vide
 - Joining tables
 
 ## Pre-Class Preparation
-- Install MySQL windows guys can follow the [official docs](https://dev.mysql.com/doc/refman/5.7/en/windows-installation.html) unix users have it easyier as usual 😉
+- Install MySQL windows guys can follow the [official docs](https://dev.mysql.com/doc/refman/5.7/en/windows-installation.html)
+Unix users have it easier as usual 😉
 
 
 ## Main Topics
 
 - The relational model of data
 - A 'database' vs. a 'DBMS' (database management system)
-- The concept of a schema
 - The properties of an 'entity' (or 'row')
-- Basic entity relationship diagrams
+- A basic CREATE statement
+- A basic INSERT statement
 - A basic SELECT statement
+- Data types in SQL
 - Constructing more complex SELECT statements
-- JOIN
+- JOIN (if time permits)
     - Selecting composite data from multiple tables
     - Compare JOIN WHERE with cartesian product
 - Naming Conventions: UpperCamelCase/PascalCase, lowerCamelCase, snake_case, hnHungarianNotation/HNHungarianNotation
