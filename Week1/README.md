@@ -83,7 +83,7 @@ his 24th birthday works in Facebook and lives in Redmond.
 
 ### DBMS implementations
 
-* ** MySQL **
+* **MySQL**
 * PostgreSQL
 * MongoDB (NoSQL)
 * Cassandra (NoSQL)
@@ -120,20 +120,34 @@ INSERT INTO table_name VALUES(value1, value2 [,value3,...]);
 
 ### See the content : SELECT
 
-* FROM clause : multiple tables
-* WHERE clause : Multiple conditions(AND, OR, NOT) Operators ( =, <>, BETWEEN, LIKE, IN)
-* Aggregation : SUM, AVG, COUNT
-* Joins : Natural join, inner join, left outer and right outer join
-#### Simple SYNTAX for a single table
+#### SYNTAX 
 ```
-SELECT */column_name FROM TABLE
-WHERE condition1 [AND/OR
-      condition2 ...];
+SELECT */column_1,column_2...
+FROM table_1
+[INNER | LEFT |RIGHT] JOIN table_2 ON conditions
+WHERE conditions
+GROUP BY group 
+HAVING group_conditions
+ORDER BY column_1 [ASC | DESC]
+LIMIT offset, row_count
+ 
+The SELECT statement is composed of several clauses:
+ 
+  -  SELECT chooses which columns of  the table you want to get the data.
+  -  FROM specifies the table from which you get the data.
+  -  JOIN gets data from multiple table based on certain join conditions.
+  -  WHERE filters rows to select.
+  -  GROUP BY group rows to apply aggregate functions on each group.
+  -  HAVING filters group based on groups defined by GROUP BY clause.
+  -  ORDER BY specifies the order of the returned result set.
+  -  LIMIT constrains number of returned rows.
 ```
 
 ### INSERT and SELECT together
 
 ```
+Example: 
+
 INSERT INTO 'employees' ('shop_id', 'gender', 'name', 'salary')
 SELECT 3,
        LEFT(gender, 1),
