@@ -114,7 +114,7 @@
     "population": 135621
   },
   {
-    "name": "�s-Hertogenbosch",
+    "name": "´s-Hertogenbosch",
     "country_code": "NLD",
     "district": "Noord-Brabant",
     "population": 129170
@@ -194,7 +194,7 @@
   {
     "name": "Willemstad",
     "country_code": "ANT",
-    "district": "Cura�ao",
+    "district": "Curaçao",
     "population": 2345
   },
   {
@@ -234,15 +234,15 @@
     "population": 183377
   },
   {
-    "name": "S�tif",
+    "name": "Sétif",
     "country_code": "DZA",
-    "district": "S�tif",
+    "district": "Sétif",
     "population": 179055
   },
   {
-    "name": "Sidi Bel Abb�s",
+    "name": "Sidi Bel Abbès",
     "country_code": "DZA",
-    "district": "Sidi Bel Abb�s",
+    "district": "Sidi Bel Abbès",
     "population": 153106
   },
   {
@@ -264,9 +264,9 @@
     "population": 127284
   },
   {
-    "name": "B�ja�a",
+    "name": "Béjaïa",
     "country_code": "DZA",
-    "district": "B�ja�a",
+    "district": "Béjaïa",
     "population": 117162
   },
   {
@@ -276,9 +276,9 @@
     "population": 115212
   },
   {
-    "name": "T�bessa",
+    "name": "Tébessa",
     "country_code": "DZA",
-    "district": "T�bessa",
+    "district": "Tébessa",
     "population": 112007
   },
   {
@@ -288,9 +288,9 @@
     "population": 110242
   },
   {
-    "name": "B�char",
+    "name": "Béchar",
     "country_code": "DZA",
-    "district": "B�char",
+    "district": "Béchar",
     "population": 107311
   },
   {
@@ -306,9 +306,9 @@
     "population": 96794
   },
   {
-    "name": "Gharda�a",
+    "name": "Ghardaïa",
     "country_code": "DZA",
-    "district": "Gharda�a",
+    "district": "Ghardaïa",
     "population": 89415
   },
   {
@@ -362,17 +362,17 @@
   {
     "name": "South Hill",
     "country_code": "AIA",
-    "district": "�",
+    "district": null,
     "population": 961
   },
   {
     "name": "The Valley",
     "country_code": "AIA",
-    "district": "�",
+    "district": null,
     "population": 595
   },
   {
-    "name": "Saint John�s",
+    "name": "Saint John´s",
     "country_code": "ATG",
     "district": "St John",
     "population": 24000
@@ -420,15 +420,15 @@
     "population": 1266461
   },
   {
-    "name": "C�rdoba",
+    "name": "Córdoba",
     "country_code": "ARG",
-    "district": "C�rdoba",
+    "district": "Córdoba",
     "population": 1157507
   },
   {
     "name": "Rosario",
     "country_code": "ARG",
-    "district": "Santa F�",
+    "district": "Santa Fé",
     "population": 907718
   },
   {
@@ -462,13 +462,13 @@
     "population": 512880
   },
   {
-    "name": "San Miguel de Tucum�n",
+    "name": "San Miguel de Tucumán",
     "country_code": "ARG",
-    "district": "Tucum�n",
+    "district": "Tucumán",
     "population": 470809
   },
   {
-    "name": "Lan�s",
+    "name": "Lanús",
     "country_code": "ARG",
     "district": "Buenos Aires",
     "population": 469735
@@ -480,7 +480,7 @@
     "population": 463846
   },
   {
-    "name": "General San Mart�n",
+    "name": "General San Martín",
     "country_code": "ARG",
     "district": "Buenos Aires",
     "population": 422542
@@ -498,9 +498,9 @@
     "population": 356993
   },
   {
-    "name": "Santa F�",
+    "name": "Santa Fé",
     "country_code": "ARG",
-    "district": "Santa F�",
+    "district": "Santa Fé",
     "population": 353063
   },
   {
@@ -516,7 +516,7 @@
     "population": 352311
   },
   {
-    "name": "Mor�n",
+    "name": "Morón",
     "country_code": "ARG",
     "district": "Buenos Aires",
     "population": 349246
@@ -546,7 +546,7 @@
     "population": 290335
   },
   {
-    "name": "Vicente L�pez",
+    "name": "Vicente López",
     "country_code": "ARG",
     "district": "Buenos Aires",
     "population": 288341
@@ -570,13 +570,13 @@
     "population": 248700
   },
   {
-    "name": "Bah�a Blanca",
+    "name": "Bahía Blanca",
     "country_code": "ARG",
     "district": "Buenos Aires",
     "population": 239810
   },
   {
-    "name": "Esteban Echeverr�a",
+    "name": "Esteban Echeverría",
     "country_code": "ARG",
     "district": "Buenos Aires",
     "population": 235760
@@ -588,13 +588,13 @@
     "population": 229212
   },
   {
-    "name": "Jos� C. Paz",
+    "name": "José C. Paz",
     "country_code": "ARG",
     "district": "Buenos Aires",
     "population": 221754
   },
   {
-    "name": "Paran�",
+    "name": "Paraná",
     "country_code": "ARG",
     "district": "Entre Rios",
     "population": 207041
@@ -612,7 +612,7 @@
     "population": 201273
   },
   {
-    "name": "Guaymall�n",
+    "name": "Guaymallén",
     "country_code": "ARG",
     "district": "Mendoza",
     "population": 200595
@@ -636,13 +636,13 @@
     "population": 170028
   },
   {
-    "name": "Neuqu�n",
+    "name": "Neuquén",
     "country_code": "ARG",
-    "district": "Neuqu�n",
+    "district": "Neuquén",
     "population": 167296
   },
   {
-    "name": "Ituzaing�",
+    "name": "Ituzaingó",
     "country_code": "ARG",
     "district": "Buenos Aires",
     "population": 158197
@@ -678,9 +678,9 @@
     "population": 134935
   },
   {
-    "name": "R�o Cuarto",
+    "name": "Río Cuarto",
     "country_code": "ARG",
-    "district": "C�rdoba",
+    "district": "Córdoba",
     "population": 134355
   },
   {
@@ -696,7 +696,7 @@
     "population": 123027
   },
   {
-    "name": "San Nicol�s de los Arroyos",
+    "name": "San Nicolás de los Arroyos",
     "country_code": "ARG",
     "district": "Buenos Aires",
     "population": 119302
@@ -758,7 +758,7 @@
   {
     "name": "Gjumri",
     "country_code": "ARM",
-    "district": "�irak",
+    "district": "Širak",
     "population": 211700
   },
   {
@@ -770,7 +770,7 @@
   {
     "name": "Oranjestad",
     "country_code": "ABW",
-    "district": "�",
+    "district": null,
     "population": 29034
   },
   {
@@ -864,9 +864,9 @@
     "population": 1787800
   },
   {
-    "name": "G�nc�",
+    "name": "Gäncä",
     "country_code": "AZE",
-    "district": "G�nc�",
+    "district": "Gäncä",
     "population": 299300
   },
   {
@@ -876,9 +876,9 @@
     "population": 283000
   },
   {
-    "name": "Ming��evir",
+    "name": "Mingäçevir",
     "country_code": "AZE",
-    "district": "Ming��evir",
+    "district": "Mingäçevir",
     "population": 93900
   },
   {
@@ -1062,9 +1062,9 @@
     "population": 200827
   },
   {
-    "name": "Li�ge",
+    "name": "Liège",
     "country_code": "BEL",
-    "district": "Li�ge",
+    "district": "Liège",
     "population": 185639
   },
   {
@@ -1118,7 +1118,7 @@
   {
     "name": "Porto-Novo",
     "country_code": "BEN",
-    "district": "Ou�m�",
+    "district": "Ouémé",
     "population": 194000
   },
   {
@@ -1136,7 +1136,7 @@
   {
     "name": "Saint George",
     "country_code": "BMU",
-    "district": "Saint George�s",
+    "district": "Saint George´s",
     "population": 1800
   },
   {
@@ -1188,9 +1188,9 @@
     "population": 178426
   },
   {
-    "name": "Potos�",
+    "name": "Potosí",
     "country_code": "BOL",
-    "district": "Potos�",
+    "district": "Potosí",
     "population": 140642
   },
   {
@@ -1230,9 +1230,9 @@
     "population": 101805
   },
   {
-    "name": "S�o Paulo",
+    "name": "São Paulo",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 9968485
   },
   {
@@ -1256,11 +1256,11 @@
   {
     "name": "Fortaleza",
     "country_code": "BRA",
-    "district": "Cear�",
+    "district": "Ceará",
     "population": 2097757
   },
   {
-    "name": "Bras�lia",
+    "name": "Brasília",
     "country_code": "BRA",
     "district": "Distrito Federal",
     "population": 1969868
@@ -1268,7 +1268,7 @@
   {
     "name": "Curitiba",
     "country_code": "BRA",
-    "district": "Paran�",
+    "district": "Paraná",
     "population": 1584232
   },
   {
@@ -1290,49 +1290,49 @@
     "population": 1255049
   },
   {
-    "name": "Bel�m",
+    "name": "Belém",
     "country_code": "BRA",
-    "district": "Par�",
+    "district": "Pará",
     "population": 1186926
   },
   {
     "name": "Guarulhos",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 1095874
   },
   {
-    "name": "Goi�nia",
+    "name": "Goiânia",
     "country_code": "BRA",
-    "district": "Goi�s",
+    "district": "Goiás",
     "population": 1056330
   },
   {
     "name": "Campinas",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 950043
   },
   {
-    "name": "S�o Gon�alo",
+    "name": "São Gonçalo",
     "country_code": "BRA",
     "district": "Rio de Janeiro",
     "population": 869254
   },
   {
-    "name": "Nova Igua�u",
+    "name": "Nova Iguaçu",
     "country_code": "BRA",
     "district": "Rio de Janeiro",
     "population": 862225
   },
   {
-    "name": "S�o Lu�s",
+    "name": "São Luís",
     "country_code": "BRA",
-    "district": "Maranh�o",
+    "district": "Maranhão",
     "population": 837588
   },
   {
-    "name": "Macei�",
+    "name": "Maceió",
     "country_code": "BRA",
     "district": "Alagoas",
     "population": 786288
@@ -1344,15 +1344,15 @@
     "population": 746758
   },
   {
-    "name": "S�o Bernardo do Campo",
+    "name": "São Bernardo do Campo",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 723132
   },
   {
     "name": "Teresina",
     "country_code": "BRA",
-    "district": "Piau�",
+    "district": "Piauí",
     "population": 691942
   },
   {
@@ -1364,7 +1364,7 @@
   {
     "name": "Osasco",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 659604
   },
   {
@@ -1374,19 +1374,19 @@
     "population": 649593
   },
   {
-    "name": "Santo Andr�",
+    "name": "Santo André",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 630073
   },
   {
-    "name": "Jo�o Pessoa",
+    "name": "João Pessoa",
     "country_code": "BRA",
-    "district": "Para�ba",
+    "district": "Paraíba",
     "population": 584029
   },
   {
-    "name": "Jaboat�o dos Guararapes",
+    "name": "Jaboatão dos Guararapes",
     "country_code": "BRA",
     "district": "Pernambuco",
     "population": 558680
@@ -1398,13 +1398,13 @@
     "population": 520801
   },
   {
-    "name": "S�o Jos� dos Campos",
+    "name": "São José dos Campos",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 515553
   },
   {
-    "name": "Uberl�ndia",
+    "name": "Uberlândia",
     "country_code": "BRA",
     "district": "Minas Gerais",
     "population": 487222
@@ -1416,25 +1416,25 @@
     "population": 479992
   },
   {
-    "name": "Ribeir�o Preto",
+    "name": "Ribeirão Preto",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 473276
   },
   {
     "name": "Sorocaba",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 466823
   },
   {
-    "name": "Niter�i",
+    "name": "Niterói",
     "country_code": "BRA",
     "district": "Rio de Janeiro",
     "population": 459884
   },
   {
-    "name": "Cuiab�",
+    "name": "Cuiabá",
     "country_code": "BRA",
     "district": "Mato Grosso",
     "population": 453813
@@ -1452,7 +1452,7 @@
     "population": 445555
   },
   {
-    "name": "S�o Jo�o de Meriti",
+    "name": "São João de Meriti",
     "country_code": "BRA",
     "district": "Rio de Janeiro",
     "population": 440052
@@ -1460,7 +1460,7 @@
   {
     "name": "Londrina",
     "country_code": "BRA",
-    "district": "Paran�",
+    "district": "Paraná",
     "population": 432257
   },
   {
@@ -1478,13 +1478,13 @@
   {
     "name": "Santos",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 408748
   },
   {
     "name": "Ananindeua",
     "country_code": "BRA",
-    "district": "Par�",
+    "district": "Pará",
     "population": 400940
   },
   {
@@ -1494,15 +1494,15 @@
     "population": 398418
   },
   {
-    "name": "Mau�",
+    "name": "Mauá",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 375055
   },
   {
-    "name": "Carapicu�ba",
+    "name": "Carapicuíba",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 357552
   },
   {
@@ -1514,13 +1514,13 @@
   {
     "name": "Campina Grande",
     "country_code": "BRA",
-    "district": "Para�ba",
+    "district": "Paraíba",
     "population": 352497
   },
   {
-    "name": "S�o Jos� do Rio Preto",
+    "name": "São José do Rio Preto",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 351944
   },
   {
@@ -1532,37 +1532,37 @@
   {
     "name": "Moji das Cruzes",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 339194
   },
   {
     "name": "Diadema",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 335078
   },
   {
-    "name": "Aparecida de Goi�nia",
+    "name": "Aparecida de Goiânia",
     "country_code": "BRA",
-    "district": "Goi�s",
+    "district": "Goiás",
     "population": 324662
   },
   {
     "name": "Piracicaba",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 319104
   },
   {
     "name": "Cariacica",
     "country_code": "BRA",
-    "district": "Esp�rito Santo",
+    "district": "Espírito Santo",
     "population": 319033
   },
   {
     "name": "Vila Velha",
     "country_code": "BRA",
-    "district": "Esp�rito Santo",
+    "district": "Espírito Santo",
     "population": 318758
   },
   {
@@ -1574,19 +1574,19 @@
   {
     "name": "Bauru",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 313670
   },
   {
     "name": "Porto Velho",
     "country_code": "BRA",
-    "district": "Rond�nia",
+    "district": "Rondônia",
     "population": 309750
   },
   {
     "name": "Serra",
     "country_code": "BRA",
-    "district": "Esp�rito Santo",
+    "district": "Espírito Santo",
     "population": 302666
   },
   {
@@ -1596,9 +1596,9 @@
     "population": 302108
   },
   {
-    "name": "Jund�a�",
+    "name": "Jundíaí",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 296127
   },
   {
@@ -1610,19 +1610,19 @@
   {
     "name": "Franca",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 290139
   },
   {
-    "name": "S�o Vicente",
+    "name": "São Vicente",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 286848
   },
   {
-    "name": "Maring�",
+    "name": "Maringá",
     "country_code": "BRA",
-    "district": "Paran�",
+    "district": "Paraná",
     "population": 286461
   },
   {
@@ -1632,19 +1632,19 @@
     "population": 286058
   },
   {
-    "name": "An�polis",
+    "name": "Anápolis",
     "country_code": "BRA",
-    "district": "Goi�s",
+    "district": "Goiás",
     "population": 282197
   },
   {
-    "name": "Florian�polis",
+    "name": "Florianópolis",
     "country_code": "BRA",
     "district": "Santa Catarina",
     "population": 281928
   },
   {
-    "name": "Petr�polis",
+    "name": "Petrópolis",
     "country_code": "BRA",
     "district": "Rio de Janeiro",
     "population": 279183
@@ -1652,19 +1652,19 @@
   {
     "name": "Itaquaquecetuba",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 270874
   },
   {
-    "name": "Vit�ria",
+    "name": "Vitória",
     "country_code": "BRA",
-    "district": "Esp�rito Santo",
+    "district": "Espírito Santo",
     "population": 270626
   },
   {
     "name": "Ponta Grossa",
     "country_code": "BRA",
-    "district": "Paran�",
+    "district": "Paraná",
     "population": 268013
   },
   {
@@ -1674,25 +1674,25 @@
     "population": 259537
   },
   {
-    "name": "Foz do Igua�u",
+    "name": "Foz do Iguaçu",
     "country_code": "BRA",
-    "district": "Paran�",
+    "district": "Paraná",
     "population": 259425
   },
   {
-    "name": "Macap�",
+    "name": "Macapá",
     "country_code": "BRA",
-    "district": "Amap�",
+    "district": "Amapá",
     "population": 256033
   },
   {
-    "name": "Ilh�us",
+    "name": "Ilhéus",
     "country_code": "BRA",
     "district": "Bahia",
     "population": 254970
   },
   {
-    "name": "Vit�ria da Conquista",
+    "name": "Vitória da Conquista",
     "country_code": "BRA",
     "district": "Bahia",
     "population": 253587
@@ -1712,7 +1712,7 @@
   {
     "name": "Limeira",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 245497
   },
   {
@@ -1728,9 +1728,9 @@
     "population": 244247
   },
   {
-    "name": "Santar�m",
+    "name": "Santarém",
     "country_code": "BRA",
-    "district": "Par�",
+    "district": "Pará",
     "population": 241771
   },
   {
@@ -1748,7 +1748,7 @@
   {
     "name": "Caucaia",
     "country_code": "BRA",
-    "district": "Cear�",
+    "district": "Ceará",
     "population": 238738
   },
   {
@@ -1760,17 +1760,17 @@
   {
     "name": "Cascavel",
     "country_code": "BRA",
-    "district": "Paran�",
+    "district": "Paraná",
     "population": 237510
   },
   {
-    "name": "Guaruj�",
+    "name": "Guarujá",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 237206
   },
   {
-    "name": "Ribeir�o das Neves",
+    "name": "Ribeirão das Neves",
     "country_code": "BRA",
     "district": "Minas Gerais",
     "population": 232685
@@ -1782,19 +1782,19 @@
     "population": 231724
   },
   {
-    "name": "Taubat�",
+    "name": "Taubaté",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 229130
   },
   {
     "name": "Imperatriz",
     "country_code": "BRA",
-    "district": "Maranh�o",
+    "district": "Maranhão",
     "population": 224564
   },
   {
-    "name": "Gravata�",
+    "name": "Gravataí",
     "country_code": "BRA",
     "district": "Rio Grande do Sul",
     "population": 223011
@@ -1802,17 +1802,17 @@
   {
     "name": "Embu",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 222223
   },
   {
-    "name": "Mossor�",
+    "name": "Mossoró",
     "country_code": "BRA",
     "district": "Rio Grande do Norte",
     "population": 214901
   },
   {
-    "name": "V�rzea Grande",
+    "name": "Várzea Grande",
     "country_code": "BRA",
     "district": "Mato Grosso",
     "population": 214435
@@ -1826,11 +1826,11 @@
   {
     "name": "Barueri",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 208426
   },
   {
-    "name": "Viam�o",
+    "name": "Viamão",
     "country_code": "BRA",
     "district": "Rio Grande do Sul",
     "population": 207557
@@ -1850,23 +1850,23 @@
   {
     "name": "Juazeiro do Norte",
     "country_code": "BRA",
-    "district": "Cear�",
+    "district": "Ceará",
     "population": 199636
   },
   {
-    "name": "Tabo�o da Serra",
+    "name": "Taboão da Serra",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 197550
   },
   {
-    "name": "S�o Jos� dos Pinhais",
+    "name": "São José dos Pinhais",
     "country_code": "BRA",
-    "district": "Paran�",
+    "district": "Paraná",
     "population": 196884
   },
   {
-    "name": "Mag�",
+    "name": "Magé",
     "country_code": "BRA",
     "district": "Rio de Janeiro",
     "population": 196147
@@ -1874,41 +1874,41 @@
   {
     "name": "Suzano",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 195434
   },
   {
-    "name": "S�o Leopoldo",
+    "name": "São Leopoldo",
     "country_code": "BRA",
     "district": "Rio Grande do Sul",
     "population": 189258
   },
   {
-    "name": "Mar�lia",
+    "name": "Marília",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 188691
   },
   {
-    "name": "S�o Carlos",
+    "name": "São Carlos",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 187122
   },
   {
-    "name": "Sumar�",
+    "name": "Sumaré",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 186205
   },
   {
     "name": "Presidente Prudente",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 185340
   },
   {
-    "name": "Divin�polis",
+    "name": "Divinópolis",
     "country_code": "BRA",
     "district": "Minas Gerais",
     "population": 185047
@@ -1932,7 +1932,7 @@
     "population": 182148
   },
   {
-    "name": "Jequi�",
+    "name": "Jequié",
     "country_code": "BRA",
     "district": "Bahia",
     "population": 179128
@@ -1946,13 +1946,13 @@
   {
     "name": "Colombo",
     "country_code": "BRA",
-    "district": "Paran�",
+    "district": "Paraná",
     "population": 177764
   },
   {
     "name": "Americana",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 177409
   },
   {
@@ -1964,19 +1964,19 @@
   {
     "name": "Araraquara",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 174381
   },
   {
-    "name": "Itabora�",
+    "name": "Itaboraí",
     "country_code": "BRA",
     "district": "Rio de Janeiro",
     "population": 173977
   },
   {
-    "name": "Santa B�rbara d�Oeste",
+    "name": "Santa Bárbara d´Oeste",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 171657
   },
   {
@@ -1986,15 +1986,15 @@
     "population": 170697
   },
   {
-    "name": "Jacare�",
+    "name": "Jacareí",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 170356
   },
   {
-    "name": "Ara�atuba",
+    "name": "Araçatuba",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 169303
   },
   {
@@ -2006,17 +2006,17 @@
   {
     "name": "Praia Grande",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 168434
   },
   {
-    "name": "Marab�",
+    "name": "Marabá",
     "country_code": "BRA",
-    "district": "Par�",
+    "district": "Pará",
     "population": 167795
   },
   {
-    "name": "Crici�ma",
+    "name": "Criciúma",
     "country_code": "BRA",
     "district": "Santa Catarina",
     "population": 167661
@@ -2048,29 +2048,29 @@
   {
     "name": "Rio Claro",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 163551
   },
   {
-    "name": "Maracana�",
+    "name": "Maracanaú",
     "country_code": "BRA",
-    "district": "Cear�",
+    "district": "Ceará",
     "population": 162022
   },
   {
     "name": "Guarapuava",
     "country_code": "BRA",
-    "district": "Paran�",
+    "district": "Paraná",
     "population": 160510
   },
   {
-    "name": "Rondon�polis",
+    "name": "Rondonópolis",
     "country_code": "BRA",
     "district": "Mato Grosso",
     "population": 155115
   },
   {
-    "name": "S�o Jos�",
+    "name": "São José",
     "country_code": "BRA",
     "district": "Santa Catarina",
     "population": 155105
@@ -2078,11 +2078,11 @@
   {
     "name": "Cachoeiro de Itapemirim",
     "country_code": "BRA",
-    "district": "Esp�rito Santo",
+    "district": "Espírito Santo",
     "population": 155024
   },
   {
-    "name": "Nil�polis",
+    "name": "Nilópolis",
     "country_code": "BRA",
     "district": "Rio de Janeiro",
     "population": 153383
@@ -2090,7 +2090,7 @@
   {
     "name": "Itapevi",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 150664
   },
   {
@@ -2100,7 +2100,7 @@
     "population": 149964
   },
   {
-    "name": "Cama�ari",
+    "name": "Camaçari",
     "country_code": "BRA",
     "district": "Bahia",
     "population": 149146
@@ -2108,17 +2108,17 @@
   {
     "name": "Sobral",
     "country_code": "BRA",
-    "district": "Cear�",
+    "district": "Ceará",
     "population": 146005
   },
   {
-    "name": "Itaja�",
+    "name": "Itajaí",
     "country_code": "BRA",
     "district": "Santa Catarina",
     "population": 145197
   },
   {
-    "name": "Chapec�",
+    "name": "Chapecó",
     "country_code": "BRA",
     "district": "Santa Catarina",
     "population": 144158
@@ -2126,7 +2126,7 @@
   {
     "name": "Cotia",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 140042
   },
   {
@@ -2138,37 +2138,37 @@
   {
     "name": "Ferraz de Vasconcelos",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 139283
   },
   {
     "name": "Indaiatuba",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 135968
   },
   {
-    "name": "Hortol�ndia",
+    "name": "Hortolândia",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 135755
   },
   {
     "name": "Caxias",
     "country_code": "BRA",
-    "district": "Maranh�o",
+    "district": "Maranhão",
     "population": 133980
   },
   {
-    "name": "S�o Caetano do Sul",
+    "name": "São Caetano do Sul",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 133321
   },
   {
     "name": "Itu",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 132736
   },
   {
@@ -2178,19 +2178,19 @@
     "population": 131351
   },
   {
-    "name": "Parna�ba",
+    "name": "Parnaíba",
     "country_code": "BRA",
-    "district": "Piau�",
+    "district": "Piauí",
     "population": 129756
   },
   {
-    "name": "Po�os de Caldas",
+    "name": "Poços de Caldas",
     "country_code": "BRA",
     "district": "Minas Gerais",
     "population": 129683
   },
   {
-    "name": "Teres�polis",
+    "name": "Teresópolis",
     "country_code": "BRA",
     "district": "Rio de Janeiro",
     "population": 128079
@@ -2204,7 +2204,7 @@
   {
     "name": "Castanhal",
     "country_code": "BRA",
-    "district": "Par�",
+    "district": "Pará",
     "population": 127634
   },
   {
@@ -2216,7 +2216,7 @@
   {
     "name": "Itapecerica da Serra",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 126672
   },
   {
@@ -2226,13 +2226,13 @@
     "population": 126305
   },
   {
-    "name": "Paranagu�",
+    "name": "Paranaguá",
     "country_code": "BRA",
-    "district": "Paran�",
+    "district": "Paraná",
     "population": 126076
   },
   {
-    "name": "Ibirit�",
+    "name": "Ibirité",
     "country_code": "BRA",
     "district": "Minas Gerais",
     "population": 125982
@@ -2240,31 +2240,31 @@
   {
     "name": "Timon",
     "country_code": "BRA",
-    "district": "Maranh�o",
+    "district": "Maranhão",
     "population": 125812
   },
   {
-    "name": "Luzi�nia",
+    "name": "Luziânia",
     "country_code": "BRA",
-    "district": "Goi�s",
+    "district": "Goiás",
     "population": 125597
   },
   {
-    "name": "Maca�",
+    "name": "Macaé",
     "country_code": "BRA",
     "district": "Rio de Janeiro",
     "population": 125597
   },
   {
-    "name": "Te�filo Otoni",
+    "name": "Teófilo Otoni",
     "country_code": "BRA",
     "district": "Minas Gerais",
     "population": 124489
   },
   {
-    "name": "Moji-Gua�u",
+    "name": "Moji-Guaçu",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 123782
   },
   {
@@ -2276,17 +2276,17 @@
   {
     "name": "Pindamonhangaba",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 121904
   },
   {
     "name": "Francisco Morato",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 121197
   },
   {
-    "name": "Bag�",
+    "name": "Bagé",
     "country_code": "BRA",
     "district": "Rio Grande do Sul",
     "population": 120793
@@ -2306,7 +2306,7 @@
   {
     "name": "Itapetininga",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 119391
   },
   {
@@ -2322,9 +2322,9 @@
     "population": 118968
   },
   {
-    "name": "Bragan�a Paulista",
+    "name": "Bragança Paulista",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 116929
   },
   {
@@ -2334,7 +2334,7 @@
     "population": 115020
   },
   {
-    "name": "Aragua�na",
+    "name": "Araguaína",
     "country_code": "BRA",
     "district": "Tocantins",
     "population": 114948
@@ -2346,7 +2346,7 @@
     "population": 114603
   },
   {
-    "name": "Vit�ria de Santo Ant�o",
+    "name": "Vitória de Santo Antão",
     "country_code": "BRA",
     "district": "Pernambuco",
     "population": 113595
@@ -2354,7 +2354,7 @@
   {
     "name": "Santa Rita",
     "country_code": "BRA",
-    "district": "Para�ba",
+    "district": "Paraíba",
     "population": 113135
   },
   {
@@ -2366,13 +2366,13 @@
   {
     "name": "Abaetetuba",
     "country_code": "BRA",
-    "district": "Par�",
+    "district": "Pará",
     "population": 111258
   },
   {
-    "name": "Ja�",
+    "name": "Jaú",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 109965
   },
   {
@@ -2384,7 +2384,7 @@
   {
     "name": "Franco da Rocha",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 108964
   },
   {
@@ -2400,13 +2400,13 @@
     "population": 108314
   },
   {
-    "name": "Ribeir�o Pires",
+    "name": "Ribeirão Pires",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 108121
   },
   {
-    "name": "Sabar�",
+    "name": "Sabará",
     "country_code": "BRA",
     "district": "Minas Gerais",
     "population": 107781
@@ -2414,25 +2414,25 @@
   {
     "name": "Catanduva",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 107761
   },
   {
     "name": "Rio Verde",
     "country_code": "BRA",
-    "district": "Goi�s",
+    "district": "Goiás",
     "population": 107755
   },
   {
     "name": "Botucatu",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 107663
   },
   {
     "name": "Colatina",
     "country_code": "BRA",
-    "district": "Esp�rito Santo",
+    "district": "Espírito Santo",
     "population": 107354
   },
   {
@@ -2444,25 +2444,25 @@
   {
     "name": "Linhares",
     "country_code": "BRA",
-    "district": "Esp�rito Santo",
+    "district": "Espírito Santo",
     "population": 106278
   },
   {
     "name": "Apucarana",
     "country_code": "BRA",
-    "district": "Paran�",
+    "district": "Paraná",
     "population": 105114
   },
   {
     "name": "Barretos",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 104156
   },
   {
-    "name": "Guaratinguet�",
+    "name": "Guaratinguetá",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 103433
   },
   {
@@ -2472,21 +2472,21 @@
     "population": 103240
   },
   {
-    "name": "Cod�",
+    "name": "Codó",
     "country_code": "BRA",
-    "district": "Maranh�o",
+    "district": "Maranhão",
     "population": 103153
   },
   {
-    "name": "Jaragu� do Sul",
+    "name": "Jaraguá do Sul",
     "country_code": "BRA",
     "district": "Santa Catarina",
     "population": 102580
   },
   {
-    "name": "Cubat�o",
+    "name": "Cubatão",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 102372
   },
   {
@@ -2498,13 +2498,13 @@
   {
     "name": "Itaituba",
     "country_code": "BRA",
-    "district": "Par�",
+    "district": "Pará",
     "population": 101320
   },
   {
     "name": "Araras",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 101046
   },
   {
@@ -2516,7 +2516,7 @@
   {
     "name": "Atibaia",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 100356
   },
   {
@@ -2528,13 +2528,13 @@
   {
     "name": "Toledo",
     "country_code": "BRA",
-    "district": "Paran�",
+    "district": "Paraná",
     "population": 99387
   },
   {
     "name": "Crato",
     "country_code": "BRA",
-    "district": "Cear�",
+    "district": "Ceará",
     "population": 98965
   },
   {
@@ -2550,21 +2550,21 @@
     "population": 98399
   },
   {
-    "name": "S�o Jos� de Ribamar",
+    "name": "São José de Ribamar",
     "country_code": "BRA",
-    "district": "Maranh�o",
+    "district": "Maranhão",
     "population": 98318
   },
   {
     "name": "Pinhais",
     "country_code": "BRA",
-    "district": "Paran�",
+    "district": "Paraná",
     "population": 98198
   },
   {
-    "name": "Sert�ozinho",
+    "name": "Sertãozinho",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 98140
   },
   {
@@ -2586,7 +2586,7 @@
     "population": 96864
   },
   {
-    "name": "Eun�polis",
+    "name": "Eunápolis",
     "country_code": "BRA",
     "district": "Bahia",
     "population": 96610
@@ -2594,13 +2594,13 @@
   {
     "name": "Salto",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 96348
   },
   {
     "name": "Ourinhos",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 96291
   },
   {
@@ -2624,41 +2624,41 @@
   {
     "name": "Birigui",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 94685
   },
   {
-    "name": "Tatu�",
+    "name": "Tatuí",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 93897
   },
   {
-    "name": "Ji-Paran�",
+    "name": "Ji-Paraná",
     "country_code": "BRA",
-    "district": "Rond�nia",
+    "district": "Rondônia",
     "population": 93346
   },
   {
     "name": "Bacabal",
     "country_code": "BRA",
-    "district": "Maranh�o",
+    "district": "Maranhão",
     "population": 93121
   },
   {
-    "name": "Camet�",
+    "name": "Cametá",
     "country_code": "BRA",
-    "district": "Par�",
+    "district": "Pará",
     "population": 92779
   },
   {
-    "name": "Gua�ba",
+    "name": "Guaíba",
     "country_code": "BRA",
     "district": "Rio Grande do Sul",
     "population": 92224
   },
   {
-    "name": "S�o Louren�o da Mata",
+    "name": "São Lourenço da Mata",
     "country_code": "BRA",
     "district": "Pernambuco",
     "population": 91999
@@ -2672,19 +2672,19 @@
   {
     "name": "Votorantim",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 91777
   },
   {
     "name": "Campo Largo",
     "country_code": "BRA",
-    "district": "Paran�",
+    "district": "Paraná",
     "population": 91203
   },
   {
     "name": "Patos",
     "country_code": "BRA",
-    "district": "Para�ba",
+    "district": "Paraíba",
     "population": 90519
   },
   {
@@ -2694,39 +2694,39 @@
     "population": 90507
   },
   {
-    "name": "Corumb�",
+    "name": "Corumbá",
     "country_code": "BRA",
     "district": "Mato Grosso do Sul",
     "population": 90111
   },
   {
-    "name": "Palho�a",
+    "name": "Palhoça",
     "country_code": "BRA",
     "district": "Santa Catarina",
     "population": 89465
   },
   {
-    "name": "Barra do Pira�",
+    "name": "Barra do Piraí",
     "country_code": "BRA",
     "district": "Rio de Janeiro",
     "population": 89388
   },
   {
-    "name": "Bento Gon�alves",
+    "name": "Bento Gonçalves",
     "country_code": "BRA",
     "district": "Rio Grande do Sul",
     "population": 89254
   },
   {
-    "name": "Po�",
+    "name": "Poá",
     "country_code": "BRA",
-    "district": "S�o Paulo",
+    "district": "São Paulo",
     "population": 89236
   },
   {
-    "name": "�guas Lindas de Goi�s",
+    "name": "Águas Lindas de Goiás",
     "country_code": "BRA",
-    "district": "Goi�s",
+    "district": "Goiás",
     "population": 89200
   },
   {
@@ -3212,7 +3212,7 @@
   {
     "name": "Douglas",
     "country_code": "GBR",
-    "district": "�",
+    "district": null,
     "population": 23487
   },
   {
@@ -3282,7 +3282,7 @@
     "population": 100399
   },
   {
-    "name": "�umen",
+    "name": "Šumen",
     "country_code": "BGR",
     "district": "Varna",
     "population": 94686
@@ -3302,7 +3302,7 @@
   {
     "name": "Koudougou",
     "country_code": "BFA",
-    "district": "Boulkiemd�",
+    "district": "Boulkiemdé",
     "population": 105000
   },
   {
@@ -3330,21 +3330,21 @@
     "population": 386236
   },
   {
-    "name": "Vi�a del Mar",
+    "name": "Viña del Mar",
     "country_code": "CHL",
-    "district": "Valpara�so",
+    "district": "Valparaíso",
     "population": 312493
   },
   {
-    "name": "Valpara�so",
+    "name": "Valparaíso",
     "country_code": "CHL",
-    "district": "Valpara�so",
+    "district": "Valparaíso",
     "population": 293800
   },
   {
     "name": "Talcahuano",
     "country_code": "CHL",
-    "district": "B�ob�o",
+    "district": "Bíobío",
     "population": 277752
   },
   {
@@ -3362,25 +3362,25 @@
   {
     "name": "Temuco",
     "country_code": "CHL",
-    "district": "La Araucan�a",
+    "district": "La Araucanía",
     "population": 233041
   },
   {
-    "name": "Concepci�n",
+    "name": "Concepción",
     "country_code": "CHL",
-    "district": "B�ob�o",
+    "district": "Bíobío",
     "population": 217664
   },
   {
     "name": "Rancagua",
     "country_code": "CHL",
-    "district": "O�Higgins",
+    "district": "O´Higgins",
     "population": 212977
   },
   {
     "name": "Arica",
     "country_code": "CHL",
-    "district": "Tarapac�",
+    "district": "Tarapacá",
     "population": 189036
   },
   {
@@ -3390,21 +3390,21 @@
     "population": 187557
   },
   {
-    "name": "Chill�n",
+    "name": "Chillán",
     "country_code": "CHL",
-    "district": "B�ob�o",
+    "district": "Bíobío",
     "population": 178182
   },
   {
     "name": "Iquique",
     "country_code": "CHL",
-    "district": "Tarapac�",
+    "district": "Tarapacá",
     "population": 177892
   },
   {
     "name": "Los Angeles",
     "country_code": "CHL",
-    "district": "B�ob�o",
+    "district": "Bíobío",
     "population": 158215
   },
   {
@@ -3450,19 +3450,19 @@
     "population": 125631
   },
   {
-    "name": "Copiap�",
+    "name": "Copiapó",
     "country_code": "CHL",
     "district": "Atacama",
     "population": 120128
   },
   {
-    "name": "Quilpu�",
+    "name": "Quilpué",
     "country_code": "CHL",
-    "district": "Valpara�so",
+    "district": "Valparaíso",
     "population": 118857
   },
   {
-    "name": "Curic�",
+    "name": "Curicó",
     "country_code": "CHL",
     "district": "Maule",
     "population": 115766
@@ -3476,13 +3476,13 @@
   {
     "name": "Coronel",
     "country_code": "CHL",
-    "district": "B�ob�o",
+    "district": "Bíobío",
     "population": 93061
   },
   {
     "name": "San Pedro de la Paz",
     "country_code": "CHL",
-    "district": "B�ob�o",
+    "district": "Bíobío",
     "population": 91684
   },
   {
@@ -3498,9 +3498,9 @@
     "population": 11900
   },
   {
-    "name": "San Jos�",
+    "name": "San José",
     "country_code": "CRI",
-    "district": "San Jos�",
+    "district": "San José",
     "population": 339131
   },
   {
@@ -3516,7 +3516,7 @@
     "population": 16243
   },
   {
-    "name": "Santo Domingo de Guzm�n",
+    "name": "Santo Domingo de Guzmán",
     "country_code": "DOM",
     "district": "Distrito Nacional",
     "population": 1609966
@@ -3534,13 +3534,13 @@
     "population": 140204
   },
   {
-    "name": "San Pedro de Macor�s",
+    "name": "San Pedro de Macorís",
     "country_code": "DOM",
-    "district": "San Pedro de Macor�s",
+    "district": "San Pedro de Macorís",
     "population": 124735
   },
   {
-    "name": "San Francisco de Macor�s",
+    "name": "San Francisco de Macorís",
     "country_code": "DOM",
     "district": "Duarte",
     "population": 108485
@@ -3584,7 +3584,7 @@
   {
     "name": "Portoviejo",
     "country_code": "ECU",
-    "district": "Manab�",
+    "district": "Manabí",
     "population": 176413
   },
   {
@@ -3596,7 +3596,7 @@
   {
     "name": "Manta",
     "country_code": "ECU",
-    "district": "Manab�",
+    "district": "Manabí",
     "population": 164739
   },
   {
@@ -3614,7 +3614,7 @@
   {
     "name": "Quevedo",
     "country_code": "ECU",
-    "district": "Los R�os",
+    "district": "Los Ríos",
     "population": 129631
   },
   {
@@ -3630,7 +3630,7 @@
     "population": 123875
   },
   {
-    "name": "R�obamba",
+    "name": "Ríobamba",
     "country_code": "ECU",
     "district": "Chimborazo",
     "population": 123163
@@ -3942,7 +3942,7 @@
     "population": 603367
   },
   {
-    "name": "M�laga",
+    "name": "Málaga",
     "country_code": "ESP",
     "district": "Andalusia",
     "population": 530553
@@ -3974,11 +3974,11 @@
   {
     "name": "Valladolid",
     "country_code": "ESP",
-    "district": "Castilla and Le�n",
+    "district": "Castilla and León",
     "population": 319998
   },
   {
-    "name": "C�rdoba",
+    "name": "Córdoba",
     "country_code": "ESP",
     "district": "Andalusia",
     "population": 311708
@@ -3996,13 +3996,13 @@
     "population": 272432
   },
   {
-    "name": "Gij�n",
+    "name": "Gijón",
     "country_code": "ESP",
     "district": "Asturia",
     "population": 267980
   },
   {
-    "name": "L�Hospitalet de Llobregat",
+    "name": "L´Hospitalet de Llobregat",
     "country_code": "ESP",
     "district": "Katalonia",
     "population": 247986
@@ -4014,7 +4014,7 @@
     "population": 244767
   },
   {
-    "name": "A Coru�a (La Coru�a)",
+    "name": "A Coruña (La Coruña)",
     "country_code": "ESP",
     "district": "Galicia",
     "population": 243402
@@ -4044,7 +4044,7 @@
     "population": 200453
   },
   {
-    "name": "M�stoles",
+    "name": "Móstoles",
     "country_code": "ESP",
     "district": "Madrid",
     "population": 195351
@@ -4074,13 +4074,13 @@
     "population": 182660
   },
   {
-    "name": "Pamplona [Iru�a]",
+    "name": "Pamplona [Iruña]",
     "country_code": "ESP",
     "district": "Navarra",
     "population": 180483
   },
   {
-    "name": "Donostia-San Sebasti�n",
+    "name": "Donostia-San Sebastián",
     "country_code": "ESP",
     "district": "Baskimaa",
     "population": 179208
@@ -4092,7 +4092,7 @@
     "population": 177709
   },
   {
-    "name": "Legan�s",
+    "name": "Leganés",
     "country_code": "ESP",
     "district": "Madrid",
     "population": 173163
@@ -4104,7 +4104,7 @@
     "population": 171173
   },
   {
-    "name": "Almer�a",
+    "name": "Almería",
     "country_code": "ESP",
     "district": "Andalusia",
     "population": 169027
@@ -4116,7 +4116,7 @@
     "population": 168695
   },
   {
-    "name": "Alcal� de Henares",
+    "name": "Alcalá de Henares",
     "country_code": "ESP",
     "district": "Madrid",
     "population": 164463
@@ -4124,13 +4124,13 @@
   {
     "name": "Burgos",
     "country_code": "ESP",
-    "district": "Castilla and Le�n",
+    "district": "Castilla and León",
     "population": 162802
   },
   {
     "name": "Salamanca",
     "country_code": "ESP",
-    "district": "Castilla and Le�n",
+    "district": "Castilla and León",
     "population": 158720
   },
   {
@@ -4146,13 +4146,13 @@
     "population": 145371
   },
   {
-    "name": "C�diz",
+    "name": "Cádiz",
     "country_code": "ESP",
     "district": "Andalusia",
     "population": 142449
   },
   {
-    "name": "Alcorc�n",
+    "name": "Alcorcón",
     "country_code": "ESP",
     "district": "Madrid",
     "population": 142048
@@ -4164,13 +4164,13 @@
     "population": 140583
   },
   {
-    "name": "Le�n",
+    "name": "León",
     "country_code": "ESP",
-    "district": "Castilla and Le�n",
+    "district": "Castilla and León",
     "population": 139809
   },
   {
-    "name": "Castell�n de la Plana [Castell",
+    "name": "Castellón de la Plana [Castell",
     "country_code": "ESP",
     "district": "Valencia",
     "population": 139712
@@ -4182,13 +4182,13 @@
     "population": 136613
   },
   {
-    "name": "[San Crist�bal de] la Laguna",
+    "name": "[San Cristóbal de] la Laguna",
     "country_code": "ESP",
     "district": "Canary Islands",
     "population": 127945
   },
   {
-    "name": "Logro�o",
+    "name": "Logroño",
     "country_code": "ESP",
     "district": "La Rioja",
     "population": 127093
@@ -4206,13 +4206,13 @@
     "population": 113016
   },
   {
-    "name": "Lleida (L�rida)",
+    "name": "Lleida (Lérida)",
     "country_code": "ESP",
     "district": "Katalonia",
     "population": 112207
   },
   {
-    "name": "Ja�n",
+    "name": "Jaén",
     "country_code": "ESP",
     "district": "Andalusia",
     "population": 109247
@@ -4224,7 +4224,7 @@
     "population": 109120
   },
   {
-    "name": "Matar�",
+    "name": "Mataró",
     "country_code": "ESP",
     "district": "Katalonia",
     "population": 104095
@@ -4260,7 +4260,7 @@
     "population": 93745
   },
   {
-    "name": "Torrej�n de Ardoz",
+    "name": "Torrejón de Ardoz",
     "country_code": "ESP",
     "district": "Madrid",
     "population": 92262
@@ -4632,7 +4632,7 @@
     "population": 485433
   },
   {
-    "name": "Las Pi�as",
+    "name": "Las Piñas",
     "country_code": "PHL",
     "district": "National Capital Reg",
     "population": 472780
@@ -4656,7 +4656,7 @@
     "population": 461877
   },
   {
-    "name": "Para�aque",
+    "name": "Parañaque",
     "country_code": "PHL",
     "district": "National Capital Reg",
     "population": 449811
@@ -4686,7 +4686,7 @@
     "population": 391170
   },
   {
-    "name": "Dasmari�as",
+    "name": "Dasmariñas",
     "country_code": "PHL",
     "district": "Southern Tagalog",
     "population": 379520
@@ -4716,7 +4716,7 @@
     "population": 338855
   },
   {
-    "name": "San Jos� del Monte",
+    "name": "San José del Monte",
     "country_code": "PHL",
     "district": "Central Luzon",
     "population": 315807
@@ -4830,7 +4830,7 @@
     "population": 207927
   },
   {
-    "name": "Bi�an",
+    "name": "Biñan",
     "country_code": "PHL",
     "district": "Southern Tagalog",
     "population": 201186
@@ -5400,7 +5400,7 @@
     "population": 90603
   },
   {
-    "name": "T�rshavn",
+    "name": "Tórshavn",
     "country_code": "FRO",
     "district": "Streymoyar",
     "population": 14542
@@ -5444,7 +5444,7 @@
   {
     "name": "Batumi",
     "country_code": "GEO",
-    "district": "Adzaria [At�ara]",
+    "district": "Adzaria [Atšara]",
     "population": 137700
   },
   {
@@ -5486,11 +5486,11 @@
   {
     "name": "Gibraltar",
     "country_code": "GIB",
-    "district": "�",
+    "district": null,
     "population": 27025
   },
   {
-    "name": "Saint George�s",
+    "name": "Saint George´s",
     "country_code": "GRD",
     "district": "St George",
     "population": 4621
@@ -5516,13 +5516,13 @@
   {
     "name": "Tamuning",
     "country_code": "GUM",
-    "district": "�",
+    "district": null,
     "population": 9500
   },
   {
-    "name": "Aga�a",
+    "name": "Agaña",
     "country_code": "GUM",
-    "district": "�",
+    "district": null,
     "population": 1139
   },
   {
@@ -5586,7 +5586,7 @@
     "population": 240429
   },
   {
-    "name": "Le-Cap-Ha�tien",
+    "name": "Le-Cap-Haïtien",
     "country_code": "HTI",
     "district": "Nord",
     "population": 102233
@@ -5600,13 +5600,13 @@
   {
     "name": "San Pedro Sula",
     "country_code": "HND",
-    "district": "Cort�s",
+    "district": "Cortés",
     "population": 383900
   },
   {
     "name": "La Ceiba",
     "country_code": "HND",
-    "district": "Atl�ntida",
+    "district": "Atlántida",
     "population": 89200
   },
   {
@@ -5624,7 +5624,7 @@
   {
     "name": "Longyearbyen",
     "country_code": "SJM",
-    "district": "L�nsimaa",
+    "district": "Länsimaa",
     "population": 1438
   },
   {
@@ -8688,9 +8688,9 @@
     "population": 127187
   },
   {
-    "name": "Reykjav�k",
+    "name": "Reykjavík",
     "country_code": "ISL",
-    "district": "H�fu�borgarsv��i",
+    "district": "Höfuðborgarsvæði",
     "population": 109184
   },
   {
@@ -8928,7 +8928,7 @@
     "population": 154891
   },
   {
-    "name": "Reggio nell� Emilia",
+    "name": "Reggio nell´ Emilia",
     "country_code": "ITA",
     "district": "Emilia-Romagna",
     "population": 143664
@@ -9006,7 +9006,7 @@
     "population": 107770
   },
   {
-    "name": "Forl�",
+    "name": "Forlì",
     "country_code": "ITA",
     "district": "Emilia-Romagna",
     "population": 107475
@@ -9164,7 +9164,7 @@
   {
     "name": "Klagenfurt",
     "country_code": "AUT",
-    "district": "K�rnten",
+    "district": "Kärnten",
     "population": 91141
   },
   {
@@ -10742,7 +10742,7 @@
   {
     "name": "Flying Fish Cove",
     "country_code": "CXR",
-    "district": "�",
+    "district": null,
     "population": 700
   },
   {
@@ -10758,13 +10758,13 @@
     "population": 179626
   },
   {
-    "name": "Ni�",
+    "name": "Niš",
     "country_code": "YUG",
     "district": "Central Serbia",
     "population": 175391
   },
   {
-    "name": "Pri�tina",
+    "name": "Priština",
     "country_code": "YUG",
     "district": "Kosovo and Metohija",
     "population": 155496
@@ -10818,7 +10818,7 @@
     "population": 1448300
   },
   {
-    "name": "Yaound�",
+    "name": "Yaoundé",
     "country_code": "CMR",
     "district": "Centre",
     "population": 1372800
@@ -10832,7 +10832,7 @@
   {
     "name": "Maroua",
     "country_code": "CMR",
-    "district": "Extr�me-Nord",
+    "district": "Extrême-Nord",
     "population": 143000
   },
   {
@@ -10854,9 +10854,9 @@
     "population": 112454
   },
   {
-    "name": "Montr�al",
+    "name": "Montréal",
     "country_code": "CAN",
-    "district": "Qu�bec",
+    "district": "Québec",
     "population": 1016376
   },
   {
@@ -10934,7 +10934,7 @@
   {
     "name": "Laval",
     "country_code": "CAN",
-    "district": "Qu�bec",
+    "district": "Québec",
     "population": 330393
   },
   {
@@ -10986,9 +10986,9 @@
     "population": 179209
   },
   {
-    "name": "Qu�bec",
+    "name": "Québec",
     "country_code": "CAN",
-    "district": "Qu�bec",
+    "district": "Québec",
     "population": 167264
   },
   {
@@ -11036,7 +11036,7 @@
   {
     "name": "Longueuil",
     "country_code": "CAN",
-    "district": "Qu�bec",
+    "district": "Québec",
     "population": 127977
   },
   {
@@ -11100,7 +11100,7 @@
     "population": 103593
   },
   {
-    "name": "Saint John�s",
+    "name": "Saint John´s",
     "country_code": "CAN",
     "district": "Newfoundland",
     "population": 101936
@@ -11120,7 +11120,7 @@
   {
     "name": "Gatineau",
     "country_code": "CAN",
-    "district": "Qu�bec",
+    "district": "Québec",
     "population": 100702
   },
   {
@@ -11150,7 +11150,7 @@
   {
     "name": "Praia",
     "country_code": "CPV",
-    "district": "S�o Tiago",
+    "district": "São Tiago",
     "population": 94800
   },
   {
@@ -11184,7 +11184,7 @@
     "population": 311200
   },
   {
-    "name": "�skemen",
+    "name": "Öskemen",
     "country_code": "KAZ",
     "district": "East Kazakstan",
     "population": 311000
@@ -11202,9 +11202,9 @@
     "population": 269600
   },
   {
-    "name": "Aqt�be",
+    "name": "Aqtöbe",
     "country_code": "KAZ",
-    "district": "Aqt�be",
+    "district": "Aqtöbe",
     "population": 253100
   },
   {
@@ -11256,7 +11256,7 @@
     "population": 127200
   },
   {
-    "name": "K�kshetau",
+    "name": "Kökshetau",
     "country_code": "KAZ",
     "district": "North Kazakstan",
     "population": 123400
@@ -11400,7 +11400,7 @@
     "population": 2812000
   },
   {
-    "name": "Xi�an",
+    "name": "Xi´an",
     "country_code": "CHN",
     "district": "Shaanxi",
     "population": 2761400
@@ -11496,7 +11496,7 @@
     "population": 1369100
   },
   {
-    "name": "Urumt�i [�r�mqi]",
+    "name": "Urumtši [Ürümqi]",
     "country_code": "CHN",
     "district": "Xinxiang",
     "population": 1310100
@@ -11940,7 +11940,7 @@
     "population": 352125
   },
   {
-    "name": "Tai�an",
+    "name": "Tai´an",
     "country_code": "CHN",
     "district": "Shandong",
     "population": 350696
@@ -12024,7 +12024,7 @@
     "population": 308669
   },
   {
-    "name": "Ma�anshan",
+    "name": "Ma´anshan",
     "country_code": "CHN",
     "district": "Anhui",
     "population": 305421
@@ -12384,7 +12384,7 @@
     "population": 204970
   },
   {
-    "name": "Bei�an",
+    "name": "Bei´an",
     "country_code": "CHN",
     "district": "Heilongjiang",
     "population": 204899
@@ -12762,7 +12762,7 @@
     "population": 156823
   },
   {
-    "name": "Rui�an",
+    "name": "Rui´an",
     "country_code": "CHN",
     "district": "Zhejiang",
     "population": 156468
@@ -12816,7 +12816,7 @@
     "population": 150123
   },
   {
-    "name": "Ji�an",
+    "name": "Ji´an",
     "country_code": "CHN",
     "district": "Jiangxi",
     "population": 148583
@@ -12858,7 +12858,7 @@
     "population": 144280
   },
   {
-    "name": "Liu�an",
+    "name": "Liu´an",
     "country_code": "CHN",
     "district": "Anhui",
     "population": 144248
@@ -12894,7 +12894,7 @@
     "population": 139417
   },
   {
-    "name": "Da�an",
+    "name": "Da´an",
     "country_code": "CHN",
     "district": "Jilin",
     "population": 138963
@@ -13020,7 +13020,7 @@
     "population": 131807
   },
   {
-    "name": "Huai�an",
+    "name": "Huai´an",
     "country_code": "CHN",
     "district": "Jiangsu",
     "population": 131149
@@ -13206,7 +13206,7 @@
     "population": 113958
   },
   {
-    "name": "Yan�an",
+    "name": "Yan´an",
     "country_code": "CHN",
     "district": "Shaanxi",
     "population": 113277
@@ -13230,7 +13230,7 @@
     "population": 112373
   },
   {
-    "name": "Yong�an",
+    "name": "Yong´an",
     "country_code": "CHN",
     "district": "Fujian",
     "population": 111762
@@ -13302,7 +13302,7 @@
     "population": 105287
   },
   {
-    "name": "Fu�an",
+    "name": "Fu´an",
     "country_code": "CHN",
     "district": "Fujian",
     "population": 105265
@@ -13416,7 +13416,7 @@
     "population": 97168
   },
   {
-    "name": "Ya�an",
+    "name": "Ya´an",
     "country_code": "CHN",
     "district": "Sichuan",
     "population": 95900
@@ -13536,9 +13536,9 @@
     "population": 2226
   },
   {
-    "name": "Santaf� de Bogot�",
+    "name": "Santafé de Bogotá",
     "country_code": "COL",
-    "district": "Santaf� de Bogot�",
+    "district": "Santafé de Bogotá",
     "population": 6260862
   },
   {
@@ -13548,7 +13548,7 @@
     "population": 2077386
   },
   {
-    "name": "Medell�n",
+    "name": "Medellín",
     "country_code": "COL",
     "district": "Antioquia",
     "population": 1861265
@@ -13556,17 +13556,17 @@
   {
     "name": "Barranquilla",
     "country_code": "COL",
-    "district": "Atl�ntico",
+    "district": "Atlántico",
     "population": 1223260
   },
   {
     "name": "Cartagena",
     "country_code": "COL",
-    "district": "Bol�var",
+    "district": "Bolívar",
     "population": 805757
   },
   {
-    "name": "C�cuta",
+    "name": "Cúcuta",
     "country_code": "COL",
     "district": "Norte de Santander",
     "population": 606932
@@ -13578,7 +13578,7 @@
     "population": 515555
   },
   {
-    "name": "Ibagu�",
+    "name": "Ibagué",
     "country_code": "COL",
     "district": "Tolima",
     "population": 393664
@@ -13610,7 +13610,7 @@
   {
     "name": "Pasto",
     "country_code": "COL",
-    "district": "Nari�o",
+    "district": "Nariño",
     "population": 332396
   },
   {
@@ -13622,13 +13622,13 @@
   {
     "name": "Soledad",
     "country_code": "COL",
-    "district": "Atl�ntico",
+    "district": "Atlántico",
     "population": 295058
   },
   {
     "name": "Armenia",
     "country_code": "COL",
-    "district": "Quind�o",
+    "district": "Quindío",
     "population": 288977
   },
   {
@@ -13650,13 +13650,13 @@
     "population": 263247
   },
   {
-    "name": "Monter�a",
+    "name": "Montería",
     "country_code": "COL",
-    "district": "C�rdoba",
+    "district": "Córdoba",
     "population": 248245
   },
   {
-    "name": "Itag��",
+    "name": "Itagüí",
     "country_code": "COL",
     "district": "Antioquia",
     "population": 228985
@@ -13686,7 +13686,7 @@
     "population": 220704
   },
   {
-    "name": "Popay�n",
+    "name": "Popayán",
     "country_code": "COL",
     "district": "Cauca",
     "population": 200719
@@ -13704,7 +13704,7 @@
     "population": 159363
   },
   {
-    "name": "Tulu�",
+    "name": "Tuluá",
     "country_code": "COL",
     "district": "Valle",
     "population": 152488
@@ -13736,13 +13736,13 @@
   {
     "name": "Tunja",
     "country_code": "COL",
-    "district": "Boyac�",
+    "district": "Boyacá",
     "population": 109740
   },
   {
     "name": "Florencia",
     "country_code": "COL",
-    "district": "Caquet�",
+    "district": "Caquetá",
     "population": 108574
   },
   {
@@ -13754,7 +13754,7 @@
   {
     "name": "Sogamoso",
     "country_code": "COL",
-    "district": "Boyac�",
+    "district": "Boyacá",
     "population": 107728
   },
   {
@@ -13808,7 +13808,7 @@
   {
     "name": "Kisangani",
     "country_code": "COD",
-    "district": "Haute-Za�re",
+    "district": "Haute-Zaïre",
     "population": 417517
   },
   {
@@ -13844,7 +13844,7 @@
   {
     "name": "Matadi",
     "country_code": "COD",
-    "district": "Bas-Za�re",
+    "district": "Bas-Zaïre",
     "population": 172730
   },
   {
@@ -13862,7 +13862,7 @@
   {
     "name": "Boma",
     "country_code": "COD",
-    "district": "Bas-Za�re",
+    "district": "Bas-Zaïre",
     "population": 135284
   },
   {
@@ -14484,15 +14484,15 @@
     "population": 433180
   },
   {
-    "name": "Camag�ey",
+    "name": "Camagüey",
     "country_code": "CUB",
-    "district": "Camag�ey",
+    "district": "Camagüey",
     "population": 298726
   },
   {
-    "name": "Holgu�n",
+    "name": "Holguín",
     "country_code": "CUB",
-    "district": "Holgu�n",
+    "district": "Holguín",
     "population": 249492
   },
   {
@@ -14502,15 +14502,15 @@
     "population": 207350
   },
   {
-    "name": "Guant�namo",
+    "name": "Guantánamo",
     "country_code": "CUB",
-    "district": "Guant�namo",
+    "district": "Guantánamo",
     "population": 205078
   },
   {
-    "name": "Pinar del R�o",
+    "name": "Pinar del Río",
     "country_code": "CUB",
-    "district": "Pinar del R�o",
+    "district": "Pinar del Río",
     "population": 142100
   },
   {
@@ -14544,15 +14544,15 @@
     "population": 109350
   },
   {
-    "name": "Sancti-Sp�ritus",
+    "name": "Sancti-Spíritus",
     "country_code": "CUB",
-    "district": "Sancti-Sp�ritus",
+    "district": "Sancti-Spíritus",
     "population": 100751
   },
   {
-    "name": "Ciego de �vila",
+    "name": "Ciego de Ávila",
     "country_code": "CUB",
-    "district": "Ciego de �vila",
+    "district": "Ciego de Ávila",
     "population": 98505
   },
   {
@@ -14694,9 +14694,9 @@
     "population": 202451
   },
   {
-    "name": "�iauliai",
+    "name": "Šiauliai",
     "country_code": "LTU",
-    "district": "�iauliai",
+    "district": "Šiauliai",
     "population": 146563
   },
   {
@@ -14706,15 +14706,15 @@
     "population": 133695
   },
   {
-    "name": "Luxembourg [Luxemburg/L�tzebuerg]",
+    "name": "Luxembourg [Luxemburg/Lëtzebuerg]",
     "country_code": "LUX",
     "district": "Luxembourg",
     "population": 80700
   },
   {
-    "name": "El-Aai�n",
+    "name": "El-Aaiún",
     "country_code": "ESH",
-    "district": "El-Aai�n",
+    "district": "El-Aaiún",
     "population": 169000
   },
   {
@@ -14736,7 +14736,7 @@
     "population": 127441
   },
   {
-    "name": "Antsirab�",
+    "name": "Antsirabé",
     "country_code": "MDG",
     "district": "Antananarivo",
     "population": 120239
@@ -14912,7 +14912,7 @@
   {
     "name": "Rabat",
     "country_code": "MAR",
-    "district": "Rabat-Sal�-Zammour-Z",
+    "district": "Rabat-Salé-Zammour-Z",
     "population": 623457
   },
   {
@@ -14922,27 +14922,27 @@
     "population": 621914
   },
   {
-    "name": "F�s",
+    "name": "Fès",
     "country_code": "MAR",
-    "district": "F�s-Boulemane",
+    "district": "Fès-Boulemane",
     "population": 541162
   },
   {
     "name": "Tanger",
     "country_code": "MAR",
-    "district": "Tanger-T�touan",
+    "district": "Tanger-Tétouan",
     "population": 521735
   },
   {
-    "name": "Sal�",
+    "name": "Salé",
     "country_code": "MAR",
-    "district": "Rabat-Sal�-Zammour-Z",
+    "district": "Rabat-Salé-Zammour-Z",
     "population": 504420
   },
   {
-    "name": "Mekn�s",
+    "name": "Meknès",
     "country_code": "MAR",
-    "district": "Mekn�s-Tafilalet",
+    "district": "Meknès-Tafilalet",
     "population": 460000
   },
   {
@@ -14952,15 +14952,15 @@
     "population": 365382
   },
   {
-    "name": "K�nitra",
+    "name": "Kénitra",
     "country_code": "MAR",
-    "district": "Gharb-Chrarda-B�ni H",
+    "district": "Gharb-Chrarda-Béni H",
     "population": 292600
   },
   {
-    "name": "T�touan",
+    "name": "Tétouan",
     "country_code": "MAR",
-    "district": "Tanger-T�touan",
+    "district": "Tanger-Tétouan",
     "population": 277516
   },
   {
@@ -14972,7 +14972,7 @@
   {
     "name": "Agadir",
     "country_code": "MAR",
-    "district": "Souss Massa-Dra�",
+    "district": "Souss Massa-Draâ",
     "population": 155244
   },
   {
@@ -14994,9 +14994,9 @@
     "population": 140212
   },
   {
-    "name": "T�mara",
+    "name": "Témara",
     "country_code": "MAR",
-    "district": "Rabat-Sal�-Zammour-Z",
+    "district": "Rabat-Salé-Zammour-Z",
     "population": 126303
   },
   {
@@ -15014,7 +15014,7 @@
   {
     "name": "Ksar el Kebir",
     "country_code": "MAR",
-    "district": "Tanger-T�touan",
+    "district": "Tanger-Tétouan",
     "population": 107065
   },
   {
@@ -15032,7 +15032,7 @@
   {
     "name": "El Araich",
     "country_code": "MAR",
-    "district": "Tanger-T�touan",
+    "district": "Tanger-Tétouan",
     "population": 90400
   },
   {
@@ -15054,9 +15054,9 @@
     "population": 667300
   },
   {
-    "name": "Nou�dhibou",
+    "name": "Nouâdhibou",
     "country_code": "MRT",
-    "district": "Dakhlet Nou�dhibou",
+    "district": "Dakhlet Nouâdhibou",
     "population": 97600
   },
   {
@@ -15084,7 +15084,7 @@
     "population": 12000
   },
   {
-    "name": "Ciudad de M�xico",
+    "name": "Ciudad de México",
     "country_code": "MEX",
     "district": "Distrito Federal",
     "population": 8591309
@@ -15098,7 +15098,7 @@
   {
     "name": "Ecatepec de Morelos",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 1620303
   },
   {
@@ -15108,13 +15108,13 @@
     "population": 1346176
   },
   {
-    "name": "Nezahualc�yotl",
+    "name": "Nezahualcóyotl",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 1224924
   },
   {
-    "name": "Ju�rez",
+    "name": "Juárez",
     "country_code": "MEX",
     "district": "Chihuahua",
     "population": 1217818
@@ -15126,7 +15126,7 @@
     "population": 1212232
   },
   {
-    "name": "Le�n",
+    "name": "León",
     "country_code": "MEX",
     "district": "Guanajuato",
     "population": 1133576
@@ -15134,7 +15134,7 @@
   {
     "name": "Monterrey",
     "country_code": "MEX",
-    "district": "Nuevo Le�n",
+    "district": "Nuevo León",
     "population": 1108499
   },
   {
@@ -15144,9 +15144,9 @@
     "population": 1002239
   },
   {
-    "name": "Naucalpan de Ju�rez",
+    "name": "Naucalpan de Juárez",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 857511
   },
   {
@@ -15156,13 +15156,13 @@
     "population": 764902
   },
   {
-    "name": "Culiac�n",
+    "name": "Culiacán",
     "country_code": "MEX",
     "district": "Sinaloa",
     "population": 744859
   },
   {
-    "name": "Acapulco de Ju�rez",
+    "name": "Acapulco de Juárez",
     "country_code": "MEX",
     "district": "Guerrero",
     "population": 721011
@@ -15170,13 +15170,13 @@
   {
     "name": "Tlalnepantla de Baz",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 720755
   },
   {
-    "name": "M�rida",
+    "name": "Mérida",
     "country_code": "MEX",
-    "district": "Yucat�n",
+    "district": "Yucatán",
     "population": 703324
   },
   {
@@ -15186,21 +15186,21 @@
     "population": 670208
   },
   {
-    "name": "San Luis Potos�",
+    "name": "San Luis Potosí",
     "country_code": "MEX",
-    "district": "San Luis Potos�",
+    "district": "San Luis Potosí",
     "population": 669353
   },
   {
     "name": "Guadalupe",
     "country_code": "MEX",
-    "district": "Nuevo Le�n",
+    "district": "Nuevo León",
     "population": 668780
   },
   {
     "name": "Toluca",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 665617
   },
   {
@@ -15210,15 +15210,15 @@
     "population": 643360
   },
   {
-    "name": "Quer�taro",
+    "name": "Querétaro",
     "country_code": "MEX",
-    "district": "Quer�taro de Arteaga",
+    "district": "Querétaro de Arteaga",
     "population": 639839
   },
   {
     "name": "Morelia",
     "country_code": "MEX",
-    "district": "Michoac�n de Ocampo",
+    "district": "Michoacán de Ocampo",
     "population": 619958
   },
   {
@@ -15234,7 +15234,7 @@
     "population": 577352
   },
   {
-    "name": "Torre�n",
+    "name": "Torreón",
     "country_code": "MEX",
     "district": "Coahuila de Zaragoza",
     "population": 529093
@@ -15246,9 +15246,9 @@
     "population": 519873
   },
   {
-    "name": "San Nicol�s de los Garza",
+    "name": "San Nicolás de los Garza",
     "country_code": "MEX",
-    "district": "Nuevo Le�n",
+    "district": "Nuevo León",
     "population": 495540
   },
   {
@@ -15258,9 +15258,9 @@
     "population": 490524
   },
   {
-    "name": "Chimalhuac�n",
+    "name": "Chimalhuacán",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 490245
   },
   {
@@ -15270,9 +15270,9 @@
     "population": 475472
   },
   {
-    "name": "Atizap�n de Zaragoza",
+    "name": "Atizapán de Zaragoza",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 467262
   },
   {
@@ -15282,9 +15282,9 @@
     "population": 457119
   },
   {
-    "name": "Cuautitl�n Izcalli",
+    "name": "Cuautitlán Izcalli",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 452976
   },
   {
@@ -15294,15 +15294,15 @@
     "population": 440039
   },
   {
-    "name": "Tuxtla Guti�rrez",
+    "name": "Tuxtla Gutiérrez",
     "country_code": "MEX",
     "district": "Chiapas",
     "population": 433544
   },
   {
-    "name": "Tultitl�n",
+    "name": "Tultitlán",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 432411
   },
   {
@@ -15312,7 +15312,7 @@
     "population": 419776
   },
   {
-    "name": "Benito Ju�rez",
+    "name": "Benito Juárez",
     "country_code": "MEX",
     "district": "Quintana Roo",
     "population": 419276
@@ -15336,7 +15336,7 @@
     "population": 382140
   },
   {
-    "name": "Mazatl�n",
+    "name": "Mazatlán",
     "country_code": "MEX",
     "district": "Sinaloa",
     "population": 380265
@@ -15366,7 +15366,7 @@
     "population": 337966
   },
   {
-    "name": "Tonal�",
+    "name": "Tonalá",
     "country_code": "MEX",
     "district": "Jalisco",
     "population": 336109
@@ -15374,7 +15374,7 @@
   {
     "name": "Valle de Chalco Solidaridad",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 323113
   },
   {
@@ -15398,13 +15398,13 @@
   {
     "name": "Ixtapaluca",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 293160
   },
   {
     "name": "Apodaca",
     "country_code": "MEX",
-    "district": "Nuevo Le�n",
+    "district": "Nuevo León",
     "population": 282941
   },
   {
@@ -15414,7 +15414,7 @@
     "population": 277201
   },
   {
-    "name": "G�mez Palacio",
+    "name": "Gómez Palacio",
     "country_code": "MEX",
     "district": "Durango",
     "population": 272806
@@ -15426,9 +15426,9 @@
     "population": 271141
   },
   {
-    "name": "Nicol�s Romero",
+    "name": "Nicolás Romero",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 269393
   },
   {
@@ -15440,7 +15440,7 @@
   {
     "name": "Uruapan",
     "country_code": "MEX",
-    "district": "Michoac�n de Ocampo",
+    "district": "Michoacán de Ocampo",
     "population": 265211
   },
   {
@@ -15450,15 +15450,15 @@
     "population": 262686
   },
   {
-    "name": "Oaxaca de Ju�rez",
+    "name": "Oaxaca de Juárez",
     "country_code": "MEX",
     "district": "Oaxaca",
     "population": 256848
   },
   {
-    "name": "Coacalco de Berrioz�bal",
+    "name": "Coacalco de Berriozábal",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 252270
   },
   {
@@ -15470,7 +15470,7 @@
   {
     "name": "General Escobedo",
     "country_code": "MEX",
-    "district": "Nuevo Le�n",
+    "district": "Nuevo León",
     "population": 232961
   },
   {
@@ -15482,11 +15482,11 @@
   {
     "name": "Santa Catarina",
     "country_code": "MEX",
-    "district": "Nuevo Le�n",
+    "district": "Nuevo León",
     "population": 226573
   },
   {
-    "name": "Tehuac�n",
+    "name": "Tehuacán",
     "country_code": "MEX",
     "district": "Puebla",
     "population": 225943
@@ -15494,11 +15494,11 @@
   {
     "name": "Chalco",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 222201
   },
   {
-    "name": "C�rdenas",
+    "name": "Cárdenas",
     "country_code": "MEX",
     "district": "Tabasco",
     "population": 216903
@@ -15512,11 +15512,11 @@
   {
     "name": "La Paz",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 213045
   },
   {
-    "name": "Oth�n P. Blanco (Chetumal)",
+    "name": "Othón P. Blanco (Chetumal)",
     "country_code": "MEX",
     "district": "Quintana Roo",
     "population": 208014
@@ -15524,7 +15524,7 @@
   {
     "name": "Texcoco",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 203681
   },
   {
@@ -15536,7 +15536,7 @@
   {
     "name": "Metepec",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 194265
   },
   {
@@ -15548,7 +15548,7 @@
   {
     "name": "Huixquilucan",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 193156
   },
   {
@@ -15576,33 +15576,33 @@
     "population": 182012
   },
   {
-    "name": "Soledad de Graciano S�nchez",
+    "name": "Soledad de Graciano Sánchez",
     "country_code": "MEX",
-    "district": "San Luis Potos�",
+    "district": "San Luis Potosí",
     "population": 179956
   },
   {
-    "name": "San Juan del R�o",
+    "name": "San Juan del Río",
     "country_code": "MEX",
-    "district": "Quer�taro",
+    "district": "Querétaro",
     "population": 179300
   },
   {
     "name": "San Felipe del Progreso",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 177330
   },
   {
-    "name": "C�rdoba",
+    "name": "Córdoba",
     "country_code": "MEX",
     "district": "Veracruz",
     "population": 176952
   },
   {
-    "name": "Tec�mac",
+    "name": "Tecámac",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 172410
   },
   {
@@ -15618,9 +15618,9 @@
     "population": 171367
   },
   {
-    "name": "L�zaro C�rdenas",
+    "name": "Lázaro Cárdenas",
     "country_code": "MEX",
-    "district": "Michoac�n de Ocampo",
+    "district": "Michoacán de Ocampo",
     "population": 170878
   },
   {
@@ -15644,7 +15644,7 @@
   {
     "name": "Zamora",
     "country_code": "MEX",
-    "district": "Michoac�n de Ocampo",
+    "district": "Michoacán de Ocampo",
     "population": 161191
   },
   {
@@ -15666,7 +15666,7 @@
     "population": 153132
   },
   {
-    "name": "Minatitl�n",
+    "name": "Minatitlán",
     "country_code": "MEX",
     "district": "Veracruz",
     "population": 152983
@@ -15680,7 +15680,7 @@
   {
     "name": "Ciudad Valles",
     "country_code": "MEX",
-    "district": "San Luis Potos�",
+    "district": "San Luis Potosí",
     "population": 146411
   },
   {
@@ -15690,19 +15690,19 @@
     "population": 145396
   },
   {
-    "name": "San Luis R�o Colorado",
+    "name": "San Luis Río Colorado",
     "country_code": "MEX",
     "district": "Sonora",
     "population": 145276
   },
   {
-    "name": "P�njamo",
+    "name": "Pénjamo",
     "country_code": "MEX",
     "district": "Guanajuato",
     "population": 143927
   },
   {
-    "name": "San Andr�s Tuxtla",
+    "name": "San Andrés Tuxtla",
     "country_code": "MEX",
     "district": "Veracruz",
     "population": 142251
@@ -15720,13 +15720,13 @@
     "population": 140495
   },
   {
-    "name": "Zit�cuaro",
+    "name": "Zitácuaro",
     "country_code": "MEX",
-    "district": "Michoac�n de Ocampo",
+    "district": "Michoacán de Ocampo",
     "population": 137970
   },
   {
-    "name": "Boca del R�o",
+    "name": "Boca del Río",
     "country_code": "MEX",
     "district": "Veracruz-Llave",
     "population": 135721
@@ -15756,7 +15756,7 @@
     "population": 133675
   },
   {
-    "name": "San Crist�bal de las Casas",
+    "name": "San Cristóbal de las Casas",
     "country_code": "MEX",
     "district": "Chiapas",
     "population": 132317
@@ -15804,19 +15804,19 @@
     "population": 127490
   },
   {
-    "name": "T�xpam",
+    "name": "Túxpam",
     "country_code": "MEX",
     "district": "Veracruz",
     "population": 126475
   },
   {
-    "name": "San Pedro Garza Garc�a",
+    "name": "San Pedro Garza García",
     "country_code": "MEX",
-    "district": "Nuevo Le�n",
+    "district": "Nuevo León",
     "population": 126147
   },
   {
-    "name": "Cuauht�moc",
+    "name": "Cuauhtémoc",
     "country_code": "MEX",
     "district": "Chihuahua",
     "population": 124279
@@ -15840,7 +15840,7 @@
     "population": 123700
   },
   {
-    "name": "Tlajomulco de Z��iga",
+    "name": "Tlajomulco de Zúñiga",
     "country_code": "MEX",
     "district": "Jalisco",
     "population": 123220
@@ -15854,23 +15854,23 @@
   {
     "name": "Zinacantepec",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 121715
   },
   {
-    "name": "San Mart�n Texmelucan",
+    "name": "San Martín Texmelucan",
     "country_code": "MEX",
     "district": "Puebla",
     "population": 121093
   },
   {
-    "name": "Tepatitl�n de Morelos",
+    "name": "Tepatitlán de Morelos",
     "country_code": "MEX",
     "district": "Jalisco",
     "population": 118948
   },
   {
-    "name": "Mart�nez de la Torre",
+    "name": "Martínez de la Torre",
     "country_code": "MEX",
     "district": "Veracruz",
     "population": 118815
@@ -15882,9 +15882,9 @@
     "population": 118488
   },
   {
-    "name": "Apatzing�n",
+    "name": "Apatzingán",
     "country_code": "MEX",
-    "district": "Michoac�n de Ocampo",
+    "district": "Michoacán de Ocampo",
     "population": 117849
   },
   {
@@ -15902,7 +15902,7 @@
   {
     "name": "Ixtlahuaca",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 115548
   },
   {
@@ -15918,19 +15918,19 @@
     "population": 112272
   },
   {
-    "name": "Almoloya de Ju�rez",
+    "name": "Almoloya de Juárez",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 110550
   },
   {
-    "name": "Ac�mbaro",
+    "name": "Acámbaro",
     "country_code": "MEX",
     "district": "Guanajuato",
     "population": 110487
   },
   {
-    "name": "Acu�a",
+    "name": "Acuña",
     "country_code": "MEX",
     "district": "Coahuila de Zaragoza",
     "population": 110388
@@ -15950,7 +15950,7 @@
   {
     "name": "Hidalgo",
     "country_code": "MEX",
-    "district": "Michoac�n de Ocampo",
+    "district": "Michoacán de Ocampo",
     "population": 106198
   },
   {
@@ -15960,19 +15960,19 @@
     "population": 105199
   },
   {
-    "name": "Comit�n de Dom�nguez",
+    "name": "Comitán de Domínguez",
     "country_code": "MEX",
     "district": "Chiapas",
     "population": 104986
   },
   {
-    "name": "Cunduac�n",
+    "name": "Cunduacán",
     "country_code": "MEX",
     "district": "Tabasco",
     "population": 104164
   },
   {
-    "name": "R�o Bravo",
+    "name": "Río Bravo",
     "country_code": "MEX",
     "district": "Tamaulipas",
     "population": 103901
@@ -15996,13 +15996,13 @@
     "population": 100881
   },
   {
-    "name": "San Francisco del Rinc�n",
+    "name": "San Francisco del Rincón",
     "country_code": "MEX",
     "district": "Guanajuato",
     "population": 100149
   },
   {
-    "name": "Taxco de Alarc�n",
+    "name": "Taxco de Alarcón",
     "country_code": "MEX",
     "district": "Guerrero",
     "population": 99907
@@ -16010,7 +16010,7 @@
   {
     "name": "Zumpango",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 99781
   },
   {
@@ -16022,11 +16022,11 @@
   {
     "name": "Lerma",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 99714
   },
   {
-    "name": "Tecom�n",
+    "name": "Tecomán",
     "country_code": "MEX",
     "district": "Colima",
     "population": 99296
@@ -16050,7 +16050,7 @@
     "population": 96763
   },
   {
-    "name": "Jos� Azueta",
+    "name": "José Azueta",
     "country_code": "MEX",
     "district": "Guerrero",
     "population": 95448
@@ -16070,7 +16070,7 @@
   {
     "name": "Tejupilco",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 94934
   },
   {
@@ -16088,7 +16088,7 @@
   {
     "name": "Tultepec",
     "country_code": "MEX",
-    "district": "M�xico",
+    "district": "México",
     "population": 93364
   },
   {
@@ -16104,7 +16104,7 @@
     "population": 91858
   },
   {
-    "name": "P�nuco",
+    "name": "Pánuco",
     "country_code": "MEX",
     "district": "Veracruz",
     "population": 90551
@@ -16152,21 +16152,21 @@
     "population": 153400
   },
   {
-    "name": "Bender (T�ghina)",
+    "name": "Bender (Tîghina)",
     "country_code": "MDA",
-    "district": "Bender (T�ghina)",
+    "district": "Bender (Tîghina)",
     "population": 125700
   },
   {
     "name": "Monte-Carlo",
     "country_code": "MCO",
-    "district": "�",
+    "district": null,
     "population": 13154
   },
   {
     "name": "Monaco-Ville",
     "country_code": "MCO",
-    "district": "�",
+    "district": null,
     "population": 1234
   },
   {
@@ -16212,7 +16212,7 @@
     "population": 171056
   },
   {
-    "name": "Na�ala-Porto",
+    "name": "Naçala-Porto",
     "country_code": "MOZ",
     "district": "Nampula",
     "population": 158248
@@ -16220,13 +16220,13 @@
   {
     "name": "Quelimane",
     "country_code": "MOZ",
-    "district": "Zamb�zia",
+    "district": "Zambézia",
     "population": 150116
   },
   {
     "name": "Mocuba",
     "country_code": "MOZ",
-    "district": "Zamb�zia",
+    "district": "Zambézia",
     "population": 124700
   },
   {
@@ -16244,7 +16244,7 @@
   {
     "name": "Gurue",
     "country_code": "MOZ",
-    "district": "Zamb�zia",
+    "district": "Zambézia",
     "population": 99300
   },
   {
@@ -16358,13 +16358,13 @@
   {
     "name": "Yangor",
     "country_code": "NRU",
-    "district": "�",
+    "district": null,
     "population": 4050
   },
   {
     "name": "Yaren",
     "country_code": "NRU",
-    "district": "�",
+    "district": null,
     "population": 559
   },
   {
@@ -16404,9 +16404,9 @@
     "population": 959000
   },
   {
-    "name": "Le�n",
+    "name": "León",
     "country_code": "NIC",
-    "district": "Le�n",
+    "district": "León",
     "population": 123865
   },
   {
@@ -16826,13 +16826,13 @@
   {
     "name": "Alofi",
     "country_code": "NIU",
-    "district": "�",
+    "district": null,
     "population": 682
   },
   {
     "name": "Kingston",
     "country_code": "NFK",
-    "district": "�",
+    "district": null,
     "population": 800
   },
   {
@@ -16850,7 +16850,7 @@
   {
     "name": "Trondheim",
     "country_code": "NOR",
-    "district": "S�r-Tr�ndelag",
+    "district": "Sør-Trøndelag",
     "population": 150166
   },
   {
@@ -16860,7 +16860,7 @@
     "population": 108848
   },
   {
-    "name": "B�rum",
+    "name": "Bærum",
     "country_code": "NOR",
     "district": "Akershus",
     "population": 101340
@@ -16872,9 +16872,9 @@
     "population": 2500000
   },
   {
-    "name": "Bouak�",
+    "name": "Bouaké",
     "country_code": "CIV",
-    "district": "Bouak�",
+    "district": "Bouaké",
     "population": 329850
   },
   {
@@ -17286,9 +17286,9 @@
     "population": 12000
   },
   {
-    "name": "Ciudad de Panam�",
+    "name": "Ciudad de Panamá",
     "country_code": "PAN",
-    "district": "Panam�",
+    "district": "Panamá",
     "population": 471373
   },
   {
@@ -17304,15 +17304,15 @@
     "population": 247000
   },
   {
-    "name": "Asunci�n",
+    "name": "Asunción",
     "country_code": "PRY",
-    "district": "Asunci�n",
+    "district": "Asunción",
     "population": 557776
   },
   {
     "name": "Ciudad del Este",
     "country_code": "PRY",
-    "district": "Alto Paran�",
+    "district": "Alto Paraná",
     "population": 133881
   },
   {
@@ -17322,7 +17322,7 @@
     "population": 133395
   },
   {
-    "name": "Lambar�",
+    "name": "Lambaré",
     "country_code": "PRY",
     "district": "Central",
     "population": 99681
@@ -17378,7 +17378,7 @@
   {
     "name": "Huancayo",
     "country_code": "PER",
-    "district": "Jun�n",
+    "district": "Junín",
     "population": 327000
   },
   {
@@ -17424,7 +17424,7 @@
     "population": 142576
   },
   {
-    "name": "Hu�nuco",
+    "name": "Huánuco",
     "country_code": "PER",
     "district": "Huanuco",
     "population": 129688
@@ -17468,7 +17468,7 @@
   {
     "name": "Adamstown",
     "country_code": "PCN",
-    "district": "�",
+    "district": null,
     "population": 42
   },
   {
@@ -17496,9 +17496,9 @@
     "population": 122106
   },
   {
-    "name": "Co�mbra",
+    "name": "Coímbra",
     "country_code": "PRT",
-    "district": "Co�mbra",
+    "district": "Coímbra",
     "population": 96100
   },
   {
@@ -17514,9 +17514,9 @@
     "population": 434374
   },
   {
-    "name": "Bayam�n",
+    "name": "Bayamón",
     "country_code": "PRI",
-    "district": "Bayam�n",
+    "district": "Bayamón",
     "population": 224044
   },
   {
@@ -17550,9 +17550,9 @@
     "population": 100053
   },
   {
-    "name": "Mayag�ez",
+    "name": "Mayagüez",
     "country_code": "PRI",
-    "district": "Mayag�ez",
+    "district": "Mayagüez",
     "population": 98434
   },
   {
@@ -17568,13 +17568,13 @@
     "population": 1615369
   },
   {
-    "name": "L�dz",
+    "name": "Lódz",
     "country_code": "POL",
     "district": "Lodzkie",
     "population": 800110
   },
   {
-    "name": "Krak�w",
+    "name": "Kraków",
     "country_code": "POL",
     "district": "Malopolskie",
     "population": 738150
@@ -17694,7 +17694,7 @@
     "population": 170904
   },
   {
-    "name": "Rzesz�w",
+    "name": "Rzeszów",
     "country_code": "POL",
     "district": "Podkarpackie",
     "population": 162049
@@ -17724,7 +17724,7 @@
     "population": 133178
   },
   {
-    "name": "Dabrowa G�rnicza",
+    "name": "Dabrowa Górnicza",
     "country_code": "POL",
     "district": "Slaskie",
     "population": 131037
@@ -17748,7 +17748,7 @@
     "population": 129553
   },
   {
-    "name": "Gorz�w Wielkopolski",
+    "name": "Gorzów Wielkopolski",
     "country_code": "POL",
     "district": "Lubuskie",
     "population": 126019
@@ -17760,19 +17760,19 @@
     "population": 123373
   },
   {
-    "name": "Chorz�w",
+    "name": "Chorzów",
     "country_code": "POL",
     "district": "Slaskie",
     "population": 121708
   },
   {
-    "name": "Tarn�w",
+    "name": "Tarnów",
     "country_code": "POL",
     "district": "Malopolskie",
     "population": 121494
   },
   {
-    "name": "Zielona G�ra",
+    "name": "Zielona Góra",
     "country_code": "POL",
     "district": "Lubuskie",
     "population": 118182
@@ -17808,7 +17808,7 @@
     "population": 102370
   },
   {
-    "name": "Jastrzebie-Zdr�j",
+    "name": "Jastrzebie-Zdrój",
     "country_code": "POL",
     "district": "Slaskie",
     "population": 102294
@@ -17820,7 +17820,7 @@
     "population": 97929
   },
   {
-    "name": "Jelenia G�ra",
+    "name": "Jelenia Góra",
     "country_code": "POL",
     "district": "Dolnoslaskie",
     "population": 93901
@@ -17840,31 +17840,31 @@
   {
     "name": "Paris",
     "country_code": "FRA",
-    "district": "�le-de-France",
+    "district": "Île-de-France",
     "population": 2125246
   },
   {
     "name": "Marseille",
     "country_code": "FRA",
-    "district": "Provence-Alpes-C�te",
+    "district": "Provence-Alpes-Côte",
     "population": 798430
   },
   {
     "name": "Lyon",
     "country_code": "FRA",
-    "district": "Rh�ne-Alpes",
+    "district": "Rhône-Alpes",
     "population": 445452
   },
   {
     "name": "Toulouse",
     "country_code": "FRA",
-    "district": "Midi-Pyr�n�es",
+    "district": "Midi-Pyrénées",
     "population": 390350
   },
   {
     "name": "Nice",
     "country_code": "FRA",
-    "district": "Provence-Alpes-C�te",
+    "district": "Provence-Alpes-Côte",
     "population": 342738
   },
   {
@@ -17912,11 +17912,11 @@
   {
     "name": "Lille",
     "country_code": "FRA",
-    "district": "Rh�ne-Alpes",
+    "district": "Rhône-Alpes",
     "population": 184657
   },
   {
-    "name": "St-�tienne",
+    "name": "St-Étienne",
     "country_code": "FRA",
     "district": "Bretagne",
     "population": 180210
@@ -17924,13 +17924,13 @@
   {
     "name": "Toulon",
     "country_code": "FRA",
-    "district": "Provence-Alpes-C�te",
+    "district": "Provence-Alpes-Côte",
     "population": 160639
   },
   {
     "name": "Grenoble",
     "country_code": "FRA",
-    "district": "Rh�ne-Alpes",
+    "district": "Rhône-Alpes",
     "population": 153317
   },
   {
@@ -17972,7 +17972,7 @@
   {
     "name": "Aix-en-Provence",
     "country_code": "FRA",
-    "district": "Provence-Alpes-C�te",
+    "district": "Provence-Alpes-Côte",
     "population": 134222
   },
   {
@@ -17982,7 +17982,7 @@
     "population": 133968
   },
   {
-    "name": "N�mes",
+    "name": "Nîmes",
     "country_code": "FRA",
     "district": "Languedoc-Roussillon",
     "population": 133424
@@ -17996,7 +17996,7 @@
   {
     "name": "Villeurbanne",
     "country_code": "FRA",
-    "district": "Rh�ne-Alpes",
+    "district": "Rhône-Alpes",
     "population": 124215
   },
   {
@@ -18006,9 +18006,9 @@
     "population": 123776
   },
   {
-    "name": "Besan�on",
+    "name": "Besançon",
     "country_code": "FRA",
-    "district": "Franche-Comt�",
+    "district": "Franche-Comté",
     "population": 117733
   },
   {
@@ -18018,7 +18018,7 @@
     "population": 113987
   },
   {
-    "name": "Orl�ans",
+    "name": "Orléans",
     "country_code": "FRA",
     "district": "Centre",
     "population": 113126
@@ -18038,7 +18038,7 @@
   {
     "name": "Boulogne-Billancourt",
     "country_code": "FRA",
-    "district": "�le-de-France",
+    "district": "Île-de-France",
     "population": 106367
   },
   {
@@ -18062,7 +18062,7 @@
   {
     "name": "Argenteuil",
     "country_code": "FRA",
-    "district": "�le-de-France",
+    "district": "Île-de-France",
     "population": 93961
   },
   {
@@ -18074,7 +18074,7 @@
   {
     "name": "Montreuil",
     "country_code": "FRA",
-    "district": "�le-de-France",
+    "district": "Île-de-France",
     "population": 90674
   },
   {
@@ -18192,7 +18192,7 @@
     "population": 169611
   },
   {
-    "name": "T�rgu Mures",
+    "name": "Târgu Mures",
     "country_code": "ROM",
     "district": "Mures",
     "population": 165153
@@ -18228,9 +18228,9 @@
     "population": 125070
   },
   {
-    "name": "R�mnicu V�lcea",
+    "name": "Râmnicu Vâlcea",
     "country_code": "ROM",
-    "district": "V�lcea",
+    "district": "Vâlcea",
     "population": 119741
   },
   {
@@ -18246,9 +18246,9 @@
     "population": 117865
   },
   {
-    "name": "T�rgoviste",
+    "name": "Târgoviste",
     "country_code": "ROM",
-    "district": "D�mbovita",
+    "district": "Dâmbovita",
     "population": 98980
   },
   {
@@ -18258,7 +18258,7 @@
     "population": 98979
   },
   {
-    "name": "T�rgu Jiu",
+    "name": "Târgu Jiu",
     "country_code": "ROM",
     "district": "Gorj",
     "population": 98524
@@ -18288,87 +18288,87 @@
     "population": 750348
   },
   {
-    "name": "Gothenburg [G�teborg]",
+    "name": "Gothenburg [Göteborg]",
     "country_code": "SWE",
-    "district": "West G�tanmaan l�n",
+    "district": "West Götanmaan län",
     "population": 466990
   },
   {
-    "name": "Malm�",
+    "name": "Malmö",
     "country_code": "SWE",
-    "district": "Sk�ne l�n",
+    "district": "Skåne län",
     "population": 259579
   },
   {
     "name": "Uppsala",
     "country_code": "SWE",
-    "district": "Uppsala l�n",
+    "district": "Uppsala län",
     "population": 189569
   },
   {
-    "name": "Link�ping",
+    "name": "Linköping",
     "country_code": "SWE",
-    "district": "East G�tanmaan l�n",
+    "district": "East Götanmaan län",
     "population": 133168
   },
   {
-    "name": "V�ster�s",
+    "name": "Västerås",
     "country_code": "SWE",
-    "district": "V�stmanlands l�n",
+    "district": "Västmanlands län",
     "population": 126328
   },
   {
-    "name": "�rebro",
+    "name": "Örebro",
     "country_code": "SWE",
-    "district": "�rebros l�n",
+    "district": "Örebros län",
     "population": 124207
   },
   {
-    "name": "Norrk�ping",
+    "name": "Norrköping",
     "country_code": "SWE",
-    "district": "East G�tanmaan l�n",
+    "district": "East Götanmaan län",
     "population": 122199
   },
   {
     "name": "Helsingborg",
     "country_code": "SWE",
-    "district": "Sk�ne l�n",
+    "district": "Skåne län",
     "population": 117737
   },
   {
-    "name": "J�nk�ping",
+    "name": "Jönköping",
     "country_code": "SWE",
-    "district": "J�nk�pings l�n",
+    "district": "Jönköpings län",
     "population": 117095
   },
   {
-    "name": "Ume�",
+    "name": "Umeå",
     "country_code": "SWE",
-    "district": "V�sterbottens l�n",
+    "district": "Västerbottens län",
     "population": 104512
   },
   {
     "name": "Lund",
     "country_code": "SWE",
-    "district": "Sk�ne l�n",
+    "district": "Skåne län",
     "population": 98948
   },
   {
-    "name": "Bor�s",
+    "name": "Borås",
     "country_code": "SWE",
-    "district": "West G�tanmaan l�n",
+    "district": "West Götanmaan län",
     "population": 96883
   },
   {
     "name": "Sundsvall",
     "country_code": "SWE",
-    "district": "V�sternorrlands l�n",
+    "district": "Västernorrlands län",
     "population": 93126
   },
   {
-    "name": "G�vle",
+    "name": "Gävle",
     "country_code": "SWE",
-    "district": "G�vleborgs l�n",
+    "district": "Gävleborgs län",
     "population": 90742
   },
   {
@@ -18414,13 +18414,13 @@
     "population": 1704735
   },
   {
-    "name": "Munich [M�nchen]",
+    "name": "Munich [München]",
     "country_code": "DEU",
     "district": "Baijeri",
     "population": 1194560
   },
   {
-    "name": "K�ln",
+    "name": "Köln",
     "country_code": "DEU",
     "district": "Nordrhein-Westfalen",
     "population": 962507
@@ -18446,11 +18446,11 @@
   {
     "name": "Stuttgart",
     "country_code": "DEU",
-    "district": "Baden-W�rttemberg",
+    "district": "Baden-Württemberg",
     "population": 582443
   },
   {
-    "name": "D�sseldorf",
+    "name": "Düsseldorf",
     "country_code": "DEU",
     "district": "Nordrhein-Westfalen",
     "population": 568855
@@ -18480,7 +18480,7 @@
     "population": 489532
   },
   {
-    "name": "N�rnberg",
+    "name": "Nürnberg",
     "country_code": "DEU",
     "district": "Baijeri",
     "population": 486628
@@ -18512,7 +18512,7 @@
   {
     "name": "Mannheim",
     "country_code": "DEU",
-    "district": "Baden-W�rttemberg",
+    "district": "Baden-Württemberg",
     "population": 307730
   },
   {
@@ -18530,7 +18530,7 @@
   {
     "name": "Karlsruhe",
     "country_code": "DEU",
-    "district": "Baden-W�rttemberg",
+    "district": "Baden-Württemberg",
     "population": 277204
   },
   {
@@ -18540,13 +18540,13 @@
     "population": 268716
   },
   {
-    "name": "M�nster",
+    "name": "Münster",
     "country_code": "DEU",
     "district": "Nordrhein-Westfalen",
     "population": 264670
   },
   {
-    "name": "M�nchengladbach",
+    "name": "Mönchengladbach",
     "country_code": "DEU",
     "district": "Nordrhein-Westfalen",
     "population": 263697
@@ -18606,7 +18606,7 @@
     "population": 222349
   },
   {
-    "name": "L�beck",
+    "name": "Lübeck",
     "country_code": "DEU",
     "district": "Schleswig-Holstein",
     "population": 213326
@@ -18626,13 +18626,13 @@
   {
     "name": "Freiburg im Breisgau",
     "country_code": "DEU",
-    "district": "Baden-W�rttemberg",
+    "district": "Baden-Württemberg",
     "population": 202455
   },
   {
     "name": "Erfurt",
     "country_code": "DEU",
-    "district": "Th�ringen",
+    "district": "Thüringen",
     "population": 201267
   },
   {
@@ -18642,7 +18642,7 @@
     "population": 196211
   },
   {
-    "name": "Saarbr�cken",
+    "name": "Saarbrücken",
     "country_code": "DEU",
     "district": "Saarland",
     "population": 183836
@@ -18666,7 +18666,7 @@
     "population": 175661
   },
   {
-    "name": "M�lheim an der Ruhr",
+    "name": "Mülheim an der Ruhr",
     "country_code": "DEU",
     "district": "Nordrhein-Westfalen",
     "population": 173895
@@ -18678,7 +18678,7 @@
     "population": 165583
   },
   {
-    "name": "Osnabr�ck",
+    "name": "Osnabrück",
     "country_code": "DEU",
     "district": "Niedersachsen",
     "population": 164539
@@ -18710,7 +18710,7 @@
   {
     "name": "Heidelberg",
     "country_code": "DEU",
-    "district": "Baden-W�rttemberg",
+    "district": "Baden-Württemberg",
     "population": 139672
   },
   {
@@ -18732,7 +18732,7 @@
     "population": 128983
   },
   {
-    "name": "W�rzburg",
+    "name": "Würzburg",
     "country_code": "DEU",
     "district": "Baijeri",
     "population": 127350
@@ -18750,7 +18750,7 @@
     "population": 125022
   },
   {
-    "name": "G�ttingen",
+    "name": "Göttingen",
     "country_code": "DEU",
     "district": "Niedersachsen",
     "population": 124775
@@ -18782,13 +18782,13 @@
   {
     "name": "Heilbronn",
     "country_code": "DEU",
-    "district": "Baden-W�rttemberg",
+    "district": "Baden-Württemberg",
     "population": 119526
   },
   {
     "name": "Pforzheim",
     "country_code": "DEU",
-    "district": "Baden-W�rttemberg",
+    "district": "Baden-Württemberg",
     "population": 117227
   },
   {
@@ -18800,7 +18800,7 @@
   {
     "name": "Ulm",
     "country_code": "DEU",
-    "district": "Baden-W�rttemberg",
+    "district": "Baden-Württemberg",
     "population": 116103
   },
   {
@@ -18812,7 +18812,7 @@
   {
     "name": "Gera",
     "country_code": "DEU",
-    "district": "Th�ringen",
+    "district": "Thüringen",
     "population": 114718
   },
   {
@@ -18830,11 +18830,11 @@
   {
     "name": "Reutlingen",
     "country_code": "DEU",
-    "district": "Baden-W�rttemberg",
+    "district": "Baden-Württemberg",
     "population": 110343
   },
   {
-    "name": "F�rth",
+    "name": "Fürth",
     "country_code": "DEU",
     "district": "Baijeri",
     "population": 109771
@@ -18908,7 +18908,7 @@
   {
     "name": "Jena",
     "country_code": "DEU",
-    "district": "Th�ringen",
+    "district": "Thüringen",
     "population": 99779
   },
   {
@@ -18918,7 +18918,7 @@
     "population": 99474
   },
   {
-    "name": "G�tersloh",
+    "name": "Gütersloh",
     "country_code": "DEU",
     "district": "Nordrhein-Westfalen",
     "population": 95028
@@ -18930,13 +18930,13 @@
     "population": 93735
   },
   {
-    "name": "L�nen",
+    "name": "Lünen",
     "country_code": "DEU",
     "district": "Nordrhein-Westfalen",
     "population": 92044
   },
   {
-    "name": "D�ren",
+    "name": "Düren",
     "country_code": "DEU",
     "district": "Nordrhein-Westfalen",
     "population": 91092
@@ -18956,7 +18956,7 @@
   {
     "name": "Esslingen am Neckar",
     "country_code": "DEU",
-    "district": "Baden-W�rttemberg",
+    "district": "Baden-Württemberg",
     "population": 89667
   },
   {
@@ -19026,7 +19026,7 @@
     "population": 2294
   },
   {
-    "name": "S�o Tom�",
+    "name": "São Tomé",
     "country_code": "STP",
     "district": "Aqua Grande",
     "population": 49541
@@ -19146,7 +19146,7 @@
     "population": 112300
   },
   {
-    "name": "Ara�ar",
+    "name": "Ara´ar",
     "country_code": "SAU",
     "district": "al-Khudud al-Samaliy",
     "population": 108100
@@ -19188,9 +19188,9 @@
     "population": 785071
   },
   {
-    "name": "Thi�s",
+    "name": "Thiès",
     "country_code": "SEN",
-    "district": "Thi�s",
+    "district": "Thiès",
     "population": 248000
   },
   {
@@ -19220,7 +19220,7 @@
   {
     "name": "Mbour",
     "country_code": "SEN",
-    "district": "Thi�s",
+    "district": "Thiès",
     "population": 109300
   },
   {
@@ -19232,7 +19232,7 @@
   {
     "name": "Victoria",
     "country_code": "SYC",
-    "district": "Mah�",
+    "district": "Mahé",
     "population": 41000
   },
   {
@@ -19244,7 +19244,7 @@
   {
     "name": "Singapore",
     "country_code": "SGP",
-    "district": "�",
+    "district": null,
     "population": 4017733
   },
   {
@@ -19254,15 +19254,15 @@
     "population": 448292
   },
   {
-    "name": "Ko�ice",
+    "name": "Košice",
     "country_code": "SVK",
-    "district": "V�chodn� Slovensko",
+    "district": "Východné Slovensko",
     "population": 241874
   },
   {
-    "name": "Pre�ov",
+    "name": "Prešov",
     "country_code": "SVK",
-    "district": "V�chodn� Slovensko",
+    "district": "Východné Slovensko",
     "population": 93977
   },
   {
@@ -19434,7 +19434,7 @@
     "population": 178471
   },
   {
-    "name": "Turku [�bo]",
+    "name": "Turku [Åbo]",
     "country_code": "FIN",
     "district": "Varsinais-Suomi",
     "population": 172561
@@ -19448,7 +19448,7 @@
   {
     "name": "Lahti",
     "country_code": "FIN",
-    "district": "P�ij�t-H�me",
+    "district": "Päijät-Häme",
     "population": 96921
   },
   {
@@ -19464,9 +19464,9 @@
     "population": 61000
   },
   {
-    "name": "Z�rich",
+    "name": "Zürich",
     "country_code": "CHE",
-    "district": "Z�rich",
+    "district": "Zürich",
     "population": 336800
   },
   {
@@ -19796,7 +19796,7 @@
   {
     "name": "Touliu",
     "country_code": "TWN",
-    "district": "Y�nlin",
+    "district": "Yünlin",
     "population": 98900
   },
   {
@@ -19884,15 +19884,15 @@
     "population": 92800
   },
   {
-    "name": "K�benhavn",
+    "name": "København",
     "country_code": "DNK",
-    "district": "K�benhavn",
+    "district": "København",
     "population": 495699
   },
   {
-    "name": "�rhus",
+    "name": "Århus",
     "country_code": "DNK",
-    "district": "�rhus",
+    "district": "Århus",
     "population": 284846
   },
   {
@@ -19986,7 +19986,7 @@
     "population": 94100
   },
   {
-    "name": "Lom�",
+    "name": "Lomé",
     "country_code": "TGO",
     "district": "Maritime",
     "population": 375000
@@ -19998,7 +19998,7 @@
     "population": 300
   },
   {
-    "name": "Nuku�alofa",
+    "name": "Nuku´alofa",
     "country_code": "TON",
     "district": "Tongatapu",
     "population": 22400
@@ -20016,7 +20016,7 @@
     "population": 43396
   },
   {
-    "name": "N�Djam�na",
+    "name": "N´Djaména",
     "country_code": "TCD",
     "district": "Chari-Baguirmi",
     "population": 530965
@@ -20030,61 +20030,61 @@
   {
     "name": "Praha",
     "country_code": "CZE",
-    "district": "Hlavn� mesto Praha",
+    "district": "Hlavní mesto Praha",
     "population": 1181126
   },
   {
     "name": "Brno",
     "country_code": "CZE",
-    "district": "Jizn� Morava",
+    "district": "Jizní Morava",
     "population": 381862
   },
   {
     "name": "Ostrava",
     "country_code": "CZE",
-    "district": "Severn� Morava",
+    "district": "Severní Morava",
     "population": 320041
   },
   {
     "name": "Plzen",
     "country_code": "CZE",
-    "district": "Zapadn� Cechy",
+    "district": "Zapadní Cechy",
     "population": 166759
   },
   {
     "name": "Olomouc",
     "country_code": "CZE",
-    "district": "Severn� Morava",
+    "district": "Severní Morava",
     "population": 102702
   },
   {
     "name": "Liberec",
     "country_code": "CZE",
-    "district": "Severn� Cechy",
+    "district": "Severní Cechy",
     "population": 99155
   },
   {
-    "name": "Cesk� Budejovice",
+    "name": "Ceské Budejovice",
     "country_code": "CZE",
-    "district": "Jizn� Cechy",
+    "district": "Jizní Cechy",
     "population": 98186
   },
   {
-    "name": "Hradec Kr�lov�",
+    "name": "Hradec Králové",
     "country_code": "CZE",
-    "district": "V�chodn� Cechy",
+    "district": "Východní Cechy",
     "population": 98080
   },
   {
-    "name": "�st� nad Labem",
+    "name": "Ústí nad Labem",
     "country_code": "CZE",
-    "district": "Severn� Cechy",
+    "district": "Severní Cechy",
     "population": 95491
   },
   {
     "name": "Pardubice",
     "country_code": "CZE",
-    "district": "V�chodn� Cechy",
+    "district": "Východní Cechy",
     "population": 91309
   },
   {
@@ -20130,9 +20130,9 @@
     "population": 108900
   },
   {
-    "name": "Gab�s",
+    "name": "Gabès",
     "country_code": "TUN",
-    "district": "Gab�s",
+    "district": "Gabès",
     "population": 106600
   },
   {
@@ -20178,9 +20178,9 @@
     "population": 628364
   },
   {
-    "name": "Mersin (I�el)",
+    "name": "Mersin (Içel)",
     "country_code": "TUR",
-    "district": "I�el",
+    "district": "Içel",
     "population": 587212
   },
   {
@@ -20262,9 +20262,9 @@
     "population": 245772
   },
   {
-    "name": "El�zig",
+    "name": "Elâzig",
     "country_code": "TUR",
-    "district": "El�zig",
+    "district": "Elâzig",
     "population": 228815
   },
   {
@@ -20322,15 +20322,15 @@
     "population": 146003
   },
   {
-    "name": "�orum",
+    "name": "Çorum",
     "country_code": "TUR",
-    "district": "�orum",
+    "district": "Çorum",
     "population": 145495
   },
   {
-    "name": "K�tahya",
+    "name": "Kütahya",
     "country_code": "TUR",
-    "district": "K�tahya",
+    "district": "Kütahya",
     "population": 144761
   },
   {
@@ -20382,7 +20382,7 @@
     "population": 123383
   },
   {
-    "name": "�orlu",
+    "name": "Çorlu",
     "country_code": "TUR",
     "district": "Tekirdag",
     "population": 123300
@@ -20394,9 +20394,9 @@
     "population": 121911
   },
   {
-    "name": "Karab�k",
+    "name": "Karabük",
     "country_code": "TUR",
-    "district": "Karab�k",
+    "district": "Karabük",
     "population": 118285
   },
   {
@@ -20496,7 +20496,7 @@
     "population": 93000
   },
   {
-    "name": "Ineg�l",
+    "name": "Inegöl",
     "country_code": "TUR",
     "district": "Bursa",
     "population": 90500
@@ -20514,7 +20514,7 @@
     "population": 540600
   },
   {
-    "name": "Ch�rjew",
+    "name": "Chärjew",
     "country_code": "TKM",
     "district": "Lebap",
     "population": 189200
@@ -20652,15 +20652,15 @@
     "population": 313000
   },
   {
-    "name": "T�ernigiv",
+    "name": "Tšernigiv",
     "country_code": "UKR",
-    "district": "T�ernigiv",
+    "district": "Tšernigiv",
     "population": 313000
   },
   {
-    "name": "T�erkasy",
+    "name": "Tšerkasy",
     "country_code": "UKR",
-    "district": "T�erkasy",
+    "district": "Tšerkasy",
     "population": 309000
   },
   {
@@ -20700,9 +20700,9 @@
     "population": 262000
   },
   {
-    "name": "T�ernivtsi",
+    "name": "Tšernivtsi",
     "country_code": "UKR",
-    "district": "T�ernivtsi",
+    "district": "Tšernivtsi",
     "population": 259000
   },
   {
@@ -20712,7 +20712,7 @@
     "population": 245000
   },
   {
-    "name": "Krement�uk",
+    "name": "Krementšuk",
     "country_code": "UKR",
     "district": "Pultava",
     "population": 239000
@@ -20754,7 +20754,7 @@
     "population": 169000
   },
   {
-    "name": "Kert�",
+    "name": "Kertš",
     "country_code": "UKR",
     "district": "Krim",
     "population": 162000
@@ -20796,13 +20796,13 @@
     "population": 127000
   },
   {
-    "name": "Alt�evsk",
+    "name": "Altševsk",
     "country_code": "UKR",
     "district": "Lugansk",
     "population": 119000
   },
   {
-    "name": "Lysyt�ansk",
+    "name": "Lysytšansk",
     "country_code": "UKR",
     "district": "Lugansk",
     "population": 116000
@@ -20826,7 +20826,7 @@
     "population": 105000
   },
   {
-    "name": "Krasnyi Lut�",
+    "name": "Krasnyi Lutš",
     "country_code": "UKR",
     "district": "Lugansk",
     "population": 101000
@@ -20856,7 +20856,7 @@
     "population": 95000
   },
   {
-    "name": "Berdyt�iv",
+    "name": "Berdytšiv",
     "country_code": "UKR",
     "district": "Zytomyr",
     "population": 90000
@@ -20868,7 +20868,7 @@
     "population": 90000
   },
   {
-    "name": "�ostka",
+    "name": "Šostka",
     "country_code": "UKR",
     "district": "Sumy",
     "population": 90000
@@ -20876,7 +20876,7 @@
   {
     "name": "Uman",
     "country_code": "UKR",
-    "district": "T�erkasy",
+    "district": "Tšerkasy",
     "population": 90000
   },
   {
@@ -20886,7 +20886,7 @@
     "population": 89000
   },
   {
-    "name": "Mukat�eve",
+    "name": "Mukatševe",
     "country_code": "UKR",
     "district": "Taka-Karpatia",
     "population": 89000
@@ -20900,49 +20900,49 @@
   {
     "name": "Debrecen",
     "country_code": "HUN",
-    "district": "Hajd�-Bihar",
+    "district": "Hajdú-Bihar",
     "population": 203648
   },
   {
     "name": "Miskolc",
     "country_code": "HUN",
-    "district": "Borsod-Aba�j-Zempl�n",
+    "district": "Borsod-Abaúj-Zemplén",
     "population": 172357
   },
   {
     "name": "Szeged",
     "country_code": "HUN",
-    "district": "Csongr�d",
+    "district": "Csongrád",
     "population": 158158
   },
   {
-    "name": "P�cs",
+    "name": "Pécs",
     "country_code": "HUN",
     "district": "Baranya",
     "population": 157332
   },
   {
-    "name": "Gy�r",
+    "name": "Györ",
     "country_code": "HUN",
-    "district": "Gy�r-Moson-Sopron",
+    "district": "Györ-Moson-Sopron",
     "population": 127119
   },
   {
-    "name": "Nyiregyh�za",
+    "name": "Nyiregyháza",
     "country_code": "HUN",
-    "district": "Szabolcs-Szatm�r-Ber",
+    "district": "Szabolcs-Szatmár-Ber",
     "population": 112419
   },
   {
-    "name": "Kecskem�t",
+    "name": "Kecskemét",
     "country_code": "HUN",
-    "district": "B�cs-Kiskun",
+    "district": "Bács-Kiskun",
     "population": 105606
   },
   {
-    "name": "Sz�kesfeh�rv�r",
+    "name": "Székesfehérvár",
     "country_code": "HUN",
-    "district": "Fej�r",
+    "district": "Fejér",
     "population": 105119
   },
   {
@@ -20952,9 +20952,9 @@
     "population": 1236000
   },
   {
-    "name": "Noum�a",
+    "name": "Nouméa",
     "country_code": "NCL",
-    "district": "�",
+    "district": null,
     "population": 76293
   },
   {
@@ -21054,7 +21054,7 @@
     "population": 194100
   },
   {
-    "name": "K�kon",
+    "name": "Kükon",
     "country_code": "UZB",
     "district": "Fargona",
     "population": 190100
@@ -21078,7 +21078,7 @@
     "population": 140800
   },
   {
-    "name": "�rgenc",
+    "name": "Ürgenc",
     "country_code": "UZB",
     "district": "Khorazm",
     "population": 138900
@@ -21156,7 +21156,7 @@
     "population": 221000
   },
   {
-    "name": "Baranovit�i",
+    "name": "Baranovitši",
     "country_code": "BLR",
     "district": "Brest",
     "population": 167000
@@ -21174,7 +21174,7 @@
     "population": 130000
   },
   {
-    "name": "Or�a",
+    "name": "Orša",
     "country_code": "BLR",
     "district": "Vitebsk",
     "population": 124000
@@ -21204,7 +21204,7 @@
     "population": 101000
   },
   {
-    "name": "Molodet�no",
+    "name": "Molodetšno",
     "country_code": "BLR",
     "district": "Minsk",
     "population": 97000
@@ -21222,9 +21222,9 @@
     "population": 33700
   },
   {
-    "name": "Citt� del Vaticano",
+    "name": "Città del Vaticano",
     "country_code": "VAT",
-    "district": "�",
+    "district": null,
     "population": 455
   },
   {
@@ -21234,7 +21234,7 @@
     "population": 1975294
   },
   {
-    "name": "Maraca�bo",
+    "name": "Maracaíbo",
     "country_code": "VEN",
     "district": "Zulia",
     "population": 1304776
@@ -21254,7 +21254,7 @@
   {
     "name": "Ciudad Guayana",
     "country_code": "VEN",
-    "district": "Bol�var",
+    "district": "Bolívar",
     "population": 663713
   },
   {
@@ -21272,37 +21272,37 @@
   {
     "name": "Barcelona",
     "country_code": "VEN",
-    "district": "Anzo�tegui",
+    "district": "Anzoátegui",
     "population": 322267
   },
   {
-    "name": "Matur�n",
+    "name": "Maturín",
     "country_code": "VEN",
     "district": "Monagas",
     "population": 319726
   },
   {
-    "name": "San Crist�bal",
+    "name": "San Cristóbal",
     "country_code": "VEN",
-    "district": "T�chira",
+    "district": "Táchira",
     "population": 319373
   },
   {
-    "name": "Ciudad Bol�var",
+    "name": "Ciudad Bolívar",
     "country_code": "VEN",
-    "district": "Bol�var",
+    "district": "Bolívar",
     "population": 301107
   },
   {
-    "name": "Cuman�",
+    "name": "Cumaná",
     "country_code": "VEN",
     "district": "Sucre",
     "population": 293105
   },
   {
-    "name": "M�rida",
+    "name": "Mérida",
     "country_code": "VEN",
-    "district": "M�rida",
+    "district": "Mérida",
     "population": 224887
   },
   {
@@ -21338,7 +21338,7 @@
   {
     "name": "Santa Ana de Coro",
     "country_code": "VEN",
-    "district": "Falc�n",
+    "district": "Falcón",
     "population": 185766
   },
   {
@@ -21350,7 +21350,7 @@
   {
     "name": "Punto Fijo",
     "country_code": "VEN",
-    "district": "Falc�n",
+    "district": "Falcón",
     "population": 167215
   },
   {
@@ -21368,7 +21368,7 @@
   {
     "name": "Puerto La Cruz",
     "country_code": "VEN",
-    "district": "Anzo�tegui",
+    "district": "Anzoátegui",
     "population": 155700
   },
   {
@@ -21396,7 +21396,7 @@
     "population": 125621
   },
   {
-    "name": "Car�pano",
+    "name": "Carúpano",
     "country_code": "VEN",
     "district": "Sucre",
     "population": 119639
@@ -21410,7 +21410,7 @@
   {
     "name": "El Tigre",
     "country_code": "VEN",
-    "district": "Anzo�tegui",
+    "district": "Anzoátegui",
     "population": 116256
   },
   {
@@ -21422,13 +21422,13 @@
   {
     "name": "Calabozo",
     "country_code": "VEN",
-    "district": "Gu�rico",
+    "district": "Guárico",
     "population": 107146
   },
   {
     "name": "Pozuelos",
     "country_code": "VEN",
-    "district": "Anzo�tegui",
+    "district": "Anzoátegui",
     "population": 105690
   },
   {
@@ -21446,7 +21446,7 @@
   {
     "name": "Valle de la Pascua",
     "country_code": "VEN",
-    "district": "Gu�rico",
+    "district": "Guárico",
     "population": 95927
   },
   {
@@ -21468,7 +21468,7 @@
     "population": 90940
   },
   {
-    "name": "El Lim�n",
+    "name": "El Limón",
     "country_code": "VEN",
     "district": "Aragua",
     "population": 90000
@@ -21524,13 +21524,13 @@
   {
     "name": "Ufa",
     "country_code": "RUS",
-    "district": "Ba�kortostan",
+    "district": "Baškortostan",
     "population": 1091200
   },
   {
-    "name": "T�eljabinsk",
+    "name": "Tšeljabinsk",
     "country_code": "RUS",
-    "district": "T�eljabinsk",
+    "district": "Tšeljabinsk",
     "population": 1083200
   },
   {
@@ -21654,7 +21654,7 @@
     "population": 521000
   },
   {
-    "name": "Nabereznyje T�elny",
+    "name": "Nabereznyje Tšelny",
     "country_code": "RUS",
     "district": "Tatarstan",
     "population": 514700
@@ -21702,9 +21702,9 @@
     "population": 459200
   },
   {
-    "name": "T�eboksary",
+    "name": "Tšeboksary",
     "country_code": "RUS",
-    "district": "T�uvassia",
+    "district": "Tšuvassia",
     "population": 459200
   },
   {
@@ -21728,7 +21728,7 @@
   {
     "name": "Magnitogorsk",
     "country_code": "RUS",
-    "district": "T�eljabinsk",
+    "district": "Tšeljabinsk",
     "population": 427900
   },
   {
@@ -21768,7 +21768,7 @@
     "population": 361800
   },
   {
-    "name": "Sot�i",
+    "name": "Sotši",
     "country_code": "RUS",
     "district": "Krasnodar",
     "population": 358600
@@ -21810,13 +21810,13 @@
     "population": 337100
   },
   {
-    "name": "Mahat�kala",
+    "name": "Mahatškala",
     "country_code": "RUS",
     "district": "Dagestan",
     "population": 332800
   },
   {
-    "name": "T�erepovets",
+    "name": "Tšerepovets",
     "country_code": "RUS",
     "district": "Vologda",
     "population": 324400
@@ -21840,9 +21840,9 @@
     "population": 310100
   },
   {
-    "name": "T�ita",
+    "name": "Tšita",
     "country_code": "RUS",
-    "district": "T�ita",
+    "district": "Tšita",
     "population": 309900
   },
   {
@@ -21914,7 +21914,7 @@
   {
     "name": "Sterlitamak",
     "country_code": "RUS",
-    "district": "Ba�kortostan",
+    "district": "Baškortostan",
     "population": 265200
   },
   {
@@ -21924,7 +21924,7 @@
     "population": 264700
   },
   {
-    "name": "Jo�kar-Ola",
+    "name": "Joškar-Ola",
     "country_code": "RUS",
     "district": "Marinmaa",
     "population": 249200
@@ -21948,7 +21948,7 @@
     "population": 233900
   },
   {
-    "name": "Nalt�ik",
+    "name": "Naltšik",
     "country_code": "RUS",
     "district": "Kabardi-Balkaria",
     "population": 233400
@@ -21978,13 +21978,13 @@
     "population": 223400
   },
   {
-    "name": "Blagove�t�ensk",
+    "name": "Blagoveštšensk",
     "country_code": "RUS",
     "district": "Amur",
     "population": 222000
   },
   {
-    "name": "�ahty",
+    "name": "Šahty",
     "country_code": "RUS",
     "district": "Rostov-na-Donu",
     "population": 221800
@@ -22022,7 +22022,7 @@
   {
     "name": "Zlatoust",
     "country_code": "RUS",
-    "district": "T�eljabinsk",
+    "district": "Tšeljabinsk",
     "population": 196900
   },
   {
@@ -22038,9 +22038,9 @@
     "population": 194300
   },
   {
-    "name": "Petropavlovsk-Kamt�atski",
+    "name": "Petropavlovsk-Kamtšatski",
     "country_code": "RUS",
-    "district": "Kamt�atka",
+    "district": "Kamtšatka",
     "population": 194100
   },
   {
@@ -22064,11 +22064,11 @@
   {
     "name": "Grozny",
     "country_code": "RUS",
-    "district": "T�et�enia",
+    "district": "Tšetšenia",
     "population": 186000
   },
   {
-    "name": "Novot�erkassk",
+    "name": "Novotšerkassk",
     "country_code": "RUS",
     "district": "Rostov-na-Donu",
     "population": 184400
@@ -22106,7 +22106,7 @@
   {
     "name": "Miass",
     "country_code": "RUS",
-    "district": "T�eljabinsk",
+    "district": "Tšeljabinsk",
     "population": 166200
   },
   {
@@ -22148,11 +22148,11 @@
   {
     "name": "Salavat",
     "country_code": "RUS",
-    "district": "Ba�kortostan",
+    "district": "Baškortostan",
     "population": 156800
   },
   {
-    "name": "Myti�t�i",
+    "name": "Mytištši",
     "country_code": "RUS",
     "district": "Moskova",
     "population": 155700
@@ -22218,7 +22218,7 @@
     "population": 133700
   },
   {
-    "name": "Bala�iha",
+    "name": "Balašiha",
     "country_code": "RUS",
     "district": "Moskova",
     "population": 132900
@@ -22260,25 +22260,25 @@
     "population": 124900
   },
   {
-    "name": "Kamy�in",
+    "name": "Kamyšin",
     "country_code": "RUS",
     "district": "Volgograd",
     "population": 124600
   },
   {
-    "name": "Novot�eboksarsk",
+    "name": "Novotšeboksarsk",
     "country_code": "RUS",
-    "district": "T�uvassia",
+    "district": "Tšuvassia",
     "population": 123400
   },
   {
-    "name": "T�erkessk",
+    "name": "Tšerkessk",
     "country_code": "RUS",
-    "district": "Karat�ai-T�erkessia",
+    "district": "Karatšai-Tšerkessia",
     "population": 121700
   },
   {
-    "name": "At�insk",
+    "name": "Atšinsk",
     "country_code": "RUS",
     "district": "Krasnojarsk",
     "population": 121600
@@ -22290,7 +22290,7 @@
     "population": 121000
   },
   {
-    "name": "Mit�urinsk",
+    "name": "Mitšurinsk",
     "country_code": "RUS",
     "district": "Tambov",
     "population": 120700
@@ -22326,7 +22326,7 @@
     "population": 116300
   },
   {
-    "name": "Novokuiby�evsk",
+    "name": "Novokuibyševsk",
     "country_code": "RUS",
     "district": "Samara",
     "population": 116200
@@ -22334,7 +22334,7 @@
   {
     "name": "Neftekamsk",
     "country_code": "RUS",
-    "district": "Ba�kortostan",
+    "district": "Baškortostan",
     "population": 115700
   },
   {
@@ -22346,7 +22346,7 @@
   {
     "name": "Oktjabrski",
     "country_code": "RUS",
-    "district": "Ba�kortostan",
+    "district": "Baškortostan",
     "population": 111500
   },
   {
@@ -22410,13 +22410,13 @@
     "population": 105200
   },
   {
-    "name": "�t�olkovo",
+    "name": "Štšolkovo",
     "country_code": "RUS",
     "district": "Moskova",
     "population": 104900
   },
   {
-    "name": "Mezduret�ensk",
+    "name": "Mezduretšensk",
     "country_code": "RUS",
     "district": "Kemerovo",
     "population": 104400
@@ -22434,7 +22434,7 @@
     "population": 103300
   },
   {
-    "name": "Novo�ahtinsk",
+    "name": "Novošahtinsk",
     "country_code": "RUS",
     "district": "Rostov-na-Donu",
     "population": 101900
@@ -22470,7 +22470,7 @@
     "population": 100100
   },
   {
-    "name": "Kine�ma",
+    "name": "Kinešma",
     "country_code": "RUS",
     "district": "Ivanovo",
     "population": 100000
@@ -22518,7 +22518,7 @@
     "population": 97300
   },
   {
-    "name": "Bala�ov",
+    "name": "Balašov",
     "country_code": "RUS",
     "district": "Saratov",
     "population": 97100
@@ -22560,7 +22560,7 @@
     "population": 93300
   },
   {
-    "name": "Pu�kin",
+    "name": "Puškin",
     "country_code": "RUS",
     "district": "Pietari",
     "population": 92900
@@ -22578,7 +22578,7 @@
     "population": 92300
   },
   {
-    "name": "Kirovo-T�epetsk",
+    "name": "Kirovo-Tšepetsk",
     "country_code": "RUS",
     "district": "Kirov",
     "population": 91600
@@ -22596,7 +22596,7 @@
     "population": 90000
   },
   {
-    "name": "T�aikovski",
+    "name": "Tšaikovski",
     "country_code": "RUS",
     "district": "Perm",
     "population": 90000
@@ -22632,7 +22632,7 @@
     "population": 382674
   },
   {
-    "name": "Bi�n Hoa",
+    "name": "Biên Hoa",
     "country_code": "VNM",
     "district": "Dong Nai",
     "population": 282095
@@ -22704,7 +22704,7 @@
     "population": 127484
   },
   {
-    "name": "Phan Thi�t",
+    "name": "Phan Thiêt",
     "country_code": "VNM",
     "district": "Binh Thuan",
     "population": 114236

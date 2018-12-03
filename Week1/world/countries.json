@@ -5,7 +5,7 @@
     "continent": "North America",
     "region": "Caribbean",
     "surface_area": 193,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 103000,
     "life_expectancy": 78.4,
     "gnp": 828,
@@ -13,8 +13,8 @@
     "local_name": "Aruba",
     "government_form": "Nonmetropolitan Territory of The Netherlands",
     "head_of_state": "Beatrix",
-    "capital": 129,
-    "code2": "AW"
+    "code2": "AW",
+    "capital": "Oranjestad"
   },
   {
     "code": "AFG",
@@ -26,12 +26,12 @@
     "population": 22720000,
     "life_expectancy": 45.9,
     "gnp": 5976,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Afganistan/Afqanestan",
     "government_form": "Islamic Emirate",
     "head_of_state": "Mohammad Omar",
-    "capital": 1,
-    "code2": "AF"
+    "code2": "AF",
+    "capital": "Kabul"
   },
   {
     "code": "AGO",
@@ -46,9 +46,9 @@
     "gnp_old": 7984,
     "local_name": "Angola",
     "government_form": "Republic",
-    "head_of_state": "JosÈ Eduardo dos Santos",
-    "capital": 56,
-    "code2": "AO"
+    "head_of_state": "José Eduardo dos Santos",
+    "code2": "AO",
+    "capital": "Luanda"
   },
   {
     "code": "AIA",
@@ -56,16 +56,16 @@
     "continent": "North America",
     "region": "Caribbean",
     "surface_area": 96,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 8000,
     "life_expectancy": 76.1,
     "gnp": 63.2,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Anguilla",
     "government_form": "Dependent Territory of the UK",
     "head_of_state": "Elisabeth II",
-    "capital": 62,
-    "code2": "AI"
+    "code2": "AI",
+    "capital": "The Valley"
   },
   {
     "code": "ALB",
@@ -78,11 +78,11 @@
     "life_expectancy": 71.6,
     "gnp": 3205,
     "gnp_old": 2500,
-    "local_name": "ShqipÎria",
+    "local_name": "Shqipëria",
     "government_form": "Republic",
     "head_of_state": "Rexhep Mejdani",
-    "capital": 34,
-    "code2": "AL"
+    "code2": "AL",
+    "capital": "Tirana"
   },
   {
     "code": "AND",
@@ -94,12 +94,12 @@
     "population": 78000,
     "life_expectancy": 83.5,
     "gnp": 1630,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Andorra",
     "government_form": "Parliamentary Coprincipality",
     "head_of_state": "",
-    "capital": 55,
-    "code2": "AD"
+    "code2": "AD",
+    "capital": "Andorra la Vella"
   },
   {
     "code": "ANT",
@@ -107,16 +107,16 @@
     "continent": "North America",
     "region": "Caribbean",
     "surface_area": 800,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 217000,
     "life_expectancy": 74.7,
     "gnp": 1941,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Nederlandse Antillen",
     "government_form": "Nonmetropolitan Territory of The Netherlands",
     "head_of_state": "Beatrix",
-    "capital": 33,
-    "code2": "AN"
+    "code2": "AN",
+    "capital": "Willemstad"
   },
   {
     "code": "ARE",
@@ -129,11 +129,11 @@
     "life_expectancy": 74.1,
     "gnp": 37966,
     "gnp_old": 36846,
-    "local_name": "Al-Imarat al-¥Arabiya al-Muttahida",
+    "local_name": "Al-Imarat al-´Arabiya al-Muttahida",
     "government_form": "Emirate Federation",
     "head_of_state": "Zayid bin Sultan al-Nahayan",
-    "capital": 65,
-    "code2": "AE"
+    "code2": "AE",
+    "capital": "Abu Dhabi"
   },
   {
     "code": "ARG",
@@ -148,9 +148,9 @@
     "gnp_old": 323310,
     "local_name": "Argentina",
     "government_form": "Federal Republic",
-    "head_of_state": "Fernando de la R˙a",
-    "capital": 69,
-    "code2": "AR"
+    "head_of_state": "Fernando de la Rúa",
+    "code2": "AR",
+    "capital": "Buenos Aires"
   },
   {
     "code": "ARM",
@@ -165,9 +165,9 @@
     "gnp_old": 1627,
     "local_name": "Hajastan",
     "government_form": "Republic",
-    "head_of_state": "Robert Kotöarjan",
-    "capital": 126,
-    "code2": "AM"
+    "head_of_state": "Robert Kotšarjan",
+    "code2": "AM",
+    "capital": "Yerevan"
   },
   {
     "code": "ASM",
@@ -175,16 +175,16 @@
     "continent": "Oceania",
     "region": "Polynesia",
     "surface_area": 199,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 68000,
     "life_expectancy": 75.1,
     "gnp": 334,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Amerika Samoa",
     "government_form": "US Territory",
     "head_of_state": "George W. Bush",
-    "capital": 54,
-    "code2": "AS"
+    "code2": "AS",
+    "capital": "Fagatogo"
   },
   {
     "code": "ATA",
@@ -192,16 +192,16 @@
     "continent": "Antarctica",
     "region": "Antarctica",
     "surface_area": 13120000,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 0,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 0,
-    "gnp_old": "NULL",
-    "local_name": "ñ",
+    "gnp_old": null,
+    "local_name": "–",
     "government_form": "Co-administrated",
     "head_of_state": "",
-    "capital": "NULL",
-    "code2": "AQ"
+    "code2": "AQ",
+    "capital": null
   },
   {
     "code": "ATF",
@@ -209,16 +209,16 @@
     "continent": "Antarctica",
     "region": "Antarctica",
     "surface_area": 7780,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 0,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 0,
-    "gnp_old": "NULL",
-    "local_name": "Terres australes franÁaises",
+    "gnp_old": null,
+    "local_name": "Terres australes françaises",
     "government_form": "Nonmetropolitan Territory of France",
     "head_of_state": "Jacques Chirac",
-    "capital": "NULL",
-    "code2": "TF"
+    "code2": "TF",
+    "capital": null
   },
   {
     "code": "ATG",
@@ -234,8 +234,8 @@
     "local_name": "Antigua and Barbuda",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Elisabeth II",
-    "capital": 63,
-    "code2": "AG"
+    "code2": "AG",
+    "capital": "Saint John´s"
   },
   {
     "code": "AUS",
@@ -251,8 +251,8 @@
     "local_name": "Australia",
     "government_form": "Constitutional Monarchy, Federation",
     "head_of_state": "Elisabeth II",
-    "capital": 135,
-    "code2": "AU"
+    "code2": "AU",
+    "capital": "Canberra"
   },
   {
     "code": "AUT",
@@ -265,11 +265,11 @@
     "life_expectancy": 77.7,
     "gnp": 211860,
     "gnp_old": 206025,
-    "local_name": "÷sterreich",
+    "local_name": "Österreich",
     "government_form": "Federal Republic",
     "head_of_state": "Thomas Klestil",
-    "capital": 1523,
-    "code2": "AT"
+    "code2": "AT",
+    "capital": "Wien"
   },
   {
     "code": "AZE",
@@ -282,11 +282,11 @@
     "life_expectancy": 62.9,
     "gnp": 4127,
     "gnp_old": 4100,
-    "local_name": "Az‰rbaycan",
+    "local_name": "Azärbaycan",
     "government_form": "Federal Republic",
-    "head_of_state": "Heyd‰r ƒliyev",
-    "capital": 144,
-    "code2": "AZ"
+    "head_of_state": "Heydär Äliyev",
+    "code2": "AZ",
+    "capital": "Baku"
   },
   {
     "code": "BDI",
@@ -302,8 +302,8 @@
     "local_name": "Burundi/Uburundi",
     "government_form": "Republic",
     "head_of_state": "Pierre Buyoya",
-    "capital": 552,
-    "code2": "BI"
+    "code2": "BI",
+    "capital": "Bujumbura"
   },
   {
     "code": "BEL",
@@ -316,11 +316,11 @@
     "life_expectancy": 77.8,
     "gnp": 249704,
     "gnp_old": 243948,
-    "local_name": "BelgiÎ/Belgique",
+    "local_name": "België/Belgique",
     "government_form": "Constitutional Monarchy, Federation",
     "head_of_state": "Albert II",
-    "capital": 179,
-    "code2": "BE"
+    "code2": "BE",
+    "capital": "Bruxelles [Brussel]"
   },
   {
     "code": "BEN",
@@ -333,11 +333,11 @@
     "life_expectancy": 50.2,
     "gnp": 2357,
     "gnp_old": 2141,
-    "local_name": "BÈnin",
+    "local_name": "Bénin",
     "government_form": "Republic",
-    "head_of_state": "Mathieu KÈrÈkou",
-    "capital": 187,
-    "code2": "BJ"
+    "head_of_state": "Mathieu Kérékou",
+    "code2": "BJ",
+    "capital": "Porto-Novo"
   },
   {
     "code": "BFA",
@@ -352,9 +352,9 @@
     "gnp_old": 2201,
     "local_name": "Burkina Faso",
     "government_form": "Republic",
-    "head_of_state": "Blaise CompaorÈ",
-    "capital": 549,
-    "code2": "BF"
+    "head_of_state": "Blaise Compaoré",
+    "code2": "BF",
+    "capital": "Ouagadougou"
   },
   {
     "code": "BGD",
@@ -370,8 +370,8 @@
     "local_name": "Bangladesh",
     "government_form": "Republic",
     "head_of_state": "Shahabuddin Ahmad",
-    "capital": 150,
-    "code2": "BD"
+    "code2": "BD",
+    "capital": "Dhaka"
   },
   {
     "code": "BGR",
@@ -387,8 +387,8 @@
     "local_name": "Balgarija",
     "government_form": "Republic",
     "head_of_state": "Petar Stojanov",
-    "capital": 539,
-    "code2": "BG"
+    "code2": "BG",
+    "capital": "Sofija"
   },
   {
     "code": "BHR",
@@ -404,8 +404,8 @@
     "local_name": "Al-Bahrayn",
     "government_form": "Monarchy (Emirate)",
     "head_of_state": "Hamad ibn Isa al-Khalifa",
-    "capital": 149,
-    "code2": "BH"
+    "code2": "BH",
+    "capital": "al-Manama"
   },
   {
     "code": "BHS",
@@ -421,8 +421,8 @@
     "local_name": "The Bahamas",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Elisabeth II",
-    "capital": 148,
-    "code2": "BS"
+    "code2": "BS",
+    "capital": "Nassau"
   },
   {
     "code": "BIH",
@@ -434,12 +434,12 @@
     "population": 3972000,
     "life_expectancy": 71.5,
     "gnp": 2841,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Bosna i Hercegovina",
     "government_form": "Federal Republic",
     "head_of_state": "Ante Jelavic",
-    "capital": 201,
-    "code2": "BA"
+    "code2": "BA",
+    "capital": "Sarajevo"
   },
   {
     "code": "BLR",
@@ -451,12 +451,12 @@
     "population": 10236000,
     "life_expectancy": 68,
     "gnp": 13714,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Belarus",
     "government_form": "Republic",
-    "head_of_state": "Aljaksandr Lukaöenka",
-    "capital": 3520,
-    "code2": "BY"
+    "head_of_state": "Aljaksandr Lukašenka",
+    "code2": "BY",
+    "capital": "Minsk"
   },
   {
     "code": "BLZ",
@@ -472,8 +472,8 @@
     "local_name": "Belize",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Elisabeth II",
-    "capital": 185,
-    "code2": "BZ"
+    "code2": "BZ",
+    "capital": "Belmopan"
   },
   {
     "code": "BMU",
@@ -481,7 +481,7 @@
     "continent": "North America",
     "region": "North America",
     "surface_area": 53,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 65000,
     "life_expectancy": 76.9,
     "gnp": 2328,
@@ -489,8 +489,8 @@
     "local_name": "Bermuda",
     "government_form": "Dependent Territory of the UK",
     "head_of_state": "Elisabeth II",
-    "capital": 191,
-    "code2": "BM"
+    "code2": "BM",
+    "capital": "Hamilton"
   },
   {
     "code": "BOL",
@@ -505,9 +505,9 @@
     "gnp_old": 7967,
     "local_name": "Bolivia",
     "government_form": "Republic",
-    "head_of_state": "Hugo B·nzer Su·rez",
-    "capital": 194,
-    "code2": "BO"
+    "head_of_state": "Hugo Bánzer Suárez",
+    "code2": "BO",
+    "capital": "La Paz"
   },
   {
     "code": "BRA",
@@ -523,8 +523,8 @@
     "local_name": "Brasil",
     "government_form": "Federal Republic",
     "head_of_state": "Fernando Henrique Cardoso",
-    "capital": 211,
-    "code2": "BR"
+    "code2": "BR",
+    "capital": "Brasília"
   },
   {
     "code": "BRB",
@@ -540,8 +540,8 @@
     "local_name": "Barbados",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Elisabeth II",
-    "capital": 174,
-    "code2": "BB"
+    "code2": "BB",
+    "capital": "Bridgetown"
   },
   {
     "code": "BRN",
@@ -557,8 +557,8 @@
     "local_name": "Brunei Darussalam",
     "government_form": "Monarchy (Sultanate)",
     "head_of_state": "Haji Hassan al-Bolkiah",
-    "capital": 538,
-    "code2": "BN"
+    "code2": "BN",
+    "capital": "Bandar Seri Begawan"
   },
   {
     "code": "BTN",
@@ -574,8 +574,8 @@
     "local_name": "Druk-Yul",
     "government_form": "Monarchy",
     "head_of_state": "Jigme Singye Wangchuk",
-    "capital": 192,
-    "code2": "BT"
+    "code2": "BT",
+    "capital": "Thimphu"
   },
   {
     "code": "BVT",
@@ -583,16 +583,16 @@
     "continent": "Antarctica",
     "region": "Antarctica",
     "surface_area": 59,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 0,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 0,
-    "gnp_old": "NULL",
-    "local_name": "Bouvet¯ya",
+    "gnp_old": null,
+    "local_name": "Bouvetøya",
     "government_form": "Dependent Territory of Norway",
     "head_of_state": "Harald V",
-    "capital": "NULL",
-    "code2": "BV"
+    "code2": "BV",
+    "capital": null
   },
   {
     "code": "BWA",
@@ -608,8 +608,8 @@
     "local_name": "Botswana",
     "government_form": "Republic",
     "head_of_state": "Festus G. Mogae",
-    "capital": 204,
-    "code2": "BW"
+    "code2": "BW",
+    "capital": "Gaborone"
   },
   {
     "code": "CAF",
@@ -622,11 +622,11 @@
     "life_expectancy": 44,
     "gnp": 1054,
     "gnp_old": 993,
-    "local_name": "Centrafrique/BÍ-AfrÓka",
+    "local_name": "Centrafrique/Bê-Afrîka",
     "government_form": "Republic",
-    "head_of_state": "Ange-FÈlix PatassÈ",
-    "capital": 1889,
-    "code2": "CF"
+    "head_of_state": "Ange-Félix Patassé",
+    "code2": "CF",
+    "capital": "Bangui"
   },
   {
     "code": "CAN",
@@ -642,8 +642,8 @@
     "local_name": "Canada",
     "government_form": "Constitutional Monarchy, Federation",
     "head_of_state": "Elisabeth II",
-    "capital": 1822,
-    "code2": "CA"
+    "code2": "CA",
+    "capital": "Ottawa"
   },
   {
     "code": "CCK",
@@ -651,16 +651,16 @@
     "continent": "Oceania",
     "region": "Australia and New Zealand",
     "surface_area": 14,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 600,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Cocos (Keeling) Islands",
     "government_form": "Territory of Australia",
     "head_of_state": "Elisabeth II",
-    "capital": 2317,
-    "code2": "CC"
+    "code2": "CC",
+    "capital": "West Island"
   },
   {
     "code": "CHE",
@@ -676,8 +676,8 @@
     "local_name": "Schweiz/Suisse/Svizzera/Svizra",
     "government_form": "Federation",
     "head_of_state": "Adolf Ogi",
-    "capital": 3248,
-    "code2": "CH"
+    "code2": "CH",
+    "capital": "Bern"
   },
   {
     "code": "CHL",
@@ -693,8 +693,8 @@
     "local_name": "Chile",
     "government_form": "Republic",
     "head_of_state": "Ricardo Lagos Escobar",
-    "capital": 554,
-    "code2": "CL"
+    "code2": "CL",
+    "capital": "Santiago de Chile"
   },
   {
     "code": "CHN",
@@ -710,12 +710,12 @@
     "local_name": "Zhongquo",
     "government_form": "People'sRepublic",
     "head_of_state": "Jiang Zemin",
-    "capital": 1891,
-    "code2": "CN"
+    "code2": "CN",
+    "capital": "Peking"
   },
   {
     "code": "CIV",
-    "name": "CÙte díIvoire",
+    "name": "Côte d’Ivoire",
     "continent": "Africa",
     "region": "Western Africa",
     "surface_area": 322463,
@@ -724,11 +724,11 @@
     "life_expectancy": 45.2,
     "gnp": 11345,
     "gnp_old": 10285,
-    "local_name": "CÙte díIvoire",
+    "local_name": "Côte d’Ivoire",
     "government_form": "Republic",
     "head_of_state": "Laurent Gbagbo",
-    "capital": 2814,
-    "code2": "CI"
+    "code2": "CI",
+    "capital": "Yamoussoukro"
   },
   {
     "code": "CMR",
@@ -744,8 +744,8 @@
     "local_name": "Cameroun/Cameroon",
     "government_form": "Republic",
     "head_of_state": "Paul Biya",
-    "capital": 1804,
-    "code2": "CM"
+    "code2": "CM",
+    "capital": "Yaoundé"
   },
   {
     "code": "COD",
@@ -758,11 +758,11 @@
     "life_expectancy": 48.8,
     "gnp": 6964,
     "gnp_old": 2474,
-    "local_name": "RÈpublique DÈmocratique du Congo",
+    "local_name": "République Démocratique du Congo",
     "government_form": "Republic",
     "head_of_state": "Joseph Kabila",
-    "capital": 2298,
-    "code2": "CD"
+    "code2": "CD",
+    "capital": "Kinshasa"
   },
   {
     "code": "COG",
@@ -778,8 +778,8 @@
     "local_name": "Congo",
     "government_form": "Republic",
     "head_of_state": "Denis Sassou-Nguesso",
-    "capital": 2296,
-    "code2": "CG"
+    "code2": "CG",
+    "capital": "Brazzaville"
   },
   {
     "code": "COK",
@@ -787,16 +787,16 @@
     "continent": "Oceania",
     "region": "Polynesia",
     "surface_area": 236,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 20000,
     "life_expectancy": 71.1,
     "gnp": 100,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "The Cook Islands",
     "government_form": "Nonmetropolitan Territory of New Zealand",
     "head_of_state": "Elisabeth II",
-    "capital": 583,
-    "code2": "CK"
+    "code2": "CK",
+    "capital": "Avarua"
   },
   {
     "code": "COL",
@@ -811,9 +811,9 @@
     "gnp_old": 105116,
     "local_name": "Colombia",
     "government_form": "Republic",
-    "head_of_state": "AndrÈs Pastrana Arango",
-    "capital": 2257,
-    "code2": "CO"
+    "head_of_state": "Andrés Pastrana Arango",
+    "code2": "CO",
+    "capital": "Santafé de Bogotá"
   },
   {
     "code": "COM",
@@ -829,8 +829,8 @@
     "local_name": "Komori/Comores",
     "government_form": "Republic",
     "head_of_state": "Azali Assoumani",
-    "capital": 2295,
-    "code2": "KM"
+    "code2": "KM",
+    "capital": "Moroni"
   },
   {
     "code": "CPV",
@@ -845,9 +845,9 @@
     "gnp_old": 420,
     "local_name": "Cabo Verde",
     "government_form": "Republic",
-    "head_of_state": "AntÛnio Mascarenhas Monteiro",
-    "capital": 1859,
-    "code2": "CV"
+    "head_of_state": "António Mascarenhas Monteiro",
+    "code2": "CV",
+    "capital": "Praia"
   },
   {
     "code": "CRI",
@@ -862,9 +862,9 @@
     "gnp_old": 9757,
     "local_name": "Costa Rica",
     "government_form": "Republic",
-    "head_of_state": "Miguel ¡ngel RodrÌguez EcheverrÌa",
-    "capital": 584,
-    "code2": "CR"
+    "head_of_state": "Miguel Ángel Rodríguez Echeverría",
+    "code2": "CR",
+    "capital": "San José"
   },
   {
     "code": "CUB",
@@ -880,8 +880,8 @@
     "local_name": "Cuba",
     "government_form": "Socialistic Republic",
     "head_of_state": "Fidel Castro Ruz",
-    "capital": 2413,
-    "code2": "CU"
+    "code2": "CU",
+    "capital": "La Habana"
   },
   {
     "code": "CXR",
@@ -889,16 +889,16 @@
     "continent": "Oceania",
     "region": "Australia and New Zealand",
     "surface_area": 135,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 2500,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Christmas Island",
     "government_form": "Territory of Australia",
     "head_of_state": "Elisabeth II",
-    "capital": 1791,
-    "code2": "CX"
+    "code2": "CX",
+    "capital": "Flying Fish Cove"
   },
   {
     "code": "CYM",
@@ -906,7 +906,7 @@
     "continent": "North America",
     "region": "Caribbean",
     "surface_area": 264,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 38000,
     "life_expectancy": 78.9,
     "gnp": 1263,
@@ -914,8 +914,8 @@
     "local_name": "Cayman Islands",
     "government_form": "Dependent Territory of the UK",
     "head_of_state": "Elisabeth II",
-    "capital": 553,
-    "code2": "KY"
+    "code2": "KY",
+    "capital": "George Town"
   },
   {
     "code": "CYP",
@@ -928,11 +928,11 @@
     "life_expectancy": 76.7,
     "gnp": 9333,
     "gnp_old": 8246,
-    "local_name": "K˝pros/Kibris",
+    "local_name": "Kýpros/Kibris",
     "government_form": "Republic",
     "head_of_state": "Glafkos Klerides",
-    "capital": 2430,
-    "code2": "CY"
+    "code2": "CY",
+    "capital": "Nicosia"
   },
   {
     "code": "CZE",
@@ -945,11 +945,11 @@
     "life_expectancy": 74.5,
     "gnp": 55017,
     "gnp_old": 52037,
-    "local_name": "∏esko",
+    "local_name": "¸esko",
     "government_form": "Republic",
-    "head_of_state": "V·clav Havel",
-    "capital": 3339,
-    "code2": "CZ"
+    "head_of_state": "Václav Havel",
+    "code2": "CZ",
+    "capital": "Praha"
   },
   {
     "code": "DEU",
@@ -965,8 +965,8 @@
     "local_name": "Deutschland",
     "government_form": "Federal Republic",
     "head_of_state": "Johannes Rau",
-    "capital": 3068,
-    "code2": "DE"
+    "code2": "DE",
+    "capital": "Berlin"
   },
   {
     "code": "DJI",
@@ -982,8 +982,8 @@
     "local_name": "Djibouti/Jibuti",
     "government_form": "Republic",
     "head_of_state": "Ismail Omar Guelleh",
-    "capital": 585,
-    "code2": "DJ"
+    "code2": "DJ",
+    "capital": "Djibouti"
   },
   {
     "code": "DMA",
@@ -999,8 +999,8 @@
     "local_name": "Dominica",
     "government_form": "Republic",
     "head_of_state": "Vernon Shaw",
-    "capital": 586,
-    "code2": "DM"
+    "code2": "DM",
+    "capital": "Roseau"
   },
   {
     "code": "DNK",
@@ -1016,8 +1016,8 @@
     "local_name": "Danmark",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Margrethe II",
-    "capital": 3315,
-    "code2": "DK"
+    "code2": "DK",
+    "capital": "København"
   },
   {
     "code": "DOM",
@@ -1030,11 +1030,11 @@
     "life_expectancy": 73.2,
     "gnp": 15846,
     "gnp_old": 15076,
-    "local_name": "Rep˙blica Dominicana",
+    "local_name": "República Dominicana",
     "government_form": "Republic",
-    "head_of_state": "HipÛlito MejÌa DomÌnguez",
-    "capital": 587,
-    "code2": "DO"
+    "head_of_state": "Hipólito Mejía Domínguez",
+    "code2": "DO",
+    "capital": "Santo Domingo de Guzmán"
   },
   {
     "code": "DZA",
@@ -1047,11 +1047,11 @@
     "life_expectancy": 69.7,
     "gnp": 49982,
     "gnp_old": 46966,
-    "local_name": "Al-Jazaíir/AlgÈrie",
+    "local_name": "Al-Jaza’ir/Algérie",
     "government_form": "Republic",
     "head_of_state": "Abdelaziz Bouteflika",
-    "capital": 35,
-    "code2": "DZ"
+    "code2": "DZ",
+    "capital": "Alger"
   },
   {
     "code": "ECU",
@@ -1067,8 +1067,8 @@
     "local_name": "Ecuador",
     "government_form": "Republic",
     "head_of_state": "Gustavo Noboa Bejarano",
-    "capital": 594,
-    "code2": "EC"
+    "code2": "EC",
+    "capital": "Quito"
   },
   {
     "code": "EGY",
@@ -1084,8 +1084,8 @@
     "local_name": "Misr",
     "government_form": "Republic",
     "head_of_state": "Hosni Mubarak",
-    "capital": 608,
-    "code2": "EG"
+    "code2": "EG",
+    "capital": "Cairo"
   },
   {
     "code": "ERI",
@@ -1101,8 +1101,8 @@
     "local_name": "Ertra",
     "government_form": "Republic",
     "head_of_state": "Isayas Afewerki [Isaias Afwerki]",
-    "capital": 652,
-    "code2": "ER"
+    "code2": "ER",
+    "capital": "Asmara"
   },
   {
     "code": "ESH",
@@ -1110,16 +1110,16 @@
     "continent": "Africa",
     "region": "Northern Africa",
     "surface_area": 266000,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 293000,
     "life_expectancy": 49.8,
     "gnp": 60,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "As-Sahrawiya",
     "government_form": "Occupied by Marocco",
     "head_of_state": "Mohammed Abdel Aziz",
-    "capital": 2453,
-    "code2": "EH"
+    "code2": "EH",
+    "capital": "El-Aaiún"
   },
   {
     "code": "ESP",
@@ -1132,11 +1132,11 @@
     "life_expectancy": 78.8,
     "gnp": 553233,
     "gnp_old": 532031,
-    "local_name": "EspaÒa",
+    "local_name": "España",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Juan Carlos I",
-    "capital": 653,
-    "code2": "ES"
+    "code2": "ES",
+    "capital": "Madrid"
   },
   {
     "code": "EST",
@@ -1152,8 +1152,8 @@
     "local_name": "Eesti",
     "government_form": "Republic",
     "head_of_state": "Lennart Meri",
-    "capital": 3791,
-    "code2": "EE"
+    "code2": "EE",
+    "capital": "Tallinn"
   },
   {
     "code": "ETH",
@@ -1166,11 +1166,11 @@
     "life_expectancy": 45.2,
     "gnp": 6353,
     "gnp_old": 6180,
-    "local_name": "YeItyop¥iya",
+    "local_name": "YeItyop´iya",
     "government_form": "Republic",
     "head_of_state": "Negasso Gidada",
-    "capital": 756,
-    "code2": "ET"
+    "code2": "ET",
+    "capital": "Addis Abeba"
   },
   {
     "code": "FIN",
@@ -1186,8 +1186,8 @@
     "local_name": "Suomi",
     "government_form": "Republic",
     "head_of_state": "Tarja Halonen",
-    "capital": 3236,
-    "code2": "FI"
+    "code2": "FI",
+    "capital": "Helsinki [Helsingfors]"
   },
   {
     "code": "FJI",
@@ -1203,8 +1203,8 @@
     "local_name": "Fiji Islands",
     "government_form": "Republic",
     "head_of_state": "Josefa Iloilo",
-    "capital": 764,
-    "code2": "FJ"
+    "code2": "FJ",
+    "capital": "Suva"
   },
   {
     "code": "FLK",
@@ -1212,16 +1212,16 @@
     "continent": "South America",
     "region": "South America",
     "surface_area": 12173,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 2000,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Falkland Islands",
     "government_form": "Dependent Territory of the UK",
     "head_of_state": "Elisabeth II",
-    "capital": 763,
-    "code2": "FK"
+    "code2": "FK",
+    "capital": "Stanley"
   },
   {
     "code": "FRA",
@@ -1237,8 +1237,8 @@
     "local_name": "France",
     "government_form": "Republic",
     "head_of_state": "Jacques Chirac",
-    "capital": 2974,
-    "code2": "FR"
+    "code2": "FR",
+    "capital": "Paris"
   },
   {
     "code": "FRO",
@@ -1246,16 +1246,16 @@
     "continent": "Europe",
     "region": "Nordic Countries",
     "surface_area": 1399,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 43000,
     "life_expectancy": 78.4,
     "gnp": 0,
-    "gnp_old": "NULL",
-    "local_name": "F¯royar",
+    "gnp_old": null,
+    "local_name": "Føroyar",
     "government_form": "Part of Denmark",
     "head_of_state": "Margrethe II",
-    "capital": 901,
-    "code2": "FO"
+    "code2": "FO",
+    "capital": "Tórshavn"
   },
   {
     "code": "FSM",
@@ -1267,12 +1267,12 @@
     "population": 119000,
     "life_expectancy": 68.6,
     "gnp": 212,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Micronesia",
     "government_form": "Federal Republic",
     "head_of_state": "Leo A. Falcam",
-    "capital": 2689,
-    "code2": "FM"
+    "code2": "FM",
+    "capital": "Palikir"
   },
   {
     "code": "GAB",
@@ -1288,8 +1288,8 @@
     "local_name": "Le Gabon",
     "government_form": "Republic",
     "head_of_state": "Omar Bongo",
-    "capital": 902,
-    "code2": "GA"
+    "code2": "GA",
+    "capital": "Libreville"
   },
   {
     "code": "GBR",
@@ -1305,8 +1305,8 @@
     "local_name": "United Kingdom",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Elisabeth II",
-    "capital": 456,
-    "code2": "GB"
+    "code2": "GB",
+    "capital": "London"
   },
   {
     "code": "GEO",
@@ -1321,9 +1321,9 @@
     "gnp_old": 5924,
     "local_name": "Sakartvelo",
     "government_form": "Republic",
-    "head_of_state": "Eduard äevardnadze",
-    "capital": 905,
-    "code2": "GE"
+    "head_of_state": "Eduard Ševardnadze",
+    "code2": "GE",
+    "capital": "Tbilisi"
   },
   {
     "code": "GHA",
@@ -1339,8 +1339,8 @@
     "local_name": "Ghana",
     "government_form": "Republic",
     "head_of_state": "John Kufuor",
-    "capital": 910,
-    "code2": "GH"
+    "code2": "GH",
+    "capital": "Accra"
   },
   {
     "code": "GIB",
@@ -1348,16 +1348,16 @@
     "continent": "Europe",
     "region": "Southern Europe",
     "surface_area": 6,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 25000,
     "life_expectancy": 79,
     "gnp": 258,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Gibraltar",
     "government_form": "Dependent Territory of the UK",
     "head_of_state": "Elisabeth II",
-    "capital": 915,
-    "code2": "GI"
+    "code2": "GI",
+    "capital": "Gibraltar"
   },
   {
     "code": "GIN",
@@ -1370,11 +1370,11 @@
     "life_expectancy": 45.6,
     "gnp": 2352,
     "gnp_old": 2383,
-    "local_name": "GuinÈe",
+    "local_name": "Guinée",
     "government_form": "Republic",
-    "head_of_state": "Lansana ContÈ",
-    "capital": 926,
-    "code2": "GN"
+    "head_of_state": "Lansana Conté",
+    "code2": "GN",
+    "capital": "Conakry"
   },
   {
     "code": "GLP",
@@ -1382,16 +1382,16 @@
     "continent": "North America",
     "region": "Caribbean",
     "surface_area": 1705,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 456000,
     "life_expectancy": 77,
     "gnp": 3501,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Guadeloupe",
     "government_form": "Overseas Department of France",
     "head_of_state": "Jacques Chirac",
-    "capital": 919,
-    "code2": "GP"
+    "code2": "GP",
+    "capital": "Basse-Terre"
   },
   {
     "code": "GMB",
@@ -1407,8 +1407,8 @@
     "local_name": "The Gambia",
     "government_form": "Republic",
     "head_of_state": "Yahya Jammeh",
-    "capital": 904,
-    "code2": "GM"
+    "code2": "GM",
+    "capital": "Banjul"
   },
   {
     "code": "GNB",
@@ -1421,11 +1421,11 @@
     "life_expectancy": 49,
     "gnp": 293,
     "gnp_old": 272,
-    "local_name": "GuinÈ-Bissau",
+    "local_name": "Guiné-Bissau",
     "government_form": "Republic",
-    "head_of_state": "Kumba Ial·",
-    "capital": 927,
-    "code2": "GW"
+    "head_of_state": "Kumba Ialá",
+    "code2": "GW",
+    "capital": "Bissau"
   },
   {
     "code": "GNQ",
@@ -1441,8 +1441,8 @@
     "local_name": "Guinea Ecuatorial",
     "government_form": "Republic",
     "head_of_state": "Teodoro Obiang Nguema Mbasogo",
-    "capital": 2972,
-    "code2": "GQ"
+    "code2": "GQ",
+    "capital": "Malabo"
   },
   {
     "code": "GRC",
@@ -1455,11 +1455,11 @@
     "life_expectancy": 78.4,
     "gnp": 120724,
     "gnp_old": 119946,
-    "local_name": "Ell·da",
+    "local_name": "Elláda",
     "government_form": "Republic",
     "head_of_state": "Kostis Stefanopoulos",
-    "capital": 2401,
-    "code2": "GR"
+    "code2": "GR",
+    "capital": "Athenai"
   },
   {
     "code": "GRD",
@@ -1471,12 +1471,12 @@
     "population": 94000,
     "life_expectancy": 64.5,
     "gnp": 318,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Grenada",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Elisabeth II",
-    "capital": 916,
-    "code2": "GD"
+    "code2": "GD",
+    "capital": "Saint George´s"
   },
   {
     "code": "GRL",
@@ -1484,16 +1484,16 @@
     "continent": "North America",
     "region": "North America",
     "surface_area": 2166090,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 56000,
     "life_expectancy": 68.1,
     "gnp": 0,
-    "gnp_old": "NULL",
-    "local_name": "Kalaallit Nunaat/Gr¯nland",
+    "gnp_old": null,
+    "local_name": "Kalaallit Nunaat/Grønland",
     "government_form": "Part of Denmark",
     "head_of_state": "Margrethe II",
-    "capital": 917,
-    "code2": "GL"
+    "code2": "GL",
+    "capital": "Nuuk"
   },
   {
     "code": "GTM",
@@ -1509,8 +1509,8 @@
     "local_name": "Guatemala",
     "government_form": "Republic",
     "head_of_state": "Alfonso Portillo Cabrera",
-    "capital": 922,
-    "code2": "GT"
+    "code2": "GT",
+    "capital": "Ciudad de Guatemala"
   },
   {
     "code": "GUF",
@@ -1518,16 +1518,16 @@
     "continent": "South America",
     "region": "South America",
     "surface_area": 90000,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 181000,
     "life_expectancy": 76.1,
     "gnp": 681,
-    "gnp_old": "NULL",
-    "local_name": "Guyane franÁaise",
+    "gnp_old": null,
+    "local_name": "Guyane française",
     "government_form": "Overseas Department of France",
     "head_of_state": "Jacques Chirac",
-    "capital": 3014,
-    "code2": "GF"
+    "code2": "GF",
+    "capital": "Cayenne"
   },
   {
     "code": "GUM",
@@ -1535,7 +1535,7 @@
     "continent": "Oceania",
     "region": "Micronesia",
     "surface_area": 549,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 168000,
     "life_expectancy": 77.8,
     "gnp": 1197,
@@ -1543,8 +1543,8 @@
     "local_name": "Guam",
     "government_form": "US Territory",
     "head_of_state": "George W. Bush",
-    "capital": 921,
-    "code2": "GU"
+    "code2": "GU",
+    "capital": "Agaña"
   },
   {
     "code": "GUY",
@@ -1560,8 +1560,8 @@
     "local_name": "Guyana",
     "government_form": "Republic",
     "head_of_state": "Bharrat Jagdeo",
-    "capital": 928,
-    "code2": "GY"
+    "code2": "GY",
+    "capital": "Georgetown"
   },
   {
     "code": "HKG",
@@ -1569,7 +1569,7 @@
     "continent": "Asia",
     "region": "Eastern Asia",
     "surface_area": 1075,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 6782000,
     "life_expectancy": 79.5,
     "gnp": 166448,
@@ -1577,8 +1577,8 @@
     "local_name": "Xianggang/Hong Kong",
     "government_form": "Special Administrative Region of China",
     "head_of_state": "Jiang Zemin",
-    "capital": 937,
-    "code2": "HK"
+    "code2": "HK",
+    "capital": "Victoria"
   },
   {
     "code": "HMD",
@@ -1586,16 +1586,16 @@
     "continent": "Antarctica",
     "region": "Antarctica",
     "surface_area": 359,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 0,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Heard and McDonald Islands",
     "government_form": "Territory of Australia",
     "head_of_state": "Elisabeth II",
-    "capital": "NULL",
-    "code2": "HM"
+    "code2": "HM",
+    "capital": null
   },
   {
     "code": "HND",
@@ -1610,9 +1610,9 @@
     "gnp_old": 4697,
     "local_name": "Honduras",
     "government_form": "Republic",
-    "head_of_state": "Carlos Roberto Flores FacussÈ",
-    "capital": 933,
-    "code2": "HN"
+    "head_of_state": "Carlos Roberto Flores Facussé",
+    "code2": "HN",
+    "capital": "Tegucigalpa"
   },
   {
     "code": "HRV",
@@ -1627,9 +1627,9 @@
     "gnp_old": 19300,
     "local_name": "Hrvatska",
     "government_form": "Republic",
-    "head_of_state": "ätipe Mesic",
-    "capital": 2409,
-    "code2": "HR"
+    "head_of_state": "Štipe Mesic",
+    "code2": "HR",
+    "capital": "Zagreb"
   },
   {
     "code": "HTI",
@@ -1642,11 +1642,11 @@
     "life_expectancy": 49.2,
     "gnp": 3459,
     "gnp_old": 3107,
-    "local_name": "HaÔti/Dayti",
+    "local_name": "Haïti/Dayti",
     "government_form": "Republic",
     "head_of_state": "Jean-Bertrand Aristide",
-    "capital": 929,
-    "code2": "HT"
+    "code2": "HT",
+    "capital": "Port-au-Prince"
   },
   {
     "code": "HUN",
@@ -1659,11 +1659,11 @@
     "life_expectancy": 71.4,
     "gnp": 48267,
     "gnp_old": 45914,
-    "local_name": "Magyarorsz·g",
+    "local_name": "Magyarország",
     "government_form": "Republic",
-    "head_of_state": "Ferenc M·dl",
-    "capital": 3483,
-    "code2": "HU"
+    "head_of_state": "Ferenc Mádl",
+    "code2": "HU",
+    "capital": "Budapest"
   },
   {
     "code": "IDN",
@@ -1679,8 +1679,8 @@
     "local_name": "Indonesia",
     "government_form": "Republic",
     "head_of_state": "Abdurrahman Wahid",
-    "capital": 939,
-    "code2": "ID"
+    "code2": "ID",
+    "capital": "Jakarta"
   },
   {
     "code": "IND",
@@ -1696,8 +1696,8 @@
     "local_name": "Bharat/India",
     "government_form": "Federal Republic",
     "head_of_state": "Kocheril Raman Narayanan",
-    "capital": 1109,
-    "code2": "IN"
+    "code2": "IN",
+    "capital": "New Delhi"
   },
   {
     "code": "IOT",
@@ -1705,16 +1705,16 @@
     "continent": "Africa",
     "region": "Eastern Africa",
     "surface_area": 78,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 0,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "British Indian Ocean Territory",
     "government_form": "Dependent Territory of the UK",
     "head_of_state": "Elisabeth II",
-    "capital": "NULL",
-    "code2": "IO"
+    "code2": "IO",
+    "capital": null
   },
   {
     "code": "IRL",
@@ -1727,11 +1727,11 @@
     "life_expectancy": 76.8,
     "gnp": 75921,
     "gnp_old": 73132,
-    "local_name": "Ireland/…ire",
+    "local_name": "Ireland/Éire",
     "government_form": "Republic",
     "head_of_state": "Mary McAleese",
-    "capital": 1447,
-    "code2": "IE"
+    "code2": "IE",
+    "capital": "Dublin"
   },
   {
     "code": "IRN",
@@ -1747,8 +1747,8 @@
     "local_name": "Iran",
     "government_form": "Islamic Republic",
     "head_of_state": "Ali Mohammad Khatami-Ardakani",
-    "capital": 1380,
-    "code2": "IR"
+    "code2": "IR",
+    "capital": "Teheran"
   },
   {
     "code": "IRQ",
@@ -1760,12 +1760,12 @@
     "population": 23115000,
     "life_expectancy": 66.5,
     "gnp": 11500,
-    "gnp_old": "NULL",
-    "local_name": "Al-¥Iraq",
+    "gnp_old": null,
+    "local_name": "Al-´Iraq",
     "government_form": "Republic",
     "head_of_state": "Saddam Hussein al-Takriti",
-    "capital": 1365,
-    "code2": "IQ"
+    "code2": "IQ",
+    "capital": "Baghdad"
   },
   {
     "code": "ISL",
@@ -1778,11 +1778,11 @@
     "life_expectancy": 79.4,
     "gnp": 8255,
     "gnp_old": 7474,
-    "local_name": "Õsland",
+    "local_name": "Ísland",
     "government_form": "Republic",
-    "head_of_state": "”lafur Ragnar GrÌmsson",
-    "capital": 1449,
-    "code2": "IS"
+    "head_of_state": "Ólafur Ragnar Grímsson",
+    "code2": "IS",
+    "capital": "Reykjavík"
   },
   {
     "code": "ISR",
@@ -1795,11 +1795,11 @@
     "life_expectancy": 78.6,
     "gnp": 97477,
     "gnp_old": 98577,
-    "local_name": "Yisraíel/Israíil",
+    "local_name": "Yisra’el/Isra’il",
     "government_form": "Republic",
     "head_of_state": "Moshe Katzav",
-    "capital": 1450,
-    "code2": "IL"
+    "code2": "IL",
+    "capital": "Jerusalem"
   },
   {
     "code": "ITA",
@@ -1815,8 +1815,8 @@
     "local_name": "Italia",
     "government_form": "Republic",
     "head_of_state": "Carlo Azeglio Ciampi",
-    "capital": 1464,
-    "code2": "IT"
+    "code2": "IT",
+    "capital": "Roma"
   },
   {
     "code": "JAM",
@@ -1832,8 +1832,8 @@
     "local_name": "Jamaica",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Elisabeth II",
-    "capital": 1530,
-    "code2": "JM"
+    "code2": "JM",
+    "capital": "Kingston"
   },
   {
     "code": "JOR",
@@ -1849,8 +1849,8 @@
     "local_name": "Al-Urdunn",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Abdullah II",
-    "capital": 1786,
-    "code2": "JO"
+    "code2": "JO",
+    "capital": "Amman"
   },
   {
     "code": "JPN",
@@ -1866,8 +1866,8 @@
     "local_name": "Nihon/Nippon",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Akihito",
-    "capital": 1532,
-    "code2": "JP"
+    "code2": "JP",
+    "capital": "Tokyo"
   },
   {
     "code": "KAZ",
@@ -1883,8 +1883,8 @@
     "local_name": "Qazaqstan",
     "government_form": "Republic",
     "head_of_state": "Nursultan Nazarbajev",
-    "capital": 1864,
-    "code2": "KZ"
+    "code2": "KZ",
+    "capital": "Astana"
   },
   {
     "code": "KEN",
@@ -1900,8 +1900,8 @@
     "local_name": "Kenya",
     "government_form": "Republic",
     "head_of_state": "Daniel arap Moi",
-    "capital": 1881,
-    "code2": "KE"
+    "code2": "KE",
+    "capital": "Nairobi"
   },
   {
     "code": "KGZ",
@@ -1917,8 +1917,8 @@
     "local_name": "Kyrgyzstan",
     "government_form": "Republic",
     "head_of_state": "Askar Akajev",
-    "capital": 2253,
-    "code2": "KG"
+    "code2": "KG",
+    "capital": "Bishkek"
   },
   {
     "code": "KHM",
@@ -1931,11 +1931,11 @@
     "life_expectancy": 56.5,
     "gnp": 5121,
     "gnp_old": 5670,
-    "local_name": "K‚mpuchÈa",
+    "local_name": "Kâmpuchéa",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Norodom Sihanouk",
-    "capital": 1800,
-    "code2": "KH"
+    "code2": "KH",
+    "capital": "Phnom Penh"
   },
   {
     "code": "KIR",
@@ -1947,12 +1947,12 @@
     "population": 83000,
     "life_expectancy": 59.8,
     "gnp": 40.7,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Kiribati",
     "government_form": "Republic",
     "head_of_state": "Teburoro Tito",
-    "capital": 2256,
-    "code2": "KI"
+    "code2": "KI",
+    "capital": "Bairiki"
   },
   {
     "code": "KNA",
@@ -1964,12 +1964,12 @@
     "population": 38000,
     "life_expectancy": 70.7,
     "gnp": 299,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Saint Kitts and Nevis",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Elisabeth II",
-    "capital": 3064,
-    "code2": "KN"
+    "code2": "KN",
+    "capital": "Basseterre"
   },
   {
     "code": "KOR",
@@ -1982,11 +1982,11 @@
     "life_expectancy": 74.4,
     "gnp": 320749,
     "gnp_old": 442544,
-    "local_name": "Taehan Miníguk (Namhan)",
+    "local_name": "Taehan Min’guk (Namhan)",
     "government_form": "Republic",
     "head_of_state": "Kim Dae-jung",
-    "capital": 2331,
-    "code2": "KR"
+    "code2": "KR",
+    "capital": "Seoul"
   },
   {
     "code": "KWT",
@@ -2002,8 +2002,8 @@
     "local_name": "Al-Kuwayt",
     "government_form": "Constitutional Monarchy (Emirate)",
     "head_of_state": "Jabir al-Ahmad al-Jabir al-Sabah",
-    "capital": 2429,
-    "code2": "KW"
+    "code2": "KW",
+    "capital": "Kuwait"
   },
   {
     "code": "LAO",
@@ -2019,8 +2019,8 @@
     "local_name": "Lao",
     "government_form": "Republic",
     "head_of_state": "Khamtay Siphandone",
-    "capital": 2432,
-    "code2": "LA"
+    "code2": "LA",
+    "capital": "Vientiane"
   },
   {
     "code": "LBN",
@@ -2035,9 +2035,9 @@
     "gnp_old": 15129,
     "local_name": "Lubnan",
     "government_form": "Republic",
-    "head_of_state": "…mile Lahoud",
-    "capital": 2438,
-    "code2": "LB"
+    "head_of_state": "Émile Lahoud",
+    "code2": "LB",
+    "capital": "Beirut"
   },
   {
     "code": "LBR",
@@ -2049,12 +2049,12 @@
     "population": 3154000,
     "life_expectancy": 51,
     "gnp": 2012,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Liberia",
     "government_form": "Republic",
     "head_of_state": "Charles Taylor",
-    "capital": 2440,
-    "code2": "LR"
+    "code2": "LR",
+    "capital": "Monrovia"
   },
   {
     "code": "LBY",
@@ -2070,8 +2070,8 @@
     "local_name": "Libiya",
     "government_form": "Socialistic State",
     "head_of_state": "Muammar al-Qadhafi",
-    "capital": 2441,
-    "code2": "LY"
+    "code2": "LY",
+    "capital": "Tripoli"
   },
   {
     "code": "LCA",
@@ -2083,12 +2083,12 @@
     "population": 154000,
     "life_expectancy": 72.3,
     "gnp": 571,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Saint Lucia",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Elisabeth II",
-    "capital": 3065,
-    "code2": "LC"
+    "code2": "LC",
+    "capital": "Castries"
   },
   {
     "code": "LIE",
@@ -2104,8 +2104,8 @@
     "local_name": "Liechtenstein",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Hans-Adam II",
-    "capital": 2446,
-    "code2": "LI"
+    "code2": "LI",
+    "capital": "Vaduz"
   },
   {
     "code": "LKA",
@@ -2121,8 +2121,8 @@
     "local_name": "Sri Lanka/Ilankai",
     "government_form": "Republic",
     "head_of_state": "Chandrika Kumaratunga",
-    "capital": 3217,
-    "code2": "LK"
+    "code2": "LK",
+    "capital": "Colombo"
   },
   {
     "code": "LSO",
@@ -2138,8 +2138,8 @@
     "local_name": "Lesotho",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Letsie III",
-    "capital": 2437,
-    "code2": "LS"
+    "code2": "LS",
+    "capital": "Maseru"
   },
   {
     "code": "LTU",
@@ -2155,8 +2155,8 @@
     "local_name": "Lietuva",
     "government_form": "Republic",
     "head_of_state": "Valdas Adamkus",
-    "capital": 2447,
-    "code2": "LT"
+    "code2": "LT",
+    "capital": "Vilnius"
   },
   {
     "code": "LUX",
@@ -2169,11 +2169,11 @@
     "life_expectancy": 77.1,
     "gnp": 16321,
     "gnp_old": 15519,
-    "local_name": "Luxembourg/LÎtzebuerg",
+    "local_name": "Luxembourg/Lëtzebuerg",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Henri",
-    "capital": 2452,
-    "code2": "LU"
+    "code2": "LU",
+    "capital": "Luxembourg [Luxemburg/Lëtzebuerg]"
   },
   {
     "code": "LVA",
@@ -2189,8 +2189,8 @@
     "local_name": "Latvija",
     "government_form": "Republic",
     "head_of_state": "Vaira Vike-Freiberga",
-    "capital": 2434,
-    "code2": "LV"
+    "code2": "LV",
+    "capital": "Riga"
   },
   {
     "code": "MAC",
@@ -2198,7 +2198,7 @@
     "continent": "Asia",
     "region": "Eastern Asia",
     "surface_area": 18,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 473000,
     "life_expectancy": 81.6,
     "gnp": 5749,
@@ -2206,8 +2206,8 @@
     "local_name": "Macau/Aomen",
     "government_form": "Special Administrative Region of China",
     "head_of_state": "Jiang Zemin",
-    "capital": 2454,
-    "code2": "MO"
+    "code2": "MO",
+    "capital": "Macao"
   },
   {
     "code": "MAR",
@@ -2223,8 +2223,8 @@
     "local_name": "Al-Maghrib",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Mohammed VI",
-    "capital": 2486,
-    "code2": "MA"
+    "code2": "MA",
+    "capital": "Rabat"
   },
   {
     "code": "MCO",
@@ -2236,12 +2236,12 @@
     "population": 34000,
     "life_expectancy": 78.8,
     "gnp": 776,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Monaco",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Rainier III",
-    "capital": 2695,
-    "code2": "MC"
+    "code2": "MC",
+    "capital": "Monaco-Ville"
   },
   {
     "code": "MDA",
@@ -2257,8 +2257,8 @@
     "local_name": "Moldova",
     "government_form": "Republic",
     "head_of_state": "Vladimir Voronin",
-    "capital": 2690,
-    "code2": "MD"
+    "code2": "MD",
+    "capital": "Chisinau"
   },
   {
     "code": "MDG",
@@ -2274,8 +2274,8 @@
     "local_name": "Madagasikara/Madagascar",
     "government_form": "Federal Republic",
     "head_of_state": "Didier Ratsiraka",
-    "capital": 2455,
-    "code2": "MG"
+    "code2": "MG",
+    "capital": "Antananarivo"
   },
   {
     "code": "MDV",
@@ -2287,12 +2287,12 @@
     "population": 286000,
     "life_expectancy": 62.2,
     "gnp": 199,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Dhivehi Raajje/Maldives",
     "government_form": "Republic",
     "head_of_state": "Maumoon Abdul Gayoom",
-    "capital": 2463,
-    "code2": "MV"
+    "code2": "MV",
+    "capital": "Male"
   },
   {
     "code": "MEX",
@@ -2305,11 +2305,11 @@
     "life_expectancy": 71.5,
     "gnp": 414972,
     "gnp_old": 401461,
-    "local_name": "MÈxico",
+    "local_name": "México",
     "government_form": "Federal Republic",
     "head_of_state": "Vicente Fox Quesada",
-    "capital": 2515,
-    "code2": "MX"
+    "code2": "MX",
+    "capital": "Ciudad de México"
   },
   {
     "code": "MHL",
@@ -2321,12 +2321,12 @@
     "population": 64000,
     "life_expectancy": 65.5,
     "gnp": 97,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Marshall Islands/Majol",
     "government_form": "Republic",
     "head_of_state": "Kessai Note",
-    "capital": 2507,
-    "code2": "MH"
+    "code2": "MH",
+    "capital": "Dalap-Uliga-Darrit"
   },
   {
     "code": "MKD",
@@ -2342,8 +2342,8 @@
     "local_name": "Makedonija",
     "government_form": "Republic",
     "head_of_state": "Boris Trajkovski",
-    "capital": 2460,
-    "code2": "MK"
+    "code2": "MK",
+    "capital": "Skopje"
   },
   {
     "code": "MLI",
@@ -2358,9 +2358,9 @@
     "gnp_old": 2453,
     "local_name": "Mali",
     "government_form": "Republic",
-    "head_of_state": "Alpha Oumar KonarÈ",
-    "capital": 2482,
-    "code2": "ML"
+    "head_of_state": "Alpha Oumar Konaré",
+    "code2": "ML",
+    "capital": "Bamako"
   },
   {
     "code": "MLT",
@@ -2376,8 +2376,8 @@
     "local_name": "Malta",
     "government_form": "Republic",
     "head_of_state": "Guido de Marco",
-    "capital": 2484,
-    "code2": "MT"
+    "code2": "MT",
+    "capital": "Valletta"
   },
   {
     "code": "MMR",
@@ -2393,8 +2393,8 @@
     "local_name": "Myanma Pye",
     "government_form": "Republic",
     "head_of_state": "kenraali Than Shwe",
-    "capital": 2710,
-    "code2": "MM"
+    "code2": "MM",
+    "capital": "Rangoon (Yangon)"
   },
   {
     "code": "MNG",
@@ -2410,8 +2410,8 @@
     "local_name": "Mongol Uls",
     "government_form": "Republic",
     "head_of_state": "Natsagiin Bagabandi",
-    "capital": 2696,
-    "code2": "MN"
+    "code2": "MN",
+    "capital": "Ulan Bator"
   },
   {
     "code": "MNP",
@@ -2419,16 +2419,16 @@
     "continent": "Oceania",
     "region": "Micronesia",
     "surface_area": 464,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 78000,
     "life_expectancy": 75.5,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Northern Mariana Islands",
     "government_form": "Commonwealth of the US",
     "head_of_state": "George W. Bush",
-    "capital": 2913,
-    "code2": "MP"
+    "code2": "MP",
+    "capital": "Garapan"
   },
   {
     "code": "MOZ",
@@ -2441,11 +2441,11 @@
     "life_expectancy": 37.5,
     "gnp": 2891,
     "gnp_old": 2711,
-    "local_name": "MoÁambique",
+    "local_name": "Moçambique",
     "government_form": "Republic",
-    "head_of_state": "JoaquÌm A. Chissano",
-    "capital": 2698,
-    "code2": "MZ"
+    "head_of_state": "Joaquím A. Chissano",
+    "code2": "MZ",
+    "capital": "Maputo"
   },
   {
     "code": "MRT",
@@ -2460,9 +2460,9 @@
     "gnp_old": 1081,
     "local_name": "Muritaniya/Mauritanie",
     "government_form": "Republic",
-    "head_of_state": "Maaouiya Ould Sid¥Ahmad Taya",
-    "capital": 2509,
-    "code2": "MR"
+    "head_of_state": "Maaouiya Ould Sid´Ahmad Taya",
+    "code2": "MR",
+    "capital": "Nouakchott"
   },
   {
     "code": "MSR",
@@ -2470,16 +2470,16 @@
     "continent": "North America",
     "region": "Caribbean",
     "surface_area": 102,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 11000,
     "life_expectancy": 78,
     "gnp": 109,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Montserrat",
     "government_form": "Dependent Territory of the UK",
     "head_of_state": "Elisabeth II",
-    "capital": 2697,
-    "code2": "MS"
+    "code2": "MS",
+    "capital": "Plymouth"
   },
   {
     "code": "MTQ",
@@ -2487,7 +2487,7 @@
     "continent": "North America",
     "region": "Caribbean",
     "surface_area": 1102,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 395000,
     "life_expectancy": 78.3,
     "gnp": 2731,
@@ -2495,8 +2495,8 @@
     "local_name": "Martinique",
     "government_form": "Overseas Department of France",
     "head_of_state": "Jacques Chirac",
-    "capital": 2508,
-    "code2": "MQ"
+    "code2": "MQ",
+    "capital": "Fort-de-France"
   },
   {
     "code": "MUS",
@@ -2512,8 +2512,8 @@
     "local_name": "Mauritius",
     "government_form": "Republic",
     "head_of_state": "Cassam Uteem",
-    "capital": 2511,
-    "code2": "MU"
+    "code2": "MU",
+    "capital": "Port-Louis"
   },
   {
     "code": "MWI",
@@ -2529,8 +2529,8 @@
     "local_name": "Malawi",
     "government_form": "Republic",
     "head_of_state": "Bakili Muluzi",
-    "capital": 2462,
-    "code2": "MW"
+    "code2": "MW",
+    "capital": "Lilongwe"
   },
   {
     "code": "MYS",
@@ -2546,8 +2546,8 @@
     "local_name": "Malaysia",
     "government_form": "Constitutional Monarchy, Federation",
     "head_of_state": "Salahuddin Abdul Aziz Shah Alhaj",
-    "capital": 2464,
-    "code2": "MY"
+    "code2": "MY",
+    "capital": "Kuala Lumpur"
   },
   {
     "code": "MYT",
@@ -2555,16 +2555,16 @@
     "continent": "Africa",
     "region": "Eastern Africa",
     "surface_area": 373,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 149000,
     "life_expectancy": 59.5,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Mayotte",
     "government_form": "Territorial Collectivity of France",
     "head_of_state": "Jacques Chirac",
-    "capital": 2514,
-    "code2": "YT"
+    "code2": "YT",
+    "capital": "Mamoutzou"
   },
   {
     "code": "NAM",
@@ -2580,8 +2580,8 @@
     "local_name": "Namibia",
     "government_form": "Republic",
     "head_of_state": "Sam Nujoma",
-    "capital": 2726,
-    "code2": "NA"
+    "code2": "NA",
+    "capital": "Windhoek"
   },
   {
     "code": "NCL",
@@ -2589,16 +2589,16 @@
     "continent": "Oceania",
     "region": "Melanesia",
     "surface_area": 18575,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 214000,
     "life_expectancy": 72.8,
     "gnp": 3563,
-    "gnp_old": "NULL",
-    "local_name": "Nouvelle-CalÈdonie",
+    "gnp_old": null,
+    "local_name": "Nouvelle-Calédonie",
     "government_form": "Nonmetropolitan Territory of France",
     "head_of_state": "Jacques Chirac",
-    "capital": 3493,
-    "code2": "NC"
+    "code2": "NC",
+    "capital": "Nouméa"
   },
   {
     "code": "NER",
@@ -2614,8 +2614,8 @@
     "local_name": "Niger",
     "government_form": "Republic",
     "head_of_state": "Mamadou Tandja",
-    "capital": 2738,
-    "code2": "NE"
+    "code2": "NE",
+    "capital": "Niamey"
   },
   {
     "code": "NFK",
@@ -2623,16 +2623,16 @@
     "continent": "Oceania",
     "region": "Australia and New Zealand",
     "surface_area": 36,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 2000,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Norfolk Island",
     "government_form": "Territory of Australia",
     "head_of_state": "Elisabeth II",
-    "capital": 2806,
-    "code2": "NF"
+    "code2": "NF",
+    "capital": "Kingston"
   },
   {
     "code": "NGA",
@@ -2648,8 +2648,8 @@
     "local_name": "Nigeria",
     "government_form": "Federal Republic",
     "head_of_state": "Olusegun Obasanjo",
-    "capital": 2754,
-    "code2": "NG"
+    "code2": "NG",
+    "capital": "Abuja"
   },
   {
     "code": "NIC",
@@ -2664,9 +2664,9 @@
     "gnp_old": 2023,
     "local_name": "Nicaragua",
     "government_form": "Republic",
-    "head_of_state": "Arnoldo Alem·n Lacayo",
-    "capital": 2734,
-    "code2": "NI"
+    "head_of_state": "Arnoldo Alemán Lacayo",
+    "code2": "NI",
+    "capital": "Managua"
   },
   {
     "code": "NIU",
@@ -2674,16 +2674,16 @@
     "continent": "Oceania",
     "region": "Polynesia",
     "surface_area": 260,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 2000,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Niue",
     "government_form": "Nonmetropolitan Territory of New Zealand",
     "head_of_state": "Elisabeth II",
-    "capital": 2805,
-    "code2": "NU"
+    "code2": "NU",
+    "capital": "Alofi"
   },
   {
     "code": "NLD",
@@ -2699,8 +2699,8 @@
     "local_name": "Nederland",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Beatrix",
-    "capital": 5,
-    "code2": "NL"
+    "code2": "NL",
+    "capital": "Amsterdam"
   },
   {
     "code": "NOR",
@@ -2716,8 +2716,8 @@
     "local_name": "Norge",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Harald V",
-    "capital": 2807,
-    "code2": "NO"
+    "code2": "NO",
+    "capital": "Oslo"
   },
   {
     "code": "NPL",
@@ -2733,8 +2733,8 @@
     "local_name": "Nepal",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Gyanendra Bir Bikram",
-    "capital": 2729,
-    "code2": "NP"
+    "code2": "NP",
+    "capital": "Kathmandu"
   },
   {
     "code": "NRU",
@@ -2746,12 +2746,12 @@
     "population": 12000,
     "life_expectancy": 60.8,
     "gnp": 197,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Naoero/Nauru",
     "government_form": "Republic",
     "head_of_state": "Bernard Dowiyogo",
-    "capital": 2728,
-    "code2": "NR"
+    "code2": "NR",
+    "capital": "Yaren"
   },
   {
     "code": "NZL",
@@ -2767,8 +2767,8 @@
     "local_name": "New Zealand/Aotearoa",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Elisabeth II",
-    "capital": 3499,
-    "code2": "NZ"
+    "code2": "NZ",
+    "capital": "Wellington"
   },
   {
     "code": "OMN",
@@ -2781,11 +2781,11 @@
     "life_expectancy": 71.8,
     "gnp": 16904,
     "gnp_old": 16153,
-    "local_name": "¥Uman",
+    "local_name": "´Uman",
     "government_form": "Monarchy (Sultanate)",
-    "head_of_state": "Qabus ibn Sa¥id",
-    "capital": 2821,
-    "code2": "OM"
+    "head_of_state": "Qabus ibn Sa´id",
+    "code2": "OM",
+    "capital": "Masqat"
   },
   {
     "code": "PAK",
@@ -2801,8 +2801,8 @@
     "local_name": "Pakistan",
     "government_form": "Republic",
     "head_of_state": "Mohammad Rafiq Tarar",
-    "capital": 2831,
-    "code2": "PK"
+    "code2": "PK",
+    "capital": "Islamabad"
   },
   {
     "code": "PAN",
@@ -2815,11 +2815,11 @@
     "life_expectancy": 75.5,
     "gnp": 9131,
     "gnp_old": 8700,
-    "local_name": "Panam·",
+    "local_name": "Panamá",
     "government_form": "Republic",
-    "head_of_state": "Mireya Elisa Moscoso RodrÌguez",
-    "capital": 2882,
-    "code2": "PA"
+    "head_of_state": "Mireya Elisa Moscoso Rodríguez",
+    "code2": "PA",
+    "capital": "Ciudad de Panamá"
   },
   {
     "code": "PCN",
@@ -2827,16 +2827,16 @@
     "continent": "Oceania",
     "region": "Polynesia",
     "surface_area": 49,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 50,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Pitcairn",
     "government_form": "Dependent Territory of the UK",
     "head_of_state": "Elisabeth II",
-    "capital": 2912,
-    "code2": "PN"
+    "code2": "PN",
+    "capital": "Adamstown"
   },
   {
     "code": "PER",
@@ -2849,11 +2849,11 @@
     "life_expectancy": 70,
     "gnp": 64140,
     "gnp_old": 65186,
-    "local_name": "Per˙/Piruw",
+    "local_name": "Perú/Piruw",
     "government_form": "Republic",
     "head_of_state": "Valentin Paniagua Corazao",
-    "capital": 2890,
-    "code2": "PE"
+    "code2": "PE",
+    "capital": "Lima"
   },
   {
     "code": "PHL",
@@ -2869,8 +2869,8 @@
     "local_name": "Pilipinas",
     "government_form": "Republic",
     "head_of_state": "Gloria Macapagal-Arroyo",
-    "capital": 766,
-    "code2": "PH"
+    "code2": "PH",
+    "capital": "Manila"
   },
   {
     "code": "PLW",
@@ -2882,12 +2882,12 @@
     "population": 19000,
     "life_expectancy": 68.6,
     "gnp": 105,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Belau/Palau",
     "government_form": "Republic",
     "head_of_state": "Kuniwo Nakamura",
-    "capital": 2881,
-    "code2": "PW"
+    "code2": "PW",
+    "capital": "Koror"
   },
   {
     "code": "PNG",
@@ -2903,8 +2903,8 @@
     "local_name": "Papua New Guinea/Papua Niugini",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Elisabeth II",
-    "capital": 2884,
-    "code2": "PG"
+    "code2": "PG",
+    "capital": "Port Moresby"
   },
   {
     "code": "POL",
@@ -2920,8 +2920,8 @@
     "local_name": "Polska",
     "government_form": "Republic",
     "head_of_state": "Aleksander Kwasniewski",
-    "capital": 2928,
-    "code2": "PL"
+    "code2": "PL",
+    "capital": "Warszawa"
   },
   {
     "code": "PRI",
@@ -2929,7 +2929,7 @@
     "continent": "North America",
     "region": "Caribbean",
     "surface_area": 8875,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 3869000,
     "life_expectancy": 75.6,
     "gnp": 34100,
@@ -2937,8 +2937,8 @@
     "local_name": "Puerto Rico",
     "government_form": "Commonwealth of the US",
     "head_of_state": "George W. Bush",
-    "capital": 2919,
-    "code2": "PR"
+    "code2": "PR",
+    "capital": "San Juan"
   },
   {
     "code": "PRK",
@@ -2950,12 +2950,12 @@
     "population": 24039000,
     "life_expectancy": 70.7,
     "gnp": 5332,
-    "gnp_old": "NULL",
-    "local_name": "Choson Minjujuui In¥min Konghwaguk (Bukhan)",
+    "gnp_old": null,
+    "local_name": "Choson Minjujuui In´min Konghwaguk (Bukhan)",
     "government_form": "Socialistic Republic",
     "head_of_state": "Kim Jong-il",
-    "capital": 2318,
-    "code2": "KP"
+    "code2": "KP",
+    "capital": "Pyongyang"
   },
   {
     "code": "PRT",
@@ -2970,9 +2970,9 @@
     "gnp_old": 102133,
     "local_name": "Portugal",
     "government_form": "Republic",
-    "head_of_state": "Jorge Samp„io",
-    "capital": 2914,
-    "code2": "PT"
+    "head_of_state": "Jorge Sampãio",
+    "code2": "PT",
+    "capital": "Lisboa"
   },
   {
     "code": "PRY",
@@ -2987,9 +2987,9 @@
     "gnp_old": 9555,
     "local_name": "Paraguay",
     "government_form": "Republic",
-    "head_of_state": "Luis ¡ngel Gonz·lez Macchi",
-    "capital": 2885,
-    "code2": "PY"
+    "head_of_state": "Luis Ángel González Macchi",
+    "code2": "PY",
+    "capital": "Asunción"
   },
   {
     "code": "PSE",
@@ -2997,16 +2997,16 @@
     "continent": "Asia",
     "region": "Middle East",
     "surface_area": 6257,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 3101000,
     "life_expectancy": 71.4,
     "gnp": 4173,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Filastin",
     "government_form": "Autonomous Area",
     "head_of_state": "Yasser (Yasir) Arafat",
-    "capital": 4074,
-    "code2": "PS"
+    "code2": "PS",
+    "capital": "Gaza"
   },
   {
     "code": "PYF",
@@ -3014,16 +3014,16 @@
     "continent": "Oceania",
     "region": "Polynesia",
     "surface_area": 4000,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 235000,
     "life_expectancy": 74.8,
     "gnp": 818,
     "gnp_old": 781,
-    "local_name": "PolynÈsie franÁaise",
+    "local_name": "Polynésie française",
     "government_form": "Nonmetropolitan Territory of France",
     "head_of_state": "Jacques Chirac",
-    "capital": 3016,
-    "code2": "PF"
+    "code2": "PF",
+    "capital": "Papeete"
   },
   {
     "code": "QAT",
@@ -3039,25 +3039,25 @@
     "local_name": "Qatar",
     "government_form": "Monarchy",
     "head_of_state": "Hamad ibn Khalifa al-Thani",
-    "capital": 2973,
-    "code2": "QA"
+    "code2": "QA",
+    "capital": "Doha"
   },
   {
     "code": "REU",
-    "name": "RÈunion",
+    "name": "Réunion",
     "continent": "Africa",
     "region": "Eastern Africa",
     "surface_area": 2510,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 699000,
     "life_expectancy": 72.7,
     "gnp": 8287,
     "gnp_old": 7988,
-    "local_name": "RÈunion",
+    "local_name": "Réunion",
     "government_form": "Overseas Department of France",
     "head_of_state": "Jacques Chirac",
-    "capital": 3017,
-    "code2": "RE"
+    "code2": "RE",
+    "capital": "Saint-Denis"
   },
   {
     "code": "ROM",
@@ -3070,11 +3070,11 @@
     "life_expectancy": 69.9,
     "gnp": 38158,
     "gnp_old": 34843,
-    "local_name": "Rom‚nia",
+    "local_name": "România",
     "government_form": "Republic",
     "head_of_state": "Ion Iliescu",
-    "capital": 3018,
-    "code2": "RO"
+    "code2": "RO",
+    "capital": "Bucuresti"
   },
   {
     "code": "RUS",
@@ -3090,8 +3090,8 @@
     "local_name": "Rossija",
     "government_form": "Federal Republic",
     "head_of_state": "Vladimir Putin",
-    "capital": 3580,
-    "code2": "RU"
+    "code2": "RU",
+    "capital": "Moscow"
   },
   {
     "code": "RWA",
@@ -3107,8 +3107,8 @@
     "local_name": "Rwanda/Urwanda",
     "government_form": "Republic",
     "head_of_state": "Paul Kagame",
-    "capital": 3047,
-    "code2": "RW"
+    "code2": "RW",
+    "capital": "Kigali"
   },
   {
     "code": "SAU",
@@ -3121,11 +3121,11 @@
     "life_expectancy": 67.8,
     "gnp": 137635,
     "gnp_old": 146171,
-    "local_name": "Al-¥Arabiya as-Sa¥udiya",
+    "local_name": "Al-´Arabiya as-Sa´udiya",
     "government_form": "Monarchy",
-    "head_of_state": "Fahd ibn Abdul-Aziz al-Sa¥ud",
-    "capital": 3173,
-    "code2": "SA"
+    "head_of_state": "Fahd ibn Abdul-Aziz al-Sa´ud",
+    "code2": "SA",
+    "capital": "Riyadh"
   },
   {
     "code": "SDN",
@@ -3137,12 +3137,12 @@
     "population": 29490000,
     "life_expectancy": 56.6,
     "gnp": 10162,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "As-Sudan",
     "government_form": "Islamic Republic",
     "head_of_state": "Omar Hassan Ahmad al-Bashir",
-    "capital": 3225,
-    "code2": "SD"
+    "code2": "SD",
+    "capital": "Khartum"
   },
   {
     "code": "SEN",
@@ -3155,11 +3155,11 @@
     "life_expectancy": 62.2,
     "gnp": 4787,
     "gnp_old": 4542,
-    "local_name": "SÈnÈgal/Sounougal",
+    "local_name": "Sénégal/Sounougal",
     "government_form": "Republic",
     "head_of_state": "Abdoulaye Wade",
-    "capital": 3198,
-    "code2": "SN"
+    "code2": "SN",
+    "capital": "Dakar"
   },
   {
     "code": "SGP",
@@ -3175,8 +3175,8 @@
     "local_name": "Singapore/Singapura/Xinjiapo/Singapur",
     "government_form": "Republic",
     "head_of_state": "Sellapan Rama Nathan",
-    "capital": 3208,
-    "code2": "SG"
+    "code2": "SG",
+    "capital": "Singapore"
   },
   {
     "code": "SGS",
@@ -3184,16 +3184,16 @@
     "continent": "Antarctica",
     "region": "Antarctica",
     "surface_area": 3903,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 0,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "South Georgia and the South Sandwich Islands",
     "government_form": "Dependent Territory of the UK",
     "head_of_state": "Elisabeth II",
-    "capital": "NULL",
-    "code2": "GS"
+    "code2": "GS",
+    "capital": null
   },
   {
     "code": "SHN",
@@ -3201,16 +3201,16 @@
     "continent": "Africa",
     "region": "Western Africa",
     "surface_area": 314,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 6000,
     "life_expectancy": 76.8,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Saint Helena",
     "government_form": "Dependent Territory of the UK",
     "head_of_state": "Elisabeth II",
-    "capital": 3063,
-    "code2": "SH"
+    "code2": "SH",
+    "capital": "Jamestown"
   },
   {
     "code": "SJM",
@@ -3218,16 +3218,16 @@
     "continent": "Europe",
     "region": "Nordic Countries",
     "surface_area": 62422,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 3200,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Svalbard og Jan Mayen",
     "government_form": "Dependent Territory of Norway",
     "head_of_state": "Harald V",
-    "capital": 938,
-    "code2": "SJ"
+    "code2": "SJ",
+    "capital": "Longyearbyen"
   },
   {
     "code": "SLB",
@@ -3243,8 +3243,8 @@
     "local_name": "Solomon Islands",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Elisabeth II",
-    "capital": 3161,
-    "code2": "SB"
+    "code2": "SB",
+    "capital": "Honiara"
   },
   {
     "code": "SLE",
@@ -3260,8 +3260,8 @@
     "local_name": "Sierra Leone",
     "government_form": "Republic",
     "head_of_state": "Ahmed Tejan Kabbah",
-    "capital": 3207,
-    "code2": "SL"
+    "code2": "SL",
+    "capital": "Freetown"
   },
   {
     "code": "SLV",
@@ -3276,9 +3276,9 @@
     "gnp_old": 11203,
     "local_name": "El Salvador",
     "government_form": "Republic",
-    "head_of_state": "Francisco Guillermo Flores PÈrez",
-    "capital": 645,
-    "code2": "SV"
+    "head_of_state": "Francisco Guillermo Flores Pérez",
+    "code2": "SV",
+    "capital": "San Salvador"
   },
   {
     "code": "SMR",
@@ -3290,12 +3290,12 @@
     "population": 27000,
     "life_expectancy": 81.1,
     "gnp": 510,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "San Marino",
     "government_form": "Republic",
-    "head_of_state": "NULL",
-    "capital": 3171,
-    "code2": "SM"
+    "head_of_state": null,
+    "code2": "SM",
+    "capital": "San Marino"
   },
   {
     "code": "SOM",
@@ -3307,12 +3307,12 @@
     "population": 10097000,
     "life_expectancy": 46.2,
     "gnp": 935,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Soomaaliya",
     "government_form": "Republic",
     "head_of_state": "Abdiqassim Salad Hassan",
-    "capital": 3214,
-    "code2": "SO"
+    "code2": "SO",
+    "capital": "Mogadishu"
   },
   {
     "code": "SPM",
@@ -3320,16 +3320,16 @@
     "continent": "North America",
     "region": "North America",
     "surface_area": 242,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 7000,
     "life_expectancy": 77.6,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Saint-Pierre-et-Miquelon",
     "government_form": "Territorial Collectivity of France",
     "head_of_state": "Jacques Chirac",
-    "capital": 3067,
-    "code2": "PM"
+    "code2": "PM",
+    "capital": "Saint-Pierre"
   },
   {
     "code": "STP",
@@ -3341,12 +3341,12 @@
     "population": 147000,
     "life_expectancy": 65.3,
     "gnp": 6,
-    "gnp_old": "NULL",
-    "local_name": "S„o TomÈ e PrÌncipe",
+    "gnp_old": null,
+    "local_name": "São Tomé e Príncipe",
     "government_form": "Republic",
     "head_of_state": "Miguel Trovoada",
-    "capital": 3172,
-    "code2": "ST"
+    "code2": "ST",
+    "capital": "São Tomé"
   },
   {
     "code": "SUR",
@@ -3362,8 +3362,8 @@
     "local_name": "Suriname",
     "government_form": "Republic",
     "head_of_state": "Ronald Venetiaan",
-    "capital": 3243,
-    "code2": "SR"
+    "code2": "SR",
+    "capital": "Paramaribo"
   },
   {
     "code": "SVK",
@@ -3379,8 +3379,8 @@
     "local_name": "Slovensko",
     "government_form": "Republic",
     "head_of_state": "Rudolf Schuster",
-    "capital": 3209,
-    "code2": "SK"
+    "code2": "SK",
+    "capital": "Bratislava"
   },
   {
     "code": "SVN",
@@ -3396,8 +3396,8 @@
     "local_name": "Slovenija",
     "government_form": "Republic",
     "head_of_state": "Milan Kucan",
-    "capital": 3212,
-    "code2": "SI"
+    "code2": "SI",
+    "capital": "Ljubljana"
   },
   {
     "code": "SWE",
@@ -3413,8 +3413,8 @@
     "local_name": "Sverige",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Carl XVI Gustaf",
-    "capital": 3048,
-    "code2": "SE"
+    "code2": "SE",
+    "capital": "Stockholm"
   },
   {
     "code": "SWZ",
@@ -3430,8 +3430,8 @@
     "local_name": "kaNgwane",
     "government_form": "Monarchy",
     "head_of_state": "Mswati III",
-    "capital": 3244,
-    "code2": "SZ"
+    "code2": "SZ",
+    "capital": "Mbabane"
   },
   {
     "code": "SYC",
@@ -3446,9 +3446,9 @@
     "gnp_old": 539,
     "local_name": "Sesel/Seychelles",
     "government_form": "Republic",
-    "head_of_state": "France-Albert RenÈ",
-    "capital": 3206,
-    "code2": "SC"
+    "head_of_state": "France-Albert René",
+    "code2": "SC",
+    "capital": "Victoria"
   },
   {
     "code": "SYR",
@@ -3464,8 +3464,8 @@
     "local_name": "Suriya",
     "government_form": "Republic",
     "head_of_state": "Bashar al-Assad",
-    "capital": 3250,
-    "code2": "SY"
+    "code2": "SY",
+    "capital": "Damascus"
   },
   {
     "code": "TCA",
@@ -3473,16 +3473,16 @@
     "continent": "North America",
     "region": "Caribbean",
     "surface_area": 430,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 17000,
     "life_expectancy": 73.3,
     "gnp": 96,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "The Turks and Caicos Islands",
     "government_form": "Dependent Territory of the UK",
     "head_of_state": "Elisabeth II",
-    "capital": 3423,
-    "code2": "TC"
+    "code2": "TC",
+    "capital": "Cockburn Town"
   },
   {
     "code": "TCD",
@@ -3497,9 +3497,9 @@
     "gnp_old": 1102,
     "local_name": "Tchad/Tshad",
     "government_form": "Republic",
-    "head_of_state": "Idriss DÈby",
-    "capital": 3337,
-    "code2": "TD"
+    "head_of_state": "Idriss Déby",
+    "code2": "TD",
+    "capital": "N´Djaména"
   },
   {
     "code": "TGO",
@@ -3514,9 +3514,9 @@
     "gnp_old": 1400,
     "local_name": "Togo",
     "government_form": "Republic",
-    "head_of_state": "GnassingbÈ EyadÈma",
-    "capital": 3332,
-    "code2": "TG"
+    "head_of_state": "Gnassingbé Eyadéma",
+    "code2": "TG",
+    "capital": "Lomé"
   },
   {
     "code": "THA",
@@ -3532,8 +3532,8 @@
     "local_name": "Prathet Thai",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Bhumibol Adulyadej",
-    "capital": 3320,
-    "code2": "TH"
+    "code2": "TH",
+    "capital": "Bangkok"
   },
   {
     "code": "TJK",
@@ -3546,11 +3546,11 @@
     "life_expectancy": 64.1,
     "gnp": 1990,
     "gnp_old": 1056,
-    "local_name": "ToÁikiston",
+    "local_name": "Toçikiston",
     "government_form": "Republic",
     "head_of_state": "Emomali Rahmonov",
-    "capital": 3261,
-    "code2": "TJ"
+    "code2": "TJ",
+    "capital": "Dushanbe"
   },
   {
     "code": "TKL",
@@ -3558,16 +3558,16 @@
     "continent": "Oceania",
     "region": "Polynesia",
     "surface_area": 12,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 2000,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Tokelau",
     "government_form": "Nonmetropolitan Territory of New Zealand",
     "head_of_state": "Elisabeth II",
-    "capital": 3333,
-    "code2": "TK"
+    "code2": "TK",
+    "capital": "Fakaofo"
   },
   {
     "code": "TKM",
@@ -3580,11 +3580,11 @@
     "life_expectancy": 60.9,
     "gnp": 4397,
     "gnp_old": 2000,
-    "local_name": "T¸rkmenostan",
+    "local_name": "Türkmenostan",
     "government_form": "Republic",
     "head_of_state": "Saparmurad Nijazov",
-    "capital": 3419,
-    "code2": "TM"
+    "code2": "TM",
+    "capital": "Ashgabat"
   },
   {
     "code": "TMP",
@@ -3592,16 +3592,16 @@
     "continent": "Asia",
     "region": "Southeast Asia",
     "surface_area": 14874,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 885000,
     "life_expectancy": 46,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Timor Timur",
     "government_form": "Administrated by the UN",
-    "head_of_state": "JosÈ Alexandre Gusm„o",
-    "capital": 1522,
-    "code2": "TP"
+    "head_of_state": "José Alexandre Gusmão",
+    "code2": "TP",
+    "capital": "Dili"
   },
   {
     "code": "TON",
@@ -3617,8 +3617,8 @@
     "local_name": "Tonga",
     "government_form": "Monarchy",
     "head_of_state": "Taufa'ahau Tupou IV",
-    "capital": 3334,
-    "code2": "TO"
+    "code2": "TO",
+    "capital": "Nuku´alofa"
   },
   {
     "code": "TTO",
@@ -3634,8 +3634,8 @@
     "local_name": "Trinidad and Tobago",
     "government_form": "Republic",
     "head_of_state": "Arthur N. R. Robinson",
-    "capital": 3336,
-    "code2": "TT"
+    "code2": "TT",
+    "capital": "Port-of-Spain"
   },
   {
     "code": "TUN",
@@ -3651,8 +3651,8 @@
     "local_name": "Tunis/Tunisie",
     "government_form": "Republic",
     "head_of_state": "Zine al-Abidine Ben Ali",
-    "capital": 3349,
-    "code2": "TN"
+    "code2": "TN",
+    "capital": "Tunis"
   },
   {
     "code": "TUR",
@@ -3665,11 +3665,11 @@
     "life_expectancy": 71,
     "gnp": 210721,
     "gnp_old": 189122,
-    "local_name": "T¸rkiye",
+    "local_name": "Türkiye",
     "government_form": "Republic",
     "head_of_state": "Ahmet Necdet Sezer",
-    "capital": 3358,
-    "code2": "TR"
+    "code2": "TR",
+    "capital": "Ankara"
   },
   {
     "code": "TUV",
@@ -3681,12 +3681,12 @@
     "population": 12000,
     "life_expectancy": 66.3,
     "gnp": 6,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Tuvalu",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Elisabeth II",
-    "capital": 3424,
-    "code2": "TV"
+    "code2": "TV",
+    "capital": "Funafuti"
   },
   {
     "code": "TWN",
@@ -3699,11 +3699,11 @@
     "life_expectancy": 76.4,
     "gnp": 256254,
     "gnp_old": 263451,
-    "local_name": "Tíai-wan",
+    "local_name": "T’ai-wan",
     "government_form": "Republic",
     "head_of_state": "Chen Shui-bian",
-    "capital": 3263,
-    "code2": "TW"
+    "code2": "TW",
+    "capital": "Taipei"
   },
   {
     "code": "TZA",
@@ -3719,8 +3719,8 @@
     "local_name": "Tanzania",
     "government_form": "Republic",
     "head_of_state": "Benjamin William Mkapa",
-    "capital": 3306,
-    "code2": "TZ"
+    "code2": "TZ",
+    "capital": "Dodoma"
   },
   {
     "code": "UGA",
@@ -3736,8 +3736,8 @@
     "local_name": "Uganda",
     "government_form": "Republic",
     "head_of_state": "Yoweri Museveni",
-    "capital": 3425,
-    "code2": "UG"
+    "code2": "UG",
+    "capital": "Kampala"
   },
   {
     "code": "UKR",
@@ -3752,9 +3752,9 @@
     "gnp_old": 49677,
     "local_name": "Ukrajina",
     "government_form": "Republic",
-    "head_of_state": "Leonid Kutöma",
-    "capital": 3426,
-    "code2": "UA"
+    "head_of_state": "Leonid Kutšma",
+    "code2": "UA",
+    "capital": "Kyiv"
   },
   {
     "code": "UMI",
@@ -3762,16 +3762,16 @@
     "continent": "Oceania",
     "region": "Micronesia/Caribbean",
     "surface_area": 16,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 0,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "United States Minor Outlying Islands",
     "government_form": "Dependent Territory of the US",
     "head_of_state": "George W. Bush",
-    "capital": "NULL",
-    "code2": "UM"
+    "code2": "UM",
+    "capital": null
   },
   {
     "code": "URY",
@@ -3786,9 +3786,9 @@
     "gnp_old": 19967,
     "local_name": "Uruguay",
     "government_form": "Republic",
-    "head_of_state": "Jorge Batlle Ib·Òez",
-    "capital": 3492,
-    "code2": "UY"
+    "head_of_state": "Jorge Batlle Ibáñez",
+    "code2": "UY",
+    "capital": "Montevideo"
   },
   {
     "code": "USA",
@@ -3804,8 +3804,8 @@
     "local_name": "United States",
     "government_form": "Federal Republic",
     "head_of_state": "George W. Bush",
-    "capital": 3813,
-    "code2": "US"
+    "code2": "US",
+    "capital": "Washington"
   },
   {
     "code": "UZB",
@@ -3821,8 +3821,8 @@
     "local_name": "Uzbekiston",
     "government_form": "Republic",
     "head_of_state": "Islam Karimov",
-    "capital": 3503,
-    "code2": "UZ"
+    "code2": "UZ",
+    "capital": "Toskent"
   },
   {
     "code": "VAT",
@@ -3832,14 +3832,14 @@
     "surface_area": 0.4,
     "indep_year": 1929,
     "population": 1000,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 9,
-    "gnp_old": "NULL",
-    "local_name": "Santa Sede/Citt‡ del Vaticano",
+    "gnp_old": null,
+    "local_name": "Santa Sede/Città del Vaticano",
     "government_form": "Independent Church State",
     "head_of_state": "Johannes Paavali II",
-    "capital": 3538,
-    "code2": "VA"
+    "code2": "VA",
+    "capital": "Città del Vaticano"
   },
   {
     "code": "VCT",
@@ -3851,12 +3851,12 @@
     "population": 114000,
     "life_expectancy": 72.3,
     "gnp": 285,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Saint Vincent and the Grenadines",
     "government_form": "Constitutional Monarchy",
     "head_of_state": "Elisabeth II",
-    "capital": 3066,
-    "code2": "VC"
+    "code2": "VC",
+    "capital": "Kingstown"
   },
   {
     "code": "VEN",
@@ -3871,9 +3871,9 @@
     "gnp_old": 88434,
     "local_name": "Venezuela",
     "government_form": "Federal Republic",
-    "head_of_state": "Hugo Ch·vez FrÌas",
-    "capital": 3539,
-    "code2": "VE"
+    "head_of_state": "Hugo Chávez Frías",
+    "code2": "VE",
+    "capital": "Caracas"
   },
   {
     "code": "VGB",
@@ -3881,7 +3881,7 @@
     "continent": "North America",
     "region": "Caribbean",
     "surface_area": 151,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 21000,
     "life_expectancy": 75.4,
     "gnp": 612,
@@ -3889,8 +3889,8 @@
     "local_name": "British Virgin Islands",
     "government_form": "Dependent Territory of the UK",
     "head_of_state": "Elisabeth II",
-    "capital": 537,
-    "code2": "VG"
+    "code2": "VG",
+    "capital": "Road Town"
   },
   {
     "code": "VIR",
@@ -3898,16 +3898,16 @@
     "continent": "North America",
     "region": "Caribbean",
     "surface_area": 347,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 93000,
     "life_expectancy": 78.1,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Virgin Islands of the United States",
     "government_form": "US Territory",
     "head_of_state": "George W. Bush",
-    "capital": 4067,
-    "code2": "VI"
+    "code2": "VI",
+    "capital": "Charlotte Amalie"
   },
   {
     "code": "VNM",
@@ -3920,11 +3920,11 @@
     "life_expectancy": 69.3,
     "gnp": 21929,
     "gnp_old": 22834,
-    "local_name": "ViÍt Nam",
+    "local_name": "Viêt Nam",
     "government_form": "Socialistic Republic",
-    "head_of_state": "Tr‚n Duc Luong",
-    "capital": 3770,
-    "code2": "VN"
+    "head_of_state": "Trân Duc Luong",
+    "code2": "VN",
+    "capital": "Hanoi"
   },
   {
     "code": "VUT",
@@ -3940,8 +3940,8 @@
     "local_name": "Vanuatu",
     "government_form": "Republic",
     "head_of_state": "John Bani",
-    "capital": 3537,
-    "code2": "VU"
+    "code2": "VU",
+    "capital": "Port-Vila"
   },
   {
     "code": "WLF",
@@ -3949,16 +3949,16 @@
     "continent": "Oceania",
     "region": "Polynesia",
     "surface_area": 200,
-    "indep_year": "NULL",
+    "indep_year": null,
     "population": 15000,
-    "life_expectancy": "NULL",
+    "life_expectancy": null,
     "gnp": 0,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Wallis-et-Futuna",
     "government_form": "Nonmetropolitan Territory of France",
     "head_of_state": "Jacques Chirac",
-    "capital": 3536,
-    "code2": "WF"
+    "code2": "WF",
+    "capital": "Mata-Utu"
   },
   {
     "code": "WSM",
@@ -3974,8 +3974,8 @@
     "local_name": "Samoa",
     "government_form": "Parlementary Monarchy",
     "head_of_state": "Malietoa Tanumafili II",
-    "capital": 3169,
-    "code2": "WS"
+    "code2": "WS",
+    "capital": "Apia"
   },
   {
     "code": "YEM",
@@ -3991,8 +3991,8 @@
     "local_name": "Al-Yaman",
     "government_form": "Republic",
     "head_of_state": "Ali Abdallah Salih",
-    "capital": 1780,
-    "code2": "YE"
+    "code2": "YE",
+    "capital": "Sanaa"
   },
   {
     "code": "YUG",
@@ -4004,12 +4004,12 @@
     "population": 10640000,
     "life_expectancy": 72.4,
     "gnp": 17000,
-    "gnp_old": "NULL",
+    "gnp_old": null,
     "local_name": "Jugoslavija",
     "government_form": "Federal Republic",
-    "head_of_state": "Vojislav Koötunica",
-    "capital": 1792,
-    "code2": "YU"
+    "head_of_state": "Vojislav Koštunica",
+    "code2": "YU",
+    "capital": "Beograd"
   },
   {
     "code": "ZAF",
@@ -4025,8 +4025,8 @@
     "local_name": "South Africa",
     "government_form": "Republic",
     "head_of_state": "Thabo Mbeki",
-    "capital": 716,
-    "code2": "ZA"
+    "code2": "ZA",
+    "capital": "Pretoria"
   },
   {
     "code": "ZMB",
@@ -4042,8 +4042,8 @@
     "local_name": "Zambia",
     "government_form": "Republic",
     "head_of_state": "Frederick Chiluba",
-    "capital": 3162,
-    "code2": "ZM"
+    "code2": "ZM",
+    "capital": "Lusaka"
   },
   {
     "code": "ZWE",
@@ -4059,7 +4059,7 @@
     "local_name": "Zimbabwe",
     "government_form": "Republic",
     "head_of_state": "Robert G. Mugabe",
-    "capital": 4068,
-    "code2": "ZW"
+    "code2": "ZW",
+    "capital": "Harare"
   }
 ]
