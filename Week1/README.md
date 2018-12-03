@@ -94,7 +94,7 @@ his 24th birthday works in Facebook and lives in Redmond.
 * mysql: monitor / terminal / client (to connect to the server and execute stuff)
 * mysqladmin: Administering a MySQL Server
 
-### Create Table in MySQL
+### Create a table in MySQL
 
 #### Collection of rows and columns
 #### SYNTAX
@@ -107,7 +107,7 @@ CREATE TABLE table_name (column_name, column_type [, column2_name, column2_type]
 * BLOB (LOAD_FILE(filename))
 
 
-### Fill up the table in MySQL: INSERT rows
+### Fill up a table in MySQL: INSERT rows
 A row (aka record or tuple) represents a single, implicitly structured data item in the table.
 
 #### SYNTAX
@@ -118,7 +118,7 @@ INSERT INTO table_name VALUES(value1, value2 [,value3,...]);
 * INSERT INTO table_name (column names) VALUES(..values...)
 * INSERT INTO table_name SET column_name = {expr | DEFAULT}
 
-### See the content : SELECT
+### See the content of a table in MySQL: SELECT
 
 #### SYNTAX 
 ```
