@@ -58,18 +58,6 @@ retrieve data from tables using SELECT statements that include FROM, WHERE claus
 
 ## Topics to be covered
 
-- The relational model of data
-- A 'database' vs. a 'DBMS' (database management system)
-- The properties of an 'entity' (or 'row')
-- A basic CREATE statement
-- A basic INSERT statement
-- A basic SELECT statement
-- Data types in SQL
-- Constructing more complex SELECT statements
-- JOIN (if time permits)
-    - Selecting composite data from multiple tables
-    - Compare JOIN WHERE with cartesian product
-
 ### What is a Database ?
 * Definition : Organized collection of data and rules about its manipulation
 * Client-server architecture : E.g. (Relational) DBMS
