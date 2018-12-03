@@ -1,4 +1,4 @@
-# Lesson 1: Server setup and Basics of creation, insertion and retrieval of data
+# Lesson 1: MySQL and Node setup! Create, Insert and Select !
 
 Objective : This module aims to incorporate JavaScript code to operate the MySQL database.
 MySQL client can be used to demonstrate SQL queries however, students should know how to
@@ -71,7 +71,6 @@ const capitals = [
   "Madrid"];
 ```
 
-
 ### Relations = Table
 
 * What is a relation (in the following sentences)?
@@ -82,8 +81,6 @@ const capitals = [
 Dan, 29, works in Amazon and lives in Seattle. His friend Ben who just celebrated
 his 24th birthday works in Facebook and lives in Redmond.
 
--
-
 ### DBMS implementations
 
 * ** MySQL **
@@ -91,19 +88,16 @@ his 24th birthday works in Facebook and lives in Redmond.
 * MongoDB (NoSQL)
 * Cassandra (NoSQL)
 
-
 ### MySQL components
 
 * MySQL server (runs as a service, default port: 3306)
 * mysql: monitor / terminal / client (to connect to the server and execute stuff)
 * mysqladmin: Administering a MySQL Server
 
-
-
 ### Create Table in MySQL
 
-## Collection of rows and columns
-## SYNTAX
+#### Collection of rows and columns
+#### SYNTAX
 ```
 CREATE TABLE table_name (column_name, column_type [, column2_name, column2_type]);
 ```
@@ -116,7 +110,7 @@ CREATE TABLE table_name (column_name, column_type [, column2_name, column2_type]
 ### Fill up the table in MySQL: INSERT rows
 A row (aka record or tuple) represents a single, implicitly structured data item in the table.
 
-## SYNTAX
+#### SYNTAX
 ```
 INSERT INTO table_name VALUES(value1, value2 [,value3,...]);
 ```
@@ -124,21 +118,18 @@ INSERT INTO table_name VALUES(value1, value2 [,value3,...]);
 * INSERT INTO table_name (column names) VALUES(..values...)
 * INSERT INTO table_name SET column_name = {expr | DEFAULT}
 
-
-
 ### See the content : SELECT
 
 * FROM clause : multiple tables
 * WHERE clause : Multiple conditions(AND, OR, NOT) Operators ( =, <>, BETWEEN, LIKE, IN)
 * Aggregation : SUM, AVG, COUNT
 * Joins : Natural join, inner join, left outer and right outer join
-## Simple SYNTAX for a single table
+#### Simple SYNTAX for a single table
 ```
 SELECT */column_name FROM TABLE
-WHERE condition1 AND/OR
-      condition2;
+WHERE condition1 [AND/OR
+      condition2 ...];
 ```
-
 
 ### INSERT and SELECT together
 
@@ -152,13 +143,11 @@ FROM   transferred_ employees
 WHERE  transfer_date > '2008-01-01';
 ```
 
-
 ### Uniqueness and Keys
 
 * Super key : set of columns that uniquely identify a row
 * Candidate key : minimal super key that can uniquely identify a row
 * Primary key : choice of candidate key chosen by database designer : cannot be null
-
 
 ## Reference Material
 
