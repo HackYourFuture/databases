@@ -19,10 +19,10 @@ queryList[1] = "select country_name from countries where country_name LIKE '%lan
 questions[2] = "What are the names of the cities with population in between 500, 000 and 1 million ? ";
 queryList[2] = "select city_name from cities where(population > 500000 and population < 1000000)";
 
-questions[3] = "What's the name of all the countries on the continent ‘Europe’ ?";
-queryList[3] = "select country_name from countries where world_number = 6";
+questions[3] = "What's the name of all the countries on the continent 'Europe' ?";
+queryList[3] = "select country_name from countries where continent = 'Europe'";
 
-questions[4] = "List all the countries in the descending order of their surface areas.";
+/*questions[4] = "List all the countries in the descending order of their surface areas.";
 queryList[4] = "select city_name from cities ORDER BY population DESC";
 
 questions[5] = "What are the names of all the cities in the Netherlands ? ";
@@ -40,7 +40,7 @@ queryList[8] = "select city_name from cities ORDER BY population desc LIMIT 10";
 questions[9] = "What is the population of the world ?";
 //All cities are not entered. I assummed that countries form the world.
 queryList[9] = "select sum(population) from countries";
-
+*/
 for (let i = 0; i < queryList.length; i++) {
   runQueries(queryList[i], questions[i]);
 }

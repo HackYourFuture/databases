@@ -3,30 +3,21 @@ var connection = mysql.createConnection({
   host: 'localhost',
   user: 'hyfuser',
   password: 'hyfpassword',
-  database: 'class17'
+  database: 'world2'
 });
 
 connection.connect();
 var insert_queries = [
-  "insert into world values (1, 'Africa')",
-  "insert into world values (2, 'North America')",
-  "insert into world values (3, 'South America')",
-  "insert into world values (4, 'Antarctica')",
-  "insert into world values (5, 'Australia')",
-  "insert into world values (6, 'Europa')",
-  "insert into world values (7, 'Asia')",
-  "insert into world values (8, 'Middle East')",
-
-  "insert into countries values (1, 'Nederland', 41543,17080000, 6   )",
-  "insert into countries values (2, 'Turkey',783356,79810000 ,8 )",
-  "insert into countries values (3, 'Dutch',357386,82790000 ,6 )",
-  "insert into countries values (4, 'Moroccans',710850,35740000 ,1 )",
-  "insert into countries values (5, 'Indonesians',1905000,264000000 ,7 )",
-  "insert into countries values (6, 'Japan',377930, 126800000 , 7)",
-  "insert into countries values (7, 'France',640679,67120000 ,6 )",
-  "insert into countries values (8, 'India',3287000,1339000000 ,7 )",
-  "insert into countries values (9, 'Iraq',437072,38270000 , 8)",
-  "insert into countries values (10, 'Mali',1241000,18540000 ,1 )",
+  "insert into countries values (1, 'Nederland', 41543,17080000, 'Europe'   )",
+  "insert into countries values (2, 'Turkey',783356,79810000 ,'Asia' )",
+  "insert into countries values (3, 'Dutch',357386,82790000 ,'Europe' )",
+  "insert into countries values (4, 'Moroccans',710850,35740000 ,'Africa' )",
+  "insert into countries values (5, 'Indonesians',1905000,264000000 ,'Asia' )",
+  "insert into countries values (6, 'Japan',377930, 126800000 , 'Asia')",
+  "insert into countries values (7, 'France',640679,67120000 ,'Europe' )",
+  "insert into countries values (8, 'India',3287000,1339000000 ,'Asia' )",
+  "insert into countries values (9, 'Iraq',437072,38270000 , 'Asia')",
+  "insert into countries values (10, 'Mali',1241000,18540000 ,'Africa' )",
 
   "insert into cities values(1, 'Amsterdam', 821752, 1)",
   "insert into cities values(2, 'Rotterdam', 623652, 1)",
@@ -66,7 +57,6 @@ for (var i in insert_queries) {
     if (error) {
       throw error;
     }
-    console.log("the reply is ", results[0]);
   });
 }
 connection.end();
