@@ -45,6 +45,7 @@ ALTER TABLE Employee ADD CONSTRAINT fk_dept foreign key (dept_id) references Dep
 
 A database dump (aka SQL dump) contains a record of the table structure
 and/or the data from a database and is usually in the form of a list of SQL statements.
+(An example file named `world.sql` is present in the Week2 folder)
 
 - Collecting the dump of an existing database from terminal `mysqldump -uroot -p database > dump-file.sql`
 - Applying the dump from mysql command prompt `source /path/to/the/dump/file`
