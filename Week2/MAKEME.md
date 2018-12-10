@@ -1,60 +1,40 @@
 # Homework week 2
+The homework contains 3 parts
 
-## Writing a model to communicate with the TODO database
+## Part 1 : More SQL queries through JS program
+Write a node-JS program to get answers of following queries
+on the **new_world** database: Note that you are expected to get the input from user
+and use **prepared** statements to write the queries.
 
-Look at [todo_app/db.sql](./todo_app/db.sql) and use it to create a database. In
-the [todo_app/program.js](./todo_app/program.js) file there's a little program
-that should be able to extract TODOs from the database, update them, and delete
-them. The `load` function already extracts all TODOs from the database. 
+Hint: use [this] (https://github.com/mysqljs/mysql) link to read more
+about prepared statements.
 
-Run `npm install` inside the `todo_app` directory to download and install the MySQL
-connector.
+1. What is the capital of country X ? (Accept X from user)
+2. List all the languages spoken in the region Y (Accept Y from user)
+3. Find the number of cities in which language Z is spoken (Accept Z from user)
+4. Are there any countries that have
+    A) Same official language
+    B) Same region
+   If yes, display those countries.
+   If no, display TRUE or FALSE
+5. List all the continents with the number of languages spoken in each continent
 
-Try to understand what happens in this program. How is the database connection
-created? How do we use the connection to query the database?
 
-You'll find the following empty functions in the `program.js` file, please
-implement them:
+## Part 2 : SQL research
+I want to get alerts when a country has >= 10 languages.
+E.g. If a country X has 9 languages in the CountryLanguage table,
+and a user INSERTs one more row in the CountryLanguage table, then I should get an alert.
+*How can I achieve this ?*
+- Write the necessary SQL statements for this solution and
+- Test your solution with example insert statements.
 
-*Read how to [use and escape query values](https://github.com/mysqljs/mysql#escaping-query-values)*
+## Part 3 : Database design
+I want to develop a ToDo app in which a user can create a multiple
+ToDo lists with different purposes. Each list has at least one item.
+Each item can be tagged. Each item can be marked completed.
+There could be reminders for some items.
 
-```js
-class TodoModel {
+- Draw an Entity Relationship Diagram for the database of the ToDo App.
 
-    // ...
-
-    create(description, callback) {
-        // Write code and query to create a new TODO item
-    }
-
-    update(id, description, callback) {
-        // Write code and query to update and existing TODO item
-    }
-
-    delete(id, callback) {
-        // Write code and query to delete an existing TODO item
-    }
-
-    tagTodoItem(todoItemId, tagId, callback) {
-        // Write code and query add a tag to a TODO item
-    }
-        
-    untagTodoItem(todoItemId, tagId, callback) {
-        // Write code and query remove a tag from a TODO item
-    }
-
-    markCompleted(todoItemId, callback) {
-        // Write code to mark a TODO item as completed
-    }
-}
-```
-
-# Adding a new database user
-
-Until now we've always connected to the database as `root`. We don't want to
-allow our TODO app access to other databases than the TODO app itself:
-
-- Figure out how to create a new user in MySQL.
-- Restrict the access for that user to only the `todo_app` database.
-- Use the newly created user credentials (username, password) in the connector of
-  the `program.js` file.
+Read about Entity-relationship diagrams on the Internet
+E.g. [here] (https://www.lucidchart.com/pages/er-diagrams)
