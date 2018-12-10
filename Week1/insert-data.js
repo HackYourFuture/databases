@@ -8,7 +8,13 @@ const db = mysql.createConnection({
   database: "world"
 });
 
-db.connect();
+db.connect((err) => {
+  if (err) {
+    console.log("Error connecting: " + err.stack);
+    return;
+  }
+  console.log("Connected as Id: " + db.threadId);
+});
 
 const countries = [
   "INSERT INTO country VALUES ('China', 1417442217, 9706961, 'Asia')",
@@ -83,4 +89,4 @@ cities.forEach((city) => {
   });
 });
 
-db.end();
+db.end(err => console.log(err ? err.message : "disconnected"));

@@ -8,7 +8,13 @@ const db = mysql.createConnection({
   database: "world"
 });
 
-db.connect();
+db.connect((err) => {
+  if (err) {
+    console.log("Error connecting: " + err.stack);
+    return;
+  }
+  console.log("Connected as Id: " + db.threadId);
+});
 
 const answers = [
   "SELECT name FROM country WHERE population > 8000000;",
@@ -29,7 +35,7 @@ answers.forEach((answer, i) => {
     if (err) {
       console.log(err.message);
     } else if (!result[0]) {
-      console.log("Answer ", i, "\nempty");
+      console.log("Answer ", i, "\nNoresult");
     } else {
       console.log("Answer ", i);
       result.forEach((obj) => {
@@ -41,4 +47,4 @@ answers.forEach((answer, i) => {
   });
 });
 
-db.end();
+db.end(err => console.log(err ? err.message : "disconnected"));
