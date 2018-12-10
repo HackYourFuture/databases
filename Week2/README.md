@@ -5,8 +5,8 @@ select statement. MySQL joins (inner, self, left and right) should be explained
 with demonstration (Employee table with **reportsTo** field and Department
 table with its PK in Employee table is suitable for this demonstration).
 Promise based JavaScript program with SQL prepared statements should be
-understood students. The program can be found in the Week2 folder (Credits:
-@remarcmij
+understood by students. The program can be found in the Week2 folder (Credits:
+@remarcmij)
 
 ## Pre-Class Readings
 
@@ -63,6 +63,12 @@ and/or the data from a database and is usually in the form of a list of SQL stat
 INSERT INTO Department SET dept_id=101, dept_name='fun', dept_head='unmesh';
 ```
 ### Promise based program demo
+
+The program is called `async-create-insert.js` and can be found in Week2 folder.
+- async : to create asynchronous function and ensure they return promise without having to worry
+about building those promises
+- await : to call a function returning promise without having to call .then() over that promise
+- promisify() : to convert a callback based function to a promise based one.
 
 ### Relationships between tables : 1-M, M-M
 
