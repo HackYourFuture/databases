@@ -9,20 +9,20 @@ var connection = mysql.createConnection({
 connection.connect();
 
 let insert_countries_query = [
-  "insert ignore into countries values('Estonia' , 1319133 , 'Europe' ,45227)",
-  "insert ignore into countries values('Qatar' , 2641669 , 'Asia' ,11581)",
-  "insert ignore into countries values('Georgia' , 3718200, 'Asia' ,69700)",
-  "insert ignore into countries values('Syria' , 18284407, 'Asia' ,185180)",
-  "insert ignore into countries values('Nigeria' , 190886311, 'Africa' ,923768)",
-  "insert ignore into countries values('Netherlands' , 17272990, 'Europe' ,41543)",
-  "insert ignore into countries values('Poland' , 38433600, 'Europe' ,312696)",
-  "insert ignore into countries values('Finland' ,5520535 , 'Europe' ,338424)",
-  "insert ignore into countries values('Armenia' ,2924816 , 'Asia' ,29743)",
-  "insert ignore into countries values('Barbados' ,277821, 'North America',431)"
+  "insert ignore into countries values(1,'Estonia' , 1319133 , 'Europe' ,45227)",
+  "insert ignore into countries values(2,'Qatar' , 2641669 , 'Asia' ,11581)",
+  "insert ignore into countries values(3,'Georgia' , 3718200, 'Asia' ,69700)",
+  "insert ignore into countries values(4,'Syria' , 18284407, 'Asia' ,185180)",
+  "insert ignore into countries values(5,'Nigeria' , 190886311, 'Africa' ,923768)",
+  "insert ignore into countries values(6,'Netherlands' , 17272990, 'Europe' ,41543)",
+  "insert ignore into countries values(7,'Poland' , 38433600, 'Europe' ,312696)",
+  "insert ignore into countries values(8,'Finland' ,5520535 , 'Europe' ,338424)",
+  "insert ignore into countries values(9,'Armenia' ,2924816 , 'Asia' ,29743)",
+  "insert ignore into countries values(10,'Barbados' ,277821, 'North America',431)"
 ];
 
 for (let i in insert_countries_query)
-  connection.query(insert_countries_query[i], function (error, results) {
+  connection.query(insert_countries_query[i], function (error) {
     if (error) throw error.message;
     console.log(`row ${i} was inserted into countries table successfully`);
   });
@@ -51,7 +51,7 @@ let insert_cities_query = [
 ];
 
 for (let i in insert_cities_query) {
-  connection.query(insert_cities_query[i], function (error, results) {
+  connection.query(insert_cities_query[i], function (error) {
     if (error) throw error.message;
     console.log(`row ${i} was inserted into cities table successfully`);
   });
