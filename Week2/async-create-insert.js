@@ -55,7 +55,7 @@ async function seedDatabase() {
     await execQuery(CREATE_STUDENTS_TABLE);
     await execQuery(CREATE_TEACHERS_TABLE);
     students.forEach(async student => {
-      await execQuery('INSERT IGNORE INTO students SET ?', student);
+      await execQuery('INSERT INTO students SET ?', student);
     });
   } catch (error) {
     console.error(error);
