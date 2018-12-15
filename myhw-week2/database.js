@@ -20,7 +20,7 @@ let country_language = 'Dutch';
 let findingNumberOfCities = 'select count(*) as numberOfCities from city join countryLanguage on city.countryCode = countryLanguage.countryCode where language = ' + connection.escape(country_language);
 
 //Part 1 - 4
-let display_countries = "select name, region from country as a join countryLanguage as b on a.code = b.countryCode where b.Language = 'French' and b.IsOfficial = 'T' and region in (select region from country as a join countryLanguage as b on a.code = b.countryCode where b.Language = 'French' and b.IsOfficial = 'T' group by region having COUNT(*) > 1 ) order by region"
+let display_countries = " select name,region,language,count(*) from country join countryLanguage on code = countryCode where concat(language - region) = concat(language - region) and IsOfficial = 'T' group by region,language having count(*) > 1 order by language"
 
 //part 1 - 5 
 let list_continents = 'select count(countryLanguage.language), country.continent from country join countryLanguage on country.code = countryLanguage.countryCode group by country.continent'
