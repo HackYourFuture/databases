@@ -14,37 +14,40 @@ async function seedDatabase() {
 
 
   //Part 1 - 1
-  let country_name = 'Syria';
-  let capitalOfCountry = 'select country.name, city.name from city inner join country on city.id = country.capital where country.name = ' + connection.escape(country_name);
 
+  function capitalOfCountry(country_name) {
+    return 'select country.name, city.name from city inner join country on city.id = country.capital where country.name = ' + connection.escape(country_name);
+  }
   //Part 1 - 2
-  let country_region = 'Western Europe';
-  let findingSpokenLanguages = 'select countryLanguage.language, country.region from country join countryLanguage on country.Code = countryLanguage.countryCode where country.region =' + connection.escape(country_region);
+  function findingSpokenLanguages(country_region) {
+    return 'select countryLanguage.language, country.region from country join countryLanguage on country.Code = countryLanguage.countryCode where country.region =' + connection.escape(country_region);
+  }
 
   //Part 1 - 3
-  let country_language = 'Dutch';
-  let findingNumberOfCities = 'select count(*) as numberOfCities from city join countryLanguage on city.countryCode = countryLanguage.countryCode where language = ' + connection.escape(country_language);
-
+  function findingNumberOfCities(country_language) {
+    return 'select count(*) as numberOfCities from city join countryLanguage on city.countryCode = countryLanguage.countryCode where language = ' + connection.escape(country_language);
+  }
   //Part 1 - 4
-  let display_countries = "select name, region from country as a join countryLanguage as b on a.code = b.countryCode where b.Language = 'French' and b.IsOfficial = 'T' and region in (select region from country as a join countryLanguage as b on a.code = b.countryCode where b.Language = 'French' and b.IsOfficial = 'T' group by region having COUNT(*) > 1 )"
-
+  function display_countries() {
+    return "select name, region from country as a join countryLanguage as b on a.code = b.countryCode where b.Language = 'French' and b.IsOfficial = 'T' and region in (select region from country as a join countryLanguage as b on a.code = b.countryCode where b.Language = 'French' and b.IsOfficial = 'T' group by region having COUNT(*) > 1 )"
+  }
   //part 1 - 5 
-  let list_continents = 'select count(countryLanguage.language), country.continent from country join countryLanguage on country.code = countryLanguage.countryCode group by country.continent'
+  function list_continents() {
+    return 'select count(countryLanguage.language), country.continent from country join countryLanguage on country.code = countryLanguage.countryCode group by country.continent'
+  }
 
-  let world = [capitalOfCountry, findingSpokenLanguages, findingNumberOfCities, display_countries, list_continents];
   connection.connect();
 
-
   try {
-    let number1 = await execQuery(capitalOfCountry);
+    let number1 = await execQuery(capitalOfCountry('Syria'));
     console.log(number1);
-    let number2 = await execQuery(findingSpokenLanguages);
+    let number2 = await execQuery(findingSpokenLanguages('North America'));
     console.log(number2);
-    let number3 = await execQuery(findingNumberOfCities);
+    let number3 = await execQuery(findingNumberOfCities('Dutch'));
     console.log(number3);
-    let number4 = await execQuery(display_countries);
+    let number4 = await execQuery(display_countries());
     console.log(number4);
-    let number5 = await execQuery(list_continents);
+    let number5 = await execQuery(list_continents());
     console.log(number5);
   } catch (error) {
     console.error(error);
