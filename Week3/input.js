@@ -30,15 +30,13 @@ prompt.start();
 const input = new Promise((resolve, reject) => {
   prompt.get(["number"], (err, result) => {
     if (err) { reject(err); }
-    // console.log("Command-line input received:");
     resolve(result.number);
   })
 });
-// students WHERE student_nember
+
 input.then((resolve) => {
-  // resolve 
   connection.connect();
-  const query = "SELECT * FROM departments WHERE did = ?";
+  const query = "SELECT * FROM students WHERE student_number = ?";
   connection.query(query, resolve, (err, results, fields) => {
     if (err) {
       onErr(err);
