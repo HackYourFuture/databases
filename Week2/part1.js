@@ -20,8 +20,8 @@ async function queryPromise() {
   function numberOfCitiesSpeak(x) {
     return `SELECT COUNT(*) AS numberOfCities FROM city, countryLanguage WHERE city.countryCode = countryLanguage.countryCode AND countryLanguage.language = ${x};`;
   }
-  function sameOfficialLanguage(x) {
-    return `SELECT Region, Name FROM country, countrylanguage WHERE Code = countrycode AND Language = ${x} AND IsOfficial = 'T' ORDER BY Region;`
+  function sameOfficialLanguage(x, y) {
+    return `SELECT Name FROM country, countrylanguage WHERE Code = countrycode AND Region = ${y} AND Language = ${x} AND IsOfficial = 'T' ORDER BY Region;`
   }
 
   function numberOfLanguages() {
@@ -46,7 +46,7 @@ async function queryPromise() {
     printAnswer(result2, 2);
     const result3 = await execQuery(numberOfCitiesSpeak("'Dutch'"));
     printAnswer(result3, 3);
-    const result4 = await execQuery(sameOfficialLanguage("'Dutch'"));
+    const result4 = await execQuery(sameOfficialLanguage("'Arabic'", "'Middle East'"));
     printAnswer(result4, 4);
     const result5 = await execQuery(numberOfLanguages());
     printAnswer(result5, 5);
