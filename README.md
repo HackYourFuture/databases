@@ -25,7 +25,7 @@ MySQL client can be used to demonstrate SQL queries however, students should kno
 make a MySQL database connection from JavaScript, run queries from JavaScript and
 capture results of queries in JavaScript.
 
-# Lesson 2: Group by, Having and Joins. Promisification of JS client with prepared statements
+### Lesson 2: Group by, Having and Joins. Promisification of JS client with prepared statements
 
 Objective: This class introduces more clauses (group by, having) in the
 select statement. MySQL joins (inner, self, left and right) should be explained
@@ -35,7 +35,7 @@ Promise based JavaScript program with SQL prepared statements should be
 understood by students. The program can be found in the Week2 folder (Credits:
 @remarcmij)
 
-# Lesson 3: Database design, normal forms, SQL injection
+### Lesson 3: Database design, normal forms, SQL injection
 
 Objective: This class invites students to discuss Entity Relationship Diagram (ERD).
 Students should be able to explain their choices of entities, relationships, attributes etc.
