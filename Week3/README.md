@@ -23,7 +23,7 @@ Also, please read the following page that explains database foreign keys.
 Database Design following normal forms as a convention.
 These normal forms build incrementally.
 E.g. The database is in 3NF if it is already in 2NF and satisfied the
-rules for 3rd normal form.
+rules for 3rd normal form. Read [here] (https://www.studytonight.com/dbms/database-normalization.php) for more details.
 
 #### 1NF (4 rules)
 * Rule 1 : Single valued attributes (each column should have atomic value, no multiple values)
