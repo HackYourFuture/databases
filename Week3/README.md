@@ -89,7 +89,7 @@ mysqljs prevents the second injection by not allowing multiple SQL statements
 to be executed at once.
 
 ### Understanding the asynchronous nature of database queries
-@Jim wrote these [excellent demo programs] (https://github.com/remarcmij/database_examples)
+Jim (@remarcmij) wrote these [excellent demo programs](https://github.com/remarcmij/database_examples)
 for better understanding. Do check them out.
 
 ## Reference Material
