@@ -1,37 +1,96 @@
-# Lesson 3: Data Models, Relationships, and Schemas
+# Lesson 3: Database design, normal forms, SQL injection
 
-In the final week, additional theory will be covered to discuss more complex relational data. Students will learn about entity relationship modelling and how to convert these models to a database schema using normalisation and foreign-key constraints. Non-relational data will also be considered, as well as the benefits and drawbacks of relational and non-relational models.
-
-Objective: Students should be able to create an entity relationship diagram based on a qualatative description of data requirements, and translate that into a MySQL database schema. Students should also be able to compare and contrast relational (like MySQL) and NoSQL databases (considering their benefits and drawbacks).
+Objective: This class invites students to discuss Entity Relationship Diagram (ERD).
+Students should be able to explain their choices of entities, relationships, attributes etc.
+SQL injection should be explained with a demonstration (with a simple JS client).
+Concepts of database transaction, ACID properties, normal forms should be introduced with
+examples / live coding (creating a transaction, committing and rollback-ing).
 
 ## Pre-Class Readings
 
 Before arriving to class on Sunday, please watch all of the videos in [this video playlist](https://www.lynda.com/SharedPlaylist/ae29ea2f495c432793abc220da47baa6) on Lynda.
-- Choosing Primary Keys
-- Defining One-to-Many Relationships
-- Exploring One-to-One Relationships
-- Exploring Many-to-Many Relationships
-- Understanding Relationship Rules and Referential Integrity
-- Defining Table Relationships
-- NoSQL databases
-- GraphQL: Introduction and History
-- Why use GraphQL?
 
 Also, please read the following page that explains database foreign keys.
 - [What is a Database Foreign Key](http://databases.about.com/cs/specificproducts/g/foreignkey.htm)
 
-## Main Topics
+## Topics to be covered
 
-- More complex entity relationship diagrams
+### Entity Relationship Diagrams
     - Associative entities from many-to-many relationships
-    - Introduction to normalisation
-- Foreign key constraints
-- Complicated values to store in MySQL
+    - Boolean attribute instead of a table
+
+### Normalization
+Database Design following normal forms as a convention.
+These normal forms build incrementally.
+E.g. The database is in 3NF if it is already in 2NF and satisfied the
+rules for 3rd normal form.
+
+#### 1NF (4 rules)
+* Rule 1 : Single valued attributes (each column should have atomic value, no multiple values)
+* Rule 2 : Attribute domain should not change
+* Rule 3 : Unique names for attributes / columns
+* Rule 4 : Order does not matter
+#### 2NF
+No partial dependency. (i.e. no field should depend on part of the primary key)
+Example
+```
+Score table (student_ID, subject_ID, score, teacher)
+Subject table (subject_ID, subject Name)
+```
+#### 3NF
+No transitive dependency (i.e. no field should depend on non-key attributes).
+
+#### Boyce Codd Normal Form (3.5 NF)
+for any dependency A → B, A should be a super key.
+
+#### 4NF
+No multi-value dependency.
+
+### Complicated values to store in MySQL
     - Storing prices (floating point errors)
     - Storing dates (datetime vs. timestamp)
-- CREATE TABLE syntax
-- Brief introduction to non-relational data
-- Scaffolding and application generators
+    - datetime : fixed value (joining date of employee): has a calendar date and a wall clock time
+    - timestamp : unix timestamp, seconds elapsed from 1 Jan 1970 00:00 in UTC (takes timezone into consideration)
+
+### Database transactions
+- A transaction is a set of commands that you want to treat as "one command." It has to either happen in full or not at all.
+
+- A classical example is transferring money from one bank account to another. To do that you have first to withdraw the amount from the source account, and then deposit it to the destination account. The operation has to succeed in full. If you stop halfway, the money will be lost, and that is Very Bad.
+
+### ACID properties
+
+- **Atomicity** : states that database modifications must follow an “all or nothing” rule.
+Each transaction is said to be “atomic.”
+If one part of the transaction fails, the entire transaction fails.
+- **Consistency** : states that only valid data will be written to the database. If, for some reason, a transaction is executed that violates the database’s consistency rules, the entire transaction will be rolled back, and the database will be restored to a state consistent with those rules.
+- **Isolation** : requires that multiple transactions occurring at the same time not impact each other’s execution.
+- **Dependency** : ensures that any transaction committed to the database will not be lost. Durability is ensured through the use of database backups and transaction logs that facilitate the restoration of committed transactions in spite of any subsequent software or hardware failures.
+
+### SQL injection
+
+Some SQL clients accept input from user to fabricate the queries.
+A malicious user can tweak the input so as to acquire more information from the database or
+to destroy the database (literally!). Demo program `sql-injection.js` is in the `Week3` folder.
+
+Consider the following query `SELECT name, salary FROM employees where id = X`.
+
+#### Injection to get more information
+```
+If X is `101 OR 1=1`, then the query returns all records because 1=1 is always true
+SELECT name, salary FROM employees where id = 101 OR 1=1;
+```
+
+#### Injection to destroy the database
+```
+If X is `101; DROP database mydb`, then the query will delete the entire database
+SELECT name, salary FROM employees where id = 101; DROP database mydb;
+```
+mysqljs prevents the second injection by not allowing multiple SQL statements
+to be executed at once.
+
+### Understanding the asynchronous nature of database queries
+@Jim wrote these [excellent demo programs] (https://github.com/remarcmij/database_examples)
+for better understanding. Do check them out.
 
 ## Reference Material
 
@@ -41,17 +100,3 @@ Also, please read the following page that explains database foreign keys.
     - [Yeoman](http://yeoman.io) - General framework for creating and scaffolding all types of projects
     - [Sails](http://sails.js) - Lightweight framework for generating APIs and web server apps in Node
     - [Loopback](http://loopback.io/) - A more "enterprise-ready" framework for generating and managing APIs.
-- [Rewatch the previously recorded session](https://www.youtube.com/watch?v=ZNLhHUDj6jo)
-
-## Homework
-
-For this week's homework:
-
-Using an entity relationship diagram, design the data model for an application of your choice; this could be anything, but previous students have used a small business (with staff, offices, and job titles), a library (with books, genres, racks, members, and a borrowing log), or a farm (with animals, barns, and farmers). Your application must include at least one many-to-many relationship and any supporting tables (associative entities) that are needed. The entity relationship diagram must describe what tables you will need, the columns in these tables, which column is the primary key, and the relationships between tables.
-
-Next, using the entity relationship diagram as a starting point, write all the necessary `CREATE TABLE` statements to create all tables and relationships (foreign key constraints) for this data model.
-
-Submit an image or PDF of your entity relationship diagram, and a `.sql` file with the `CREATE TABLE` statements.
-
-## Check out the React repo [here](https://github.com/HackYourFuture/React)
-And find out how you can prepare for the first React lecture :dancers:
