@@ -1,6 +1,6 @@
 # Lesson 1: MySQL and Node setup! Create, Insert and Select !
 
-Objective : This module aims to incorporate JavaScript code to operate the MySQL database.
+Objective : This class aims to incorporate JavaScript code to operate the MySQL database.
 MySQL client can be used to demonstrate SQL queries however, students should know how to
 make a MySQL database connection from JavaScript, run queries from JavaScript and
 capture results of queries in JavaScript.
