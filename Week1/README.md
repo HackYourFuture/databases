@@ -102,10 +102,12 @@ his 24th birthday works in Facebook and lives in Redmond.
 CREATE TABLE table_name (column_name, column_type [, column2_name, column2_type]);
 ```
 
+#### TYPES
+Recall what a datatype is. js vs mysql types
+
 * INT(N) type
 * DATE, DATETIME and TIMESTAMP, (set time_zone = '+03:00')
 * BLOB (LOAD_FILE(filename))
-
 
 ### Fill up a table in MySQL: INSERT rows
 A row (aka record or tuple) represents a single, implicitly structured data item in the table.
