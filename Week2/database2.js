@@ -29,9 +29,9 @@ async function seedDatabase() {
     return 'select count(*) as numberOfCities from city a join countryLanguage b on a.countryCode = b.countryCode where language = ' + connection.escape(country_language);
   }
   //Part 1 - 4
-  function display_countries() {
-    return "select name,region,language,count(*) from country a join countryLanguage b on code = countryCode where IsOfficial = 'T' group by region having count(*) > 1"
-  }
+function display_countries() {
+    return "WITH region_language AS(SELECT name AS country, region, Language AS official_lan FROM country AS c JOIN countrylanguage AS l ON c.Code = l.CountryCode WHERE l.IsOfficial = 'T' GROUP BY country, region, official_lan), matched_country AS(SELECT a.region, a.official_lan, a.country AS country FROM region_language AS a JOIN region_language AS b ON a.region = b.region AND a.official_lan = b.official_lan AND a.country <> b.country GROUP BY region, official_lan, country) SELECT region, official_lan, COUNT(*) AS n_country, GROUP_CONCAT(country SEPARATOR ',') AS country_names FROM matched_country GROUP BY region, official_lan ORDER BY n_country DESC "  
+ }
   //part 1 - 5 
   function list_continents() {
     return 'select count(language),continent from country join countryLanguage on code = countryCode group by continent'
