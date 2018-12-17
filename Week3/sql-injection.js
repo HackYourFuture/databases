@@ -20,29 +20,24 @@ async function queryDatabase() {
     try {
         const result = await input(['number']);
         input_number = result.number
-    } catch(err) {
-        console.error(err);
-    }
 
-    // 1. Naive way of passing the parameter to the query
-    //const select_query = `select * from students WHERE student_number =  ${input_number};`
+        // 1. Naive way of passing the parameter to the query
+        //const select_query = `select * from students WHERE student_number =  ${input_number};`
 
-    // 2. Escaping the parameter ( replacing the unwanted characters)
-    //const select_query = `select * from students WHERE student_number =` + connection.escape(input_number);
-    
-    // 3. Using a question mark syntax to do the escaping (AKA prepared statements)
-    const select_query = `select * from students WHERE student_number = ?`
+        // 2. Escaping the parameter ( replacing the unwanted characters)
+        //const select_query = `select * from students WHERE student_number =` + connection.escape(input_number);
+        // 3. Using a question mark syntax to do the escaping (AKA prepared statements)
+        const select_query = `select * from students WHERE student_number = ?`
 
-    connection.connect();
-    try {
+        connection.connect();
         console.log(select_query);
         var results = await execQuery(select_query, input_number);
     } catch(error) {
         console.error(error);
     }
     
-    for (i in results) {
-        console.log(results[i]);
+    for (r of results) {
+        console.log(r);
     }
     connection.end();
 }
