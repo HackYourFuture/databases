@@ -1,6 +1,6 @@
 # Lesson 1: MySQL and Node setup! Create, Insert and Select !
 
-Objective : This module aims to incorporate JavaScript code to operate the MySQL database.
+Objective : This class aims to incorporate JavaScript code to operate the MySQL database.
 MySQL client can be used to demonstrate SQL queries however, students should know how to
 make a MySQL database connection from JavaScript, run queries from JavaScript and
 capture results of queries in JavaScript.
@@ -102,10 +102,12 @@ his 24th birthday works in Facebook and lives in Redmond.
 CREATE TABLE table_name (column_name, column_type [, column2_name, column2_type]);
 ```
 
+#### TYPES
+Recall what a datatype is. js vs mysql types
+
 * INT(N) type
 * DATE, DATETIME and TIMESTAMP, (set time_zone = '+03:00')
 * BLOB (LOAD_FILE(filename))
-
 
 ### Fill up a table in MySQL: INSERT rows
 A row (aka record or tuple) represents a single, implicitly structured data item in the table.
