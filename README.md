@@ -1,6 +1,6 @@
 # Databases
 
-## Relational and Non-Relational Data and Database Systems
+## Relational Database Systems
 
 ### About
 
