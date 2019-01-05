@@ -1,0 +1,18 @@
+{
+  "name": "week3",
+  "version": "1.0.0",
+  "description": "In the final week, additional theory will be covered to discuss more complex relational data. Students will learn about entity relationship modelling and how to convert these models to a database schema using normalisation and foreign-key constraints. Non-relational data will also be considered, as well as the benefits and drawbacks of relational and non-relational models.",
+  "main": "db3.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "process": "^0.11.10",
+    "prompt": "^1.0.0",
+    "promt": "0.0.0"
+  }
+}
