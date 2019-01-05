@@ -1,0 +1,257 @@
+* {	
+  -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body{
+margin: 0;
+font-family: Arial;
+color: rgb(55, 59, 59);
+}
+/* Sign In Up forms styles */
+.form-heading {
+text-align: center;
+margin: 3% 0;
+}
+.forms {
+width: 35%;
+height: 80%;
+margin: auto;
+background: rgb(238, 238, 238);
+padding: 20px; 
+}
+.labels {
+position: relative;
+display: block;
+width: 100%;
+padding: 2px 0;
+margin-top: 10px; 
+font-size: 18px;
+}
+.inputs {
+display: block;
+padding: 8px;
+font-size: 18px;
+width: 100%;
+}
+.user-alert, .psw-alert {
+  position: absolute;
+  color: rgb(238, 16, 16);
+  font-weight: bold;
+  top: 0;
+  right: 0;
+}
+#sign-in-btn, #sign-up-btn {
+padding: 15px;
+font-size: 18px;
+width: 100%;
+margin: 15px 0;
+border: none; 
+background: rgb(104, 206, 175);
+}
+#recover-psw-link, #sign-up-link, #sign-in-link {
+text-decoration: none;
+color: rgb(41, 139, 139);
+}
+#sign-up-link:hover  {
+  color: rgb(250, 58, 58);
+}
+#sign-in-link:hover {
+    color: rgb(250, 58, 58);
+}
+#recover-psw-link:hover {
+  color: rgb(250, 58, 58);  
+}
+
+/* Profile styles */
+#profile {
+  display: flex;
+  flex-flow: wrap;
+  margin: 0 20px;
+}
+
+#nav {
+flex: 3;
+height: 100vh;
+background:rgb(240, 234, 234);
+padding: 30px 0;
+margin: 0 20px 0 0;
+}
+#user-name, #user-email {
+  padding: 0 0 0 20px;
+}
+#nav > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px 0;
+}
+ul > li {
+  width: 100%;
+  margin: 1px 0;
+  background: rgb(187, 187, 153);
+  padding: 10px;
+  cursor: pointer;
+}
+
+#view {
+flex: 7;
+margin:0;
+padding: 0;
+}
+
+/*===== Form Styles ======*/
+#create-list-form, #create-todo-form {
+  width: 100%;
+  margin: 0;
+  padding: 5%;
+  background: rgb(192, 190, 190);
+}
+.containers {
+display: flex;
+margin: 15px 0;
+}
+.containers > label {
+  flex: 2;
+  max-width: 20%;
+}
+.containers > input, select, textarea {
+  flex: 8;
+  max-width: 80%;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
+input {
+padding: 5px;
+}
+.radio-titles {
+ display: inline-block;
+ width: 20%;
+}
+.radio-label {
+  padding-right: 10px;
+}
+#add-todo-btn, #submit-btn {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+#submit-btn {
+  float: right;
+}
+.new-item{
+  width: 350px;
+  text-align: center;
+  color: green;
+  background: lightgray;
+  padding: 10px;
+  margin: 40vh auto;
+  border-radius: 10px;
+}
+
+/* ===Todo-List Styles === */
+#lists-header{
+  display: flex;
+  width: 100%;
+}
+#lists-header > p {
+  flex: 3;
+  background: skyblue;
+  border: 1px solid green;
+  padding: 10px;
+}
+.list-titles {
+  position: relative;
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+}
+.list-titles > p {
+  flex: 3;
+  margin: 0;
+  background: rgb(161, 169, 172);
+  border: 1px solid black;
+  padding: 5px;
+}
+.list-titles:after {
+  content: '\002B';
+  position: absolute;
+  color: rgb(32, 216, 185);
+  font-weight: bold;
+  top: 6px;
+  right: 10px;
+}
+.active:after {
+  content: "\2212";
+}
+
+.reminder-titles {
+    display: flex;
+    width: 100%;
+  }
+.reminder-titles > p {
+  flex: 2;
+  margin: 0;
+  background: rgb(0, 162, 255);
+  border: 1px solid black;
+  padding: 3px;
+}
+.tables {
+  width: 100%;
+}
+.tables, th {
+  margin: 0;
+  padding: 6px 3px;
+  text-align: left;
+  border: 1px solid black;
+  border-collapse: collapse;
+  background: rgb(187, 175, 175);
+  font-size: 17px;
+}
+.tables, td {
+  margin: 0;
+  padding: 3px;
+  text-align: left;
+  border: 1px solid black;
+  border-collapse: collapse;
+  background: rgb(216, 203, 144);
+}
+
+#result-box {
+  background: lightblue;
+}
+.found-list, .found-reminder, .found-todos {
+  display: flex;
+}
+.found-list > p {
+  flex: 3;
+  margin: 0;
+  background: rgb(161, 169, 172);
+  border: 1px solid black;
+  padding: 5px;
+}
+.found-reminder > p {
+  flex: 3;
+  margin: 0;
+  background: rgb(199, 199, 199);
+  border: 1px solid black;
+  padding: 5px;
+}
+.found-todos > p {
+  flex: 3;
+  margin: 0;
+  background: rgb(226, 229, 229);
+  border: 1px solid black;
+  padding: 5px;
+}
+
+
+.show-hide {
+  display: none;
+}
+
+
+
+
