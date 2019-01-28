@@ -6,10 +6,12 @@ Write a node-JS program to
 3. create a table city 
 4. Insert 10-20 rows in each table with relevant fields. 
 
+Load the database new_world using the sql-file databases/world.sql
+
 Choose the fields/columns such that you should be able to answer the following queries:
 (Queries 6-10 are bonus queries and require the knowledge of joins, group by and having clauses)
 
-Write a node-JS program to query (using select statements) the world database to answer following questions
+Write a node-JS program to query (using select statements) the new_world database to answer following questions
 1. What are the names of countries with population greater than 8 million
 2. What are the names of countries that have “land” in their names ?
 3. What are the names of the cities with population in between 500,000 and 1 million ?
