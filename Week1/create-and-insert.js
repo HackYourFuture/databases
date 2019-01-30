@@ -46,12 +46,6 @@ async function seedDatabase() {
   } catch (error) {
     console.error(error);
   }
-  try {
-    const results = await execQuery('select * from countries');
-    console.log(results);
-  } catch (err) {
-    console.error(err);
-  }
 
   connection.end();
 }
