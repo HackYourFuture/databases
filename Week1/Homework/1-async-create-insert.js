@@ -4,31 +4,31 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'hyfuser',
   password: 'hyfpassword',
-  database: 'userdb',
 });
 
 const execQuery = util.promisify(connection.query.bind(connection));
 
 async function seedDatabase() {
-  const CREATE_DATABASE = `CREATE DATABASE IF NOT EXISTS new_world;`;
-  const USE_DATABASE = `use new_world`;
+  const CREATE_DATABASE = `CREATE DATABASE IF NOT EXISTS bbs;`;
+  const USE_DATABASE = `use bbs`;
   const CREATE_COUNTRY_TABLE = `
-  CREATE TABLE IF NOT EXISTS countries (
-    ID int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-    country_name VARCHAR(100) NOT NULL, 
-    population int, 
-    continent VARCHAR(100), 
-    surface float,
+  CREATE TABLE IF NOT EXISTS countries ( 
+    country_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    country_name VARCHAR(70), 
+    population INT, 
+    continent VARCHAR(70), 
+    surface INT 
   );`;
 
   const CREATE_CITY_TABLE = `
   CREATE TABLE IF NOT EXISTS cities(
-    CITY_ID int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-    city_name VARCHAR(100) NOT NULL, 
+    city_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    city_name VARCHAR(70), 
     population int, 
-    ID int, 
-    Foreign Key (ID) REFERENCES countries (ID)
+    country_id int, 
+    Foreign Key (country_id) REFERENCES countries (country_id)
     );`;
+
   const countries = [
     {
       country_name: 'Venezuela',
@@ -143,8 +143,22 @@ async function seedDatabase() {
       population: 934240,
       country_id: 10,
     },
+    {
+      city_name: 'Rotterdam',
+      population: 623652,
+      country_id: 2,
+    },
+    {
+      city_name: 'Alkmaar',
+      population: 107106,
+      country_id: 2,
+    },
+    {
+      city_name: 'Eindhoven',
+      population: 223209,
+      country_id: 2,
+    },
   ];
-
   connection.connect();
   try {
     await execQuery(CREATE_DATABASE);
@@ -154,16 +168,10 @@ async function seedDatabase() {
     countries.forEach(async country => {
       await execQuery('INSERT IGNORE INTO countries SET ?', country);
     });
-    await execQuery('select country_name from countries where population >= 8000000'); // 3
-    await execQuery("select * from countries where country_name like '%land%'"); //2
-    await execQuery("select country_name from countries where continent = 'Europe'"); //4
-    await execQuery('select country_name from countries ORDER BY surface DESC'); //5
+
     cities.forEach(async city => {
       await execQuery('INSERT IGNORE INTO cities SET ?', city);
     });
-    await execQuery(
-      'select city_name from cities where population >= 500000 and population <= 1000000',
-    ); // 1
   } catch (error) {
     console.log(error);
   }
