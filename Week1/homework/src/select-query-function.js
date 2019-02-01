@@ -1,3 +1,4 @@
+'use-strict';
 const util = require('util');
 const mysql = require('mysql');
 
@@ -10,13 +11,14 @@ const connection = mysql.createConnection({
 
 const execQuery = util.promisify(connection.query.bind(connection));
 
-async function select_function(select_query, consoleMessage) {
+async function select_function(select_query, consoleMessage, column) {
   connection.connect();
   try {
     const result = await execQuery(select_query)
-    console.log(`  ${result.length}:${consoleMessage}`);
+    console.log(consoleMessage);
     for (let i = 0; i < result.length; i++) {
-      console.log(` ${i+1 }, ${ result[i].name }`);
+
+      console.log(`-- ${ result[i][column].toLocaleString('en') }`);
     }
   } catch (error) {
     console.error(new Error(`this is error message : ${error}`));

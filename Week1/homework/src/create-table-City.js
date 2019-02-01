@@ -1,4 +1,6 @@
-const createTable_and_Insert = require('./create-tables_and_Insert')
+'use-strict';
+
+const createTable_and_Insert = require('./create-tables_and_Insert');
 
 const Create_city_TB = `CREATE TABLE IF NOT EXISTS city (
   ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -7,7 +9,6 @@ const Create_city_TB = `CREATE TABLE IF NOT EXISTS city (
   country VARCHAR(50),
   UNIQUE KEY unique_city (name)
   );`;
-
 
 const city = [{
     name: 'Amsterdam',
@@ -75,5 +76,6 @@ const city = [{
   }
 ];
 
-const insert_query_cities = 'INSERT  INTO city SET ? '
+const insert_query_cities = 'INSERT  INTO city SET ? ';
+
 createTable_and_Insert(Create_city_TB, insert_query_cities, city);

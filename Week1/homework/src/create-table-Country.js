@@ -1,4 +1,6 @@
-const createTable_and_Insert = require('./create-tables_and_Insert')
+'use-strict';
+
+const createTable_and_Insert = require('./create-tables_and_Insert');
 
 const Create_Country_TB = `CREATE TABLE IF NOT EXISTS country (
   ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -127,4 +129,5 @@ const country = [{
 ];
 
 const insert_query = 'INSERT  INTO country SET ? ';
+
 createTable_and_Insert(Create_Country_TB, insert_query, country);
