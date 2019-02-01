@@ -9,12 +9,12 @@ const connection = mysql.createConnection({
 const execQuery = util.promisify(connection.query.bind(connection));
 
 async function seedDatabase() {
-  const CREATE_DATABASE = `CREATE DATABASE IF NOT EXISTS bbs;`;
-  const USE_DATABASE = `use bbs`;
+  const CREATE_DATABASE = `CREATE DATABASE IF NOT EXISTS my_world;`;
+  const USE_DATABASE = `use my_world`;
   const CREATE_COUNTRY_TABLE = `
   CREATE TABLE IF NOT EXISTS countries ( 
     country_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    country_name VARCHAR(70), 
+    country_name VARCHAR(70) UNIQUE, 
     population INT, 
     continent VARCHAR(70), 
     surface INT 
@@ -23,7 +23,7 @@ async function seedDatabase() {
   const CREATE_CITY_TABLE = `
   CREATE TABLE IF NOT EXISTS cities(
     city_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    city_name VARCHAR(70), 
+    city_name VARCHAR(70) UNIQUE, 
     population int, 
     country_id int, 
     Foreign Key (country_id) REFERENCES countries (country_id)
@@ -166,11 +166,11 @@ async function seedDatabase() {
     await execQuery(CREATE_COUNTRY_TABLE);
     await execQuery(CREATE_CITY_TABLE);
     countries.forEach(async country => {
-      await execQuery('INSERT IGNORE INTO countries SET ?', country);
+      await execQuery('INSERT IGNORE countries SET ?', country);
     });
 
     cities.forEach(async city => {
-      await execQuery('INSERT IGNORE INTO cities SET ?', city);
+      await execQuery('INSERT IGNORE cities SET ?', city);
     });
   } catch (error) {
     console.log(error);
