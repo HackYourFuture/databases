@@ -1,19 +1,29 @@
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'hyfuser',
-  password : 'hyfpassword',
-  database : 'class17'
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'hyfuser',
+  password: 'hyfpassword',
+  database: 'week1'
 });
 
 connection.connect();
 
-var create_query = "create table teachers (teacher_number int, teacher_name varchar(50), date_of_birth date, subject text, gender enum('m', 'f'))"
+// connection.query('CREATE DATABASE week1', function (error, results, fields) {
+//   if (error) throw error;
+//   console.log('the reply is: ', results);
+// });
 
+// connection.query('use week1', function (error, results, fields) {
+//   if (error) throw error;
+//   console.log("the reply is :" + results);
+// });
+
+const create_query = ['CREATE TABLE country(Name varchar(255), population int(11), continent varchar(255), surfaceArea int(11))',
+  'CREATE TABLE city(Name varchar(255), population int(11), Country varchar(255))'];
 connection.query(create_query, function (error, results, fields) {
-    if (error) {
-        throw error;
-    }
-    console.log("the reply is ", results[0]);
+  if (error) {
+    throw error;
+  }
+  console.log("the reply is ", results[0]);
 });
 connection.end();
