@@ -27,7 +27,7 @@ async function seedDatabase() {
       );`;
   const countries = [
     {
-      name: 'the NL',
+      name: 'the Netherlands',
       capital: 'Amsterdam',
       population: 17000000,
       government: 'kingdom',
