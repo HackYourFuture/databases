@@ -1,0 +1,12 @@
+ 
+commands:
+ 
+To display the capital of a country <name>:  node queries c name
+
+To list all the languages spoken in a region <name>:  node queries l name 
+
+To find the number of cities in which a language <language> is spoken:  node queries nc language
+
+To show countries that have the same official language <language> in the same region:  node queries cslsr language
+
+To list all the continents with the number of languages spoken in each continent:  node queries acnl
