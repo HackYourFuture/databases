@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
 
 const execQuery = util.promisify(connection.query.bind(connection));
 
-async function create_procedures() {
+async function createAndCall_procedures() {
   const CREATE_PROCEDURE_CAPITAL_CITY =
     `
   CREATE PROCEDURE GetCapital_city(country_name VARCHAR(50))
@@ -61,24 +61,72 @@ async function create_procedures() {
     `  CREATE PROCEDURE LanguagesByContinent()
     BEGIN
     SELECT country.Continent, COUNT(*) count from country JOIN countrylanguage ON country.Code = countrylanguage.CountryCode
-    GROUP BY country.Continent; 
+    GROUP BY country.Continent  ORDER BY COUNT(*) DESC; 
     END;
     `
 
+  async function call_procedure(query) {
+    try {
+      const result = await execQuery(query);
+      const queryResponse = result[0];
+      for (let index = 0; index < queryResponse.length; index++) {
+        console.log(Object.values(queryResponse[index]).join('--'));
+      }
+      console.log(queryResponse.length + ' row(s) in set');
+      console.log('-------------------');
+
+    } catch (error) {
+      console.error(new Error(`this is error message : ${error}`));
+    }
+
+  }
 
   connection.connect();
 
   try {
-    await execQuery(CREATE_PROCEDURE_CAPITAL_CITY);
-    await execQuery(CREATE_PROCEDURE_REGION_LANGUAGE);
-    await execQuery(CREATE_PROCEDURE_Cities_lang);
-    await execQuery(CREATE_PROCEDURE_COUNTRIES);
-    await execQuery(CREATE_PROCEDURE_LanguagesByContinent);
-
+    // await execQuery(CREATE_PROCEDURE_CAPITAL_CITY);    // Q.NO.1 
+    call_procedure('CALL GetCapital_city("Eritrea");')
+    // await execQuery(CREATE_PROCEDURE_REGION_LANGUAGE);   // Q.No.2
+    call_procedure('CALL GetRegion_language("southern africa")')
+    // await execQuery(CREATE_PROCEDURE_Cities_lang);
+    call_procedure('CALL GetCities_language("swahili")') // Q.No.3 
+    // await execQuery(CREATE_PROCEDURE_COUNTRIES);
+    call_procedure('CALL GetCountries_Reg_lang("eastern africa","English");'); // Q.No 4 
+    //call_procedure('CALL GetCountries_Reg_lang("eastern africa","Amharic");'); // Q.No 4   if not founded
+    //await execQuery(CREATE_PROCEDURE_LanguagesByContinent);
+    call_procedure('CALL LanguagesByContinent();') //  Q.No 5
   } catch (error) {
     console.error(error);
   }
   connection.end();
 }
 
-create_procedures();
+createAndCall_procedures();
+
+/*
+// part 2  SQL Research
+``
+delimiter //
+`CREATE TRIGGER Insert_trigger
+    BEFORE INSERT
+        ON countrylanguage
+            FOR EACH ROW
+            BEGIN
+                DECLARE message VARCHAR(100);
+                DECLARE cc int ;
+                SET cc = (select COUNT(*) count from countrylanguage  where CountryCode =New.CountryCode);
+                IF cc > 10
+                THEN
+                    set message= '10 languages already available';
+                    SET lc_messages=message; SIGNAL SQLSTATE '45000';
+                END IF;
+            END //
+
+
+delimiter ;`
+``
+//  examples
+insert into countrylanguage values('AGO','new','F',12.2);
+insert into countrylanguage values('AGO','newLa','F',12.2);
+
+*/
