@@ -48,17 +48,17 @@ for (let i = 0; i < countries.length; i++) {
   });
 }
 const cities = [
-  "INSERT IGNORE city VALUES('Amsterdam',859732,'Nederland',219)",
-  "INSERT IGNORE city VALUES('Paris',2140526,'France',105)",
-  "INSERT IGNORE city VALUES('Maastricht',122397 ,'Nederland',56)",
-  "INSERT IGNORE city VALUES('Berlin',3575000,'Germany',891)",
-  "INSERT IGNORE city VALUES('Rotterdam',623652,'Nederland',320)",
-  "INSERT IGNORE city VALUES('Minnesota',5570000,'United state',225163 )",
-  "INSERT IGNORE city VALUES('Den Haag',527748,'Nederland',98)",
-  "INSERT IGNORE city VALUES('Moscow',11503501,'Russia',2511 )",
-  "INSERT IGNORE city VALUES('beijing',19612368,'China',16808 )",
-  "INSERT IGNORE city VALUES('Baghdad',8765000,'Iraq',204)",
-  "INSERT IGNORE city VALUES('Cairo',	19500000,'Egypt',606)",
+  "INSERT INTO city VALUES('Amsterdam',859732,'Nederland',219)",
+  "INSERT INTO city VALUES('Paris',2140526,'France',105)",
+  "INSERT INTO city VALUES('Maastricht',122397 ,'Nederland',56)",
+  "INSERT INTO city VALUES('Berlin',3575000,'Germany',891)",
+  "INSERT INTO city VALUES('Rotterdam',623652,'Nederland',320)",
+  "INSERT INTO city VALUES('Minnesota',5570000,'United state',225163 )",
+  "INSERT INTO city VALUES('Den Haag',527748,'Nederland',98)",
+  "INSERT INTO city VALUES('Moscow',11503501,'Russia',2511 )",
+  "INSERT INTO city VALUES('beijing',19612368,'China',16808 )",
+  "INSERT INTO city VALUES('Baghdad',8765000,'Iraq',204)",
+  "INSERT INTO city VALUES('Cairo',	19500000,'Egypt',606)",
 ];
 
 for (let i = 0; i < cities.length; i++) {
