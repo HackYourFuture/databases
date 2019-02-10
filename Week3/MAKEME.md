@@ -12,6 +12,12 @@
     - Add a reminder for the list (not for the item)
 - Write the necessary SQL statements/commands to maintain the state of the database.
 - Use PostMan to test the APIs.
+### Features
+Choose at least 2 of these features
+- A user should be able to tag a ToDo item with a label (the label comes from a fixed set of pre-defined labels, but the user should also be able to edit the set of labels)
+- A user should be able to edit the items in another person's list, but not anyone else's reminders
+- A user should be able to select all of another person's ToDo lists and create a reminder for them
+- A user should be able to select whether they want to be sent a reminder 
 
 ### What to submit
 - .sql file with the dump of database (all create table statements, insert values etc.)
