@@ -1,0 +1,15 @@
+{
+  "name": "week2",
+  "version": "1.0.0",
+  "description": "Objective: This class introduces more clauses (group by, having) in the select statement. MySQL joins (inner, self, left and right) should be explained with demonstration (Employee table with **reportsTo** field and Department table with its PK in Employee table is suitable for this demonstration). Promise based JavaScript program with SQL prepared statements should be understood by students. The program can be found in the Week2 folder (Credits: @remarcmij)",
+  "main": "async-create-insert.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.16.0",
+    "util": "^0.11.1"
+  }
+}
