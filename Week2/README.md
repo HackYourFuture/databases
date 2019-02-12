@@ -96,6 +96,35 @@ update Department set dept_head = 'Lucas' where dept_id = 3;
 - left and right join : reverse of each other
 - [Join manual](https://dev.mysql.com/doc/refman/8.0/en/join.html)
 
+### Triggers
+Triggers are a mechanism in SQL to prevent seemingly impossible data in the tables.
+Triggers are fired before/after insertion or updation of the database tables.
+Following is an example trigger which fires before any row is inserted into employee table.
+Let the insert command be `insert into project values (104, "ironman", 1, "2007-01-01")`.
+Then the variable `new` contains (104, "ironman", 1, "2007-01-01").
+i.e. `new` automatically gets all the column names of the project table.
+```
+mysql> delimiter $$
+mysql> CREATE TRIGGER date_trigger
+    BEFORE INSERT
+        ON project
+            FOR EACH ROW
+            BEGIN
+                DECLARE message VARCHAR(100);
+                DECLARE sd datetime ;
+                SET sd= (select starting_date from employee where eno=new.manager_id);
+                IF new.start_date < sd
+                THEN
+                    set message= 'Project date cannot be earlier than manager starting date';
+                    SET lc_messages=message; SIGNAL SQLSTATE '45000';
+                END IF;
+            END $$
+
+mysql> delimiter ;
+```
+This trigger gives error if the start date of the project is earlier than the starting date
+of the manager of the project.
+
 ## Reference Material
 
 - [OWASP on SQL Injection](https://www.owasp.org/index.php/SQL_injection)
