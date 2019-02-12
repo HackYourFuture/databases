@@ -64,7 +64,10 @@ OR
 mysql> begin transaction;
 ```
 * To commit, use `commit;` and to abort, use `rollback;`
-
+* Note that `autocommit` variable should be set to false for rollback to work.
+```
+mysql> set autocommit = 0;
+```
 
 ### ACID properties
 
