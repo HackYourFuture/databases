@@ -105,10 +105,11 @@ to be executed at once.
 * Procedures in SQL (aka Stored procedures) are similar to functions in other programming languages.
 i.e. You can define them once and call them multiple times. However, it should be noted that
 MySQL has two different concepts : functions and procedures.
-[This](https://stackoverflow.com/questions/3744209/mysql-stored-procedure-vs-function-which-would-i-use-when) stack overflow post has an excellent answer that describes the difference.
+This stack overflow post has an excellent answer that describes the
+[difference between MySQL functions vs procedures](https://stackoverflow.com/questions/3744209/mysql-stored-procedure-vs-function-which-would-i-use-when)
 
 * There are two scenarios in which procedures are particularly useful:
-(credits to [this stack overflow post](https://stackoverflow.com/questions/12631845/when-should-i-use-stored-procedures-in-mysql)
+(credits to [this stack overflow post](https://stackoverflow.com/questions/12631845/when-should-i-use-stored-procedures-in-mysql))
 1. When we want to entirely encapsulate access to the database by forcing apps to use
 the stored procedures. This can be good for an organization with a strong/large database group
 and a small/weak programming team.
