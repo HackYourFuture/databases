@@ -1,9 +1,9 @@
-var fs = require('fs');
-var mysql = require('mysql');
+const fs = require('fs');
+const mysql = require('mysql');
 
-var config = JSON.parse(fs.readFileSync("config-secret.json"))
+const config = JSON.parse(fs.readFileSync('config-secret.json'));
 
-var connection = mysql.createConnection({
+const connection = mysql.createConnection({
     host: config.host,
     user: config.user,
     password: config.password,
@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
     database: config.database
 });
 
-connection.connect();
+connection.connect(err => { if (err) throw err; });
 
 connection.query('SELECT * FROM user', function(error, results, fields) {
     console.log(results);
