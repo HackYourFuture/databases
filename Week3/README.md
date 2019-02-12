@@ -64,7 +64,7 @@ Each transaction is said to be “atomic.”
 If one part of the transaction fails, the entire transaction fails.
 - **Consistency** : states that only valid data will be written to the database. If, for some reason, a transaction is executed that violates the database’s consistency rules, the entire transaction will be rolled back, and the database will be restored to a state consistent with those rules.
 - **Isolation** : requires that multiple transactions occurring at the same time not impact each other’s execution.
-- **Dependency** : ensures that any transaction committed to the database will not be lost. Durability is ensured through the use of database backups and transaction logs that facilitate the restoration of committed transactions in spite of any subsequent software or hardware failures.
+- **Durability** : ensures that any transaction committed to the database will not be lost. Durability is ensured through the use of database backups and transaction logs that facilitate the restoration of committed transactions in spite of any subsequent software or hardware failures.
 
 ### SQL injection
 
