@@ -57,6 +57,15 @@ No multi-value dependency.
 
 - A classical example is transferring money from one bank account to another. To do that you have first to withdraw the amount from the source account, and then deposit it to the destination account. The operation has to succeed in full. If you stop halfway, the money will be lost, and that is Very Bad.
 
+* To start transaction:
+```
+mysql> start;
+OR
+mysql> begin transaction;
+```
+* To commit, use `commit;` and to abort, use `rollback;`
+
+
 ### ACID properties
 
 - **Atomicity** : states that database modifications must follow an “all or nothing” rule.
@@ -87,6 +96,47 @@ SELECT name, salary FROM employees where id = 101; DROP database mydb;
 ```
 mysqljs prevents the second injection by not allowing multiple SQL statements
 to be executed at once.
+
+### Procedures
+
+* Procedures in SQL (aka Stored procedures) are similar to functions in other programming languages.
+i.e. You can define them once and call them multiple times. However, it should be noted that
+MySQL has two different concepts : functions and procedures.
+[This] (https://stackoverflow.com/questions/3744209/mysql-stored-procedure-vs-function-which-would-i-use-when) stack overflow post has an excellent answer that describes the difference.
+
+* There are two scenarios in which procedures are particularly useful:
+(credits to [this stack overflow post] (https://stackoverflow.com/questions/12631845/when-should-i-use-stored-procedures-in-mysql)
+1. When we want to entirely encapsulate access to the database by forcing apps to use
+the stored procedures. This can be good for an organization with a strong/large database group
+and a small/weak programming team.
+It's also helpful when you have multiple code bases accessing the database,
+because they all get one interface, rather than each writing their own queries, etc.
+2. When you're repetitively doing something that should be done in the database.
+
+* To create a procedure, use the following syntax:
+```
+Example:
+delimiter //
+create procedure countCountries (OUT param1 int)
+BEGIN
+    select count(*) into param1 from country;
+END
+//
+
+delimiter ;
+```
+* To see existing procedures, use the following command:
+```
+mysql> show procedure status where db = 'dbname';
+```
+
+* To call the procedure, use the following command:
+```
+mysql> call countCountries(@result);
+
+mysql> select @result;
+```
+
 
 ### Understanding the asynchronous nature of database queries
 Jim (@remarcmij) wrote these [excellent demo programs](https://github.com/remarcmij/database_examples)

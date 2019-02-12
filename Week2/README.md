@@ -97,9 +97,9 @@ update Department set dept_head = 'Lucas' where dept_id = 3;
 - [Join manual](https://dev.mysql.com/doc/refman/8.0/en/join.html)
 
 ### Triggers
-Triggers are a mechanism in SQL to prevent seemingly impossible data in the tables.
-Triggers are fired before/after insertion or updation of the database tables.
-Following is an example trigger which fires before any row is inserted into employee table.
+* Triggers are a mechanism in SQL to prevent seemingly impossible data in the tables.
+* Triggers are fired before/after insertion or updation of the database tables.
+* Following is an example trigger which fires before any row is inserted into employee table.
 Let the insert command be `insert into project values (104, "ironman", 1, "2007-01-01")`.
 Then the variable `new` contains (104, "ironman", 1, "2007-01-01").
 i.e. `new` automatically gets all the column names of the project table.
