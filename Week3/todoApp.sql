@@ -1,0 +1,30 @@
+Drop database IF EXISTS todo_app;
+CREATE database todo_app;
+USE todo_app;
+
+CREATE TABLE users(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  password VARCHR(255) NOT NULL,
+);
+
+CREATE TABLE todos(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  title TEXT NOT NULL,
+  todo_date date
+);
+
+CREATE TABLE items(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  item_id INT NOT NULL,
+  title VARCHAR(255),
+  done BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE reminders(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  item_id INT NOT NULL,
+  date DATETIME NOT NULL
+);
+
