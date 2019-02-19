@@ -2,7 +2,7 @@
 
 ### The server listens on the local port: 3000
 
-### For these actions, the client must add the following header:
+### For all the requests, the client must add the following header:
 
 Content-Type: application/json
 
@@ -11,10 +11,10 @@ Content-Type: application/json
 The request body must look like this:
 
 {
-"user": {
-"firstName": "firstName",
-"lastName": "lastName"
-}
+  "user": {
+  "firstName": "firstName",
+  "lastName": "lastName"
+  }
 }
 A unique Id will be automatically assigned to every new user.
 
@@ -25,9 +25,9 @@ The Id of the user is to be passed in the route path as indicated above
 The request body must look like this:
 
 {
-"list": {
-"name": "list's name"
-}
+  "list": {
+  "name": "list's name"
+  }
 }
 
 A unique Id will be automatically assigned to every new list.
@@ -39,9 +39,9 @@ The Id of the list is to be passed in the route path as indicated above
 The request body must look like this:
 
 {
-"item": {
-"description": "Item's description"
-}
+  "item": {
+  "description": "Item's description"
+  }
 }
 
 A unique Id will be automatically assigned to every new item.
