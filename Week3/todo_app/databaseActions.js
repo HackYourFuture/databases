@@ -14,14 +14,17 @@ const execQuery = util.promisify(connection.query.bind(connection));
 
 function showUserLists(user) {
   return execQuery(
-    'select users.id as "User ID", firstName as "User first name", lastName as "User last name", lists.name as "List Name", lists.id as "List ID", reminder as "List reminder" from users join lists on users.id = lists.user_id where users.id = ?',
+    'select users.id as "User ID", firstName as "User first name", lastName as "User last name", lists.name as "List Name", lists.id as "List ID",' +
+      ' reminder as "List reminder" from users join lists on users.id = lists.user_id where users.id = ?',
     user,
   );
 }
 
 function showListItems(list) {
   return execQuery(
-    'select users.id as "User ID", firstName as "User first name", lastName as "User last name", lists.id as "List ID", name as "List name", reminder as "List reminder", items.id as "To-do item ID", description as "To-do item description", completed as "Completed (true or false)" from users join lists on users.id = lists.user_id join items on lists.id = items.list_id where lists.id = ?',
+    'select users.id as "User ID", firstName as "User first name", lastName as "User last name", lists.id as "List ID", name as "List name",' +
+      ' reminder as "List reminder", items.id as "To-do item ID", description as "To-do item description", completed as "Completed (true or false)" ' +
+      'from users join lists on users.id = lists.user_id join items on lists.id = items.list_id where lists.id = ?',
     list,
   );
 }
