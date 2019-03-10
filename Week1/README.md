@@ -24,7 +24,10 @@ Note that this password is the one you used for root user of the mysql.
 Linux and MAC users can execute `mysql -uroot -p` and then type the password.
 Following commands should be run under the **mysql>** prompt:
 ```
-mysql> create user ‘hyfuser’@‘localhost’ identified with mysql_native_password by ‘hyfpassword’;
+mysql> create user 'hyfuser'@'localhost' identified with mysql_native_password by 'hyfpassword';
+If this does not work try the alternative command:
+mysql> create user 'hyfuser'@'localhost' identified by 'hyfpassword';
+
 # This command creates a user 'hyfuser' with password 'hyfpassword' for
 # the database server at 'localhost'
 
