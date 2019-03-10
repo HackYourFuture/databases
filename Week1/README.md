@@ -25,18 +25,19 @@ Linux and MAC users can execute `mysql -uroot -p` and then type the password.
 Following commands should be run under the **mysql>** prompt:
 ```
 mysql> create user 'hyfuser'@'localhost' identified with mysql_native_password by 'hyfpassword';
-If this does not work try the alternative command:
+
+# If this does not work try the alternative command:
 mysql> create user 'hyfuser'@'localhost' identified by 'hyfpassword';
 
 # This command creates a user 'hyfuser' with password 'hyfpassword' for
 # the database server at 'localhost'
 
-mysql> grant all privileges on *.* to ‘hyfuser’@‘localhost’;
+mysql> grant all privileges on *.* to 'hyfuser'@'localhost';
 # This command gives all permissions to user 'hyfuser'.
-(*.*) means every table of every database.
+# (*.*) means every table of every database.
 
 mysql> create database userdb;
-This command creates a database 'userdb'
+#This command creates a database 'userdb'
 ```
 
 ### Node setup
