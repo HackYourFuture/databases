@@ -53,4 +53,4 @@ async function createTables() {
   connection.end();
 }
 
-module.exports = createTables;
+createTables();

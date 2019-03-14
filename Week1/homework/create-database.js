@@ -21,4 +21,4 @@ async function createDatabase() {
   connection.end();
 }
 
-module.exports = createDatabase;
+createDatabase();
