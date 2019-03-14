@@ -4,8 +4,6 @@ const printHelp = require('./printHelp');
 const results = require('./results');
 const command = process.argv[2];
 
-console.log(process);
-
 switch (command) {
   case '1':
     results.one();
