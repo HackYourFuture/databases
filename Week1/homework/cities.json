@@ -1,0 +1,74 @@
+[
+  {
+    "city_id": 1,
+    "city_name": "Amsterdam",
+    "country_name": "The Netherlands",
+    "population": 1140000
+  },
+  {
+    "city_id": 2,
+    "city_name": "Rotterdam",
+    "country_name": "The Netherlands",
+    "population": 623652
+  },
+  {
+    "city_id": 3,
+    "city_name": "The Hague",
+    "country_name": "The Netherlands",
+    "population": 514861
+  },
+  {
+    "city_id": 4,
+    "city_name": "Ankara",
+    "country_name": "Turkey",
+    "population": 5445000
+  },
+  {
+    "city_id": 5,
+    "city_name": "Bursa",
+    "country_name": "Turkey",
+    "population": 2936803
+  },
+  {
+    "city_id": 6,
+    "city_name": "Berlin",
+    "country_name": "Germany",
+    "population": 3575000
+  },
+  {
+    "city_id": 7,
+    "city_name": "Rome",
+    "country_name": "Italy",
+    "population": 2873000
+  },
+  {
+    "city_id": 8,
+    "city_name": "Madrid",
+    "country_name": "Spain",
+    "population": 3166000
+  },
+  {
+    "city_id": 9,
+    "city_name": "Barcelona",
+    "country_name": "Spain",
+    "population": 1609000
+  },
+  {
+    "city_id": 10,
+    "city_name": "Valencia",
+    "country_name": "Spain",
+    "population": 790201
+  },
+  {
+    "city_id": 11,
+    "city_name": "Houston",
+    "country_name": "The USA",
+    "population": 2313000
+  },
+  {
+    "city_id": 12,
+    "city_name": "Toronto",
+    "country_name": "Canada",
+    "population": 2732000
+  }
+]

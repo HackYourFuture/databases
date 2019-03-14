@@ -1,0 +1,86 @@
+[
+  {
+    "country_id": 1,
+    "country_name": "The Netherlands",
+    "population": 17080000,
+    "continent_name": "Europe",
+    "surface_area": 42508
+  },
+  {
+    "country_id": 2,
+    "country_name": "Germany",
+    "population": 82790000,
+    "continent_name": "Europe",
+    "surface_area": 357386
+  },
+  {
+    "country_id": 3,
+    "country_name": "Turkey",
+    "population": 79810000,
+    "continent_name": "Asia",
+    "surface_area": 783562
+  },
+  {
+    "country_id": 4,
+    "country_name": "The USA",
+    "population": 325700000,
+    "continent_name": "North America",
+    "surface_area": 9834000
+  },
+  {
+    "country_id": 5,
+    "country_name": "China",
+    "population": 1386000000,
+    "continent_name": "Asia",
+    "surface_area": 9597000
+  },
+  {
+    "country_id": 6,
+    "country_name": "Iran",
+    "population": 81160000,
+    "continent_name": "Asia",
+    "surface_area": 1745150
+  },
+  {
+    "country_id": 7,
+    "country_name": "Canada",
+    "population": 36710000,
+    "continent_name": "North America",
+    "surface_area": 9985000
+  },
+  {
+    "country_id": 8,
+    "country_name": "Brazil",
+    "population": 209300000,
+    "continent_name": "South America",
+    "surface_area": 8516000
+  },
+  {
+    "country_id": 9,
+    "country_name": "Argentina",
+    "population": 44270000,
+    "continent_name": "South America",
+    "surface_area": 2780000
+  },
+  {
+    "country_id": 10,
+    "country_name": "Japan",
+    "population": 126800000,
+    "continent_name": "Asia",
+    "surface_area": 377972
+  },
+  {
+    "country_id": 11,
+    "country_name": "Italy",
+    "population": 60590000,
+    "continent_name": "Europe",
+    "surface_area": 301338
+  },
+  {
+    "country_id": 12,
+    "country_name": "Spain",
+    "population": 46570000,
+    "continent_name": "Europe",
+    "surface_area": 505990
+  }
+]

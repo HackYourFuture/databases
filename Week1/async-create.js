@@ -3,9 +3,9 @@ const mysql = require('mysql');
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'hyfuser',
+  user: 'hyfuser2',
   password: 'hyfpassword',
-  database: 'class17',
+  database: 'class19',
 });
 
 const execQuery = util.promisify(connection.query.bind(connection));
