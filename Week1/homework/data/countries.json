@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Netherlands",
+    "capital": "Amsterdam",
+    "region": "Europe",
+    "population": 17019800,
+    "area": 41850
+  },
+  {
+    "id": 2,
+    "name": "Syria",
+    "capital": "Damascus",
+    "region": "Asia",
+    "population": 18564000,
+    "area": 185180
+  },
+  {
+    "id": 3,
+    "capital": "France",
+    "name": "Paris",
+    "region": "Europe",
+    "population": 66710000,
+    "area": 640679
+  },
+  {
+    "id": 4,
+    "name": "Italy",
+    "capital": "Roma",
+    "region": "Europe",
+    "population": 60665551,
+    "area": 301336
+  },
+  {
+    "id": 5,
+    "name": "Spain",
+    "capital": "Madrid",
+    "region": "Europe",
+    "population": 46438422,
+    "area": 505992
+  },
+  {
+    "id": 6,
+    "name": "Andorra la Vella",
+    "capital": "Andorra",
+    "region": "Europe",
+    "population": 78014,
+    "area": 468
+  },
+  {
+    "id": 7,
+    "name": "Luanda",
+    "capital": "Angola",
+    "region": "Africa",
+    "population": 25868000,
+    "area": 1246700
+  },
+  {
+    "id": 8,
+    "name": "The Valley",
+    "capital": "Anguilla",
+    "region": "Americas",
+    "population": 13452,
+    "area": 91
+  },
+  {
+    "id": 9,
+    "name": "Saint John's",
+    "capital": "Antigua and Barbuda",
+    "region": "Americas",
+    "population": 86295,
+    "area": 442
+  },
+  {
+    "id": 10,
+    "name": "Vienna",
+    "capital": "Austria",
+    "region": "Europe",
+    "population": 8725931,
+    "area": 83871
+  }
+]

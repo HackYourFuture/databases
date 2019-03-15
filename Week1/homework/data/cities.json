@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "city_name": "Utrecht",
+    "country": "Netherlands",
+    "population": 334176,
+    "country_id": 1
+  },
+  {
+    "id": 2,
+    "city_name": "Rotterdam",
+    "country": "Netherlands",
+    "population": 623652,
+    "country_id": 1
+  },
+  {
+    "id": 3,
+    "city_name": "Amsterdam",
+    "country": "Netherlands",
+    "population": 821752,
+    "country_id": 1
+  },
+  {
+    "id": 4,
+    "city_name": "Den Haag",
+    "country": "Netherlands",
+    "population": 514861,
+    "country_id": 1
+  },
+  {
+    "id": 5,
+    "city_name": "Damascus",
+    "country": "Syria",
+    "population": 1711000,
+    "country_id": 2
+  },
+  {
+    "id": 6,
+    "city_name": "Aleppo",
+    "country": "Syria",
+    "population": 2132100,
+    "country_id": 2
+  },
+  {
+    "id": 7,
+    "city_name": "Homs",
+    "country": "Syria",
+    "population": 775404,
+    "country_id": 2
+  },
+  {
+    "id": 8,
+    "city_name": "Paris",
+    "country": "France",
+    "population": 2141000,
+    "country_id": 3
+  },
+  {
+    "id": 9,
+    "city_name": "Lyon",
+    "country": "France",
+    "population": 513275,
+    "country_id": 3
+  },
+  {
+    "id": 10,
+    "city_name": "Roma",
+    "country": "Italy",
+    "population": 2873000,
+    "country_id": 4
+  },
+  {
+    "id": 11,
+    "city_name": "Napoli",
+    "country": "Italy",
+    "population": 983755,
+    "country_id": 4
+  },
+  {
+    "id": 12,
+    "city_name": "Milan",
+    "country": "Italy",
+    "population": 1352000,
+    "country_id": 4
+  },
+  {
+    "id": 13,
+    "city_name": "Sevilla",
+    "country": "Spain",
+    "population": 690566,
+    "country_id": 5
+  },
+  {
+    "id": 14,
+    "city_name": "Barcelona",
+    "country": "Spain",
+    "population": 1609000,
+    "country_id": 5
+  },
+  {
+    "id": 15,
+    "city_name": "Madrid",
+    "country": "Spain",
+    "population": 3166000,
+    "country_id": 5
+  }
+]
