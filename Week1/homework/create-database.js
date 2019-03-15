@@ -19,6 +19,7 @@ async function seedDatabase() {
 
   const CREATE_COUNTRY_TABLE = `
     CREATE TABLE IF NOT EXISTS country (
+      ID INT,
       Name TEXT,
       Population INT,
       Surface_Area_km2 INT,
@@ -27,6 +28,7 @@ async function seedDatabase() {
 
   const CREATE_CITY_TABLE = `
     CREATE TABLE IF NOT EXISTS city (
+      ID INT,
       Name TEXT,
       Population INT
     );`;
