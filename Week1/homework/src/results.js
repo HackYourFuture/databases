@@ -17,7 +17,7 @@ function one() {
       console.log(`
         1- Countries with population greater than 8 million:
         `);
-      results.forEach(country => console.log(country));
+      results.forEach(country => console.log(JSON.parse(JSON.stringify(country))));
       console.log(`
         `);
     }
@@ -35,7 +35,7 @@ function two() {
     console.log(`
         2- Countries that have “land” in their names:
         `);
-    results.forEach(country => console.log(country));
+    results.forEach(country => console.log(JSON.parse(JSON.stringify(country))));
     console.log(`
         `);
   });
@@ -51,7 +51,7 @@ function three() {
       console.log(`
         3- Cities with population in between 500,000 and 1 million:
         `);
-      results.forEach(city => console.log(city));
+      results.forEach(city => console.log(JSON.parse(JSON.stringify(city))));
       console.log(`
         `);
     }
@@ -69,7 +69,7 @@ function four() {
     console.log(`
         4- Countries on the continent ‘Europe’:
         `);
-    results.forEach(country => console.log(country));
+    results.forEach(country => console.log(JSON.parse(JSON.stringify(country))));
     console.log(`
         `);
   });
@@ -86,7 +86,7 @@ function five() {
     console.log(`
       5- Countries in the descending order of their surface areas:
       `);
-    results.forEach(country => console.log(country));
+    results.forEach(country => console.log(JSON.parse(JSON.stringify(country))));
     console.log(`
         `);
   });
@@ -103,7 +103,7 @@ function six() {
     console.log(`
       6- Names of all the cities in the Netherlands:
       `);
-    results.forEach(city => console.log(city));
+    results.forEach(city => console.log(JSON.parse(JSON.stringify(city))));
     console.log(`
         `);
   });
@@ -120,7 +120,7 @@ function seven() {
     console.log(`
         7- Population of Rotterdam:
         `);
-    results.forEach(city => console.log(city));
+    results.forEach(city => console.log(JSON.parse(JSON.stringify(city))));
     console.log(`
         `);
   });
@@ -137,7 +137,7 @@ function eight() {
     console.log(`
       8- Top 10 countries by surface area:
       `);
-    results.forEach(country => console.log(country));
+    results.forEach(country => console.log(JSON.parse(JSON.stringify(country))));
     console.log(`
         `);
   });
@@ -153,7 +153,7 @@ function nine() {
       console.log(`
         9- Top 10 most populated cities:
         `);
-      results.forEach(city => console.log(city));
+      results.forEach(city => console.log(JSON.parse(JSON.stringify(city))));
       console.log(`
         `);
     }
@@ -171,7 +171,7 @@ function ten() {
     console.log(`
       10- Population of the world:
       `);
-    results.forEach(result => console.log(result));
+    results.forEach(result => console.log(JSON.parse(JSON.stringify(result))));
     console.log(`
         `);
   });
