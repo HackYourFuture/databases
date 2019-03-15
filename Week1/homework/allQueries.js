@@ -58,7 +58,7 @@ connection.query(
 );
 
 // 4. What's the name of all the countries on the continent ‘Europe’ ?
-connection.query('SELECT name FROM countries WHERE region IN ("Europe")', function (
+connection.query('SELECT name FROM countries WHERE region = "Europe"', function (
   error,
   results,
   fields
@@ -88,20 +88,21 @@ connection.query('SELECT * FROM countries ORDER BY area DESC ', function (error,
 });
 
 // 6. What are the names of all the cities in the Netherlands?
-connection.query(
-  'SELECT city_name FROM countries INNER JOIN cities ON cities.country_id = countries.id WHERE cities.country = "Netherlands"',
-  function (error, results, fields) {
-    if (error) {
-      throw error;
-    }
-    if (results) {
-      console.log('the names of all the cities in the Netherlands are:');
-      for (value of results) {
-        console.log(`${value.city_name}`);
-      }
+connection.query('SELECT city_name FROM cities WHERE country = "Netherlands"', function (
+  error,
+  results,
+  fields
+) {
+  if (error) {
+    throw error;
+  }
+  if (results) {
+    console.log('the names of all the cities in the Netherlands are:');
+    for (value of results) {
+      console.log(`${value.city_name}`);
     }
   }
-);
+});
 
 // 7. What is the population of Rotterdam ?
 connection.query('SELECT * FROM cities WHERE city_name = "Rotterdam"', function (
@@ -115,42 +116,40 @@ connection.query('SELECT * FROM cities WHERE city_name = "Rotterdam"', function 
   if (results) {
     console.log('the population of Rotterdam is:');
     for (value of results) {
-      console.log(`${value.city_name}`);
+      console.log(`${value.population}`);
     }
   }
 });
 
 // 8. What's the top 10 countries by Surface Area ?
-connection.query(
-  'SELECT name, SUM(area) AS topArea FROM countries INNER JOIN cities ON countries.id = cities.country_id GROUP BY (countries.id) ORDER BY topArea DESC',
-  function (error, results, fields) {
-    if (error) {
-      throw error;
-    }
-    if (results) {
-      console.log('top 10 countries by Surface Area');
-      for (value of results) {
-        console.log(`${value.name}`);
-      }
+connection.query('SELECT * FROM countries ORDER BY area DESC', function (error, results, fields) {
+  if (error) {
+    throw error;
+  }
+  if (results) {
+    console.log('top 10 countries by Surface Area');
+    for (value of results) {
+      console.log(`${value.name}`);
     }
   }
-);
+});
 
 // 9. What's the top 10 most populated cities?
-connection.query(
-  'SELECT * from countries INNER JOIN cities ON countries.id = cities.country_id ORDER BY cities.population DESC LIMIT 10',
-  function (error, results, fields) {
-    if (error) {
-      throw error;
-    }
-    if (results) {
-      console.log('the top 10 most populated cities');
-      for (value of results) {
-        console.log(`${value.city_name} has ${value.population}`);
-      }
+connection.query('SELECT * FROM cities ORDER BY population DESC LIMIT 10', function (
+  error,
+  results,
+  fields
+) {
+  if (error) {
+    throw error;
+  }
+  if (results) {
+    console.log('the top 10 most populated cities');
+    for (value of results) {
+      console.log(`${value.city_name} has ${value.population}`);
     }
   }
-);
+});
 
 // 10. What is the population of the world ?
 connection.query(
