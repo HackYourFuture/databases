@@ -60,6 +60,7 @@ function rotterdamPopulation() {
   });
 }
 
+
 function topBySurface() {
   var result =
     'SELECT country_name,surface_areas FROM countries ORDER BY countries.surface_areas ASC LIMIT 10';

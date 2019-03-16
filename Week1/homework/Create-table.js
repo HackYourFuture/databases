@@ -38,7 +38,7 @@ var countries = [
   "INSERT IGNORE  countries VALUES(7, 'India',  1324009090, 'Asia',3287590)",
   "INSERT IGNORE  countries VALUES(8, 'Poland',  38028278, 'Europe',312685)",
   "INSERT IGNORE  countries VALUES(9, 'China',  1387160730, 'Asia',9597000)",
-  "INSERT IGNORE  countries VALUES(10, 'Germany',  82438700, 'Europe',357021)",
+  "INSERT IGNORE  countries VALUES(10, 'Germany',  82438700, 'Europe',357021)"
 ];
 
 for (var i in countries) {
@@ -58,7 +58,7 @@ var cities = [
   "INSERT IGNORE cities VALUES(7, 'Berlin', 3575000)",
   "INSERT IGNORE cities VALUES(8, 'vienna', 1900547)",
   "INSERT IGNORE cities VALUES(9, 'frankfort', 759657)",
-  "INSERT IGNORE cities VALUES(10, 'Bern', 133115)",
+  "INSERT IGNORE cities VALUES(10, 'Bern', 133115)"
 ];
 
 for (var i in cities) {
