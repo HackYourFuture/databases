@@ -98,7 +98,7 @@ const queries = {
   // 8. What's the top 10 countries by Surface Area ?
   eight: () => {
     connection.query(
-      'SELECT DISTINCT country_name, surface_areas FROM countries ORDER BY surface_areas DESC',
+      'SELECT DISTINCT country_name, surface_areas FROM countries ORDER BY surface_areas DESC LIMIT 10',
       (err, result) => {
         if (err) throw err.message;
         console.log(`\nTop 10 countries by surface area:\n`);
@@ -113,7 +113,7 @@ const queries = {
   // 9. What's the top 10 most populated cities?
   nine: () => {
     connection.query(
-      'SELECT DISTINCT city_name, city_population FROM cities ORDER BY city_population DESC',
+      'SELECT DISTINCT city_name, city_population FROM cities ORDER BY city_population DESC LIMIT 10',
       (err, result) => {
         if (err) throw err.message;
         console.log(`\nTop 10 most populated cities:\n`);
