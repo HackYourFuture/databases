@@ -3,3 +3,6 @@ node_modules/
 **/*.DS_Store
 **/*-secret.json
 **/*.sh
+Week1/
+Week2/
+Week3/

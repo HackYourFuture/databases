@@ -1,0 +1,31 @@
+{
+  "name": "database-week1-homework",
+  "version": "1.0.0",
+  "description": "database week1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kfth/databases.git"
+  },
+  "keywords": [
+    "mySql",
+    "Node.js",
+    "mysqljs"
+  ],
+  "author": "fatih",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kfth/databases/issues"
+  },
+  "homepage": "https://github.com/kfth/databases#readme",
+  "dependencies": {
+    "mysql": "^2.16.0",
+    "node-fetch": "^2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.2"
+  }
+}
