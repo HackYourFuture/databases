@@ -88,21 +88,20 @@ connection.query('SELECT * FROM countries ORDER BY area DESC ', function (error,
 });
 
 // 6. What are the names of all the cities in the Netherlands?
-connection.query('SELECT city_name FROM cities WHERE country = "Netherlands"', function (
-  error,
-  results,
-  fields
-) {
-  if (error) {
-    throw error;
-  }
-  if (results) {
-    console.log('the names of all the cities in the Netherlands are:');
-    for (value of results) {
-      console.log(`${value.city_name}`);
+connection.query(
+  'SELECT city_name FROM cities INNER JOIN countries ON cities.country_id = countries.id WHERE countries.name = "Netherlands"',
+  function (error, results, fields) {
+    if (error) {
+      throw error;
+    }
+    if (results) {
+      console.log('the names of all the cities in the Netherlands are:');
+      for (value of results) {
+        console.log(`${value.city_name}`);
+      }
     }
   }
-});
+);
 
 // 7. What is the population of Rotterdam ?
 connection.query('SELECT * FROM cities WHERE city_name = "Rotterdam"', function (
@@ -122,7 +121,11 @@ connection.query('SELECT * FROM cities WHERE city_name = "Rotterdam"', function 
 });
 
 // 8. What's the top 10 countries by Surface Area ?
-connection.query('SELECT * FROM countries ORDER BY area DESC', function (error, results, fields) {
+connection.query('SELECT * FROM countries ORDER BY area DESC LIMIT 10', function (
+  error,
+  results,
+  fields
+) {
   if (error) {
     throw error;
   }
