@@ -10,28 +10,44 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-const args = process.argv;
-args.splice(0, 2);
-const retrieve = argument => args.includes(argument);
+const select = process.argv.splice(2);
 
-
-if (retrieve('1'))
-  select_query =
-    'SELECT DISTINCT country_name, population FROM countries WHERE population > 8000000 ORDER BY population ASC';
-else if (retrieve('2'))
-  select_query = 'SELECT DISTINCT country_name FROM countries WHERE country_name LIKE "%land%"';
-else if (retrieve('3'))
-  select_query =
-    'SELECT DISTINCT city_name, population FROM cities WHERE population BETWEEN 500000 AND 1000000 ORDER BY population ASC';
-else if (retrieve('4'))
-  select_query =
-    'SELECT DISTINCT country_name, continent From countries WHERE continent = "Europe"';
-else if (retrieve('5'))
-  select_query =
-    'SELECT DISTINCT country_name, surface_area FROM countries ORDER BY surface_area DESC';
-else if (retrieve('help')) select_query = help;
-else select_query = help;
-
+switch (select[0]) {
+  case '1':
+    select_query =
+      'SELECT name_en, population FROM countries WHERE population > 8000000 ORDER BY population DESC';
+    break;
+  case '2':
+    select_query = 'SELECT name_en FROM countries WHERE name_en LIKE "%land%"';
+    break;
+  case '3':
+    select_query =
+      'SELECT city_name, population FROM cities WHERE population BETWEEN 500000 AND 1000000 ORDER BY population DESC';
+    break;
+  case '4':
+    select_query = 'SELECT name_en, continent From countries WHERE continent = "Europe"';
+    break;
+  case '5':
+    select_query = 'SELECT name_en, area FROM countries ORDER BY area DESC';
+    break;
+  case '6':
+    select_query = 'SELECT  city_name FROM cities LIMIT 20';
+    break;
+  case '7':
+    select_query = 'SELECT city_name, population FROM cities WHERE city_name = "Rotterdam"';
+    break;
+  case '8':
+    select_query = 'SELECT name_en, area FROM countries ORDER BY area DESC LIMIT 10';
+    break;
+  case '9':
+    select_query = 'SELECT city_name, population FROM cities ORDER BY population DESC LIMIT 10';
+    break;
+  case '10':
+    select_query = 'SELECT SUM (population) AS population_of_the_world FROM countries';
+    break;
+  default:
+    select_query = help;
+}
 
 connection.query(select_query, function(error, results, fields) {
   if (error) {
