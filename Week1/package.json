@@ -1,0 +1,15 @@
+{
+  "name": "week1",
+  "version": "1.0.0",
+  "description": "homework week1 databases",
+  "main": "async-create.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yaseir Alkhwalda",
+  "license": "ISC",
+  "dependencies": {
+    "db-country": "^1.0.1",
+    "nl-city": "^1.0.0"
+  }
+}
