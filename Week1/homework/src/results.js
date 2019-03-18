@@ -15,7 +15,7 @@ function one() {
     function(error, results) {
       if (error) throw error.message;
       console.log(`
-        1- Countries with population greater than 8 million:
+        1- Top 20 countries with population greater than 8 million:
         `);
       results.forEach(country => console.log(JSON.parse(JSON.stringify(country))));
       console.log(`
@@ -33,7 +33,7 @@ function two() {
   ) {
     if (error) throw error.message;
     console.log(`
-        2- Countries that have “land” in their names:
+        2- Top 20 countries that have “land” in their names:
         `);
     results.forEach(country => console.log(JSON.parse(JSON.stringify(country))));
     console.log(`
@@ -61,7 +61,7 @@ function three() {
 
 function four() {
   connection.connect();
-  connection.query('SELECT name, region FROM countries WHERE region = "Europe" LIMIT 20', function(
+  connection.query('SELECT name, region FROM countries WHERE region = "Europe"', function(
     error,
     results
   ) {
@@ -84,7 +84,7 @@ function five() {
   ) {
     if (error) throw error.message;
     console.log(`
-      5- Countries in the descending order of their surface areas:
+      5- Top 20 countries in the descending order of their surface areas:
       `);
     results.forEach(country => console.log(JSON.parse(JSON.stringify(country))));
     console.log(`
