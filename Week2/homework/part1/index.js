@@ -31,14 +31,14 @@ if (!process.argv[2]) {
 
   program
     .command('2 <regionName>')
-    .description('to list all the languages spoken in a spesific region ')
+    .description('to list all the languages spoken in a specific region ')
     .action(regionName => {
       learnSpokenLanguage(regionName);
     });
 
   program
     .command('3 <languageName>')
-    .description('to find the number of cities in which a spesific laguage is spoken')
+    .description('to find the number of cities in which a specific language is spoken')
     .action(languageName => {
       findCities(languageName);
     });

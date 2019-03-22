@@ -10,9 +10,33 @@ const connection = mysql.createConnection({
 
 const queryFunctions = {
   help: () => {
-    console.log('You can use this program to learn more about countries.');
+    const message =
+      '*****************************************************************************************' +
+      '\n' +
+      'To use this application, please use the below directions: ' +
+      '\n' +
+      '-----------------------------------------------------------------------------------------' +
+      '\n' +
+      '1-  To learn the capital of a country: 1 <countryName>' +
+      '\n' +
+      '2-  To list all the languages spoken in a specific region: 2 <regionName>' +
+      '\n' +
+      '3-  To find the number of cities in which a specific language is spoken: 3 <languageName>' +
+      '\n' +
+      '4A- To list countries that have same official language: 4A' +
+      '\n' +
+      '4B- To list countries that have same region: 4B' +
+      '\n' +
+      '5-  To list all the continents with the number of languages spoken in each continent: 5' +
+      '\n' +
+      '\n' +
+      '*****************************************************************************************';
+
+    console.log(message);
+    connection.end();
   },
   learnCapital: countryName => {
+    connection.connect();
     connection.execute(
       'SELECT city.Name FROM city INNER JOIN country ON country.Capital = city.ID WHERE country.Name = ?',
       [countryName],
@@ -24,6 +48,7 @@ const queryFunctions = {
     connection.end();
   },
   learnSpokenLanguage: regionName => {
+    connection.connect();
     connection.execute(
       'SELECT DISTINCT countrylanguage.Language FROM countrylanguage JOIN country ON country.Code = countrylanguage.CountryCode AND country.Region = ?',
       [regionName],
@@ -39,6 +64,7 @@ const queryFunctions = {
     connection.end();
   },
   findCities: languageName => {
+    connection.connect();
     connection.execute(
       'SELECT DISTINCT COUNT(city.ID) FROM city JOIN countrylanguage ON city.CountryCode = countrylanguage.CountryCode AND countrylanguage.Language = ?',
       [languageName],
@@ -52,9 +78,10 @@ const queryFunctions = {
     connection.end();
   },
   findSimilarCountriesByOfficialLanguage: () => {
+    connection.connect();
     connection.query(
       'SELECT DISTINCT country.Name FROM countrylanguage A, countrylanguage B, country WHERE A.CountryCode = country.Code AND A.IsOfficial = "T" AND A.Language = B.Language',
-      (err, results, fields) => {
+      (err, results) => {
         if (err) throw err;
         console.log(results);
         const countryNames = Array.from(results).map(country => '\n' + country.Name);
@@ -66,6 +93,7 @@ const queryFunctions = {
     connection.end();
   },
   findSimilarCountriesByRegion: () => {
+    connection.connect();
     connection.query(
       'SELECT DISTINCT A.Name, A.Region FROM country A, country B WHERE A.Region = B.Region',
       (err, results, fields) => {
@@ -76,6 +104,7 @@ const queryFunctions = {
     connection.end();
   },
   listContinents: () => {
+    connection.connect();
     connection.query(
       'SELECT DISTINCT Continent, COUNT(Language) AS Language FROM country INNER JOIN countrylanguage ON country.Code = countrylanguage.CountryCode GROUP BY Continent',
       (err, results, fields) => {
