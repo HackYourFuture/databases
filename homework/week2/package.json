@@ -1,0 +1,18 @@
+{
+  "name": "hw-week2",
+  "version": "1.0.0",
+  "description": "database week2 homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fatih",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.16.0",
+    "prompts": "^2.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.3"
+  }
+}
