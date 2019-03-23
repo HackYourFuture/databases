@@ -82,12 +82,11 @@ async function question() {
       console.log('Select a question and reply to prompted message in order to get an answer');
   }
 
-  connection.query(sql, function(error, results, fields) {
+  connection.query(sql, function(error, results) {
     if (error) {
       throw error;
     }
     console.log(results);
-    console.log(fields);
   });
   connection.end();
 }
