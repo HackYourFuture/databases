@@ -6,7 +6,7 @@ CREATE TRIGGER alert
       DECLARE counter INT;
       SET counter = (SELECT count(language) FROM countrylanguage where countrycode = NEW.countrycode );
       IF counter > 8
-        THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'This language has more than 9 languages !';
+        THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'This country has more than 9 languages !';
       END IF;
     END//
 DELIMITER ;
