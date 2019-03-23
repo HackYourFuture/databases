@@ -1,0 +1,29 @@
+CREATE TABLE `todo` (
+  `todo_id` int PK,
+  `at_created` datetime,
+  `due_date` datetime,
+  `done` bool,
+  `user_id` int FK
+);
+
+CREATE TABLE `task` (
+  `task_id` int PK,
+  `task` varchar(50),
+  `at_created` datetime,
+  `due_time` datetime,
+  `tag` enum,
+  `done` bool,
+  `todo_id` int FK
+);
+
+CREATE TABLE `user` (
+  `user_id` int PK,
+  `username` varchar(50),
+  `usermail` varchar(50),
+  `userpassword` varchar(50),
+  `bd_date` datetime,
+  `city` varchar(50),
+  `country` varchar(50),
+  `gender` enum
+);
+
