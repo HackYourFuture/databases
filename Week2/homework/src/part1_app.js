@@ -51,7 +51,7 @@ async function queryDatabase() {
       case '2':
         const secondOption = await input(['region']);
         let region = secondOption.region;
-        const secondQuery = `SELECT region, COUNT(language) AS Languages FROM (SELECT e1.region AS region, e2.Language AS Language FROM country AS e1 LEFT JOIN (SELECT * FROM countrylanguage WHERE isOfficial = 'T') AS e2 ON (e1.Code = e2.CountryCode)) AS l where region = ? GROUP BY region;`;
+        const secondQuery = `SELECT region, language FROM (SELECT e1.region AS region, e2.Language AS Language FROM country AS e1 LEFT JOIN (SELECT * FROM countrylanguage) AS e2 ON (e1.Code = e2.CountryCode)) AS regionsAndLanguages WHERE region = ? GROUP BY region, language;`;
         connection.connect();
         let resultsSecond = await execQuery(secondQuery, region);
         console.log(`
