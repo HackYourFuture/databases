@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'hyfuser',
   password : 'hyfpassword',
-  database : 'test',
+  database : 'zoo',
   multipleStatements: false
 });
 
@@ -23,15 +23,16 @@ async function queryDatabase() {
 
         // 1. Naive way of passing the parameter to the query
         //const select_query = `select * from students WHERE student_number =  ${input_number};`
-        const select_query = `select * from employee WHERE eno =  ${input_number};`
+        //const select_query = `select * from employees WHERE emp_no =  ${input_number};`
 
         // 2. Escaping the parameter ( replacing the unwanted characters)
         //const select_query = `select * from students WHERE student_number =` + connection.escape(input_number);
-        //const select_query = `select * from employee WHERE eno =` + connection.escape(input_number);
+        //const select_query = `select * from animal WHERE gender =` + connection.escape(input_number);
 
         // 3. Using a question mark syntax to do the escaping (AKA prepared statements)
         //const select_query = `select * from students WHERE student_number = ?`
         //const select_query = `select * from employee WHERE eno = ?`
+        const select_query = `select * from animal WHERE gender = ?`;
 
         connection.connect();
         console.log(select_query);

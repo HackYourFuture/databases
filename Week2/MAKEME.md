@@ -12,11 +12,11 @@ about prepared statements.
 1. What is the capital of country X ? (Accept X from user)
 2. List all the languages spoken in the region Y (Accept Y from user)
 3. Find the number of cities in which language Z is spoken (Accept Z from user)
-4. Are there any countries that have
-    A) Same official language
-    B) Same region
+4. Accept country from the user.
+   Are there any countries in the same region as this country
+   with the same official language as given country.
    If yes, display those countries.
-   If no, display TRUE or FALSE
+   If no, display FALSE.
 5. List all the continents with the number of languages spoken in each continent
 
 
