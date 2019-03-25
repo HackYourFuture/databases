@@ -7,16 +7,14 @@ const learnCapital = functions.learnCapital;
 const learnSpokenLanguage = functions.learnSpokenLanguage;
 const findCities = functions.findCities;
 const findSimilarCountriesByOfficialLanguage = functions.findSimilarCountriesByOfficialLanguage;
-const findSimilarCitiesByRegion = functions.findSimilarCountriesByRegion;
 const listContinents = functions.listContinents;
+const makeAlert = functions.makeAlert;
 
-const a = process.argv[2];
+const input = process.argv[2];
 
-if (!a) {
+if (!input) {
   help();
-} else if (String(process.argv[3]).substring(0, 1) === '-') {
-  console.log('Please write a positive number!');
-} else if ((a > 0 && a < 6) || a == '4A' || a == '4B') {
+} else if (input > 0 && input < 6) {
   program
     .command('help')
     .description('to get help')
@@ -46,17 +44,10 @@ if (!a) {
     });
 
   program
-    .command('4A')
-    .description('to list countries that have same official language')
-    .action(() => {
-      findSimilarCountriesByOfficialLanguage();
-    });
-
-  program
-    .command('4B')
-    .description('to list countries that have same region')
-    .action(() => {
-      findSimilarCitiesByRegion();
+    .command('4 <regionName> <languageName>')
+    .description('to list countries that have same official language in the same region')
+    .action((regionName, languageName) => {
+      findSimilarCountriesByOfficialLanguage(regionName, languageName);
     });
 
   program
@@ -68,5 +59,5 @@ if (!a) {
 
   program.parse(process.argv);
 } else {
-  console.log('Please write a number between 1 and 5');
+  makeAlert();
 }

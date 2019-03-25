@@ -11,6 +11,7 @@ const connection = mysql.createConnection({
 const queryFunctions = {
   help: () => {
     const message =
+      '\n' +
       '*****************************************************************************************' +
       '\n' +
       'To use this application, please use the below directions: ' +
@@ -23,14 +24,13 @@ const queryFunctions = {
       '\n' +
       '3-  To find the number of cities in which a specific language is spoken: 3 <languageName>' +
       '\n' +
-      '4A- To list countries that have same official language: 4A' +
-      '\n' +
-      '4B- To list countries that have same region: 4B' +
+      '4-  To list countries that have same official language with given country in the same region: 4 <regionName> <countryName>' +
       '\n' +
       '5-  To list all the continents with the number of languages spoken in each continent: 5' +
       '\n' +
       '\n' +
-      '*****************************************************************************************';
+      '*****************************************************************************************' +
+      '\n';
 
     console.log(message);
     connection.end();
@@ -77,29 +77,54 @@ const queryFunctions = {
     );
     connection.end();
   },
-  findSimilarCountriesByOfficialLanguage: () => {
+  findSimilarCountriesByOfficialLanguage: (regionName, languageName) => {
     connection.connect();
-    connection.query(
-      'SELECT DISTINCT country.Name FROM countrylanguage A, countrylanguage B, country WHERE A.CountryCode = country.Code AND A.IsOfficial = "T" AND A.Language = B.Language',
-      (err, results) => {
-        if (err) throw err;
-        const countryNames = Array.from(results).map(country => '\n' + country.Name);
+    const sqlProcedure = `    
+
+    CREATE PROCEDURE GetCountries_Reg_lang(region VARCHAR(50),official_lang VARCHAR(50))
+    BEGIN
+    DECLARE message varchar(300);
+    DECLARE count_countries int;
+     SELECT COUNT(*) INTO count_countries from country JOIN countrylanguage ON country.code = countrylanguage.CountryCode
+      WHERE countrylanguage.language = official_lang
+      and country.Region = region
+      and IsOfficial = 'T';
+   
+   if (count_countries > 1) then
+      SELECT country.Name FROM country JOIN countrylanguage ON country.code = countrylanguage.CountryCode
+      WHERE countrylanguage.language =official_lang
+      and country.Region = region
+      and IsOfficial = 'T';
+    else
+        SET message ='FALSE: No countries on the given region with same official language';
+        SET lc_messages=message;
+        SIGNAL SQLSTATE '45000';
+     end if;
+    END;
+
+        `;
+    connection.query(`DROP PROCEDURE IF EXISTS GetCountries_Reg_lang;`, err => {
+      if (err) throw err;
+      console.log('Procedure is deleted...');
+    });
+    connection.query(sqlProcedure, err => {
+      if (err) throw err;
+      console.log('Procedure is added...');
+    });
+    const sql = `CALL GetCountries_Reg_lang(?, ?);`;
+    connection.execute(sql, [regionName, languageName], (err, results) => {
+      if (err) {
+        try {
+          if (err) throw err;
+        } catch (err) {
+          console.log('FALSE: No countries on the given region with same official language');
+        }
+      } else {
         console.log(
-          `All of these countries have official language that at least a different country has the same official language: ${countryNames}`
+          `${results[0].map(country => '\n' + country.Name)} \nare speaking same language.`
         );
       }
-    );
-    connection.end();
-  },
-  findSimilarCountriesByRegion: () => {
-    connection.connect();
-    connection.query(
-      'SELECT DISTINCT A.Name, A.Region FROM country A, country B WHERE A.Region = B.Region',
-      (err, results, fields) => {
-        if (err) throw err;
-        console.log(results);
-      }
-    );
+    });
     connection.end();
   },
   listContinents: () => {
@@ -115,6 +140,10 @@ const queryFunctions = {
         );
       }
     );
+    connection.end();
+  },
+  makeAlert: () => {
+    console.log('Please write a number between 1 and 5');
     connection.end();
   },
 };
