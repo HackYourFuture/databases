@@ -23,7 +23,7 @@ async function queryDatabase() {
       1........What is the capital of country X ? (Accept X from user)
       2........List all the languages spoken in the region Y (Accept Y from user)
       3........Find the number of cities in which language Z is spoken (Accept Z from user)
-      4........Are there any countries that have A) Same official language B) Same region If yes, display those countries. If no, display TRUE or FALSE
+      4........Accept the region and language from the user. Are there any countries in this region with the given language as the official language ? If yes, display those countries. If no, display FALSE. E.g. (A) input region : 'Western Europe' and input language : 'Dutch' output should be Belgium and Netherlands (B) input region : 'Western Europe' and input language : 'Hindi' output should be 'FALSE'
       5........List all the continents with the number of languages spoken in each continent
 
       Make your choice =>>
@@ -82,39 +82,26 @@ async function queryDatabase() {
         break;
 
       case '4':
-        const fourthOption = await input(['AorB']);
-        let choice = fourthOption.AorB;
-        if (choice === 'A') {
-          const fourthOptionA = await input(['Language']);
-          let selectedLanguage = fourthOptionA.Language;
-          const fourthQueryA = `SELECT Country, Language FROM (SELECT CountryCode AS Country, Language AS Language FROM countrylanguage WHERE isOfficial = 'T' GROUP BY CountryCode, Language) AS sameOfficialLanguage WHERE Language = ?;`;
-          connection.connect();
-          console.log(fourthOptionA);
-          let resultsFourthA = await execQuery(fourthQueryA, selectedLanguage);
-          console.log(`
+        const fourthOption_region = await input(['Region']);
+        let selectedRegion = fourthOption_region.Region;
+        const fourthOption_language = await input(['Language']);
+        let selectedLanguage = fourthOption_language.Language;
+        const fourthQuery = `
+        CALL GetCountries_Reg_lang (?, ?);
+        `;
+        connection.connect();
+        console.log(fourthOption_region);
+        console.log(fourthOption_language);
+        let params = [selectedRegion, selectedLanguage];
+        let resultsFourth = await execQuery(fourthQuery, params);
+        console.log(`
         `);
-          for (r of resultsFourthA) {
-            console.log(JSON.parse(JSON.stringify(r)));
-          }
-          console.log(`
-        `);
-          connection.end();
-        } else if (choice === 'B') {
-          const fourthOptionB = await input(['Region']);
-          let selectedRegion = fourthOptionB.Region;
-          const fourthQueryB = `SELECT Name, region FROM country WHERE region = ? GROUP BY name, region;`;
-          connection.connect();
-          console.log(fourthOptionB);
-          let resultsFourthB = await execQuery(fourthQueryB, selectedRegion);
-          console.log(`
-        `);
-          for (r of resultsFourthB) {
-            console.log(JSON.parse(JSON.stringify(r)));
-          }
-          console.log(`
-        `);
-          connection.end();
+        for (r of resultsFourth) {
+          console.log(JSON.parse(JSON.stringify(r)));
         }
+        console.log(`
+        `);
+        connection.end();
         break;
 
       case '5':
