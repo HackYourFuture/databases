@@ -83,7 +83,6 @@ const queryFunctions = {
       'SELECT DISTINCT country.Name FROM countrylanguage A, countrylanguage B, country WHERE A.CountryCode = country.Code AND A.IsOfficial = "T" AND A.Language = B.Language',
       (err, results) => {
         if (err) throw err;
-        console.log(results);
         const countryNames = Array.from(results).map(country => '\n' + country.Name);
         console.log(
           `All of these countries have official language that at least a different country has the same official language: ${countryNames}`
@@ -106,7 +105,7 @@ const queryFunctions = {
   listContinents: () => {
     connection.connect();
     connection.query(
-      'SELECT DISTINCT Continent, COUNT(Language) AS Language FROM country INNER JOIN countrylanguage ON country.Code = countrylanguage.CountryCode GROUP BY Continent',
+      'SELECT DISTINCT Continent, COUNT(DISTINCT Language) AS Language FROM country INNER JOIN countrylanguage ON country.Code = countrylanguage.CountryCode GROUP BY Continent',
       (err, results, fields) => {
         if (err) throw err;
         console.log(

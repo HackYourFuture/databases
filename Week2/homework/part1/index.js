@@ -10,11 +10,13 @@ const findSimilarCountriesByOfficialLanguage = functions.findSimilarCountriesByO
 const findSimilarCitiesByRegion = functions.findSimilarCountriesByRegion;
 const listContinents = functions.listContinents;
 
-if (!process.argv[2]) {
+const a = process.argv[2];
+
+if (!a) {
   help();
 } else if (String(process.argv[3]).substring(0, 1) === '-') {
   console.log('Please write a positive number!');
-} else if (process.argv[2] > 0 && process.argv[2] < 6) {
+} else if ((a > 0 && a < 6) || a == '4A' || a == '4B') {
   program
     .command('help')
     .description('to get help')

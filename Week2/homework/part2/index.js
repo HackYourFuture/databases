@@ -29,6 +29,8 @@ if (!process.argv[2]) {
     .action(() => {
       insertLanguage();
     });
+
+  program.parse(process.argv);
 }
 
 //   'SELECT DISTINCT country.Name, COUNT(Language) AS numberOfLanguage FROM country INNER JOIN countrylanguage ON country.Code = countrylanguage.CountryCode group by Name;',

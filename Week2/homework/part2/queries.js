@@ -5,6 +5,7 @@ const connection = mysql.createConnection({
   user: 'hyfuser2',
   password: 'hyfpassword',
   database: 'new_world',
+  multipleStatements: false,
 });
 
 const help = () => {
@@ -15,30 +16,30 @@ const help = () => {
 };
 
 const addTrigger = () => {
-  connection.connect();
-  connection.query(
-    `
-  DROP TRIGGER IF EXISTS language_check;
-  
-  DELIMITER //
-  CREATE TRIGGER language_check 
-    AFTER INSERT ON countrylanguage FOR EACH ROW 
-      BEGIN      
-        IF (SELECT COUNT(Language)
-            FROM countrylanguage where countrycode = 'VNM') >= 10 
-        THEN
-          SIGNAL SQLSTATE '02000' SET MESSAGE_TEXT = 'Warning: The number of language that is spoken in this country is bigger than 10';
-        END IF;
-      END; 
-    //
-  
-  DELIMITER ;`,
-    (err, results) => {
-      if (err) throw err;
-      console.log('Trigger is set.');
-    }
-  );
-  connection.end();
+  connection.connect(err => {
+    if (err) throw err;
+    console.log('Connected...');
+    const sql = `
+  DROP TRIGGER IF EXISTS language_check;   
+  DELIMITER $
+  CREATE TRIGGER language_check
+     AFTER INSERT ON countrylanguage FOR EACH ROW
+       BEGIN
+         IF (SELECT COUNT(DISTINCT Language)
+             FROM countrylanguage where countrycode = 'VNM') >= 10
+         THEN
+           SIGNAL SQLSTATE '02000' SET MESSAGE_TEXT = 'Warning: The number of language that is spoken in this country is bigger than 10';
+         END IF;
+       END;
+  $
+  DELIMITER ;
+  `;
+    connection.query(sql, (err, result) => {
+      if (err) console.log(err); // throw err;
+      console.log('Trigger deleted.');
+    });
+    connection.end();
+  });
 };
 
 const insertLanguage = () => {
