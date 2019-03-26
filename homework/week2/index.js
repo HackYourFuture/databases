@@ -86,7 +86,14 @@ async function question() {
     if (error) {
       throw error;
     }
-    console.log(results);
+
+    results.forEach(element => {
+      let row = [];
+      for (let key of Object.keys(element)) {
+        row.push(element[key]);
+      }
+      console.log(row.join('\t\t'));
+    });
   });
   connection.end();
 }
