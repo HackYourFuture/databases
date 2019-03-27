@@ -1,11 +1,10 @@
 DELIMITER $$
-CREATE TRIGGER over_nine_language  
-AFTER INSERT ON countrylanguage 
+CREATE TRIGGER ten_or_more_language  
+BEFORE INSERT ON countrylanguage 
 FOR EACH ROW 
 BEGIN
     IF ( (SELECT count(*) FROM countrylanguage where countrycode = NEW.countrycode) >= 10) THEN
-        INSERT INTO countrylanguage VALUES(NEW.countrycode,NEW.language,NEW.isofficial,NEW.percentage);
-        SIGNAL SQLSTATE '02000' SET MESSAGE_TEXT =  'Warning: country has 10 or more language' ;
+        SET lc_messages =  'Warning: country has 10 or more language';SIGNAL SQLSTATE '45000';
     END IF;
 END$$
 DELIMITER ;
