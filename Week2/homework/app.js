@@ -24,8 +24,8 @@ try {
       const capitalOfCountry = `SELECT c.Name,ci.Name FROM country AS c 
                                 LEFT JOIN city AS ci
                                 ON c.Capital=ci.ID
-                                WHERE c.Name="${query}";`;
-      execQuery(capitalOfCountry).then(results => {
+                                WHERE c.Name=?;`;
+      execQuery(capitalOfCountry, query).then(results => {
         console.log(`Capital city of ${query} is: ${results[0].Name}`);
       });
       break;
@@ -33,8 +33,8 @@ try {
       const languagesByRegion = `SELECT cl.Language,c.Region FROM countrylanguage AS cl 
                               LEFT JOIN country AS c 
                               ON cl.CountryCode=c.Code
-                              WHERE c.Region='${query}';`;
-      execQuery(languagesByRegion).then(results => {
+                              WHERE c.Region=?;`;
+      execQuery(languagesByRegion, query).then(results => {
         for (let r of results) {
           console.log(r.Language);
         }
@@ -44,9 +44,9 @@ try {
       const citiesOfLanguage = `SELECT COUNT(c.Name) AS total, cl.Language FROM city AS c 
                               LEFT JOIN countrylanguage AS cl
                               ON c.CountryCode=cl.CountryCode
-                              WHERE cl.Language='${query}' 
+                              WHERE cl.Language=? 
                               GROUP BY cl.Language;`;
-      execQuery(citiesOfLanguage).then(results => {
+      execQuery(citiesOfLanguage, query).then(results => {
         console.log(results[0].total);
       });
       break;
