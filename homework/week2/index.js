@@ -40,7 +40,7 @@ END
   });
 }
 
-async function question() {
+async function answerQuestions() {
   const questions = [
     {
       type: 'select',
@@ -75,22 +75,6 @@ async function question() {
     }));
   }
 
-  if (question === 4) {
-    const { region } = await prompts({
-      type: 'text',
-      name: 'region',
-      message: `Enter the region:`,
-    });
-
-    const { language } = await prompts({
-      type: 'text',
-      name: 'language',
-      message: `Enter the language:`,
-    });
-
-    input = [region, language];
-  }
-
   let sql;
   switch (question) {
     case 'country':
@@ -115,17 +99,32 @@ async function question() {
             AND cl.language=?;
             `;
       break;
-    case 4:
+    case 4: {
+      const { region } = await prompts({
+        type: 'text',
+        name: 'region',
+        message: `Enter the region:`,
+      });
+
+      const { language } = await prompts({
+        type: 'text',
+        name: 'language',
+        message: `Enter the language:`,
+      });
+
+      input = [region, language];
+
       sql = `CALL getCountriesSameRegionAndLanguage(?,?);`;
       break;
+    }
     case 5:
+      input = 1;
       sql = `SELECT c.continent,count(distinct cl.language) language_spoken
       FROM countrylanguage cl
       JOIN country c
       ON cl.countrycode=c.code
       WHERE 1=?
       GROUP BY c.continent;`;
-      input = 1;
       break;
     default:
       console.log('Select a question and reply to prompted message in order to get an answer');
@@ -154,7 +153,7 @@ async function question() {
 function main() {
   try {
     dropAndCreateProcedure();
-    question();
+    answerQuestions();
   } catch (error) {
     console(error.message);
   }
