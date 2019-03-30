@@ -2,13 +2,13 @@
 
 const connection = require('../databaseConfig');
 
-const markTodoAsDone = (req, res) => {
-  connection.query(`
+const markTodoAsDone = async (req, res) => {
+  await connection.query(`
     UPDATE todos 
     SET Done = 'true'
     WHERE Todo_Id = '${req.params.todoId}';
     `);
-  connection.query(
+  await connection.query(
     `SELECT * FROM todos WHERE ToDoList_Id = '${req.params.todoListId}'`,
     (error, results, fields) => {
       if (error) {

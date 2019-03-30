@@ -3,12 +3,12 @@
 const connection = require('../databaseConfig');
 const nanoid = require('nanoid');
 
-const createNewTodo = (req, res) => {
+const createNewTodo = async (req, res) => {
   if (req.body.todo === '' || req.body.todo === null) {
     res.status(400);
     res.json('Please define a todo!');
   } else {
-    connection.query(
+    await connection.query(
       `INSERT INTO todos VALUES(
         '${req.params.todoListId}',
         '${nanoid()}',
@@ -18,7 +18,7 @@ const createNewTodo = (req, res) => {
         '${req.body.tag}'
         )`
     );
-    connection.query(
+    await connection.query(
       `SELECT * FROM todos WHERE ToDoList_Id = '${req.params.todoListId}'`,
       (error, results, fields) => {
         if (error) {

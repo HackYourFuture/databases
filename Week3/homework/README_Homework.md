@@ -34,45 +34,84 @@
 
 **Users Part:**
 
-    - To create a new user (POST):
-    `http://localhost:3001/ToDoApp/createNewUser`
+    - To create a new user:
+    `(POST) http://localhost:3001/ToDoApp/newUser`
+    Accept: application/json
+      {
+        "user": "xxx", (varchar(50))
+        "email": "xxx@gmail.com", (varchar(254))
+      }
 
-    - To update a user (PUT):
-    `http://localhost:3001/ToDoApp/updateUser/:userId`
+    - To update a user:
+    `(PUT) http://localhost:3001/ToDoApp/user/:userId`
+    Accept: application/json
+      {
+        "user": "xxx", (varchar(50))
+        "email": "xxx@gmail.com", (varchar(254))
+      }
 
-    - To get all users (GET):
-    `http://localhost:3001/ToDoApp/getAllUsers`
+    - To get all users:
+    `(GET) http://localhost:3001/ToDoApp/allUsers`
+    Accept: application/json
 
-    To remove a user (DELETE):
-    `http://localhost:3001/ToDoApp/removeUser/:userId`
+    To remove a user:
+    `(DELETE) http://localhost:3001/ToDoApp/user/:userId`
+    Accept: application/json
 
 **Todo Lists Part:**
 
-    - To create a new todo list (POST):
-    `http://localhost:3001/ToDoApp/:userId/createNewTodoList`
+    - To create a new todo list:
+    `(POST) http://localhost:3001/ToDoApp/:userId/newTodoList`
+    Accept: application/json
+      {
+        "todoListName": "xxx", (varchar(50))
+        "reminder": "dd/mm/yyyy", (datetime)
+        "tag": "xxx" (varchar(50))
+      }
 
-    - To update a todo list (PUT):
-    `http://localhost:3001/ToDoApp/:userId/updateTodoList/:todoListId`
+    - To update a todo list:
+    `(PUT) http://localhost:3001/ToDoApp/:userId/todoList/:todoListId`
+    Accept: application/json
+      {
+        "todoListName": "xxx", (varchar(50))
+        "reminder": "dd/mm/yyyy", (datetime)
+        "tag": "xxx" (varchar(50))
+      }
 
-    - To retrieve todo lists belong to a certain user (GET):
-    `http://localhost:3001/ToDoApp/:userId/getTodoLists`
+    - To retrieve todo lists belong to a certain user:
+    `(GET) http://localhost:3001/ToDoApp/:userId/todoLists`
+    Accept: application/json
 
-    - To remove a todo list (DELETE):
-    `http://localhost:3001/ToDoApp/removeTodoList/:todoListId`
+    - To remove a todo list:
+    `(DELETE) http://localhost:3001/ToDoApp/todoList/:todoListId`
+    Accept: application/json
 
 **Todos Part:**
 
-    - To create a new todo (POST):
-    `http://localhost:3001/ToDoApp/:todoListId/createNewTodo`
+    - To create a new todo:
+    `(POST) http://localhost:3001/ToDoApp/:todoListId/newTodo`
+    Accept: application/json
+      {
+        "todo": "xxx", (varchar(100))
+        "dueDate": "dd/mm/yyyy", (datetime)
+      }
 
-    - To update a todo (PUT):
-    `http://localhost:3001/ToDoApp/:todoListId/updateTodo/:todoId`
+    - To update a todo:
+    `(PUT) http://localhost:3001/ToDoApp/:todoListId/todo/:todoId`
+    Accept: application/json
+      {
+        "todo": "xxx", (varchar(100))
+        "dueDate": "dd/mm/yyyy", (datetime)
+      }
 
-    - To retrieve todos belong to a certain todo list (GET):
-    `http://localhost:3001/ToDoApp/:todoListId/getTodos`
+    - To retrieve todos belong to a certain todo list:
+    `(GET) http://localhost:3001/ToDoApp/:todoListId/todos`
+    Accept: application/json
 
-    - To remove a todo (DELETE):
-    `http://localhost:3001/ToDoApp/:todoListId/removeTodo/:todoId`
+    - To remove a todo:
+    `(DELETE) http://localhost:3001/ToDoApp/:todoListId/todo/:todoId`
+    Accept: application/json
 
-    - To mark a todo as done (PUT):
-    `http://localhost:3001/ToDoApp/:todoListId/:todoId/done`
+    - To mark a todo as done:
+    `(PUT) http://localhost:3001/ToDoApp/:todoListId/:todoId/done`
+    Accept: application/json

@@ -58,7 +58,7 @@ CREATE TABLE `todos` (
   `ToDoList_Id` varchar(50) NOT NULL,
   `Todo_Id` varchar(50) NOT NULL,
   `Todo_Name` varchar(100) NOT NULL,
-  `Done` enum('true','false') DEFAULT NULL,
+  `Done` enum('true','false') DEFAULT 'false',
   `Due_date` datetime DEFAULT NULL,
   `Tag` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`Todo_Id`),
@@ -86,7 +86,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `User_Id` varchar(50) NOT NULL,
   `Name` varchar(50) NOT NULL,
-  `Email` varchar(50) NOT NULL,
+  `Email` varchar(254) NOT NULL,
   PRIMARY KEY (`User_Id`,`Email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

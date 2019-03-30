@@ -2,9 +2,11 @@
 
 const connection = require('../databaseConfig');
 
-const removeTodoList = (req, res) => {
-  connection.query(`DELETE FROM todolists WHERE ToDoList_Id = '${req.params.todoListId}'`);
-  connection.query(`SELECT * FROM todolists`, (error, results, fields) => {
+const removeTodoList = async (req, res) => {
+  await connection.query(
+    `DELETE FROM todolists WHERE ToDoList_Id = '${req.params.todoListId}' LIMIT 1`
+  );
+  await connection.query(`SELECT * FROM todolists`, (error, results, fields) => {
     if (error) {
       res.send(error);
     } else {

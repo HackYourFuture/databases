@@ -2,9 +2,9 @@
 
 const connection = require('../databaseConfig');
 
-const removeUser = (req, res) => {
-  connection.query(`DELETE FROM users WHERE User_Id = '${req.params.userId}'`);
-  connection.query(`SELECT * FROM users`, (error, results, fields) => {
+const removeUser = async (req, res) => {
+  await connection.query(`DELETE FROM users WHERE User_Id = '${req.params.userId} LIMIT 1`);
+  await connection.query(`SELECT * FROM users`, (error, results, fields) => {
     if (error) {
       res.send(error);
     } else {
