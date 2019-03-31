@@ -6,7 +6,7 @@
 
 Example of input data:
 
-{
+{ br/
 "firstName": "new user",
 "lastName": "new user"
 }
@@ -39,9 +39,7 @@ You have to enter item id in the route path.
 
 You have to enter list id and the time in the route path.
 
-Example of input data:
-
-localhost:3001/users/lists/1/5000
+Example of input data:  localhost:3001/users/lists/1/5000
 
 {{ note: 5000 = 5 seconds }}
 
