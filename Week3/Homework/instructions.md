@@ -2,7 +2,7 @@
 
 ## The instructions to use todo list app:
 
-### 1- Add a new user (method: POST, path: http://localhost:3001/users)
+### 1- Add a new user (method: POST, path: localhost:3001/users)
 
 Example of input data:
 
