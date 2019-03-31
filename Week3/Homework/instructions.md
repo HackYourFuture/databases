@@ -9,6 +9,7 @@ Example of input data:
 {
 
 "firstName": "new user",
+
 "lastName": "new user"
 
 }
@@ -36,6 +37,7 @@ Example of input data:
 "item": "new item"
 
 }
+
 
 ### 4- Mark an item as completed (method: PUT, path: localhost:3001/users/lists/items/:item_id)
 
