@@ -1,0 +1,33 @@
+{
+  "name": "api_todo",
+  "version": "1.0.0",
+  "description": "todo api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kfth/databases.git"
+  },
+  "keywords": [
+    "todo",
+    "api",
+    "mysql",
+    "express"
+  ],
+  "author": "fatih",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kfth/databases/issues"
+  },
+  "homepage": "https://github.com/kfth/databases#readme",
+  "dependencies": {
+    "dev": "^0.1.3",
+    "eslint": "^5.15.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
