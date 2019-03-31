@@ -6,9 +6,11 @@
 
 Example of input data:
 
-{ br/
+{
+
 "firstName": "new user",
 "lastName": "new user"
+
 }
 
 ### 2- Add a new list for user (method: POST, path: localhost:3001/users/:userId)
