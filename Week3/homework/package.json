@@ -1,0 +1,12 @@
+{
+  "name": "homework",
+  "version": "1.0.0",
+  "main": "create_db.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Soolaf",
+  "license": "ISC",
+  "description": ""
+}
