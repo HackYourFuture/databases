@@ -64,6 +64,6 @@ async function seedDatabase() {
 seedDatabase();
 
 module.exports = {
-  connection: connection,
-  execQuery: execQuery,
+  connection,
+  execQuery,
 };

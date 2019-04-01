@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-const query = require('./create_db.js');
+const query = require('./Create_db.js');
 
 app.use(bodyParser.json());
 

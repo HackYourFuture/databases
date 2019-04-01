@@ -1,7 +1,6 @@
 'use strict';
 
 const db = require('./db.js');
-
 const createUser = async function(userId, userName) {
   try {
     await db.execQuery(`INSERT INTO users(userId, userName) VALUES (DEFAULT, ?)`, [
