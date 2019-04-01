@@ -25,10 +25,10 @@ DROP TABLE IF EXISTS `items`;
 CREATE TABLE `items` (
   `item_id` int(11) NOT NULL AUTO_INCREMENT,
   `list_id` int(11) NOT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NOT NULL,
   `completion` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`item_id`),
-  KEY `fk2` (`list_id`),
+  KEY `foreign_key_for_list_id` (`list_id`),
   CONSTRAINT `fk2` FOREIGN KEY (`list_id`) REFERENCES `lists` (`list_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -52,10 +52,10 @@ DROP TABLE IF EXISTS `lists`;
 CREATE TABLE `lists` (
   `list_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NOT NULL,
   `remainder` datetime DEFAULT NULL,
   PRIMARY KEY (`list_id`),
-  KEY `fk1` (`user_id`),
+  KEY `foreing_key_for_user_id` (`user_id`),
   CONSTRAINT `fk1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

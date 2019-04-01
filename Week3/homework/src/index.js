@@ -37,7 +37,7 @@ app.post('/:username/:password/:listDescription', (req, res) =>
 );
 
 // ADD REMAINDER TO LIST
-app.patch('/:username/:password/:listDescription/remainder/:remainder', (req, res) =>
+app.patch('/:username/:password/:listId/remainder/:remainder', (req, res) =>
   addRemainder(connection, errorHandler, req, res)
 );
 
@@ -60,7 +60,7 @@ app.delete('/:username/:password/:listDescription', (req, res) =>
 );
 
 // DELETE TO-DO ITEM
-app.delete('/:username/:password/:listDescription/:toDoDescription', (req, res) =>
+app.delete('/:username/:password/:listDescription/:toDoId', (req, res) =>
   deleteToDoItem(connection, errorHandler, req, res)
 );
 
