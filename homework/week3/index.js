@@ -5,9 +5,8 @@ const todo = require('./todo');
 const app = express();
 const PORT = 3000;
 app.use(express.json());
-
+app.use(express.static('README.md'));
 app.get('/', (req, res) => {
-  console.log(req.url, req.method);
   res.send('Welcome Todo Api');
 });
 
@@ -18,6 +17,8 @@ app.post('/:owner/addList', (req, res) => list.addList(req, res));
 app.delete('/:owner/deleteList/:id', (req, res) => list.deleteList(req, res));
 
 app.put('/:owner/', (req, res) => list.markAs(req, res));
+
+app.post('/:owner/:list_id', (req, res) => list.addReminder(req, res));
 
 app.get('/:owner/:list_id/', (req, res) => todo.getTodos(req, res));
 

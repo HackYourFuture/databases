@@ -48,4 +48,29 @@ async function markAs(req, res) {
   }
 }
 
-module.exports = { addList, deleteList, getLists, markAs };
+async function addReminder(req, res) {
+  try {
+    let inputs = [req.params.list_id];
+    let columns = ['list_id'];
+
+    if (req.body.date_time) {
+      inputs.push(req.body.date_time);
+      columns.push('date_time');
+    }
+    if (req.body.alert_before) {
+      inputs.push(req.body.alert_before);
+      columns.push('alert_before');
+    }
+
+    const sql = `INSERT INTO reminders(${columns.join(',')}) VALUES (${columns
+      .map(() => '?')
+      .join(',')})`;
+
+    await executeSqlQuery(sql, inputs);
+    res.status(200).json({ reminder: 'successfully added' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+module.exports = { addList, deleteList, getLists, markAs, addReminder };
