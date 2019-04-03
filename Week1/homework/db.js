@@ -17,7 +17,7 @@ function populationMoreThan8() {
 }
 
 function withLand() {
-  var result = "SELECT * FROM countries WHERE countries.country_name LIKE '%land%'";
+  var result = "SELECT * FROM countries WHERE countries.country_name LIKE 'land'";
   connection.query(result, function(error, result) {
     if (error) throw error;
     console.log('countries with the word land\n', result);
@@ -36,7 +36,7 @@ function populationInBetween() {
 
 function euroCountries() {
   var result =
-    "SELECT countries.country_name, countries.continent FROM countries WHERE countries.continent LIKE '%Europe%'";
+    "SELECT countries.country_name, countries.continent FROM countries WHERE countries.continent LIKE 'Europe'";
   connection.query(result, function(error, result) {
     if (error) throw error;
     console.log('countries in europe\n', result);
@@ -60,7 +60,6 @@ function rotterdamPopulation() {
   });
 }
 
-
 function topBySurface() {
   var result =
     'SELECT country_name,surface_areas FROM countries ORDER BY countries.surface_areas ASC LIMIT 10';
@@ -78,24 +77,12 @@ function mostPopulatedCities() {
   });
 }
 
-function worldPopulation() {
-  var result =
-    'SELECT SUM(city_population) AS cities_population, SUM(country_population) AS world_population FROM cities INNER JOIN countries ON city_population + country_population';
-  connection.query(result, function(error, result) {
-    if (error) throw error;
-    console.log(result);
-  });
-}
-
 connection.end();
 
 module.exports = {
-  worldPopulation,
   mostPopulatedCities,
   topBySurface,
   rotterdamPopulation,
-
-  netherlandsCities,
   descendingOrder,
   euroCountries,
   populationInBetween,
