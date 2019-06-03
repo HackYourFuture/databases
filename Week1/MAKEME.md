@@ -2,7 +2,7 @@
 
 # Homework week 1
 
-This week you'll be writing a Node.js file that makes a connection to a MySQL database instance. These are the requirements that the file must fulfill:
+This week you'll be writing a Node.js file that makes a connection to a MySQL database instance. These are the requirements that the file must have:
 
 1. Use the `mysql` package (https://www.npmjs.com/package/mysql)
 2. Make a connection to MySQL, using the login credentials
@@ -10,20 +10,20 @@ This week you'll be writing a Node.js file that makes a connection to a MySQL da
     - Create a database called 'world'
     - Create a table called 'country'
     - Create a table called 'city'
-4. Write queries (that's a technical term meaning 'requests for information from a database') that retrieve the following data that answer the following questions:
-    1. What are the names of countries with population greater than 8 million
-    2. What are the names of countries that have “land” in their names ?
+4. Write queries (that's a technical term meaning 'requests for information from a database') that will retrieve data that answers the following questions:
+    1. What are the names of the countries with population greater than 8 million
+    2. What are the names of the countries that have “land” in their names ?
     3. What are the names of the cities with population in between 500,000 and 1 million ?
-    4. What's the name of all the countries on the continent ‘Europe’ ?
-    5. List all the countries in the descending order of their surface areas.
+    4. What are the names of all the countries on the continent ‘Europe’ ?
+    5. List all the countries in the descending order based on their surface areas.
 
 BONUS:
 
-5. If you have time left over and want more practice, you can write queries that answer the following questions:
+5. If you want more practice, you can write queries that answer the following questions:
     6. What are the names of all the cities in the Netherlands?
-    7. What is the population of Rotterdam ?
-    8. What's the top 10 countries by Surface Area ?
-    9. What's the top 10 most populated cities?
+    7. What's the population of Rotterdam?
+    8. What's the top 10 countries based on surface area?
+    9. What's the top 10 cities with the highest population?
     10. What is the population of the world ?
 
 Tip: Before writing any query, first get a working version of the [example](https://www.npmjs.com/package/mysql#introduction) going. This will help you understand the basic structure of making a database connection and query.
