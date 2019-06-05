@@ -10,7 +10,8 @@ understood by students. The program can be found in the Week2 folder (Credits:
 
 ## Pre-Class Readings
 
-Before arriving to class on Sunday, please watch all of the videos in [this video playlist](https://www.lynda.com/SharedPlaylist/0d62f3e4428e44ada89466cdbc296fc0) on Lynda.
+[This YouTube video by freeCodeCamp.org](https://www.youtube.com/watch?v=HXV3zeQKqGY) explains
+all the important topics.
 
 Also, please read the following page that explains the ACID database model.
 - [The ACID Database Model](https://www.thoughtco.com/the-acid-model-1019731)

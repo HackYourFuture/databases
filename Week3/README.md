@@ -8,7 +8,8 @@ examples / live coding (creating a transaction, committing and rollback-ing).
 
 ## Pre-Class Readings
 
-Before arriving to class on Sunday, please watch all of the videos in [this video playlist](https://www.lynda.com/SharedPlaylist/ae29ea2f495c432793abc220da47baa6) on Lynda.
+[This YouTube video by freeCodeCamp.org](https://www.youtube.com/watch?v=HXV3zeQKqGY) explains
+all the important topics.
 
 Also, please read the following page that explains database foreign keys.
 - [What is a Database Foreign Key](http://databases.about.com/cs/specificproducts/g/foreignkey.htm)

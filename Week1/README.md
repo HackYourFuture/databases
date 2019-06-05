@@ -9,9 +9,8 @@ capture results of queries in JavaScript.
 - Install MySQL using the following [official docs](https://dev.mysql.com/downloads/mysql/)
 - MAC users may use `brew install mysql`
 
-Before arriving to class on Sunday, please watch all of the videos in [this video playlist](https://www.lynda.com/SharedPlaylist/0299ced540444d7197460e7f1f74ddab) on Lynda.
-If you actually manage to watch them all and understand everything,
-then you are a database expert.
+[This YouTube video by freeCodeCamp.org](https://www.youtube.com/watch?v=HXV3zeQKqGY) explains
+all the important topics.
 
 ## Setup
 
