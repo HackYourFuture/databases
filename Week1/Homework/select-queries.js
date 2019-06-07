@@ -42,10 +42,10 @@ async function executeSelectQueries() {
       console.log(`${country.name}   =>  ${country.population}`);
     });
 
-    const query2 = await execQuery(queries.COUNTRIES_BY_AREA);
-    console.log('\nAll the countries in the descending order based on their surface areas are:');
+    const query2 = await execQuery(queries.COUNTRIES_HAVE_LAND);
+    console.log('\nThe names of the countries that have “land” in their names are:');
     query2.forEach(country => {
-      console.log(`${country.name}    =>   ${country.SurfaceArea}`);
+      console.log(country.name);
     });
 
     const query3 = await execQuery(queries.CITIES_POPULATION);
