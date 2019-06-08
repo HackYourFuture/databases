@@ -4,7 +4,7 @@ let mysql = require('mysql');
 let db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: 'password',
   database: 'world',
 });
 
@@ -14,11 +14,26 @@ db.connect(err => {
   console.log('Mysql connected....');
 });
 
+// drop database
+let drop_db = `DROP DATABASE IF EXISTS world`;
+db.query(drop_db, (error, result) => {
+  if (error) throw error;
+  // console.log(result);
+});
+
 // create database
 let create_db = `CREATE DATABASE IF NOT EXISTS world`;
 db.query(create_db, (error, result) => {
   if (error) throw error;
-  console.log(result);
+  // console.log(result);
+  console.log('Database WORLD has been created');
+});
+
+let use_db = `USE world`;
+db.query(use_db, (error, result) => {
+  if (error) throw error;
+  // console.log(result);
+  console.log('use WORLD database');
 });
 
 // create country table
@@ -26,7 +41,7 @@ const create_country_table =
   'CREATE TABLE IF NOT EXISTS country(`ID` INT(11)  AUTO_INCREMENT , `Name` VARCHAR(35) , `Continent` VARCHAR(35) ,`Population` INT(11),  `SurfaceArea` FLOAT(10,2) , PRIMARY KEY (`ID`))';
 db.query(create_country_table, (error, result) => {
   if (error) throw error;
-  console.log(result);
+  // console.log(result);
   console.log('Country table has been created');
 });
 
@@ -47,7 +62,7 @@ const insert_country_queries = [
 ];
 
 for (let i in insert_country_queries) {
-  console.log('Going to run ', insert_country_queries[i]);
+  // console.log('Going to run ', insert_country_queries[i]);
   db.query(insert_country_queries[i], error => {
     if (error) {
       throw error;
@@ -61,8 +76,8 @@ const create_city_table =
   'CREATE TABLE IF NOT EXISTS city( `ID` INT(11)  AUTO_INCREMENT,`Name` VARCHAR(35) ,`CountryCode` VARCHAR(3) ,`District` VARCHAR(20) ,`Population` INT(11) , PRIMARY KEY (`ID`))';
 db.query(create_city_table, (error, result) => {
   if (error) throw error;
-  console.log(result);
-  console.log('has been created');
+  // console.log(result);
+  console.log('City table has been created');
 });
 
 // insert cities
@@ -104,7 +119,7 @@ const insert_cities_queries = [
 ];
 
 for (let i in insert_cities_queries) {
-  console.log('Going to run ', insert_cities_queries[i]);
+  // console.log('Going to run ', insert_cities_queries[i]);
   db.query(insert_cities_queries[i], error => {
     if (error) {
       throw error;
@@ -120,6 +135,7 @@ db.query(select_all, (error, result) => {
   if (error) {
     throw error;
   }
+  console.log(`\nNames of the countries with population greater than 8 million:`);
   result.forEach(element => {
     console.log(`${element.Name} => ${element.Population}`);
   });
@@ -132,6 +148,7 @@ db.query(select_lands, (lands_error, result) => {
   if (lands_error) {
     throw lands_error;
   }
+  console.log(`\nNames of the countries that have “land” in their names:`);
   result.forEach(land => {
     console.log(land.Name);
   });
@@ -143,6 +160,7 @@ db.query(cities_population, (error, result) => {
   if (error) {
     throw error;
   }
+  console.log(`\nNames of the cities with population in between 500,000 and 1 million :`);
   result.forEach(city => {
     console.log(city.Name);
   });
@@ -155,6 +173,7 @@ db.query(select_europe, (error, result) => {
   if (error) {
     throw error;
   }
+  console.log(`\nCountries of ‘Europe’:`);
   result.forEach(europe => {
     console.log(europe.Name);
   });
@@ -166,6 +185,7 @@ db.query(SurfaceAreas, (error, result) => {
   if (error) {
     throw error;
   }
+  console.log(`\nAll the countries in the descending order based on their surface areas:`);
   result.forEach(SurfaceArea => {
     console.log(`${SurfaceArea.Name} => ${SurfaceArea.SurfaceArea}`);
   });
@@ -177,6 +197,7 @@ db.query(names, (error, result) => {
   if (error) {
     throw error;
   }
+  console.log(`\nNames of all the cities in the Netherlands:`);
   result.forEach(element => {
     console.log(element.Name);
   });
@@ -188,6 +209,7 @@ db.query(rotterdam, (error, result) => {
   if (error) {
     throw error;
   }
+  console.log(`\nPopulation of Rotterdam:`);
   result.forEach(element => {
     console.log(element.Population);
   });
@@ -199,6 +221,7 @@ db.query(topTen, (error, result) => {
   if (error) {
     throw error;
   }
+  console.log(`\nTop 10 countries based on surface area:`);
   result.forEach(element => {
     console.log(element.Name);
   });
@@ -210,8 +233,9 @@ db.query(topCities, (error, result) => {
   if (error) {
     throw error;
   }
+  console.log(`\nTop 10 cities with the highest population:`);
   result.forEach(element => {
-    console.log(element.Population);
+    console.log(`${element.Name} => ${element.Population}`);
   });
 });
 
@@ -225,7 +249,7 @@ db.query(worldPopulation, (error, result) => {
   result.forEach(element => {
     total = element.Population + total;
   });
-  console.log(total);
+  console.log(`\nTop 10 cities with the highest population:\n${total}`);
 });
 
 db.end();
