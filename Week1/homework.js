@@ -47,18 +47,18 @@ db.query(create_country_table, (error, result) => {
 
 // insert countries
 const insert_country_queries = [
-  `insert into country values (null,'Belgium','Europe',10239000,30518.00)`,
-  `insert into country values (null,'Bahrain','Asia',617000,694.00)`,
-  `insert into country values (null,'Cook Islands','Oceania', 20000, 236.00)`,
-  `insert into country values (null,'China','Asia',1277558000, 1075.00)`,
-  `insert into country values (null,'Egypt','Africa',68470000,1001449.00)`,
-  `insert into country values (null,'Georgia','Middle East',4968000,69700.00)`,
-  `insert into country values (null,'Jamaica','North America',2583000,10990.00)`,
-  `insert into country values (null,'Switzerland','Europe', 7160400,41284.00)`,
-  `insert into country values (null,'Morocco','Africa', 28351000, 446550.00)`,
-  `insert into country values (null,'Netherlands','Europe',15864000,41526.00)`,
-  `insert into country values (null,'Paraguay','South America',5496000,406752.00)`,
-  `insert into country values (null,'Turkey','Middle East',66591000 ,774815.00)`,
+  `insert into country ( Name, Continent, Population, SurfaceArea ) values ('Belgium','Europe',10239000,30518.00)`,
+  `insert into country ( Name, Continent, Population, SurfaceArea ) values ('Bahrain','Asia',617000,694.00)`,
+  `insert into country ( Name, Continent, Population, SurfaceArea ) values ('Cook Islands','Oceania', 20000, 236.00)`,
+  `insert into country ( Name, Continent, Population, SurfaceArea ) values ('China','Asia',1277558000, 1075.00)`,
+  `insert into country ( Name, Continent, Population, SurfaceArea ) values ('Egypt','Africa',68470000,1001449.00)`,
+  `insert into country ( Name, Continent, Population, SurfaceArea ) values ('Georgia','Middle East',4968000,69700.00)`,
+  `insert into country ( Name, Continent, Population, SurfaceArea ) values ('Jamaica','North America',2583000,10990.00)`,
+  `insert into country ( Name, Continent, Population, SurfaceArea ) values ('Switzerland','Europe', 7160400,41284.00)`,
+  `insert into country ( Name, Continent, Population, SurfaceArea ) values ('Morocco','Africa', 28351000, 446550.00)`,
+  `insert into country ( Name, Continent, Population, SurfaceArea ) values ('Netherlands','Europe',15864000,41526.00)`,
+  `insert into country ( Name, Continent, Population, SurfaceArea ) values ('Paraguay','South America',5496000,406752.00)`,
+  `insert into country ( Name, Continent, Population, SurfaceArea ) values ('Turkey','Middle East',66591000 ,774815.00)`,
 ];
 
 for (let i in insert_country_queries) {
@@ -82,40 +82,40 @@ db.query(create_city_table, (error, result) => {
 
 // insert cities
 const insert_cities_queries = [
-  `INSERT INTO city VALUES (null,'Mazar-e-Sharif','AFG','Balkh',127800)`,
-  `INSERT INTO city VALUES (null,'Amsterdam','NLD','Noord-Holland',731200)`,
-  `INSERT INTO city VALUES (null,'Namibe','AGO','Namibe',118200)`,
-  `INSERT INTO city VALUES (null,'South Hill','AIA','–',961)`,
-  `INSERT INTO city VALUES (null,'The Valley','AIA','–',595)`,
-  `INSERT INTO city VALUES (null,'Saint John´s','ATG','St John',24000)`,
-  `INSERT INTO city VALUES (null,'Dubai','ARE','Dubai',669181)`,
-  `INSERT INTO city VALUES (null,'Rotterdam','NLD','Zuid-Holland',593321)`,
-  `INSERT INTO city VALUES (null,'Apeldoorn','NLD','Gelderland',153491)`,
-  `INSERT INTO city VALUES (null,'Abu Dhabi','ARE','Abu Dhabi',398695)`,
-  `INSERT INTO city VALUES (null,'Sharja','ARE','Sharja',320095)`,
-  `INSERT INTO city VALUES (null,'Nijmegen','NLD','Gelderland',152463)`,
-  `INSERT INTO city VALUES (null,'Enschede','NLD','Overijssel',149544)`,
-  `INSERT INTO city VALUES (null,'Haarlem','NLD','Noord-Holland',148772)`,
-  `INSERT INTO city VALUES (null,'Fagatogo','ASM','Tutuila',2323)`,
-  `INSERT INTO city VALUES (null,'Andorra la Vella','AND','Andorra la Vella',21189)`,
-  `INSERT INTO city VALUES (null,'Luanda','AGO','Luanda',2022000)`,
-  `INSERT INTO city VALUES (null,'Haag','NLD','Zuid-Holland',440900)`,
-  `INSERT INTO city VALUES (null,'Utrecht','NLD','Utrecht',234323)`,
-  `INSERT INTO city VALUES (null,'Almere','NLD','Flevoland',142465)`,
-  `INSERT INTO city VALUES (null,'Arnhem','NLD','Gelderland',138020)`,
-  `INSERT INTO city VALUES (null,'Breda','NLD','Noord-Brabant',160398)`,
-  `INSERT INTO city VALUES (null,'Huambo','AGO','Huambo',163100)`,
-  `INSERT INTO city VALUES (null,'Lobito','AGO','Benguela',130000)`,
-  `INSERT INTO city VALUES (null,'Benguela','AGO','Benguela',128300)`,
-  `INSERT INTO city VALUES (null,'Zaanstad','NLD','Noord-Holland',135621)`,
-  `INSERT INTO city VALUES (null,'Ghardaïa','DZA','Ghardaïa',89415)`,
-  `INSERT INTO city VALUES (null,'Tafuna','ASM','Tutuila',5200)`,
-  `INSERT INTO city VALUES (null,'Eindhoven','NLD','Noord-Brabant',201843)`,
-  `INSERT INTO city VALUES (null,'Tilburg','NLD','Noord-Brabant',193238)`,
-  `INSERT INTO city VALUES (null,'Groningen','NLD','Groningen',172701)`,
-  `INSERT INTO city VALUES (null,'al-Ayn','ARE','Abu Dhabi',225970)`,
-  `INSERT INTO city VALUES (null,'Ajman','ARE','Ajman',114395)`,
-  `INSERT INTO city VALUES (null,'Buenos Aires','ARG','Distrito Federal',2982146)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Mazar-e-Sharif','AFG','Balkh',127800)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Amsterdam','NLD','Noord-Holland',731200)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Namibe','AGO','Namibe',118200)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('South Hill','AIA','–',961)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('The Valley','AIA','–',595)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Saint John´s','ATG','St John',24000)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Dubai','ARE','Dubai',669181)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Rotterdam','NLD','Zuid-Holland',593321)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Apeldoorn','NLD','Gelderland',153491)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Abu Dhabi','ARE','Abu Dhabi',398695)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Sharja','ARE','Sharja',320095)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Nijmegen','NLD','Gelderland',152463)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Enschede','NLD','Overijssel',149544)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Haarlem','NLD','Noord-Holland',148772)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Fagatogo','ASM','Tutuila',2323)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Andorra la Vella','AND','Andorra la Vella',21189)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Luanda','AGO','Luanda',2022000)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Haag','NLD','Zuid-Holland',440900)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Utrecht','NLD','Utrecht',234323)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Almere','NLD','Flevoland',142465)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Arnhem','NLD','Gelderland',138020)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Breda','NLD','Noord-Brabant',160398)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Huambo','AGO','Huambo',163100)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Lobito','AGO','Benguela',130000)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Benguela','AGO','Benguela',128300)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Zaanstad','NLD','Noord-Holland',135621)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Ghardaïa','DZA','Ghardaïa',89415)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Tafuna','ASM','Tutuila',5200)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Eindhoven','NLD','Noord-Brabant',201843)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Tilburg','NLD','Noord-Brabant',193238)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Groningen','NLD','Groningen',172701)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('al-Ayn','ARE','Abu Dhabi',225970)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Ajman','ARE','Ajman',114395)`,
+  `INSERT INTO city ( Name, CountryCode, District, Population ) VALUES ('Buenos Aires','ARG','Distrito Federal',2982146)`,
 ];
 
 for (let i in insert_cities_queries) {
@@ -239,17 +239,15 @@ db.query(topCities, (error, result) => {
   });
 });
 
-// What is the population of the world
-const worldPopulation = `SELECT * FROM country `;
+// const worldPopulation = `SELECT * FROM country `;
+const worldPopulation = `select sum(population) as total from country`;
 db.query(worldPopulation, (error, result) => {
   if (error) {
     throw error;
   }
-  let total = 0;
   result.forEach(element => {
-    total = element.Population + total;
+    console.log(`\nTop 10 cities with the highest population:\n${element['total']}`);
   });
-  console.log(`\nTop 10 cities with the highest population:\n${total}`);
 });
 
 db.end();
