@@ -12,19 +12,19 @@ db.connect(err => {
   console.log('Connected to db.');
 });
 
-const createDB = `CREATE DATABASE IF NOT EXISTS world`;
-db.query(createDB, (err) => {
+const create_db = `CREATE DATABASE IF NOT EXISTS world`;
+db.query(create_db, (err) => {
   if (err) throw err;
   console.log('Database world has been created.');
 });
 
-const useDB = `USE world`;
-db.query(useDB, (err) => {
+const use_db = `USE world`;
+db.query(use_db, (err) => {
   if (err) throw err;
   console.log('DB world selected.');
 });
 
-const createCountryTable=`CREATE TABLE IF NOT EXISTS country (
+const create_country_table=`CREATE TABLE IF NOT EXISTS country (
                                                             code CHAR(3), 
                                                             Name CHAR(52), 
                                                             Continent CHAR (30),
@@ -41,12 +41,12 @@ const createCountryTable=`CREATE TABLE IF NOT EXISTS country (
                                                             Code2 CHAR(2),
                                                             PRIMARY KEY(Code));`;
 
-db.query(createCountryTable, (err) => {
+db.query(create_country_table, (err) => {
 if (err) throw err;
 console.log('Country table created.');
 });
 
-const createCityTable =`CREATE TABLE IF NOT EXISTS city(
+const create_city_table =`CREATE TABLE IF NOT EXISTS city(
                                                         ID INT(11) AUTO_INCREMENT,
                                                         Name CHAR(35),
                                                         CountryCode CHAR(3),
@@ -55,15 +55,15 @@ const createCityTable =`CREATE TABLE IF NOT EXISTS city(
                                                         PRIMARY KEY (ID),
                                                         KEY CountryCode (CountryCode))`;
                                                     
-db.query(createCityTable, (err) => {
+db.query(create_city_table, (err) => {
   if (err) throw err;
   console.log('City table created.');
 });
 
 
 // i.
-const moreThan80 = `SELECT * FROM country WHERE Population > 8000000`;
-db.query(moreThan80, (err, data) => {
+const more_than_80 = `SELECT * FROM country WHERE Population > 8000000`;
+db.query(more_than_80, (err, data) => {
   if (err) throw err;
   console.log(`Countries with population more than 8 million:`);
   data.forEach(element => {
@@ -82,8 +82,8 @@ db.query(lands, (err, data) => {
 });
 
 // iii.
-const popBetween = `SELECT * FROM city WHERE Population BETWEEN 500000 AND 1000000 `;
-db.query(popBetween, (err, data) => {
+const pop_between = `SELECT * FROM city WHERE Population BETWEEN 500000 AND 1000000 `;
+db.query(pop_between, (err, data) => {
   if (err) throw err;
   console.log(`Cities with population between 500K and 1 mil. :`);
   data.forEach(element => {
