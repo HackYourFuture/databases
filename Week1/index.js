@@ -53,15 +53,15 @@ for (let i in creator) {
 }
 
 const queries = [
-  `SELECT country.name FROM country WHERE country.population > 8000000;`,
+  `SELECT country.name, country.population FROM country WHERE country.population > 8000000;`,
   `SELECT country.name FROM country WHERE country.name LIKE '%land%';`,
-  `SELECT city.name FROM city WHERE city.population > 500000 AND city.population < 1000000;`,
+  `SELECT city.name, city.population FROM city WHERE city.population > 500000 AND city.population < 1000000;`,
   `SELECT country.name FROM country WHERE country.Continent = 'Europe';`,
-  `SELECT country.name FROM country ORDER BY country.SurfaceArea DESC;`,
+  `SELECT country.name, country.SurfaceArea FROM country ORDER BY country.SurfaceArea DESC;`,
   `SELECT city.name FROM city WHERE city.CountryCode = 'NLD';`,
   `SELECT city.Population FROM city WHERE city.name = 'Rotterdam';`,
-  `SELECT country.name FROM country ORDER BY country.surfaceArea DESC LIMIT 10;`,
-  `SELECT city.name FROM city ORDER BY city.population DESC LIMIT 10;`,
+  `SELECT country.name, country.SurfaceArea FROM country ORDER BY country.surfaceArea DESC LIMIT 10;`,
+  `SELECT city.name, city.population FROM city ORDER BY city.population DESC LIMIT 10;`,
   `SELECT SUM(country.population) FROM country;`,
 ];
 
