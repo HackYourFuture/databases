@@ -18,14 +18,10 @@ This week you'll be writing a Node.js file that makes a connection to a MySQL da
     4. What are the names of all the countries on the continent ‘Europe’ ?
     5. List all the countries in the descending order based on their surface areas.
 
-If you have time left and want more practice you can try these optional homework exercises:
 
-6. Write queries that answer the following questions:
-    1. What are the names of all the cities in the Netherlands?
-    2. What's the population of Rotterdam?
-    3. What's the top 10 countries based on surface area?
-    4. What's the top 10 cities with the highest population?
-    5. What is the population of the world ?
+6. Load the entire world.sql file. Write queries that answer the following questions:
+    1. Name the top 10 cities of Western Europe in descending order of population ?
+    3. Name the monarch next to the language they speak, for the continent with the 2nd highest population
 
 Tip: Before writing any query, first get a working version of the [example](https://www.npmjs.com/package/mysql#introduction) going. This will help you understand the basic structure of making a database connection and query.
 
