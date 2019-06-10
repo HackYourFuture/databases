@@ -2,7 +2,7 @@
 
 # Homework week 1
 
-This week you'll be writing a Node.js file that makes a connection to a MySQL database instance. These are the requirements that the file must have:
+This week you'll be writing a Node.js file that makes a connection to a MySQL database instance. These are the requirements that this "entrypoint" file must have:
 
 1. Use the `mysql` package (https://www.npmjs.com/package/mysql)
 2. Make a connection to MySQL, using the login credentials
@@ -19,9 +19,16 @@ This week you'll be writing a Node.js file that makes a connection to a MySQL da
     5. List all the countries in the descending order based on their surface areas.
 
 
-6. Load the entire world.sql file. Write queries that answer the following questions:
-    1. Name the top 10 cities of Western Europe in descending order of population ?
-    3. Name the monarch next to the language they speak, for the continent with the 2nd highest population
+6. If you haven't already, load the entire [world.sql](https://github.com/HackYourFuture/databases/blob/master/Week1/databases/world.sql) file by using the native filesystem library [fs](https://nodejs.org/docs/latest-v8.x/api/fs.html) (require('fs')), 
+and including `multipleStatements: true` in `createConnection`
+(ie. in addition to   `, host: 'localhost', user: 'hyfuser', ` ) .
+You may then need to change the database which you query to "new_world".  Write queries that answer the following questions:
+    1. List the top 10 cities of Western Europe in descending order of population
+    3. List the monarch next to the language they speak, for the continent with the 2nd highest population
+
+7. As long as your database server is running, running the command `node homework_entrypoint.js` should output a console.log of readable and concise messages, some of which state the answers to the geography questions. The output is *regardless* of what existed in the database(s) before. In other words running `node homework_entrypoint.js` again should give the same result. And no matter what *my* database has, running `node your_homework_entrypoint.js` should give me a good idea that your code works and helps me read your code, and make it super easy for me to check your homework! Near the top of your file, you'll want to put something like the first four lines of world.sql  `drop schema if exists etc...` 
+
+(Note: when you code for a company, you will probably *not* want to write code that drops the database, unless you want to really annoy your customers!) 
 
 Tip: Before writing any query, first get a working version of the [example](https://www.npmjs.com/package/mysql#introduction) going. This will help you understand the basic structure of making a database connection and query.
 
