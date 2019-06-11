@@ -1,0 +1,25 @@
+{
+  "name": "databases",
+  "version": "1.0.0",
+  "description": "This three-week program aims to introduce the fundamental concepts of databases using MySQL.",
+  "main": "index.js",
+  "dependencies": {
+    "jshint": "^2.10.2",
+    "mysql": "^2.17.1",
+    "node": "^12.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RamazanInce/databases.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RamazanInce/databases/issues"
+  },
+  "homepage": "https://github.com/RamazanInce/databases#readme"
+}
