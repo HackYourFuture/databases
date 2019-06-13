@@ -1,8 +1,8 @@
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'hyfuser',
-  password : 'hyfpassword',
+  user     : 'root',
+  password : 'mypassword',
   database : 'zoo'
 });
 
