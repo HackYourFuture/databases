@@ -31,8 +31,7 @@ async function seedDatabase() {
       subject TEXT,
       gender ENUM('m', 'f')
     );`;
-  const students = [
-    {
+  const students = [{
       student_number: 4444,
       student_name: 'Benno',
       date_of_birth: '1995-04-26',
