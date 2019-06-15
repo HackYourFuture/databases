@@ -1,0 +1,17 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon part1_app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.17.1",
+    "nodemon": "^1.19.1",
+    "prompt": "^1.0.0",
+    "util": "^0.12.0"
+  }
+}
