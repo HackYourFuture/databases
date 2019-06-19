@@ -24,15 +24,23 @@ const select_query = [
   `SELECT city.name FROM country JOIN city on city.ID = country.capital WHERE country.name = ?;`,
   `SELECT countrylanguage.language FROM countrylanguage JOIN country ON country.code = countrycode WHERE country.region = ?;`,
   `SELECT COUNT(city.name) FROM city JOIN countrylanguage ON city.countrycode = countrylanguage.countrycode WHERE countrylanguage.language = ?;`,
-  `SELECT country.name, country.region, countrylanguage.language FROM country JOIN countrylanguage ON code = countrylanguage.countrycode GROUP BY country.region, countrylanguage.language, country.name, countrylanguage.IsOfficial HAVING countrylanguage.IsOfficial = 'T' AND country.region = ? AND countrylanguage.language = ?;`,
+  `SELECT country.name FROM country JOIN countrylanguage ON code = countrylanguage.countrycode GROUP BY country.region, countrylanguage.language, country.name, countrylanguage.IsOfficial HAVING countrylanguage.IsOfficial = 'T' AND country.region = ? AND countrylanguage.language = ?;`,
   `SELECT country.continent, COUNT(DISTINCT countrylanguage.Language) AS language_number FROM countrylanguage JOIN country ON country.code = countrycode GROUP BY country.continent`,
 ];
 const conditions = ['Country name', 'Region', 'Language'];
 
+const loopResult = data => {
+  data.forEach(result => {
+    Object.keys(result).forEach(elem => {
+      console.log(result[elem]);
+    });
+  });
+};
+
 const selectQuery = async index => {
   if (index === 5) {
     const results = await execQuery(select_query[index - 1]);
-    console.log(results);
+    loopResult(results);
   } else if (index === 4) {
     const inputCondition = await input([conditions[1], conditions[2]]);
     const inputData = [inputCondition[conditions[1]], inputCondition[conditions[2]]];
@@ -40,13 +48,13 @@ const selectQuery = async index => {
     if (results == 0) {
       console.log(false);
     } else {
-      console.log(results);
+      loopResult(results);
     }
   } else {
     const inputCondition = await input([conditions[index - 1]]);
     const inputData = inputCondition[conditions[index - 1]];
     const results = await execQuery(select_query[index - 1], inputData);
-    console.log(results);
+    loopResult(results);
   }
 };
 
