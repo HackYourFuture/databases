@@ -66,7 +66,6 @@ async function queryDatabase() {
         select_z.forEach(element => {
           console.log(element.TotalCities);
         });
-        // console.log(select_z);
       } else if (number === 4) {
         console.log(
           'Are Region and Language there any countries in this region with the given language as the official language ?',
@@ -85,7 +84,9 @@ async function queryDatabase() {
         if (results.length === 0) {
           console.log('false');
         } else {
-          console.log(results);
+          results.forEach(element => {
+            console.log(element.country);
+          });
         }
       } else if (number === 5) {
         console.log(
