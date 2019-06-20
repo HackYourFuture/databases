@@ -63,7 +63,10 @@ async function queryDatabase() {
         join countrylanguage on city.countryCode = countrylanguage.countryCode
         where Language = '${input_language}';`,
         );
-        console.log(select_z);
+        select_z.forEach(element => {
+          console.log(element.TotalCities);
+        });
+        // console.log(select_z);
       } else if (number === 4) {
         console.log(
           'Are Region and Language there any countries in this region with the given language as the official language ?',
