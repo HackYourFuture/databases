@@ -1,0 +1,18 @@
+{
+  "name": "homework",
+  "version": "1.0.0",
+  "description": "ToDo-App",
+  "main": "todo-app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wadeea Kiwan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql": "^2.17.1",
+    "nodemon": "^1.19.1",
+    "util": "^0.12.0"
+  }
+}
