@@ -26,7 +26,7 @@ app.delete('/todolist/:id', removeToDoList);
 app.put('/todolist/completed/:id', markAsCompleted);
 
 // select all rows from specific  table
-app.get('/:tableName/all', getAllRows);
+app.get('/:tableName', getAllRows);
 
 // select an row depend on ID
 app.get('/:tableName/:id', getRowById);

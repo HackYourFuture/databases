@@ -49,7 +49,7 @@ Mark an item as completed
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Display all rows from any table Table
-1-On postman chose GET then write the following link http://localhost:3000/tablename/all then press send to get all rows inside this (tablename)
+1-On postman chose GET then write the following link http://localhost:3000/tablename then press send to get all rows inside this (tablename)
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 

@@ -1,19 +1,24 @@
 const { execQuery } = require('./execQuery');
+
 async function removeToDoList(req, res) {
   try {
-    await execQuery('use tododatabase');
-    const ID = req.params.id;
-    const related_table1 = `delete from Users_toDoList where toDoList_ID = ?`;
-    const related_table2 = `delete from toDoList_items where toDoList_ID = ?`;
-    const selectedQuery = `delete from todolist where ID = ?`;
-    await execQuery(related_table1, ID);
-    await execQuery(related_table2, ID);
-    await execQuery(selectedQuery, ID);
-    const result = await execQuery(`select * from todolist`);
-    res.status(201).send(result);
-    res.end();
-  } catch (err) {
-    res.status(404).send(err);
+    await execQuery(`use tododatabase`);
+    let ID = req.params.id;
+    const selectedRow = `select ID from todolist where ID = ?`;
+    const exsist = await execQuery(sql, ID);
+    if (exsist.length !== 0) {
+      const selectedQuery = `delete from todolist where ID = ?`;
+      await execQuery(selectedQuery, selectedRow, (error, rows) => {
+        if (error) throw error;
+        res.status(200).send({ Succeeded: 'has been removed' });
+        res.end();
+      });
+    } else {
+      res.status(404).send({ Error: 'invalide id' });
+      res.end();
+    }
+  } catch (error) {
+    res.status(404).send({ Error: error });
     res.end();
   }
 }
