@@ -1,0 +1,43 @@
+CREATE DATABASE todo_list_app;
+
+use todo_list_app;
+
+CREATE TABLE users (
+  userID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100)  NOT NULL
+);
+
+CREATE TABLE todolists (
+  todolistID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  description VARCHAR(500) DEFAULT '',
+  categoryID INT NOT NULL,
+  FOREIGN KEY (categoryID) REFERENCES categories(categoryID)
+);
+
+CREATE TABLE categories (
+  categoryID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE todos (
+  todoID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  isCompleted ENUM ('1','0') DEFAULT '0',
+  reminder DATETIME
+);
+
+CREATE TABLE users_todolists (
+  userID INT NOT NULL,
+  listID INT NOT NULL,
+  FOREIGN KEY (userID) REFERENCES USERS(userID),
+  FOREIGN KEY (listID) REFERENCES todolists(todolistID)
+);
+
+CREATE TABLE todolists_todos (
+  todolistID INT NOT NULL,
+  todoID INT NOT NULL,
+  FOREIGN KEY (todolistID) REFERENCES todolists(todolistID),
+  FOREIGN KEY (todoID) REFERENCES todos(todoID)
+);
