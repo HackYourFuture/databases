@@ -1,8 +1,7 @@
 const express = require('express');
 const { addNewItem } = require('./modules/addNewItem');
 const { addTodoList } = require('./modules/addTodoList');
-const { removeToDoList } = require('./modules/removeTodoList');
-const { removeItem } = require('./modules/removeItem');
+const { removeRows } = require('./modules/removeRows');
 const { markAsCompleted } = require('./modules/markAsCompleted');
 const { getAllRows } = require('./modules/getAllRows');
 const { getRowById } = require('./modules/getRowById');
@@ -17,10 +16,10 @@ app.post('/items/add', addNewItem);
 app.post('/todolist/add', addTodoList);
 
 // Delete item(s) in ToDo list
-app.delete('/items/:id', removeItem);
+app.delete('/:table/:id', removeRows);
 
 // Delete a ToDo list
-app.delete('/todolist/:id', removeToDoList);
+app.delete('/:table/:id', removeRows);
 
 // Mark an item as completed
 app.put('/todolist/completed/:id', markAsCompleted);
