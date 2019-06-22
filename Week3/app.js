@@ -15,10 +15,7 @@ app.post('/items/add', addNewItem);
 // Create a new ToDo list
 app.post('/todolist/add', addTodoList);
 
-// Delete item(s) in ToDo list
-app.delete('/:table/:id', removeRows);
-
-// Delete a ToDo list
+// Delete row(s) from a specific table
 app.delete('/:table/:id', removeRows);
 
 // Mark an item as completed
