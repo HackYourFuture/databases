@@ -1,0 +1,17 @@
+{
+  "name": "week3",
+  "version": "1.0.0",
+  "description": "Objective: This class invites students to discuss Entity Relationship Diagram (ERD). Students should be able to explain their choices of entities, relationships, attributes etc. SQL injection should be explained with a demonstration (with a simple JS client). Concepts of database transaction, ACID properties, normal forms should be introduced with examples / live coding (creating a transaction, committing and rollback-ing).",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.17.1",
+    "nodemon": "^1.19.1",
+    "uuid": "^3.3.2"
+  }
+}
