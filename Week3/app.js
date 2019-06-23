@@ -16,10 +16,10 @@ app.post('/items/add', addNewItem);
 app.post('/todolist/add', addTodoList);
 
 // Delete row(s) from a specific table
-app.delete('/:table/:id', removeRows);
+app.delete('/:tableName/:id', removeRows);
 
 // Mark an item as completed
-app.put('/todolist/completed/:id', markAsCompleted);
+app.put('/:tableName/completed/:id', markAsCompleted);
 
 // select all rows from specific  table
 app.get('/:tableName', getAllRows);

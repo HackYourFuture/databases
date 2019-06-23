@@ -12,15 +12,15 @@ you don't have to insert id because it is AUTO_INCREMENT
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-Delete item(s) in ToDo list:
+Delete row(s) from selected Table:
 1-On postman chose DELETE
-2-write the following link http://localhost:3000/items/1 => (1) as the id of row
-3-press send button to Remove all rows depended on the id (1) you inserted from all tables which has this ID as a foreign key.
+2-write the following link http://localhost:3000/tablename/1 => (1) as the id of row
+3-press send button to Remove all rows depended on the id (1) you inserted from all tables (related rows) which has this ID as a foreign key.
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Create a new ToDo list:
-1-On postman chose POST => body => raw => then chose JSON(application/json)
+1-On postman chose POST => body => raw => then JSON(application/json)
 2-write the following link http://localhost:3000/todolist/add
 3-then write this object as a example inside the body.
 4-press send button to insert this object to item Table inside database.
@@ -32,13 +32,6 @@ you don't have to insert ID because it is AUTO_INCREMENT
 "IsCompleted": "false",
 "category_id": 2
 }
-
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-Delete a ToDo list:
-1-On postman chose DELETE.
-2-write the following link http://localhost:3000/todolist/1 => 1 as the id of row(s).
-3-press send button to Remove all rows depended on the id (1) you inserted from todolist Table.
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 

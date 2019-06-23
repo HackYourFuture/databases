@@ -1,24 +1,19 @@
-const { execQuery } = require('./execQuery');
-const { checkId } = require('./checkId');
+const { execQuery, checkId } = require('./functions');
 
 async function removeRows(req, res) {
   try {
-    const exsistId = await checkId(req.params.table, req.params.id);
+    const exsistId = await checkId(req.params.tableName, req.params.id);
     if (exsistId.length !== 0) {
-      const selectedQuery = `delete from ${req.params.table} where ID = ?`;
-      await execQuery(selectedQuery, req.params.id, (error, rows) => {
-        if (error) throw error;
-        res.status(200).send({ Succeeded: 'has been removed' });
-        res.end();
-      });
+      const selectedQuery = `delete from ${req.params.tableName} where ID = ?`;
+      await execQuery(selectedQuery, req.params.id);
+      res.status(200).send({ Succeeded: 'has been removed' });
     } else {
       res.status(404).send({ Error: 'invalide id' });
-      res.end();
     }
   } catch (error) {
     res.status(404).send({ Error: error });
-    res.end();
   }
+  res.end();
 }
 
 module.exports.removeRows = removeRows;

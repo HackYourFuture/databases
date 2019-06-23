@@ -1,7 +1,7 @@
 const util = require('util');
 const mysql = require('mysql');
 
-function execQuery() {
+function execute() {
   const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -17,4 +17,17 @@ function execQuery() {
   return util.promisify(connection.query.bind(connection));
 }
 
-module.exports.execQuery = execQuery();
+const execQuery = execute();
+
+async function checkId(tableName, id) {
+  try {
+    await execQuery(`use tododatabase`);
+    const selectedRow = `select ID from ${tableName} where ID = ?`;
+    const result = await execQuery(selectedRow, id);
+    return result;
+  } catch (error) {
+    return error;
+  }
+}
+
+module.exports = { execQuery, checkId };
