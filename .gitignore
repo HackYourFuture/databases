@@ -1,6 +1,0 @@
-node_modules/
-*/node_modules/
-**/*.DS_Store
-**/*-secret.json
-**/*.sh
-Week3/DB_HW_Week3/DBHW3_dump.sql
