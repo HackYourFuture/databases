@@ -30,7 +30,7 @@ async function queryDatabase() {
       1. Give me a country name, I will teach you it's capital\n
       2. How about listing all the languages spoken in the region? (Fill in a region name)\n
       3. How about the number of the cities that speak a given language (Write down a language)\n
-      4. You give me a region name and a language. If this language is official in that region, I will give you the name of the countries. If no, false will be displayed. Try another one.'\n
+      4. You give me a region name and a language. If this language is official in that region, I will give you the name of the countries. If no, false will be displayed.'\n
       5. Let me list all the continents with the number of languages spoken in each of them.
       `);
     const question = await input('number');
@@ -64,11 +64,12 @@ async function queryDatabase() {
       const inputRegion = userFirstInput['region_name'];
       const inputLanguage = userSecondInput['language'];
       const selectQuery =
-        'SELECT name, isofficial FROM country JOIN countrylanguage ON code = countrycode GROUP BY region, language, name HAVING isofficial = "T" AND region = ? AND language = ?';
+        'SELECT name FROM country JOIN countrylanguage ON country.code = countrylanguage.countrycode where isofficial="T" AND country.region =? AND countrylanguage.language=?';
       const results = await execQuery(selectQuery, [inputRegion, inputLanguage]);
-      const string = JSON.stringify(results);
-      const arr = JSON.parse(string);
-      console.log(arr);
+      results.length !== 0 ? console.log(results) : console.log(false);
+      // const string = JSON.stringify(results);
+      // const arr = JSON.parse(string);
+      // console.log(arr);
     } else if (questionNumber == 5) {
       const selectQuery =
         'SELECT continent, count(DISTINCT language) AS number_of_languages FROM country JOIN countrylanguage ON countrylanguage.CountryCode = country.code GROUP BY continent ORDER BY continent ASC';
