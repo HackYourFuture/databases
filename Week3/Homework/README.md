@@ -31,7 +31,7 @@ Then, if you want to get access to the data, kindly use POSTMAN to handle the fo
    {
    "item_name": "pan",
    "isTagged": 0,
-   "Description": "kitchen"
+   "description": "kitchen"
    }
 
 ######################################################################################
