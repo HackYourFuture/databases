@@ -16,6 +16,12 @@ async function queryDatabase() {
 
   prompt.start();
   try {
+    console.log(`
+      First query shows the capital of the given country,
+      Second query lists all the languages spoken in the given region,
+      Third query finds the number of cities where the given language is spoken,
+      Fourth query finds if the given language is spoken officially in the given region, 
+      Fifth query lists all the continents with the number of languages spoken in each continent`);
 
     //1. Query
     //Shows the capital of the given country
@@ -24,7 +30,7 @@ async function queryDatabase() {
       'SELECT country.name AS country_name, city.name AS capital_name FROM city JOIN country ON city.id = country.capital WHERE country.name = ? ';
 
     const result1 = await execQuery(selectQuery1, inputCountry.country_name);
-    console.log(result1);
+    console.log(`The capital of ${result1[0].country_name} is ` + result1[0].capital_name);
 
     //2. Query
     //Lists all the languages spoken in the given region
@@ -32,21 +38,21 @@ async function queryDatabase() {
     const selectQuery2 =
       'SELECT DISTINCT language FROM countrylanguage JOIN country ON countrylanguage.countrycode = country.code WHERE country.region = ?';
     const result2 = await execQuery(selectQuery2, inputRegion.region_name);
-    console.log(result2);
+    console.log(`The languages spoken in ${inputRegion.region_name} are:`);
+    for (var r in result2) console.log(result2[r].language);
 
     //3. Query
     //Finds the number of cities where the given language is spoken
 
     const inputLanguage = await input(['language_name']);
-    console.log(inputLanguage.language_name);
     const selectQuery3 =
       'SELECT count(city.id) AS numbers_of_cities FROM city JOIN country ON city.countrycode = country.code JOIN countrylanguage ON country.code = countrylanguage.countrycode WHERE countrylanguage.language=?';
 
     const result3 = await execQuery(selectQuery3, inputLanguage.language_name);
-    console.log(result3);
+    console.log(`The number of cities where ${inputLanguage.language_name} is spoken is ` + result3[0].numbers_of_cities);
 
     //4. Query
-    //Find if the given language is spoken officially in the given region 
+    //Finds if the given language is spoken officially in the given region 
     const inputRegionAndLanguage = await input(['region_name', 'language_name']);
 
     const selectQuery4 =
@@ -56,7 +62,8 @@ async function queryDatabase() {
     if (result4.length === 0) {
       console.log("FALSE");
     } else {
-      console.log(result4);
+      console.log(`${inputRegionAndLanguage.language_name} is officially spoken in the countries below which are in ${inputRegionAndLanguage.region_name} region`)
+      for (var r in result4) console.log(result4[r].name);
     }
 
     // 5. Query
@@ -64,7 +71,8 @@ async function queryDatabase() {
     const selectQuery5 =
       'SELECT continent, count(DISTINCT language) AS number_of_languages FROM country JOIN countrylanguage ON country.code=countrylanguage.countrycode GROUP BY continent order by number_of_languages desc';
     const result5 = await execQuery(selectQuery5);
-    console.log(result5);
+    console.log('The number of languages spoken in continents:')
+    for (var r in result5) console.log(`${result5[r].number_of_languages} languages are spoken in ${result5[r].continent}`);
   } catch (error) {
     console.error(error);
   }
