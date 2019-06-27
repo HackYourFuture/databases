@@ -16,6 +16,14 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Current Database: `todo`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `todo` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+
+USE `todo`;
+
+--
 -- Table structure for table `category`
 --
 
@@ -28,16 +36,6 @@ CREATE TABLE `category` (
   PRIMARY KEY (`catID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `category`
---
-
-LOCK TABLES `category` WRITE;
-/*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'scholl'),(2,'grocery'),(3,'Sport'),(4,'house'),(5,'work');
-/*!40000 ALTER TABLE `category` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `iscomplete`
@@ -58,16 +56,6 @@ CREATE TABLE `iscomplete` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `iscomplete`
---
-
-LOCK TABLES `iscomplete` WRITE;
-/*!40000 ALTER TABLE `iscomplete` DISABLE KEYS */;
-INSERT INTO `iscomplete` VALUES (1,1,1),(1,3,1),(0,10,25);
-/*!40000 ALTER TABLE `iscomplete` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `todoitem`
 --
 
@@ -80,16 +68,6 @@ CREATE TABLE `todoitem` (
   PRIMARY KEY (`todoID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `todoitem`
---
-
-LOCK TABLES `todoitem` WRITE;
-/*!40000 ALTER TABLE `todoitem` DISABLE KEYS */;
-INSERT INTO `todoitem` VALUES (1,'Carrot'),(3,'strawberry'),(10,'Running Shorts');
-/*!40000 ALTER TABLE `todoitem` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `todolist`
@@ -113,16 +91,6 @@ CREATE TABLE `todolist` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `todolist`
---
-
-LOCK TABLES `todolist` WRITE;
-/*!40000 ALTER TABLE `todolist` DISABLE KEYS */;
-INSERT INTO `todolist` VALUES (1,'mylist',2,1,'2019-06-30 00:00:00'),(2,'secondlist',2,1,'2019-06-01 00:00:00'),(17,'Thirdlist',2,4,'2012-06-20 00:00:00'),(24,'Homeworks',2,1,NULL),(25,'Spory Stuff',2,3,'2019-07-30 00:00:00');
-/*!40000 ALTER TABLE `todolist` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `user`
 --
 
@@ -138,14 +106,67 @@ CREATE TABLE `user` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user`
+-- Dumping events for database 'todo'
 --
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (2,'Hackyourfuture','hackyourfuture@gmail.com');
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
+--
+-- Dumping routines for database 'todo'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `additem` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `additem`(
+item_name VARCHAR(50),
+list_name VARCHAR(50)
+)
+BEGIN
+	DECLARE list_ID INT(20);
+SELECT listID INTO list_ID FROM todolist WHERE name = list_name;
+insert into todoitem (name) VALUES (item_name);
+insert into iscomplete (iscomplete, todoID, listID) VALUES (false, last_insert_id(), list_ID);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `addlist` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addlist`(
+listname VARCHAR(50),
+username VARCHAR(50),
+catname VARCHAR(50),
+deadline_date DATETIME
+)
+BEGIN
+insert into todolist (name, userID, catID, deadline) VALUES (listname, 
+(SELECT userID from `user` WHERE name = username), 
+(SELECT catID from `category` WHERE categoryname = catname),
+deadline_date
+);
+
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -156,4 +177,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-22  0:16:20
+-- Dump completed on 2019-06-27 17:11:14

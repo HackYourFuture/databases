@@ -11,7 +11,7 @@ const retrieveTodoLists = async (request, response) => {
   }
 };
 
-retrieveTodoItems = async (request, response) => {
+const retrieveTodoItems = async (request, response) => {
   try {
     const query = `SELECT todolist.Name AS 'List Name', todoitem.name AS 'Todo Item', iscomplete.iscomplete FROM todolist JOIN iscomplete ON iscomplete.listID = todolist.listID JOIN todoitem ON todoitem.todoID = iscomplete.todoID WHERE todolist.name = ?;`;
     const checkIfExistList = await executeQuery(
