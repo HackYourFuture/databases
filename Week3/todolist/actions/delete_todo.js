@@ -8,9 +8,10 @@ async function deleteTodo(request, response) {
   const deleteFromCommonTable = `DELETE FROM todolists_todos WHERE todoID = ${todo}`;
   connection.connect();
   try {
-    await execQuery(deleteTd);
+    //first delete from common table then delete from original table. Otherwise foreign key restraint prevents deleting
     await execQuery(deleteFromCommonTable);
-    response.send('selected todo is deleted');
+    await execQuery(deleteTd);
+    response.send('The selected todo is deleted');
   } catch (error) {
     console.error(error);
   }

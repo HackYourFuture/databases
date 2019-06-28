@@ -8,9 +8,10 @@ async function deleteUser(request, response) {
   const deleteFromCommonTable = `DELETE FROM users_todolists WHERE userID = ${user}`;
   connection.connect();
   try {
-    await execQuery(userToBeDeleted);
+    //first delete from common table then delete from original table. Otherwise foreign key restraint prevents deleting
     await execQuery(deleteFromCommonTable);
-    response.send('selected user is deleted');
+    await execQuery(userToBeDeleted);
+    response.send('The selected user is deleted');
   } catch (error) {
     console.error(error);
   }

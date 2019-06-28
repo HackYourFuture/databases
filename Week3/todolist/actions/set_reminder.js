@@ -9,10 +9,13 @@ async function setReminder(request, response) {
     UPDATE todos
     SET reminder = ${date}
     WHERE todoID= ${todo}`;
+  const updatedTodo = `SELECT * FROM todos WHERE todoID = ${todo}`;
   connection.connect();
   try {
     await execQuery(reminder);
-    response.send(`the reminder is set for the todo ${todo} to the date ${date}`);
+    const newTodo = await execQuery(updatedTodo);
+    //I don't know why but it updates in database but sends the old data as a response
+    response.json(newTodo);
   } catch (error) {
     console.error(error);
   }

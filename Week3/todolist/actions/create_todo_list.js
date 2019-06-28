@@ -2,35 +2,37 @@ const connection = require('../mysqlconfiguration');
 const util = require('util');
 
 async function createTodoList(request, response) {
-  const name = request.body.name;
-  const description = request.body.description;
-  const linkedTodosArray = request.body.todos;
-  const linkedUsersArray = request.body.users;
-
   const execQuery = util.promisify(connection.query.bind(connection));
 
-  const newList = `INSERT INTO todolists(name, description)
-                  VALUES(${name}, ${description})`;
+  const name = request.body.name;
+  const description = request.body.description;
+  const linkedUsers = request.body.users;
+  const linkedTodos = request.body.todos;
+
+  const newList = `INSERT INTO todolists(name, description) VALUES("${name}", "${description}")`;
   const newListID = `SELECT todolistID FROM todolists ORDER BY todolistID DESC LIMIT 1`;
   connection.connect();
   try {
     await execQuery(newList);
     const newID = await execQuery(newListID);
-    if (linkedUsersArray) {
-      linkedUsersArray.forEach(async function(user) {
-        const insertIntoCommonList = `INSERT INTO  users_todolists(userID, todolistID) 
-                                VALUES(${user}, ${newID})`;
-        await execQuery(insertIntoCommonList);
+    //newID is coming as RawData.So, it is needed to be stringified and parsed.
+    const ID = JSON.parse(JSON.stringify(newID));
+    const listID = ID[0].todolistID;
+    if (linkedUsers) {
+      const usersArray = linkedUsers.split(',').map(Number);
+      usersArray.forEach(async function(user) {
+        const insertIntoUserCommonList = `INSERT INTO users_todolists(userID, todolistID) VALUES("${user}", "${listID}")`;
+        await execQuery(insertIntoUserCommonList);
       });
     }
-    if (linkedTodosArray) {
-      linkedTodosArray.forEach(async function(todo) {
-        const insertIntoOtherCommonList = `INSERT INTO  todolists_todos(todolistID, todoID) 
-                                VALUES(${newID}, ${todo})`;
-        await execQuery(insertIntoOtherCommonList);
+    if (linkedTodos) {
+      const TodosArray = linkedTodos.split(',').map(Number);
+      TodosArray.forEach(async function(todo) {
+        const insertIntoTodoCommonList = `INSERT INTO todolists_todos(todolistID, todoID) VALUES("${listID}", "${todo}")`;
+        await execQuery(insertIntoTodoCommonList);
       });
     }
-    response.send(`The todolist with the name ${name} is created`);
+    response.send(`The todolist is created and bond with the given `);
   } catch (error) {
     console.error(error);
   }

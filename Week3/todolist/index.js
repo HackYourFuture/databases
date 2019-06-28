@@ -1,6 +1,4 @@
-const mysql = require('mysql');
 const express = require('express');
-const util = require('util');
 const bodyParser = require('body-parser');
 const todoApplication = require('./application');
 const app = express();
