@@ -5,7 +5,7 @@ let connection = mysql.createConnection({
     host: 'localhost',
     user: 'hyfuser',
     password: 'hyfpassword',
-    database: 'userdb'
+    database: 'world'
 });
 
 let database = 'create database IF NOT EXISTS new_world';
@@ -15,6 +15,7 @@ let tableCountry = ` CREATE TABLE IF NOT EXISTS country(
     name CHAR(20),
     population INT,
     ends_land CHAR(20),
+    CountryCode CHAR(3) NOT NULL DEFAULT
     continent CHAR(7),
     surfaceArea INT,
     world_population INT
