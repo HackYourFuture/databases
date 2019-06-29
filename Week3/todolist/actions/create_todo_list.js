@@ -15,9 +15,8 @@ async function createTodoList(request, response) {
   try {
     await execQuery(newList);
     const newID = await execQuery(newListID);
-    //newID is coming as RawData.So, it is needed to be stringified and parsed.
-    const ID = JSON.parse(JSON.stringify(newID));
-    const listID = ID[0].todolistID;
+    const listID = newID[0].todolistID;
+    console.log(listID);
     if (linkedUsers) {
       const usersArray = linkedUsers.split(',').map(Number);
       usersArray.forEach(async function(user) {

@@ -15,9 +15,7 @@ async function createUserAndCorrespondWithTodoLists(request, response) {
   try {
     await execQuery(newUser);
     const newID = await execQuery(newUserID);
-    console.log(newID);
-    const ID = JSON.parse(JSON.stringify(newID));
-    const usrID = ID[0].userID;
+    const usrID = newID[0]['userID'];
     if (linkedLists) {
       const listsArray = linkedLists.split(',').map(Number);
       console.log(listsArray);

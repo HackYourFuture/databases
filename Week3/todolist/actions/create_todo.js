@@ -14,8 +14,7 @@ async function createTodo(request, response) {
   try {
     await execQuery(newTodo);
     const newID = await execQuery(newTodoID);
-    const ID = JSON.parse(JSON.stringify(newID));
-    const tdID = ID[0].todoId;
+    const tdID = newID[0].todoId;
     if (linkedLists) {
       const listsArray = linkedLists.split(',').map(Number);
       listsArray.forEach(async function(list) {
