@@ -1,23 +1,14 @@
-const mysql = require('mysql');
-const util = require('util');
+'use strict';
+
 const prompt = require('prompt');
-
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'hyfuser',
-  password: 'hyfpassword',
-  database: 'new_world',
-});
-
-const execQuery = util.promisify(connection.query.bind(connection));
-const input = util.promisify(prompt.get.bind(this));
+const { connection, execQuery, input } = require('./config');
 
 connection.connect(error => {
   if (error) throw error;
   console.log('\nMysql connected...\n');
 });
 
-const help = () => {
+const promptHelp = () => {
   console.log(`
     To answer one of the following questions, insert the question number:
 
@@ -34,7 +25,7 @@ const help = () => {
 };
 
 async function queryDatabase() {
-  help();
+  promptHelp();
   prompt.start();
   try {
     const use_database = `use new_world`;
@@ -49,7 +40,7 @@ async function queryDatabase() {
         const input_country = firstOptions.country;
         const first_query = `SELECT city.name FROM city JOIN country ON country.capital = city.id WHERE country.name = ?;`;
         const firstResults = await execQuery(first_query, input_country);
-        for (result of firstResults) {
+        for (let result of firstResults) {
           console.log(`The capital of ${input_country.toUpperCase()} is "${result.name}"`);
         }
         break;
@@ -62,7 +53,7 @@ async function queryDatabase() {
                               `;
         const secondResults = await execQuery(second_query, input_region);
         console.log(`The languages spoken of ${input_region.toUpperCase()} are:`);
-        for (result of secondResults) {
+        for (let result of secondResults) {
           console.log(`${JSON.stringify(result.LanguagesSpokenPerRegion)}`);
         }
         break;
@@ -75,7 +66,7 @@ async function queryDatabase() {
                              `;
         const thirdResults = await execQuery(third_query, input_language);
         console.log(`The number of cities in which ${input_language.toUpperCase()} is spoken is:`);
-        for (result of thirdResults) {
+        for (let result of thirdResults) {
           console.log(result.NumberOfCitiesPerLanguage);
         }
         break;
@@ -94,7 +85,7 @@ async function queryDatabase() {
         if (fourthResults.length === 0) {
           console.log('"FALSE"');
         } else {
-          for (result of fourthResults) {
+          for (let result of fourthResults) {
             console.log(`"${result.name}"`);
           }
         }
@@ -106,13 +97,13 @@ async function queryDatabase() {
                              `;
         const fifthResults = await execQuery(fifth_query);
         console.log(`The number of languages spoken per continent are:`);
-        for (result of fifthResults) {
+        for (let result of fifthResults) {
           console.log(`${result.continent}    =>    ${result.TheNumberOfLanguagesSpoken}`);
         }
         break;
       default:
         console.log(`Please, insert a valid option between 1 and 5`);
-        help();
+        promptHelp();
     }
   } catch (error) {
     console.error(error);

@@ -1,23 +1,14 @@
-const mysql = require('mysql');
-const util = require('util');
+'use strict';
+
 const prompt = require('prompt');
-
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'hyfuser',
-  password: 'hyfpassword',
-  database: 'new_world',
-});
-
-const execQuery = util.promisify(connection.query.bind(connection));
-const input = util.promisify(prompt.get.bind(this));
+const { connection, execQuery, input } = require('./config');
 
 connection.connect(error => {
   if (error) throw error;
   console.log('\nMysql connected...\n');
 });
 
-const help = () => {
+const promptHelp = () => {
   console.log(`
     To test the trigger run the following options in order:
 
@@ -29,7 +20,7 @@ const help = () => {
 };
 
 async function queryAlert() {
-  help();
+  promptHelp();
   prompt.start();
   try {
     const use_database = `use new_world`;
@@ -58,23 +49,23 @@ async function queryAlert() {
                   END IF;
                 END;
         `;
-        const firstResults = await execQuery(addTrigger);
+        await execQuery(addTrigger);
         console.log('Trigger added...');
         break;
       case '2':
         const insert_query = `INSERT INTO countrylanguage VALUES ('AGO', 'Arabic', 'F', 0.1);`;
-        const secondResults = await execQuery(insert_query);
+        await execQuery(insert_query);
         console.log('A new language is inserted...');
 
         break;
       case '3':
         const delete_query = `DELETE FROM countrylanguage WHERE countrycode = 'AGO' AND language = 'Arabic';`;
-        const thirdResults = await execQuery(delete_query);
+        await execQuery(delete_query);
         console.log(`The new language is deleted...`);
         break;
       default:
         console.log(`Please, insert a valid option between 1 and 3`);
-        help();
+        promptHelp();
     }
   } catch (error) {
     console.error(error);
