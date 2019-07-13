@@ -13,29 +13,30 @@ const execQuery = util.promisify(connection.query.bind(connection));
 async function createTables() {
     const CREATE_USER_TABLE = `
     CREATE TABLE IF NOT EXISTS user(
-    id INT NOT NULL AUTO_INCREMENT primary key,
+    id INT NOT NULL PRIMARY KEY,
     user_name VARCHAR(50)
     );`;
+
     const CREATE_TODO_TABLE = `
     CREATE TABLE IF NOT EXISTS todo(
-    id INT NOT NULL AUTO_INCREMENT primary key,
+    id INT NOT NULL PRIMARY KEY,
     todo_name VARCHAR(50),
-    user_id INT NOT NULL
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user(id)
     );`;
     
     const CREATE_ITEMS_TABLE = `
-    
     CREATE TABLE IF NOT EXISTS items (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY
-    KEY,
-    item_disc VARCHAR(50) NOT NULL,
+    id INT NOT NULL PRIMARY KEY,
+    item_desc VARCHAR(50) NOT NULL,
     todo_id INT NOT NULL,
-    done BOOLEAN NOT NULL DEFAULT FALSE
+    done BOOLEAN NOT NULL DEFAULT FALSE,
+    FOREIGN KEY (todo_id) REFERENCES todo(id)
     );`;
+    
     const CREATE_REMINDER_TABLE = `
     CREATE TABLE IF NOT EXISTS reminder(
-    id INT NOT NULL AUTO_INCREMENT PRIMARY
-    KEY,
+    id INT NOT NULL PRIMARY KEY,
     todo_id INT NOT NULL,
     time_reminder DATETIME
     );`;
