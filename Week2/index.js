@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
 host: 'localhost',
 user: 'hyfuser',
 password: 'hyfpassword',
-database: 'new_world'
+database: 'world'
 });
 const execQuery = util.promisify(connection.query.bind(connection))
 const input = util.promisify(prompt.get.bind(this));
@@ -47,29 +47,29 @@ async function seedDatabase() {
    connection.connect()
       prompt.start();
         try {
-            const inputCountry = await input(['countryName']);
-            const capitalOfCountry = await execQuery(countries, inputCountry.countryName)
-                console.log(capitalOfCountry);
+            const inputCountry1 = await in1put(['countryName']);
+            const capitalOfCountry2 = await execQuery(countries, inputCountry1.countryName)
+                console.log(capitalOfCountry2);
 
-            const inputRegion = await input(['regionName']);    
-            const spokenLanguage = await execQuery(regionName, inputRegion.regionName);
-                console.log(spokenLanguage);
+            const inputRegion3 = await input(['regionName']);    
+            const spokenLanguage4 = await execQuery(regionName, inputRegion3.regionName);
+                console.log(spokenLanguage4);
             
-            const inputLanguage = await input(['languageName']);
-            const citiesNumber = await execQuery(language, inputLanguage.languageName);
-                console.log(citiesNumber);
+            const inputLanguage5 = await input(['languageName']);
+            const citiesNumber6 = await execQuery(language, inputLanguage5.languageName);
+                console.log(citiesNumber6);
 
-            const regionAndLanguageInput = await input(['regionName', 'languageName']);
-            const result = await execQuery(regionAndLanguage, [regionAndLanguageInput.regionName,
-                regionAndLanguageInput.languageName]);
+            const regionAndLanguageInput7 = await input(['regionName', 'languageName']);
+            const result = await execQuery(regionAndLanguage, [regionAndLanguageInput7.regionName,
+                regionAndLanguageInput7.languageName]);
                 if (result.length === 0) {
                     console.log('FALSE');
                 } else {
                     console.log(result);
                 }
             
-            const continentsList = await execQuery(continents);
-                console.log('number of languages in each continent', continentsList);
+            const continentsList8 = await execQuery(continents);
+                console.log('number of languages in each continent', continentsList8);
         } catch (error) {
             console.log(error);
         }
