@@ -1,4 +1,4 @@
-> This homework assumes you have installed the software [MySQL](https://dev.mysql.com/downloads/mysql/) to your computer. If not please do that first!
+> This homework assumes you have installed the software [MySQL](https://dev.mysql.com/downloads/installer/) to your computer. If not please do that first!
 
 # Homework week 1
 
