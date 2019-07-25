@@ -60,12 +60,12 @@ connection.query(
 const queries = [
   'SELECT country.Name FROM country WHERE country.Population > 8000000',
   "SELECT country.Name FROM country WHERE Name LIKE '%land%'",
-  'SELECT city.Name FROM city WHERE Population BETWEEN 500000 AND 1000000',
+  'SELECT city.Name FROM city WHERE Population < 500000 AND Population > 1000000',
   "SELECT country.Name FROM country WHERE Continent = 'Europe'",
   'SELECT country.Name FROM country ORDER BY Surface_Area DESC',
   'SELECT city.Name FROM city WHERE Country_Code = "NLD"',
   'SELECT city.Population FROM city WHERE Name = "Rotterdam"',
-  'SELECT city.Name FROM city ORDER BY Surface_Area DESC LIMIT 10',
+  'SELECT country.Name FROM country ORDER BY Surface_Area DESC LIMIT 10',
   'SELECT city.Name FROM city ORDER BY Population DESC LIMIT 10',
   'SELECT SUM(Population) FROM country',
 ];
