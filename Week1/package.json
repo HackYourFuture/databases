@@ -1,0 +1,14 @@
+{
+  "name": "week1",
+  "version": "1.0.0",
+  "description": "Objective : This class aims to incorporate JavaScript code to operate the MySQL database. MySQL client can be used to demonstrate SQL queries however, students should know how to make a MySQL database connection from JavaScript, run queries from JavaScript and capture results of queries in JavaScript.",
+  "main": "async-create.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alusine Q. Sesay",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.17.1"
+  }
+}
