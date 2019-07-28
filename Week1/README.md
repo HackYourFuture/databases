@@ -6,8 +6,9 @@ make a MySQL database connection from JavaScript, run queries from JavaScript an
 capture results of queries in JavaScript.
 
 ## Pre-Class Preparation
+
 - Install MySQL using the following [official docs](https://dev.mysql.com/downloads/mysql/)
-- MAC users may use `brew install mysql`
+- MAC users may install Brew Package Manager via `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` then use `brew install mysql`
 
 [This YouTube video by freeCodeCamp.org](https://www.youtube.com/watch?v=HXV3zeQKqGY) explains
 all the important topics.
@@ -15,6 +16,7 @@ all the important topics.
 ## Setup
 
 ### MySQL setup
+
 This setup assumes MySQL version 8.0.
 Windows users should use **Microsoft MySQL Command Line** client.
 Linux and MAC users should use **gnome-terminal** and **Terminal** respectively.
@@ -22,6 +24,7 @@ Linux and MAC users should use **gnome-terminal** and **Terminal** respectively.
 Note that this password is the one you used for root user of the mysql.
 Linux and MAC users can execute `mysql -uroot -p` and then type the password.
 Following commands should be run under the **mysql>** prompt:
+
 ```
 mysql> create user 'hyfuser'@'localhost' identified with mysql_native_password by 'hyfpassword';
 
@@ -40,92 +43,103 @@ mysql> create database userdb;
 ```
 
 ### Node setup
+
 This setup assumes that you have Node.js 0.6 or higher.
 We use **mysqljs** driver which can be installed using `npm install mysql`
 
 ### Verification of the correct setup
+
 Run `node connection-test.js` from VScode(Windows) or the terminal(Linux or MAC).
-The output should be `The solution is:  2`.
+The output should be `The solution is: 2`.
 connection-test.js can be found in the Week1 folder.
 
 In this class, students will be introduced to
 
-* Basics of relational databases: Concepts of tables, rows, columns, primary key, foreign key.
-* Creation of a database table and insertion of values.
-* Retrieving data from a MySQL database using SELECT queries.
+- Basics of relational databases: Concepts of tables, rows, columns, primary key, foreign key.
+- Creation of a database table and insertion of values.
+- Retrieving data from a MySQL database using SELECT queries.
 
 Objective: Students should be able to create tables,
 insert values in tables and
 retrieve data from tables using SELECT statements that include FROM, WHERE clauses.
 
-
 ## Topics to be covered
 
 ### What is a Database ?
-* Definition : Organized collection of data and rules about its manipulation
-* Client-server architecture : E.g. (Relational) DBMS
-* Files as database
-* Data structure/object as database
+
+- Definition : Organized collection of data and rules about its manipulation
+- Client-server architecture : E.g. (Relational) DBMS
+- Files as database
+- Data structure/object as database
+
 ```js
 const capitals = [
-  "Amsterdam",
-  "Delhi",
-  "Damascus",
-  "Madrid"];
+  'Amsterdam',
+  'Delhi',
+  'Damascus',
+  'Madrid'
+];
 ```
 
 ### Relations = Table
 
-* What is a relation (in the following sentences)?
-* Delhi is the capital of India
-* Amsterdam is the capital of Netherlands
-* Damascus is the capital of Syria
+- What is a relation (in the following sentences)?
+- Delhi is the capital of India
+- Amsterdam is the capital of Netherlands
+- Damascus is the capital of Syria
 
 Dan, 29, works in Amazon and lives in Seattle. His friend Ben who just celebrated
 his 24th birthday works in Facebook and lives in Redmond.
 
 ### DBMS implementations
 
-* **MySQL**
-* PostgreSQL
-* MongoDB (NoSQL)
-* Cassandra (NoSQL)
+- **MySQL**
+- PostgreSQL
+- MongoDB (NoSQL)
+- Cassandra (NoSQL)
 
 ### MySQL components
 
-* MySQL server (runs as a service, default port: 3306)
-* mysql: monitor / terminal / client (to connect to the server and execute stuff)
-* mysqladmin: Administering a MySQL Server
+- MySQL server (runs as a service, default port: 3306)
+- mysql: monitor / terminal / client (to connect to the server and execute stuff)
+- mysqladmin: Administering a MySQL Server
 
 ### Create a table in MySQL
 
 #### Collection of rows and columns
+
 #### SYNTAX
+
 ```
 CREATE TABLE table_name (column_name, column_type [, column2_name, column2_type]);
 ```
 
 #### TYPES
+
 Recall what a datatype is. js vs mysql types
 
-* INT(N) type
-* DATE, DATETIME and TIMESTAMP, (set time_zone = '+03:00')
-* BLOB (LOAD_FILE(filename))
+- INT(N) type
+- DATE, DATETIME and TIMESTAMP, (set time_zone = '+03:00')
+- BLOB (LOAD_FILE(filename))
 
 ### Fill up a table in MySQL: INSERT rows
+
 A row (aka record or tuple) represents a single, implicitly structured data item in the table.
 
 #### SYNTAX
+
 ```
 INSERT INTO table_name VALUES(value1, value2 [,value3,...]);
 ```
-* INSERT INTO table_name VALUES(...values...)
-* INSERT INTO table_name (column names) VALUES(..values...)
-* INSERT INTO table_name SET column_name = {expr | DEFAULT}
+
+- INSERT INTO table_name VALUES(...values...)
+- INSERT INTO table_name (column names) VALUES(..values...)
+- INSERT INTO table_name SET column_name = {expr | DEFAULT}
 
 ### See the content of a table in MySQL: SELECT
 
-#### SYNTAX 
+#### SYNTAX
+
 ```
 SELECT */column_1,column_2...
 FROM table_1
@@ -151,7 +165,7 @@ The SELECT statement is composed of several clauses:
 ### INSERT and SELECT together
 
 ```
-Example: 
+Example:
 
 INSERT INTO 'employees' ('shop_id', 'gender', 'name', 'salary')
 SELECT 3,
@@ -164,9 +178,9 @@ WHERE  transfer_date > '2008-01-01';
 
 ### Uniqueness and Keys
 
-* Super key : set of columns that uniquely identify a row
-* Candidate key : minimal super key that can uniquely identify a row
-* Primary key : choice of candidate key chosen by database designer : cannot be null
+- Super key : set of columns that uniquely identify a row
+- Candidate key : minimal super key that can uniquely identify a row
+- Primary key : choice of candidate key chosen by database designer : cannot be null
 
 ## Reference Material
 
