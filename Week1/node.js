@@ -42,7 +42,7 @@ const dataForSomeCountriesAndCities = [
 
 const queriesForSearch = [
   "SELECT name AS 'More Than 8 Million Population' FROM countries WHERE population > 8000000",
-  "SELECT name FROM countries WHERE name LIKE '%land'",
+  "SELECT name FROM countries WHERE name LIKE '%land%'",
   "SELECT name AS 'Population Between 500,000 and 1 million' FROM countries WHERE population < 1000000 AND population > 500000",
   "SELECT name AS 'Countries in Europe' FROM countries WHERE continent = 'Europe'",
   'SELECT * FROM countries ORDER BY surface_area DESC',
