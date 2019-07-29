@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
   database: 'userdb',
 });
 
-function handleErrorAndData(error, data) {
+function handleErrorAndData(data, error) {
   if (error) {
     console.error('error connecting: ' + error.stack);
     return;
@@ -18,12 +18,12 @@ function handleErrorAndData(error, data) {
 
 connection.connect(handleErrorAndData('Successfully connected!'));
 
-connection.query('CREATE DATABASE world', handleErrorAndData('Query OK'));
+connection.query('CREATE DATABASE IF NOT EXISTS world', handleErrorAndData('Query OK'));
 
 connection.query('use world', handleErrorAndData('Database changed'));
 
 connection.query(
-  ` CREATE TABLE country (
+  ` CREATE TABLE IF NOT EXISTS country (
     Code CHAR(3) NOT NULL DEFAULT '',
     Name CHAR(52) NOT NULL DEFAULT '',
     Continent enum('Asia','Europe','North America','Africa','Oceania','Antarctica','South America') NOT NULL DEFAULT 'Asia',
@@ -45,7 +45,7 @@ connection.query(
 );
 
 connection.query(
-  ` CREATE TABLE city (
+  ` CREATE TABLE IF NOT EXISTS city (
     ID INT(11) NOT NULL AUTO_INCREMENT,
     Name CHAR(35) NOT NULL DEFAULT '',
     Country_Code CHAR(3) NOT NULL DEFAULT '',
