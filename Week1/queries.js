@@ -18,9 +18,9 @@ const queries = {
 
   useDatabase: `USE worldData`,
 
-  createTableCountry: `CREATE TABLE IF NOT EXISTS country (code CHAR(3), Name CHAR(52), Continent CHAR (30), Region CHAR(26),SurfaceArea FLOAT(10,2),Indepyear SMALLINT(6),Population INT(11),LifeExpectancy FLOAT(3.1),GNP FLOAT(10.2),LocalName CHAR(45),GovernmentForm CHAR(45),HeadOfState CHAR(60),Capital INT(11),Code2 CHAR(2),PRIMARY KEY(Code));`,
+  createTableCountry: `CREATE TABLE IF NOT EXISTS country (code char(3), Name varchar(52), Continent varchar (30), Region varchar(26),SurfaceArea FLOAT(10,2),Indepyear SMALLINT(6),Population INT(11),LifeExpectancy FLOAT(3.1),GNP FLOAT(10.2),LocalName varchar(45),GovernmentForm varchar(45),HeadOfState varchar(60),Capital INT(11),Code2 varchar(2),PRIMARY KEY(Code));`,
 
-  createTableCity: `CREATE TABLE IF NOT EXISTS city(ID INT(11) AUTO_INCREMENT,Name CHAR(35),CountryCode CHAR(3),District CHAR(20),Population INT(11),PRIMARY KEY (ID),KEY CountryCode (CountryCode))`,
+  createTableCity: `CREATE TABLE IF NOT EXISTS city(ID INT(11) AUTO_INCREMENT,Name varchar(35),CountryCode varchar(3),District varchar(20),Population INT(11),PRIMARY KEY (ID),FOREIGN KEY(country_code) REFERENCES countries(code))`,
 
   useDatabaseTwo: `USE world`,
 };
