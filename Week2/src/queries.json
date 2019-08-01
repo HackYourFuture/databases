@@ -1,0 +1,10 @@
+[
+  "SELECT country.name AS 'Country', city.name AS 'Capital City' FROM city JOIN country ON country.capital = city.id AND country.name = ?;",
+  "SELECT DISTINCT language AS 'Spoken Languages' FROM countrylanguage AS lang JOIN country ON country.region = ? AND lang.countrycode = country.code ORDER BY language;",
+  "SELECT COUNT(name) AS 'The Number Of Cities in which Provided Language is Spoken' FROM city JOIN countrylanguage AS lang ON language = ? AND city.countrycode = lang.countrycode;",
+  "SELECT name AS 'Country', language FROM country JOIN countrylanguage as lang ON region = ? AND language = ? AND isofficial = 'T' AND countrycode = code;",
+  "SELECT continent, COUNT(DISTINCT language) AS 'Number Of Languages' FROM country LEFT JOIN countrylanguage AS lang ON lang.countrycode = country.code GROUP BY continent ORDER BY COUNT(DISTINCT language) DESC;",
+  "CREATE TRIGGER alert AFTER INSERT ON countrylanguage FOR EACH ROW BEGIN DECLARE langCount INT; SET langCount = (SELECT COUNT(countrycode) from countrylanguage WHERE countrycode = NEW.countrycode); IF langCount >= 10 THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Country has more than 9 languages.'; END IF; END",
+  "DROP TRIGGER ALERT;",
+  "INSERT INTO countrylanguage VALUES ('VNM', 'Some Language', 'F', 0.1);"
+]

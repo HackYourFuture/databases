@@ -1,0 +1,14 @@
+{
+  "name": "Fun with Databases",
+  "version": "1.0.0",
+  "description": "Suheyb - week2 homework of databases",
+  "main": "fun-with-databases.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.17.1"
+  }
+}

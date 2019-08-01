@@ -1,0 +1,22 @@
+{
+  "Hello": "Welcome to Fun With Databases",
+  "Queries": {
+    "Here you can type a number to select queries from following": {
+      "1": "What is the capital of country X ? (Please provide X)",
+      "2": "List all the languages spoken in the region Y (Please provide Y)",
+      "3": "Find the number of cities in which language Z is spoken (Please provide Z)",
+      "4": "Are there any countries in this region with the given language as the official language? (Provide region and language",
+      "5": "List all the continents with the number of languages spoken in each continent"
+    },
+    "You can also execute sql queries": {
+      "Syntax": "query: <sql query>"
+    },
+    "For an alert when a country has >= 10 languages": {
+      "To create": "create alert",
+      "To delete": "delete alert",
+      "To test": "test alert"
+    },
+    "To display this (help) page": "Type 'help'",
+    "To exit": "Type 'exit' or use CTRL + C"
+  }
+}
