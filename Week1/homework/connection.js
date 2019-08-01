@@ -68,7 +68,7 @@ var select_query = 'SELECT * FROM city WHERE Population BETWEEN 500000 AND 10000
 sendQuery(select_query);
 
 //Write queries for: What are the names of all the countries on the continent ‘Europe’ ?
-var select_by_continent = "SELECT name , continent FROM country WHERE continent = 'Europe'";
+var select_by_continent = "SELECT name FROM country WHERE continent = 'Europe'";
 sendQuery(select_by_continent);
 
 //Write queries for: List all the countries in the descending order based on their surface areas.
@@ -79,7 +79,8 @@ sendQuery(select_by_surfaceArea);
 //Bonus Write queries that answer the following questions:
 
 //What are the names of all the cities in the Netherlands?
-var select_by_citiesOfNetherlands = 'SELECT name AS City_Name FROM city WHERE Country_Code = 31';
+const NETHERLANDS_CODE = 31;
+var select_by_citiesOfNetherlands = `SELECT name AS City_Name FROM city WHERE Country_Code = ${NETHERLANDS_CODE}`;
 sendQuery(select_by_citiesOfNetherlands);
 
 //What's the population of Rotterdam?
