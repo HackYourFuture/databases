@@ -22,7 +22,7 @@ const cr_countries_query =
   "CREATE TABLE countries (Name varchar(60), Continent  enum('Asia' , 'Europe' , 'North America', 'Africa', 'Oceania', 'Antarctica', 'South America'), Region varchar(30), SurfaceArea int, IndepYear smallint(6), Population int, LifeExpectancy float(3,1), GNP float(10,2), GNPOld float(10,2), LocalName varchar(45), GovernmentForm varchar(45), HeadOfState varchar(60), Capital varchar(50))";
 
 const cr_cities_query =
-  'CREATE TABLE cities (ID int(11), Name varchar(35), CountryCode varchar(3), District varchar(20), Population int(11))';
+  'CREATE TABLE cities (ID int(11), Name varchar(35), CountryCode int(3), District varchar(20), Population int(11))';
 
 connection.query(cr_countries_query, function(error, results, fields) {
   if (error) {
@@ -81,7 +81,7 @@ const selectQueries = [
   'select name from countries where population > 8000000',
   'select name from countries where name like "%land%"',
   'select name from cities where population between 500000 and 1000000',
-  'select name from countries where continent = "europe"',
+  'select name from countries where continent = "Europe"',
   'select name from countries order by surfacearea desc',
   'select name from cities where countrycode = 31',
   'select population from cities where name = "rotterdam"',
