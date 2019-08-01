@@ -4,7 +4,7 @@ CREATE TRIGGER date_trigger
         ON emp_proj
             FOR EACH ROW
             BEGIN 
-                DECLARE message VARCHAR(100);
+                DECLARE message VARCHAR(300);
                 DECLARE languageTrigger INT ;
                 SET languageTrigger=(SELECT COUNT(language)as language FROM countrylanguage WHERE countrycode = new.countrycode);
                 IF languageTrigger > 9 
