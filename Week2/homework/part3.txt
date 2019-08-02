@@ -1,0 +1,4 @@
+Tis is the link to the Entity Relationship Diagram for the database of the ToDo App:
+
+https://www.lucidchart.com/invitations/accept/5139d65b-06ed-49c3-8c77-baf29ec5553a
+
