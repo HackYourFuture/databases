@@ -1,0 +1,23 @@
+{
+  "name": "homework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "init-db": "node src/database/bootstrap",
+    "start": "nodemon server.js",
+    "part2": "node src/part2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.17.1",
+    "showdown": "^1.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
