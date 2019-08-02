@@ -34,9 +34,9 @@ Object.keys(queries).forEach(function(item) {
   });
 });
 
-//Queries
+// Queries
 // i.
-const country_pop8mil = `SELECT * FROM country WHERE Population > 8000000`;
+const country_pop8mil = `SELECT Name,Population FROM country WHERE Population > 8000000`;
 connection.query(country_pop8mil, (error, data) => {
   if (error) {
     throw error;
@@ -48,7 +48,7 @@ connection.query(country_pop8mil, (error, data) => {
 });
 
 // ii.
-const lands = `SELECT * FROM country WHERE Name LIKE '%land%' `;
+const lands = `SELECT Name FROM country WHERE Name LIKE '%land%' `;
 connection.query(lands, (error, data) => {
   if (error) {
     throw error;
@@ -60,7 +60,7 @@ connection.query(lands, (error, data) => {
 });
 
 // iii.
-const population_between = `SELECT * FROM city WHERE Population BETWEEN 500000 AND 1000000 `;
+const population_between = `SELECT Name FROM city WHERE Population BETWEEN 500000 AND 1000000 `;
 connection.query(population_between, (error, data) => {
   if (error) {
     throw error;
@@ -72,7 +72,7 @@ connection.query(population_between, (error, data) => {
 });
 
 // iv.
-const europe = `SELECT * FROM country WHERE Continent = 'Europe' `;
+const europe = `SELECT Name FROM country WHERE Continent = 'Europe' `;
 connection.query(europe, (error, data) => {
   if (error) {
     throw error;
@@ -84,7 +84,7 @@ connection.query(europe, (error, data) => {
 });
 
 // v.
-const surface = `SELECT * FROM country ORDER BY SurfaceArea DESC`;
+const surface = `SELECT Name,SurfaceArea FROM country ORDER BY SurfaceArea DESC`;
 connection.query(surface, (error, data) => {
   if (error) {
     throw error;
