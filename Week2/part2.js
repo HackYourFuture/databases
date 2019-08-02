@@ -1,3 +1,11 @@
+// I want to get alerts when a country has >= 10 languages.
+//E.g.If a country X has 9 languages in the CountryLanguage table,
+//and a user INSERTs one more row in the CountryLanguage table,
+// then I should get an alert.How can I achieve this ?
+
+// Write the necessary SQL statements for this solution and
+// Test your solution with example insert statements.
+
 var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: 'localhost',
@@ -8,41 +16,39 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-function sendQuery(query, condition) {
+function sendQuery(query) {
   connection.query(query, function(error, results, fields) {
     if (error) {
       throw error;
-    }
-    if (condition) {
-      switch (condition) {
-        case 'language10':
-          console.log('alert', results);
-          if (results[0].Languages > 9) {
-            throw new Error('');
-          } else {
-            console.log('the reply is ', results);
-          }
-          break;
-
-        default:
-          break;
-      }
     } else {
-      console.log('the reply is ', results[0]);
+      console.log('the reply is ', results);
     }
   });
 }
 
-// I want to get alerts when a country has >= 10 languages.
-//E.g.If a country X has 9 languages in the CountryLanguage table,
-//and a user INSERTs one more row in the CountryLanguage table,
-// then I should get an alert.How can I achieve this ?
+const dropedTrigger = `drop TRIGGER IF EXISTS my_trigger`;
+sendQuery(dropedTrigger);
 
-// Write the necessary SQL statements for this solution and
-// Test your solution with example insert statements.
+const myTrigger = `
+CREATE TRIGGER my_trigger 
+    BEFORE INSERT
+        ON countrylanguage
+            FOR EACH ROW
+            BEGIN
+                DECLARE message VARCHAR(100);
+                DECLARE sd INT;
+                SET sd= (SELECT COUNT(countrylanguage.Language) AS Languages
+                FROM countrylanguage
+                WHERE countrylanguage.CountryCode = CountryCode);
+                IF sd > 9
+                THEN
+                    set message= 'alert, the table is full!';
+                    SET lc_messages=message; SIGNAL SQLSTATE '45000';
+                END IF;
+            END`;
+sendQuery(myTrigger);
 
-const languages_Of_Country =
-  'SELECT country.Name, COUNT(countrylanguage.Language) as Languages FROM countrylanguage INNER JOIN country ON country.Code = countrylanguage.CountryCode GROUP BY country.Name';
-sendQuery(languages_Of_Country, 'language10');
+const newLnaguage = "INSERT INTO countrylanguage VALUES ('NLD','Arabic11','T',5.3)";
+sendQuery(newLnaguage);
 
 connection.end();
