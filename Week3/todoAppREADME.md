@@ -22,6 +22,7 @@ You can omit optional information (gender is optional).
 
 | path                             | What to get                      |
 | -------------------------------- | -------------------------------- |
+| /                                | Display this Readme              |
 | /users                           | All users                        |
 | /users/_id_                      | User with the _id_               |
 | /lists                           | All lists                        |
