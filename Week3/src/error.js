@@ -12,7 +12,6 @@ function handleError(error, response) {
   if (error.code === 'ECONNREFUSED') {
     return response.status(500).json('Connection to mySQL server is failed. Is server active?');
   }
-  console.log(error);
   return response.status(error.statusCode || 500).json(error.message);
 }
 
