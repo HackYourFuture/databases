@@ -21,7 +21,7 @@ const CREATE_AND_USE_DB = 'CREATE DATABASE IF NOT EXISTS new_world; USE new_worl
 
 const readFile = util.promisify(fs.readFile);
 
-async function fetch() {
+async function readGreetingsAndQueries() {
   try {
     const greetings = await readFile(GREETINGS_PATH, DEFAULT_ENCODING);
     const queries = JSON.parse(await readFile(QUERIES_PATH, DEFAULT_ENCODING));
@@ -52,7 +52,7 @@ function convertNumbersToRegex(array) {
 
 module.exports = {
   readFile,
-  fetch,
+  readGreetingsAndQueries,
   YES,
   NO,
   EXIT,

@@ -17,7 +17,7 @@ const execQuery = util.promisify(connection.query.bind(connection));
 async function execOneAndDisplayResult(query, info) {
   try {
     if (info) {
-      console.log(`Executing query ${info ? 'for > ' + info + ' <' : ''}`);
+      console.log(`Executing query for > ${info} <`);
       let results = await execQuery(query);
       results = {
         'Affected Rows': results.affectedRows,

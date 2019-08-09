@@ -9,7 +9,7 @@ const { rl, askAndUse, exit } = readLine;
 const { connect, useDB, isDBConnected, execOneAndDisplayResult, execSqlStatement } = mysqlFunc;
 const {
   createAndInsert,
-  fetch,
+  readGreetingsAndQueries,
   convertNumbersToRegex,
   HELP,
   EXIT,
@@ -30,7 +30,7 @@ async function program() {
     await connect();
     console.log('Connected successfully.');
 
-    const { greetings, queries } = await fetch();
+    const { greetings, queries } = await readGreetingsAndQueries();
 
     console.log(
       'Do you want to create and use new_world database? ("Yes" to create / "No" to use existing)',
