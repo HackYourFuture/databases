@@ -1,13 +1,13 @@
 var prompt = require('prompt');
-var mysql      = require('mysql');
+var mysql = require('mysql');
 const util = require('util');
 
 const connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'hyfuser',
   password : 'hyfpassword',
-  database : 'zoo',
-  multipleStatements: false
+  database : 'company',
+  multipleStatements: true
 });
 
 const execQuery = util.promisify(connection.query.bind(connection))
@@ -28,11 +28,13 @@ async function queryDatabase() {
         // 2. Escaping the parameter ( replacing the unwanted characters)
         //const select_query = `select * from students WHERE student_number =` + connection.escape(input_number);
         //const select_query = `select * from animal WHERE gender =` + connection.escape(input_number);
+        //const select_query = `select * from employees WHERE emp_no =` + connection.escape(input_number);
 
         // 3. Using a question mark syntax to do the escaping (AKA prepared statements)
         //const select_query = `select * from students WHERE student_number = ?`
         //const select_query = `select * from employee WHERE eno = ?`
-        const select_query = `select * from animal WHERE gender = ?`;
+        //const select_query = `select * from animal WHERE gender = ?`;
+        const select_query = `select * from employees WHERE emp_no = ?`
 
         connection.connect();
         console.log(select_query);
