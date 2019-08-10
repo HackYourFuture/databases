@@ -10,6 +10,10 @@ const {
   setDone
 } = require('../controllers/TodoListsController');
 
+router.post('/multiple', createMultiple);
+router.delete('/multiple/:id', removeMultiple);
+router.put('/:id/:status', setDone);
+
 router
   .route('/')
   .get(getAll)
@@ -20,11 +24,5 @@ router
   .get(getOne)
   .put(update)
   .delete(remove);
-
-router.route('/:id/:status').put(setDone);
-
-router.route('/multiple').post(createMultiple);
-
-router.route('/multiple/:id').delete(removeMultiple);
 
 module.exports = router;

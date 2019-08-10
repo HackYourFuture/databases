@@ -10,6 +10,10 @@ const {
   seedFake
 } = require('../controllers/CategoriesController');
 
+router.post('/fake', seedFake);
+router.post('/multiple', createMultiple);
+router.delete('/multiple/:id', removeMultiple);
+
 router
   .route('/')
   .get(getAll)
@@ -20,11 +24,5 @@ router
   .get(getOne)
   .put(update)
   .delete(remove);
-
-router.route('/fake').post(seedFake);
-
-router.route('/multiple').post(createMultiple);
-
-router.route('/multiple/:id').delete(removeMultiple);
 
 module.exports = router;

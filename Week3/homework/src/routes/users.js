@@ -12,6 +12,12 @@ const {
   getDetailedUsers
 } = require('../controllers/UsersController');
 
+router.get('/:id/details', getDetailedUsers);
+router.get('/:id/todos', getUserTodos);
+router.post('/fake', seedFake);
+router.post('/multiple', createMultiple);
+router.delete('/multiple/:id', removeMultiple);
+
 router
   .route('/')
   .get(getAll)
@@ -22,15 +28,5 @@ router
   .get(getOne)
   .put(update)
   .delete(remove);
-
-router.route('/:id/details').get(getDetailedUsers);
-
-router.route('/fake').post(seedFake);
-
-router.route('/multiple').post(createMultiple);
-
-router.route('/multiple/:id').delete(removeMultiple);
-
-router.route('/:id/todos').get(getUserTodos);
 
 module.exports = router;
