@@ -1,0 +1,35 @@
+{
+  "user": [
+    { "ID": "", "Name": "", "Email": "" },
+    { "ID": "", "Name": "", "Email": "" },
+    { "ID": "", "Name": "", "Email": "" }
+  ],
+  "todolist": [
+    { "ID": "", "Name": "", "User_ID": "", "Reminder_ID": "" },
+    { "ID": "", "Name": "", "User_ID": "", "Reminder_ID": "" }
+  ],
+  "reminder": [
+    { "ID": "", "Date": "", "Notification": "", "List_ID": "" },
+    { "ID": "", "Date": "", "Notification": "", "List_ID": "" }
+  ],
+  "todoitem": [
+    { "ID": "", "Description": "" },
+    { "ID": "", "Description": "" },
+    { "ID": "", "Description": "" }
+  ],
+  "listitem": [
+    { "List_ID": "", "Item_ID": "", "IsCompleted": "" },
+    { "List_ID": "", "Item_ID": "", "IsCompleted": "" }
+  ],
+  "tag": [
+    { "ID": "", "Name": "" },
+    { "ID": "", "Name": "" },
+    { "ID": "", "Name": "" },
+    { "ID": "", "Name": "" }
+  ],
+  "itemtag": [
+    { "Item_ID": "", "Tag_ID": "" },
+    { "Item_ID": "", "Tag_ID": "" },
+    { "Item_ID": "", "Tag_ID": "" }
+  ]
+}
