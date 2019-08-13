@@ -27,23 +27,23 @@ const select_query = [
   on city.ID = country.capital 
   WHERE country.Name = ?;`,
 
-  `SELECT Language 
+  `SELECT language 
   FROM countrylanguage JOIN country 
   ON Code = countrylanguage.Country_Code 
-  WHERE Region = ?;`,
+  WHERE region = ?;`,
 
   `SELECT COUNT(city.Name) 
   FROM city JOIN countrylanguage 
   ON city.Country_Code = countrylanguage.Country_Code 
-  WHERE Language = ?;`,
+  WHERE language = ?;`,
 
   `SELECT country.Name 
   FROM country JOIN countrylanguage 
   ON Code = countrylanguage.Country_Code 
-  GROUP BY Region, Language, country.Name, countrylanguage.IsOfficial 
-  HAVING countrylanguage.IsOfficial = 'T' AND Region = ? AND Language = ?;`,
+  GROUP BY region, language, country.Name, countrylanguage.IsOfficial 
+  HAVING countrylanguage.IsOfficial = 'T' AND region = ? AND language = ?;`,
 
-  `SELECT Continent, COUNT(DISTINCT Language) AS Number_Of_Languages 
+  `SELECT Continent, COUNT(DISTINCT language) AS Number_Of_languages 
   FROM countrylanguage JOIN country 
   ON Code = Country_Code 
   GROUP BY Continent`,
@@ -58,8 +58,8 @@ async function seedDatabase() {
 
     let userInput;
     let result;
-    let Region;
-    let Language;
+    let region;
+    let language;
 
     switch (questionNumber) {
       case '1':
@@ -70,25 +70,25 @@ async function seedDatabase() {
         break;
 
       case '2':
-        userInput = await input('Region');
-        Region = userInput['Region'];
-        result = await execQuery(select_query[1], Region);
+        userInput = await input('region');
+        region = userInput['region'];
+        result = await execQuery(select_query[1], region);
         console.log(result);
         break;
 
       case '3':
-        userInput = await input('Language');
-        Language = userInput['Language'];
-        result = await execQuery(select_query[2], Language);
+        userInput = await input('language');
+        language = userInput['language'];
+        result = await execQuery(select_query[2], language);
         console.log(result);
         break;
 
       case '4':
-        userInput = await input('Region');
-        Region = userInput['Region'];
-        userInput = await input('Language');
-        Language = userInput['Language'];
-        result = await execQuery(select_query[3], [Region, Language]);
+        userInput = await input('region');
+        region = userInput['region'];
+        userInput = await input('language');
+        language = userInput['language'];
+        result = await execQuery(select_query[3], [region, language]);
         if (result.length !== 0) {
           console.log(result);
         } else {
