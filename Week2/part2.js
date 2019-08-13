@@ -39,7 +39,7 @@ CREATE TRIGGER my_trigger
                 DECLARE sd INT;
                 SET sd= (SELECT COUNT(countrylanguage.Language) AS Languages
                 FROM countrylanguage
-                WHERE countrylanguage.CountryCode = CountryCode);
+                WHERE countrylanguage.CountryCode = country.CountryCode);
                 IF sd > 9
                 THEN
                     set message= 'alert, the table is full!';
