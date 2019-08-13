@@ -34,11 +34,11 @@ function questions() {
 const query1 =
   'SELECT city.Name FROM city JOIN country ON city.ID = country.Capital WHERE country.Name = ?';
 const query2 =
-  'SELECT country.Name, Language FROM  countrylanguage JOIN country ON CountryCode = Code WHERE Region = ?';
+  'SELECT DISTINCT Language FROM  countrylanguage JOIN country ON CountryCode = Code WHERE Region = ?';
 const query3 =
   'SELECT COUNT(ID) AS "CityNumberSum" FROM  countrylanguage JOIN city ON countrylanguage.CountryCode = city.CountryCode WHERE Language = ?';
 const query4 =
-  'SELECT Name FROM  countrylanguage JOIN country ON CountryCode = Code WHERE Language = ? AND Region = ? AND IsOfficial = "T"';
+  'SELECT country.Name FROM  countrylanguage JOIN country ON CountryCode = Code WHERE Language = ? AND Region = ? AND IsOfficial = "T"';
 const query5 =
   'SELECT Continent, COUNT(DISTINCT Language) AS "SpokenLanguages" FROM  countrylanguage JOIN country ON CountryCode = Code GROUP BY Continent';
 
