@@ -91,8 +91,8 @@ connection.query(
 );
 
 connection.query(
-  ` CREATE TABLE IF NOT EXISTS completed (
-    completed tinyint(4) DEFAULT NULL,
+  ` CREATE TABLE IF NOT EXISTS todolists_items (
+    todolists_items tinyint(4) DEFAULT NULL,
     todoID int(11) NOT NULL,
     listID int(11) NOT NULL,
     PRIMARY KEY (todoID,listID),
@@ -104,6 +104,9 @@ connection.query(
   cb(),
 );
 
-connection.query(` INSERT IGNORE INTO completed VALUES (1,3,3), (0,2,2), (1,4,4), (1,1,1);`, cb());
+connection.query(
+  ` INSERT IGNORE INTO todolists_items VALUES (1,3,3), (0,2,2), (1,4,4), (1,1,1);`,
+  cb(),
+);
 
 connection.end();

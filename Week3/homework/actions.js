@@ -20,10 +20,10 @@ const todoitem = async (request, response) => {
   try {
     const query = `SELECT todolists.description AS 'List Name',
        todoitem.name AS 'Todo Item', 
-       completed.completed 
-       FROM todolists JOIN completed 
-       ON completed.listID = todolists.listID JOIN todoitem 
-       ON todoitem.todoID = completed.todoID 
+       todolists_items.todolists_items 
+       FROM todolists JOIN todolists_items 
+       ON todolists_items.listID = todolists.listID JOIN todoitem 
+       ON todoitem.todoID = todolists_items.todoID 
        WHERE todolists.description = ?;`;
     const list_exists = await executeQuery(
       'SELECT EXISTS (SELECT description FROM todolists WHERE description = ?);',
@@ -84,13 +84,11 @@ const addTodoItem = async (request, response) => {
   }
 };
 
+const param_name = 'SELECT EXISTS (SELECT name FROM todoitem WHERE name = ?);';
 const deleteTodo = async (request, response) => {
   try {
     const query = `DELETE FROM todoitem WHERE name = ?;`;
-    const item_exists = await executeQuery(
-      'SELECT EXISTS (SELECT name FROM todoitem WHERE name = ?);',
-      request.params.name,
-    );
+    const item_exists = await executeQuery(param_name, request.params.name);
     if (getQueryResult(item_exists)) {
       await executeQuery(query, request.params.name);
       await response.send('Todo Item is deleted!');
@@ -105,9 +103,9 @@ const deleteTodo = async (request, response) => {
 const deleteTodoList = async (request, response) => {
   try {
     const query = `DELETE todolist, todoitem 
-      FROM todolists INNER JOIN  completed 
-      ON todolists.listID = completed.listID INNER JOIN todoitem 
-      ON todoitem.todoID = completed.todoID WHERE todolists.description = ?;`;
+      FROM todolists INNER JOIN  todolists_items 
+      ON todolists.listID = todolists_items.listID INNER JOIN todoitem 
+      ON todoitem.todoID = todolists_items.todoID WHERE todolists.description = ?;`;
     const list_exists = await executeQuery(
       'SELECT EXISTS (SELECT description FROM todolists WHERE description = ?);',
 
@@ -126,11 +124,8 @@ const deleteTodoList = async (request, response) => {
 
 const done = async (request, response) => {
   try {
-    const query = `UPDATE completed SET completed = True WHERE completed.todoID = (SELECT todoId FROM todoitem WHERE name = ?);`;
-    const list_exists = await executeQuery(
-      'SELECT EXISTS (SELECT name FROM todoitem WHERE name = ?);',
-      request.params.name,
-    );
+    const query = `UPDATE todolists_items SET todolists_items = True WHERE todolists_items.todoID = (SELECT todoId FROM todoitem WHERE name = ?);`;
+    const list_exists = await executeQuery(param_name, request.params.name);
     if (getQueryResult(list_exists)) {
       await executeQuery(query, request.params.name);
       await response.send('Todo Item is marked as done!');
