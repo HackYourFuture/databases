@@ -1,6 +1,6 @@
 # How to use :Todo_list_app
 
-## use the accompaned dump file (todo_list_dump.sql) by importing it :
+## use the accompanied dump file (todo_list_dump.sql) by importing it :
 
 ```
 mysql -u username -p database_name < file.sql
