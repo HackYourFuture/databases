@@ -46,13 +46,68 @@ Also, please read the following page that explains database foreign keys.
 
 ## Homework
 
-For this week's homework:
+For the homework this week we will create the database and queries for an application we will continue working on in the [node js class](https://github.com/HackYourFuture-CPH/node.js). 
 
-Using an entity relationship diagram, design the data model for an application of your choice; this could be anything, but previous students have used a small business (with staff, offices, and job titles), a library (with books, genres, racks, members, and a borrowing log), or a farm (with animals, barns, and farmers). Your application must include at least one many-to-many relationship and any supporting tables (associative entities) that are needed. The entity relationship diagram must describe what tables you will need, the columns in these tables, which column is the primary key, and the relationships between tables.
+The application will be a meal sharing website, where users can book a reservation at a meal another user has created.
 
-Next, using the entity relationship diagram as a starting point, write all the necessary `CREATE TABLE` statements to create all tables and relationships (foreign key constraints) for this data model.
+So as a user you can both
+- Create a new meal for people to join
+- Book a reservation at a meal
 
-Submit an image or PDF of your entity relationship diagram, and a `.sql` file with the `CREATE TABLE` statements.
+It will be kind of similar to this website: https://www.mealsharing.com/
 
-## Check out the [React repo](https://github.com/HackYourFuture-cph/React)
-And find out how you can prepare for the first React lecture :dancers:
+### Data model
+Lets first start with creating the data model.
+
+Create all the sql for creating this data model: https://dbdiagram.io/d/5d5bff66ced98361d6ddc18c
+
+### Queries
+
+Create these queries
+
+### Meal
+
+|  Queries to write |
+| ---- |
+| Get all meals |
+| Add a new meal |
+| Get a meal with any id, fx 1 |
+| Update a meal with any id, fx 1. Update any attribute fx the title or multiple attributes |
+| Delete a meal with any id, fx 1 |
+
+
+### Reservation
+
+|  Queries to write |
+| ---- |
+| Get all reservations |
+| Add a new reservation |
+| Get a reservation with any id, fx 1 |
+| Update a reservation with any id, fx 1. Update any attribute fx the title or multiple attributes |
+| Delete a reservation with any id, fx 1 |
+
+### Review
+
+|  Queries to write |
+| ---- |
+| Get all reviews |
+| Add a new review |
+| Get a review with any id, fx 1 |
+| Update a review with any id, fx 1. Update any attribute fx the title or multiple attributes |
+| Delete a review with any id, fx 1 |
+
+### Additional queries
+
+Now add a couple of different meals, reservations and reviews with different attributes. With those meals create the following queries
+
+|  Functionality |
+| ---- |
+| Get meals that has a price smaller than a specific price fx 90 |
+| Get meals that still has available reservations |
+| Get meals that partially match a title. `Rød grød med` will match the meal with the title `Rød grød med fløde` |
+| Get meals that has been created between two dates |
+| Get only specific number of meals fx return only 5 meals |
+| Get the meals that have good reviews |
+| Get reservations for a specific meal sorted by created_date |
+| Sort all meals by average number of stars in the reviews |
+
