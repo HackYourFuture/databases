@@ -79,7 +79,7 @@ const createTodo = (req, res) => {
     if (err) {
       return res.status(500).send('Something went wrong');
     }
-    res.end();
+    return res.status(201).send('Todo item created!');
   });
 };
 
@@ -124,7 +124,7 @@ const createTodoList = (req, res) => {
     if (err) {
       throw err;
     }
-    res.end();
+    res.status(200).send('Todolist created!');
   });
 };
 
@@ -158,8 +158,8 @@ app.get('/users', getUsers);
 app.get('/users/:id', getUser);
 app.put('/users/:id', updateUser);
 app.post('/create/todo', createTodo);
-app.post('/create/todolist', createTodoList);
 app.put('/todo/:id', markAsDone);
+app.post('/create/todolist', createTodoList);
 app.delete('/todo/:id', deleteTodoItem);
 app.delete('/todolist/:id', deleteTodoList);
 app.put('/reminder/:id', addReminder);
