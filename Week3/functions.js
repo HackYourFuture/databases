@@ -38,15 +38,9 @@ function checkRequest(reqBody) {
 }
 
 async function checkUser(reqBody) {
-  return new Promise(async (resolve, reject) => {
-    const userId = await execQuery(s_Id_users_uName, [reqBody.user]);
-    if (userId[0] === undefined) {
-      reject(new Error('no such user'));
-    } else {
-      reqBody.list.user_id = userId[0].id;
-    }
-    resolve(userId);
-  });
+  const userId = await execQuery(s_Id_users_uName, [reqBody.user]);
+  if (userId[0] === undefined) throw new Error('no such user');
+  reqBody.list.user_id = userId[0].id;
 }
 
 async function isListExist(list) {
@@ -99,7 +93,8 @@ async function createToDo(reqBody) {
     const listId = await isListExist(reqBody.list);
     if (!listId) {
       const err = new Error('no such list');
-      return 'error: ' + err.message;
+      console.error(err);
+      return err.message;
     }
     return await writeToDo(reqBody.todo, listId[0].id);
   } catch (error) {
