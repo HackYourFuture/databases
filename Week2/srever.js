@@ -19,8 +19,8 @@ connection.connect(function(err) {
 app.get('/capital/of/?', (req, res) => {
   const country = req.query.country;
   var part1_1 = `select Name from city
-  where ID in ( SELECT capital FROM country WHERE name = '${country}' )`;
-  connection.query(part1_1, function(error, resolve) {
+  where ID in ( SELECT capital FROM country WHERE name = ? )`;
+  connection.query(part1_1, [country], function(error, resolve) {
     if (error) throw error;
     res.send(resolve);
   });
@@ -30,8 +30,8 @@ app.get('/capital/of/?', (req, res) => {
 // example : http://localhost:5055/languages/of/?region=south america
 app.get('/languages/of/?', (req, res) => {
   const region = req.query.region;
-  var part1_2 = `select language from countrylanguage where CountryCode in (select code from country where region ='${region}')`;
-  connection.query(part1_2, function(error, resolve) {
+  var part1_2 = `select language from countrylanguage where CountryCode in (select code from country where region =?)`;
+  connection.query(part1_2, [region], function(error, resolve) {
     if (error) throw error;
     res.send(resolve);
   });
@@ -46,8 +46,8 @@ app.get('/cities/spoken/?', (req, res) => {
   on co.code = ci.countrycode
   join countrylanguage as la
   on co.code = la.countrycode
-  where language = '${language}'`;
-  connection.query(part1_3, function(error, resolve) {
+  where language = ?`;
+  connection.query(part1_3, [language], function(error, resolve) {
     if (error) throw error;
     res.send(resolve);
   });
@@ -61,8 +61,8 @@ app.get('/countries/:region', (req, res) => {
   var part1_4 = `select name from country as CO
   join countrylanguage as la
   on co.code = la.countrycode
-  where region = '${region}' and language = '${language}' and IsOfficial = 't'`;
-  connection.query(part1_4, function(error, resolve) {
+  where region = ? and language = ? and IsOfficial = 't'`;
+  connection.query(part1_4, [region, language], function(error, resolve) {
     if (error) throw error;
     res.send(resolve);
   });
@@ -71,7 +71,7 @@ app.get('/countries/:region', (req, res) => {
 // get numbers of languages in a all continents
 // http://localhost:5055/continent/languages
 app.get('/continent/languages', (req, res) => {
-  var part1_5 = `select DISTINCT(continent),count(language) from country as co
+  var part1_5 = `select DISTINCT continent, count (DISTINCT language) from country as co
   join countrylanguage as la
   on co.code = la.countrycode
   group by Continent`;
