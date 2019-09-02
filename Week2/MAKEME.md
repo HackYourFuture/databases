@@ -4,10 +4,10 @@ The homework contains 3 parts
 ## Part 1 : More SQL queries through JS program
 Write a node-JS program to get answers of following queries
 on the **new_world** database: Note that you are expected to get the input from user
-and use **prepared** statements to write the queries.
+so be careful of possible **sql injections**.
 
 Hint: use [this] (https://github.com/mysqljs/mysql) link to read more
-about prepared statements.
+about escaping query values.
 
 1. What is the capital of country X ? (Accept X from user)
 2. List all the languages spoken in the region Y (Accept Y from user)
