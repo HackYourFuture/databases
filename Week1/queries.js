@@ -1,35 +1,35 @@
 const sqlCreateWorldDB = `CREATE DATABASE IF NOT EXISTS world;`;
 const sqlUseWorldDB = `USE world;`;
 const sqlCreateCountry = `
+DROP TABLE IF EXISTS country;
 CREATE TABLE country (
-    Code CHAR(3) NOT NULL DEFAULT '',
-    Name CHAR(52) NOT NULL DEFAULT '',
-    Continent ENUM('Asia', 'Europe', 'North America', 'Africa', 'Oceania', 'Antarctica', 'South America') NOT NULL DEFAULT 'Asia',
-    Region CHAR(26) NOT NULL DEFAULT '',
-    SurfaceArea FLOAT(10 , 2 ) NOT NULL DEFAULT '0.00',
-    IndepYear SMALLINT(6) DEFAULT NULL,
-    Population INT(11) NOT NULL DEFAULT '0',
-    LifeExpectancy FLOAT(3 , 1 ) DEFAULT NULL,
-    GNP FLOAT(10 , 2 ) DEFAULT NULL,
-    GNPOld FLOAT(10 , 2 ) DEFAULT NULL,
-    LocalName CHAR(45) NOT NULL DEFAULT '',
-    GovernmentForm CHAR(45) NOT NULL DEFAULT '',
-    HeadOfState CHAR(60) DEFAULT NULL,
-    Capital INT(11) DEFAULT NULL,
-    PRIMARY KEY (Code)
-);`;
+  Code VARCHAR(5) NOT NULL,
+  Name VARCHAR(50) NOT NULL,
+  Continent ENUM('Asia', 'Europe', 'North America', 'Africa', 'Oceania', 'Antarctica', 'South America') NOT NULL,
+  Region VARCHAR(50) NULL,
+  SurfaceArea DECIMAL(10,2) NULL DEFAULT 0.00,
+  IndepYear INT NULL,
+  Population INT NULL DEFAULT 0,
+  LifeExpectancy DECIMAL(3,1) NULL,
+  GNP DECIMAL(10,2) NULL,
+  GNPOld DECIMAL(10,2) NULL,
+  GovernmentForm VARCHAR(50) NULL,
+  HeadOfState VARCHAR(50) NULL,
+  Capital VARCHAR(50) NULL,
+  PRIMARY KEY (Code));
+`;
 
 const sqlCreateCity = `CREATE TABLE city (
-    ID INT(11) NOT NULL AUTO_INCREMENT,
-    Name CHAR(35) NOT NULL DEFAULT '',
-    CountryCode CHAR(3) NOT NULL DEFAULT '',
-    District CHAR(20) NOT NULL DEFAULT '',
-    Population INT(11) NOT NULL DEFAULT '0',
-    PRIMARY KEY (ID),
-    KEY CountryCode (CountryCode),
-    CONSTRAINT city_ibfk_1 FOREIGN KEY (CountryCode)
-        REFERENCES country (Code)
-);`;
+  ID INT NOT NULL AUTO_INCREMENT,
+  Name VARCHAR(50) NOT NULL,
+  CountryCode VARCHAR(5) NOT NULL,
+  District VARCHAR(50) NOT NULL,
+  Population INT NOT NULL DEFAULT 0,
+  PRIMARY KEY (ID),
+  CONSTRAINT city_fk
+    FOREIGN KEY (CountryCode)
+    REFERENCES country (Code));
+`;
 
 const selectQueries = [
   //* What are the names of the countries with population greater than 8 million
