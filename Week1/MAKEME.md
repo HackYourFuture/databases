@@ -37,7 +37,7 @@ Some SQL refresh tutorial (if needed):
 
 Answer the following questions using the `world` database and put your answers
 in [homework/world-queries.txt](homework/world-queries.txt). You will have to
-use keywords that we did not see in class: `ORDER BY`, `LIMIT`, `GROUP BY`:
+use keywords th at we did not see in class: `ORDER BY`, `LIMIT`, `GROUP BY`:
 
 *(Hint: Use `SHOW tables;` and `DESCRIBE <table>;` to see what the table structure looks like)*
 
@@ -50,3 +50,4 @@ use keywords that we did not see in class: `ORDER BY`, `LIMIT`, `GROUP BY`:
 7. What is the population in Asia?
 8. Which languages are spoken in the Region of ‘South America’
 9. What are the languages spoken on all cities named ‘Barcelona’ (you may need to join 3 tables =) )
+show 
