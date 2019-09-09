@@ -3,3 +3,5 @@ node_modules/
 **/*.DS_Store
 **/*-secret.json
 **/*.sh
+Week1/slides/debug.log
+.gitignore
