@@ -1,0 +1,20 @@
+extends base.pug
+block content
+    h1 Modify the information for the city #{city.Name}
+    form(action = "/city/submit-edit-form-with-post" method="post")
+        input(type = "hidden", name="id", value=city.ID)
+        div.input
+            span.label City Name
+            input(type = "text", name="name", value=city.Name) 
+        div.input
+            span.label Population
+            input(type = "number", name="population", value=city.Population)
+        div.input
+            span.label District
+            input(type = "text", name="district", value=city.District)
+        div.input
+            span.label Country Code
+            select(name='countryCode', id='')
+                each cc in selectCountryCodes
+                    option(value=cc.code selected=(city.CountryCode==cc.code)) #{cc.code}
+        input(type = "submit", name="Submit")

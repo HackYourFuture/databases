@@ -1,0 +1,18 @@
+extends base.pug
+block content  
+    table
+        tr
+        th Id
+        th First Name
+        th Last Name
+        th Email
+        th Amount of money
+        for user in userList
+            tr
+                td= user.id
+                td= user.first_name
+                td= user.last_name
+                td= user.email
+                td= user.money
+    a(href="/user/form-transfer-post")
+        button(type="button") Transfer money

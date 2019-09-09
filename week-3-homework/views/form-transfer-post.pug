@@ -1,0 +1,8 @@
+extends base.pug
+block content
+    h1 Enter how much money do you want to transfer to your kid
+      form(action = "/user/submit-form-transfer-post" method="POST")
+        div.input
+            span.label Enter amount (please enter a lot!!)
+            input(type = "text", name="transferAmount")
+        input(type = "submit", name="Done")

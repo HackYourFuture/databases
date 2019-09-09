@@ -1,0 +1,17 @@
+extends base.pug
+block content  
+    table
+        tr
+        th Code
+        th Name
+        th Continent
+        th Region
+        th SurfaceArea
+        for country in countryList
+            tr
+                td= country.Code
+                td 
+                    a(href='/country/'+country.Code) #{country.Name}
+                td= country.Continent
+                td= country.Region
+                td= country.SurfaceArea

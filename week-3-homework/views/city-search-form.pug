@@ -1,0 +1,7 @@
+extends base.pug
+block content
+    form(action = "/city/submit-search-form-get")
+        div.input
+            span.label Search city
+            input(type = "text", name="searchString")
+        input(type = "submit", name="Done")

@@ -1,0 +1,19 @@
+extends base.pug
+block content
+    h1 Enter the information for the new city
+    form(action = "/city/submit-add-city-form-with-post" method="post")
+        div.input
+            span.label City Name
+            input(type = "text", name="name")
+        div.input
+            span.label Population
+            input(type = "number", name="population")
+        div.input
+            span.label District
+            input(type = "text", name="district")
+        div.input
+            span.label Country Code
+            select(name='countryCode', id='')
+                each countryCode in selectCountryCodes
+                    option(value=countryCode.code) #{countryCode.name}
+        input(type = "submit", name="Submit")

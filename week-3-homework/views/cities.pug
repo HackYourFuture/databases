@@ -1,0 +1,31 @@
+extends base.pug
+block content  
+    h1 #{tableTitle}
+    table
+        tr
+        th 
+            a(href='/city?orderBy=1') Id
+        th
+            a(href='/city?orderBy=2') Name
+        th 
+            a(href='/city?orderBy=3') Country Code
+        th 
+            a(href='/city?orderBy=4') District
+        th
+            a(href='/city?orderBy=5') Population
+        for city in cityList
+            tr
+                td= city.ID
+                td 
+                    a(href='/city/id/'+city.ID) #{city.Name}
+                td= city.CountryCode
+                td= city.District
+                td= city.Population
+                td 
+                    a(href='/city/edit/'+city.ID) 
+                        img(src="/public/edit18.png")
+                td 
+                    a(href='/city/delete/'+city.ID) 
+                        img(src="/public/delete_black_18x18.png")
+    a(href="/city/add-city-post")
+        button(type="button") Add new city
