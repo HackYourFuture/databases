@@ -8,8 +8,9 @@ const {
   sqlCreateWorldDB,
   sqlUseWorldDB,
   selectQueries,
+  insertQueries,
 } = require('./queries');
-
+// Using virtual ubuntu server on local running mysql instance => 192.168.153.132 IP of VM
 const conn = mysql.createConnection('mysql://hyfuser:hyfpassword@192.168.153.132/userdb');
 
 const runQuery = util.promisify(conn.query.bind(conn));
@@ -17,13 +18,15 @@ const runQuery = util.promisify(conn.query.bind(conn));
 (async () => {
   conn.connect();
   try {
-    await query(sqlCreateWorldDB);
+    await runQuery(sqlCreateWorldDB);
     console.log('world database created.');
     await runQuery(sqlUseWorldDB);
-    await query(sqlCreateCountry);
+    await runQuery(sqlCreateCountry);
     console.log('country table created.');
-    await query(sqlCreateCity);
+    await runQuery(sqlCreateCity);
     console.log('city table created.');
+    insertQueries.forEach(async query => await runQuery(query));
+    console.log('Sample data inserted.');
     selectQueries.forEach(async query => {
       const result = await runQuery(query);
       console.log(JSON.parse(JSON.stringify(result)));
