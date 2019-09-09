@@ -6,9 +6,11 @@ const {
   sqlCreateCity,
   sqlCreateCountry,
   sqlCreateWorldDB,
+  sqlAddCountryFK,
   sqlUseWorldDB,
   selectQueries,
-  insertQueries,
+  insertCityData,
+  insertCountryData,
 } = require('./queries');
 // Using virtual ubuntu server on local running mysql instance => 192.168.153.132 IP of VM
 const conn = mysql.createConnection('mysql://hyfuser:hyfpassword@192.168.153.132/userdb');
@@ -25,12 +27,15 @@ const runQuery = util.promisify(conn.query.bind(conn));
     console.log('country table created.');
     await runQuery(sqlCreateCity);
     console.log('city table created.');
-    insertQueries.forEach(async query => await runQuery(query));
+    await runQuery(insertCountryData);
+    await runQuery(insertCityData);
     console.log('Sample data inserted.');
     selectQueries.forEach(async query => {
       const result = await runQuery(query);
       console.log(JSON.parse(JSON.stringify(result)));
     });
+    await runQuery(sqlAddCountryFK);
+    console.log('country foreign key created.');
   } catch (error) {
     console.log({ error });
   } finally {
