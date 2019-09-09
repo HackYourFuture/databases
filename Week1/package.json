@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mysql": "^2.17.1"
+    "mysql": "^2.17.1",
+    "node-mysql-importer": "0.0.10"
   }
 }
