@@ -9,6 +9,9 @@ const tables = [
     dbTb.dropTableCity,
     dbTb.CreateTableCity,
 ];
+const countries = dbTb.insertContires;
+const cities = dbTb.insertCities;
+
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'hyfuser',
@@ -37,6 +40,18 @@ tables.forEach(element => {
     });
 });
 
-connection.end();
+countries.forEach(element => {
+    connection.query(element, function(err, result) {
+        if (err) console.log(err);
+    });
+});
+
+cities.forEach(element => {
+    connection.query(element, function(err, result) {
+        if (err) console.log(err);
+    });
+});
+
+// connection.end();
 
 module.exports = connection;
