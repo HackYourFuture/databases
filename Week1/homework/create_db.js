@@ -52,6 +52,6 @@ cities.forEach(element => {
     });
 });
 
-// connection.end();
+connection.end();
 
 module.exports = connection;
