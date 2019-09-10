@@ -1,14 +1,14 @@
 const checkAndCreate = `CREATE TABLE IF NOT EXISTS`;
 const insert = `INSERT INTO city(Name, CountryCode, District, Population) VALUES`;
 const CREATE_CITY_TABLE = `
-  ${checkAndCreate} city(
-        ID int NOT NULL AUTO_INCREMENT,
-        Name VARCHAR(50) NOT NULL DEFAULT '',
-        CountryCode VARCHAR(3) NOT NULL DEFAULT '',
-        District VARCHAR(50) NOT NULL DEFAULT '',
-        Population INT NOT NULL DEFAULT 0,
-        PRIMARY KEY (ID));
-        `;
+        ${checkAndCreate} city(
+              ID int NOT NULL AUTO_INCREMENT,
+              Name VARCHAR(50) NOT NULL DEFAULT '',
+              CountryCode VARCHAR(3) NOT NULL DEFAULT '',
+              District VARCHAR(50) NOT NULL DEFAULT '',
+              Population INT NOT NULL DEFAULT 0,
+              PRIMARY KEY (ID));
+              `;
 
 const INSERT_CITY_QUERIES = `
        ${insert} 
