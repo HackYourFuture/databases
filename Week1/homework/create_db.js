@@ -20,7 +20,10 @@ const connection = mysql.createConnection({
 
 connection.connect(function(err) {
     if (err) console.log(err);
-    else console.log('Connected!');
+    else
+        console.log(
+            'Connected: 2 tables and 4318 records will be added to the database.\n That takes time! abut 5 minuts.',
+        );
 });
 
 dataBase.forEach(element => {
@@ -31,7 +34,6 @@ dataBase.forEach(element => {
 
 connection.changeUser({ database: 'world' }, function(err) {
     if (err) console.log(err);
-    else console.log('used databse is now: world');
 });
 
 tables.forEach(element => {
@@ -52,6 +54,9 @@ cities.forEach(element => {
     });
 });
 
-connection.end();
-
-module.exports = connection;
+connection.end(function(err) {
+    if (err) {
+        return console.log('error:' + err.message);
+    }
+    console.log('Close the database connection.');
+});
