@@ -1,10 +1,10 @@
 {
   "name": "database",
   "version": "1.0.0",
-  "description": "Objective : This class aims to incorporate JavaScript code to operate the MySQL database.\r MySQL client can be used to demonstrate SQL queries however, students should know how to\r make a MySQL database connection from JavaScript, run queries from JavaScript and\r capture results of queries in JavaScript.",
+  "description": "world databases",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
