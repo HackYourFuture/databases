@@ -15,7 +15,7 @@ CREATE TABLE country (
   LocalName VARCHAR(50) NOT NULL,
   GovernmentForm VARCHAR(50) ,
   HeadOfState VARCHAR(50) ,
-  Capital INT,
+  Capital VARCHAR(50) NOT NULL,
   PRIMARY KEY (Code));
 `;
 
@@ -32,14 +32,7 @@ CREATE TABLE city (
     REFERENCES country (Code));
 `;
 
-const sqlAddCountryFK = `
-ALTER TABLE country
-ADD CONSTRAINT country_fk
-  FOREIGN KEY (Capital)
-  REFERENCES city (ID);
-`;
-
-const insertCountryData = `INSERT INTO country (Code, Name, Continent, Region, SurfaceArea, IndepYear, Population, LifeExpectancy, GNP, GNPOld, LocalName, GovernmentForm, HeadOfState, Capital) VALUES ('NLD','Netherlands','Europe','Western Europe',41526.00,1581,17084000,78.3,371362.00,360478.00,'Nederland','Constitutional Monarchy','Willem-Alexander',1), ('CAN','Canada','North America','Central America',9970610.00,1867,37602103,79.4,371362.00,360478.00,'Canada','Constitutional Monarchy, Federation','Elisabeth II',2), ('DEU','Germany','Europe','Western Europe',357022.00,1955,83019200,75.7,371362.00,360478.00,'Deutschland','Federal Republic','Frank-Walter Steinmeier',3), ('JAM','Jamaica','North America','Caribbean',10990.00,1962,2890299,65.3,31366.00,30448.00,'Jamaica','Constitutional Monarchy','Elisabeth II',4), ('VNM','Vietnam','Asia','Southeast Asia',331689.00,1945,94569072,69.3,371362.00,360478.00,'Viêt Nam','Socialistic Republic','Nguyen Phu Trong',5);`;
+const insertCountryData = `INSERT INTO country (Code, Name, Continent, Region, SurfaceArea, IndepYear, Population, LifeExpectancy, GNP, GNPOld, LocalName, GovernmentForm, HeadOfState, Capital) VALUES ('NLD','Netherlands','Europe','Western Europe',41526.00,1581,17084000,78.3,371362.00,360478.00,'Nederland','Constitutional Monarchy','Willem-Alexander','Amsterdam'), ('CAN','Canada','North America','Central America',9970610.00,1867,37602103,79.4,371362.00,360478.00,'Canada','Constitutional Monarchy, Federation','Elisabeth II','Ottawa'), ('DEU','Germany','Europe','Western Europe',357022.00,1955,83019200,75.7,371362.00,360478.00,'Deutschland','Federal Republic','Frank-Walter Steinmeier','Berlin'), ('JAM','Jamaica','North America','Caribbean',10990.00,1962,2890299,65.3,31366.00,30448.00,'Jamaica','Constitutional Monarchy','Elisabeth II','Kingston'), ('VNM','Vietnam','Asia','Southeast Asia',331689.00,1945,94569072,69.3,371362.00,360478.00,'Viêt Nam','Socialistic Republic','Nguyen Phu Trong','Hanoi');`;
 
 const insertCityData = `INSERT INTO city (Name, CountryCode, District, Population) VALUES ('Amsterdam','NLD','Noord-Holland',821752), ('Ottawa','CAN','Ontario',934243), ('Berlin','DEU','Berliini',4105000),  ('Kingston','JAM','St. Andrew',666041), ('Hanoi','VNM','Hanoi',7782000);`;
 
@@ -139,7 +132,6 @@ module.exports = {
   sqlCreateCity,
   sqlCreateCountry,
   sqlCreateWorldDB,
-  sqlAddCountryFK,
   sqlUseWorldDB,
   selectQueries,
   insertCityData,

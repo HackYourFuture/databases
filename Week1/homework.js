@@ -6,7 +6,6 @@ const {
   sqlCreateCity,
   sqlCreateCountry,
   sqlCreateWorldDB,
-  sqlAddCountryFK,
   sqlUseWorldDB,
   selectQueries,
   insertCityData,
@@ -34,8 +33,6 @@ const runQuery = util.promisify(conn.query.bind(conn));
       const result = await runQuery(query);
       console.log(JSON.parse(JSON.stringify(result)));
     });
-    await runQuery(sqlAddCountryFK);
-    console.log('country foreign key created.');
   } catch (error) {
     console.log({ error });
   } finally {
