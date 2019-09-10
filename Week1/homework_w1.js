@@ -15,7 +15,7 @@ var create_queries = [
   'CREATE DATABASE world',
   'USE world',
   'CREATE TABLE country (Name VARCHAR (40) NOT NULL UNIQUE,Continent ENUM("Asia", "Europe", "North America", "Africa", "Oceania", "Antarctica", "South America") DEFAULT "Asia",Region VARCHAR(40) NULL, SurfaceArea INT, IndepYear SMALLINT, Population INT (40) NOT NULL DEFAULT "0",LifeExpectancy FLOAT(4, 1),GNP FLOAT(10,2),GNPOld FLOAT(10,2), LocalName VARCHAR (40),GovernmentForm VARCHAR (30) NULL, HeadOfState VARCHAR(30),Capital VARCHAR(30),PRIMARY KEY (Name))',
-  'CREATE TABLE city (ID INT NOT NULL AUTO_INCREMENT,Name VARCHAR (40) NOT NULL,CountryCode VARCHAR (5),District  VARCHAR(50),  Population INT (40),PRIMARY KEY (ID))',
+  'CREATE TABLE city (ID INT NOT NULL,Name VARCHAR (40) NOT NULL,CountryCode VARCHAR (5),District  VARCHAR(50),  Population INT (40),PRIMARY KEY (ID))',
 ];
 
 var insert_queries = [
