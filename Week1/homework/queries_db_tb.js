@@ -18,7 +18,7 @@ const CreateTableCountry = `CREATE TABLE  country  (
   LocalName  CHAR(45) NOT NULL DEFAULT '',
   GovernmentForm  CHAR(45) NOT NULL DEFAULT '',
   HeadOfState  CHAR(60) ,
-  Capital  INT(11) ,
+  Capital  CHAR(22) ,
   Code2  CHAR(2) NOT NULL DEFAULT '',
 ) `;
 
