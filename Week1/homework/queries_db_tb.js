@@ -20,7 +20,6 @@ const CreateTableCountry = `CREATE TABLE  country  (
   HeadOfState  CHAR(60) ,
   Capital  INT(11) ,
   Code2  CHAR(2) NOT NULL DEFAULT '',
-  PRIMARY KEY ( Code )
 ) `;
 
 const dropTableCity = `DROP table IF EXISTS city`;
@@ -32,7 +31,6 @@ const CreateTableCity = `CREATE TABLE city (
   Population INT(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (ID),
   KEY CountryCode (CountryCode),
-  FOREIGN KEY (CountryCode) REFERENCES country (Code)
 )`;
 const insertContires = [
     "INSERT INTO country VALUES ('ABW','Aruba','North America','Caribbean',193.00,NULL,103000,78.4,828.00,793.00,'Aruba','Nonmetropolitan Territory of The Netherlands','Beatrix',129,'AW')",
