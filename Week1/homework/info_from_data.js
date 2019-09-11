@@ -37,5 +37,5 @@ connection.end(function(err) {
     if (err) {
         return console.log('error:' + err.message);
     }
-    console.log('Close the database connection.');
+    console.log('The  connection to the database is closed.');
 });
