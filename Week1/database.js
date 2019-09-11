@@ -25,6 +25,11 @@ function insertValues(createdQuery) {
 
 connection.connect();
 
+const startUp = ['CREATE DATABASE IF NOT EXISTS world', 'USE world'];
+for (let i = 0; i < startUp.length; i++) {
+  connection.query(startUp[i]);
+}
+
 const create_country =
   "CREATE TABLE country (Name VARCHAR(60) NOT NULL ,Continent enum('Asia','Europe','North America','Africa','Australia','Antarctica','South America') NOT NULL ,Region VARCHAR(30),SurfaceArea INT NOT NULL, IndepYear INT,Population DECIMAL(5,2) NOT NULL , LifeExpectancy DECIMAL(5,2),GNP BIGINT,GNPOld INT,LocalName VARCHAR(30),GovernmentForm VARCHAR(50),HeadOfState VARCHAR(50),Capital VARCHAR(50))";
 createQuery(create_country);
