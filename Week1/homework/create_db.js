@@ -36,20 +36,20 @@ connection.changeUser({ database: 'world' }, function(err) {
     if (err) console.log(err);
 });
 
-tables.forEach(element => {
-    connection.query(element, function(err, result) {
+tables.forEach(table => {
+    connection.query(table, function(err, result) {
         if (err) console.log(err);
     });
 });
 
-countries.forEach(element => {
-    connection.query(element, function(err, result) {
+countries.forEach(country => {
+    connection.query(country, function(err, result) {
         if (err) console.log(err);
     });
 });
 
-cities.forEach(element => {
-    connection.query(element, function(err, result) {
+cities.forEach(city => {
+    connection.query(city, function(err, result) {
         if (err) console.log(err);
     });
 });
