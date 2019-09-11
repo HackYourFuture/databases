@@ -19,7 +19,6 @@ const CreateTableCountry = `CREATE TABLE  country  (
   GovernmentForm  CHAR(45) NOT NULL DEFAULT '',
   HeadOfState  CHAR(60) ,
   Capital  CHAR(22) ,
-  Code2  CHAR(2) NOT NULL DEFAULT '',
 ) `;
 
 const dropTableCity = `DROP table IF EXISTS city`;
@@ -28,7 +27,7 @@ const CreateTableCity = `CREATE TABLE city (
   Name CHAR(35) NOT NULL DEFAULT '',
   CountryCode CHAR(3) NOT NULL DEFAULT '',
   District CHAR(20) NOT NULL DEFAULT '',
-  Population INT(11) NOT NULL DEFAULT '0',
+  Population INT(11) NOT NULL DEFAULT '0'
 )`;
 
 const insertContires = [
