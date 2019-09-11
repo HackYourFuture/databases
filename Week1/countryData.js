@@ -1,25 +1,24 @@
-const checkAndCreate = 'CREATE TABLE IF NOT EXISTS';
+const { checkAndCreate } = require('./dbUtils');
 const insert = `INSERT INTO country 
                 (Code, Name, Continent, Region, SurfaceArea, 
                 IndepYear, Population, LifeExpectancy, GNP, GNPOld, 
                 LocalName, GovernmentForm, HeadOfState, Capital) VALUES`;
 const CREATE_COUNTRY_TABLE = `
                 ${checkAndCreate} country(
-                Code  VARCHAR(3) NOT NULL DEFAULT '',
-                Name  VARCHAR(52) NOT NULL DEFAULT '',
+                Code  VARCHAR(3) DEFAULT '',
+                Name  VARCHAR(52) DEFAULT '',
                 Continent  enum('Asia','Europe','North America','Africa','Oceania','Antarctica','South America') NOT NULL,
-                Region  VARCHAR(26) NOT NULL DEFAULT '',
-                SurfaceArea  FLOAT(10,2) NOT NULL DEFAULT 0.00,
+                Region  VARCHAR(26) DEFAULT '',
+                SurfaceArea  FLOAT(10,2)  DEFAULT 0.00,
                 IndepYear  SMALLINT(6) DEFAULT NULL,
-                Population  INT(11) NOT NULL DEFAULT 0,
+                Population  INT DEFAULT 0,
                 LifeExpectancy  FLOAT(3,1) DEFAULT NULL,
                 GNP  FLOAT(10,2) DEFAULT NULL,
                 GNPOld  FLOAT(10,2) DEFAULT NULL,
-                LocalName  VARCHAR(45) NOT NULL DEFAULT '',
-                GovernmentForm  VARCHAR(45) NOT NULL DEFAULT '',
+                LocalName  VARCHAR(45) DEFAULT '',
+                GovernmentForm  VARCHAR(45) DEFAULT '',
                 HeadOfState  VARCHAR(60),
-                Capital  VARCHAR(20) NOT NULL,
-                Code2  VARCHAR(2) NOT NULL DEFAULT '',
+                Capital  VARCHAR(20),
                 PRIMARY KEY (Code)
               )`;
 

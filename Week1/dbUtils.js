@@ -1,3 +1,4 @@
+const checkAndCreate = 'CREATE TABLE IF NOT EXISTS';
 const selectCountry = 'SELECT Name FROM country';
 const selectCity = 'SELECT Name FROM city';
 const SELECT_QUERIES = [
@@ -21,4 +22,5 @@ function handelError(err, msg) {
 module.exports = {
   handelError,
   SELECT_QUERIES,
+  checkAndCreate,
 };
