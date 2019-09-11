@@ -32,7 +32,7 @@ connection.query(result4ii, function(error, data) {
 });
 
 // Question 4iii: What are the names of the cities with population in between 500,000 and 1 million ?
-let result4iii = "SELECT Name FROM City WHERE Population BETWEEN 500.000 AND 1000000;"
+let result4iii = "SELECT Name FROM City WHERE Population BETWEEN 500000 AND 1000000;"
 
 connection.query(result4iii, function(error, data) {
   if (error) {
