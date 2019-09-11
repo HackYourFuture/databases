@@ -22,7 +22,7 @@ connection.connect(function(err) {
     if (err) console.log(err);
     else
         console.log(
-            'Connected: 2 tables and 4318 records will be added to the database.\n That takes time!  about 5 minutes and maybe more..',
+            'Connected: 2 tables and 4318 records will be added to the database.\n That takes time!  about 7 minutes and maybe more.',
         );
 });
 
