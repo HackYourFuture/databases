@@ -34,7 +34,7 @@ const CreateTableCity = `CREATE TABLE city (
 const insertContires = [
     "INSERT INTO country VALUES ('USA','United States','North America','North America',9363520.00,1776,278357000,77.1,8510700.00,8110900.00,'United States','Federal Republic','George W. Bush','WASHINGTON, D.C.')",
     "INSERT INTO country VALUES ('UZB','Uzbekistan','Asia','Southern and Central Asia',447400.00,1991,24318000,63.7,14194.00,21300.00,'Uzbekiston','Republic','Islam Karimov','TASHKENT')",
-    "INSERT INTO country VALUES ('VEN','Venezuela','South America','South America',912050.00,1811,24170000,73.1,95023.00,88434.00,'Venezuela','Federal Republic','Hugo Ch�vez Fr�as','CARACAS',)",
+    "INSERT INTO country VALUES ('VEN','Venezuela','South America','South America',912050.00,1811,24170000,73.1,95023.00,88434.00,'Venezuela','Federal Republic','Hugo Ch�vez Fr�as','CARACAS')",
     "INSERT INTO country VALUES ('NLD','Netherlands','Europe','Western Europe',41526.00,1581,15864000,78.3,371362.00,360478.00,'Nederland','Constitutional Monarchy','Beatrix','AMSTERDAM')",
     "INSERT INTO country VALUES ('ANT','Netherlands Antilles','North America','Caribbean',800.00,NULL,217000,74.7,1941.00,NULL,'Nederlandse Antillen','Nonmetropolitan Territory of The Netherlands','Beatrix','WILLEMSTAD')",
     "INSERT INTO country VALUES ('BVT','Bouvet Island','Antarctica','Antarctica',59.00,NULL,0,NULL,0.00,NULL,'Bouvet�ya','Dependent Territory of Norway','Harald V','')",
@@ -43,7 +43,7 @@ const insertContires = [
     "INSERT INTO country VALUES ('AND','Andorra','Europe','Southern Europe',468.00,1278,78000,83.5,1630.00,NULL,'Andorra','Parliamentary Coprincipality','','ANDORRA LA VELLA')",
     "INSERT INTO country VALUES ('AUT','Austria','Europe','Western Europe',83859.00,1918,8091800,77.7,211860.00,206025.00,'�sterreich','Federal Republic','Thomas Klestil','VIENNA')",
     "INSERT INTO country VALUES ('RUS','Russian Federation','Europe','Eastern Europe',17075400.00,1991,146934000,67.2,276608.00,442989.00,'Rossija','Federal Republic','Vladimir Putin','MOSCOW')",
-    "INSERT INTO country VALUES ('ATA','Antarctica','Antarctica','Antarctica',13120000.00,NULL,0,NULL,0.00,NULL,'�','Co-administrated','',NULL,'')",
+    "INSERT INTO country VALUES ('ATA','Antarctica','Antarctica','Antarctica',13120000.00,NULL,0,NULL,0.00,NULL,'�','Co-administrated','','')",
     "INSERT INTO country VALUES ('CAN','Canada','North America','North America',9970610.00,1867,31147000,79.4,598862.00,625626.00,'Canada','Constitutional Monarchy, Federation','Elisabeth II','OTTAWA')",
     "INSERT INTO country VALUES ('CHN','China','Asia','Eastern Asia',9572900.00,-1523,1277558000,71.4,982268.00,917719.00,'Zhongquo','Peoples Republic','Jiang Zemin','BEIJING')",
     "INSERT INTO country VALUES ('BRA','Brazil','South America','South America',8547403.00,1822,170115000,62.9,776739.00,804108.00,'Brasil','Federal Republic','Fernando Henrique Cardoso','BRASILIA')",
