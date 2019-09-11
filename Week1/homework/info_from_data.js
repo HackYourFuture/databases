@@ -21,7 +21,7 @@ const infoFromData = [
     'SELECT population FROM city WHERE Name = "Rotterdam"',
     'SELECT name FROM country ORDER BY SurfaceArea DESC LIMIT 10',
     'SELECT Name FROM city ORDER BY Population DESC LIMIT 10',
-    'SELECT SUM(population) AS globalPopulation FROM country',
+    'SELECT SUM(population) AS Population FROM country',
 ];
 
 infoFromData.forEach(element => {
