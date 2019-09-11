@@ -29,7 +29,6 @@ const CreateTableCity = `CREATE TABLE city (
   CountryCode CHAR(3) NOT NULL DEFAULT '',
   District CHAR(20) NOT NULL DEFAULT '',
   Population INT(11) NOT NULL DEFAULT '0',
-  CountryCode (CountryCode),
 )`;
 const insertContires = [
     "INSERT INTO country VALUES ('ABW','Aruba','North America','Caribbean',193.00,NULL,103000,78.4,828.00,793.00,'Aruba','Nonmetropolitan Territory of The Netherlands','Beatrix',129,'AW')",
