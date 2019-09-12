@@ -1,9 +1,8 @@
 const pool = require('./connectDatabase').pool;
 
 class Result {
-  async answer(query, ques) {
+  async answer(q, ques) {
     try {
-      const q = query;
       const results = await pool.query(q);
       console.log(ques);
       results.forEach(result => {
