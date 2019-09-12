@@ -1,3 +1,5 @@
+'use-strict';
+
 const con = require('./connectDatabase').connection;
 const pool = require('./connectDatabase').pool;
 const countries = require('./country.json').country;
@@ -88,6 +90,7 @@ class CitySQL {
         District VARCHAR(60) CHARACTER SET utf8mb4,
         Population INT   
       );`;
+
       await pool.query(q);
       console.log('Cities table is created successfully');
     } catch (e) {

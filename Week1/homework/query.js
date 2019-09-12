@@ -1,3 +1,5 @@
+'use-strict';
+
 const pool = require('./connectDatabase').pool;
 
 class Result {

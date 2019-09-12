@@ -1,3 +1,5 @@
+'use-strict';
+
 const database = require('./databaseClasses').database;
 const country = require('./databaseClasses').country;
 const city = require('./databaseClasses').city;
@@ -13,6 +15,7 @@ class Start {
       await country.insertCountries();
       await city.createCitiesTable();
       await city.insertCities();
+
       queries.forEach((query, index) => {
         result.answer(query, questions[index]);
       });
