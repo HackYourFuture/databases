@@ -4197,7 +4197,7 @@ INSERT INTO `country` VALUES ('CAN','Canada','North America','North America',997
 INSERT INTO `country` VALUES ('CCK','Cocos (Keeling) Islands','Oceania','Australia and New Zealand',14.00,NULL,600,NULL,0.00,NULL,'Cocos (Keeling) Islands','Territory of Australia','Elisabeth II',2317,'CC');
 INSERT INTO `country` VALUES ('CHE','Switzerland','Europe','Western Europe',41284.00,1499,7160400,79.6,264478.00,256092.00,'Schweiz/Suisse/Svizzera/Svizra','Federation','Adolf Ogi',3248,'CH');
 INSERT INTO `country` VALUES ('CHL','Chile','South America','South America',756626.00,1810,15211000,75.7,72949.00,75780.00,'Chile','Republic','Ricardo Lagos Escobar',554,'CL');
-INSERT INTO `country` VALUES ('CHN','China','Asia','Eastern Asia',9572900.00,-1523,1277558000,71.4,982268.00,917719.00,'Zhongquo','People\'sRepublic','Jiang Zemin',1891,'CN');
+INSERT INTO `country` VALUES ('CHN','China','Asia','Eastern Asia',9572900.00,-1523,1277558000,71.4,982268.00,917719.00,'Zhongquo','PeoplesRepublic','Jiang Zemin',1891,'CN');
 INSERT INTO `country` VALUES ('CIV','C�te d�Ivoire','Africa','Western Africa',322463.00,1960,14786000,45.2,11345.00,10285.00,'C�te d�Ivoire','Republic','Laurent Gbagbo',2814,'CI');
 INSERT INTO `country` VALUES ('CMR','Cameroon','Africa','Central Africa',475442.00,1960,15085000,54.8,9174.00,8596.00,'Cameroun/Cameroon','Republic','Paul Biya',1804,'CM');
 INSERT INTO `country` VALUES ('COD','Congo, The Democratic Republic of the','Africa','Central Africa',2344858.00,1960,51654000,48.8,6964.00,2474.00,'R�publique D�mocratique du Congo','Republic','Joseph Kabila',2298,'CD');
@@ -4368,7 +4368,7 @@ INSERT INTO `country` VALUES ('TJK','Tajikistan','Asia','Southern and Central As
 INSERT INTO `country` VALUES ('TKL','Tokelau','Oceania','Polynesia',12.00,NULL,2000,NULL,0.00,NULL,'Tokelau','Nonmetropolitan Territory of New Zealand','Elisabeth II',3333,'TK');
 INSERT INTO `country` VALUES ('TKM','Turkmenistan','Asia','Southern and Central Asia',488100.00,1991,4459000,60.9,4397.00,2000.00,'T�rkmenostan','Republic','Saparmurad Nijazov',3419,'TM');
 INSERT INTO `country` VALUES ('TMP','East Timor','Asia','Southeast Asia',14874.00,NULL,885000,46.0,0.00,NULL,'Timor Timur','Administrated by the UN','Jos� Alexandre Gusm�o',1522,'TP');
-INSERT INTO `country` VALUES ('TON','Tonga','Oceania','Polynesia',650.00,1970,99000,67.9,146.00,170.00,'Tonga','Monarchy','Taufa\'ahau Tupou IV',3334,'TO');
+INSERT INTO `country` VALUES ('TON','Tonga','Oceania','Polynesia',650.00,1970,99000,67.9,146.00,170.00,'Tonga','Monarchy','Taufa\ahau Tupou IV',3334,'TO');
 INSERT INTO `country` VALUES ('TTO','Trinidad and Tobago','North America','Caribbean',5130.00,1962,1295000,68.0,6232.00,5867.00,'Trinidad and Tobago','Republic','Arthur N. R. Robinson',3336,'TT');
 INSERT INTO `country` VALUES ('TUN','Tunisia','Africa','Northern Africa',163610.00,1956,9586000,73.7,20026.00,18898.00,'Tunis/Tunisie','Republic','Zine al-Abidine Ben Ali',3349,'TN');
 INSERT INTO `country` VALUES ('TUR','Turkey','Asia','Middle East',774815.00,1923,66591000,71.0,210721.00,189122.00,'T�rkiye','Republic','Ahmet Necdet Sezer',3358,'TR');

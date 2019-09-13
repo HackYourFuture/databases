@@ -1,0 +1,42 @@
+[
+  {
+    "name": "1. What are the names of the countries with population greater than 8 million?",
+    "query": "SELECT name FROM country WHERE population > 8000000;"
+  },
+  {
+    "name": "2. What are the names of the countries that have “land” in their names? ",
+    "query": "SELECT name FROM country WHERE name LIKE '%land%';"
+  },
+  {
+    "name": "3. What are the names of the cities with population in between 500,000 and 1 million?",
+    "query": "SELECT name FROM city WHERE population BETWEEN 500000 AND 1000000;"
+  },
+  {
+    "name": "4. What are the names of all the countries on the continent \"Europe\"?",
+    "query": "SELECT name FROM country WHERE Continent = 'Europe';"
+  },
+  {
+    "name": "5. List all the countries in the descending order based on their surface areas.",
+    "query": "SELECT name FROM country ORDER BY SurfaceArea DESC;"
+  },
+  {
+    "name": "6. What are the names of all the cities in the Netherlands?",
+    "query": "SELECT city.name AS CityName FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE country.name = 'Netherlands';"
+  },
+  {
+    "name": "7. What is the population of Rotterdam?",
+    "query": "SELECT population FROM city WHERE Name = 'Rotterdam';"
+  },
+  {
+    "name": "8. What is the top 10 countries based on surface area?",
+    "query": "SELECT name FROM country ORDER BY SurfaceArea DESC LIMIT 10;"
+  },
+  {
+    "name": "9. What is the top 10 cities with the highest population?",
+    "query": "SELECT Name FROM city ORDER BY Population DESC LIMIT 10;"
+  },
+  {
+    "name": "10. What is the population of the world?",
+    "query": "SELECT SUM(population) AS populationOfWorld FROM country;"
+  }
+]
