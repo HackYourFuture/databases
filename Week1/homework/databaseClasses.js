@@ -23,7 +23,7 @@ class CountrySQL {
     try {
       const q = `CREATE TABLE IF NOT EXISTS countries (
       Code VARCHAR(3) PRIMARY KEY,
-      Name VARCHAR(60) CHARACTER SET utf8mb4,
+      Name VARCHAR(60),
       Continent VARCHAR(60),
       Region VARCHAR(60),
       SurfaceArea FLOAT,
@@ -32,12 +32,12 @@ class CountrySQL {
       LifeExpectancy FLOAT,
       GNP FLOAT,
       GNPOld FLOAT,
-      LocalName VARCHAR(60) CHARACTER SET utf8mb4,
+      LocalName VARCHAR(60) ,
       GovernmentForm VARCHAR(60),
-      HeadOfState VARCHAR(80) CHARACTER SET utf8mb4,
+      HeadOfState VARCHAR(80),
       Capital varchar(80),
       Code2 VARCHAR(2)
-    );`;
+    ) DEFAULT CHARSET = utf8mb4;`;
 
       await pool.query(q);
       console.log('Countries table is created successfully');
@@ -85,11 +85,11 @@ class CitySQL {
     try {
       const q = `CREATE TABLE IF NOT EXISTS cities (
         ID INT AUTO_INCREMENT PRIMARY KEY,
-        Name VARCHAR(60) CHARACTER SET utf8mb4,
+        Name VARCHAR(60),
         CountryCode VARCHAR(60),
-        District VARCHAR(60) CHARACTER SET utf8mb4,
+        District VARCHAR(60),
         Population INT   
-      );`;
+      ) DEFAULT CHARSET = utf8mb4;`;
 
       await pool.query(q);
       console.log('Cities table is created successfully');
