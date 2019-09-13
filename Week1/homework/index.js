@@ -6,6 +6,7 @@ const city = require('./databaseClasses').city;
 const queries = require('./query').queries;
 const questions = require('./query').questions;
 const result = require('./query').result;
+const pool = require('./connectDatabase').pool;
 
 class Start {
   async action() {
@@ -15,10 +16,9 @@ class Start {
       await country.insertCountries();
       await city.createCitiesTable();
       await city.insertCities();
-
-      queries.forEach((query, index) => {
-        result.answer(query, questions[index]);
-      });
+      const promises = queries.map((query, index) => result.answer(query, questions[index]));
+      await Promise.all(promises);
+      pool.end();
     } catch (e) {
       console.log(e.stack);
     }
