@@ -14,6 +14,8 @@ const select_query = [
   "select name from city where population>=500000 and population<= 1000000", //4/iii
   "select name from country where continent ='Europe' ", //4/iv
   "select name,surfacearea from country ORDER BY surfacearea DESC", // 4/v
+  "select name,population from city where name = 'Rotterdam'", // 5/ii
+  "select name from city where countrycode = 'NL'", // 5/ii
 ];
 
 select_query.forEach(query => {
