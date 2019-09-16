@@ -17,12 +17,12 @@ executeQuery.fnExecuteQuery(
     name VARCHAR(50),\
     continent VARCHAR(25),\
     region VARCHAR(50),\
-    surfacearea INT,\
+    surfacearea float,\
     indepyear INT,\
     population INT,\
-    lifeexpectancy INT,\
-    gnp INT,\
-    gnpold INT,\
+    lifeexpectancy float,\
+    gnp float,\
+    gnpold float,\
     localname VARCHAR(50),\
     govermentform VARCHAR(50),\
     headofstate VARCHAR(50),\
@@ -61,7 +61,7 @@ city_values.forEach(query => {
 
 const select_query = [
   'select name from country where population>=8000000',
-  "select name from country where name LIKE '%lands'",
+  "select name from country where name LIKE '%land%'",
   'select name from city where population>=500000 and population<= 1000000',
   "select name from country where continent ='Europe' ",
   'select name,surfacearea from country ORDER BY surfacearea DESC',
