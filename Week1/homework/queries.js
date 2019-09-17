@@ -9,7 +9,7 @@ const connection = mySQL.createConnection({
 const queries = [
   `select name from country where population > 8000000;`,
   `select name from country where name like '%land%';`,
-  `select name from city where population > 50000 or population < 1000000;`,
+  `select name from city where population > 500000 or population < 1000000;`,
   `select name from country where continent= 'Europe';`,
   `select name from country order by Surface_Area desc;`,
 ];

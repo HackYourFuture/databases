@@ -19,16 +19,16 @@ const insert_country_queries = [
 ];
 
 const city_queries = [
-  "insert into city values('Farrukhabad-cum', 'IND', 'Uttar-Pradesh', 194567)",
-  "insert into city values('Istanbul', 'TUR', 'Istanbul', 8787958)",
-  "insert into city values('Emmen', 'NLD', 'Drenthe', 105853)",
-  "insert into city values('Padova', 'ITA', 'Veneto', 211391)",
-  "insert into city values('Kawasaki', 'JPN', 'Kanagawa', 1217359)",
-  "insert into city values('York', 'GBR', 'England', 104425)",
-  "insert into city values('Odessa', 'USA', 'Texas', 89293)",
-  "insert into city values('Kanchipuram', 'IND', 'Tamil Nadu', 150100)",
-  "insert into city values('Haarlem', 'NLD', 'Noord-Holland', 148772)",
-  "insert into city values('Amsterdam', 'NLD', 'Noord-Holland', 731200)",
+  "insert into city values(id,'Farrukhabad-cum', 'IND', 'Uttar-Pradesh', 194567)",
+  "insert into city values(id,'Istanbul', 'TUR', 'Istanbul', 8787958)",
+  "insert into city values(id,'Emmen', 'NLD', 'Drenthe', 105853)",
+  "insert into city values(id,'Padova', 'ITA', 'Veneto', 211391)",
+  "insert into city values(id,'Kawasaki', 'JPN', 'Kanagawa', 1217359)",
+  "insert into city values(id,'York', 'GBR', 'England', 104425)",
+  "insert into city values(id,'Odessa', 'USA', 'Texas', 89293)",
+  "insert into city values(id,'Kanchipuram', 'IND', 'Tamil Nadu', 150100)",
+  "insert into city values(id,'Haarlem', 'NLD', 'Noord-Holland', 148772)",
+  "insert into city values(id,'Amsterdam', 'NLD', 'Noord-Holland', 731200)",
 ];
 
 for (let i in insert_country_queries) {
