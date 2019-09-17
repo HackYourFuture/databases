@@ -127,14 +127,18 @@ pro.get('type', function (err, result) {
       con.connect();
       console.log('continents and number of languages:')
       con.query(getContinentList, (err, result) => {
-        if (err) console.log(err);
+        if (err) {
+          console.log(err);
+          con.end();
+          return;
+        }
         let query_array = result.map(element => element.continent).sort();
         query_array.forEach(query => {
-          con.connect();
+
           const query_countLanguages = mysql.format(getNumOfLanguagesInContinent, [query]);
           con.query(query_countLanguages, (err, res) => {
             if (err) console.log(err);
-            console.log(`${query}:  ${res[0]}`)
+            console.log(`${query}:  ${res.length}`)
           })
         });
         con.end();
