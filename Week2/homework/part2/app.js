@@ -15,7 +15,7 @@ const addTrigger = async () => {
     HAVING COUNT(Language) >= 9
     ORDER BY RAND()
     LIMIT 1), 
-    'Turkish' AS Language;`;
+    'New_Language' AS Language;`;
 
     const results = await connection.query(pickRandomCountry);
     console.log(results);
