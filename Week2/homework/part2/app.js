@@ -27,7 +27,3 @@ const addTrigger = async () => {
 };
 
 addTrigger();
-
-// I want to get alerts when a country has >= 10 languages.
-// E.g. If a country X has 9 languages in the CountryLanguage table,
-// and a user INSERTs one more row in the CountryLanguage table, then I should get an alert.
