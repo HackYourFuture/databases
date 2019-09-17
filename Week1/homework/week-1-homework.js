@@ -19,7 +19,7 @@ connection.query(create_country_query, function(error, results, fields) {
 });
 
 const create_city_query =
-  'create table city (id int, name varchar(20), country_code char(3), district text, population int)';
+  'create table city (name varchar(20), country_code char(3), district text, population int)';
 connection.query(create_city_query, function(error, results, fields) {
   if (error) {
     throw error;

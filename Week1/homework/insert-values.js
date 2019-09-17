@@ -18,9 +18,30 @@ const insert_country_queries = [
   "insert into country values('Thailand', 'Asia', 'South-Eastern Asia', 513120, '1238-00-00', 68863514, 74, 20.09, 20.58, 'ราชอาณาจักรไทย/Kingdom of Thailand ', 'Constitutional Monarchy', '	Maha Vajiralongkorn', 'Bankok' )",
 ];
 
-for (var i in insert_country_queries) {
-  console.log('Going to run ', insert_country_queries[i]);
+const city_queries = [
+  "insert into city values('Farrukhabad-cum', 'IND', 'Uttar-Pradesh', 194567)",
+  "insert into city values('Istanbul', 'TUR', 'Istanbul', 8787958)",
+  "insert into city values('Emmen', 'NLD', 'Drenthe', 105853)",
+  "insert into city values('Padova', 'ITA', 'Veneto', 211391)",
+  "insert into city values('Kawasaki', 'JPN', 'Kanagawa', 1217359)",
+  "insert into city values('York', 'GBR', 'England', 104425)",
+  "insert into city values('Odessa', 'USA', 'Texas', 89293)",
+  "insert into city values('Kanchipuram', 'IND', 'Tamil Nadu', 150100)",
+  "insert into city values('Haarlem', 'NLD', 'Noord-Holland', 148772)",
+  "insert into city values('Amsterdam', 'NLD', 'Noord-Holland', 731200)",
+];
+
+for (let i in insert_country_queries) {
   conn.query(insert_country_queries[i], function(error, results, fields) {
+    if (error) {
+      throw error;
+    }
+    console.log('the reply is ', results[0]);
+  });
+}
+
+for (let i in city_queries) {
+  conn.query(city_queries[i], function(error, results, fields) {
     if (error) {
       throw error;
     }
