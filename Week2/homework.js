@@ -77,12 +77,10 @@ const getNumberOfSpokenCities = async () => {
     SELECT 
       countrylanguage.language, COUNT(city.name) numberOfCities
     FROM
-      country,
       city,
       countrylanguage
     WHERE
-      country.code = city.countrycode
-        AND country.code = countrylanguage.countrycode
+      city.countrycode = countrylanguage.countrycode
         AND countrylanguage.language = ?
     GROUP BY language;
     `,
