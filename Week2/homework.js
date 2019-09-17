@@ -136,7 +136,7 @@ const getNumberOfLangsByContinent = async () => {
     `
     SELECT 
       country.continent,
-    COUNT(countrylanguage.language) AS numberOfLanguages
+    COUNT(distinct countrylanguage.language) AS numberOfLanguages
     FROM
       country,
       countrylanguage

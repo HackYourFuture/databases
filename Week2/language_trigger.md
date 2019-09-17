@@ -9,7 +9,7 @@ CREATE TRIGGER language_trigger
             BEGIN
                 DECLARE numberOfLangs int ;
                 SELECT count(language) INTO numberOfLangs FROM countrylanguage WHERE countrycode=new.countrycode;
-                IF numberOfLangs = 9
+                IF numberOfLangs > 9
                 THEN
                     SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Maximum number of language for a country (10) exceeded';
                 END IF;
