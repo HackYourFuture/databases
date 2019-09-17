@@ -7,6 +7,8 @@ const addTrigger = async () => {
   try {
     await connection.query('use new_world');
     await importTrigger();
+
+    // This is a test query
     const pickRandomCountry = `    
     INSERT INTO countrylanguage (CountryCode, Language) 
     SELECT ( SELECT CountryCode  
