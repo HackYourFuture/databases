@@ -9,12 +9,32 @@ const con = mysql.createConnection({
 
 
 
-const searchCapital = `select name from city where id in (select capital from country where name = ?);`
-const searchRegion = `select distinct language from countrylanguage where countrycode in(select code from country where region = ?);`
-const searchNumOfCities = `select distinct name from city where countrycode in (select countrycode from countrylanguage where language = ?);`
-const searchOfficialLanguage = `select name from country where region = ? and code in(select countrycode from countrylanguage where language = ? and isofficial = 't');`;
-const getContinentList = `select distinct continent from country`;
-const getNumOfLanguagesInContinent = `select distinct language from countrylanguage where countrycode in (select code from country where continent = ?);`
+const searchCapital = `select name 
+from city 
+where id 
+in (select capital from country where name = ?);`
+
+const searchRegion = `select distinct language 
+from countrylanguage 
+where countrycode 
+in(select code from country where region = ?);`
+
+const searchNumOfCities = `select distinct name 
+from city 
+where countrycode 
+in (select countrycode from countrylanguage where language = ?);`
+
+const searchOfficialLanguage = `select name 
+from country 
+where region = ? 
+and code in(select countrycode from countrylanguage where language = ? and isofficial = 't');`;
+
+const getContinentList = `select distinct continent 
+from country`;
+const getNumOfLanguagesInContinent = `select distinct language 
+from countrylanguage 
+where countrycode 
+in (select code from country where continent = ?);`
 
 
 console.log('select your searching type:\n Press "1" to search capital of a country;\n Press "2" to search languages in a region\n Press "3" to get number of cities by language');
