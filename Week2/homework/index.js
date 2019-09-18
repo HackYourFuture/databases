@@ -83,7 +83,7 @@ connection.connect(function(err) {
                     { name: 'regionName', message: 'What is the region?' },
                     { name: 'languageName', message: 'What is the language?' },
                 ]);
-                const query4 = `SELECT Name FROM country join countrylanguage on country.Code=countrylanguage.CountryCode where Region =? and Language=?; `;
+                const query4 = `SELECT Name FROM country join countrylanguage on country.Code=countrylanguage.CountryCode where Region =? and Language=? and IsOfficial='T'; `;
                 let result4 = await queryPromise(query4, [userInput4.regionName, userInput4.languageName]);
                 if (result4.length === 0) {
                     console.log(noMatch);
