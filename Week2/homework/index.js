@@ -2,6 +2,15 @@ const inquirer = require('inquirer');
 const util = require('util');
 const mysql = require('mysql');
 
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'hyfuser',
+    password: 'hyfpassword',
+    database: 'new_world',
+});
+
+const queryPromise = util.promisify(connection.query.bind(connection));
+
 const options = {
     first: '1.What is the capital of country X ? ',
     second: '2.List all the languages spoken in the region Y ',
@@ -23,7 +32,10 @@ const options = {
             const userInput1 = await inquirer.prompt([
                 { name: 'countryName', message: 'What is the country?' },
             ]);
-            console.log('the country is : ' + userInput1.countryName);
+            // console.log('the country is : ' + userInput1.countryName);
+            const query1 = `SELECT city.Name FROM country JOIN city on city.ID = country.Capital WHERE country.Name = ?;`;
+            let result1 = await queryPromise(query1, userInput1.countryName);
+            console.log(result1);
 
             break;
         case options.second:
