@@ -50,8 +50,16 @@ const noMatch = 'NO match is found in the database!\nBe sure that you typed a va
             ]);
             const query2 = `SELECT distinct Language FROM country join countrylanguage on country.Code=countrylanguage.CountryCode where Region =?`;
             let result2 = await queryPromise(query2, userInput2.regionName);
-            console.log(result2);
-            break;
+
+            if (result2.length === 0) {
+                console.log(noMatch);
+                break;
+            } else {
+                console.log(`The languages are:`);
+                result2.forEach(element => console.log(element.Language));
+                break;
+            }
+
         case options.third:
             const userInput3 = await inquirer.prompt([
                 { name: 'languageName', message: 'What is language ?' },
