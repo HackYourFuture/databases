@@ -90,13 +90,13 @@ const noMatch = 'NO match is found in the database!\nBe sure that you typed a va
                     break;
                 }
 
-                break;
             case options.fifth:
                 const query5 = `SELECT distinct Continent , Language FROM country join countrylanguage on country.Code=countrylanguage.CountryCode order by Continent`;
                 let result5 = await queryPromise(query5);
-                return result5.forEach(element => {
+                result5.forEach(element => {
                     console.log(`Continent: ${element.Continent} || Language: ${element.Language}.`);
                 });
+                break;
         }
     } catch (err) {
         console.log(err.message);
