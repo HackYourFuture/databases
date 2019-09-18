@@ -18,13 +18,8 @@ const options = {
     fourth: '4.Accept the region and language from the user. ',
     fifth: '5.List all the continents with the number of languages spoken in each continent',
 };
-const checkResult = function(result) {
-    if (result.length !== 0) {
-        console.log(result);
-    } else {
-        console.log(result.length);
-    }
-};
+
+const noMatch = 'NO match is found in the database!\nBe sure that you typed a valid word';
 
 (async() => {
     const userChoice = await inquirer.prompt([{
@@ -41,9 +36,14 @@ const checkResult = function(result) {
             ]);
             const query1 = `SELECT city.Name FROM country JOIN city on city.ID = country.Capital WHERE country.Name = ?`;
             let result1 = await queryPromise(query1, userInput1.countryName);
-            checkResult(result1);
+            if (result1.length === 0) {
+                console.log(noMatch);
+                break;
+            } else {
+                console.log(`The capital name is: ${result1[0].Name}`);
+                break;
+            }
 
-            break;
         case options.second:
             const userInput2 = await inquirer.prompt([
                 { name: 'regionName', message: 'What is your the region?' },
@@ -70,11 +70,11 @@ const checkResult = function(result) {
             console.log(result4);
             break;
         case options.fifth:
-            const query5 = `SELECT Continent , Language FROM country join countrylanguage on country.Code=countrylanguage.CountryCode`;
+            const query5 = `SELECT DISTINCT Continent , Language FROM country join countrylanguage on country.Code=countrylanguage.CountryCode order by Continent`;
             let result5 = await queryPromise(query5);
             console.log(
                 result5.forEach(element => {
-                    console.log(`Continent: ${element.Continent} - Language: ${element.Language}.`);
+                    console.log(`Continent: ${element.Continent} || Language: ${element.Language}.`);
                 }),
             );
     }
