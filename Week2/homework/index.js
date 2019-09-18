@@ -12,11 +12,11 @@ const connection = mysql.createConnection({
 const queryPromise = util.promisify(connection.query.bind(connection));
 
 const options = {
-    first: '1.What is the capital of country X ? ',
-    second: '2.List all the languages spoken in the region Y ',
-    third: '3.Find the number of cities in which language Z is spoken ',
-    fourth: '4.Accept the region and language from the user. ',
-    fifth: '5.List all the continents with the number of languages spoken in each continent',
+    first: '1.Show the capital of a specific country.',
+    second: '2.Show the languages spoken in a specific region.',
+    third: '3.Show the number of cities where a specific language is spoken.',
+    fourth: '4.Show the countries in a specific region where a specific language is an official language.',
+    fifth: '5.Show a list of all the continents with the number of languages spoken in each one.',
 };
 
 const noMatch = 'NO match is found in the database!\nBe sure that you typed a valid word';
