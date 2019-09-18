@@ -40,7 +40,8 @@ const queryOfficiallanguages = async () => {
 };
 const queryContinents = async () => {
   const result = await execQuery(Query5);
-  Object.entries(result[0]).forEach(([key, value]) => console.log(`${key}: ${value}`));
+  //Object.entries(result[0]).forEach(([key, value]) => console.log(`${key}: ${value}`));
+  console.log(result.map(item => Object.values(item).toString()));
 };
 const explanation = `           OPTIONS
 1. What is the capital of country X ? 

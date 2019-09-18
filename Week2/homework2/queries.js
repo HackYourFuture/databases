@@ -26,10 +26,13 @@ const Query4 = `SELECT Name as Countries
 FROM country WHERE region = ? and Code 
 IN(SELECT CountryCode FROM countryLanguage WHERE Language = ? and IsOfficial = 'T')`;
 
-const Query5 = `SELECT country.Continent,COUNT(distinct Language) as Number_Of_Spoken_Languages  
+const Query5 = `SELECT country.Continent,
+COUNT(DISTINCT countrylanguage.language) AS Number_Of_Spoken_Languages  
 FROM country,
 countrylanguage 
-WHERE  country.code=countrylanguage.CountryCode`;
+WHERE  country.code=countrylanguage.countryCode
+GROUP BY continent
+    ORDER BY Number_Of_Spoken_Languages DESC`;
 
 const input1 = [
   {
