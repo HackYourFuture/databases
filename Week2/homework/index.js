@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const util = require('util');
+const mysql = require('mysql');
 
 const options = {
     first: '1.What is the capital of country X ? ',
