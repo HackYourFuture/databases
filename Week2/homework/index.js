@@ -32,11 +32,9 @@ const options = {
             const userInput1 = await inquirer.prompt([
                 { name: 'countryName', message: 'What is the country?' },
             ]);
-            // console.log('the country is : ' + userInput1.countryName);
             const query1 = `SELECT city.Name FROM country JOIN city on city.ID = country.Capital WHERE country.Name = ?;`;
             let result1 = await queryPromise(query1, userInput1.countryName);
             console.log(result1);
-
             break;
         case options.second:
             const userInput2 = await inquirer.prompt([
@@ -60,6 +58,7 @@ const options = {
         case options.fifth:
             console.log('run MySQL query');
     }
+    connection.end();
 })();
 
 //
