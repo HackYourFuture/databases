@@ -95,11 +95,12 @@ connection.connect(function(err) {
                 }
 
             case options.fifth:
-                const query5 = `SELECT Continent, COUNT(DISTINCT Language) FROM country join countrylanguage on country.Code=countrylanguage.CountryCode GROUP BY Continent`;
+                const query5 = `SELECT Continent, COUNT(DISTINCT Language) as Languages FROM country join countrylanguage on country.Code=countrylanguage.CountryCode GROUP BY Continent`;
                 let result5 = await queryPromise(query5);
-                result5.forEach(element => {
-                    console.log(`Continent: ${element.Continent} || Language: ${element.Language}.`);
-                });
+                console.log(result5);
+                // result5.forEach(element => {
+                //     console.log(`Continent: ${element.Continent} || Language: ${element.Language}.`);
+                // });
                 break;
         }
     } catch (err) {
