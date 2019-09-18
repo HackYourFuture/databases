@@ -95,7 +95,7 @@ connection.connect(function(err) {
                 }
 
             case options.fifth:
-                const query5 = `SELECT distinct Continent , Language FROM country join countrylanguage on country.Code=countrylanguage.CountryCode order by Continent`;
+                const query5 = `SELECT Continent, COUNT(DISTINCT Language) FROM country join countrylanguage on country.Code=countrylanguage.CountryCode GROUP BY Continent`;
                 let result5 = await queryPromise(query5);
                 result5.forEach(element => {
                     console.log(`Continent: ${element.Continent} || Language: ${element.Language}.`);
