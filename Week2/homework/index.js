@@ -21,6 +21,10 @@ const options = {
 
 const noMatch = 'NO match is found in the database!\nBe sure that you typed a valid word';
 
+connection.connect(function(err) {
+    if (err) console.log(err);
+});
+
 (async() => {
     try {
         const userChoice = await inquirer.prompt([{
@@ -101,7 +105,12 @@ const noMatch = 'NO match is found in the database!\nBe sure that you typed a va
     } catch (err) {
         console.log(err.message);
     } finally {
-        connection.end();
+        connection.end(function(err) {
+            if (err) {
+                return console.log('error:' + err.message);
+            }
+            console.log('The  connection to the database is closed.\nYou can run the file agin.');
+        });
     }
 })();
 
