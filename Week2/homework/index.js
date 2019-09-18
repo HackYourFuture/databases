@@ -18,6 +18,13 @@ const options = {
     fourth: '4.Accept the region and language from the user. ',
     fifth: '5.List all the continents with the number of languages spoken in each continent',
 };
+const checkResult = function(result) {
+    if (result.length !== 0) {
+        console.log(result);
+    } else {
+        console.log(result.length);
+    }
+};
 
 (async() => {
     const userChoice = await inquirer.prompt([{
@@ -34,7 +41,8 @@ const options = {
             ]);
             const query1 = `SELECT city.Name FROM country JOIN city on city.ID = country.Capital WHERE country.Name = ?`;
             let result1 = await queryPromise(query1, userInput1.countryName);
-            console.log(result1);
+            checkResult(result1);
+
             break;
         case options.second:
             const userInput2 = await inquirer.prompt([
