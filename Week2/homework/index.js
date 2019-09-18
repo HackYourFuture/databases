@@ -45,7 +45,7 @@ connection.connect(function(err) {
                     console.log(noMatch);
                     break;
                 } else {
-                    console.log(`The capital name is: ${result1[0].Name}`);
+                    console.log(`The capital is: ${result1[0].Name}`);
                     break;
                 }
 
