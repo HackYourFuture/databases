@@ -32,7 +32,7 @@ const options = {
             const userInput1 = await inquirer.prompt([
                 { name: 'countryName', message: 'What is the country?' },
             ]);
-            const query1 = `SELECT city.Name FROM country JOIN city on city.ID = country.Capital WHERE country.Name = ?;`;
+            const query1 = `SELECT city.Name FROM country JOIN city on city.ID = country.Capital WHERE country.Name = ?`;
             let result1 = await queryPromise(query1, userInput1.countryName);
             console.log(result1);
             break;
@@ -40,13 +40,17 @@ const options = {
             const userInput2 = await inquirer.prompt([
                 { name: 'regionName', message: 'What is your the region?' },
             ]);
-            console.log('the region is : ' + userInput2.regionName);
+            const query2 = `SELECT distinct Language FROM country join countrylanguage on country.Code=countrylanguage.CountryCode where Region =?`;
+            let result2 = await queryPromise(query2, userInput2.regionName);
+            console.log(result2);
             break;
         case options.third:
             const userInput3 = await inquirer.prompt([
                 { name: 'languageName', message: 'What is language ?' },
             ]);
-            console.log('the language  is : ' + userInput3.languageName);
+            const query3 = `SELECT  count(city.name) FROM city join countrylanguage on city.CountryCode=countrylanguage.CountryCode where Language=? `;
+            let result3 = await queryPromise(query3, userInput3.languageName);
+            console.log(result3);
             break;
         case options.fourth:
             const userInput4 = await inquirer.prompt([
