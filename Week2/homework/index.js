@@ -62,7 +62,13 @@ const options = {
             console.log(result4);
             break;
         case options.fifth:
-            console.log('run MySQL query');
+            const query5 = `SELECT Continent , Language FROM country join countrylanguage on country.Code=countrylanguage.CountryCode`;
+            let result5 = await queryPromise(query5);
+            console.log(
+                result5.forEach(element => {
+                    console.log(`Continent: ${element.Continent} - Language: ${element.Language}.`);
+                }),
+            );
     }
     connection.end();
 })();
