@@ -113,5 +113,3 @@ connection.connect(function(err) {
         });
     }
 })();
-
-//
