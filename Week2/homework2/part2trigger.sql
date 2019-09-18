@@ -5,7 +5,7 @@ CREATE TRIGGER mustafa_trigger
             FOR EACH ROW
             BEGIN
                 DECLARE message VARCHAR(100);
-                DECLARE number0fLanguages INT;
+                DECLARE numberOfLanguages INT;
                 SELECT COUNT(Language) INTO numberOfLanguages FROM countrylanguage WHERE country.countrycode=new.countrycode;
                 IF numberOfLanguages>= 10
                 THEN
