@@ -80,16 +80,27 @@ const noMatch = 'NO match is found in the database!\nBe sure that you typed a va
             ]);
             const query4 = `SELECT Name FROM country join countrylanguage on country.Code=countrylanguage.CountryCode where Region =? and Language=?; `;
             let result4 = await queryPromise(query4, [userInput4.regionName, userInput4.languageName]);
-            console.log(result4);
+            if (result4.length === 0) {
+                console.log(noMatch);
+                break;
+            } else {
+                console.log(`The counties are:`);
+                result4.forEach(element => console.log(element.Name));
+                break;
+            }
+
             break;
         case options.fifth:
-            const query5 = `SELECT DISTINCT Continent , Language FROM country join countrylanguage on country.Code=countrylanguage.CountryCode order by Continent`;
+            const query5 = `SELECT distinct Continent , Language FROM country join countrylanguage on country.Code=countrylanguage.CountryCode order by Continent`;
             let result5 = await queryPromise(query5);
-            console.log(
-                result5.forEach(element => {
-                    console.log(`Continent: ${element.Continent} || Language: ${element.Language}.`);
-                }),
-            );
+            // console.log(
+            //     result5.forEach(element => {
+            //         console.log(`Continent: ${element.Continent} || Language: ${element.Language}.`);
+            //     }),
+            // );
+            return result5.forEach(element => {
+                console.log(`Continent: ${element.Continent} || Language: ${element.Language}.`);
+            });
     }
     connection.end();
 })();
