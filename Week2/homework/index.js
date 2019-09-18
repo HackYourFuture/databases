@@ -109,7 +109,7 @@ connection.connect(function(err) {
             if (err) {
                 return console.log('error:' + err.message);
             }
-            console.log('The  connection to the database is closed.\nYou can run the file agin.');
+            console.log('*The  connection to the database is closed.\n*You can run the file agin.');
         });
     }
 })();
