@@ -64,10 +64,15 @@ const noMatch = 'NO match is found in the database!\nBe sure that you typed a va
             const userInput3 = await inquirer.prompt([
                 { name: 'languageName', message: 'What is language ?' },
             ]);
-            const query3 = `SELECT  count(city.name) FROM city join countrylanguage on city.CountryCode=countrylanguage.CountryCode where Language=? `;
+            const query3 = `SELECT  count(city.name) as Cities FROM city join countrylanguage on city.CountryCode=countrylanguage.CountryCode where Language=? `;
             let result3 = await queryPromise(query3, userInput3.languageName);
-            console.log(result3);
-            break;
+            if (result3[0].Cities === 0) {
+                console.log(noMatch);
+                break;
+            } else {
+                console.log(`The number of cities is: ${result3[0].Cities}`);
+                break;
+            }
         case options.fourth:
             const userInput4 = await inquirer.prompt([
                 { name: 'regionName', message: 'What is the region?' },
