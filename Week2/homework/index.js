@@ -51,7 +51,7 @@ connection.connect(function(err) {
 
             case options.second:
                 const userInput2 = await inquirer.prompt([
-                    { name: 'regionName', message: 'What is your the region?' },
+                    { name: 'regionName', message: 'What is the region?' },
                 ]);
                 const query2 = `SELECT distinct Language FROM country join countrylanguage on country.Code=countrylanguage.CountryCode where Region =?`;
                 let result2 = await queryPromise(query2, userInput2.regionName);
@@ -67,7 +67,7 @@ connection.connect(function(err) {
 
             case options.third:
                 const userInput3 = await inquirer.prompt([
-                    { name: 'languageName', message: 'What is language ?' },
+                    { name: 'languageName', message: 'What is the language?' },
                 ]);
                 const query3 = `SELECT  count(city.name) as Cities FROM city join countrylanguage on city.CountryCode=countrylanguage.CountryCode where Language=? `;
                 let result3 = await queryPromise(query3, userInput3.languageName);
