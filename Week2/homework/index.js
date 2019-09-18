@@ -57,7 +57,9 @@ const options = {
                 { name: 'regionName', message: 'What is the region?' },
                 { name: 'languageName', message: 'What is the language?' },
             ]);
-            console.log(`Region: ${userInput4.regionName}, Language: ${userInput4.languageName}`);
+            const query4 = `SELECT Name FROM country join countrylanguage on country.Code=countrylanguage.CountryCode where Region =? and Language=?; `;
+            let result4 = await queryPromise(query4, [userInput4.regionName, userInput4.languageName]);
+            console.log(result4);
             break;
         case options.fifth:
             console.log('run MySQL query');
