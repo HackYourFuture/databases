@@ -25,3 +25,5 @@ ERROR 1054 (42S22): Unknown column 'Warning: languages enough for this country "
 If country has less then 9 language, test:
 mysql> insert countrylanguage values('NLD','llll','f',0);
 Query OK, 1 row affected (0.01 sec)
+
+http://www.mysqltutorial.org/mysql-triggers/mysql-before-update-trigger/
