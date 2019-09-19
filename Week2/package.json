@@ -1,0 +1,16 @@
+{
+  "name": "Week2-homework",
+  "version": "1.0.0",
+  "description": "Get user input with node.js and mysql",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.17.1",
+    "prompts": "^2.2.1"
+  }
+}
