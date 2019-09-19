@@ -3,7 +3,7 @@
 DROP TRIGGER IF EXISTS `new_world`.`countrylanguage_AFTER_INSERT`;
 DELIMITER $$
   USE `new_world`$$
-  CREATE DEFINER=`hyfuser`@`localhost` TRIGGER `countrylanguage_AFTER_INSERT` AFTER INSERT ON `countrylanguage`
+  CREATE DEFINER=`hyfuser`@`localhost` TRIGGER `countrylanguage_AFTER_INSERT` BEFORE INSERT ON `countrylanguage`
   FOR EACH ROW 
   BEGIN
     DECLARE message VARCHAR(150);

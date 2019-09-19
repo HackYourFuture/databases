@@ -43,7 +43,7 @@ const execQuery = util.promisify(connection.query.bind(connection));
       case option[2]:
         response = await prompts(questions1[2]);
         const citiesInfo = await execQuery(sqlCities, response.language);
-        console.log(dataHandler(citiesInfo, (val = 'Name')));
+        console.log(dataHandler(citiesInfo, (val = 'numberOfCities')));
         break;
       case option[3]:
         response = await prompts(questions2);

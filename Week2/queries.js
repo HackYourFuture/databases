@@ -10,7 +10,7 @@ const sqlLanguage = `SELECT distinct cl.Language
                        ON cl.CountryCode = c.Code
                        WHERE c.Region = ?`;
 
-const sqlCities = `SELECT c.Name 
+const sqlCities = `SELECT   count(c.Name) AS numberOfCities
                       FROM city c
                       JOIN countrylanguage cl
                       ON c.CountryCode = cl.CountryCode
@@ -25,9 +25,9 @@ const sqlCountries = `SELECT c.name
                       AND cl.Language = ?`;
 
 const sqlContinentsAndLanguages = `SELECT c.Continent, count(cl.Language) AS Languages
-                                   FROM countrylanguage cl 
-                                   JOIN country c  
-                                   ON cl.CountryCode = c.Code
+                                   FROM country c
+                                   JOIN countrylanguage cl  
+                                   ON c.Code = cl.CountryCode
                                    group by Continent;`;
 
 module.exports = {
