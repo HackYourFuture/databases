@@ -1,0 +1,27 @@
+ADD TRIGGERS TO GET WARNING
+
+DELIMITER $$ 
+CREATE TRIGGER languages_number_test
+BEFORE Insert
+ON countrylanguage FOR EACH ROW
+BEGIN
+    DECLARE total int;
+Select count(language) into total from countrylanguage where new.countrycode = countrycode;
+                        
+    IF total>=9 THEN
+        SIGNAL SQLSTATE '45000' 
+            SET MESSAGE_TEXT = `Warning: languages enough for this country “-” `;
+    END IF;
+END $$ 
+DELIMITER ;
+
+
+ USA has 12 languages, so triggers will work 
+Test:
+mysql> insert countrylanguage values('USA','llll','f',0);
+ERROR 1054 (42S22): Unknown column 'Warning: languages enough for this country "-" ' in 'field list';
+
+
+If country has less then 9 language, test:
+mysql> insert countrylanguage values('NLD','llll','f',0);
+Query OK, 1 row affected (0.01 sec)
