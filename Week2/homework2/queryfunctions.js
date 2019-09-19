@@ -55,25 +55,27 @@ async function seedDatabase() {
     con.connect();
 
     console.log(explanation);
-    const { choice } = await inquirer.prompt(input5);
-    switch (choice) {
-      case '1':
-        await execQuery(queryCapital);
-        break;
-      case '2':
-        await execQuery(queryLanguages);
-        break;
-      case '3':
-        await execQuery(queryCities);
-        break;
-      case '4':
-        await execQuery(queryOfficiallanguages);
-        break;
-      case '5':
-        await execQuery(queryContinents);
-        break;
-      default:
-        console.log('Invalid option!');
+    while (true) {
+      const { choice } = await inquirer.prompt(input5);
+      switch (choice) {
+        case '1':
+          await queryCapital();
+          break;
+        case '2':
+          await queryLanguages();
+          break;
+        case '3':
+          await queryCities();
+          break;
+        case '4':
+          await queryOfficiallanguages();
+          break;
+        case '5':
+          await queryContinents();
+          break;
+        default:
+          console.log('Invalid option!');
+      }
     }
     con.end();
   } catch (err) {
