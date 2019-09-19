@@ -43,10 +43,8 @@ select maker from car_makers where country=11;
 
 --- 10.List all car makers not from sweden, japan, france or germany.
 
- select *from countries where name in ("sweden","japan","france","germany");
- select *from car_makers where country not in (2,3,4,6);
-
-
-
-
-
+select *from countries where name in ("sweden","japan","france","germany");
+select *from car_makers where country not in (2,3,4,6);
+ 
+ --- 11.List all cars where the make starts with an a and ends with an r.
+ --- 12.How many cars have more than 6 cylinders, weight less than 4000 but more than 3000, and was not made in the years 1970, 1975 or 1981.
