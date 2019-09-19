@@ -27,12 +27,11 @@ from country
 where region = ? 
 and code in(select countrycode from countrylanguage where language = ? and isofficial = 't');`;
 
-const getContinentList = `select distinct continent 
-from country`;
-const getNumOfLanguagesInContinent = `select distinct language 
-from countrylanguage 
-where countrycode 
-in (select code from country where continent = ?);`;
+const getNumOfLanguagesInContinent = `select country.continent, count(distinct language) as 'total language'
+ from country 
+ join countrylanguage 
+ on country.code = countrylanguage.countrycode 
+ group by country.continent;`;
 
 console.log(
   'select your searching type:\n Press "1" to search capital of a country;\n Press "2" to search languages in a region\n Press "3" to get number of cities by language',
@@ -40,7 +39,7 @@ console.log(
 console.log('Press 4 to check region and official language');
 console.log('Press 5 to get list of continents with number of languages');
 
-pro.get('type', function(err, result) {
+pro.get('type', function (err, result) {
   if (err) {
     console.log(err);
   }
@@ -148,22 +147,16 @@ pro.get('type', function(err, result) {
     case '5':
       con.connect();
       console.log('continents and number of languages:');
-      con.query(getContinentList, (err, result) => {
+      con.query(getNumOfLanguagesInContinent, (err, res) => {
         if (err) {
-          console.log(err);
-          con.end();
-          return;
-        }
-        let query_array = result.map(element => element.continent).sort();
-        query_array.forEach(query => {
-          const query_countLanguages = mysql.format(getNumOfLanguagesInContinent, [query]);
-          con.query(query_countLanguages, (err, res) => {
-            if (err) console.log(err);
-            console.log(`${query}:  ${res.length}`);
-          });
-        });
-        con.end();
-      });
+          console.log(err)
+        };
+        console.log(`continent  total language`)
+        for (i in res) console.log(`${res[i].continent} ${res[i]['total language']}`);
+      })
+
+      con.end();
+
       break;
     default:
       console.log(`chosen number doesn't match any searching type!`);
