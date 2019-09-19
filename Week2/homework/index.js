@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const inquirer = require('inquirer');
 const util = require('util');
@@ -111,7 +111,7 @@ connection.connect(function(err) {
             if (err) {
                 return console.log('error:' + err.message);
             }
-            console.log('*The  connection to the database is closed.\n*You can run the file agin.');
+            console.log('* The  connection to the database is closed.\n* You can run the file agin.');
         });
     }
 })();
