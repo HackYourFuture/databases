@@ -74,6 +74,30 @@ program
   });
 
 program
+  .command('see-official-lang <region>, <language>')
+  .description('This command gives you the countries that uses the specified language.')
+  .action((region, language) => {
+    const getCountry = `SELECT name FROM country AS c
+    JOIN countrylanguage AS clang 
+    ON clang.CountryCode=c.Code
+    WHERE c.region= ${region}
+    AND clang.language = ${language}
+    AND clang.IsOfficial= 'T';`;
+
+    try {
+      execQuery(getCountry).then(country => {
+        if (!country) {
+          console.log('FALSE');
+        } else {
+          console.log(country);
+        }
+      });
+    } catch (err) {
+      if (err) throw err;
+    }
+  });
+
+program
   .command('languages-by-continents')
   .description('Gives you the number of spoken languages on each continent ')
   .action(() => {
