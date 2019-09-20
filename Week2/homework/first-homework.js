@@ -74,22 +74,22 @@ program
   });
 
 program
-  .command('see-official-lang <region>, <language>')
+  .command('see-official-lang <region> <language>')
   .description('This command gives you the countries that uses the specified language.')
   .action((region, language) => {
     const getCountry = `SELECT name FROM country AS c
     JOIN countrylanguage AS clang 
     ON clang.CountryCode=c.Code
-    WHERE c.region= ${region}
-    AND clang.language = ${language}
+    WHERE c.region= '${region}'
+    AND clang.language = '${language}'
     AND clang.IsOfficial= 'T';`;
 
     try {
       execQuery(getCountry).then(country => {
-        if (!country) {
+        if (country == []) {
           console.log('FALSE');
         } else {
-          console.log(country);
+          console.log(JSON.stringify(country));
         }
       });
     } catch (err) {
