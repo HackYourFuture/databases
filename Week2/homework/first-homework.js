@@ -27,7 +27,10 @@ program
   .command('capital-of <country>')
   .description('This command gives you the capital of the country')
   .action(country => {
-    const getCapital = `select city.name as Capital from country, city where country.capital = city.id and country.name ='${country}';`;
+    const getCapital = `SELECT city.name as Capital 
+    FROM country, city 
+    WHERE country.capital = city.id 
+    AND country.name ='${country}';`;
     try {
       execQuery(getCapital).then(capital => {
         console.log(`${JSON.stringify(capital)}`);
@@ -43,7 +46,10 @@ program
   .command('spoken-language <region>')
   .description("This command gives you the spoken language on the region you're looking at")
   .action(region => {
-    const getRegion = `select distinct language from countrylanguage, country where countrylanguage.CountryCode = country.code and country.region ='${region}';`;
+    const getRegion = `SELECT distinct language 
+    FROM countrylanguage, country 
+    WHERE countrylanguage.CountryCode = country.code 
+    AND country.region ='${region}';`;
     try {
       execQuery(getRegion).then(region => {
         console.log(`${JSON.stringify(region)}`);
@@ -61,7 +67,10 @@ program
     'This command gives you the number of cities that the language you specify is spoken.',
   )
   .action(language => {
-    const getCityNumber = `select distinct count(name) as 'Number of Cities' from city, countrylanguage where countrylanguage.countrycode = city.countrycode and countrylanguage.language='${language}';`;
+    const getCityNumber = `SELECT distinct count(name) AS 'Number of Cities' 
+    FROM city, countrylanguage 
+    WHERE countrylanguage.countrycode = city.countrycode 
+    AND countrylanguage.language='${language}';`;
     try {
       execQuery(getCityNumber).then(number => {
         console.log(`${JSON.stringify(number)}`);
@@ -101,7 +110,10 @@ program
   .command('languages-by-continents')
   .description('Gives you the number of spoken languages on each continent ')
   .action(() => {
-    const getLangNumByCont = `select Continent, count(distinct Language) as Languages from country, countrylanguage where country.Code=countrylanguage.CountryCode group by Continent;`;
+    const getLangNumByCont = `SELECT Continent, count(distinct Language) AS Languages 
+    FROM country, countrylanguage 
+    WHERE country.Code=countrylanguage.CountryCode 
+    GROUP BY Continent;`;
     try {
       execQuery(getLangNumByCont).then(list => {
         const listt = JSON.stringify(list);
