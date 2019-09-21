@@ -12,7 +12,7 @@ const schemas = {
   }),
   list: Joi.object().keys({
     listname: Joi.string().required(),
-    reminder: Joi.date().greater('now'),
+    alert: Joi.date().greater('now'),
   }),
   todo: Joi.object().keys({
     note: Joi.string().required(),
