@@ -1,0 +1,49 @@
+DROP SCHEMA IF EXISTS todo;
+CREATE SCHEMA todo DEFAULT CHARACTER SET utf8;
+USE `todo` ;
+
+DROP TABLE IF EXISTS `todo`.`user`;
+CREATE TABLE `user` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `registeredtime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  -- CONSTRAINT `unique_id_email` UNIQUE (`id` , `email`)
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC)
+  )
+ENGINE = InnoDB AUTO_INCREMENT = 2 DEFAULT CHARACTER SET = utf8;
+
+
+DROP TABLE IF EXISTS `todo`.`list`;
+CREATE TABLE `list` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `userId` INT(11) NOT NULL,
+  `listname` VARCHAR(45) NOT NULL,
+  `reminderdate` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`, `userId`),
+  INDEX `fk_list_userid_idx` (`userId` ASC),
+  --UNIQUE INDEX `listname_UNIQUE` (`listname` ASC),
+  CONSTRAINT `fk_list_userid` FOREIGN KEY (`userId`) REFERENCES `user` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB AUTO_INCREMENT = 11 DEFAULT CHARACTER SET = utf8;
+
+DROP TABLE IF EXISTS `item`;
+CREATE TABLE `item` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `itemname` VARCHAR(1000) NOT NULL,
+  `listId` INT(11) NOT NULL,
+  `userId` INT(11) NOT NULL,  
+  `duedate` DATETIME DEFAULT NULL,
+  `completed` TINYINT(1) NULL DEFAULT '0',  
+  INDEX `fk_item_userID_idx` (`userId` ASC),
+  INDEX `fk_item_listID_idx` (`listId` ASC),
+  CONSTRAINT `fk_item_listID` FOREIGN KEY (`listId`) REFERENCES `list` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_item_userID` FOREIGN KEY (`userId`) REFERENCES `user` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB AUTO_INCREMENT = 24 DEFAULT CHARACTER SET = utf8;
