@@ -24,7 +24,7 @@ const sqlCountries = `SELECT c.name
                       AND c.region = ?
                       AND cl.Language = ?`;
 
-const sqlContinentsAndLanguages = `SELECT c.Continent, count(cl.Language) AS Languages
+const sqlContinentsAndLanguages = `SELECT c.Continent, count(DISTINCT cl.Language) AS Languages
                                    FROM country c
                                    JOIN countrylanguage cl  
                                    ON c.Code = cl.CountryCode
