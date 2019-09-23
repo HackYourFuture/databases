@@ -10,13 +10,13 @@ const {
 } = require('../helpers');
 
 //* Get all users
-router.get('', getUsers);
+router.get('/', getUsers);
 
 //* Get a user by userid
 router.get('/:userid', getUserById);
 
 //* Create new user
-router.post('', createUser);
+router.post('/', createUser);
 
 //* Delete a user by userid
 router.delete('/:userid', deleteUser);
