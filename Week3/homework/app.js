@@ -13,10 +13,10 @@ const item = require('./routes/item');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({ secret: 'max', saveUninitialized: false, resave: false }));
+app.use(session({ secret: 'salih@class22', saveUninitialized: false, resave: false }));
 
 app.use('/', index);
-app.use('/todo', user);
+app.use('/user', user);
 app.use('/list', list);
 app.use('/item', item);
 
