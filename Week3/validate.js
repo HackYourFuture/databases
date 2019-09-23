@@ -21,7 +21,7 @@ const schemas = {
     tag: Joi.string(),
   }),
 };
-
+// Validate post body using schemas
 const validate = (body, schema) => schemas[schema].validate(body);
 
 module.exports = validate;

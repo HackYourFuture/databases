@@ -153,7 +153,7 @@ const deleteList = async (req, res) => {
 const getTodos = async (req, res) => {
   const { listid } = req.params;
   const row = await find({ table: 'list', columns: 'listname', filter: { id: listid } });
-  if (!row.length) return res.status(404).send('Id not found');
+  if (!row.length) return res.status(404).send('List Id not found');
   res.send(
     await knex('todoitem')
       .join('list', { 'list.id': 'todoitem.listid' })
@@ -165,6 +165,8 @@ const getTodos = async (req, res) => {
 const getTodoById = async (req, res) => {
   const { todoid } = req.params;
   try {
+    const row = await find({ table: 'todoitem', columns: 'note', filter: { id: todoid } });
+    if (!row.length) return res.status(404).send('Todo Id not found');
     res.send(
       await knex('todoitem')
         .leftJoin('todotag', { 'todoitem.id': 'todotag.todoitemid' })
@@ -202,7 +204,9 @@ const addTodoWithTags = async (req, res) => {
         await create({ table: 'todotag', data: { todoitemid, tagid } });
       });
     }
-    res.status(201).send(await find({ table: 'todoitem', columns: '*', filter: { id: todoid } }));
+    res
+      .status(201)
+      .send(await find({ table: 'todoitem', columns: '*', filter: { id: todoitemid } }));
   } catch (error) {
     handleError(res, error);
   }
@@ -232,6 +236,23 @@ const markTodoDone = toggleTodoDone('T');
 
 const markTodoNotDone = toggleTodoDone('F');
 
+const getTodobyTag = async (req, res) => {
+  const { tagname } = req.params;
+  try {
+    const row = await find({ table: 'tag', columns: 'id', filter: { tagname } });
+    if (!row.length) return res.status(404).send('Tag not found');
+    res.send(
+      await knex('tag')
+        .join('todotag', { 'tag.id': 'todotag.tagid' })
+        .join('todoitem', { 'todoitem.id': 'todotag.todoitemid' })
+        .select(['todoitem.note', 'todoitem.done'])
+        .where({ tagname }),
+    );
+  } catch (error) {
+    handleError(res, error);
+  }
+};
+
 module.exports = {
   getUsers,
   getUserById,
@@ -247,4 +268,5 @@ module.exports = {
   deleteTodo,
   markTodoDone,
   markTodoNotDone,
+  getTodobyTag,
 };
