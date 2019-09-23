@@ -29,7 +29,7 @@ queriesToBeExecuted = [
   'SELECT country.Name FROM  countrylanguage JOIN country ON CountryCode = Code WHERE Language = ? AND Region = ? AND IsOfficial = "T"',
   'SELECT Continent, COUNT(DISTINCT Language) AS "numberOfLanguages" FROM  countrylanguage JOIN country ON CountryCode = Code GROUP BY Continent',
 ];
-
+connection.connect();
 async function serviceUserRequest() {
   prompt.start();
   const inputNumber = await input('number');
@@ -72,6 +72,7 @@ async function serviceUserRequest() {
       console.log('Please insert right request number between 1 and 5.');
       break;
   }
+  connection.end();
 }
 
 function main() {

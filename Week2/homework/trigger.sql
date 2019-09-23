@@ -1,7 +1,7 @@
 
 delimiter $$
 CREATE TRIGGER alertOnCountryCount
-    AFTER INSERT 
+    BEFORE INSERT
         ON countrylanguage
             FOR EACH ROW
             BEGIN 
