@@ -10,7 +10,7 @@ const getCapitalOfCountry = async () => {
       name: 'country',
       message: `What is the capital of ?`,
     });
-
+    
     const capitalQuery = await execQuery(question1, response.country);
     const capitalOfCountry = capitalQuery[0].capital;
     console.log(capitalOfCountry);
@@ -26,17 +26,14 @@ const getLanguagesInRegion = async () => {
       name: 'region',
       message: `List all the languages spoken in the region ...?`,
     });
-    const userInput = response.region.charAt(0).toUpperCase() + response.region.slice(1);
-    const regionQuery = await execQuery(question2, userInput);
-    const validateQuery = await execQuery(`select region from country group by region`);
-
-    const validator = validateQuery.map(elem => elem.region);
-    if (validator.includes(userInput)) {
-      regionQuery.map(elem => console.log(elem.language));
-    } else {
-      console.log(`${userInput} not found`);
+    const regionQuery = await execQuery(question2, response.region);
+    if (regionQuery.length === 0 ){
+      console.log(`Type  valid region`)
+    }else{
+    regionQuery.map(elem => console.log(elem.language))
     }
-  } catch (error) {
+  }
+   catch (error) {
     console.log(error);
   }
 };
@@ -48,15 +45,11 @@ const getTotalCityWithLanguage = async () => {
       name: 'language',
       message: `Find out how many cities speak this language?`,
     });
-    const userInput = response.language.charAt(0).toUpperCase() + response.language.slice(1);
     const totalCitiesSpeakLanguage = await execQuery(question3, response.language);
-    const validateQuery = await execQuery(`select language from countrylanguage`);
-
-    const validator = validateQuery.map(elem => elem.language);
-    if (validator.includes(userInput)) {
-      totalCitiesSpeakLanguage.map(item => console.log(item.total_cities));
+    if (totalCitiesSpeakLanguage.length === 0) {
+      console.log('There is no record.')
     } else {
-      console.log(`${userInput} not found`);
+      console.log(totalCitiesSpeakLanguage[0].total_cities)
     }
   } catch (error) {
     console.log(error);
@@ -72,8 +65,7 @@ const getOfficialOrNot = async () => {
     separator: ',',
   });
   const isOfficial = await execQuery(question4, response.value);
-  const trueOfficial = isOfficial.filter(item => item.officialOrNot === 'T');
-  if (trueOfficial.length === 0) {
+  if (isOfficial.length === 0) {
     console.log('false');
   } else {
     isOfficial.map(item => console.log(item.country));

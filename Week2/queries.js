@@ -47,6 +47,8 @@ const question4 = `SELECT
         country,
         countrylanguage
      WHERE
+        countrylanguage.isOfficial = 'T'
+        AND
         countrylanguage.countrycode = country.code
         AND region = ?
         AND language = ? `;
@@ -54,7 +56,7 @@ const question4 = `SELECT
 const question5 = `
         SELECT
            continent,
-           count(language) AS total_spoken_language 
+           count(DISTINCT language) AS total_spoken_language 
         FROM
            country,
            countrylanguage 
