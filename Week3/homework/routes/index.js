@@ -1,12 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const user = require('../controllers/user');
 
-router.get('/', (req, res) => {
-  if (req.session.email) {
-    const { msg, items } = req.session;
-    return res.json({ msg, items });
-  }
-  res.json('Please, login to your account!');
-});
+router.get('/', user.getAll);
 
 module.exports = router;

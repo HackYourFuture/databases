@@ -5,22 +5,19 @@ const pool = require('../database/connection').pool;
 
 class DB {
   static async findUser(email, password) {
-    let emailRes,
-      passRes,
-      userId,
-      userName = '';
-
     const q = 'SELECT * FROM user WHERE email=?';
     const result = await pool.query(q, [email, password]);
     const resultObj = JSON.parse(JSON.stringify(result));
 
     if (resultObj.length) {
-      emailRes = email === resultObj[0].email ? email : 'not registered';
-      passRes = password === resultObj[0].password ? password : 'not found';
-      userName = resultObj[0].name;
-      userId = resultObj[0].id;
-    } else emailRes = 'not registered';
-    return { emailRes, passRes, userName, userId };
+      const emailRes = email === resultObj[0].email ? email : 'not registered';
+      const passRes = password === resultObj[0].password ? password : 'not found';
+      const userName = resultObj[0].name;
+      const userId = resultObj[0].id;
+      const userRegisteredTime = resultObj[0].registeredtime;
+      return { emailRes, passRes, userName, userId, userRegisteredTime };
+    }
+    return 'not registered';
   }
 
   static async addUser(name, email, password) {
@@ -56,7 +53,7 @@ class DB {
     await pool.query(q, [userId, listId, itemName, dueDate]);
   }
 
-  static async getItems(userInfo) {
+  static async getItems(id) {
     const q = `
         SELECT l.id LIST_ID, l.listname LIST_NAME,
         l.reminderdate REMIND_ME, i.id ITEM_ID, i.itemname ITEM_NAME, 
@@ -67,7 +64,7 @@ class DB {
         WHERE l.userId=? 
         ORDER BY l.id        
         `;
-    const items = await pool.query(q, [userInfo.userId]);
+    const items = await pool.query(q, [id]);
     return items;
   }
 

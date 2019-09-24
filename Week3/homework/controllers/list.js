@@ -1,3 +1,4 @@
+/* eslint-disable require-atomic-updates */
 'use-strict';
 
 const db = require('../database/dbHandler');
@@ -7,15 +8,20 @@ class List {
     if (!req.session.email) {
       return res.json('You should login again');
     }
+
     const userEmail = req.session.email;
     const userId = await db.getUserId(userEmail);
 
-    const listName = req.body.listName;
-    const reminderDate = req.body.reminderDate;
+    const { listName, reminderDate } = req.body;
 
-    await db.createList(userId, listName, reminderDate);
-    res.json('The list is successfully created!');
+    if (listName && reminderDate) {
+      await db.createList(userId, listName, reminderDate);
+      req.session.msg = 'The list is successfully created!';
+      return res.redirect('/');
+    }
+    res.json('The list could not be created!');
   }
+
   static async delete(req, res) {
     if (!req.session.email) {
       return res.json('You should login again');
@@ -24,11 +30,14 @@ class List {
     const userEmail = req.session.email;
     const userId = await db.getUserId(userEmail);
 
-    const listName = req.body.listName;
-    const listId = req.body.listId;
+    const { listName, listId } = req.body;
 
-    await db.deleteList(listId, userId, listName);
-    res.json('The list is successfully deleted!');
+    if (listName && listId) {
+      req.session.msg = 'The list is successfully deleted!';
+      await db.deleteList(listId, userId, listName);
+      return res.redirect('/');
+    }
+    res.json('The list could not be deleted');
   }
 }
 

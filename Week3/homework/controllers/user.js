@@ -6,9 +6,7 @@ const { validationResult } = require('express-validator/check');
 
 class User {
   static async create(req, res) {
-    const name = req.body.name;
-    const email = req.body.email;
-    const password = req.body.password;
+    const { name, email, password } = req.body;
     const isRegistered = await db.findUser(email, password);
 
     const errors = validationResult(req);
@@ -18,17 +16,16 @@ class User {
 
     if (isRegistered.emailRes !== email && errors.isEmpty()) {
       await db.addUser(name, email, password);
-      const userInfo = await db.findUser(email, password);
-      req.session.items = await db.getItems(userInfo);
-      req.session.msg = `Dear ${userInfo.userName}! You have registered successfully`;
+      req.session.msg = `Dear ${name}! You have registered successfully`;
       req.session.email = email;
       return res.redirect('/');
-    } else res.json('The email has already been taken');
+    }
+    req.session.msg = 'The email has already been taken';
+    return res.redirect('/');
   }
 
   static async login(req, res) {
-    const email = req.body.email;
-    const password = req.body.password;
+    const { email, password } = req.body;
     const userInfo = await db.findUser(email, password);
 
     const errors = validationResult(req);
@@ -38,18 +35,31 @@ class User {
 
     if (userInfo.emailRes === email && userInfo.passRes === password && errors.isEmpty()) {
       req.session.email = userInfo.emailRes;
-      req.session.items = await db.getItems(userInfo);
       req.session.msg = `Dear ${userInfo.userName}, Welcome back`;
       return res.redirect('/');
     }
     res.json('Check your email/password or Register!');
   }
+  static async getAll(req, res) {
+    if (req.session.email) {
+      const userId = await db.getUserId(req.session.email);
+      req.session.items = await db.getItems(userId);
+      const { msg, items } = req.session;
+      return res.json({ msg, items });
+    }
+    if (req.session.msg) {
+      const { msg } = req.session;
+      return res.json({ msg });
+    }
+    res.json('Please, login or register!');
+  }
 
   static async logout(req, res) {
     if (req.session.email) {
       req.session.destroy();
-      res.redirect('/');
+      return res.redirect('/');
     }
+    return res.redirect('/');
   }
 }
 
