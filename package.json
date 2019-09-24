@@ -1,0 +1,25 @@
+{
+  "name": "databases",
+  "version": "1.0.0",
+  "description": "'Full ToDo App'",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShyarK/databases.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShyarK/databases/issues"
+  },
+  "homepage": "https://github.com/ShyarK/databases#readme",
+  "dependencies": {
+    "@hapi/joi": "^16.1.4",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql": "^2.17.1"
+  }
+}
