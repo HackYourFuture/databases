@@ -10,14 +10,15 @@ const user = require('./routes/user');
 const list = require('./routes/list');
 const item = require('./routes/item');
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(session({ secret: 'salih@class22', saveUninitialized: false, resave: false }));
+app
+  .use(express.json())
+  .use(express.urlencoded({ extended: false }))
+  .use(cookieParser())
+  .use(session({ secret: 'salih@class22', saveUninitialized: false, resave: false }))
 
-app.use('/', index);
-app.use('/user', user);
-app.use('/list', list);
-app.use('/item', item);
+  .use('/', index)
+  .use('/user', user)
+  .use('/list', list)
+  .use('/item', item)
 
-app.listen(PORT, () => console.log(`Server is activated on port ${PORT}.`));
+  .listen(PORT, () => console.log(`Server is activated on port ${PORT}.`));

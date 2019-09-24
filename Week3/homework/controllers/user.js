@@ -18,7 +18,11 @@ class User {
 
     if (isRegistered.emailRes !== email && errors.isEmpty()) {
       await db.addUser(name, email, password);
-      res.json('You have registered successfully');
+      const userInfo = await db.findUser(email, password);
+      req.session.items = await db.getItems(userInfo);
+      req.session.msg = `Dear ${userInfo.userName}! You have registered successfully`;
+      req.session.email = email;
+      return res.redirect('/');
     } else res.json('The email has already been taken');
   }
 
