@@ -1,17 +1,14 @@
 'use strict';
 
 const validate = require('./validate');
-
+// Knex is a full featured SQL query builder with async workflow and chaining methods
+// For more info and documentation
+// http://knexjs.org/
 const knex = require('knex')({
   client: 'mysql',
-  connection: {
-    host: '192.168.153.132',
-    user: 'todo',
-    password: 'todo',
-    database: 'todo',
-  },
+  connection: 'mysql://todo:todo@192.168.153.132/todo',
 });
-
+// Helpers for trying to emulate NoSQL syntax
 const create = ({ table, data }) => knex(table).insert(data);
 
 const findAll = ({ table, columns }) => knex(table).select(columns);
@@ -175,7 +172,7 @@ const getTodoById = async (req, res) => {
           'todoitem.id',
           'todoitem.note',
           'todoitem.done',
-          knex.raw('group_concat(tag.tagname) as tags'),
+          knex.raw('group_concat(tag.tagname) as tags'), // Return multiple tags in a single string field delimited with comma
         ])
         .where({ 'todoitem.id': todoid })
         .groupBy(['todoitem.id', 'todoitem.note', 'todoitem.done']),
