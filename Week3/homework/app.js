@@ -29,3 +29,4 @@ app.use((error, req, res, next) => {
 });
 
 module.exports = app;
+//finish routers and dealing with getting vars from req.body
