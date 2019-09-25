@@ -26,8 +26,8 @@ class DB {
   }
 
   static async getUserId(userEmail) {
-    const userSql = `SELECT id FROM user WHERE email=? `;
-    const Id = await pool.query(userSql, [userEmail]);
+    const q = `SELECT id FROM user WHERE email=? `;
+    const Id = await pool.query(q, [userEmail]);
     const userId = JSON.parse(JSON.stringify(Id[0].id));
     return userId;
   }
@@ -38,8 +38,8 @@ class DB {
   }
 
   static async validateListId(userId, listId) {
-    const validateListid = `SELECT id FROM list WHERE userId=? && id=?`;
-    const result = await pool.query(validateListid, [userId, listId]);
+    const q = `SELECT id FROM list WHERE userId=? && id=?`;
+    const result = await pool.query(q, [userId, listId]);
     const resultObj = JSON.parse(JSON.stringify(result));
     return resultObj;
   }
