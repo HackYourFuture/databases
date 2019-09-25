@@ -45,7 +45,7 @@ class Item {
     const { listId, itemId } = req.body;
 
     const isUserList = await db.validateListId(userId, listId);
-
+    // checking the request type and then complete or uncomplete.
     if (isUserList.length) {
       const bool = req.method === 'POST' ? 1 : 0;
       const msg_ = req.method === 'POST' ? 'completed' : 'uncompleted';
