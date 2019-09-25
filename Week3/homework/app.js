@@ -3,6 +3,8 @@ const app = express();
 const lists_routes = require('./api/routes/lists_routes');
 const tasks_routes = require('./api/routes/tasks_routes');
 
+app.use(express.json());
+
 app.all('/', (req, res, next) => {
     res.status(201).json({
         message: 'welcome to ToDo lists app',
