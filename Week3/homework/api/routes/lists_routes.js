@@ -18,7 +18,7 @@ router.post('/', (req, res, next) => {
     });
     if (validationResult.error) {
         const message = validationResult.error.details[0].message;
-        res.status(400).send(`<p>${message}</p>`);
+        res.status(400).send(`${message}`);
         return;
     }
 
@@ -50,7 +50,7 @@ router.patch('/:listId', (req, res, next) => {
     });
     if (validationResult.error) {
         const message = validationResult.error.details[0].message;
-        res.status(400).send(`<p>${message}</p>`);
+        res.status(400).send(`${message}`);
         return;
     }
     const listReminder = req.body.listReminder;
