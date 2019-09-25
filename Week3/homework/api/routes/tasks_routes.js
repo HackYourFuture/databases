@@ -8,14 +8,16 @@ router.post('/', (req, res, next) => {
 });
 
 router.patch('/:taskId', (req, res, next) => {
+    const taskId = req.params.taskId;
     res.status(200).json({
-        message: 'Update task!',
+        message: `Update task with id ${taskId}`,
     });
 });
 
 router.delete('/:taskId', (req, res, next) => {
+    const taskId = req.params.taskId;
     res.status(200).json({
-        message: 'Deleted task!',
+        message: `Deleted task with id ${taskId}`,
     });
 });
 

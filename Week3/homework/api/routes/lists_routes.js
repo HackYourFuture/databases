@@ -8,14 +8,16 @@ router.post('/', (req, res, next) => {
 });
 
 router.patch('/:listId', (req, res, next) => {
+    const listId = req.params.listId;
     res.status(200).json({
-        message: 'Updated list!',
+        message: `Updated list with ID ${listId}`,
     });
 });
 
 router.delete('/:listId', (req, res, next) => {
+    const listId = req.params.listId;
     res.status(200).json({
-        message: 'Deleted list!',
+        message: `Deleted list with ID ${listId}`,
     });
 });
 
