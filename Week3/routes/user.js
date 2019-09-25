@@ -7,7 +7,7 @@ const {
   deleteUser,
   getUserLists,
   createList,
-} = require('../helpers');
+} = require('../handlers/user');
 
 //* Get all users
 router.get('/', getUsers);

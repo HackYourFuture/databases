@@ -9,7 +9,7 @@ const {
   deleteTodo,
   markTodoDone,
   markTodoNotDone,
-} = require('../helpers');
+} = require('../handlers/list');
 
 //* Get a list by listid
 router.get('/:listid', getListById);
@@ -30,9 +30,9 @@ router.post('/:listid/todo', addTodoWithTags);
 router.delete('/:listid/todo/:todoid', deleteTodo);
 
 //* Mark Todo as done
-router.post('/:listid/todo/:todoid/done', markTodoDone);
+router.patch('/:listid/todo/:todoid/done', markTodoDone);
 
 //* Mark Todo as not done
-router.delete('/:listid/todo/:todoid/done', markTodoNotDone);
+router.patch('/:listid/todo/:todoid/undone', markTodoNotDone);
 
 module.exports = router;

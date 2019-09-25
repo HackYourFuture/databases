@@ -33,16 +33,16 @@ Start server: Server will be listening on port 3000
 
 ### *`/list` endpoint*
 
-| **Request**                              | **Description**                      | **Body**                                                         | **Details**                             |
-| ---------------------------------------- | ------------------------------------ | ---------------------------------------------------------------- | --------------------------------------- |
-| `GET /list/:listid`                      | Get a list by list id                |                                                                  |                                         |
-| `DELETE /list/:listid`                   | Delete a list by listid              |                                                                  |                                         |
-| `GET /list/:listid/todo`                 | Get all Todos of a list by listid    |                                                                  |                                         |
-| `GET /list/:listid/todo/:todoid`         | Get Todo by todoid                   |                                                                  |                                         |
-| `POST /list/:listid/todo`                | Add new Todo to a list by list id    | `{`<br/>`"note": "Buy milk",`<br/>`"tags": "food,daily"`<br/>`}` | add multiple tags using comma(optional) |
-| `DELETE /list/:listid/todo/:todoid`      | Delete a Todo by todo id             |                                                                  |                                         |
-| `POST /list/:listid/todo/:todoid/done`   | Mark Todo as done by todo id         |                                                                  |                                         |
-| `DELETE /list/:listid/todo/:todoid/done` | Mark Todo as **not** done by todo id |                                                                  |                                         |
+| **Request**                               | **Description**                      | **Body**                                                        | **Details**                             |
+| ----------------------------------------- | ------------------------------------ | --------------------------------------------------------------- | --------------------------------------- |
+| `GET /list/:listid`                       | Get a list by list id                |                                                                 |                                         |
+| `DELETE /list/:listid`                    | Delete a list by listid              |                                                                 |                                         |
+| `GET /list/:listid/todo`                  | Get all Todos of a list by listid    |                                                                 |                                         |
+| `GET /list/:listid/todo/:todoid`          | Get Todo by todoid                   |                                                                 |                                         |
+| `POST /list/:listid/todo`                 | Add new Todo to a list by list id    | `{`<br/>`"note": "Buy milk",`<br/>`"tag": "food,daily"`<br/>`}` | add multiple tags using comma(optional) |
+| `DELETE /list/:listid/todo/:todoid`       | Delete a Todo by todo id             |                                                                 |                                         |
+| `PATCH /list/:listid/todo/:todoid/done`   | Mark Todo as done by todo id         |                                                                 |                                         |
+| `PATCH /list/:listid/todo/:todoid/undone` | Mark Todo as **not** done by todo id |                                                                 |                                         |
 
 ---------------
 
