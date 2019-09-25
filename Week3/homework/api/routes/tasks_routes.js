@@ -10,9 +10,9 @@ router.post('/', (req, res, next) => {
 });
 
 router.delete('/', (req, res, next) => {
-    const tasksIds = req.body.tasskIds;
+    const tasksIds = req.body.tasksIds;
     res.status(200).json({
-        message: `Deleted task with id ${tasksId}`,
+        message: `Deleted task with id ${tasksIds}`,
     });
 });
 
