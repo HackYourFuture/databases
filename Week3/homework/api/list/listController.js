@@ -9,7 +9,7 @@ module.exports = {
         const schema = Joi.object({
             listName: Joi.string()
                 .min(3)
-                .max(42)
+                .max(45)
                 .required(),
             userIdReference: Joi.number()
                 .min(1)
