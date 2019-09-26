@@ -53,13 +53,20 @@ module.exports = {
 
     deleteList: async function(req, res, next) {
         const listId = req.params.listId;
-        res.status(200).json({
-            message: `Deleted list with ID ${listId}`,
-        });
+        const sql = `DELETE FROM adham_database_hw3.lists WHERE list_id = ?`;
+        try {
+            let sqlResult = await queryPromise(sql, [listId]);
+            res.status(200).json({
+                message: `Trying to delete list with ID: ${listId}`,
+                result: sqlResult.affectedRows,
+                info: 'If the value of the result is zero, then nothing was deleted. Because that list is not existed in the database.',
+            });
+        } catch (error) {
+            next(error);
+        }
     },
 
     addReminder: async function(req, res, next) {
-        const listId = req.params.listId;
         const schema = Joi.object({
             listReminder: Joi.number()
                 .min(1)
@@ -74,10 +81,23 @@ module.exports = {
             res.status(400).send(`${message}`);
             return;
         }
+        const listId = req.params.listId;
         const listReminder = req.body.listReminder;
-        res.status(200).json({
-            message: `Updated list with ID ${listId}`,
-            info: ` the list has a reminder and it is: ${listReminder}`,
-        });
+        const today = new Date();
+        const reminderDate = new Date();
+        reminderDate.setDate(today.getDate() + listReminder);
+        const sql = `UPDATE adham_database_hw3.lists SET list_reminder = ? WHERE list_id = ?`;
+
+        try {
+            let sqlResult = await queryPromise(sql, [reminderDate, listId]);
+            res.status(200).json({
+                message: `Trying to add reminder to the list with ID ${listId}`,
+                reminderSetting: `Remind after ${listReminder} days, then it will be ${reminderDate}`,
+                result: sqlResult.affectedRows,
+                info: 'If the value of the result is zero, then no reminder was added. Because that list is not existed in the database.',
+            });
+        } catch (error) {
+            next(error);
+        }
     },
 };
