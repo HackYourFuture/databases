@@ -3,7 +3,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'hyfuser',
     password: 'hyfpassword',
-    // database: '',
+    database: 'adham_database_hw3',
 });
 
 connection.connect(function(err) {
