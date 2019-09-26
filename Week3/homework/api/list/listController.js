@@ -27,10 +27,28 @@ module.exports = {
 
         const listName = req.body.listName;
         const userIdReference = req.body.userIdReference;
-        res.status(201).json({
-            message: 'Handling POST requests to list',
-            info: ` the list name is: ${listName} for the user with ID: ${userIdReference}`,
-        });
+        try {
+            const sql = `SELECT * FROM lists WHERE user_id_reference=?`;
+            let sqlResult = await queryPromise(sql, [userIdReference]);
+            if (sqlResult.length === 0) {
+                return res.status(404).json({
+                    code: 'user not found',
+                    message: 'user with this ID is not existed in the database',
+                });
+            }
+        } catch (error) {
+            next(error);
+        }
+        try {
+            const sql = `INSERT INTO lists (user_id_reference, list_name) VALUES (${userIdReference}, "${listName}")`;
+            await queryPromise(sql);
+            res.status(201).json({
+                message: 'Handling POST requests to list',
+                info: ` the list name is: ${listName} for the user with ID: ${userIdReference}`,
+            });
+        } catch (error) {
+            next(error);
+        }
     },
 
     deleteList: async function(req, res, next) {
