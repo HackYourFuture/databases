@@ -1,5 +1,8 @@
 const Joi = require('@hapi/joi');
-// const connection = require('../db/database').connection;
+const util = require('util');
+const mysql = require('mysql');
+const connection = require('../db/database').connection;
+const queryPromise = util.promisify(connection.query.bind(connection));
 
 module.exports = {
     createTasks: async function(req, res, next) {
