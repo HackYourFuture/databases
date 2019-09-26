@@ -6,7 +6,7 @@ const db = require('../database/dbHandler');
 class List {
   static async create(req, res) {
     if (!req.session.email) {
-      return res.json('You should login again');
+      return res.status(401).json('You should login again');
     }
 
     const userEmail = req.session.email;
@@ -19,12 +19,12 @@ class List {
       req.session.msg = 'The list is successfully created!';
       return res.redirect('/');
     }
-    res.json('The list could not be created!');
+    res.status(401).json('The list could not be created!');
   }
 
   static async delete(req, res) {
     if (!req.session.email) {
-      return res.json('You should login again');
+      return res.status(401).json('You should login again');
     }
 
     const userEmail = req.session.email;
@@ -37,7 +37,7 @@ class List {
       await db.deleteList(listId, userId, listName);
       return res.redirect('/');
     }
-    res.json('The list could not be deleted');
+    res.status(401).json('The list could not be deleted');
   }
 }
 

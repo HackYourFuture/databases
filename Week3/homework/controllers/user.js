@@ -45,13 +45,13 @@ class User {
       const userId = await db.getUserId(req.session.email);
       req.session.items = await db.getItems(userId);
       const { msg, items } = req.session;
-      return res.json({ msg, items });
+      return res.status(200).json({ msg, items });
     }
     if (req.session.msg) {
       const { msg } = req.session;
-      return res.json({ msg });
+      return res.status(401).json({ msg });
     }
-    res.json('Please, login or register!');
+    res.status(200).json('Please, login or register!');
   }
 
   static async logout(req, res) {
