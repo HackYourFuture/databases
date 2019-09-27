@@ -33,17 +33,25 @@ module.exports = {
                 return;
             }
         });
-        if (alertMessage === '') {
+        if (alertMessage !== '') {
+            return res.status(400).send(alertMessage);
+        }
+
+        const tasksForSql = tasks.map(item => [item.listIdReference, item.taskDescription]);
+
+        try {
+            const sql = `INSERT INTO adham_database_hw3.tasks (list_id_reference, task_description) VALUES ?`;
+            await queryPromise(sql, [tasksForSql]);
             res.status(201).json({
                 message: 'Handling POST requests to task',
                 info: ` the task description is: ${JSON.stringify(tasks)}`,
             });
-        } else {
-            res.status(400).send(alertMessage);
+        } catch (error) {
+            next(error);
         }
     },
 
-    deleteTasks: function(req, res, next) {
+    deleteTasks: async function(req, res, next) {
         const tasksIds = req.body;
         if (Array.isArray(tasksIds) !== true || tasksIds.length === 0) {
             res.status(400).json({ message: 'the req.body must be arry with at least one item' });
@@ -71,14 +79,13 @@ module.exports = {
         }
 
         try {
-            const sql = `DELETE FROM adham_database_hw3.tasks WHERE task_id = ?`;
-            tasksIds.forEach(async id => {
-                await queryPromise(sql, [id]).catch(e => {
-                    console.error(e.message);
-                });
-            });
+            const sql = `DELETE FROM adham_database_hw3.tasks WHERE task_id IN (?)`;
+            let sqlResult = await queryPromise(sql, [tasksIds]);
             res.status(200).json({
-                message: `The deleting process done successfully`,
+                message: `Trying to delete the task or tasks`,
+                askedToBeDeleted: tasksIds.length,
+                Deleted: sqlResult.affectedRows,
+                alreadyNotExist: tasksIds.length - sqlResult.affectedRows,
             });
         } catch (error) {
             next(error);
