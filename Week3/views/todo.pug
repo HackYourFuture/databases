@@ -1,0 +1,62 @@
+doctype html
+html
+  head
+    title= title
+    style.
+       body{
+        background-image: url("/images/image.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: sans-serif;
+        text-align: center;
+      }
+
+      a{
+        color:black;
+      }
+
+      a:visited{
+        color: black;
+      }
+
+        table{
+          width:80%;
+          margin: auto;
+          background-color: rgba(46, 44, 44, 0.5);
+          padding:15px;
+          border-collapse:separate;
+          border-radius:10px;
+        }
+
+        th{
+          background-color:grey;
+          padding:15px;
+          font-size:20px;
+        }
+
+        td{
+          background-color: rgba(181, 181, 181, 0.7);
+          height:100px;
+          font-size:18px;
+        }
+  body
+    table 
+      thead
+        tr
+          th List Name
+          th Reminder
+          th Task
+          th Is it Finished
+          th Update
+          th Delete
+      tbody
+      each item in items
+        tr 
+          td= item.todoid
+          td= item.reminder
+          td= item.item
+          td= item.isdone
+          td
+            a(href='/update/' + item.item + '/' + item.isdone) U
+          td   
+            a(href='/delete/' + item.item) X       

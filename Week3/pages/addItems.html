@@ -1,0 +1,101 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        background-image: url('/images/image.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-align: center;
+        font-family: sans-serif;
+      }
+      h2 {
+        font-size: 2em;
+        color: white;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+
+      a:visited {
+        color: beige;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      ul {
+        width: 40%;
+        margin: auto;
+      }
+
+      ul li {
+        margin: 30px;
+        padding: 20px;
+        float: left;
+        display: inline-block;
+      }
+
+      input[type='text'] {
+        width: 80%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      input[placeholder] {
+        text-align: center;
+        font-size: 18px;
+      }
+
+      button {
+        width: 50%;
+        background-color: #2b302b62;
+        color: white;
+        font-size: 17px;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Add Items To Y our List</h2>
+    <form method="POST" action="/saveAddItem">
+      <div class="todo">
+        <label for="task"><strong> task</strong></label
+        ><br />
+        <input id="task" name="task" type="text" placeholder="Type your task here" /><br />
+        <label for="isDone"><strong>Is it finished?</strong></label
+        ><br />
+        <input id="isdone" name="isdone" type="text" placeholder="Only type Yes or No" />
+        <br />
+        <label for="listName"><strong>List Name</strong></label>
+        <br />
+        <input
+          id="listName"
+          name="listName"
+          type="text"
+          placeholder="Type here the list that this task belongs to"
+        />
+        <label for="Add"></label><br />
+        <button>Add task!</button>
+      </div>
+    </form>
+    <ul>
+      <li><a href="/view">View List</a></li>
+      <li><a href="/">Submit List!</a></li>
+      <li><a href="/deleteList"> Delete List</a></li>
+    </ul>
+  </body>
+</html>

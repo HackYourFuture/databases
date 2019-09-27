@@ -1,0 +1,106 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        background-image: url('/images/image.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-align: center;
+        font-family: sans-serif;
+      }
+      h2 {
+        font-size: 2em;
+        color: white;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+
+      a:visited {
+        color: beige;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      ul {
+        width: 40%;
+        margin: auto;
+      }
+
+      ul li {
+        margin: 30px;
+        padding: 10px;
+        float: left;
+        display: inline-block;
+      }
+
+      input[type='text'] {
+        width: 80%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      input[placeholder] {
+        text-align: center;
+        font-size: 18px;
+      }
+
+      button {
+        width: 50%;
+        background-color: #2b302b62;
+        color: white;
+        font-size: 17px;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Create Your Own To-Do List</h2>
+    <form method="POST" action="/submit">
+      <div class="todo">
+        <label for="name"><strong> List Name</strong></label
+        ><br />
+        <input
+          id="todoid"
+          name="todoid"
+          type="text"
+          placeholder="Type your To-Do List name"
+        /><br />
+        <label for="reminder"><strong>Reminder</strong></label
+        ><br />
+        <input
+          id="reminder"
+          name="reminder"
+          type="text"
+          placeholder="Type your List reminder"
+        /><br />
+        <label for="submit"></label><br />
+        <button>Create ToDo List!</button>
+      </div>
+    </form>
+    <ul>
+      <li><a href="/view">View List</a></li>
+      <li><a href="/addItems">Add Item to Your List</a></li>
+      <li><a href="/delete"> Delete List</a></li>
+    </ul>
+  </body>
+</html>

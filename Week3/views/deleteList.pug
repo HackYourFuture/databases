@@ -1,0 +1,48 @@
+doctype html
+html
+  head
+    title= title
+    style.
+      body{
+        background-image: url("/images/image.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: sans-serif;
+        text-align: center;
+        }
+
+        h2{
+          color:white;
+        }
+        table{
+          width:80%;
+          margin: auto;
+          background-color: rgba(46, 44, 44, 0.5);
+          padding:15px;
+          border-collapse:separate;
+          border-radius:10px;
+        }
+
+        th{
+          background-color:grey;
+          padding:15px;
+          font-size:20px;
+        }
+
+        td{
+          background-color: rgba(181, 181, 181, 0.7);
+          font-size:18px;
+        }
+
+  body
+    h2= explanation
+    table 
+      thead
+        tr
+          th List Name
+          th Task
+      tbody
+      each item in items
+        tr 
+          td= item.belongs_to
+          td= item.item
