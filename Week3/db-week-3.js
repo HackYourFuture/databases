@@ -49,6 +49,11 @@ app.get('/', async function(req, res) {
   }
 });
 
+app.get('/download', function(req, res) {
+  const file = `${__dirname}/instructions/Readme.md`;
+  res.download(file);
+});
+
 app.post('/submit', async function(req, res) {
   try {
     const connection = mysql.createConnection(todoDatabase);
@@ -111,10 +116,8 @@ app.put('/update/:item/:isdone', async (req, res) => {
   try {
     const connection = mysql.createConnection(todoDatabase);
     const execQuery = util.promisify(connection.query.bind(connection));
-    const updateQuery = `UPDATE items SET isdone = '?' Where items.item = '?';`;
-    execQuery(updateQuery, [req.params.item, req.params.isdone], (err, rows, fields) => {
-      res.send('Your data is up-to-date!');
-    });
+    const updateQuery = `UPDATE items SET isdone = '${req.params.item}' Where items.item = '${req.params.isdone}';`;
+    execQuery(updateQuery).then(res.send('Your item is up-to-date!'));
 
     connection.end();
   } catch (err) {

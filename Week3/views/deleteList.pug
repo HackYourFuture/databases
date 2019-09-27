@@ -34,6 +34,32 @@ html
           font-size:18px;
         }
 
+        .listItem {
+        color: white;
+        text-decoration: none;
+      }
+
+      .listItem:visited {
+        color: beige;
+      }
+
+      .listItem:hover {
+        text-decoration: underline;
+      }
+
+      ul {
+        width: 40%;
+        margin: auto;
+        list-style-type:none;
+      }
+
+      ul li {
+        margin: 20px;
+        padding: 10px;
+        float: left;
+        display: inline-block;
+      }
+
   body
     h2= explanation
     table 
@@ -46,3 +72,11 @@ html
         tr 
           td= item.belongs_to
           td= item.item
+    
+    ul
+      li 
+        a(href='/addItems' class='listItem') Add Item To Your List
+      li 
+        a(href='/' class='listItem') Home Page
+      li 
+        a(href='/view' class='listItem') View Lists

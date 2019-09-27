@@ -39,6 +39,33 @@ html
           height:100px;
           font-size:18px;
         }
+
+      .listItem {
+        color: white;
+        text-decoration: none;
+      }
+
+      .listItem:visited {
+        color: beige;
+      }
+
+      .listItem:hover {
+        text-decoration: underline;
+      }
+
+      ul {
+        width: 40%;
+        margin: auto;
+        list-style-type:none;
+      }
+
+      ul li {
+        margin: 20px;
+        padding: 10px;
+        float: left;
+        display: inline-block;
+      }
+
   body
     table 
       thead
@@ -60,3 +87,11 @@ html
             a(href='/update/' + item.item + '/' + item.isdone) U
           td   
             a(href='/delete/' + item.item) X       
+
+    ul
+      li 
+        a(href='/addItems' class='listItem') Add Item To Your List
+      li 
+        a(href='/' class='listItem') Home Page
+      li 
+        a(href='/delete' class='listItem') Delete List
