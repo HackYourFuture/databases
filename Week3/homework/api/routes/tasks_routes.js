@@ -7,12 +7,6 @@ router.post('/', taskController.createTasks);
 
 router.delete('/', taskController.deleteTasks);
 
-router.patch('/:taskId', (req, res, next) => {
-    const taskId = req.params.taskId;
-    res.status(200).json({
-        message: `Update task with id ${taskId}`,
-        info: ` the task is marked as completed`,
-    });
-});
+router.patch('/:taskId', taskController.markCompleted);
 
 module.exports = router;
