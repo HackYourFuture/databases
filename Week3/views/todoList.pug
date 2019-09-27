@@ -1,0 +1,84 @@
+doctype html
+html
+  head
+    title= title
+    style.
+       body{
+        background-image: url("/images/image.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: sans-serif;
+        text-align: center;
+      }
+
+      a{
+        color:black;
+      }
+
+      a:visited{
+        color: black;
+      }
+
+        table{
+          width:40%;
+          margin: auto;
+          background-color: rgba(46, 44, 44, 0.5);
+          padding:15px;
+          border-collapse:separate;
+          border-radius:10px;
+        }
+
+        th{
+          background-color:grey;
+          padding:15px;
+          font-size:20px;
+        }
+
+        td{
+          background-color: rgba(181, 181, 181, 0.7);
+          height:50px;
+          font-size:18px;
+        }
+
+      .listItem {
+        color: white;
+        text-decoration: none;
+      }
+
+      .listItem:visited {
+        color: beige;
+      }
+
+      .listItem:hover {
+        text-decoration: underline;
+      }
+
+      ul {
+        width: 40%;
+        margin: auto;
+        list-style-type:none;
+      }
+
+      ul li {
+        margin: 20px;
+        padding: 10px;
+        float: left;
+        display: inline-block;
+      }
+
+  body
+    table 
+      thead
+        tr
+          th List Name
+      tbody
+      each item in items
+        tr 
+          td= item.todoid
+    ul
+      li 
+        a(href='/addItems' class='listItem') Add Item To Your List
+      li 
+        a(href='/' class='listItem') Home Page
+      li 
+        a(href='/delete' class='listItem') Delete List

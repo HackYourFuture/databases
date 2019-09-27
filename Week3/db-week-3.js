@@ -59,9 +59,15 @@ app.post('/submit', async function(req, res) {
     const connection = mysql.createConnection(todoDatabase);
     const execQuery = util.promisify(connection.query.bind(connection));
     const todoQuery = `INSERT INTO todos VALUES ('${req.body.todoid}', '${req.body.reminder}')`;
-    await execQuery(todoQuery);
-    res.render('index', { message: 'Thank you for your patience! Your list is saved!' });
-    connection.end();
+    const newList = await execQuery(todoQuery);
+    if (newList.length === 0) {
+      res.render('index', {
+        message: 'A list name or a reminder cannot be empty. Please go back and fill the inputs',
+      });
+    } else {
+      res.render('index', { message: 'Thank you for your patience! Your list is saved!' });
+      connection.end();
+    }
   } catch (err) {
     if (err) {
       throw err;
@@ -104,6 +110,29 @@ app.get('/view', async (req, res) => {
     const listQuery = `select todoid, reminder, item, isdone from todos, items where todos.todoid = items.belongs_to;`;
     const data = await execQuery(listQuery);
     res.render('todo', { title: 'Lists', items: data });
+    connection.end();
+  } catch (err) {
+    if (err) {
+      throw err;
+    }
+  }
+});
+
+app.get('/viewOnlyLists', async (req, res) => {
+  try {
+    const connection = mysql.createConnection(todoDatabase);
+    const execQuery = util.promisify(connection.query.bind(connection));
+    const onlyListQuery = `select todoid from todos;`;
+    await execQuery(onlyListQuery).then(data => {
+      if (data.length == 0) {
+        res.render('index', {
+          title: 'Only List',
+          message: "You don't have any lists, please create some.",
+        });
+      } else {
+        res.render('todoList', { title: 'Lists', items: data });
+      }
+    });
     connection.end();
   } catch (err) {
     if (err) {
