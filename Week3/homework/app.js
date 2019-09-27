@@ -1,3 +1,4 @@
+'use strict';
 const express = require('express');
 const app = express();
 const lists_routes = require('./api/routes/lists_routes');

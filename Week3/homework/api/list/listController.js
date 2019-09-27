@@ -1,3 +1,4 @@
+'use strict';
 const Joi = require('@hapi/joi');
 const util = require('util');
 const connection = require('../db/database').connection;
@@ -24,7 +25,6 @@ module.exports = {
             res.status(400).send(message);
             return;
         }
-
         const listName = req.body.listName;
         const userIdReference = req.body.userIdReference;
         try {
@@ -89,7 +89,6 @@ module.exports = {
         const reminderDate = new Date();
         reminderDate.setDate(today.getDate() + listReminder);
         const sql = `UPDATE adham_database_hw3.lists SET list_reminder = ? WHERE list_id = ?`;
-
         try {
             let sqlResult = await queryPromise(sql, [reminderDate, listId]);
             res.status(200).json({

@@ -1,3 +1,5 @@
+'use strict';
+
 const Joi = require('@hapi/joi');
 const util = require('util');
 const connection = require('../db/database').connection;
@@ -20,7 +22,6 @@ module.exports = {
                 .min(1)
                 .required(),
         });
-
         let alertMessage = '';
         tasks.forEach(task => {
             const validationResult = schema.validate({
@@ -35,15 +36,13 @@ module.exports = {
         if (alertMessage !== '') {
             return res.status(400).send(alertMessage);
         }
-
         const tasksForSql = tasks.map(item => [item.listIdReference, item.taskDescription]);
-
         try {
             const sql = `INSERT INTO adham_database_hw3.tasks (list_id_reference, task_description) VALUES ?`;
             await queryPromise(sql, [tasksForSql]);
             res.status(201).json({
-                message: 'Handling POST requests to task',
-                info: ` the task description is: ${JSON.stringify(tasks)}`,
+                message: 'Adding task or tasks done successfully',
+                info: ` ${tasksForSql.length} task or tasks added`,
             });
         } catch (error) {
             next(error);
@@ -72,11 +71,9 @@ module.exports = {
                 return;
             }
         });
-
         if (alertMessage !== '') {
             return res.status(400).send(alertMessage);
         }
-
         try {
             const sql = `DELETE FROM adham_database_hw3.tasks WHERE task_id IN (?)`;
             let sqlResult = await queryPromise(sql, [tasksIds]);
