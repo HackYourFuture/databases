@@ -1,6 +1,5 @@
 const Joi = require('@hapi/joi');
 const util = require('util');
-const mysql = require('mysql');
 const connection = require('../db/database').connection;
 const queryPromise = util.promisify(connection.query.bind(connection));
 
