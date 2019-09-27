@@ -1,0 +1,86 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0 auto;
+  width: 50%;
+  position: relative;
+  min-height: 100%;
+  height: 100%;
+  background-color: rgb(244, 232, 102);
+}
+
+form {
+  background-color: rgb(250, 209, 216);
+  border: 1px solid antiquewhite;
+  padding: 1em;
+  margin: 25px;
+}
+
+h1 {
+  color: azure;
+  text-align: center;
+  text-shadow: 10px 10px 10px 10px white;
+}
+
+h2 {
+  color: antiquewhite;
+  text-align: center;
+}
+
+#container {
+  background-color: pink;
+  border: 1px solid antiquewhite;
+  width: 450px;
+  display: block;
+  margin: 25px auto;
+  padding: 15px;
+}
+
+#container input {
+  margin: 15px;
+  width: 310px;
+  height: 45px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-color: #0000000d rgba(252, 52, 52, 0.08) rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.05);
+}
+
+label {
+  color: #636262;
+}
+
+.submit-button {
+  color: antiquewhite;
+  font-size: 18px;
+  background-color: rgb(156, 252, 220);
+  width: 50px;
+  cursor: pointer;
+}
+
+.reset-button {
+  color: antiquewhite;
+  font-size: 18px;
+  background-color: rgb(129, 222, 212);
+  cursor: pointer;
+}
+
+#timepicker:before {
+  content: 'Reminder Time:';
+  margin-right: 0.6em;
+  color: #9d9d9d;
+}
+
+#timepickertodo:before {
+  content: 'Deadline:';
+  margin-right: 0.6em;
+  color: #9d9d9d;
+}
+
+#category-picker:before {
+  content: 'Choose a category:';
+  color: #9d9d9d;
+}

@@ -1,0 +1,25 @@
+<form id="add_todo_form" action="/add_todo" method="POST">
+  <input type="text" name="add_todo_input" placeholder="Add Todo" />
+  <input type="datetime-local" name="add_todo_deadline" id="timepickertodo" />
+  <input type="text" name="add_todo_list" placeholder="Add into List" />
+  <input class="todo-tag" type="radio" name="add_todo_tag" value="1" id="category-picker" >
+  <label for="category-picker">Work</label>
+</input>
+  <input class="todo-tag" type="radio" name="add_todo_tag" value="2" id="chores">
+  <label for="chores">Chores</label>
+</input>
+  <input class="todo-tag" type="radio" name="add_todo_tag" value="3" id="urgent">
+  <label for="urgent">Urgent</label>
+</input>
+  <input class="todo-tag" type="radio" name="add_todo_tag" value="4" id="fun">
+  <label for="fun">Fun</label>
+</input>
+  <input class="todo-tag" type="radio" name="add_todo_tag" value="5" id="personal"> 
+  <label for="personal">Personal</label>
+</input>
+  <input class="todo-tag" type="radio" name="add_todo_tag" value="6" id="family"> 
+  <label for="family">Family</label>
+</input>
+  <input class="submit-button" type="submit" value="Submit" />
+  <input class="reset-button" type="reset" />
+</form>
