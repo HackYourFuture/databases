@@ -81,7 +81,7 @@ module.exports = {
         });
         if (validationResult.error) {
             const message = validationResult.error.details[0].message;
-            res.status(400).send(`${message}`);
+            res.status(400).send(message);
             return;
         }
         const listId = req.params.listId;
