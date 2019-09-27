@@ -61,7 +61,7 @@ module.exports = {
                 message: `Trying to delete list with ID: ${listId}.`,
                 info: sqlResult.affectedRows === 0 ?
                     'That list is already not exists' :
-                    'The list is deleted successfully',
+                    "The list is deleted successfully, with all it's related tasks ",
             });
         } catch (error) {
             next(error);
