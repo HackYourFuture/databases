@@ -27,34 +27,37 @@ const connection = getConnection();
 
 router.get('/get_todos', (req, res) => {
   const queryString = 'SELECT * from task;';
-  connection.query(queryString, (err, rows, fields) => {
-    if (err) {
-      console.log(`Failed to query @ /get_todo: ${err}`);
-    }
-    console.log('Getting data from database @ /get_todos');
 
-    res.write(`<h1>Todos</h1>
+  res.render('viewtodos', (err, html) => {
+    connection.query(queryString, (err, rows, fields) => {
+      if (err) {
+        console.log(`Failed to query @ /get_todo: ${err}`);
+      }
+      console.log('Getting data from database @ /get_todos');
+
+      res.write(html);
+      res.write(`<h1>Todos</h1>
         <form id="delete_todo_form" action="/delete_todo" method="POST"><table>
-        <tr><th>Todo</th><th> List </th><th> Category Tag </th><th> Deadline </th><th> Status </th></tr>`);
-    for (i in rows) {
-      if (Object.prototype.hasOwnProperty.call(rows, i)) {
-        let taskState = '';
-        const options = {
-          weekday: 'short',
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: 'numeric',
-        };
+        <tr><th>Todo</th><th> List </th><th> Category Tag </th><th> Deadline </th><th> Status </th><th></th><th></th></tr>`);
+      for (i in rows) {
+        if (Object.prototype.hasOwnProperty.call(rows, i)) {
+          let taskState = '';
+          const options = {
+            weekday: 'short',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: 'numeric',
+          };
 
-        if (rows[i].complete == 'T') {
-          taskState = 'Done';
-        } else {
-          taskState = 'Not Done';
-        }
-        res.write(
-          `<tr>
+          if (rows[i].complete == 'T') {
+            taskState = 'Done';
+          } else {
+            taskState = 'Not Done';
+          }
+          res.write(
+            `<tr>
           <td>${rows[i].task_name}</td> 
           <td>${rows[i].list_id}</td>
           <td>${rows[i].category_id}</td>
@@ -65,10 +68,12 @@ router.get('/get_todos', (req, res) => {
   rows[i].task_name
 }" name="update_todo_task"/>Mark As Complete</button></td>
           </tr>`,
-        );
+          );
+        }
       }
-    }
-    res.end('</table></form>');
+
+      res.end('</table></form>');
+    });
   });
 });
 
@@ -76,22 +81,26 @@ router.get('/get_todos', (req, res) => {
 
 router.get('/get_lists', (req, res) => {
   const queryString = 'SELECT * FROM task_list';
-  connection.query(queryString, (err, rows, fields) => {
-    if (err) {
-      console.log(`Failed to query @ /get_lists: ${err}`);
-    }
-    console.log('Getting data from database @ /get_lists');
-    res.write(`<h1>Todo Lists</h1>
+  res.render('viewtodos', (err, html) => {
+    connection.query(queryString, (err, rows, fields) => {
+      if (err) {
+        console.log(`Failed to query @ /get_lists: ${err}`);
+      }
+      console.log('Getting data from database @ /get_lists');
+
+      res.write(html);
+      res.write(`<h1>Todo Lists</h1>
     <form id="delete_list_form" action="/delete_list" method="POST">
         <table><tr><th>List Name</th><th>Reminder</th><th></th></tr>`);
-    for (i in rows) {
-      if (Object.prototype.hasOwnProperty.call(rows, i)) {
-        res.write(`<tr><td>${rows[i].list_name}</td>
+      for (i in rows) {
+        if (Object.prototype.hasOwnProperty.call(rows, i)) {
+          res.write(`<tr><td>${rows[i].list_name}</td>
         <td>${rows[i].reminder_time.toLocaleString()}</td>
         <td><button value="${rows[i].list_id}" name="delete_todo_task"/>Delete</button></td></tr>`);
+        }
       }
-    }
-    res.end('</table></form>');
+      res.end('</table></form>');
+    });
   });
 });
 
@@ -99,21 +108,25 @@ router.get('/get_lists', (req, res) => {
 
 router.get('/get_users', (req, res) => {
   const queryString = 'SELECT * FROM user';
-  connection.query(queryString, (err, rows, fields) => {
-    if (err) {
-      console.log(`Failed to query @ /get_users: ${err}`);
-    }
-    console.log('Getting data from database @ /get_users');
-    res.write(`<h1>Users</h1>
+  res.render('viewtodos', (err, html) => {
+    connection.query(queryString, (err, rows, fields) => {
+      if (err) {
+        console.log(`Failed to query @ /get_users: ${err}`);
+      }
+      console.log('Getting data from database @ /get_users');
+
+      res.write(html);
+      res.write(`<h1>Users</h1>
         <table><tr><th>Name</th><th>Email</th><th>Password</th>`);
-    for (i in rows) {
-      if (Object.prototype.hasOwnProperty.call(rows, i)) {
-        res.write(`<tr><td>${rows[i].user_name}</td>
+      for (i in rows) {
+        if (Object.prototype.hasOwnProperty.call(rows, i)) {
+          res.write(`<tr><td>${rows[i].user_name}</td>
         <td>${rows[i].user_email}</td>
         <td>${rows[i].user_password}</td></tr>`);
+        }
       }
-    }
-    res.end('</table>');
+      res.end('</table>');
+    });
   });
 });
 
