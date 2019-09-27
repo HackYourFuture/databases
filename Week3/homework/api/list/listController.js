@@ -12,6 +12,7 @@ module.exports = {
                 .max(45)
                 .required(),
             userIdReference: Joi.number()
+                .integer()
                 .min(1)
                 .required(),
         });
@@ -21,7 +22,7 @@ module.exports = {
         });
         if (validationResult.error) {
             const message = validationResult.error.details[0].message;
-            res.status(400).send(`${message}`);
+            res.status(400).send(message);
             return;
         }
 
@@ -32,19 +33,19 @@ module.exports = {
             let sqlResult = await queryPromise(sql, [userIdReference]);
             if (sqlResult.length === 0) {
                 return res.status(404).json({
-                    code: 'user not found',
-                    message: 'user with this ID is not existed in the database',
+                    message: 'User not found.',
+                    info: `User with ID ${userIdReference} does not exist in the database.`,
                 });
             }
         } catch (error) {
             next(error);
         }
         try {
-            const sql = `INSERT INTO lists (user_id_reference, list_name) VALUES (${userIdReference}, "${listName}")`;
-            await queryPromise(sql);
+            const sql = `INSERT INTO lists (user_id_reference, list_name) VALUES (?, ?)`;
+            await queryPromise(sql, [userIdReference, listName]);
             res.status(201).json({
-                message: 'Handling POST requests to list',
-                info: ` the list name is: ${listName} for the user with ID: ${userIdReference}`,
+                message: 'Trying to add new list to the database.',
+                info: `Added successfully, The list name is: ${listName}, for the user with ID: ${userIdReference}`,
             });
         } catch (error) {
             next(error);
@@ -57,9 +58,10 @@ module.exports = {
         try {
             let sqlResult = await queryPromise(sql, [listId]);
             res.status(200).json({
-                message: `Trying to delete list with ID: ${listId}`,
-                result: sqlResult.affectedRows,
-                info: 'If the value of the result is zero, then nothing was deleted. Because that list is not existed in the database.',
+                message: `Trying to delete list with ID: ${listId}.`,
+                info: sqlResult.affectedRows === 0 ?
+                    'That list is already not exists' :
+                    'The list is deleted successfully',
             });
         } catch (error) {
             next(error);
@@ -69,6 +71,7 @@ module.exports = {
     addReminder: async function(req, res, next) {
         const schema = Joi.object({
             listReminder: Joi.number()
+                .integer()
                 .min(1)
                 .max(31)
                 .required(),
@@ -93,8 +96,9 @@ module.exports = {
             res.status(200).json({
                 message: `Trying to add reminder to the list with ID ${listId}`,
                 reminderSetting: `Remind after ${listReminder} days, then it will be ${reminderDate}`,
-                result: sqlResult.affectedRows,
-                info: 'If the value of the result is zero, then no reminder was added. Because that list is not existed in the database.',
+                info: sqlResult.affectedRows === 0 ?
+                    'Reminder is NOt added: that list is not existed ' :
+                    'The reminder is added successfully',
             });
         } catch (error) {
             next(error);

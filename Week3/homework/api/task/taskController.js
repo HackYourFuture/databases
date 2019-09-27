@@ -17,6 +17,7 @@ module.exports = {
                 .max(42)
                 .required(),
             listIdReference: Joi.number()
+                .integer()
                 .min(1)
                 .required(),
         });
@@ -50,6 +51,7 @@ module.exports = {
         }
         const schema = Joi.object({
             taskId: Joi.number()
+                .integer()
                 .min(1)
                 .required(),
         });
@@ -77,6 +79,7 @@ module.exports = {
         const listId = req.params.listId;
         const schema = Joi.object({
             listReminder: Joi.number()
+                .integer()
                 .min(1)
                 .max(31)
                 .required(),
