@@ -43,7 +43,7 @@ module.exports = {
         }
     },
 
-    deleteTasks: async function(req, res, next) {
+    deleteTasks: function(req, res, next) {
         const tasksIds = req.body;
         if (Array.isArray(tasksIds) !== true || tasksIds.length === 0) {
             res.status(400).json({ message: 'the req.body must be arry with at least one item' });
@@ -66,12 +66,22 @@ module.exports = {
             }
         });
 
-        if (alertMessage === '') {
-            res.status(200).json({
-                message: `Deleted task with id ${tasksIds}`,
+        if (alertMessage !== '') {
+            return res.status(400).send(alertMessage);
+        }
+
+        try {
+            const sql = `DELETE FROM adham_database_hw3.tasks WHERE task_id = ?`;
+            tasksIds.forEach(async id => {
+                await queryPromise(sql, [id]).catch(e => {
+                    console.error(e.message);
+                });
             });
-        } else {
-            res.status(400).send(alertMessage);
+            res.status(200).json({
+                message: `The deleting process done successfully`,
+            });
+        } catch (error) {
+            next(error);
         }
     },
 
