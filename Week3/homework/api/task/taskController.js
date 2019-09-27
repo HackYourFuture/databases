@@ -77,9 +77,17 @@ module.exports = {
 
     markCompleted: async function(req, res, next) {
         const taskId = req.params.taskId;
-        res.status(200).json({
-            message: `Update task with id ${taskId}`,
-            info: ` the task is marked as completed`,
-        });
+        const sql = `UPDATE adham_database_hw3.tasks SET task_completed = 1 WHERE task_id = ?`;
+        try {
+            let sqlResult = await queryPromise(sql, [taskId]);
+            res.status(200).json({
+                message: `Trying to mark the task with id ${taskId} as completed.`,
+                info: sqlResult.affectedRows === 0 ?
+                    'Task is NOt marked: that task is not existed.' :
+                    'The Task is marked successfully as completed.',
+            });
+        } catch (error) {
+            next(error);
+        }
     },
 };
