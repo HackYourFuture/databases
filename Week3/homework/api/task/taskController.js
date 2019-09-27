@@ -76,26 +76,10 @@ module.exports = {
     },
 
     markCompleted: async function(req, res, next) {
-        const listId = req.params.listId;
-        const schema = Joi.object({
-            listReminder: Joi.number()
-                .integer()
-                .min(1)
-                .max(31)
-                .required(),
-        });
-        const validationResult = schema.validate({
-            listReminder: req.body.listReminder,
-        });
-        if (validationResult.error) {
-            const message = validationResult.error.details[0].message;
-            res.status(400).send(`${message}`);
-            return;
-        }
-        const listReminder = req.body.listReminder;
+        const taskId = req.params.taskId;
         res.status(200).json({
-            message: `Updated list with ID ${listId}`,
-            info: ` the list has a reminder and it is: ${listReminder}`,
+            message: `Update task with id ${taskId}`,
+            info: ` the task is marked as completed`,
         });
     },
 };
