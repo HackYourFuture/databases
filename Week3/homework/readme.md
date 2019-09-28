@@ -100,7 +100,7 @@ The reminder is a new date after few days from now. in the body request you will
 **Insert the folowing in PostMan then send the request:**
 - HTTP method: PATCH.
 - Endpoint syntax:`http://localhost:3000/tasks/{id}`
-- Endpoint: `http://localhost:3000/tasks/5` The number 1 references to the task ID.
+- Endpoint: `http://localhost:3000/tasks/5` The number 5 references to the task ID.
 - Send the request.
 - You will get response likie this:
  `{    "message": "Trying to mark the task with id 5 as completed.",
