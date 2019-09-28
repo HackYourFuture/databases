@@ -34,7 +34,7 @@ Run the PostMan program on your computer, so you can test the app by sending HTT
 - Endpoint: `http://localhost:3000/lists`
 - Request body: raw.
 - Request body conent type: `JSON`.
-- Request body: `{"listName":"test 1","userIdReference":5}`
+- Request body: `{"listName":"test 1","userIdReference":1}`
 - Send the request.
 - You will get response likie this:
  `{ "message": "Trying to add new list to the database.",
