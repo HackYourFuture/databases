@@ -9,7 +9,7 @@ Through this app it is possible to :
 - Add a reminder for a list.
 - Insert task(s) in ToDo list.
 - Delete task(s) in ToDo list.
-- Mark an task as completed.
+- Mark task as completed.
 ## requirements
 -  Node js  on your computer.
 - MySQL server on your computer.
