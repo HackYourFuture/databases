@@ -9,7 +9,7 @@ Through this app it is possible to :
 - Add a reminder for a list.
 - Insert task(s) in ToDo list.
 - Delete task(s) in ToDo list.
-- Mark an item as completed.
+- Mark an task as completed.
 ## requirements
 -  Node js  on your computer.
 - MySQL server on your computer.
@@ -96,7 +96,7 @@ The reminder is a new date after few days from now. in the body request you will
 - In the database you can see that 3 tasks are deleted.
 -  You can also delete a single task by sending Request body like this:
 `[4]`.
-#### ## 6- Mark an item as completed:
+#### ## 6- Mark task as completed:
 **Insert the folowing in PostMan then send the request:**
 - HTTP method: PATCH.
 - Endpoint syntax:`http://localhost:3000/tasks/{id}`
