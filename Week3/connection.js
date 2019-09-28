@@ -13,9 +13,9 @@ const execQuery = util.promisify(mysqlConnection.query.bind(mysqlConnection));
 
 mysqlConnection.connect(err => {
   if (!err) {
-    console.log('connected');
+    console.log('Connected to database successfully');
   } else {
-    console.log('failed');
+    console.log('Connection to database failed');
   }
 });
 
