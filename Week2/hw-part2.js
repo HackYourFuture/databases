@@ -27,13 +27,12 @@ async function queryDatabase() {
     const numLang = langs[0]['count(language)'];
     console.log(`Number of languages spoken: ${numLang}`);
 
-    // Insert row to table to test. I used Indonesia and added different languages until I reached 10
+    // Type Indonesia in prompt to test
 
     await execQuery(
-      "INSERT INTO countryLanguage(CountryCode,Language,isOfficial, Percentage) values('IDN', 'NewLanguage1', 'F', 0);",
+      "INSERT INTO countrylanguage values('IDN', 'NewLang', 'F', 0);",
       (error, res, fields) => {
         if (error) throw error;
-        if (numLang >= 10) throw Error('ALERT! Language count is equal/more than 10');
         console.log('Row is added');
       },
     );
