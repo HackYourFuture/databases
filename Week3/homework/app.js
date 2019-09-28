@@ -15,9 +15,7 @@ const connection = mysql.createConnection({
 
 // Create User
 const createUser = (req, res) => {
-  // const user_id = req.body.id;
   const user_name = req.body.name;
-  // const email = req.body.email;
   if (!user_name) {
     return res.status(400).send('Please enter a username for user!');
   }
@@ -68,10 +66,8 @@ const updateUser = (req, res) => {
 
 // Create todolist
 const createTodoList = (req, res) => {
-  // const todolist_id = req.body.id;
   const user_id = req.body.user;
   const todolist_name = req.body.name;
-
   const createTodolist = `INSERT INTO todolist (user_id, todolist_Name) VALUES (?, ?)`;
   connection.query(createTodolist, [user_id, todolist_name], err => {
     if (err) {
@@ -95,11 +91,9 @@ const deleteTodoList = (req, res) => {
 
 //Create todos list
 const createTodo = (req, res) => {
-  // const todo_id = req.body.id;
   const todolist_id = req.body.todolist_id;
   const todo_item = req.body.name;
   const tag = req.body.tag;
-  // const reminder = req.body.reminder;
   const done = req.body.done;
   const createTodo = `INSERT INTO todos (todolist_id, todo_item, tag, done ) VALUES (?, ?, ?, ?)`;
   connection.query(createTodo, [todolist_id, todo_item, tag, done], err => {
