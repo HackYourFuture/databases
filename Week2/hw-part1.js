@@ -64,24 +64,16 @@ async function queryDatabase() {
     const response = await prompts(questions, { onSubmit });
 
     inputCountryCode = response.CountryCode.toUpperCase();
-    inputRegion = response.region
-      .toLowerCase()
-      .split(' ')
-      .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-      .join(' ');
-    inputLanguage = response.language.replace(/^\w/, c => c.toUpperCase());
-    inputRegOf = response.region2
-      .toLowerCase()
-      .split(' ')
-      .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-      .join(' ');
-    inputLangOf = response.language2.replace(/^\w/, c => c.toUpperCase());
+    inputRegion = response.region;
+    inputLanguage = response.language;
+    inputRegOf = response.region2;
+    inputLangOf = response.language2;
 
     const selectCapital =      'SELECT name FROM city WHERE ID =(SELECT capital FROM country WHERE Code = ?);';
     const selectLang =      'SELECT Language FROM countrylanguage JOIN country ON CountryCode = Code WHERE region = ?';
     const selectNum = 'SELECT count(countryCode) FROM countrylanguage WHERE Language = ?';
-    const selectOfficial = `SELECT countryCode, name AS Country, isOfficial FROM country JOIN countryLanguage ON countryCode = Code WHERE region = '${inputRegOf}' AND language = '${inputLangOf}'`;
-    const selectContinent = `SELECT country.continent, COUNT(DISTINCT countrylanguage.language) as 'Number of Languages'
+    const selectOfficial = `SELECT countryCode, name AS Country, isOfficial FROM country JOIN countryLanguage ON countryCode = Code WHERE region = '${inputRegOf}' AND language = '${inputLangOf}' AND IsOfficial='T'`;
+    const selectContinent = `SELECT country.continent, COUNT(DISTINCT countrylanguage.language) as 'numLangs'
     FROM country INNER JOIN countrylanguage 
     ON countrylanguage.countrycode = country.code 
     GROUP BY country.continent;`;
@@ -101,7 +93,7 @@ async function queryDatabase() {
     console.log(`Q2. Languages spoken in ${inputRegion.magenta}`.green);
     const getLang = Object.entries(results2);
 
-    for (i = 0; i < getLang.length; i++) {
+    for (i in getLang) {
       console.log(getLang[i][1].Language);
     }
 
@@ -114,11 +106,11 @@ async function queryDatabase() {
 
     // Query 4
     console.table(
-      `Q4. ${inputLangOf} is official language in the region ${inputRegOf.magenta}: `.green,
+      `Q4. ${inputLangOf} is official language in region ${inputRegOf.magenta} countries: `.green,
     );
-    for (i = 0; i < results4.length; i++) {
+    for (i in results4) {
       if (results4[i].isOfficial == 'T') {
-        console.log(`Official in: ${results4[i].Country}`);
+        console.log(results4[i].Country);
       } else {
         console.log('FALSE');
       }
@@ -126,7 +118,12 @@ async function queryDatabase() {
 
     // Query 5
     console.log('Q5. Continents and number of languages spoken:'.green);
-    console.table(results5);
+
+    for (i in results5) {
+      console.log(
+        `Continent: ${results5[i].continent.magenta} Number of Languages: ${results5[i].numLangs}`,
+      );
+    }
   } catch (error) {
     console.error(error);
   }
