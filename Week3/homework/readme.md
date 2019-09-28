@@ -43,6 +43,7 @@ Run the PostMan program on your computer, so you can test the app by sending HTT
 #### ## 2- Delete a ToDo list:
 **Insert the folowing in PostMan then send the request:**
 - HTTP method: DELETE.
+- Endpoint syntax:`http://localhost:3000/lists/{id}`
 - Endpoint: `http://localhost:3000/lists/10`. The number 10 references to the list ID.
 - Send the request.
 - You will get response likie this:
@@ -53,6 +54,7 @@ Run the PostMan program on your computer, so you can test the app by sending HTT
 The reminder is a new date after few days from now. in the body request you will send the number of days.
 **Insert the folowing in PostMan then send the request:**
 - HTTP method: PATCH.
+- Endpoint syntax:`http://localhost:3000/lists/{id}`
 - Endpoint: `http://localhost:3000/lists/1` The number 1 references to the list ID.
 - Request body: raw.
 - Request body conent type: `JSON`.
@@ -97,6 +99,7 @@ The reminder is a new date after few days from now. in the body request you will
 #### ## 6- Mark an item as completed:
 **Insert the folowing in PostMan then send the request:**
 - HTTP method: PATCH.
+- Endpoint syntax:`http://localhost:3000/tasks/{id}`
 - Endpoint: `http://localhost:3000/tasks/5` The number 1 references to the task ID.
 - Send the request.
 - You will get response likie this:
