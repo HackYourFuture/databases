@@ -1,0 +1,23 @@
+html
+ head
+  title Todo List
+ body
+  h3 Todo List
+  a(href="todo/add") Add
+  br
+  table(border="1")
+   tr
+    th Id
+    th Name
+    th Created At
+    th filler
+    each todo in result
+    tr
+     td #{result.id}
+     td #{result.created_at}
+     td #{result.list_name}
+     td filler
+      a(href="/todo/edit/" ) Edit
+
+      a(href="/todo/delete/" , onclick="return confirm('Are you sure?')") Delete
+   

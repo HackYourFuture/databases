@@ -1,0 +1,20 @@
+html
+ head
+  title Todo List
+ body
+  h3 Todo Info
+  form(method="post", action="/todo/edit")
+    table
+     tr
+      th Name
+      td
+       input(type="text", name="name", value=1)
+       input(type="hidden", name="id", value=2)
+     tr
+      th Description
+      td
+       input(type="text", name="description", value=3)
+     tr
+      th &nbsp;
+      td
+       input(type="submit",value="Save")
