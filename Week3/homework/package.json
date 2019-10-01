@@ -1,0 +1,29 @@
+{
+  "name": "db-homework-week3",
+  "version": "1.0.0",
+  "description": "database homework todo application",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.16.2",
+    "express-validator": "^6.2.0",
+    "morgan": "^1.9.1",
+    "mysql": "^2.17.1",
+    "nodemon": "^1.19.2",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "todo",
+    "app",
+    "db"
+  ],
+  "author": "niyas",
+  "license": "ISC"
+}
