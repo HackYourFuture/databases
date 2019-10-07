@@ -56,10 +56,12 @@ app.get('/download', function(req, res) {
 
 app.post('/submit', async function(req, res) {
   try {
+    const todoid = req.body.todoid;
+    const reminder = req.body.reminder;
     const connection = mysql.createConnection(todoDatabase);
     const execQuery = util.promisify(connection.query.bind(connection));
-    const todoQuery = `INSERT INTO todos VALUES ('${req.body.todoid}', '${req.body.reminder}')`;
-    const newList = await execQuery(todoQuery);
+    const todoQuery = `INSERT INTO todos VALUES (?, ?)`;
+    const newList = await execQuery(todoQuery, [todoid, reminder]);
     if (newList.length === 0) {
       res.render('index', {
         message: 'A list name or a reminder cannot be empty. Please go back and fill the inputs',
@@ -87,10 +89,13 @@ app.get('/addItems', async function(req, res) {
 
 app.post('/saveAddItem', async (req, res) => {
   try {
+    const task = req.body.task;
+    const isDone = req.body.isdone;
+    const listName = req.body.listName;
     const connection = mysql.createConnection(todoDatabase);
     const execQuery = util.promisify(connection.query.bind(connection));
-    const itemQuery = `INSERT INTO items VALUES ('${req.body.task}', '${req.body.isdone}', '${req.body.listName}')`;
-    await execQuery(itemQuery);
+    const itemQuery = `INSERT INTO items VALUES (?, ?, ?)`;
+    await execQuery(itemQuery, [task, isDone, listName]);
     res.render('index', {
       message: 'Thank you! Your item is saved to your list!',
       prevPage: 'Home Page',
@@ -143,11 +148,12 @@ app.get('/viewOnlyLists', async (req, res) => {
 
 app.put('/update/:item/:isdone', async (req, res) => {
   try {
+    const item = req.params.item;
+    const isDone = req.params.isDone;
     const connection = mysql.createConnection(todoDatabase);
     const execQuery = util.promisify(connection.query.bind(connection));
-    const updateQuery = `UPDATE items SET isdone = '${req.params.item}' Where items.item = '${req.params.isdone}';`;
-    execQuery(updateQuery).then(res.send('Your item is up-to-date!'));
-
+    const updateQuery = `UPDATE items SET isdone = ? Where items.item = ?;`;
+    execQuery(updateQuery, [item, isDone]).then(res.send('Your item is up-to-date!'));
     connection.end();
   } catch (err) {
     if (err) {

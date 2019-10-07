@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
   user: 'hyfuser',
   password: 'hyfpassword',
   database: 'zoo',
-  multipleStatements: false,
+  multipleStatements: true,
 });
 
 const execQuery = util.promisify(connection.query.bind(connection));
