@@ -153,8 +153,8 @@ router.post('/add_todo', (req, res) => {
 router.post('/add_list', (req, res) => {
   const list = req.body.add_list_input;
   const reminder = req.body.add_list_reminder;
-  const queryString = `INSERT into task_list (list_name, reminder_time)
-  VALUES(?, ?);`;
+  const queryString = `INSERT into task_list (list_name, reminder_time, user_id)
+  VALUES(?, ?, null);`;
   connection.query(queryString, [list, reminder], (err, rows, fields) => {
     if (err) {
       console.log(`Failed to create ${list} @ /add_list:  ${err}`);
