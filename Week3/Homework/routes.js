@@ -65,8 +65,8 @@ router.get('/get_todos', (req, res) => {
           <td>${taskState}</td>
           <td><button value="${rows[i].task_id}" name="delete_todo_task"/>Delete</button></td>
           <td><button value="${
-  rows[i].task_name
-}" name="update_todo_task"/>Mark As Complete</button></td>
+            rows[i].task_name
+          }" name="update_todo_task"/>Mark As Complete</button></td>
           </tr>`,
           );
         }
@@ -138,8 +138,8 @@ router.post('/add_todo', (req, res) => {
   const tag = req.body.add_todo_tag;
   const list = req.body.add_todo_list;
   const queryString = `INSERT INTO task (task_name, date_created, deadline, complete, category_id, list_id) 
-  VALUES ('${todo}', now(), '${deadline}', 'F', ${tag}, (SELECT list_id from task_list WHERE list_name='${list}'));`;
-  connection.query(queryString, [todo], (err, rows, table) => {
+  VALUES (? , now(), ?, 'F', ?, (SELECT list_id from task_list WHERE list_name=?));`;
+  connection.query(queryString, [todo, deadline, tag, list], (err, rows, table) => {
     if (err) {
       console.log(`Failed to insert @ /add_todo: ${todo} ${err}`);
     }
@@ -154,8 +154,8 @@ router.post('/add_list', (req, res) => {
   const list = req.body.add_list_input;
   const reminder = req.body.add_list_reminder;
   const queryString = `INSERT into task_list (list_name, reminder_time)
-  VALUES('${list}', '${reminder}');`;
-  connection.query(queryString, (err, rows, fields) => {
+  VALUES(?, ?);`;
+  connection.query(queryString, [list, reminder], (err, rows, fields) => {
     if (err) {
       console.log(`Failed to create ${list} @ /add_list:  ${err}`);
     }
@@ -171,8 +171,8 @@ router.post('/add_user', (req, res) => {
   const user_email = req.body.add_user_email;
   const user_password = req.body.add_user_password;
   const queryString = `INSERT into user (user_name, user_email, user_password)
-  VALUES('${user_name}', '${user_email}', '${user_password}');`;
-  connection.query(queryString, (err, rows, fields) => {
+  VALUES(?, ?, ?);`;
+  connection.query(queryString, [user_name, user_email, user_password], (err, rows, fields) => {
     if (err) {
       console.log(`Failed to create ${user_name} @ /add_user:  ${err}`);
     }
@@ -187,11 +187,11 @@ router.post('/delete_todo', (req, res) => {
   const task_id = req.body.delete_todo_task;
   const task_name = req.body.update_todo_task;
   console.log(req.body.update_todo_task);
-  let queryString = `DELETE from task WHERE task_id = '${task_id}';`;
+  let queryString = 'DELETE from task WHERE task_id = ?;';
   if (req.body.update_todo_task != null) {
-    queryString = `UPDATE task SET complete="T" WHERE task_name = '${task_name}';`;
+    queryString = 'UPDATE task SET complete="T" WHERE task_name = ?;';
   }
-  connection.query(queryString, [task_id], (err, rows, fields) => {
+  connection.query(queryString, [task_id, task_name], (err, rows, fields) => {
     if (err) {
       console.log(`Failed to delete todo @ /delete_todo: ${task_id}} ${err}`);
     }
@@ -205,7 +205,7 @@ router.post('/delete_todo', (req, res) => {
 router.post('/delete_list', (req, res) => {
   const list_id = req.body.delete_todo_task;
 
-  const queryString = `DELETE from task_list WHERE list_id = '${list_id}';`;
+  const queryString = 'DELETE from task_list WHERE list_id = ?;';
 
   connection.query(queryString, [list_id], (err, rows, fields) => {
     if (err) {
@@ -221,13 +221,13 @@ router.post('/delete_list', (req, res) => {
 router.get('/get_category/:id', (req, res) => {
   const category_id = req.params.id;
 
-  const queryString = `SELECT task_name FROM task WHERE category_id=${category_id};`;
+  const queryString = 'SELECT task_name FROM task WHERE category_id=?;';
 
-  connection.query(queryString, (err, rows, fields) => {
+  connection.query(queryString, [category_id], (err, rows, fields) => {
     if (err) {
       console.log(`Failed to query @ /get_category/${category_id} : ${err}`);
     }
-    console.log('Getting data from database @ /get_users');
+    console.log('Getting data from database @ /get_category');
     res.write(`<h1>Todo Tasks in Category ${category_id}</h1>
         <ul>`);
     for (i in rows) {
@@ -244,9 +244,9 @@ router.get('/get_category/:id', (req, res) => {
 router.get('/get_list/:id', (req, res) => {
   const list_id = req.params.id;
 
-  const queryString = `SELECT task_name FROM task WHERE list_id=${list_id};`;
+  const queryString = 'SELECT task_name FROM task WHERE list_id=?;';
 
-  connection.query(queryString, (err, rows, fields) => {
+  connection.query(queryString, [list_id], (err, rows, fields) => {
     if (err) {
       console.log(`Failed to query @ /get_list/${list_id} : ${err}`);
     }
