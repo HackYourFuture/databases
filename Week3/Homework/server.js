@@ -1,7 +1,9 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-const routes = require('./routes');
+const users = require('./users');
+const list = require('./list');
+const todos = require('./todos');
 
 const app = express();
 
@@ -15,7 +17,9 @@ const middlewares = [
 
 app.use(middlewares);
 
-app.use('/', routes);
+app.use('/', users);
+app.use('/', list);
+app.use('/', todos);
 
 app.listen(3000, () => {
   console.log('App running on port 3000');
