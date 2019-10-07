@@ -54,7 +54,7 @@ app.get('/download', function(req, res) {
   res.download(file);
 });
 
-app.post('/submit', async function(req, res) {
+app.post('/submitList', async function(req, res) {
   try {
     const todoid = req.body.todoid;
     const reminder = req.body.reminder;
