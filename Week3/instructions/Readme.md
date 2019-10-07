@@ -28,3 +28,21 @@ FOR UPDATING THE STATUS OF AN ITEM
 - Chose your method as PUT
 - Type the path and then for deleting an item: /update/<itemYouWantToUpdate>/<updatedStatus>
 - You will get the response that says 'Your item is up to date'
+
+Request List --> 
+- This list contains all the requests you can make on this appliction via postman (you can display every get and post request on the UI as well)
+
+
+| EXPLANATION        |   METHOD       |   ENDPOINT                        |
+| ---                |  ---           | ---                               |
+|Download This File  |   GET          | '/download'                       |
+|Viewing All lists   |   GET          | '/view'                           |
+|Viewing Lists Only  |   GET          | '/viewOnlyLists'                  |
+|Adding Items        |   GET          | '/addItems'                       |
+|Getting Delete Page |   GET          | '/delete'                         |
+|Creating List       |   POST         | '/:todoid/:reminder'              |
+|Adding Item         |   POST         | '/addItem/:task/:isdone/:listName'|
+|Updating Item       |   POST         | '/:item/:isdone'                  |
+|Deleting List       |   DELETE       | '/deleteList/:list'               |
+|Deleting Item       |   DELETE       | '/deleteItem/:item'               |
+|Delete Everything   |   DELETE       | '/deleteAll'                      |
