@@ -8,13 +8,18 @@ DROP procedure IF EXISTS `getSpokenLangNum`;
 
 DELIMITER $$
 USE `new_world`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getSpokenLangNum`(
-IN countryName VARCHAR(30))
+CREATE TRIGGER langLimit BEFORE INSERT ON countrylanguage FOR EACH ROW
+IN countryName VARCHAR(30)
 BEGIN
+DECLARE spokenLang INT(100) DEFAULT 0;
 select Name, count(distinct language) as 'Spoken Languages'
+INTO spokenLang
 from country, countrylanguage
 where country.code=countrylanguage.countrycode
 and country.name= countryName;
+IF spokenLang = 10 or spokenLang > 10 THEN
+select 'THIS COUNTRY HAS MORE THAN 10 LANGUAGES ' AS 'Message';
+END IF;
 END$$
 
 DELIMITER ;

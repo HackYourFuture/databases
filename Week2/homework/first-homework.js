@@ -30,9 +30,9 @@ program
     const getCapital = `SELECT city.name as Capital 
     FROM country, city 
     WHERE country.capital = city.id 
-    AND country.name ='${country}';`;
+    AND country.name =?;`;
     try {
-      execQuery(getCapital).then(capital => {
+      execQuery(getCapital, [country]).then(capital => {
         console.log(`${JSON.stringify(capital)}`);
       });
     } catch (err) {
@@ -49,9 +49,9 @@ program
     const getRegion = `SELECT distinct language 
     FROM countrylanguage, country 
     WHERE countrylanguage.CountryCode = country.code 
-    AND country.region ='${region}';`;
+    AND country.region =?;`;
     try {
-      execQuery(getRegion).then(region => {
+      execQuery(getRegion, [region]).then(region => {
         console.log(`${JSON.stringify(region)}`);
       });
     } catch (err) {
@@ -70,9 +70,9 @@ program
     const getCityNumber = `SELECT distinct count(name) AS 'Number of Cities' 
     FROM city, countrylanguage 
     WHERE countrylanguage.countrycode = city.countrycode 
-    AND countrylanguage.language='${language}';`;
+    AND countrylanguage.language= ?;`;
     try {
-      execQuery(getCityNumber).then(number => {
+      execQuery(getCityNumber, [language]).then(number => {
         console.log(`${JSON.stringify(number)}`);
       });
     } catch (err) {
@@ -89,13 +89,13 @@ program
     const getCountry = `SELECT name FROM country AS c
     JOIN countrylanguage AS clang 
     ON clang.CountryCode=c.Code
-    WHERE c.region= '${region}'
-    AND clang.language = '${language}'
+    WHERE c.region= ?
+    AND clang.language = ?
     AND clang.IsOfficial= 'T';`;
 
     try {
-      execQuery(getCountry).then(country => {
-        if (country == []) {
+      execQuery(getCountry, [region, language]).then(country => {
+        if (country.length === 0) {
           console.log('FALSE');
         } else {
           console.log(JSON.stringify(country));
