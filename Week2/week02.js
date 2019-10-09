@@ -18,7 +18,7 @@ async function submitQueries() {
     'SELECT distinct language FROM countrylanguage WHERE countrycode IN (SELECT code FROM country WHERE region = ?);',
     'SELECT COUNT(name) AS "total cities" FROM city WHERE countrycode IN(SELECT countrycode FROM countrylanguage WHERE language = ?);',
     'SELECT name FROM country WHERE region = ? AND code IN(SELECT countrycode FROM countrylanguage WHERE language = ? AND isofficial = "T");',
-    'SELECT country.continent, COUNT(countrylanguage.language) AS FROM country JOIN countrylanguage ON country.code = countrylanguage.countrycode GROUP BY country.continent);',
+    'SELECT country.continent, COUNT(DISTINCT countrylanguage.language) AS FROM country JOIN countrylanguage ON country.code = countrylanguage.countrycode GROUP BY country.continent);',
   ];
 
   connection.connect();
