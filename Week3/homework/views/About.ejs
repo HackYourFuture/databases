@@ -35,8 +35,28 @@
 
 <body>
   <a href="./Home">Home</a>
-  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio est ab iure, quasi possimus explicabo laudantium sed
-    maxime autem? Ducimus mollitia quis delectus architecto et assumenda nihil vel obcaecati sequi.</p>
+  <p>`In this todo-app you can:
+
+add user: via sign in page;
+login: via login page;
+add list: after login page(after click user) user page will open;
+in user page: two forms: add list form and add item form, you can easily input all kind of inputs, (in add item form there is select box: options are based on specific user's existed lists, you choose a list from select box and add your todo item to that list, default: done is false)
+show lists: in user page right-bottom button to lists page;
+delete lists: in lists page via delete button in list form you can delete that list and included items;
+show lists: in lists page via show items button in list form you can show that list with its items;
+mark as done: in show list page you can mark items done via done button in item form;(default done for items are false, all items marked as done will deleted);
+bugs:
+
+delete, update... working well, but the result will effect after refresh the page or with a new visit;
+url path bugs;
+error handling;
+other bugs (because of nodemon and pc condition it's hard to test all features, same code get different testing result )
+planned implementation:
+
+user interface implementation;
+use cookies, express.session to improve login,register system;
+complete error handling.
+for test: login: username:ddf; password: ddf.`.</p>
 </body>
 
 </html>
