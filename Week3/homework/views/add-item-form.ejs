@@ -1,0 +1,13 @@
+<form action="/user/add/item" method='POST'>
+  <input type="text" value='add item form' readonly style="background-color: rgb(152, 228, 117)">
+  <input type="text" value='<%= username %>' name="username" readonly>
+  <input type="text" name="description" placeholder="description">
+  <select name="list" id="select">
+    <% for(let i in items) {%>
+    return <option value="<%= items[i].id %>"><%= items[i].name %></option>
+    <% } %>
+  </select>
+
+  <input type="submit">
+
+</form>

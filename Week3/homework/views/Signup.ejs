@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <style>
+    body {
+      background-color: brown;
+      color: white;
+    }
+
+
+
+    form {
+      width: 60%;
+      margin: auto;
+      box-shadow: 50px 50px 50px black;
+      display: grid;
+      text-align: center;
+    }
+
+    input {
+      padding: 30px;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="/Signup" id='sign_form' method='POST'>
+    <input type="text" name='username' placeholder="username">
+    <input type="password" name='password' placeholder="set a password">
+    <input type="submit" value="submit">
+  </form>
+
+
+  <% include button.ejs %>
+</body>
+
+</html>

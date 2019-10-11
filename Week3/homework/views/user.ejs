@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Document</title>
+  <style>
+    body {
+      background-color: brown;
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    form {
+      width: 40%;
+      margin: auto;
+      box-shadow: 50px 50px 50px black;
+      display: grid;
+
+    }
+
+    input,
+    select {
+      padding: 25px;
+      font-size: 20px;
+    }
+
+    .lists {
+      padding: 10px;
+      background-color: blueviolet;
+      color: white;
+      position: fixed;
+      right: 20px;
+      border: none;
+      bottom: 30px;
+      font-size: 20px;
+      text-decoration: none;
+      box-shadow: black 10px 10px 10px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <% include add-list-form.ejs %>
+  <% include add-item-form.ejs %>
+  <% include button.ejs %>
+  <form action="/user/lists" method="GET">
+    <input type="text" value='<%= username %>' name="username" readonly style="display:none">
+    <input type="submit" value="lists" class='lists'>
+  </form>
+</body>
+
+</html>

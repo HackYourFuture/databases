@@ -1,0 +1,13 @@
+<form action="/user/add/list" method='POST'>
+
+  <input type="text" value='add list form' readonly style="background-color: rgb(101, 144, 236)">
+  <input type="text" value='<%= username %>' name="username" readonly>
+  <input type="text" name="name" placeholder="list name">
+  <input type="date" name="deadline" placeholder="deadline">
+  <select name="reminder" id="reminder">
+    <option value="1">daily</option>
+    <option value="2">weekly</option>
+  </select>
+  <input type="submit">
+
+</form>

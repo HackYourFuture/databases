@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>list</title>
+
+  <style>
+    .t {
+      display: hidden;
+    }
+
+    body {
+      background-color: aqua;
+      text-align: center;
+    }
+
+    div {
+      display: grid;
+      grid-gap: 10px;
+      width: 60%;
+      text-align: center;
+      background-color: bisque;
+    }
+  </style>
+</head>
+
+<body>
+  <h1><%= listName %></h1>
+  <div>
+    <%for(i in result){%>
+    <form action="<%= result[i].id %>" method='POST' class='<%= result[i].done %>'>
+      <input type="text" value='<%= result[i].description %>' name='description'>
+      <input type="submit" value='done' name='done'>
+    </form>
+    <%}%>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+
+    body {
+      background-color: blueviolet;
+      text-align: center;
+    }
+
+    div {
+      width: 30%;
+      margin-left: 5%;
+      padding: 10px;
+      display: grid;
+      grid-gap: 10px;
+      background-color: darkmagenta;
+    }
+
+    .show {
+      width: 90%;
+    }
+
+    input {
+      margin: 3px;
+    }
+
+    section {
+      border-bottom: blueviolet 1px solid;
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Hello <%= username %>!</h1>
+  <h1> <%= error %></h1>
+
+
+  <div> <% for(i in result){ %>
+    <section>
+      <form action="lists/delete/" class='lists' method="GET">
+        <input type="text" name="<%= result[i].name %>" value='<%= result[i].name %>' readonly>
+        <input type='submit' value=" delete"><input value='<%= result[i].deadline %>' readonly> </form>
+      <form action="lists/show/" method="GET">
+        <input type=" text" name="<%= result[i].name %>" value="<%= result[i].name %>" readonly class='hidden'>
+        <input type='submit' class="show" value="show items">
+      </form>
+    </section>
+
+
+    <% } %>
+  </div>
+
+
+</body>
+
+</html>
