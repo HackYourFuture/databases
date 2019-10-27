@@ -1,0 +1,26 @@
+{
+  "name": "db-week1-homework",
+  "version": "1.0.0",
+  "description": "Creates a table and makes some queries into the table created",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/msnmz/databases.git"
+  },
+  "keywords": [
+    "database",
+    "mysql"
+  ],
+  "author": "Muharrem Sonmez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msnmz/databases/issues"
+  },
+  "homepage": "https://github.com/msnmz/databases#readme",
+  "dependencies": {
+    "mysql": "^2.17.1"
+  }
+}
