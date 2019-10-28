@@ -137,7 +137,7 @@ async function queryAndShowResultOf(filter, table, fields) {
  * At first run it should be 'false'
  * Then it must be 'true' for the purpose
  */
-const isTablePopulatedBefore = true;
+const isTablePopulatedBefore = false;
 
 async function main() {
   // Questions 1 - 3
