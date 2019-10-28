@@ -120,9 +120,41 @@ async function readAndInsertDataIntoTables() {
   }
 }
 
+async function getResultOf(filter, table, fields) {
+  const query = `select ${
+    fields.length > 1 ? fields.join(',') : fields[0]
+  } from ${table} ${filter}`;
+  try {
+    const result = await asyncQuery(query);
+    console.log('\n\nResult of ', filter, '\n');
+    console.table(result);
+  } catch (err) {
+    console.error(`Filtering Error: ${err.message}`);
+    connection.end();
+  }
+}
+
+/**
+ * Just to prevent duplicates
+ * At first run it should be 'false'
+ * Then it must be 'true' for the purpose
+ */
+const isTablePopulatedBefore = true;
+
 async function main() {
   await createDBAndTables();
-  await readAndInsertDataIntoTables();
+  if (!isTablePopulatedBefore) await readAndInsertDataIntoTables();
+  // 1 - names of the countries with population greater than 8 million
+  await getResultOf('where population > 8000000', 'country', ['name']);
+  // 2 - names of the countries that have “land” in their names
+  await getResultOf(`where name like '%land%'`, 'country', ['name']);
+  // 3 - names of the cities with population in between 500,000 and 1 million
+  await getResultOf('where population between 500000 and 1000000', 'city', ['name']);
+  // 4 - names of all the countries on the continent ‘Europe’
+  await getResultOf(`where continent = 'Europe'`, 'country', ['name']);
+  // 5 - all the countries in the descending order based on their surface areas
+  await getResultOf(`ORDER BY surface_area DESC`, 'country', ['*']);
+  if (isTablePopulatedBefore) connection.end();
 }
 
 main();
