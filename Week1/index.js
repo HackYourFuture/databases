@@ -1,4 +1,8 @@
 const mysql = require('mysql');
+const fs = require('fs');
+const { promisify } = require('util');
+
+const readFile = promisify(fs.readFile);
 
 // Prepare connection
 const connection = mysql.createConnection({
@@ -6,6 +10,8 @@ const connection = mysql.createConnection({
   user: 'root',
   password: 'password',
 });
+
+const asyncQuery = promisify(connection.query.bind(connection));
 
 // Queries in order, to be executed
 const queries = [
@@ -16,8 +22,8 @@ const queries = [
                     (
                       id int not null auto_increment,
                       name varchar(254) not null,
-                      country_code varchar(3) not null,
-                      district varchar(254) not null,
+                      country_code varchar(3),
+                      district varchar(254),
                       population int,
                       primary key(id)
                     )`,
@@ -28,10 +34,11 @@ const queries = [
                       (
                         id int not null auto_increment,
                         name varchar(254) not null,
-                        continent enum('Asia', 'Africa', 'North America', 'South America', 'Antarctica', 'Europe', 'Australia') not null,
+                        continent enum('Asia', 'Africa', 'North America', 'South America', 'Oceania', 'Europe', 'Antarctica'),
                         region varchar(254),
-                        surface_area float not null,
-                        population int not null,
+                        surface_area float,
+                        indep_year int,
+                        population int,
                         life_expectancy float,
                         gnp float,
                         gnp_old float,
@@ -55,17 +62,67 @@ connection.connect(err => {
   console.log('Successfully connected to mysql server...');
 });
 
-// Execute queries
-for (const query of queries) {
-  connection.query(query.query, err => {
+async function createDBAndTables() {
+  for (const query of queries) {
+    try {
+      await asyncQuery(query.query);
+      console.log(query.message);
+    } catch (err) {
+      if (err) {
+        console.error(`Query Error: ${err.message} (${err.code})`);
+        connection.end();
+        process.exit();
+      }
+    }
+  }
+}
+
+async function insertRecord(records, table) {
+  try {
+    for (const record of records) {
+      await asyncQuery('insert into ' + table + ' SET ?', record);
+      /**
+       * To increase user experience;
+       * Just logs the same line :: \033[0G => \r
+       * console.log creates new line
+       * so process.stdout.write() with '\033[0G' code at the end makes sense for this purpose.
+       */
+      process.stdout.write('Adding into ' + table + ' table. \033[0G');
+    }
+    console.log(`Records added successfully into ${table} table.`);
+  } catch (err) {
     if (err) {
       console.error(`Query Error: ${err.message} (${err.code})`);
       connection.end();
       process.exit();
     }
-    console.log(query.message);
-  });
+  }
 }
 
-// Before exit, close the connection
-connection.end();
+// Populate tables with related data
+async function readAndInsertDataIntoTables() {
+  try {
+    // Read & Parse Data
+    const { cities, countries } = JSON.parse(await readFile('./data.json', 'utf-8'));
+
+    // Insert each city record to the city table
+    await insertRecord(cities, 'city');
+
+    // Insert each country record to the country table
+    await insertRecord(countries, 'country');
+
+    // Before exit, close the connection
+    connection.end();
+  } catch (error) {
+    console.error(`File Read Error: ${error.message}`);
+    connection.end();
+    process.exit();
+  }
+}
+
+async function main() {
+  await createDBAndTables();
+  await readAndInsertDataIntoTables();
+}
+
+main();
