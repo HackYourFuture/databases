@@ -5,7 +5,7 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'hyfuser',
   password: 'hyfpassword',
-  database: 'class17',
+  database: 'world',
 });
 
 // Promisify the bind function of query function of connection object
