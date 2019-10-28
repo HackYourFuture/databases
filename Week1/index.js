@@ -53,11 +53,16 @@ const queries = [
   }, // createTableCountry
 ];
 
+function showErrorAndExit(errorMessage, connection) {
+  console.error(errorMessage);
+  if (connection) connection.end();
+  process.exit();
+}
+
 // Make the connection to the mysql server
 connection.connect(err => {
   if (err) {
-    console.error(`Connection Error: ${err.message} (${err.code})`);
-    process.exit();
+    showErrorAndExit(`Connection Error: ${err.message} (${err.code})`);
   }
   console.log('Successfully connected to mysql server...');
 });
@@ -69,9 +74,7 @@ async function createDBAndTables() {
       console.log(query.message);
     } catch (err) {
       if (err) {
-        console.error(`Query Error: ${err.message} (${err.code})`);
-        connection.end();
-        process.exit();
+        showErrorAndExit(`Query Error: ${err.message} (${err.code})`, connection);
       }
     }
   }
@@ -92,9 +95,7 @@ async function insertRecord(records, table) {
     console.log(`Records added successfully into ${table} table.`);
   } catch (err) {
     if (err) {
-      console.error(`Query Error: ${err.message} (${err.code})`);
-      connection.end();
-      process.exit();
+      showErrorAndExit(`Query Error: ${err.message} (${err.code})`, connection);
     }
   }
 }
@@ -114,13 +115,11 @@ async function readAndInsertDataIntoTables() {
     // Before exit, close the connection
     connection.end();
   } catch (error) {
-    console.error(`File Read Error: ${error.message}`);
-    connection.end();
-    process.exit();
+    showErrorAndExit(`File Read Error: ${error.message}`, connection);
   }
 }
 
-async function getResultOf(filter, table, fields) {
+async function queryAndShowResultOf(filter, table, fields) {
   const query = `select ${
     fields.length > 1 ? fields.join(',') : fields[0]
   } from ${table} ${filter}`;
@@ -129,8 +128,7 @@ async function getResultOf(filter, table, fields) {
     console.log('\n\nResult of ', filter, '\n');
     console.table(result);
   } catch (err) {
-    console.error(`Filtering Error: ${err.message}`);
-    connection.end();
+    showErrorAndExit(`Filtering Error on (${filter}): ${err.message}`, connection);
   }
 }
 
@@ -142,18 +140,33 @@ async function getResultOf(filter, table, fields) {
 const isTablePopulatedBefore = true;
 
 async function main() {
+  // Questions 1 - 3
   await createDBAndTables();
   if (!isTablePopulatedBefore) await readAndInsertDataIntoTables();
+
+  // Question 4
   // 1 - names of the countries with population greater than 8 million
-  await getResultOf('where population > 8000000', 'country', ['name']);
+  await queryAndShowResultOf('where population > 8000000', 'country', ['name']);
   // 2 - names of the countries that have “land” in their names
-  await getResultOf(`where name like '%land%'`, 'country', ['name']);
+  await queryAndShowResultOf(`where name like '%land%'`, 'country', ['name']);
   // 3 - names of the cities with population in between 500,000 and 1 million
-  await getResultOf('where population between 500000 and 1000000', 'city', ['name']);
+  await queryAndShowResultOf('where population between 500000 and 1000000', 'city', ['name']);
   // 4 - names of all the countries on the continent ‘Europe’
-  await getResultOf(`where continent = 'Europe'`, 'country', ['name']);
+  await queryAndShowResultOf(`where continent = 'Europe'`, 'country', ['name']);
   // 5 - all the countries in the descending order based on their surface areas
-  await getResultOf(`ORDER BY surface_area DESC`, 'country', ['*']);
+  await queryAndShowResultOf(`order by surface_area desc`, 'country', ['*']);
+
+  // Question 5 => Optionals
+  // 1- names of all the cities in the Netherlands?
+  await queryAndShowResultOf(`where country_code = 'NLD'`, 'city', ['*']);
+  // 2 - population of Rotterdam
+  await queryAndShowResultOf(`where name = 'Rotterdam'`, 'city', ['population']);
+  // 3 - top 10 countries based on surface area
+  await queryAndShowResultOf(`order by surface_area desc limit 10`, 'country', ['*']);
+  // 4 - top 10 cities with the highest population
+  await queryAndShowResultOf(`order by population desc limit 10`, 'city', ['*']);
+  // 5 - population of the world
+  await queryAndShowResultOf('', 'country', ['sum(population) as world_population']);
   if (isTablePopulatedBefore) connection.end();
 }
 
