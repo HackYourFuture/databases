@@ -1,0 +1,25 @@
+{
+  "name": "databases",
+  "version": "1.0.0",
+  "description": "## Relational Database Systems",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mehmetekinci/databases.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mehmetekinci/databases/issues"
+  },
+  "homepage": "https://github.com/mehmetekinci/databases#readme",
+  "dependencies": {
+    "eslint": "^6.6.0",
+    "msql": "^1.0.3",
+    "util": "^0.12.1"
+  }
+}
