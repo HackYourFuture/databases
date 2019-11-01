@@ -111,7 +111,7 @@ his 24th birthday works in Facebook and lives in Redmond.
 #### SYNTAX
 
 ```
-CREATE TABLE table_name (column_name, column_type [, column2_name, column2_type]);
+CREATE TABLE table_name (column_name column_type [, column2_name column2_type]);
 ```
 
 #### TYPES
