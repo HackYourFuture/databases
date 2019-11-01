@@ -19,6 +19,7 @@ const createTable= [
     })
 })
 
+
   const countryInfo = [
     "insert into  country values ( 'Netherlands','Europe','Western Europe', 42508, 1945, 17000000, 82, 901, 890,'Netherlands','parliamentary','Willem-Alexander','Amsterdam')",
     "insert into country values ( 'Belgium', 'Europe', 'Western Europe', 30518, 1830, 10239000, 78, 249704, 243948, 'Belgae', 'Constitutional Monarchy, Federation', 'Albert II', 'Brussels')",

@@ -23,7 +23,7 @@ const queries =[
 
     // st all the countries in the descending order based on their surface areas
     'SELECT name, SurfaceArea  FROM country ORDER BY SurfaceArea DESC',
-] 
+];
 
 queries.forEach(query => {
     connection.query(query, (error, results, fields) => {

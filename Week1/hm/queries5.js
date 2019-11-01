@@ -23,7 +23,7 @@ const queries =[
 
     // What's the population of the world ?
     'SELECT SUM(Population) FROM country'
-] ;
+];
 
 queries.forEach(query => {
     connection.query(query, (error, results, fields) => {
