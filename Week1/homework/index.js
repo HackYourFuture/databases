@@ -24,10 +24,10 @@ const createCountries = `CREATE TABLE countries (
   Continent varchar(50),
   Region varchar(50) ,
   SurfaceArea float(2) ,
-  IndepYear varchar(50) ,
+  IndepYear varchar(50),
   Population float(2)  ,
   LifeExpectancy varchar(50) ,
-  GNP float(2) ,
+  GNP varchar(50) ,
   GNPOld varchar(50) ,
   LocalName varchar(50),
   GovernmentForm varchar(50),
@@ -153,7 +153,7 @@ app.get('/haveLandName', (req, res) => {
 
 app.get('/cityPopulation', (req, res) => {
   connection.query(
-    `SELECT * FROM cities WHERE Population >500000 and Population <1000000;`,
+    `SELECT * FROM cities WHERE cities.Population between 500000 and 1000000;`,
     (error, results, fields) => {
       if (error) {
         console.log(error);
@@ -168,7 +168,7 @@ app.get('/cityPopulation', (req, res) => {
 
 app.get('/countryContinent', (req, res) => {
   connection.query(
-    `SELECT * FROM countries WHERE Population >500000 and Population <1000000;`,
+    `SELECT * FROM countries WHERE countries.Continent = "Europe";`,
     (error, results, fields) => {
       if (error) {
         console.log(error);
