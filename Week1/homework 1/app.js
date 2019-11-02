@@ -38,6 +38,7 @@ const execQuery = function(table){
 // 3-2 Create countries table and insert data into it
 async function createCountriesTableAndInsertData(){
 const CREATE_TABLE_COUNTRIES = `CREATE TABLE IF NOT EXISTS countries (
+    ID int not null auto_increment primary key,
     name varchar(254) not null,
     continent enum('Asia', 'Africa', 'North America', 'South America', 'Oceania', 'Europe', 'Antarctica'),
     region varchar(254),
@@ -68,25 +69,26 @@ const CREATE_TABLE_COUNTRIES = `CREATE TABLE IF NOT EXISTS countries (
    }    
     
 }    
-
 createCountriesTableAndInsertData()
 
 // 3-3 Create cities table and insert data into it
 async function createCitiesTableAndInsertData() {
 const CREATE_TABLE_CITIES = `CREATE TABLE IF NOT EXISTS cities (
-  
+    ID int not null auto_increment primary key,
     name VARCHAR(35) NOT NULL DEFAULT '', 
-    countries_code VARCHAR(3) NOT NULL,  
+    country_code VARCHAR(3) NOT NULL,  
     district VARCHAR(20) NOT NULL DEFAULT '', 
     population INT NOT NULL DEFAULT 0
         )`;
     try{
         await execQuery(CREATE_TABLE_CITIES);
         dataOfCities.forEach(city => {
-            let sql1 = 'INSERT INTO cities SET ?';
+            
+            let sql1 = 'INSERT IGNORE INTO cities SET ?';
             let query = db.query(sql1, city, (err, result) => {
                 if(err) throw err;
             });
+            // }
         });
         console.log('Data imported to cities table')
     }catch (error){
@@ -130,3 +132,25 @@ filtering(countriesInEurope);
 let countriesInDescendingOrder = "SELECT name FROM countries ORDER BY surface_area DESC "
 filtering(countriesInDescendingOrder);
 
+// 5- Write queries that answer the following questions:
+
+// 5-1 What are the names of all the cities in the Netherlands?
+
+let citiesOfNetherlands = "SELECT name FROM cities WHERE country_code = 'NLD' "
+filtering(citiesOfNetherlands);
+
+// 5-2 What's the population of Rotterdam?
+let populationOfRotterdam = "SELECT population FROM cities WHERE name ='Rotterdam'"
+filtering(populationOfRotterdam);
+
+// 5-3 What's the top 10 countries based on surface area?
+
+let topTenCountries = "SELECT name FROM countries ORDER BY surface_area DESC LIMIT 10 ";
+filtering(topTenCountries);
+
+// 5-4 What's the top 10 cities with the highest population?
+let highestPopulation = "SELECT name FROM cities ORDER BY population DESC LIMIT 10 "
+filtering(highestPopulation);
+// 5-5 What's the population of the world ?
+let populationOfTheWorld = " SELECT SUM(DISTINCT population) FROM countries"
+filtering(populationOfTheWorld);
