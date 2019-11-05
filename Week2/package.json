@@ -1,0 +1,30 @@
+{
+  "name": "week2",
+  "version": "1.0.0",
+  "description": "prepared queries with user input, triggers & ER-Diagram",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/msnmz/databases.git"
+  },
+  "keywords": [
+    "user",
+    "input",
+    "trigger",
+    "mysql",
+    "ER",
+    "Diagram"
+  ],
+  "author": "Muharrem Sonmez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msnmz/databases/issues"
+  },
+  "homepage": "https://github.com/msnmz/databases#readme",
+  "dependencies": {
+    "mysql": "^2.17.1"
+  }
+}
