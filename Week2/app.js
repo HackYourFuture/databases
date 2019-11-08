@@ -24,11 +24,11 @@ const db =  mysql.createConnection({
     }
     // console.log('Mysql connected');
 });
-//3- Create database 
-// let sql = 'CREATE DATABASE IF NOT EXISTS new_world';
-//  db.query(sql, (err) =>{
-//    if(err) throw err;
-// })
+3- Create database 
+let sql = 'CREATE DATABASE IF NOT EXISTS new_world';
+ db.query(sql, (err) =>{
+   if(err) throw err;
+})
 // 4- use database new_world
  db.query('USE new_world;', err => {
     if (err) throw err;
