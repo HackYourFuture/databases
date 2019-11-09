@@ -46,7 +46,6 @@ prompt.get('choice', (err, result) =>{
         case '2':
             console.log('insert region name: ');
             prompt.get('region', (err, result) => {
-                // connection.connect();
                 const query = mysql.format(regions, result.region.split());
                 connection.query(query, (err, result) => {
                     if(result[0] == undefined){
@@ -66,7 +65,6 @@ prompt.get('choice', (err, result) =>{
         case '3':
             console.log('insert language: ');
             prompt.get('language', (err, result) => {
-                // connection.connect();
                 const query = mysql.format(cities, result.language.split());
                 connection.query(query, (err, result) => {
                     if(result[0].total === 0){
@@ -82,7 +80,6 @@ prompt.get('choice', (err, result) =>{
         case '4':
             console.log('insert region and language: ');
             prompt.get(['region', 'language'], (err, result) => {
-                // connection.connect();
                 const query = mysql.format(officialLanguage, [result.region, result.language] );
                 connection.query(query, (err, result) => {
                     if(result[0].total === 0){
@@ -99,7 +96,6 @@ prompt.get('choice', (err, result) =>{
             })
             break;
         case '5':
-            connection.connect();
             connection.query(languages, (err,result) => {
                 if (err) {
                     console.log(err);
