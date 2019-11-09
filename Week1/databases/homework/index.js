@@ -131,7 +131,7 @@
   async function makeQuery(query) {
     try {
       const result = await executeQuery(query);
-      console.log(JSON.stringify(result, null, 2));
+      console.table(result);
     } catch (error) {
       console.error(
         `There was an error while making the query: ${query} \n The error is: ${error}`,
