@@ -24,11 +24,11 @@ const db =  mysql.createConnection({
     }
     // console.log('Mysql connected');
 });
-3- Create database 
-let sql = 'CREATE DATABASE IF NOT EXISTS new_world';
- db.query(sql, (err) =>{
-   if(err) throw err;
-})
+// 3- Create database 
+// let sql = 'CREATE DATABASE IF NOT EXISTS new_world';
+//  db.query(sql, (err) =>{
+//    if(err) throw err;
+// })
 // 4- use database new_world
  db.query('USE new_world;', err => {
     if (err) throw err;
@@ -70,7 +70,7 @@ let sql = 'CREATE DATABASE IF NOT EXISTS new_world';
                  
              } else {
                  console.log(`The spoken languages in ${input2.Region} are:`);
-                 console.table(result2)
+                 console.log(result2)
              }
 // 3- Find the number of cities in which language Z is spoken (Accept Z from user)
      } else if (question[0] === 'number of cities'){
@@ -85,7 +85,7 @@ let sql = 'CREATE DATABASE IF NOT EXISTS new_world';
                         } else {
                             console.log(`The number of cities which speaking in ${input6.language} is: ${result6[0].Cities}`);
                         }
-    // 4- Accept the region and language from the user. Are there any countries in this region with the given language as the official language 
+// 4- Accept the region and language from the user. Are there any countries in this region with the given language as the official language 
      
      } else if(question[0] === 'official language'){
         const input4 = await inquirer.prompt([
@@ -98,60 +98,61 @@ let sql = 'CREATE DATABASE IF NOT EXISTS new_world';
                 console.log(`${input4.language} is not official language in any country in ${input4.Region} `);
             } else {
                 console.log(`${input4.language} is official language in:`);
-                console.table(result4)
+                console.log(result4)
                            
             }
-    // 5- List all the continents with the number of languages spoken in each continent
+// 5- List all the continents with the number of languages spoken in each continent
     }else if (question[0] === 'languages in continent' ) {
                     const sql5 = `SELECT Continent, COUNT(DISTINCT Language) as Languages FROM country join countrylanguage on country.Code=countrylanguage.CountryCode GROUP BY Continent`;
                     let result5 = await queryPromise(sql5);
-                    console.table(result5);
-    // 6- Get alerts when I want to insert row if a country has >= 10 languages.
+                    console.log(result5);
+// 6- Get alerts when I want to insert row if a country has >= 10 languages.
 
 } else if (question[0] === 'insert row'){
    
-       const  sql6 = 'SELECT  name as Country, COUNT(Language) as Number_of_Languages FROM countrylanguage join country on  countrylanguage.CountryCode = country.Code GROUP BY name'
-
-                 let result6 = await queryPromise(sql6);
-                 let arr =  await result6
-                 .filter(element => element.Number_of_Languages >= 10)
-                 .map(ele => ele.Country)
-                 const input6 = await inquirer.prompt([
+    const  sql6 = 'SELECT  name AS Country, COUNT(Language) AS Number_of_Languages FROM countrylanguage JOIN country ON countrylanguage.CountryCode = country.Code GROUP BY name'
+    const trigger = `CREATE TRIGGER languageTrigger 
+                            BEFORE INSERT ON countrylanguage
+                            FOR EACH ROW
+                            BEGIN
+                            DECLARE message VARCHAR(100);
+                            DECLARE Number_of_Languages INT;
+                            SET Number_of_Languages = (select COUNT(Language) from countryLanguage where CountryCode=new.CountryCode);
+                                 IF Number_of_Languages >= 10
+                                   THEN
+                                    set message = 'Warning: Inserted country has more than 10 languages';
+                                    SET lc_messages = message; 
+                                    SIGNAL SQLSTATE '45000';
+                                END IF;
+                            END;`
+    let result6 = await queryPromise(sql6);
+    let countriesWithMoreThanNineLang =  await result6
+                            .filter(element => element.Number_of_Languages >= 10)
+                            .map(ele => ele.Country)
+    const input6 = await inquirer.prompt([
                     { name: 'value', message: 'Insert Country:' },
                      ]);
            
-             let sql6_1 = 'insert into countrylanguage SET  CountryCode = ?, Language =?, IsOfficial=?, Percentage =? ';
-                  if (arr.includes(input6.value)){
-                 console.log(`Warning ${input6.value} has more than 10 languages` )
-                 const input6_1 = await inquirer.prompt([
-                    {name: 'confirmation', message:'Do you still want to insert the row? (Y/N)'},
-                    ]);
-                    if(input6_1.confirmation === 'y'){
-                        const input6_1_1 =  await inquirer.prompt([
-                            {name: 'code', message:'Insert code:'},
-                            {name: 'language', message:'Insert language:'},
-                            {name: 'IsOfficial', message:'Insert "t" or "f": '},
-                            {name: 'Percentage', message:'Insert insert percentage:'},
-                           ]);
-                          db.query(sql6_1 ,[input6_1_1.code, input6_1_1.language, input6_1_1.IsOfficial,input6_1_1.Percentage], (err) => {
+    let sql6_1 = 'insert into countrylanguage SET  CountryCode = ?, Language =?, IsOfficial=?, Percentage =? ';
+            
+            if (countriesWithMoreThanNineLang.includes(input6.value)){
+                 console.log(`Warning: ${input6.value} has more than 9 languages.\nNot allowed to add this row` )
+                            db.query(trigger , (err) => {
                             if(err) throw err;
-                            console.log(`New language inserted to ${input6.value} in table countrylanguage`)
-                                });
-                    } else if(input6_1.confirmation === 'n'){
-                        db.end()
-                    }
-            } else {
-                const input6_1_1 =  await inquirer.prompt([
-                    {name: 'code', message:'Insert code:'},
-                    {name: 'language', message:'Insert language:'},
-                    {name: 'IsOfficial', message:'Insert "t" or "f": '},
-                    {name: 'Percentage', message:'Insert insert percentage:'},
-                   ]);
-                  db.query(sql6_1 ,[input6_1_1.code, input6_1_1.language, input6_1_1.IsOfficial,input6_1_1.Percentage], (err) => {
-                    if(err) throw err;
-                    console.log(`New language inserted to ${input6.value} in table countrylanguage`)
-                        });
-            }
+                          });
+                   
+                } else {
+                    const input6_1_1 =  await inquirer.prompt([
+                        {name: 'code', message:'Insert code:'},
+                        {name: 'language', message:'Insert language:'},
+                        {name: 'IsOfficial', message:'Insert "t" or "f": '},
+                        {name: 'Percentage', message:'Insert insert percentage:'},
+                    ]);
+                    db.query(sql6_1 ,[input6_1_1.code, input6_1_1.language, input6_1_1.IsOfficial,input6_1_1.Percentage], (err) => {
+                        if(err) throw err;
+                        console.log(`New language inserted to ${input6.value} in table countrylanguage`)
+                            });
+                }
      
           
         } else if(question[0] === undefined || question[0] === null){
