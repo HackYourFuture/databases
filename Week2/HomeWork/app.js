@@ -11,15 +11,15 @@ connection.connect();
 
 const capitalCity = `select name from city where id in (select capital from country where name = ?)`;
 
-const regions = `select distinct language from countrylanguage where coutrycode in (select code from county where region = ? )`;
+const regions = `select distinct language from countrylanguage where countrycode in (select code from country where region = ? )`;
 
-const cities = `select count(distinct name) as 'total' from city where countrycode in (select from countrylanguage where language = ?)`;
+const cities = `select count(distinct name) as 'total' from city where countrycode in (select countrycode from countrylanguage where language = ?)`;
 
 const officialLanguage = `select name from country where region = ? 
     and code in(select countrycode from countrylanguage where language = ? and isofficial = 't')`;
 
 const languages = `select country.continent, count(distinct language) as 'total language' from country
-     join countrylanguage on county.code = countrylanguage.countrycode group by country.continent`;
+     join countrylanguage on country.code = countrylanguage.countrycode group by country.continent`;
 
 prompt.start();
 prompt.get('choice', (err, result) =>{
