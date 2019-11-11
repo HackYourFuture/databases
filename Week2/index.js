@@ -39,27 +39,27 @@ const showQuery = async (questionNo, answer1, answer2) => {
   const queries = [
     {
       query: `select city.name as CAPITAL from city join country on 
-      city.id=country.capital where country.name='${answer1}';`,
+      city.id=country.capital where country.name= ?;`,
       number: 1,
     },
     {
       query: `select language,region from country join countrylanguage on 
-      country.code=countrylanguage.countryCode where region = '${answer1}';`,
+      country.code=countrylanguage.countryCode where region = ?;`,
       number: 2,
     },
     {
       query: `select COUNT(city.name) from city join countrylanguage on 
-      city.countryCode=countrylanguage.countryCode where language = '${answer1}';`,
+      city.countryCode=countrylanguage.countryCode where language = ?;`,
       number: 3,
     },
     {
       query: `select country.name from country join city on country.capital=city.id
       join countrylanguage on city.countryCode=countrylanguage.countryCode where
-      region='${answer1}' and language='${answer2}' and isOfficial='T';`,
+      region=? and language=? and isOfficial='T';`,
       number: 4,
     },
     {
-      query: `select continent, COUNT(language) from country join countrylanguage
+      query: `select continent, COUNT(distinct language) from country join countrylanguage
        on country.code=countrylanguage.countryCode GROUP BY continent;`,
       number: 5,
     },
@@ -73,7 +73,7 @@ const showQuery = async (questionNo, answer1, answer2) => {
   });
   try {
     const { query } = queries.find(query => query.number === questionNumber);
-    const result = await execQuery(query);
+    const result = await execQuery(query, [answer1, answer2]);
     console.table(result);
   } catch (error) {
     console.error(error);
