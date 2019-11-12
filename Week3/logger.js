@@ -1,6 +1,8 @@
+const user = require("./user");
+
 class Logger {
-  constructor(username = "NO_USER_PROVIDED") {
-    this._username = username;
+  constructor() {
+    this._user = user;
   }
 
   /**
@@ -10,23 +12,16 @@ class Logger {
   log(operation, isError = false) {
     if (isError)
       console.error(
-        `Error [${new Date().toISOString()}]:  (${
-          this._username
+        `Error [${new Date().toISOString()}]:  (${this._user.username}: ${
+          this._user.id
         }) => ${operation}`
       );
     else
       console.log(
-        `Success [${new Date().toISOString()}]:  (${
-          this._username
+        `Success [${new Date().toISOString()}]:  (${this._user.username}: ${
+          this._user.id
         }) => ${operation}`
       );
-  }
-
-  /**
-   * @param {string} username
-   */
-  set username(username) {
-    this._username = username;
   }
 }
 /**
