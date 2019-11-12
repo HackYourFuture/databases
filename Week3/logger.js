@@ -1,16 +1,25 @@
 class Logger {
-  constructor(username) {
+  constructor(username = "NO_USER_PROVIDED") {
     this._username = username;
   }
 
   /**
-   * Logs the operations to console with timestamp and user.
+   * Logs the operations to console with state, timestamp and user.
    * @param {string} operation
    */
-  log(operation) {
-    console.log(
-      `[${new Date().toISOString()}]:  (${this._username}) => ${operation}`
-    );
+  log(operation, isError = false) {
+    if (isError)
+      console.error(
+        `Error [${new Date().toISOString()}]:  (${
+          this._username
+        }) => ${operation}`
+      );
+    else
+      console.log(
+        `Success [${new Date().toISOString()}]:  (${
+          this._username
+        }) => ${operation}`
+      );
   }
 
   /**

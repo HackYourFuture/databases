@@ -6,6 +6,10 @@ const dbManager = require("./db");
 const app = express();
 app.use(bodyParser.json());
 
-async function main() {}
+async function main() {
+  try {
+    dbManager.connect();
+  } catch (err) {}
+}
 
 main();
