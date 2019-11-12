@@ -1,85 +1,66 @@
-# Lesson 3: Database design, normal forms, SQL injection
+# Reading Material Databases Week 3
 
-Objective: This class invites students to discuss Entity Relationship Diagram (ERD).
-Students should be able to explain their choices of entities, relationships, attributes etc.
-SQL injection should be explained with a demonstration (with a simple JS client).
-Concepts of database transaction, ACID properties, normal forms should be introduced with
-examples / live coding (creating a transaction, committing and rollback-ing).
+## Agenda
 
-## Pre-Class Readings
+1. Normalization
+   - normal forms
+2. Transactions
+3. SQL injection
+4. NoSQL
+5. Non-relational vs. relational
 
-[This YouTube video by freeCodeCamp.org](https://www.youtube.com/watch?v=HXV3zeQKqGY) explains
-all the important topics.
+## 1. Normalization
 
-Also, please read the following page that explains database foreign keys.
-- [What is a Database Foreign Key](http://databases.about.com/cs/specificproducts/g/foreignkey.htm)
+When developing the schema of a relational database, one of the most important aspects to be taken into account is to ensure that the duplication is minimized. This is done for 2 purposes:  
+* Reducing the amount of storage needed to store the data.
+* Avoiding unnecessary data conflicts that may creep in because of multiple copies of the same data getting stored.
+Normalization in DBMS
 
-## Topics to be covered
+Database Normalization is a technique that helps in designing the schema of the database in an optimal manner so as to ensure the above points. The core idea of database normalization is to divide the tables into smaller subtables and store pointers to data rather than replicating it. 
 
-### Entity Relationship Diagrams
-    - Associative entities from many-to-many relationships
-    - Boolean attribute instead of a table
+There are various database “Normal” forms. Each normal form (NF) has an importance which helps in optimizing the database to save storage and to reduce redundancies. These normal forms build incrementally. e.g. a database is in 3NF if it is already in 2NF and satisfied the 
+rules for 3rd normal form. Read  for more details.
 
-### Normalization
-Database Design following normal forms as a convention.
-These normal forms build incrementally.
-E.g. The database is in 3NF if it is already in 2NF and satisfied the
-rules for 3rd normal form. Read [here] (https://www.studytonight.com/dbms/database-normalization.php) for more details.
-
-#### 1NF (4 rules)
+#### 1st normal form (1NF) (4 rules)
 * Rule 1 : Single valued attributes (each column should have atomic value, no multiple values)
 * Rule 2 : Attribute domain should not change
 * Rule 3 : Unique names for attributes / columns
 * Rule 4 : Order does not matter
-#### 2NF
+#### 2nd normal form (2NF)
 No partial dependency. (i.e. no field should depend on part of the primary key)
 Example
 ```
 Score table (student_ID, subject_ID, score, teacher)
 Subject table (subject_ID, subject Name)
 ```
-#### 3NF
+#### 3rd normal form (3NF)
 No transitive dependency (i.e. no field should depend on non-key attributes).
 
-#### Boyce Codd Normal Form (3.5 NF)
+#### Boyce-Codd normal form (3.5 NF)
 for any dependency A → B, A should be a super key.
 
-#### 4NF
-No multi-value dependency.
+To increase your understanding, study the following materials:
 
-### Complicated values to store in MySQL
-    - Storing prices (floating point errors)
-    - Storing dates (datetime vs. timestamp)
-    - datetime : fixed value (joining date of employee): has a calendar date and a wall clock time
-    - timestamp : unix timestamp, seconds elapsed from 1 Jan 1970 00:00 in UTC (takes timezone into consideration)
+* [Database Normalization in Simple English](https://www.essentialsql.com/get-ready-to-learn-sql-database-normalization-explained-in-simple-english/)
+* [Database Normalization with examples](https://www.studytonight.com/dbms/database-normalization.php)
+* [Normalization and normal forms](https://hackr.io/blog/dbms-normalization)
 
-### Database transactions
-- A transaction is a set of commands that you want to treat as "one command." It has to either happen in full or not at all.
 
-- A classical example is transferring money from one bank account to another. To do that you have first to withdraw the amount from the source account, and then deposit it to the destination account. The operation has to succeed in full. If you stop halfway, the money will be lost, and that is Very Bad.
+## 2. Transactions
 
-* To start transaction:
-```
-mysql> start;
-OR
-mysql> begin transaction;
-```
-* To commit, use `commit;` and to abort, use `rollback;`
-* Note that `autocommit` variable should be set to false for rollback to work.
-```
-mysql> set autocommit = 0;
-```
+A transaction is a set of SQL commands that you want to treat as "one command." It has to either happen in full or not at all.
 
-### ACID properties
+Imagine writing a program for transferring money from one bank account to another. To do that you have first to withdraw the amount from the source account, and then deposit it to the destination account. The operation has to succeed in full. If you there is an error halfway, the money will be lost.
 
-- **Atomicity** : states that database modifications must follow an “all or nothing” rule.
-Each transaction is said to be “atomic.”
-If one part of the transaction fails, the entire transaction fails.
-- **Consistency** : states that only valid data will be written to the database. If, for some reason, a transaction is executed that violates the database’s consistency rules, the entire transaction will be rolled back, and the database will be restored to a state consistent with those rules.
-- **Isolation** : requires that multiple transactions occurring at the same time not impact each other’s execution.
-- **Durability** : ensures that any transaction committed to the database will not be lost. Durability is ensured through the use of database backups and transaction logs that facilitate the restoration of committed transactions in spite of any subsequent software or hardware failures.
+To start transaction in MySQL we use the keyword `begin transaction;`. Then we execute the series of commands. For example, in our money transfer example: `UPDATE account SET balance = balance - 100 WHERE account_no = 987654 ;` then `UPDATE account SET balance = balance + 100 WHERE account_no = 123456 ;`. If there are no errors you can use `commit;` which makes the changes final in the database. If there was an error and you want to abort you can use `rollback;`. This will *undo* all the commands from the transaction.
 
-### SQL injection
+To increase your understanding, study the following materials:
+
+* [Transaction examples](https://www.w3resource.com/sql/controlling-transactions.php)
+
+
+
+## 3. SQL injection
 
 Some SQL clients accept input from user to fabricate the queries.
 A malicious user can tweak the input so as to acquire more information from the database or
@@ -98,54 +79,53 @@ SELECT name, salary FROM employees where id = 101 OR 1=1;
 If X is `101; DROP database mydb`, then the query will delete the entire database
 SELECT name, salary FROM employees where id = 101; DROP database mydb;
 ```
-mysqljs prevents the second injection by not allowing multiple SQL statements
-to be executed at once.
 
-### Procedures
+To prevent SQL injection you have to use prepared statements. The diagram below summarizes nicely how prepared statements work:
 
-* Procedures in SQL (aka Stored procedures) are similar to functions in other programming languages.
-i.e. You can define them once and call them multiple times. However, it should be noted that
-MySQL has two different concepts : functions and procedures.
-This stack overflow post has an excellent answer that describes the
-[difference between MySQL functions vs procedures](https://stackoverflow.com/questions/3744209/mysql-stored-procedure-vs-function-which-would-i-use-when)
+![SQL injection](https://pics.me.me/prepared-statements-sol-injections-let-me-in-adult-swim-sol-62056759.png)
 
-* There are two scenarios in which procedures are particularly useful:
-(credits to [this stack overflow post](https://stackoverflow.com/questions/12631845/when-should-i-use-stored-procedures-in-mysql))
-1. When we want to entirely encapsulate access to the database by forcing apps to use
-the stored procedures. This can be good for an organization with a strong/large database group
-and a small/weak programming team.
-It's also helpful when you have multiple code bases accessing the database,
-because they all get one interface, rather than each writing their own queries, etc.
-2. When you're repetitively doing something that should be done in the database.
+With prepared statements we instruct the database to treat certain parts of a query only as a string and nothing else. Even if the string is a valid command it will not be evaluated or executed. To make this as safe as possible the SQL query is sent first, followed by the parts which need to be treated as strings. The syntax for prepared statements is:
 
-* To create a procedure, use the following syntax:
 ```
-Example:
-delimiter //
-create procedure countCountries (OUT param1 int)
-BEGIN
-    select count(*) into param1 from country;
-END
-//
-
-delimiter ;
-```
-* To see existing procedures, use the following command:
-```
-mysql> show procedure status where db = 'dbname';
+PREPARE example FROM SELECT name, salary FROM employees where id = ?;
+SET @id = 5;
+EXECUTE example USING @id
 ```
 
-* To call the procedure, use the following command:
-```
-mysql> call countCountries(@result);
+To increase your understanding check the following materials:
+* [What is SQL injection?](https://www.youtube.com/watch?v=ciNHn38EyRc)
+* [Prepared statements](https://www.databasejournal.com/features/mysql/a-guide-to-mysql-prepared-statements-and-parameterized-queries.html)
 
-mysql> select @result;
-```
+## 4. MongoDB
 
+IGOR
+
+## 5. Non-relational vs. relational
+
+IGOR
+
+# OLD THINGS, SHOULD BE DELETED IF NOT USED
+
+
+## Pre-Class Readings
+
+[This YouTube video by freeCodeCamp.org](https://www.youtube.com/watch?v=HXV3zeQKqGY) explains
+all the important topics.
+
+Also, please read the following page that explains database foreign keys.
+- [What is a Database Foreign Key](http://databases.about.com/cs/specificproducts/g/foreignkey.htm)
 
 ### Understanding the asynchronous nature of database queries
 Jim (@remarcmij) wrote these [excellent demo programs](https://github.com/remarcmij/database_examples)
 for better understanding. Do check them out.
+
+
+### Complicated values to store in MySQL
+    - Storing prices (floating point errors)
+    - Storing dates (datetime vs. timestamp)
+    - datetime : fixed value (joining date of employee): has a calendar date and a wall clock time
+    - timestamp : unix timestamp, seconds elapsed from 1 Jan 1970 00:00 in UTC (takes timezone into consideration)
+
 
 ## Reference Material
 
@@ -155,3 +135,5 @@ for better understanding. Do check them out.
     - [Yeoman](http://yeoman.io) - General framework for creating and scaffolding all types of projects
     - [Sails](http://sails.js) - Lightweight framework for generating APIs and web server apps in Node
     - [Loopback](http://loopback.io/) - A more "enterprise-ready" framework for generating and managing APIs.
+
+
