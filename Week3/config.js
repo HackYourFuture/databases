@@ -5,6 +5,9 @@ const databaseConfig = {
   database: "todo"
 };
 
+const port = 3000;
+
 module.exports = {
-  databaseConfig
+  databaseConfig,
+  port
 };

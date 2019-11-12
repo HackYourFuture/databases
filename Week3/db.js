@@ -27,6 +27,7 @@ class DB {
    * Queries the database with the provided query string and parameters
    * @param {string} queryString Query string without parameters in
    * @param  {Array<string>} args Query strings parameters
+   * @returns {Promise<Array>} queryResult
    */
   query(queryString, ...args) {
     if (!this._executeQuery) {
