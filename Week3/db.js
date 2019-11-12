@@ -13,12 +13,13 @@ class DB {
 
   /**
    * Connects to the mysql database
-   * @param {function(Error, string)} callback
    */
-  connect(callback) {
-    this._connection.connect(err => {
-      if (err) return callback(err);
-      callback(null, "Successfully connected to mysql server.");
+  connect() {
+    return new Promise((resolve, reject) => {
+      this._connection.connect(err => {
+        if (err) reject(err);
+        else resolve("Successfully connected to mysql server.");
+      });
     });
   }
 
@@ -38,10 +39,14 @@ class DB {
 
   /**
    * Closes the connection to the mysql server
-   * @param {function(Error)} callback
    */
-  cleanup(callback) {
-    this._connection.end(callback);
+  cleanup() {
+    return new Promise((resolve, reject) => {
+      this._connection.end(err => {
+        if (err) reject(err);
+        else resolve("Connection ended successfully.");
+      });
+    });
   }
 }
 
