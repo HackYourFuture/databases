@@ -1,5 +1,5 @@
-var mysql = require('mysql');
-var prompt = require('prompt');
+const mysql = require('mysql');
+const prompt = require('prompt');
 const util = require('util');
 
 const connection = mysql.createConnection({
