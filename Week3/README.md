@@ -16,7 +16,7 @@ When seting up a database, one of the most important aspects to be taken into ac
 
 Database normalization is a technique that helps in designing the database in an optimal manner so as to ensure the above points. The core idea of database normalization is to divide large tables into smaller subtables and store pointers to data rather than replicating it. 
 
-There are various database “Normal” forms. Each normal form (NF) has an importance which helps in optimizing the database to save storage and to reduce redundancies. These normal forms build incrementally. e.g. a database is in 3NF if it is already in 2NF and satisfied the rules for 3rd normal form. Read  for more details.
+There are various database “Normal” forms. Each normal form (NF) has an importance which helps in optimizing the database to save storage and to reduce redundancies. These normal forms build incrementally. e.g. a database is in 3NF if it is already in 2NF and satisfied the rules for 3rd normal form.
 
 #### 1st normal form (1NF) (4 rules)
 
@@ -26,8 +26,9 @@ The rules for first normal form are:
 * Rule 3 : Unique names for attributes / columns
 * Rule 4 : Order does not matter
 
-Did you get that? Neither did I. These normal form rules are writen really abstractly in a hard-to-read formal language. 
-Over time you will develop a feel for it. Let us look at an example:
+Did you get that? Neither did I! These normal form rules are writen abstractly in a hard-to-understand formal language. 
+
+Let us look at an example:
 
 | Customer ID |	First Name	| Surname |	Telephone Number |
 |-------------|-------------|---------|------------------|
@@ -35,12 +36,12 @@ Over time you will develop a feel for it. Let us look at an example:
 | 456 |	San |	Zhang       |	(555) 403-1659 Ext. 53; 182-929-2929 |
 | 789 |	John |	Doe         |	555-808-9633 |
 
-This table violates the Rule 1 because the column for telephone numbers for some rows has multiple values. The easiest way to fix this is to have two separate columns one for a landline and one for mobile phone.
+This table violates rule 1 because the column for telephone numbers has multiple values. The easiest way to fix this is to have two separate phone columns: one for a landline and one for mobile.
 
 #### 2nd normal form (2NF)
 There is only one rule for second normal form: no non-prime attribute should be functionally dependent on any proper subset of a candidate key. 
 
-Can you believe we had to memorize this definition in university? What a waste of brain capacity. Here we will not do that. Instead let us try and understand what this really means by looking at an example:
+Can you believe that your teacher had to memorize this definition by heart? What a waste of brain capacity. In Hack Your Future we will not ask you to memorize things. Instead let us try and understand what this really means by looking at an example:
 
 | Manufacturer |	Model	| Manufacturer country |
 |-------------|-------------|---------|
@@ -66,11 +67,11 @@ This table violates the rule of 2NF because data in the column `Manufacturer cou
 #### 3rd normal form (3NF)
 There is only one rule for third normal form:  No transitive dependency (i.e. no field should depend on non-key attributes).
 
-This rule is very similar to the rule for 2NF with the exception that it applies to non-key attiriutes. The approach for making your database comply with 3NF is also similar, split up your table. You can find a complete example [here](https://en.wikipedia.org/wiki/Third_normal_form).
+This rule is very similar to the rule for 2NF with the exception that it applies to non-key attiriutes. The approach for making your database comply with 3NF is also similar: split up your table. You can find a complete example [here](https://en.wikipedia.org/wiki/Third_normal_form).
 
 #### Higher normal forms
 
-Besides these three normal forms, there are other higher normal forms, for example, the Boyce-Codd normal form (3.5 NF). Not all of these normal forms are equally important. Most of the time while designing databases you should aim for the third normal form. 
+Besides these three normal forms, there are other higher normal forms, for example, the Boyce-Codd normal form (3.5 NF). Not all of these normal forms are equally important. Most of the time while designing databases you should aim for the third normal form. If you still did not get what are the rules for the differet normal forms, don't worry. Over time you will develop a feel for it.
 
 To increase your understanding, study the following materials:
 
@@ -87,6 +88,8 @@ A transaction is a set of SQL commands that you want to treat as "one command." 
 Imagine writing a program for transferring money from one bank account to another. To do that you have first to withdraw the amount from the source account, and then deposit it to the destination account. The operation has to succeed in full. If there is an error halfway, the money will be lost.
 
 To start a transaction in MySQL we use the keyword `begin transaction;`. Then we execute a series of commands. More concretely, in our money transfer example: `UPDATE account SET balance = balance - 100 WHERE account_no = 987654 ;` and `UPDATE account SET balance = balance + 100 WHERE account_no = 123456 ;`. If there are no errors we use the command `commit;` which finalizes the changes from both update commands. If there was an error we can use the command `rollback;` which will *undo* the changes from all commands in the transaction.
+
+Transactions are essentials when building aplications, since it is very rare that a functionality can be written as a single SQL command. To do anything usefull, several SQL commands need to be executed and in that case transactions are there to ensure that if something fails halfway the data does not stay in this half-changed state.
 
 To increase your understanding, study the following materials:
 
@@ -127,9 +130,13 @@ SET @id = 5; // this is only treated as string, so that writing '5 OR 1 = 1' wil
 EXECUTE example USING @id
 ```
 
+When writing an application you should always use prepared statements if user input is (potentially) part of the query.
+
 To increase your understanding check the following materials:
 * [What is SQL injection?](https://www.youtube.com/watch?v=ciNHn38EyRc)
 * [Prepared statements](https://www.databasejournal.com/features/mysql/a-guide-to-mysql-prepared-statements-and-parameterized-queries.html)
+
+
 
 ## 4. NoSQL - Mongo
 
