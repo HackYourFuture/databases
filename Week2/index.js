@@ -26,12 +26,19 @@ async function manipulateDatabase() {
     `SELECT countrylanguage.language ,country.region FROM country JOIN countrylanguage ON countrylanguage.CountryCode = country.code WHERE country.region = ?;`,
     `SELECT count(city.name), language FROM city JOIN countrylanguage ON city.countryCode=countrylanguage.countryCode WHERE language = ?;`,
     `select country.name from country join city on country.capital=city.id join countrylanguage on city.countryCode=countrylanguage.countryCode where country.region=? and language=? and isOfficial='T';`,
-    `SELECT country.continent, count(countrylanguage.language) FROM countrylanguage JOIN country ON countrylanguage.countryCode=country.code GROUP BY country.continent; `,
+    `SELECT country.continent, count(distinct countrylanguage.language) FROM countrylanguage JOIN country ON countrylanguage.countryCode=country.code GROUP BY country.continent; `,
   ];
 
-  prompt.start();
+  connection.connect(err => {
+    if (err) {
+      console.log('Error while connecting to server');
+    } else {
+      console.log('Successfully connected to database server');
+    }
+  });
 
-  try {
+  prompt.start();
+  const queryMachine = async () => {
     console.log(questions);
     const typedQuestion = await input(['question number']);
     const QuestionIndex = typedQuestion['question number'];
@@ -71,20 +78,20 @@ async function manipulateDatabase() {
         console.table(result5);
         break;
       default:
+        console.log('Please enter a valid question number');
         break;
     }
+    console.log('If you want to select another question type 1, for exit type any number');
+    const typedNum = await input(['question number']);
+    const QuestionIndex2 = parseInt(typedNum['question number']);
+    QuestionIndex2 === 1 && (await queryMachine());
+  };
+
+  try {
+    await queryMachine();
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
-
-  connection.connect(err => {
-    if (err) {
-      console.log('Error while connecting to server');
-    } else {
-      console.log('Successfully connected to database server');
-    }
-  });
-
   connection.end(console.log('connection has ended'));
 }
 
