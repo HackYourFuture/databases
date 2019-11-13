@@ -4,13 +4,10 @@ const user = require("../user");
 const { successResponse, failureResponse } = require("../response");
 const { responseObject } = require("../config");
 
-const deleteTodoList = (req, res) => {
-  responseObject.operation = "deleteTodoList";
-  logger.log(
-    `DELETE: /list/${req.params.id}, body: ${JSON.stringify(req.body)}`
-  );
-  const { user: userCredentials } = req.body;
-  const todoListId = parseInt(req.params.id, 10);
+const createTodoItem = (req, res) => {
+  responseObject.operation = "createTodoItem";
+  logger.log(`POST: /list/item, body: ${JSON.stringify(req.body)}`);
+  const { user: userCredentials, todoListId, todoItem } = req.body;
   if (!userCredentials) {
     responseObject.message = "user credentials not provided.";
     logger.log(responseObject.message, false);
@@ -25,18 +22,30 @@ const deleteTodoList = (req, res) => {
     logger.log(responseObject.message, false);
     res.statusCode = 401;
     res.send(failureResponse(responseObject));
-  } else if (Number.isNaN(todoListId)) {
-    responseObject.message = "id must be an integer.";
+  } else if (!todoListId) {
+    responseObject.message = "todoListId property not provided.";
+    logger.log(responseObject.message, false);
+    res.statusCode = 403;
+    res.send(failureResponse(responseObject));
+  } else if (!todoItem.description) {
+    responseObject.message = "todoItem has to have a description.";
     logger.log(responseObject.message, false);
     res.statusCode = 403;
     res.send(failureResponse(responseObject));
   } else {
     dbManager
-      .query("DELETE FROM TodoList WHERE id = ?", todoListId)
-      .then(() => {
-        responseObject.message = "Successfully deleted the list.";
+      .query(
+        "INSERT INTO TodoItem SET description = ?, todoListID = ?",
+        todoItem.description,
+        todoListId
+      )
+      .then(queryResult => {
+        responseObject.message = "Successfully added item to the list.";
         logger.log(`${responseObject.message}: ${JSON.stringify(user)}`);
-        res.send(successResponse(responseObject));
+        res.send({
+          ...successResponse(responseObject),
+          itemId: queryResult["insertId"]
+        });
       })
       .catch(err => {
         responseObject.message = `Query Error occurred. ${err.message}`;
@@ -47,4 +56,4 @@ const deleteTodoList = (req, res) => {
   }
 };
 
-module.exports = deleteTodoList;
+module.exports = createTodoItem;

@@ -7,7 +7,9 @@ const {
   loginEndPoint,
   signupEndPoint,
   createTodoListEndPoint,
-  deleteTodoListEndPoint
+  deleteTodoListEndPoint,
+  createTodoItemEndPoint,
+  deleteTodoItemEndPoint
 } = require("./api");
 
 const app = express();
@@ -20,7 +22,12 @@ function createUserEndPoints() {
 
 function createTodoListEndPoints() {
   app.post("./list", createTodoListEndPoint);
-  app.delete("./list", deleteTodoListEndPoint);
+  app.delete("./list/:id", deleteTodoListEndPoint);
+}
+
+function createTodoItemEndPoints() {
+  app.post("./list/item", createTodoItemEndPoint);
+  app.delete("./list/item/:id", deleteTodoItemEndPoint);
 }
 
 async function main() {
@@ -30,6 +37,7 @@ async function main() {
 
     createUserEndPoints();
     createTodoListEndPoints();
+    createTodoItemEndPoints();
 
     app.listen(port, () => {
       logger.log(`Server is listening on port ${port}`);

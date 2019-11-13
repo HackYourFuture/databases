@@ -4,13 +4,13 @@ const user = require("../user");
 const { successResponse, failureResponse } = require("../response");
 const { responseObject } = require("../config");
 
-const deleteTodoList = (req, res) => {
-  responseObject.operation = "deleteTodoList";
+const deleteTodoItem = (req, res) => {
+  responseObject.operation = "deleteTodoItem";
   logger.log(
-    `DELETE: /list/${req.params.id}, body: ${JSON.stringify(req.body)}`
+    `DELETE: /list/item/${req.params.id}, body: ${JSON.stringify(req.body)}`
   );
   const { user: userCredentials } = req.body;
-  const todoListId = parseInt(req.params.id, 10);
+  const todoItemId = parseInt(req.params.id, 10);
   if (!userCredentials) {
     responseObject.message = "user credentials not provided.";
     logger.log(responseObject.message, false);
@@ -25,16 +25,16 @@ const deleteTodoList = (req, res) => {
     logger.log(responseObject.message, false);
     res.statusCode = 401;
     res.send(failureResponse(responseObject));
-  } else if (Number.isNaN(todoListId)) {
+  } else if (Number.isNaN(todoItemId)) {
     responseObject.message = "id must be an integer.";
     logger.log(responseObject.message, false);
     res.statusCode = 403;
     res.send(failureResponse(responseObject));
   } else {
     dbManager
-      .query("DELETE FROM TodoList WHERE id = ?", todoListId)
+      .query("DELETE FROM TodoItem WHERE id = ?", todoItemId)
       .then(() => {
-        responseObject.message = "Successfully deleted the list.";
+        responseObject.message = "Successfully deleted the item.";
         logger.log(`${responseObject.message}: ${JSON.stringify(user)}`);
         res.send(successResponse(responseObject));
       })
@@ -47,4 +47,4 @@ const deleteTodoList = (req, res) => {
   }
 };
 
-module.exports = deleteTodoList;
+module.exports = deleteTodoItem;
