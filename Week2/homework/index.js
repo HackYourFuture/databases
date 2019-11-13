@@ -78,8 +78,9 @@
       const language = readline.question('Enter a language: ');
       const countries = await executeQuery(
         `select distinct c.name as countries from countrylanguage l 
-          inner join (select * from country where region = ? ) as c 
+          inner join country as c 
           on c.code = l.countryCode 
+          and c.region = ?
           and l.language = ? 
           and l.isOfficial = 't'`,
         [region, language],
