@@ -7,6 +7,9 @@ const deleteTodoItemEndPoint = require("./deleteTodoItem");
 const markItem = require("./markItem");
 const createReminderEndPoint = require("./createReminder");
 const deleteReminderEndPoint = require("./deleteReminder");
+const attachTagToTodoItemEndPoint = require("./attachTagToTodoItem");
+const removeTagFromTodoItemEndPoint = require("./removeTagFromTodoItem");
+const createTagEndPoint = require("./createTag");
 
 module.exports = {
   loginEndPoint,
@@ -18,5 +21,8 @@ module.exports = {
   createTodoItemEndPoint,
   deleteTodoItemEndPoint,
   markTodoItemAsCompletedEndPoint: markItem.bind(null, true),
-  markTodoItemAsNotCompletedEndPoint: markItem.bind(null, false)
+  markTodoItemAsNotCompletedEndPoint: markItem.bind(null, false),
+  attachTagToTodoItemEndPoint,
+  removeTagFromTodoItemEndPoint,
+  createTagEndPoint
 };
