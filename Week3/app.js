@@ -8,6 +8,8 @@ const {
   signupEndPoint,
   createTodoListEndPoint,
   deleteTodoListEndPoint,
+  createReminderEndPoint,
+  deleteReminderEndPoint,
   createTodoItemEndPoint,
   deleteTodoItemEndPoint,
   markTodoItemAsCompletedEndPoint,
@@ -23,11 +25,16 @@ function createUserEndPoints() {
 }
 
 function createTodoListEndPoints() {
+  // TODO: GET All List
   app.post("./list", createTodoListEndPoint);
   app.delete("./list/:id", deleteTodoListEndPoint);
+  // TODO: GET All Reminders
+  app.post("./list/remind", createReminderEndPoint);
+  app.delete("./list/remind/:id", deleteReminderEndPoint);
 }
 
 function createTodoItemEndPoints() {
+  // TODO: GET All Items
   app.post("./list/item", createTodoItemEndPoint);
   app.delete("./list/item/:id", deleteTodoItemEndPoint);
 }
