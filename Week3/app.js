@@ -9,7 +9,9 @@ const {
   createTodoListEndPoint,
   deleteTodoListEndPoint,
   createTodoItemEndPoint,
-  deleteTodoItemEndPoint
+  deleteTodoItemEndPoint,
+  markTodoItemAsCompletedEndPoint,
+  markTodoItemAsNotCompletedEndPoint
 } = require("./api");
 
 const app = express();
@@ -30,6 +32,11 @@ function createTodoItemEndPoints() {
   app.delete("./list/item/:id", deleteTodoItemEndPoint);
 }
 
+function createTodoItemCompletionEndPoints() {
+  app.post("./list/item/:id/complete", markTodoItemAsCompletedEndPoint);
+  app.delete("./list/item/:id/complete", markTodoItemAsNotCompletedEndPoint);
+}
+
 async function main() {
   try {
     // Connect to the mysql server
@@ -38,6 +45,7 @@ async function main() {
     createUserEndPoints();
     createTodoListEndPoints();
     createTodoItemEndPoints();
+    createTodoItemCompletionEndPoints();
 
     app.listen(port, () => {
       logger.log(`Server is listening on port ${port}`);
