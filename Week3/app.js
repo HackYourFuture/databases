@@ -6,16 +6,20 @@ const { port } = require("./config");
 const {
   loginEndPoint,
   signupEndPoint,
+  getTodoListsEndPoint,
   createTodoListEndPoint,
   deleteTodoListEndPoint,
+  getRemindersEndPoint,
   createReminderEndPoint,
   deleteReminderEndPoint,
+  getTodoItemsEndPoint,
   createTodoItemEndPoint,
   deleteTodoItemEndPoint,
   markTodoItemAsCompletedEndPoint,
   markTodoItemAsNotCompletedEndPoint,
   attachTagToTodoItemEndPoint,
   removeTagFromTodoItemEndPoint,
+  getTagsEndPoint,
   createTagEndPoint
 } = require("./api");
 
@@ -28,18 +32,20 @@ function createUserEndPoints() {
 }
 
 function createTodoListEndPoints() {
-  // TODO: GET All List
+  app.get("/list", getTodoListsEndPoint);
   app.post("/list", createTodoListEndPoint);
   app.delete("/list/:id", deleteTodoListEndPoint);
-  // TODO: GET All Reminders
+  app.get("/list/remind", getRemindersEndPoint);
   app.post("/list/remind", createReminderEndPoint);
   app.delete("/list/remind/:id", deleteReminderEndPoint);
 }
 
 function createTodoItemAndTagEndPoints() {
-  // TODO: GET All Items
+  // TODO: GET All Items -> Reduce results
+  app.get("/list/:id", getTodoItemsEndPoint);
   app.post("/list/item", createTodoItemEndPoint);
   app.delete("/list/item/:id", deleteTodoItemEndPoint);
+  app.get("/tag", getTagsEndPoint);
   app.post("/list/item/tag", createTagEndPoint);
   app.post("/list/item/:todoItemId/tag/:tagId", attachTagToTodoItemEndPoint);
   app.delete(
