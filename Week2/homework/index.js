@@ -15,10 +15,6 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-const data = require('./cities.json');
-const { countries } = data;
-const { cities } = data;
-
 function getCapitalCity(id, req, res) {
   connection.query(`select * from cities where id = "${id}"`, (error, results, fields) => {
     if (error) {
@@ -91,24 +87,6 @@ app.get('/countries/:continent', (req, res) => {
       if (error) {
         console.log(error);
         res.send(error);
-      } else {
-        res.send(results);
-      }
-    },
-  );
-});
-
-app.get(`/countries/:languages`, (req, res) => {
-  const { languages } = req.params;
-  connection.query(
-    `select count(name) from countries where language = "${languages}"`,
-    (error, results, fields) => {
-      if (error) {
-        console.log(error);
-      } else if (results >= 10) {
-        res.send(
-          `ALERT ALERT ALERT :)  Country has more than 10 languages. It has ${results} languages`,
-        );
       } else {
         res.send(results);
       }
