@@ -1,0 +1,82 @@
+{
+  "user": [
+    {
+      "name": "Natsu"
+    },
+    {
+      "name": "Haru"
+    }
+  ],
+
+  "todoList": [
+    {
+      "title": "Party",
+      "userId": 1
+    },
+    {
+      "title": "Shopping",
+      "userId": 1
+    },
+    {
+      "title": "School",
+      "userId": 2
+    }
+  ],
+
+  "todoListItem": [
+    {
+      "description": "prepare invitation",
+      "isCompleted": "F",
+      "dueDate": "2019-12-01 14:00:00",
+      "toDoListId": 1
+    },
+    {
+      "description": "decorate house",
+      "isCompleted": "F",
+      "dueDate": "2019-12-01 14:00:00",
+      "toDoListId": 1
+    },
+    {
+      "description": "order cake",
+      "isCompleted": "F",
+      "dueDate": "2019-12-01 14:00:00",
+      "toDoListId": 2
+    },
+    {
+      "description": "buy party dress",
+      "isCompleted": "F",
+      "dueDate": "2019-12-01 14:00:00",
+      "toDoListId": 2
+    },
+    {
+      "description": "send essay homework",
+      "isCompleted": "F",
+      "dueDate": "2019-11-20 23:59:00",
+      "toDoListId": 3
+    }
+  ],
+
+  "reminder": [
+    {
+      "title": "party",
+      "alarmFrom": "2019-11-29 18:00:00",
+      "alarmTo": "2019-11-29 19:30:00",
+      "alarmTone": "rainy ray",
+      "toDoListId": 1
+    },
+    {
+      "title": "a week before party",
+      "alarmFrom": "2019-11-22 18:00:00",
+      "alarmTo": "2019-11-22 19:30:00",
+      "alarmTone": "rainy ray",
+      "toDoListId": 1
+    },
+    {
+      "title": "deadline",
+      "alarmFrom": "2019-11-20 18:00:00",
+      "alarmTo": "2019-11-20 19:30:00",
+      "alarmTone": "rainy ray",
+      "toDoListId": 3
+    }
+  ]
+}
