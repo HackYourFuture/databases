@@ -1,0 +1,14 @@
+{
+  "name": "week3",
+  "version": "1.0.0",
+  "description": "Objective: This class invites students to discuss Entity Relationship Diagram (ERD).\r Students should be able to explain their choices of entities, relationships, attributes etc.\r SQL injection should be explained with a demonstration (with a simple JS client).\r Concepts of database transaction, ACID properties, normal forms should be introduced with\r examples / live coding (creating a transaction, committing and rollback-ing).",
+  "main": "actions.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.6.0"
+  }
+}
