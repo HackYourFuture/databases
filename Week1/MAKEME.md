@@ -1,5 +1,22 @@
 > This homework assumes you have installed the software [MySQL](https://dev.mysql.com/downloads/installer/) to your computer. If not please do that first!
 
+# Homework JavaScript3 Week 1
+
+## **Todo list**
+
+1. Practice the concepts
+2. MySQL exercises
+3. Code along
+4. PROJECT: Hack Your World
+
+## 1. **Practice the concepts**
+
+## 2. **MySQL exercises**
+
+## 3. **MySQL exercises**
+
+## 4. **PROJECT: Hack Your World**
+
 # Homework week 1
 
 This week you'll be writing a Node.js file that makes a connection to a MySQL database instance. These are the requirements that the file must have:
@@ -51,3 +68,16 @@ Tip: Before writing any query, first get a working version of the [example](http
 Tip: When creating the tables, make sure you know what data type each column should have. Check the [following](https://dzone.com/articles/mysql-data-types-an-overview-of-the-data-types-in) to read about the different data types recognized by MySQL.
 
 Tip: If you want to learn how to use the SQL language in its various ways, check out the following online tutorial: [SQL Teaching](https://www.sqlteaching.com/)
+
+## **SUBMIT YOUR HOMEWORK!**
+
+After you've finished your todo list it's time to show us what you got! The homework that needs to be submitted is the following:
+
+1. MySQL exercises
+2. PROJECT: Hack Your World
+
+Upload both to your forked Databases repository in GitHub. Make a pull request to HackYourFuture's forked repository.
+
+> Forgotten how to upload your homework? Go through the [guide](../hand-in-homework-guide.md) to learn how to do this again.
+
+_Deadline Saturday 23.59 CET_

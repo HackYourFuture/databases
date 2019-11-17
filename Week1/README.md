@@ -1,3 +1,32 @@
+# Reading Material Databases Week 1
+
+## Agenda
+
+These are the topics for week 1:
+
+1. What's a database?
+   - Purpose of database
+   - Relational vs. non-relational
+2. Structured Query Language (SQL)
+   - SQL vs. NoSQL
+   - When to use either an SQL or NoSQL database?
+   - What is MySQL?
+3. The role of a database in a full-stack application
+   - What does a database do for our apps?
+   - How to connect with Node.js
+
+## 1. What's a database?
+
+- [What is Database & SQL](https://www.youtube.com/watch?v=FR4QIeZaPeM)
+
+### Relational vs. non-relational
+
+- [Relational Database Essentials](https://www.youtube.com/watch?v=GfBtPAB7NH0)
+
+## 2. Structured Query Language (SQL)
+
+## 3. The role of a database in a full-stack application
+
 # Lesson 1: MySQL and Node setup! Create, Insert and Select !
 
 Objective : This class aims to incorporate JavaScript code to operate the MySQL database.
@@ -5,55 +34,7 @@ MySQL client can be used to demonstrate SQL queries however, students should kno
 make a MySQL database connection from JavaScript, run queries from JavaScript and
 capture results of queries in JavaScript.
 
-## Pre-Class Preparation
-
-- Install MySQL using the following [official docs](https://dev.mysql.com/downloads/mysql/)
-- MAC users may install Brew Package Manager via `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` then use `brew install mysql`
-
-[This YouTube video by freeCodeCamp.org](https://www.youtube.com/watch?v=HXV3zeQKqGY) explains
-all the important topics.
-
-## Setup
-
-### MySQL setup
-
-This setup assumes MySQL version 8.0.
-Windows users should use **Microsoft MySQL Command Line** client.
-Linux and MAC users should use **gnome-terminal** and **Terminal** respectively.
-**Microsoft MySQL Command Line** client gives you a **msql>** prompt after typing in your root password.
-Note that this password is the one you used for root user of the mysql.
-Linux and MAC users can execute `mysql -uroot -p` and then type the password.
-Following commands should be run under the **mysql>** prompt:
-
-```
-mysql> create user 'hyfuser'@'localhost' identified with mysql_native_password by 'hyfpassword';
-
-# If this does not work try the alternative command:
-mysql> create user 'hyfuser'@'localhost' identified by 'hyfpassword';
-
-# This command creates a user 'hyfuser' with password 'hyfpassword' for
-# the database server at 'localhost'
-
-mysql> grant all privileges on *.* to 'hyfuser'@'localhost';
-# This command gives all permissions to user 'hyfuser'.
-# (*.*) means every table of every database.
-
-mysql> create database userdb;
-#This command creates a database 'userdb'
-```
-
-### Node setup
-
-This setup assumes that you have Node.js 0.6 or higher.
-We use **mysqljs** driver which can be installed using `npm install mysql`
-
-### Verification of the correct setup
-
-Run `node connection-test.js` from VScode(Windows) or the terminal(Linux or MAC).
-The output should be `The solution is: 2`.
-connection-test.js can be found in the Week1 folder.
-
-In this class, students will be introduced to
+In this class, students will be introduced to:
 
 - Basics of relational databases: Concepts of tables, rows, columns, primary key, foreign key.
 - Creation of a database table and insertion of values.
@@ -73,12 +54,7 @@ retrieve data from tables using SELECT statements that include FROM, WHERE claus
 - Data structure/object as database
 
 ```js
-const capitals = [
-  'Amsterdam',
-  'Delhi',
-  'Damascus',
-  'Madrid'
-];
+const capitals = ['Amsterdam', 'Delhi', 'Damascus', 'Madrid'];
 ```
 
 ### Relations = Table
@@ -189,4 +165,16 @@ WHERE  transfer_date > '2008-01-01';
 - [Official MySQL Tutorial (pretty dense)](https://dev.mysql.com/doc/refman/5.7/en/tutorial.html)
 - [Node MySQL Documentation on Github](https://github.com/mysqljs/mysql)
 - [Joel Spolsky - Character Sets and Unicode](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
+
+## Practice the concepts (week 1)
+
 - [SQL Fundamentals - SoloLearn](https://www.sololearn.com/Course/SQL/)
+
+
+
+
+## Noer's suggestions for resources
+
+- [What is a database?](https://www.youtube.com/watch?v=t8jgX1f8kc4)
+- [Tables and keys](https://www.youtube.com/watch?v=ia4eCxPPc_o)
+- [What is a relational database?](https://www.youtube.com/watch?v=t48TGntrX4s)

@@ -1,3 +1,15 @@
+# Reading Material Databases Week 2
+
+## Agenda
+
+These are the topics for week 2:
+
+1. Database design
+   - Entity Relationship Diagram (ERD)
+   - adas
+2. The ACID model
+3. asdas
+
 # Lesson 2: Group by, Having and Joins. Promisification of JS client with prepared statements
 
 Objective: This class introduces more clauses (group by, having) in the
@@ -14,6 +26,7 @@ understood by students. The program can be found in the Week2 folder (Credits:
 all the important topics.
 
 Also, please read the following page that explains the ACID database model.
+
 - [The ACID Database Model](https://www.thoughtco.com/the-acid-model-1019731)
 
 ## Topics to be covered
@@ -21,12 +34,14 @@ Also, please read the following page that explains the ACID database model.
 ### NOT NULL and default values in CREATE table statement
 
 Following links are worth reading.
-- [Working with nulls] (https://dev.mysql.com/doc/refman/8.0/en/working-with-null.html)
-- [TO DEFAULT or TO NULL] (https://blog.jooq.org/2014/11/11/have-you-ever-wondered-about-the-difference-between-not-null-and-default/)
+
+- [Working with nulls](https://dev.mysql.com/doc/refman/8.0/en/working-with-null.html)
+- [TO DEFAULT or TO NULL](https://blog.jooq.org/2014/11/11/have-you-ever-wondered-about-the-difference-between-not-null-and-default/)
 
 ### foreign key
 
 Creating foreign key while creating the table
+
 ```
 CREATE TABLE Employee (
 other fields,
@@ -37,10 +52,10 @@ references Department(id)
 ```
 
 Creating the foreign key by explicitly adding the constraint
+
 ```
 ALTER TABLE Employee ADD CONSTRAINT fk_dept foreign key (dept_id) references Department(id);
 ```
-
 
 ### Database dump
 
@@ -54,21 +69,23 @@ and/or the data from a database and is usually in the form of a list of SQL stat
 
 ### Group by and Having clauses
 
-- *Group by* clause is used to group rows with same values.
+- _Group by_ clause is used to group rows with same values.
 - It can be used in conjunction with aggregate functions (E.g. min, max).
-- The queries that contain the *group by* clause only return a single row for every grouped item.
-- *Having* clause restricts the query results of *group by* clause.
+- The queries that contain the _group by_ clause only return a single row for every grouped item.
+- _Having_ clause restricts the query results of _group by_ clause.
 
 ### INSERT INTO table SET syntax
 
 ```
 INSERT INTO Department SET dept_id=101, dept_name='fun', dept_head='unmesh';
 ```
+
 ### Promise based program demo
 
 The program is called `async-create-insert.js` and can be found in Week2 folder.
+
 - async : to create asynchronous function and ensure they return promise without having to worry
-about building those promises
+  about building those promises
 - await : to call a function returning promise without having to call .then() over that promise
 - promisify() : to convert a callback based function to a promise based one.
 
@@ -79,6 +96,7 @@ about building those promises
 - Many to Many (book(s) and author(s))
 
 ### Adding a column to the table
+
 ```
 alter table Employee add column dept_id int
 ```
@@ -93,17 +111,19 @@ update Department set dept_head = 'Lucas' where dept_id = 3;
 
 - A comma (,) after **FROM** is equivalent to the CROSS join.
 - Implicit inner join (when the keyword **JOIN** is not used), **WHERE** clause has conditions.
-- self join use case : Employee table with (*eid* field and *reports_to* field)
+- self join use case : Employee table with (_eid_ field and _reports_to_ field)
 - left and right join : reverse of each other
 - [Join manual](https://dev.mysql.com/doc/refman/8.0/en/join.html)
 
 ### Triggers
-* Triggers are a mechanism in SQL to prevent seemingly impossible data in the tables.
-* Triggers are fired before/after insertion or updation of the database tables.
-* Following is an example trigger which fires before any row is inserted into employee table.
-Let the insert command be `insert into project values (104, "ironman", 1, "2007-01-01")`.
-Then the variable `new` contains (104, "ironman", 1, "2007-01-01").
-i.e. `new` automatically gets all the column names of the project table.
+
+- Triggers are a mechanism in SQL to prevent seemingly impossible data in the tables.
+- Triggers are fired before/after insertion or updation of the database tables.
+- Following is an example trigger which fires before any row is inserted into employee table.
+  Let the insert command be `insert into project values (104, "ironman", 1, "2007-01-01")`.
+  Then the variable `new` contains (104, "ironman", 1, "2007-01-01").
+  i.e. `new` automatically gets all the column names of the project table.
+
 ```
 mysql> delimiter $$
 mysql> CREATE TRIGGER date_trigger
@@ -123,6 +143,7 @@ mysql> CREATE TRIGGER date_trigger
 
 mysql> delimiter ;
 ```
+
 This trigger gives error if the start date of the project is earlier than the starting date
 of the manager of the project.
 
