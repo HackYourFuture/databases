@@ -7,7 +7,7 @@ const { responseObject } = require("../config");
 const getTodoItems = (req, res) => {
   responseObject.operation = "getTodoItems";
   const userCredentials = {};
-  userCredentials.id = req.headers.userId;
+  userCredentials.id = parseInt(req.headers.userid, 10);
   userCredentials.username = req.headers.username;
   const todoListId = parseInt(req.params.id, 10);
   logger.log(`GET: /list/:id, headers: ${JSON.stringify(userCredentials)}`);
@@ -41,21 +41,40 @@ const getTodoItems = (req, res) => {
           " Tag.id as tagId," +
           " Tag.name as tagName," +
           " Tag.description as tagDescription," +
-          " Tag.color as tagColor," +
-          " FROM TodoItem" +
-          " INNER JOIN TodoItemTags" +
+          " Tag.color as tagColor" +
+          " FROM TodoItem LEFT JOIN TodoItemTags" +
           " ON TodoItem.id = TodoItemTags.todoItemID" +
-          " INNER JOIN Tag" +
+          " LEFT JOIN Tag" +
           " ON TodoItemTags.tagID = Tag.id" +
           " WHERE TodoItem.todoListID = ?",
         todoListId
       )
       .then(queryResult => {
-        responseObject.message = "Successfully fetched the todo lists.";
+        responseObject.message =
+          "Successfully fetched the todo items of the list.";
         logger.log(`${responseObject.message}: ${JSON.stringify(user)}`);
         res.send({
           ...successResponse(responseObject),
-          data: queryResult
+          data: Object.values(
+            queryResult.reduce((acc, curr) => {
+              if (!acc[`${curr.todoItemId}`])
+                acc[`${curr.todoItemId}`] = {
+                  todoItemId: curr.todoItemId,
+                  todoItemDescription: curr.todoItemDescription,
+                  isCompleted: curr.isCompleted ? true : false,
+                  tags: []
+                };
+
+              if (curr.tagId)
+                acc[`${curr.todoItemId}`].tags.push({
+                  tagId: curr.tagId,
+                  tagName: curr.tagName,
+                  tagDescription: curr.tagDescription,
+                  tagColor: curr.tagColor
+                });
+              return acc;
+            }, {})
+          )
         });
       })
       .catch(err => {

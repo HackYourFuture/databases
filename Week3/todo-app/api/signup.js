@@ -7,7 +7,7 @@ const { responseObject } = require("../config");
 const signup = (req, res) => {
   responseObject.operation = "signup";
   logger.log(`POST: /signup, body: ${JSON.stringify(req.body)}`);
-  const { username } = req.body;
+  const { username } = req.body.user;
   if (username) {
     dbManager
       .query("INSERT INTO User SET username = ?", username)

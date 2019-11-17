@@ -7,7 +7,7 @@ const { responseObject } = require("../config");
 const getTags = (req, res) => {
   responseObject.operation = "getTags";
   const userCredentials = {};
-  userCredentials.id = req.headers.userId;
+  userCredentials.id = parseInt(req.headers.userid, 10);
   userCredentials.username = req.headers.username;
   logger.log(`GET: /tag, headers: ${JSON.stringify(userCredentials)}`);
   if (!userCredentials) {

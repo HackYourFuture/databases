@@ -7,7 +7,7 @@ const { responseObject } = require("../config");
 const getReminders = (req, res) => {
   responseObject.operation = "getReminders";
   const userCredentials = {};
-  userCredentials.id = req.headers.userId;
+  userCredentials.id = parseInt(req.headers.userid, 10);
   userCredentials.username = req.headers.username;
   logger.log(`GET: /list/remind, headers: ${JSON.stringify(userCredentials)}`);
   if (!userCredentials) {
@@ -29,12 +29,12 @@ const getReminders = (req, res) => {
     dbManager
       .query(
         "SELECT" +
-          " userID" +
-          " TodoList.id as TodoListId" +
+          " TodoList.userID as userId," +
+          " TodoList.id as TodoListId," +
           " TodoList.name as TodoListName," +
           " TodoList.description as TodoListDescription," +
           " Reminder.id as ReminderId," +
-          " Reminder.description as ReminderDescription" +
+          " Reminder.description as ReminderDescription," +
           " Reminder.remindingTime as RemindingTime" +
           " FROM TodoList INNER JOIN Reminder" +
           " ON TodoList.id = Reminder.todoListID" +

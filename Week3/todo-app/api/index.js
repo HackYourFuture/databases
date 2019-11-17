@@ -1,5 +1,5 @@
 const loginEndPoint = require("./login");
-const signupEndPoint = require("./login");
+const signupEndPoint = require("./signup");
 const createTodoListEndPoint = require("./createTodoList");
 const deleteTodoListEndPoint = require("./deleteTodoList");
 const createTodoItemEndPoint = require("./createTodoItem");

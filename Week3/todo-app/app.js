@@ -41,7 +41,6 @@ function createTodoListEndPoints() {
 }
 
 function createTodoItemAndTagEndPoints() {
-  // TODO: GET All Items -> Reduce results
   app.get("/list/:id", getTodoItemsEndPoint);
   app.post("/list/item", createTodoItemEndPoint);
   app.delete("/list/item/:id", deleteTodoItemEndPoint);

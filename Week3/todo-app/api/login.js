@@ -7,7 +7,7 @@ const { responseObject } = require("../config");
 const login = (req, res) => {
   responseObject.operation = "login";
   logger.log(`POST: /login, body: ${JSON.stringify(req.body)}`);
-  const { username, id } = req.body;
+  const { username, id } = req.body.user;
   if (username && id) {
     dbManager
       .query("SELECT id, username FROM User WHERE id = ?", id)

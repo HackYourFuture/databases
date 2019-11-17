@@ -37,7 +37,7 @@ const markItem = (isCompleted, req, res) => {
   } else {
     dbManager
       .query(
-        "UPDATE TodoItem SET isCompleted = ?, WHERE id = ?",
+        "UPDATE TodoItem SET isCompleted = ? WHERE id = ?",
         isCompleted,
         todoItemId
       )
@@ -46,7 +46,12 @@ const markItem = (isCompleted, req, res) => {
           isCompleted ? "completed" : "not completed"
         }.`;
         logger.log(`${responseObject.message}: ${JSON.stringify(user)}`);
-        res.send({ ...successResponse(responseObject), queryResult });
+        res.send({
+          ...successResponse(responseObject),
+          updatedItemId: queryResult["changedRows"]
+            ? null
+            : queryResult["changedRows"]
+        });
       })
       .catch(err => {
         responseObject.message = `Query Error occurred. ${err.message}`;

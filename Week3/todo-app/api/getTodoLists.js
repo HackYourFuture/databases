@@ -7,10 +7,10 @@ const { responseObject } = require("../config");
 const getTodoLists = (req, res) => {
   responseObject.operation = "getTodoLists";
   const userCredentials = {};
-  userCredentials.id = req.headers.userId;
+  userCredentials.id = parseInt(req.headers.userid, 10);
   userCredentials.username = req.headers.username;
   logger.log(`GET: /list, headers: ${JSON.stringify(userCredentials)}`);
-  if (!userCredentials) {
+  if (!userCredentials || !userCredentials.username || !userCredentials.id) {
     responseObject.message =
       "user credentials not provided with the headers: userId, username.";
     logger.log(responseObject.message, false);
@@ -28,7 +28,7 @@ const getTodoLists = (req, res) => {
   } else {
     dbManager
       .query(
-        "SELECT id as TodoListId, name, description WHERE userID = ?",
+        "SELECT id as TodoListId, name, description FROM TodoList WHERE userID = ?",
         user.id
       )
       .then(queryResult => {

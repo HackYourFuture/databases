@@ -35,7 +35,7 @@ class DB {
         this._connection.query.bind(this._connection)
       );
     }
-    return this._executeQuery(queryString, ...args);
+    return this._executeQuery(queryString, args);
   }
 
   /**

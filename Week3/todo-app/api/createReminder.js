@@ -55,7 +55,7 @@ const createReminder = (req, res) => {
         "INSERT INTO Reminder SET description = ?, todoListID = ?, remindingTime = ?",
         reminder.description,
         todoListId,
-        reminder.remindingTime
+        new Date(reminder.remindingTime)
       )
       .then(queryResult => {
         responseObject.message = "Successfully added reminder to the list.";
