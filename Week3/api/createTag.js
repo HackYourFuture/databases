@@ -6,7 +6,7 @@ const { responseObject, isValidColorHex } = require("../config");
 
 const createTag = (req, res) => {
   responseObject.operation = "createTag";
-  logger.log(`POST: /list/item/tag, body: ${JSON.stringify(req.body)}`);
+  logger.log(`POST: /tag, body: ${JSON.stringify(req.body)}`);
   const { user: userCredentials, tag } = req.body;
   if (!userCredentials) {
     responseObject.message = "user credentials not provided.";
@@ -27,7 +27,7 @@ const createTag = (req, res) => {
     logger.log(responseObject.message, false);
     res.statusCode = 403;
     res.send(failureResponse(responseObject));
-  } else if (!isValidColorHex(tag.color)) {
+  } else if (tag.color && !isValidColorHex(tag.color)) {
     responseObject.message = "tag's color property is not a valid hex.";
     logger.log(responseObject.message, false);
     res.statusCode = 403;
@@ -38,7 +38,7 @@ const createTag = (req, res) => {
         "INSERT INTO Tag SET name = ?, description = ?, color = ?",
         tag.name,
         tag.description,
-        tag.color
+        tag.color ? tag.color : "000000"
       )
       .then(queryResult => {
         responseObject.message = "Successfully created a new tag.";
@@ -51,7 +51,7 @@ const createTag = (req, res) => {
       .catch(err => {
         responseObject.message = `Query Error occurred. ${err.message}`;
         logger.log(responseObject.message, false);
-        res.statusCode = 501;
+        res.statusCode = 500;
         res.send(failureResponse(responseObject));
       });
   }

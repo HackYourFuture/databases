@@ -1,0 +1,1 @@
+{  "name": "todo-app",  "version": "1.0.0",  "description": "Full ToDo app using express and mysqljs",  "sampleUrl": false,  "defaultVersion": "0.0.0",  "apidoc": "0.3.0",  "generator": {    "name": "apidoc",    "time": "2019-11-17T02:07:18.288Z",    "url": "http://apidocjs.com",    "version": "0.18.0"  }}

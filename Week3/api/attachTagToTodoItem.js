@@ -53,7 +53,7 @@ const attachTagToTodoItem = (req, res) => {
       .catch(err => {
         responseObject.message = `Query Error occurred. ${err.message}`;
         logger.log(responseObject.message, false);
-        res.statusCode = 501;
+        res.statusCode = 500;
         res.send(failureResponse(responseObject));
       });
   }

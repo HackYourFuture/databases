@@ -46,7 +46,7 @@ function createTodoItemAndTagEndPoints() {
   app.post("/list/item", createTodoItemEndPoint);
   app.delete("/list/item/:id", deleteTodoItemEndPoint);
   app.get("/tag", getTagsEndPoint);
-  app.post("/list/item/tag", createTagEndPoint);
+  app.post("/tag", createTagEndPoint);
   app.post("/list/item/:todoItemId/tag/:tagId", attachTagToTodoItemEndPoint);
   app.delete(
     "/list/item/:todoItemId/tag/:tagId",
