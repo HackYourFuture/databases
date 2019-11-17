@@ -1,0 +1,32 @@
+<% include ../layouts/header.ejs %>
+<% if(messages.error) { %>
+    <p style="color: red"><%- messages.error %></p>
+<% } %>
+
+<% if(messages.success) { %>
+    <p style="color: green"><%- messages.success %></p>
+<% } %>
+<table border="1">
+    <tr>
+        <th>Task Name</th>
+        <th>Action</th>
+    </tr>
+    <% if(data) { %>
+    <% data.forEach((task) => { %>
+    <tr>
+        <td><%= task.task_name %></td>
+        <td>
+            <div style="float: left">
+                <a href="/tasks/edit/<%= task.id %>">Edit</a>
+                <form action="/tasks/delete/<%= task.id %>" method="POST">
+                    <input type="submit" name="delete" value="Delete" 
+                    onclick=""return confirm("Are you sure you want to delete?")/>
+                    <input type="hidden" name="_method" value="DELETE">
+                </form>
+            </div>
+        </td>
+    </tr>
+    <% }) %>
+    <% } %>
+</table>
+<%- include ../layouts/footer.ejs %>

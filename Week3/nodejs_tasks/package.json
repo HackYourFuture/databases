@@ -1,0 +1,17 @@
+{
+  "name": "nodejs_tasks",
+  "version": "1.0.0",
+  "description": "Tasks app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Husenjan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-validator": "^6.2.0",
+    "method-override": "^3.0.0",
+    "mysql": "^2.17.1"
+  }
+}
