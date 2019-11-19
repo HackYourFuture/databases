@@ -4,157 +4,240 @@
 
 These are the topics for week 2:
 
-1. Database design
-   - Entity Relationship Diagram (ERD)
-   - adas
-2. The ACID model
-3. asdas
+1. What’s an identifier (keys)?
+   - Primary key
+   - Foreign key
+   - Composite key
+2. What are the 3 types of relationships?
+   - One-to-One (1-1)
+   - One-to-Many (1-M)
+   - Many-to-Many (M-M)
+3. What’s domain modeling?
+   - Entity-Relation Diagram (ERD)
+4. How to use SQL: joins, aggregate Functions, distinct, group by, having
+   - Joins
+   - Aggregate functions
+   - Distinct
+   - Group By
+   - Having
 
-# Lesson 2: Group by, Having and Joins. Promisification of JS client with prepared statements
+## 1. What’s an identifier (keys)?
 
-Objective: This class introduces more clauses (group by, having) in the
-select statement. MySQL joins (inner, self, left and right) should be explained
-with demonstration (Employee table with **reportsTo** field and Department
-table with its PK in Employee table is suitable for this demonstration).
-Promise based JavaScript program with SQL prepared statements should be
-understood by students. The program can be found in the Week2 folder (Credits:
-@remarcmij)
+A key or identifier is a single or combination of multiple fields in a table which is used to fetch or retrieve records/data-rows from data table according to the condition/requirement.
 
-## Pre-Class Readings
+Keys are also used to create a relationship among different database tables or views.
 
-[This YouTube video by freeCodeCamp.org](https://www.youtube.com/watch?v=HXV3zeQKqGY) explains
-all the important topics.
+### Primary Key
 
-Also, please read the following page that explains the ACID database model.
+The PRIMARY KEY constraint uniquely identifies each record in a table.
+Primary keys must contain UNIQUE values, and cannot contain NULL values.
+A table can have only ONE primary key; and in the table, this primary key can consist of single or multiple
+columns (fields).
 
-- [The ACID Database Model](https://www.thoughtco.com/the-acid-model-1019731)
+To define a Primary Key while creating the table, you should determine the attribute in Column definition part:
 
-## Topics to be covered
-
-### NOT NULL and default values in CREATE table statement
-
-Following links are worth reading.
-
-- [Working with nulls](https://dev.mysql.com/doc/refman/8.0/en/working-with-null.html)
-- [TO DEFAULT or TO NULL](https://blog.jooq.org/2014/11/11/have-you-ever-wondered-about-the-difference-between-not-null-and-default/)
-
-### foreign key
-
-Creating foreign key while creating the table
-
-```
-CREATE TABLE Employee (
-other fields,
-dept_id int,
-foreign key (dept_id)
-references Department(id)
+```sql
+CREATE TABLE teachers (
+      teacher_number INT,
+      teacher_name VARCHAR(50),
+      date_of_birth DATE,
+      subject TEXT,
+      gender ENUM('m', 'f'),
+      CONSTRAINT PK_Teacher PRIMARY KEY (teacher_number)
 );
 ```
 
-Creating the foreign key by explicitly adding the constraint
+If you already have the table, and you just want to change a column to Primary Key:
 
-```
-ALTER TABLE Employee ADD CONSTRAINT fk_dept foreign key (dept_id) references Department(id);
-```
-
-### Database dump
-
-A database dump (aka SQL dump) contains a record of the table structure
-and/or the data from a database and is usually in the form of a list of SQL statements.
-(An example file named `world.sql` is present in the Week2 folder)
-
-- Collecting the dump of an existing database from terminal `mysqldump -uroot -p database > dump-file.sql`
-- Applying the dump from mysql command prompt `source /path/to/the/dump/file`
-- Applying the dump from the terminal `mysql -uroot -p [database] < /path/to/the/dump/file`
-
-### Group by and Having clauses
-
-- _Group by_ clause is used to group rows with same values.
-- It can be used in conjunction with aggregate functions (E.g. min, max).
-- The queries that contain the _group by_ clause only return a single row for every grouped item.
-- _Having_ clause restricts the query results of _group by_ clause.
-
-### INSERT INTO table SET syntax
-
-```
-INSERT INTO Department SET dept_id=101, dept_name='fun', dept_head='unmesh';
+```sql
+ALTER TABLE teachers ADD PRIMARY KEY (teacher_number);
 ```
 
-### Promise based program demo
+or you can define a primary key later:
 
-The program is called `async-create-insert.js` and can be found in Week2 folder.
-
-- async : to create asynchronous function and ensure they return promise without having to worry
-  about building those promises
-- await : to call a function returning promise without having to call .then() over that promise
-- promisify() : to convert a callback based function to a promise based one.
-
-### Relationships between tables : 1-M, M-M
-
-- One to One (one user has one profile)
-- One to Many (one department has many employees)
-- Many to Many (book(s) and author(s))
-
-### Adding a column to the table
-
-```
-alter table Employee add column dept_id int
+```sql
+ALTER TABLE teachers ADD CONSTRAINT PK_Person PRIMARY KEY (ID,LastName);
 ```
 
-### Update table (add a department head for a department)
+### Foreign Key
 
-```
-update Department set dept_head = 'Lucas' where dept_id = 3;
-```
+A FOREIGN KEY is a key used to link two tables together. This KEY is a field
+(or collection of fields) in one table that refers to the PRIMARY KEY in another table.
 
-### JOINs : CROSS, left, right, self, inner
+To define a Foreign Key while creating the table, you can use the below query:
 
-- A comma (,) after **FROM** is equivalent to the CROSS join.
-- Implicit inner join (when the keyword **JOIN** is not used), **WHERE** clause has conditions.
-- self join use case : Employee table with (_eid_ field and _reports_to_ field)
-- left and right join : reverse of each other
-- [Join manual](https://dev.mysql.com/doc/refman/8.0/en/join.html)
-
-### Triggers
-
-- Triggers are a mechanism in SQL to prevent seemingly impossible data in the tables.
-- Triggers are fired before/after insertion or updation of the database tables.
-- Following is an example trigger which fires before any row is inserted into employee table.
-  Let the insert command be `insert into project values (104, "ironman", 1, "2007-01-01")`.
-  Then the variable `new` contains (104, "ironman", 1, "2007-01-01").
-  i.e. `new` automatically gets all the column names of the project table.
-
-```
-mysql> delimiter $$
-mysql> CREATE TRIGGER date_trigger
-    BEFORE INSERT
-        ON project
-            FOR EACH ROW
-            BEGIN
-                DECLARE message VARCHAR(100);
-                DECLARE sd datetime ;
-                SET sd= (select starting_date from employee where eno=new.manager_id);
-                IF new.start_date < sd
-                THEN
-                    set message= 'Project date cannot be earlier than manager starting date';
-                    SET lc_messages=message; SIGNAL SQLSTATE '45000';
-                END IF;
-            END $$
-
-mysql> delimiter ;
+```sql
+CREATE TABLE students (
+    student_number int,
+    student_name VARCHAR(50),
+    gender ENUM('m', 'f'),
+    PRIMARY KEY (student_number),
+    CONSTRAINT FK_TEACHER FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_number)
+);
 ```
 
-This trigger gives error if the start date of the project is earlier than the starting date
-of the manager of the project.
+or you can add a foreign key later:
 
-## Reference Material
+```sql
+ALTER TABLE students
+    ADD CONSTRAINT FK_TEACHER FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_number);
+```
 
-- [OWASP on SQL Injection](https://www.owasp.org/index.php/SQL_injection)
-- [Parameter Validation on Wikipedia](https://en.wikipedia.org/wiki/Parameter_validation)
-- [Node MySQL Escaping Query Values](https://github.com/mysqljs/mysql#escaping-query-values)
-- [Node MySQL Preparing Queries (automatic escaping)](https://github.com/mysqljs/mysql#preparing-queries)
-- [MySQL SHOW GRANTS](https://dev.mysql.com/doc/refman/5.7/en/show-grants.html)
-- [Falsehoods Programmers Believe About Names](http://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/)
-- [Rewatch the previously recorded session: part 1](https://www.youtube.com/watch?v=G6v1po3zvNk)
-- [Rewatch the previously recorded session: part 2](https://www.youtube.com/watch?v=5fv1vV1TciM)
-- [Rewatch the previously recorded session: part 3](https://www.youtube.com/watch?v=ZNLhHUDj6jo)
+### Composite Key
+
+A composite key is a key composed of two or more columns in a table that can be used to uniquely identify
+each row in the table when the columns are combined **uniqueness is guaranteed**, but when it taken individually
+it does not guarantee uniqueness.
+
+```sql
+CREATE TABLE students
+    student_number int,
+    student_name VARCHAR(50),
+    gender ENUM('m', 'f'),
+    PRIMARY KEY (student_number, student_name));
+```
+
+## 2. What are the 3 types of relationships?
+
+There are three specific types of relationships that can exist between a pair of tables:
+one-to-one, one-to-many, and many-to-many. The tables participate in only one type of
+relationship at any given time. (You'll rarely need to change the type of relationship
+between a pair of tables. Only major changes in either of the table's structures could
+cause you to change the relationship.)
+
+### One-to-One (1-1)
+
+A pair of tables bears a one-to-one relationship when a single record in the first table is
+related to only one record in the second table, and a single record in the second table is
+related to only one record in the first table. To implement this relationship, we should
+put a foreign key in One side that is referring to another One side.
+
+For example, each teacher has a specific compensation for himself (Not more than one as a teacher)
+and each compensation only belongs to one (and just one) teacher. So there is a One-to_one
+relationship between entity teacher and entity compensation.
+
+### Many-to-One (1-M)
+
+A one-to-many relationship exists between two tables when a single record in the
+first table can be related to **one or more** records in the second table, but a single record
+in the second table can be related to only one record in the first table. To implement this
+relationship, we should put a foreign key in Many side that is referring to One side.
+
+For example, each teacher can teach to some (zero to several) students, but in reverse direction
+each student in one time has just one teacher. So there is a Many-to-One relationship
+between entity student and entity teacher.
+
+### Many-to-Many (M-M)
+
+A pair of tables bears a many-to-many relationship when a single record in the first table
+can be related to one or more records in the second table and a single record in the second
+table can be related to one or more records in the first table. We will see how to implement
+this relationship in week 3.
+
+## 3. What’s domain modeling?
+
+Domain Modeling is a way to describe and model real world entities and the relationships between them, which collectively describe the problem domain space.
+
+Derived from an understanding of system-level requirements, identifying domain entities and their relationships provides an effective basis for understanding and helps practitioners design systems for maintainability testability, and incremental development.
+
+### Entity-Relation Diagram (ERD)
+
+Entity-Relation Diagrams (ERD) are used widely in domain modeling. In this diagram, **entities** are showing by boxes and are connected to each other with a line (**relationships**).
+
+An example of ER diagrams are shown below:
+
+![ERD_Student_Teacher](../assets/erd-solution.png)
+
+## 4. How to use SQL: joins, group by, having
+
+### Joins
+
+#### Inner Joins
+
+Let’s say we wanted to get a list of those students and the details of
+their teacher. This would be a perfect fit for an inner join, since an inner join
+returns records at the intersection of the two tables.
+
+```sql
+SELECT s.first_name, s.last_name, s.gender, s.grade, t.full_name
+FROM students s
+INNER JOIN teachers t
+ON s.teacher_number = t.teacher_number
+```
+
+#### Self Joins
+
+A self join is a join in which a table is joined with itself (which is also called Unary
+relationships), especially when the table has a FOREIGN KEY which references its own
+PRIMARY KEY. To join a table itself means that each row of the table is combined with itself
+and with every other row of the table. In department, we want to get the employee's information
+with their direct manager. Here, each row in employees has a foreign key to itself as manager_id:
+
+```sql
+SELECT a.full_name AS full_name, b.full_name AS manager_name
+FROM employee a, employee b
+WHERE a.manager_id = b.id;
+```
+
+#### Right and Left Joins
+
+If we wanted to simply append information about teachers to our students table,
+regardless of whether a student has a teacher or not, we would use a left join. A left join
+returns all records from table A and any matching records from table B.
+
+```sql
+SEKECT s.first_name, s.last_name, t.full_name
+FROM studetns s
+LEFT JOIN teachers t
+ON s.teacher_number = t.teacher_number
+```
+
+It can be reversed. The reverse way of querying is called RIGHT JOIN.
+
+### Aggregate Functions in SQL
+
+In database management an **Aggregate Function** is a function where the values of multiple
+rows are grouped together as input on certain criteria to form a single value of more
+significant meaning.
+
+- Count()
+- Sum()
+- Avg()
+- Min()
+- Max()
+
+### Distinct Keyword
+
+DISTINCT statement is used to return only distinct (different) values.
+It can be used with aggregation functions. In below example, we retrieve the numbers of teachers
+from students table.
+
+```sql
+SELECT Count(DISTINCT s.teacher_number) AS no_teachers
+FROM students s
+```
+
+### Group By
+
+The **GROUP BY** statement groups rows that have the same values into summary rows, like "find the number of students for each teacher".
+
+The **GROUP BY** statement is often used with aggregate functions to group the result-set by one or more columns.
+
+```sql
+SELECT Count(s.techer_number) AS no_teachers, s.techer_number AS teacher_number
+FROM students s
+GROUP BY s.teacher_number
+```
+
+### Having
+
+The **Having** clause makes the aggregate functions conditional. It restricts the query results of _group by_ clause.
+
+For example in below example, we just retrieve the teachers who teach more that three students.
+
+```sql
+SELECT Count(s.techer_number) AS no_teachers, s.techer_number AS teacher_number
+FROM students s
+GROUP BY s.teacher_number
+HAVING Count(s.teacher_number) > 3
+```

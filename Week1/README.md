@@ -4,174 +4,210 @@
 
 These are the topics for week 1:
 
-1. What's a database?
-   - Purpose of database
-   - Relational vs. non-relational
-2. Structured Query Language (SQL)
-   - SQL vs. NoSQL
+1. What's information?
+2. What are entities?
+3. What's a database?
+   - Relationships
+4. What's the role of a database in an application?
+5. What is Structured Query Language (SQL)?
+6. What are data types (as applied to databases)?
+7. How to use SQL to CRUD
+8. What's a database dump?
+
+   <!-- - SQL vs. NoSQL
    - When to use either an SQL or NoSQL database?
-   - What is MySQL?
-3. The role of a database in a full-stack application
+   - What is MySQL? -->
+
+   <!-- 9. The role of a database in a full-stack application
    - What does a database do for our apps?
-   - How to connect with Node.js
+   - How to connect with Node.js -->
 
-## 1. What's a database?
+## 1. What's information?
 
-- [What is Database & SQL](https://www.youtube.com/watch?v=FR4QIeZaPeM)
+Information is something that adds knowledge. It tells you something you didn't know before.
 
-### Relational vs. non-relational
+For example:
 
-- [Relational Database Essentials](https://www.youtube.com/watch?v=GfBtPAB7NH0)
+_"At 9:30 on Sunday November 10th 2019 Wouter Kleijn was walking on the Sarphatistraat in Amsterdam."_
 
-## 2. Structured Query Language (SQL)
+This is information because it adds knowledge: you now know where Wouter was at a particular point in time. For a computer this might be a bit difficult to understand though because it is just an English sentence.
 
-## 3. The role of a database in a full-stack application
+It's much easier if you structure it this way:
 
-# Lesson 1: MySQL and Node setup! Create, Insert and Select !
+- Address:
+  - Street: Sarphatistraat
+  - City: Amsterdam
+- Who: Wouter Kleijn
+- When: 2019-11-10T09:30:00+01:00 (+01:00 refers to the Amsterdam timezone)
+- Activity: Walking
 
-Objective : This class aims to incorporate JavaScript code to operate the MySQL database.
-MySQL client can be used to demonstrate SQL queries however, students should know how to
-make a MySQL database connection from JavaScript, run queries from JavaScript and
-capture results of queries in JavaScript.
+A database will allow you to store structured information and at a later point in time retrieve that information again.
 
-In this class, students will be introduced to:
+You can ask the database:
 
-- Basics of relational databases: Concepts of tables, rows, columns, primary key, foreign key.
-- Creation of a database table and insertion of values.
-- Retrieving data from a MySQL database using SELECT queries.
+_"Who was walking on the Sarphatistraat on November the 10th 2019?"_
 
-Objective: Students should be able to create tables,
-insert values in tables and
-retrieve data from tables using SELECT statements that include FROM, WHERE clauses.
+and the database will tell us: _"Wouter Kleijn"_.
 
-## Topics to be covered
+For further study, check out the following:
 
-### What is a Database ?
+## 2. What are entities?
 
-- Definition : Organized collection of data and rules about its manipulation
-- Client-server architecture : E.g. (Relational) DBMS
-- Files as database
-- Data structure/object as database
+You abstract (generalize) to make sense of the world. You do it everywhere, all the time. Even without thinking about it.
+As Zachery Tellman states: "To abstract is to treat things which are different as equivalent".
+You speak of a dog called Bello, and since it's a dog you also know that Bello is an animal and a pet.
+This is not something that Bello will tell you, humans made all this up.
+Dog, animal, pet, humans, all these are abstractions.
+
+One way of abstracting is to think of entities and their relationships.
+An entity is an abstraction. It represents a certain category of things, like:
+humans, women, men, animals, pets, broken bicycles, chairs, music, teachers, chewing gum, and planets.
+You can think of a **pet** as an entity that has a relationship to another entity **human**, its owner.
+More formally you can say a **human** owns **zero or more** **pets**.
+
+When creating an application you need to think of all the entities and their relationships
+that are relevant to our application, you call this the application's **domain**.
+Together these entities and relationships form the **domain model** for your application.
+
+## 3. What's a database?
+
+A database's primary purpose is to provide a mechanism for `storing` and `retrieving` structured information.
+
+There are many different types of databases but they all provides these two capabilities.
+
+If you just consider these two properties (information storage and retrieval)
+you could implement a database using just a JavaScript array:
+
+1. `Information storage`. Pushing onto the array adds knowledge:
 
 ```js
-const capitals = ['Amsterdam', 'Delhi', 'Damascus', 'Madrid'];
+const musicians = [
+  "John Coltrane",
+  "Miles Davis",
+  "Thelonious Monk",
+  "Sonny Rollins"
+];
+
+musicians.push("Steve Lehman");
 ```
 
-### Relations = Table
+2. `Information retrieval`. Using the `[]` operator you can access what was previously stored:
 
-- What is a relation (in the following sentences)?
-- Delhi is the capital of India
-- Amsterdam is the capital of Netherlands
-- Damascus is the capital of Syria
-
-Dan, 29, works in Amazon and lives in Seattle. His friend Ben who just celebrated
-his 24th birthday works in Facebook and lives in Redmond.
-
-### DBMS implementations
-
-- **MySQL**
-- PostgreSQL
-- MongoDB (NoSQL)
-- Cassandra (NoSQL)
-
-### MySQL components
-
-- MySQL server (runs as a service, default port: 3306)
-- mysql: monitor / terminal / client (to connect to the server and execute stuff)
-- mysqladmin: Administering a MySQL Server
-
-### Create a table in MySQL
-
-#### Collection of rows and columns
-
-#### SYNTAX
-
-```
-CREATE TABLE table_name (column_name, column_type [, column2_name, column2_type]);
+```js
+console.log(musicians[0]); // prints: 'John Coltrane'
 ```
 
-#### TYPES
+While this JavaScript database is a nice and simple example,
 
-Recall what a datatype is. js vs mysql types
+You will focus primarily on much more sophisticated relational databases, in particular MySQL.
 
-- INT(N) type
-- DATE, DATETIME and TIMESTAMP, (set time_zone = '+03:00')
-- BLOB (LOAD_FILE(filename))
+- [What is Database & SQL](https://www.youtube.com/watch?v=FR4QIeZaPeM)
+- [What are databases?](https://www.youtube.com/watch?v=Ls_LzOZ7x0c)
 
-### Fill up a table in MySQL: INSERT rows
+### Relationships
 
-A row (aka record or tuple) represents a single, implicitly structured data item in the table.
+In a `relational` database you model entities in terms of tables (think spreadsheets) and you model relationships between those tables.
 
-#### SYNTAX
+A relationship can be one of the three following types:
 
-```
-INSERT INTO table_name VALUES(value1, value2 [,value3,...]);
-```
+1. `One-to-one`, for example: _"a **person** has one **profile**"_
+2. `One-to-many`, for example: _"in a **house** live zero or more **people**"_
+3. `Many-to-many`, for example: _"a **musician** can play one or more **instruments** and an **instrument** can be played by one or more **musicians**"_
 
-- INSERT INTO table_name VALUES(...values...)
-- INSERT INTO table_name (column names) VALUES(..values...)
-- INSERT INTO table_name SET column_name = {expr | DEFAULT}
+- [Defining table relationships](https://www.youtube.com/watch?v=V5DyvUfsboA)
 
-### See the content of a table in MySQL: SELECT
+## 4. What's the role of a database in an application?
 
-#### SYNTAX
+A database setup typically involves two components, a server and a client.
 
-```
-SELECT */column_1,column_2...
-FROM table_1
-[INNER | LEFT |RIGHT] JOIN table_2 ON conditions
-WHERE conditions
-GROUP BY group 
-HAVING group_conditions
-ORDER BY column_1 [ASC | DESC]
-LIMIT offset, row_count
- 
-The SELECT statement is composed of several clauses:
- 
-  -  SELECT chooses which columns of  the table you want to get the data.
-  -  FROM specifies the table from which you get the data.
-  -  JOIN gets data from multiple table based on certain join conditions.
-  -  WHERE filters rows to select.
-  -  GROUP BY group rows to apply aggregate functions on each group.
-  -  HAVING filters group based on groups defined by GROUP BY clause.
-  -  ORDER BY specifies the order of the returned result set.
-  -  LIMIT constrains number of returned rows.
-```
+The server is the actual database management system and runs as a process on a machine either on your computer or on another computer in a data center somewhere.
 
-### INSERT and SELECT together
+The client is a program that talks to the database management system (the server), so it has to know where that server is running.
 
-```
-Example:
+The client then creates a TCP connection (if you're interested in some more details look up the TCP protocol, otherwise you can forget about TCP for now) to the server.
 
-INSERT INTO 'employees' ('shop_id', 'gender', 'name', 'salary')
-SELECT 3,
-       LEFT(gender, 1),
-       CONCAT_WS(' ', first_name, last_name),
-       salary
-FROM   transferred_ employees
-WHERE  transfer_date > '2008-01-01';
-```
+To do this the client needs to know:
 
-### Uniqueness and Keys
+- the server's address
+  - an IP address like _192.168.1.5_
+  - or a name like _my-db-server_
+- a username
+- a password
+- the name of the database
 
-- Super key : set of columns that uniquely identify a row
-- Candidate key : minimal super key that can uniquely identify a row
-- Primary key : choice of candidate key chosen by database designer : cannot be null
+The client would be your web application talking to the database.
 
-## Reference Material
+The reason why you would want to use a database is that you can store
+information in a reliable and structured way. The database will ensure your information is stored safely (if setup correctly), with a high degree of reliability. The database also allows you to structure your information in such a way that we're able to find what we're looking for.
 
-- [TutorialsPoint MySQL Introduction](http://www.tutorialspoint.com/mysql/mysql-introduction.htm)
-- [Official MySQL Documentation](https://dev.mysql.com/doc/refman/5.7/en/)
-- [Official MySQL Tutorial (pretty dense)](https://dev.mysql.com/doc/refman/5.7/en/tutorial.html)
-- [Node MySQL Documentation on Github](https://github.com/mysqljs/mysql)
-- [Joel Spolsky - Character Sets and Unicode](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
+## 5. What is Structured Query Language (SQL)?
+
+SQL (Structured Query Language) is a programming language used for managing the data that is stored in a DBMS (DataBase Management System).
+
+There are several implementations (software) of DBMS. Each software provides its own query language. For this course, you will learn [MySQL](https://www.mysql.com/).
+
+To learn more, check out the following:
+
+- [The Structured Query Language (SQL)](https://www.youtube.com/watch?v=kqUIoOM3WEs)
+
+## 6. What are data types (as applied to databases)?
+
+When you store data in MySQL, each datum (singular of the word data) needs to be associated with its type.
+
+For example numbers like 42, 1636 or -345 are all associated with the type `int`.
+
+The following is a list of the most frequently used data types.
+
+| Type       | Description                                   | Example Value           |
+| ---------- | --------------------------------------------- | ----------------------- |
+| int        | Numbers                                       | 42                      |
+| float      | Decimal numbers                               | 3.14                    |
+| varchar(N) | String with variable maximum of N characters  | "Dragon"                |
+| text       | String with fixed maximum of 65535 characters | "Positive"              |
+| datetime   | Store date and time without timezone          | 2019-01-01 22:10:23     |
+| timestamp  | Store date with timezone (e.g. last login)    | 2019-01-01 22:10:23 UTC |
+| BLOB       | Store binary files                            | an image                |
+
+There are many more data types. You can read about them [here](https://www.w3resource.com/mysql/mysql-data-types.php).
+
+## 7. How to use SQL to CRUD
+
+With the knowledge of all the datatypes, you can now create tables that contain the
+data with these datatypes.
+Tables contain columns and columns have datatypes. For example, in a column with names of students,
+you cannot have numbers.
+
+- MySQL provides a `CREATE TABLE` statement that creates a table with columns.
+  You can choose the table name, column names but you have to choose the pre-defined datatypes
+  supported by MySQL. For example, a column `Registration number` cannot have the data type number.
+  It must use `int` because it represents the numeric datatype.
+
+- MySQL provides `SELECT` statement which reads (columns and rows) from a table
+  with or without filtration.
+
+- MySQL provides `UPDATE` statement which changes the contents of (columns and rows of) a table.
+
+- MySQL provides `DELETE` statement which can delete rows of tables.
+  In order to delete columns, you need to use `ALTER` and `DROP` statements.
+
+Check out the following to learn more about how to apply SQL:
+
+- [Learn basic SQL in 10 minutes](https://www.youtube.com/watch?v=bEtnYWuo2Bw)
+- [](https://www.youtube.com/watch?v=OlT3FispsMU)
+
+## 8. What's a database dump?
+
+A database dump (aka SQL dump) contains a record of the table structure
+and/or the data from a database and is usually in the form of a list of SQL statements.
+(An example file named `world.sql` is present in the Week1 folder)
+
+1. Collecting the dump of an existing database from terminal `mysqldump -uroot -p database_name > dump-file.sql`
+2. Applying the dump from mysql command prompt (`mysql>`) `source /path/to/the/dump/file`
+3. Applying the dump from the terminal(with generally a dollar prompt `$`) `mysql -uroot -p [database] < /path/to/the/dump/file`
 
 ## Practice the concepts (week 1)
 
 - [SQL Fundamentals - SoloLearn](https://www.sololearn.com/Course/SQL/)
-
-
-
 
 ## Noer's suggestions for resources
 
