@@ -134,6 +134,11 @@ can be related to one or more records in the second table and a single record in
 table can be related to one or more records in the first table. We will see how to implement
 this relationship in week 3.
 
+To learn more about relationships, check out the following:
+
+- [Defining table relationships](https://www.youtube.com/watch?v=V5DyvUfsboA)
+- [Relational Database concepts](https://www.youtube.com/watch?v=NvrpuBAMddw)
+
 ## 3. What’s domain modeling?
 
 Domain Modeling is a way to describe and model real world entities and the relationships between them, which collectively describe the problem domain space.

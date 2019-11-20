@@ -28,6 +28,8 @@ Before you start you need to install the software we'll use to store our data: M
 
 Note: Make sure you select the right operating system: MacOS, Windows or Ubuntu/Linux.
 
+> For a step-by-step tutorial, check out this MySQL [tutorial](http://www.mysqltutorial.org/getting-started-with-mysql/)
+
 After you've finished installing the software, open it through your command line interface:
 
 - Windows users should use `Microsoft MySQL Command Line client`.
@@ -36,71 +38,45 @@ After you've finished installing the software, open it through your command line
 
 **Step 1: Creating a `root` user**
 
-We first have to create a `root` user.
+To get started with your new MySQL client, we first have to create a `root` user.
 
 > A root user, also known as a `superuser` is a special user account that has access to all commands and files of any particular software.
 
-Microsoft MySQL Command Line client gives you a `msql>` prompt after typing in your root password. Note that this password is the one you used for the `root user` of the mysql. Linux and MAC users can execute `mysql -uroot -p` and then type the password.
-
-NOT FINISHEDDDD!!!!! io1j2eoi1j2i3oj1o23j12
+The Microsoft MySQL Command Line client gives you a `msql>` prompt after typing in your root password. Note that this password is the one you used for the `root user` of the mysql. Linux and MAC users can execute `mysql -uroot -p` and then type your password.
 
 **Step 2: Creating a `hyfuser` account**
 
 After creating the root user, it's time to create the account we'll be using for this module. Execute the following commands, one after the other:
 
-```
+```md
 # Step 1: This command creates a user 'hyfuser' with password 'hyfpassword' for the database server at 'localhost'
+
 mysql> create user 'hyfuser'@'localhost' identified with mysql_native_password by 'hyfpassword';
 
-
 # If this does not work try the alternative command:
+
 mysql> create user 'hyfuser'@'localhost' identified by 'hyfpassword';
 
-# Step 2: This command gives all permissions to user 'hyfuser'. The (*.*) means every table of every database.
-mysql> grant all privileges on *.* to 'hyfuser'@'localhost';
+# Step 2: This command gives all permissions to user 'hyfuser'. The (_._) means every table of every database.
+
+mysql> grant all privileges on _._ to 'hyfuser'@'localhost';
 
 # Step 3: This command creates a database named 'userdb'
+
 mysql> create database userdb;
 ```
 
-For a step-by-step walkthrough on video, can watch the following video:
+For a step-by-step walkthrough on video, you can watch the following video:
 
 - [MySQL Installation on Linux (Ubuntu)](https://www.youtube.com/watch?v=Y_LibBhOGOY)
 
-## Lesson Plan
-
-### Lesson 1: MySQL and Node Setup! Create, Insert and Select !
-
-Objective: This class aims to incorporate JavaScript code to operate the MySQL database.
-MySQL client can be used to demonstrate SQL queries however, students should know how to
-make a MySQL database connection from JavaScript, run queries from JavaScript and
-capture results of queries in JavaScript.
-
-### Lesson 2: Group by, Having and Joins. Promisification of JS client with prepared statements
-
-Objective: This class introduces more clauses (group by, having) in the
-select statement. MySQL joins (inner, self, left and right) should be explained
-with demonstration (Employee table with **reportsTo** field and Department
-table with its PK in Employee table is suitable for this demonstration).
-Promise based JavaScript program with SQL prepared statements should be
-understood by students. The program can be found in the Week2 folder (Credits:
-@remarcmij)
-
-### Lesson 3: Database design, normal forms, SQL injection
-
-Objective: This class invites students to discuss Entity Relationship Diagram (ERD).
-Students should be able to explain their choices of entities, relationships, attributes etc.
-SQL injection should be explained with a demonstration (with a simple JS client).
-Concepts of database transaction, ACID properties, normal forms should be introduced with
-examples / live coding (creating a transaction, committing and rollback-ing).
-
 ## Planning
 
-| Week | Topic                                                                        | Readings                       | Homework                       | Lesson Plan                           |
-| ---: | ---------------------------------------------------------------------------- | ------------------------------ | ------------------------------ | ------------------------------------- |
-|   1. | What's a database?, Structured Query Language (SQL), Connect with JavaScript | [Readings W1](week1/README.md) | [Homework W1](week1/MAKEME.md) | [Lesson Plan W1](week1/LESSONPLAN.md) |
-|   2. | More SQL,                                                                    | [Readings W2](week2/README.md) | [Homework W2](week2/MAKEME.md) | [Lesson Plan W2](week2/LESSONPLAN.md) |
-|   3. | Entity Relationship Diagram (ERD), SQL injection, ACID                       | [Readings W3](week3/README.md) | [Homework W3](week3/MAKEME.md) | [Lesson Plan W3](week3/LESSONPLAN.md) |
+| Week | Topic                                                                         | Readings                       | Homework                       | Lesson Plan                           |
+| ---: | ----------------------------------------------------------------------------- | ------------------------------ | ------------------------------ | ------------------------------------- |
+|   1. | What's a database, Entities, Data structures, Structured Query Language (SQL) | [Readings W1](week1/README.md) | [Homework W1](week1/MAKEME.md) | [Lesson Plan W1](week1/LESSONPLAN.md) |
+|   2. | Identifiers, Relationships, Domain Modeling, Advanced SQL commands            | [Readings W2](week2/README.md) | [Homework W2](week2/MAKEME.md) | [Lesson Plan W2](week2/LESSONPLAN.md) |
+|   3. | Normalization, Transactions, SQL Injection, NoSQL (with MongoDB)              | [Readings W3](week3/README.md) | [Homework W3](week3/MAKEME.md) | [Lesson Plan W3](week3/LESSONPLAN.md) |
 
 ## Finished?
 

@@ -7,7 +7,6 @@ These are the topics for week 1:
 1. What's information?
 2. What are entities?
 3. What's a database?
-   - Relationships
 4. What's the role of a database in an application?
 5. What is Structured Query Language (SQL)?
 6. What are data types (as applied to databases)?
@@ -97,24 +96,14 @@ musicians.push("Steve Lehman");
 console.log(musicians[0]); // prints: 'John Coltrane'
 ```
 
-While this JavaScript database is a nice and simple example,
+While this JavaScript database is a nice and simple example, in practice you'll work with much more complicated datasets.
 
-You will focus primarily on much more sophisticated relational databases, in particular MySQL.
+In this module you will focus primarily on much more sophisticated relational databases, in particular MySQL.
+
+To learn more, check out the following resources:
 
 - [What is Database & SQL](https://www.youtube.com/watch?v=FR4QIeZaPeM)
 - [What are databases?](https://www.youtube.com/watch?v=Ls_LzOZ7x0c)
-
-### Relationships
-
-In a `relational` database you model entities in terms of tables (think spreadsheets) and you model relationships between those tables.
-
-A relationship can be one of the three following types:
-
-1. `One-to-one`, for example: _"a **person** has one **profile**"_
-2. `One-to-many`, for example: _"in a **house** live zero or more **people**"_
-3. `Many-to-many`, for example: _"a **musician** can play one or more **instruments** and an **instrument** can be played by one or more **musicians**"_
-
-- [Defining table relationships](https://www.youtube.com/watch?v=V5DyvUfsboA)
 
 ## 4. What's the role of a database in an application?
 
@@ -170,30 +159,25 @@ The following is a list of the most frequently used data types.
 
 There are many more data types. You can read about them [here](https://www.w3resource.com/mysql/mysql-data-types.php).
 
-## 7. How to use SQL to CRUD
+## 7. How to use SQL to Create, Read, Update and Delete (CRUD)
 
-With the knowledge of all the datatypes, you can now create tables that contain the
-data with these datatypes.
+With the knowledge of all the datatypes, you can now create tables that contain the data with these datatypes.
+
 Tables contain columns and columns have datatypes. For example, in a column with names of students,
 you cannot have numbers.
 
-- MySQL provides a `CREATE TABLE` statement that creates a table with columns.
-  You can choose the table name, column names but you have to choose the pre-defined datatypes
-  supported by MySQL. For example, a column `Registration number` cannot have the data type number.
-  It must use `int` because it represents the numeric datatype.
+- MySQL provides a `CREATE TABLE` statement that creates a table with columns. You can choose the table name, column names but you have to choose the pre-defined datatypes supported by MySQL. For example, a column `Registration number` cannot have the data type number. It must use `int` because it represents the numeric datatype.
 
-- MySQL provides `SELECT` statement which reads (columns and rows) from a table
-  with or without filtration.
+- MySQL provides `SELECT` statement which reads (columns and rows) from a table with or without filtration.
 
 - MySQL provides `UPDATE` statement which changes the contents of (columns and rows of) a table.
 
-- MySQL provides `DELETE` statement which can delete rows of tables.
-  In order to delete columns, you need to use `ALTER` and `DROP` statements.
+- MySQL provides `DELETE` statement which can delete rows of tables. In order to delete columns, you need to use `ALTER` and `DROP` statements.
 
 Check out the following to learn more about how to apply SQL:
 
 - [Learn basic SQL in 10 minutes](https://www.youtube.com/watch?v=bEtnYWuo2Bw)
-- [](https://www.youtube.com/watch?v=OlT3FispsMU)
+- [Learn Basic SQL Commands](https://www.youtube.com/watch?v=OlT3FispsMU)
 
 ## 8. What's a database dump?
 
