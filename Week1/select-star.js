@@ -3,12 +3,12 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'hyfuser',
   password : 'hyfpassword',
-  database : 'class17'
+  database : 'userdb'
 });
 
 connection.connect();
 
-var select_query = "select * from students"
+var select_query = "select * from student"
 
 console.log("Going to run ", select_query)
 connection.query(select_query, function (error, results, fields) {
