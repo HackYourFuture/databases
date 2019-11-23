@@ -42,12 +42,12 @@ async function createUser(req, res) {
   try {
     await execQuery(`INSERT INTO users (user_name,email) VALUES (?,?)`, [
       req.body.user_name,
-      req.body.user_name
+      req.body.email
     ]);
-    res.status(201).send("new user inserted");
+    res.status(201).send(`new user created with name ${req.body.user_name}`);
   } catch (error) {
     return res
-      .status(404)
+      .status(500)
       .send("something went wrong during inserting new item");
   }
   res.end();
@@ -55,7 +55,7 @@ async function createUser(req, res) {
 async function deleteUser(req, res) {
   try {
     await execQuery(`DELETE FROM users WHERE user_ID = ?`, [req.params.id]);
-    res.status(201).send("user deleted");
+    res.status(201).send(`user with id ${req.params.id} deleted`);
   } catch (error) {
     return res.status(404).send("something went wrong during deleting user");
   }
@@ -68,10 +68,10 @@ async function insertTask(req, res) {
       req.body.task_name,
       req.body.description
     ]);
-    res.status(201).send("new task inserted");
+    res.status(201).send(`Task: ${req.body.task_name} inserted`);
   } catch (error) {
     return res
-      .status(404)
+      .status(500)
       .send("something went wrong during inserting new task");
   }
   res.end();
@@ -80,7 +80,7 @@ async function insertTask(req, res) {
 async function deleteTask(req, res) {
   try {
     await execQuery(`DELETE FROM task WHERE task_ID = ?`, [req.params.id]);
-    res.status(201).send("task deleted");
+    res.status(201).send(`task with id ${req.params.id} deleted`);
   } catch (error) {
     return res.status(404).send("something went wrong during deleting task");
   }
@@ -90,12 +90,12 @@ async function deleteTask(req, res) {
 async function createTodoList(req, res) {
   try {
     await execQuery(
-      `INSERT INTO todo_list (list_name,category_ID) VALUES (?, ?)`,
-      [req.body.list_name, req.body.category_ID]
+      `INSERT INTO todo_list (list_name,category_id, task_id) VALUES (?, ?, ?)`,
+      [req.body.list_name, req.body.category_id, req.body.task_id]
     );
-    res.status(201).send("new todo list created");
+    res.status(201).send(`Todo list: ${req.body.list_name} created`);
   } catch (error) {
-    res.status(404).send("something went wrong during creating new todo list");
+    res.status(500).send("something went wrong during creating new todo list");
   }
   res.end();
 }
@@ -103,11 +103,11 @@ async function createTodoList(req, res) {
 async function deleteTodoList(req, res) {
   try {
     await execQuery(`DELETE FROM todo_list WHERE list_ID =?`, [req.params.id]);
-    res.status(201).send("Todo list deleted");
+    res.status(201).send(`Todo list with id ${req.params.id} deleted`);
   } catch (error) {
     return res
       .status(404)
-      .send("something went wrong during deleting new todo list");
+      .send(`something went wrong during deleting todo list`);
   }
   res.end();
 }
@@ -115,10 +115,10 @@ async function deleteTodoList(req, res) {
 async function markAsDone(req, res) {
   try {
     await execQuery(
-      `UPDATE user_todo_list SET process = 'done'  WHERE list_ID =?`,
+      `UPDATE user_todo_list SET process = 'done'  WHERE ID =?`,
       [req.params.id]
     );
-    res.status(201).send("todo list is completed");
+    res.status(201).send(`todo list with id ${req.params.id} is completed`);
   } catch (error) {
     return res.status(400).send("there is an error");
   }
@@ -128,10 +128,10 @@ async function markAsDone(req, res) {
 async function setReminder(req, res) {
   try {
     await execQuery(
-      `UPDATE user_todo_list SET reminder =? WHERE list_ID = ?`,
+      `UPDATE user_todo_list SET reminder =? WHERE ID = ?`,
       [req.body.reminder, req.params.id]
     );
-    res.status(201).send("you have set reminder");
+    res.status(201).send(`you have set reminder for the list with id ${req.params.id}`);
   } catch (error) {
     return res.status(404).send("there is an error");
   }

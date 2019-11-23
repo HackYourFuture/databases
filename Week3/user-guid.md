@@ -23,7 +23,7 @@
 
 # Delete user
  - HTTP request: Delete
- - request URL: http://localhost:3000/user/<type id of user>
+ - request URL: http://localhost:3000/user/:id (user_ID)
  - click send
 
 # Add new task: 
@@ -41,7 +41,7 @@
 
 # Delete task
  - HTTP request: Delete
- - request URL: http://localhost:3000/task/<type id of task>
+ - request URL: http://localhost:3000/task/:id  (task_ID)
  - click send  
 
  # Add new todo list: 
@@ -59,17 +59,17 @@
 
  # Delete todo list
  - HTTP request: Delete
- - request URL: http://localhost:3000/todo_list/<type id of list>
+ - request URL: http://localhost:3000/todo_list/:id  (list_ID)
  - click send  
 
  # Mark as done 
  - HTTP request: PUT
- - request URL: http://localhost:3000/complete/<type id of list>
+ - request URL: http://localhost:3000/complete/:id  (ID of user_todo_list)
 
  # Set reminder
 
  - HTTP request: PUT
- - request URL: http://localhost:3000/reminder/<type id of list>
+ - request URL: http://localhost:3000/reminder/:id  (ID of user_todo_list)
  - switch to the Body tab
  - click raw
  - select JSON

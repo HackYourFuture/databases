@@ -76,9 +76,13 @@ DROP TABLE IF EXISTS `todo_list`;
 CREATE TABLE `todo_list` (
   `list_ID` int(11) NOT NULL AUTO_INCREMENT,
   `list_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `category_ID` int(11) NOT NULL,
-  PRIMARY KEY (`list_ID`,`category_ID`),
-  UNIQUE KEY `list_name_UNIQUE` (`list_name`)
+  `category_id` int(11) NOT NULL,
+  `task_id` int(11) NOT NULL,
+  PRIMARY KEY (`list_ID`),
+  KEY `category_ID_idx` (`category_id`),
+  KEY `todo_list_has_task_idx` (`task_id`),
+  CONSTRAINT `category_ID` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `todo_list_has_task` FOREIGN KEY (`task_id`) REFERENCES `task` (`task_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -88,7 +92,7 @@ CREATE TABLE `todo_list` (
 
 LOCK TABLES `todo_list` WRITE;
 /*!40000 ALTER TABLE `todo_list` DISABLE KEYS */;
-INSERT INTO `todo_list` VALUES (4,'auto company',2),(1,'house',1),(3,'my gargen',1),(2,'presentation',2);
+INSERT INTO `todo_list` VALUES (1,'house',1,1),(2,'presentation',2,3),(3,'my garden',1,1),(4,'auto company',2,4);
 /*!40000 ALTER TABLE `todo_list` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,13 +104,18 @@ DROP TABLE IF EXISTS `user_todo_list`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user_todo_list` (
-  `user_ID` int(11) NOT NULL,
-  `list_ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `list_id` int(11) NOT NULL,
   `deadline` date DEFAULT NULL,
   `reminder` date DEFAULT NULL,
   `process` varchar(45) COLLATE utf8_unicode_ci DEFAULT '',
-  PRIMARY KEY (`user_ID`,`list_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  PRIMARY KEY (`ID`),
+  KEY `list_ID_idx` (`list_id`),
+  KEY `users_UserToDoList_idx` (`user_id`),
+  CONSTRAINT `list_ID` FOREIGN KEY (`list_id`) REFERENCES `todo_list` (`list_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `users_UserToDoList` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +124,7 @@ CREATE TABLE `user_todo_list` (
 
 LOCK TABLES `user_todo_list` WRITE;
 /*!40000 ALTER TABLE `user_todo_list` DISABLE KEYS */;
-INSERT INTO `user_todo_list` VALUES (1,2,'2019-11-20','2019-11-19',''),(2,1,'2019-12-10','2019-12-09','done'),(3,3,'2019-11-25','2019-11-24','');
+INSERT INTO `user_todo_list` VALUES (1,1,2,'2019-11-20','2019-11-19',''),(2,2,1,'2019-12-10','2019-12-09','done'),(3,3,3,'2019-11-25','2019-11-24','');
 /*!40000 ALTER TABLE `user_todo_list` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,8 +139,7 @@ CREATE TABLE `users` (
   `user_ID` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`user_ID`),
-  UNIQUE KEY `email_UNIQUE` (`email`)
+  PRIMARY KEY (`user_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -154,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-17  4:10:27
+-- Dump completed on 2019-11-23 20:30:57

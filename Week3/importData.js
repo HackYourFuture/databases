@@ -7,5 +7,5 @@ const mydb_importer = mysql_import.config({
     database : 'todo_app',
     onerror: err=>console.log(err.message)
 });
-mydb_importer.import('dump-file1.sql');
+mydb_importer.import('dump-file.sql');
 console.log('data imported')
