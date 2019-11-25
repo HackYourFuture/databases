@@ -13,7 +13,7 @@ These are the topics for week 2:
    - One-to-Many (1-M)
    - Many-to-Many (M-M)
 3. What’s domain modeling?
-   - Entity-Relation Diagram (ERD)
+   - Entity Relationship Diagram (ERD)
 4. How to use SQL: joins, aggregate Functions, distinct, group by, having
    - Joins
    - Aggregate functions
@@ -97,6 +97,11 @@ CREATE TABLE students
     PRIMARY KEY (student_number, student_name));
 ```
 
+For more information, check out the following:
+
+- [Tables and keys](https://www.youtube.com/watch?v=ia4eCxPPc_o)
+- [Linked Tables and keys](https://www.youtube.com/watch?v=ia4eCxPPc_o)
+
 ## 2. What are the 3 types of relationships?
 
 There are three specific types of relationships that can exist between a pair of tables:
@@ -145,13 +150,19 @@ Domain Modeling is a way to describe and model real world entities and the relat
 
 Derived from an understanding of system-level requirements, identifying domain entities and their relationships provides an effective basis for understanding and helps practitioners design systems for maintainability testability, and incremental development.
 
-### Entity-Relation Diagram (ERD)
+### Entity Relationship Diagram (ERD)
 
-Entity-Relation Diagrams (ERD) are used widely in domain modeling. In this diagram, **entities** are showing by boxes and are connected to each other with a line (**relationships**).
+Entity Relationship Diagrams (ERD) are used widely in domain modeling. In this diagram, **entities** are showing by boxes and are connected to each other with a line (**relationships**).
 
 An example of ER diagrams are shown below:
 
 ![ERD_Student_Teacher](../assets/erd-solution.png)
+
+To learn more about this topic, check out the following:
+
+- [The Domain Model](https://www.youtube.com/watch?v=acQxZ80Lt10)
+- [Entity Relationship Diagram Training Video](https://www.youtube.com/watch?v=-fQ-bRllhXc)
+- [Entity-Relationship Diagrams](https://www.youtube.com/watch?v=c0_9Y8QAstg)
 
 ## 4. How to use SQL: joins, group by, having
 
@@ -198,6 +209,11 @@ ON s.teacher_number = t.teacher_number
 ```
 
 It can be reversed. The reverse way of querying is called RIGHT JOIN.
+
+Check out the following to get a more visual idea of what `joins` are:
+
+- [Understand SQL Joins in 10 Minutes](https://www.youtube.com/watch?v=tvMGoxmQzgQ)
+- [Joins in SQL](https://www.youtube.com/watch?v=efpFCd8iFAQ)
 
 ### Aggregate Functions in SQL
 

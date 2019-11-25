@@ -23,7 +23,7 @@ When developing the schema of a relational database, one of the most important a
 
 **The core idea of `database normalization` is to divide the tables into smaller subtables and store pointers to data rather than replicating it.**
 
-There are various database “Normal” forms. Each normal form (NF) has an importance which helps in optimising the database to save storage and to reduce redundancies. These normal forms build incrementally. e.g. a database is in 3NF if it is already in 2NF and satisfied the rules for 3rd normal form. Below you'll find details for 
+There are various database “Normal” forms. Each normal form (NF) has an importance which helps in optimising the database to save storage and to reduce redundancies. These normal forms build incrementally. e.g. a database is in 3NF if it is already in 2NF and satisfied the rules for 3rd normal form. Below you'll find details for the primary forms:
 
 ### Normal forms
 

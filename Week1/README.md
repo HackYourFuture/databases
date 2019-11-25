@@ -10,7 +10,7 @@ These are the topics for week 1:
 4. What's the role of a database in an application?
 5. What is Structured Query Language (SQL)?
 6. What are data types (as applied to databases)?
-7. How to use SQL to CRUD
+7. How to use SQL to Create, Read, Update and Delete (CRUD)
 8. What's a database dump?
 
    <!-- - SQL vs. NoSQL
@@ -50,6 +50,8 @@ and the database will tell us: _"Wouter Kleijn"_.
 
 For further study, check out the following:
 
+- [What is an information system](https://www.youtube.com/watch?v=Qujsd4vkqFI)
+
 ## 2. What are entities?
 
 You abstract (generalize) to make sense of the world. You do it everywhere, all the time. Even without thinking about it.
@@ -67,6 +69,11 @@ More formally you can say a **human** owns **zero or more** **pets**.
 When creating an application you need to think of all the entities and their relationships
 that are relevant to our application, you call this the application's **domain**.
 Together these entities and relationships form the **domain model** for your application.
+
+Learn more about entities with the following resources:
+
+- [Entities vs. Database](https://www.youtube.com/watch?v=hBu2pdphYaA)
+- [Entities, Attributes, and Relationships](https://www.youtube.com/watch?v=hveVlCHZtsI)
 
 ## 3. What's a database?
 
@@ -104,6 +111,7 @@ To learn more, check out the following resources:
 
 - [What is Database & SQL](https://www.youtube.com/watch?v=FR4QIeZaPeM)
 - [What are databases?](https://www.youtube.com/watch?v=Ls_LzOZ7x0c)
+- [What is a database?](https://www.youtube.com/watch?v=t8jgX1f8kc4)
 
 ## 4. What's the role of a database in an application?
 
@@ -126,12 +134,11 @@ To do this the client needs to know:
 
 The client would be your web application talking to the database.
 
-The reason why you would want to use a database is that you can store
-information in a reliable and structured way. The database will ensure your information is stored safely (if setup correctly), with a high degree of reliability. The database also allows you to structure your information in such a way that we're able to find what we're looking for.
+The reason why you would want to use a database is that you can store information in a reliable and structured way. The database will ensure your information is stored safely (if setup correctly), with a high degree of reliability. The database also allows you to structure your information in such a way that we're able to find what we're looking for.
 
 ## 5. What is Structured Query Language (SQL)?
 
-SQL (Structured Query Language) is a programming language used for managing the data that is stored in a DBMS (DataBase Management System).
+SQL (Structured Query Language) is a programming language used for managing the data that is stored in a DBMS (DataBase Management System). The `Query` part in SQL refers to the act of "asking a database" for a certain type of information; you are `quering the database`.
 
 There are several implementations (software) of DBMS. Each software provides its own query language. For this course, you will learn [MySQL](https://www.mysql.com/).
 
@@ -181,20 +188,10 @@ Check out the following to learn more about how to apply SQL:
 
 ## 8. What's a database dump?
 
-A database dump (aka SQL dump) contains a record of the table structure
+A database `dump` (aka SQL dump) contains a record of the table structure
 and/or the data from a database and is usually in the form of a list of SQL statements.
 (An example file named `world.sql` is present in the Week1 folder)
 
 1. Collecting the dump of an existing database from terminal `mysqldump -uroot -p database_name > dump-file.sql`
 2. Applying the dump from mysql command prompt (`mysql>`) `source /path/to/the/dump/file`
 3. Applying the dump from the terminal(with generally a dollar prompt `$`) `mysql -uroot -p [database] < /path/to/the/dump/file`
-
-## Practice the concepts (week 1)
-
-- [SQL Fundamentals - SoloLearn](https://www.sololearn.com/Course/SQL/)
-
-## Noer's suggestions for resources
-
-- [What is a database?](https://www.youtube.com/watch?v=t8jgX1f8kc4)
-- [Tables and keys](https://www.youtube.com/watch?v=ia4eCxPPc_o)
-- [What is a relational database?](https://www.youtube.com/watch?v=t48TGntrX4s)

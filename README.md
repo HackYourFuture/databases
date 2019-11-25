@@ -6,9 +6,9 @@
 
 ![Databases](./assets/databases.png)
 
-Have you ever thought about how your brain remembers things? It happens automatically for humans, but that's not so for computers. Any time you go to a website and you fill in some details, in say a form, that information needs to be saved somewhere. This "somewhere" is called a `database`.
+Have you ever thought about how your brain remembers things? It happens automatically for humans, but that's not so for computers. Any time you go to a website and you fill in some details, in for example a form, that `information` needs to be saved somewhere. This "somewhere" is called a `database`.
 
-In this module you'll learn all about a fundamental part of any software application: how to (safely) store data, so that it can be used on-demand. You'll learn how to structure and group data so your apps know where to find the correct data.
+In this module you'll learn all about a fundamental part of any software application: how to (safely) store data, so that it can be used on-demand. You'll learn how to structure and group data so your apps know where to find and store the correct data.
 
 ## Learning goals
 
