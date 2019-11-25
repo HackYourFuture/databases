@@ -74,9 +74,9 @@ For a step-by-step walkthrough on video, you can watch the following video:
 
 | Week | Topic                                                                         | Readings                       | Homework                       | Lesson Plan                           |
 | ---: | ----------------------------------------------------------------------------- | ------------------------------ | ------------------------------ | ------------------------------------- |
-|   1. | What's a database, Entities, Data structures, Structured Query Language (SQL) | [Readings W1](week1/README.md) | [Homework W1](week1/MAKEME.md) | [Lesson Plan W1](week1/LESSONPLAN.md) |
-|   2. | Identifiers, Relationships, Domain Modeling, Advanced SQL commands            | [Readings W2](week2/README.md) | [Homework W2](week2/MAKEME.md) | [Lesson Plan W2](week2/LESSONPLAN.md) |
-|   3. | Normalization, Transactions, SQL Injection, NoSQL (with MongoDB)              | [Readings W3](week3/README.md) | [Homework W3](week3/MAKEME.md) | [Lesson Plan W3](week3/LESSONPLAN.md) |
+|   1. | What's a database, Entities, Data structures, Structured Query Language (SQL) | [Readings W1](Week1/README.md) | [Homework W1](Week1/MAKEME.md) | [Lesson Plan W1](Week1/LESSONPLAN.md) |
+|   2. | Identifiers, Relationships, Domain Modeling, Advanced SQL commands            | [Readings W2](Week2/README.md) | [Homework W2](Week2/MAKEME.md) | [Lesson Plan W2](Week2/LESSONPLAN.md) |
+|   3. | Normalization, Transactions, SQL Injection, NoSQL (with MongoDB)              | [Readings W3](Week3/README.md) | [Homework W3](Week3/MAKEME.md) | [Lesson Plan W3](Week3/LESSONPLAN.md) |
 
 ## Finished?
 
