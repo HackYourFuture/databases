@@ -43,6 +43,10 @@ SQL injection should be explained with a demonstration (with a simple JS client)
 Concepts of database transaction, ACID properties, normal forms should be introduced with
 examples / live coding (creating a transaction, committing and rollback-ing).
 
+#### NoSQL
+Students should know what are the differences between SQL and NoSQL.
+We will use MongoDB as an example.
+
 ## Handing in homework
 Take a look at [this video](https://www.youtube.com/watch?v=-o0yomUVVpU&index=2&list=PLVYDhqbgYpYUGxRdtQdYVE5Q8h3bt6SIA) made by Daan, he explains how your homework needs to be handed in.
 
