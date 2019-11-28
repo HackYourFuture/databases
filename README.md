@@ -17,8 +17,9 @@ In this module you will get familiar with the complexity of storing data. By the
 - What the meaning is of a `database entity`
 - How to work with `Structured Query Language` (SQL)
 - Learn all about the `relational model`
-- Recognize the basic setup of a database
-- Know about MySQL as an example of a relational database system
+- Recognize the `basic setup of a database`
+- Know about `MySQL` as an example of a relational database system
+- Learn about `NoSQL` databases, with an emphasis on `MongoDB`
 
 ## Before you start
 
