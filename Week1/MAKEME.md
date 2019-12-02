@@ -14,7 +14,7 @@ Let's start this week off with some interactive exercises. Check out the followi
 
 - [Codecademy: Learn SQL](https://www.codecademy.com/learn/learn-sql)
 
-Also make time to do lesson 1-4 from the following:
+Also make time to do lesson 1-5 from the following:
 
 - [SQLBolt](https://sqlbolt.com/lesson/select_queries_introduction)
 
@@ -24,7 +24,7 @@ Also make time to do lesson 1-4 from the following:
 
 Write a JavaScript file (to be executed with Node.js) that creates and makes a connection to a MySQL database. Do so using the `mysql` package (https://www.npmjs.com/package/mysql).
 
-> Before working on the exercise, first get a working version of the [example](https://www.npmjs.com/package/mysql#introduction) going. This will help you understand the basic structure of making a database connection and query. When doing this, make sure you replace the `user`, `password` and `database` values with the ones you've created for HackYourFuture: `hyfuser`, `hyfpassword` and `user_db`.
+> Before working on the exercise, first get a working version of the [example](https://www.npmjs.com/package/mysql#introduction) going. This will help you understand the basic structure of making a database connection and query. When doing this, make sure you replace the `user`, `password` and `database` values with the ones you've created for this module: `hyfuser`, `hyfpassword` and `user_db`.
 
 When you feel familiar with the library, you can go on with the exercise. Inside of your JavaScript file, make queries that:
 

@@ -170,9 +170,7 @@ To learn more about this topic, check out the following:
 
 #### Inner Joins
 
-Let’s say we wanted to get a list of those students and the details of
-their teacher. This would be a perfect fit for an inner join, since an inner join
-returns records at the intersection of the two tables.
+Let’s say we wanted to get a list of those students and the details of their teacher. This would be a perfect fit for an inner join, since an inner join returns records at the intersection of the two tables.
 
 ```sql
 SELECT s.first_name, s.last_name, s.gender, s.grade, t.full_name
@@ -183,11 +181,7 @@ ON s.teacher_number = t.teacher_number
 
 #### Self Joins
 
-A self join is a join in which a table is joined with itself (which is also called Unary
-relationships), especially when the table has a FOREIGN KEY which references its own
-PRIMARY KEY. To join a table itself means that each row of the table is combined with itself
-and with every other row of the table. In department, we want to get the employee's information
-with their direct manager. Here, each row in employees has a foreign key to itself as manager_id:
+A self join is a join in which a table is joined with itself (which is also called Unary relationships), especially when the table has a FOREIGN KEY which references its own PRIMARY KEY. To join a table itself means that each row of the table is combined with itself and with every other row of the table. In department, we want to get the employee's information with their direct manager. Here, each row in employees has a foreign key to itself as manager_id:
 
 ```sql
 SELECT a.full_name AS full_name, b.full_name AS manager_name
@@ -197,9 +191,7 @@ WHERE a.manager_id = b.id;
 
 #### Right and Left Joins
 
-If we wanted to simply append information about teachers to our students table,
-regardless of whether a student has a teacher or not, we would use a left join. A left join
-returns all records from table A and any matching records from table B.
+If we wanted to simply append information about teachers to our students table regardless of whether a student has a teacher or not, we would use a left join. A left join returns all records from table A and any matching records from table B.
 
 ```sql
 SEKECT s.first_name, s.last_name, t.full_name
@@ -217,21 +209,17 @@ Check out the following to get a more visual idea of what `joins` are:
 
 ### Aggregate Functions in SQL
 
-In database management an **Aggregate Function** is a function where the values of multiple
-rows are grouped together as input on certain criteria to form a single value of more
-significant meaning.
+In database management an **Aggregate Function** is a function where the values of multiple rows are grouped together as input on certain criteria to form a single value of more significant meaning.
 
-- Count()
-- Sum()
-- Avg()
-- Min()
-- Max()
+- `Count()`
+- `Sum()`
+- `Avg()`
+- `Min()`
+- `Max()`
 
 ### Distinct Keyword
 
-DISTINCT statement is used to return only distinct (different) values.
-It can be used with aggregation functions. In below example, we retrieve the numbers of teachers
-from students table.
+DISTINCT statement is used to return only distinct (different) values. It can be used with aggregation functions. In below example, we retrieve the numbers of teachers from students table.
 
 ```sql
 SELECT Count(DISTINCT s.teacher_number) AS no_teachers
@@ -262,3 +250,7 @@ FROM students s
 GROUP BY s.teacher_number
 HAVING Count(s.teacher_number) > 3
 ```
+
+## Finished?
+
+Are you finished with going through the materials? High five! If you feel ready to get practical, click [here](./MAKEME.md).

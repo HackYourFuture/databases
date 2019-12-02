@@ -111,10 +111,81 @@ To increase your understanding check the following materials:
 
 ## 4. NoSQL (with MongoDB)
 
-### How to do CRUD operations
+![rdb-mongo-pic](https://beginnersbook.com/wp-content/uploads/2017/09/RDBMS_MongoDB_Mapping.jpg)
+
+https://beginnersbook.com/2017/09/mapping-relational-databases-to-mongodb/
+
+A schema need not be enforced or even exist:
+
+![noschema](https://image.slidesharecdn.com/nosql-and-mongodb-sig-14march2017-170315090521/95/introducing-nosql-and-mongodb-to-complement-relational-databases-amis-sig-14032017-45-638.jpg?cb=1489568959)
 
 ## 5. Non-relational vs. relational
 
-### Relational vs. non-relational
+In MongoDB, one record looks like this JSON object:
+
+```json
+{
+  "_id": ObjectId("528ba7691738025d11aab772"),
+  "proj_no": "123",
+  "proj_name": "HackYourDatabase",
+  "project_tags": ["lastyear,backend, javascript, nosql"]
+}
+```
+
+In MySQL a record needs a table, and then the following row:
+
+```sql
+| proj_no | proj_name          | start_date   | project_tags                           |
+| ------- | ------------------ | ------------ | -------------------------------------- |
+| 123     | “HackYourDatabase” | “2019-12-30” | "lastyear, backend, javascript, nosql" |
+```
+
+Better, in first normal form:
+
+```sql
+
+| proj_no | proj_name          | start_date   | project_tag  |
+| ------- | ------------------ | ------------ | ------------ |
+| 123     | “HackYourDatabase” | “2019-12-30” | "lastyear"   |
+| 123     | “HackYourDatabase” | “2019-12-30” | "backend"    |
+| 123     | “HackYourDatabase” | “2019-12-30” | "javascript" |
+```
+
+What happens if I want to update the name of the project? (a peculiar way to do it, but might happen)
+
+```sql
+UPDATE proj_name = "HackYourMongo"  where proj_no = 123  and  project_tag = "backend"
+
+| proj_no | proj_name          | start_date   | project_tag  |
+| ------- | ------------------ | ------------ | ------------ |
+| 123     | “HackYourDatabase” | “2019-12-30” | "lastyear"   |
+| 123     | “HackYourMongo”    | “2019-12-30” | "backend"    |
+| 123     | “HackYourDatabase” | “2019-12-30” | "javascript" |
+```
+
+Oh no! We lost integrity!
+
+### Preparing you for the homework:
+
+In week 1, you used a mysql database that was 3 tables: `cities`, `countries`, and `countrylanguage`.
+
+We are going to migrate these tables into your Atlas MongoDB account
+
+```sql
+select * into outfile 'city.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' from city;
+
+select * into outfile 'country.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' from country;
+
+select * into outfile 'countrylanguage.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' from countrylanguage;
+```
+
+Then in Atlas , follow [add my own data](https://docs.atlas.mongodb.com/getting-started/#insert-data-into-your-cluster) to import the csv data into new collections.
+
+For homework, you will perform CRUD operations and aggregations on them. Also queries with joins (you will see perhaps how hard this is).
 
 - [Relational Database Essentials](https://www.youtube.com/watch?v=GfBtPAB7NH0)
+- [Transitioning from relational databases to MongoDB](https://www.mongodb.com/blog/post/transitioning-from-relational-databases-to-mongodb)
+
+## Finished?
+
+Are you finished with going through the materials? High five! If you feel ready to get practical, click [here](./MAKEME.md).
