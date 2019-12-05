@@ -1,157 +1,191 @@
-# Lesson 3: Database design, normal forms, SQL injection
+# Reading Material Databases Week 3
 
-Objective: This class invites students to discuss Entity Relationship Diagram (ERD).
-Students should be able to explain their choices of entities, relationships, attributes etc.
-SQL injection should be explained with a demonstration (with a simple JS client).
-Concepts of database transaction, ACID properties, normal forms should be introduced with
-examples / live coding (creating a transaction, committing and rollback-ing).
+## Agenda
 
-## Pre-Class Readings
+These are the topics for week 3:
 
-[This YouTube video by freeCodeCamp.org](https://www.youtube.com/watch?v=HXV3zeQKqGY) explains
-all the important topics.
+1. Normalization
+   - Normal forms
+2. Transactions
+3. SQL injection
+4. NoSQL (with MongoDB)
+   - How to do CRUD operations
+5. Non-relational vs. relational
 
-Also, please read the following page that explains database foreign keys.
-- [What is a Database Foreign Key](http://databases.about.com/cs/specificproducts/g/foreignkey.htm)
+## 1. Normalization
 
-## Topics to be covered
+When developing the schema of a relational database, one of the most important aspects to be taken into account is to ensure that the duplication is minimized. This is done for 2 purposes:
 
-### Entity Relationship Diagrams
-    - Associative entities from many-to-many relationships
-    - Boolean attribute instead of a table
+- Reducing the amount of storage needed to store the data.
+- Avoiding unnecessary data conflicts that may creep in because of multiple copies of the same data getting stored.
 
-### Normalization
-Database Design following normal forms as a convention.
-These normal forms build incrementally.
-E.g. The database is in 3NF if it is already in 2NF and satisfied the
-rules for 3rd normal form. Read [here] (https://www.studytonight.com/dbms/database-normalization.php) for more details.
+`Database Normalization` is a technique that helps in designing the schema of the database in an optimal manner so as to ensure the above points.
 
-#### 1NF (4 rules)
-* Rule 1 : Single valued attributes (each column should have atomic value, no multiple values)
-* Rule 2 : Attribute domain should not change
-* Rule 3 : Unique names for attributes / columns
-* Rule 4 : Order does not matter
-#### 2NF
+**The core idea of `database normalization` is to divide the tables into smaller subtables and store pointers to data rather than replicating it.**
+
+There are various database “Normal” forms. Each normal form (NF) has an importance which helps in optimising the database to save storage and to reduce redundancies. These normal forms build incrementally. e.g. a database is in 3NF if it is already in 2NF and satisfied the rules for 3rd normal form. Below you'll find details for the primary forms:
+
+### Normal forms
+
+#### 1st normal form (1NF) (4 rules)
+
+- Rule 1 : Single valued attributes (each column should have atomic value, no multiple values)
+- Rule 2 : Attribute domain should not change
+- Rule 3 : Unique names for attributes / columns
+- Rule 4 : Order does not matter
+
+#### 2nd normal form (2NF)
+
 No partial dependency. (i.e. no field should depend on part of the primary key)
 Example
-```
+
+```sql
 Score table (student_ID, subject_ID, score, teacher)
 Subject table (subject_ID, subject Name)
 ```
-#### 3NF
+
+#### 3rd normal form (3NF)
+
 No transitive dependency (i.e. no field should depend on non-key attributes).
 
-#### Boyce Codd Normal Form (3.5 NF)
-for any dependency A → B, A should be a super key.
+#### Boyce-Codd normal form (3.5 NF)
 
-#### 4NF
-No multi-value dependency.
+For any dependency A → B, A should be a super key.
 
-### Complicated values to store in MySQL
-    - Storing prices (floating point errors)
-    - Storing dates (datetime vs. timestamp)
-    - datetime : fixed value (joining date of employee): has a calendar date and a wall clock time
-    - timestamp : unix timestamp, seconds elapsed from 1 Jan 1970 00:00 in UTC (takes timezone into consideration)
+To increase your understanding, study the following materials:
 
-### Database transactions
-- A transaction is a set of commands that you want to treat as "one command." It has to either happen in full or not at all.
+- [Database Normalization in Simple English](https://www.essentialsql.com/get-ready-to-learn-sql-database-normalization-explained-in-simple-english/)
+- [Database Normalization with examples](https://www.studytonight.com/dbms/database-normalization.php)
+- [Normalization and normal forms](https://hackr.io/blog/dbms-normalization)
 
-- A classical example is transferring money from one bank account to another. To do that you have first to withdraw the amount from the source account, and then deposit it to the destination account. The operation has to succeed in full. If you stop halfway, the money will be lost, and that is Very Bad.
+## 2. Transactions
 
-* To start transaction:
-```
-mysql> start;
-OR
-mysql> begin transaction;
-```
-* To commit, use `commit;` and to abort, use `rollback;`
-* Note that `autocommit` variable should be set to false for rollback to work.
-```
-mysql> set autocommit = 0;
-```
+A transaction is a set of SQL commands that you want to treat as "one command." It has to either happen in full or not at all.
 
-### ACID properties
+Imagine writing a program for transferring money from one bank account to another. To do that you have first to withdraw the amount from the source account, and then deposit it to the destination account. The operation has to succeed in full. If you there is an error halfway, the money will be lost.
 
-- **Atomicity** : states that database modifications must follow an “all or nothing” rule.
-Each transaction is said to be “atomic.”
-If one part of the transaction fails, the entire transaction fails.
-- **Consistency** : states that only valid data will be written to the database. If, for some reason, a transaction is executed that violates the database’s consistency rules, the entire transaction will be rolled back, and the database will be restored to a state consistent with those rules.
-- **Isolation** : requires that multiple transactions occurring at the same time not impact each other’s execution.
-- **Durability** : ensures that any transaction committed to the database will not be lost. Durability is ensured through the use of database backups and transaction logs that facilitate the restoration of committed transactions in spite of any subsequent software or hardware failures.
+To start transaction in MySQL we use the keyword `begin transaction;`. Then we execute the series of commands. For example, in our money transfer example: `UPDATE account SET balance = balance - 100 WHERE account_no = 987654 ;` then `UPDATE account SET balance = balance + 100 WHERE account_no = 123456 ;`. If there are no errors you can use `commit;` which makes the changes final in the database. If there was an error and you want to abort you can use `rollback;`. This will _undo_ all the commands from the transaction.
 
-### SQL injection
+To increase your understanding, study the following materials:
 
-Some SQL clients accept input from user to fabricate the queries.
+- [Transaction examples](https://www.w3resource.com/sql/controlling-transactions.php)
+
+## 3. SQL injection
+
+Some SQL clients accept input from the user to fabricate the queries.
 A malicious user can tweak the input so as to acquire more information from the database or
 to destroy the database (literally!). Demo program `sql-injection.js` is in the `Week3` folder.
 
 Consider the following query `SELECT name, salary FROM employees where id = X`.
 
 #### Injection to get more information
-```
-If X is `101 OR 1=1`, then the query returns all records because 1=1 is always true
+
+```sql
+/* If X is `101 OR 1=1`, then the query returns all records because 1=1 is always true */
 SELECT name, salary FROM employees where id = 101 OR 1=1;
 ```
 
 #### Injection to destroy the database
-```
-If X is `101; DROP database mydb`, then the query will delete the entire database
+
+```sql
+/* If X is `101; DROP database mydb`, then the query will delete the entire database */
 SELECT name, salary FROM employees where id = 101; DROP database mydb;
 ```
-mysqljs prevents the second injection by not allowing multiple SQL statements
-to be executed at once.
 
-### Procedures
+To prevent SQL injection you have to use prepared statements. The diagram below summarizes nicely how prepared statements work:
 
-* Procedures in SQL (aka Stored procedures) are similar to functions in other programming languages.
-i.e. You can define them once and call them multiple times. However, it should be noted that
-MySQL has two different concepts : functions and procedures.
-This stack overflow post has an excellent answer that describes the
-[difference between MySQL functions vs procedures](https://stackoverflow.com/questions/3744209/mysql-stored-procedure-vs-function-which-would-i-use-when)
+![SQL injection](https://pics.me.me/prepared-statements-sol-injections-let-me-in-adult-swim-sol-62056759.png)
 
-* There are two scenarios in which procedures are particularly useful:
-(credits to [this stack overflow post](https://stackoverflow.com/questions/12631845/when-should-i-use-stored-procedures-in-mysql))
-1. When we want to entirely encapsulate access to the database by forcing apps to use
-the stored procedures. This can be good for an organization with a strong/large database group
-and a small/weak programming team.
-It's also helpful when you have multiple code bases accessing the database,
-because they all get one interface, rather than each writing their own queries, etc.
-2. When you're repetitively doing something that should be done in the database.
+With prepared statements we instruct the database to treat certain parts of a query only as a string and nothing else. Even if the string is a valid command it will not be evaluated or executed. To make this as safe as possible the SQL query is sent first, followed by the parts which need to be treated as strings. The syntax for prepared statements is:
 
-* To create a procedure, use the following syntax:
-```
-Example:
-delimiter //
-create procedure countCountries (OUT param1 int)
-BEGIN
-    select count(*) into param1 from country;
-END
-//
-
-delimiter ;
-```
-* To see existing procedures, use the following command:
-```
-mysql> show procedure status where db = 'dbname';
+```sql
+PREPARE example FROM SELECT name, salary FROM employees where id = ?;
+SET @id = 5;
+EXECUTE example USING @id
 ```
 
-* To call the procedure, use the following command:
+To increase your understanding check the following materials:
+
+- [What is SQL injection?](https://www.youtube.com/watch?v=ciNHn38EyRc)
+- [Prepared statements](https://www.databasejournal.com/features/mysql/a-guide-to-mysql-prepared-statements-and-parameterized-queries.html)
+
+## 4. NoSQL (with MongoDB)
+
+![rdb-mongo-pic](https://beginnersbook.com/wp-content/uploads/2017/09/RDBMS_MongoDB_Mapping.jpg)
+
+https://beginnersbook.com/2017/09/mapping-relational-databases-to-mongodb/
+
+A schema need not be enforced or even exist:
+
+![noschema](https://image.slidesharecdn.com/nosql-and-mongodb-sig-14march2017-170315090521/95/introducing-nosql-and-mongodb-to-complement-relational-databases-amis-sig-14032017-45-638.jpg?cb=1489568959)
+
+## 5. Non-relational vs. relational
+
+In MongoDB, one record looks like this JSON object:
+
+```json
+{
+  "_id": ObjectId("528ba7691738025d11aab772"),
+  "proj_no": "123",
+  "proj_name": "HackYourDatabase",
+  "project_tags": ["lastyear,backend, javascript, nosql"]
+}
 ```
-mysql> call countCountries(@result);
 
-mysql> select @result;
+In MySQL a record needs a table, and then the following row:
+
+```sql
+| proj_no | proj_name          | start_date   | project_tags                           |
+| ------- | ------------------ | ------------ | -------------------------------------- |
+| 123     | “HackYourDatabase” | “2019-12-30” | "lastyear, backend, javascript, nosql" |
 ```
 
+Better, in first normal form:
 
-### Understanding the asynchronous nature of database queries
-Jim (@remarcmij) wrote these [excellent demo programs](https://github.com/remarcmij/database_examples)
-for better understanding. Do check them out.
+```sql
 
-## Reference Material
+| proj_no | proj_name          | start_date   | project_tag  |
+| ------- | ------------------ | ------------ | ------------ |
+| 123     | “HackYourDatabase” | “2019-12-30” | "lastyear"   |
+| 123     | “HackYourDatabase” | “2019-12-30” | "backend"    |
+| 123     | “HackYourDatabase” | “2019-12-30” | "javascript" |
+```
 
-- [Floating Point Inaccuracy](http://stackoverflow.com/questions/2100490/floating-point-inaccuracy-examples#2100502)
-- [Example Entity Relationship Diagram (including associative entities)](http://users.csc.calpoly.edu/~jdalbey/308/Lectures/HOWTO-ERD.html)
-- Scaffolding tools:
-    - [Yeoman](http://yeoman.io) - General framework for creating and scaffolding all types of projects
-    - [Sails](http://sails.js) - Lightweight framework for generating APIs and web server apps in Node
-    - [Loopback](http://loopback.io/) - A more "enterprise-ready" framework for generating and managing APIs.
+What happens if I want to update the name of the project? (a peculiar way to do it, but might happen)
+
+```sql
+UPDATE proj_name = "HackYourMongo"  where proj_no = 123  and  project_tag = "backend"
+
+| proj_no | proj_name          | start_date   | project_tag  |
+| ------- | ------------------ | ------------ | ------------ |
+| 123     | “HackYourDatabase” | “2019-12-30” | "lastyear"   |
+| 123     | “HackYourMongo”    | “2019-12-30” | "backend"    |
+| 123     | “HackYourDatabase” | “2019-12-30” | "javascript" |
+```
+
+Oh no! We lost integrity!
+
+### Preparing you for the homework:
+
+In week 1, you used a mysql database that was 3 tables: `cities`, `countries`, and `countrylanguage`.
+
+We are going to migrate these tables into your Atlas MongoDB account
+
+```sql
+select * into outfile 'city.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' from city;
+
+select * into outfile 'country.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' from country;
+
+select * into outfile 'countrylanguage.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' from countrylanguage;
+```
+
+Then in Atlas , follow [add my own data](https://docs.atlas.mongodb.com/getting-started/#insert-data-into-your-cluster) to import the csv data into new collections.
+
+For homework, you will perform CRUD operations and aggregations on them. Also queries with joins (you will see perhaps how hard this is).
+
+- [Relational Database Essentials](https://www.youtube.com/watch?v=GfBtPAB7NH0)
+- [Transitioning from relational databases to MongoDB](https://www.mongodb.com/blog/post/transitioning-from-relational-databases-to-mongodb)
+
+## Finished?
+
+Are you finished with going through the materials? High five! If you feel ready to get practical, click [here](./MAKEME.md).
