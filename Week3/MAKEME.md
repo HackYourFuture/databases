@@ -113,14 +113,14 @@ cd databases/Week3
 
 **Exercise 5 : Relational vs Not-Only-SQL**
 
-Add a 6th and 7th query to `mongoqueries.txt` which answer:
+Add 2 more queries to your `mongoqueries.txt` file, which answer:
 
 1. Amongst the countries with more than 50% Arabic speakers, what is the average percentage Arabic speakers? Use [this mongo sql comparison](https://docs.mongodb.com/manual/reference/sql-aggregation-comparison/)
 2. List the top 10 cities of Western Europe in descending order of population. If aggregation pipelines were covered in class, follow a [stackoverflow guideline](https://stackoverflow.com/questions/35583569/mongodb-aggregation-with-lookup-limit-some-fields-to-return-from-query) . Otherwise, use the `lookup` [function](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#lookup-single-equality) . You can also choose instead to do this in node & mongo
 
 ## 3. **Code along**
 
-In this week's code along you won't be building a complete CRUD app. However, instead of using MySQL it'll be MongoDB you'll use as a database!
+In this week's code along you'll be building a complete CRUD app. However, instead of using MySQL it'll be MongoDB you'll use as a database!
 
 - [CRUD app from scratch using Node.js](https://www.youtube.com/watch?v=CyTWPr_WwdI)
 
