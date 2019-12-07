@@ -4,8 +4,8 @@ const inquirer = require('inquirer');
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
-  password: 'password',
+  user: 'hyfuser',
+  password: 'hyfpassword',
   database: 'new_world',
 });
 
@@ -22,7 +22,7 @@ const capitalName = async () => {
       message: 'Country name?',
     },
   ];
-  const { countryName } = await inquirer.prompt(question);
+  const { countryName } = await inquirer.prompt(ask);
   const result = await runQuery(
     `
     SELECT city.name AS capital FROM country, city WHERE country.capital = city.id AND country.name = ?`,
@@ -35,14 +35,14 @@ const capitalName = async () => {
 
 // List all the languages spoken in the region Y
 const langsOfRegion = async () => {
-  const question = [
+  const ask = [
     {
       type: 'input',
       name: 'regionName',
       message: 'Region name?',
     },
   ];
-  const { regionName } = await inquirer.prompt(question);
+  const { regionName } = await inquirer.prompt(ask);
   const result = await runQuery(
     `
     SELECT DISTINCT countrylanguage.language FROM country, countrylanguage WHERE countrylanguage.countrycode = country.code AND country.region = ? ORDER BY language`,
@@ -54,14 +54,14 @@ const langsOfRegion = async () => {
 
 //Find the number of cities in which language Z is spoken
 const numberOfSpokenCities = async () => {
-  const question = [
+  const ask = [
     {
       type: 'input',
       name: 'language',
       message: 'Language?',
     },
   ];
-  const { language } = await inquirer.prompt(question);
+  const { language } = await inquirer.prompt(ask);
   const result = await runQuery(
     `
     SELECT COUNT(city.name) numberOfCities FROM city, countrylanguage WHERE city.countrycode = countrylanguage.countrycode AND countrylanguage.language = ?`,
@@ -73,7 +73,7 @@ const numberOfSpokenCities = async () => {
 
 //* Accept the region and language from the user. Are there any countries in this region with the given language as the official language ? If yes, display those countries. If no, display FALSE. E.g. (A) input region : 'Western Europe' and input language : 'Dutch' output should be Belgium and Netherlands (B) input region : 'Western Europe' and input language : 'Hindi' output should be 'FALSE'
 const countriesOfSpokenLangs = async () => {
-  const question = [
+  const ask = [
     {
       type: 'input',
       name: 'regionName',
@@ -85,7 +85,7 @@ const countriesOfSpokenLangs = async () => {
       message: 'Language?',
     },
   ];
-  const { regionName, language } = await inquirer.prompt(question);
+  const { regionName, language } = await inquirer.prompt(ask);
   const result = await runQuery(
     `
     SELECT DISTINCT country.name country FROM country, countrylanguage WHERE countrylanguage.countrycode = country.code AND country.region = ? 
