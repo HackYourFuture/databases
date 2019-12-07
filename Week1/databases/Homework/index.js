@@ -12,7 +12,7 @@ const {
   insertCountryData,
 } = require('./query');
 
-const Query = mysql.createConnection('mysql://hyfuser:hyfpassword@192.168.153.132/userdb');
+const Query = mysql.createConnection('mysql://hyfuser:hyfpassword@localhost/userdb');
 const startQuery = util.promisify(Query.query.bind(Query));
 
 (async () => {
@@ -21,17 +21,20 @@ const startQuery = util.promisify(Query.query.bind(Query));
     await startQuery(sqlCreateWorld);
     console.log('world database created');
     await startQuery(sqlWorld);
-    await startQuery(sqlCreateCity);
-    console.log('city created');
     await startQuery(sqlCreateCountry);
     console.log('country created');
-    await startQuery(insertCityData);
+    await startQuery(sqlCreateCity);
+    console.log('city created');
     await startQuery(insertCountryData);
+    await startQuery(insertCityData);
+    console.log('Sample data inserted.')
     selectQueries.forEach(async query => {
       const result = await startQuery(query);
       console.log(JSON.parse(JSON.stringify(result)));
     });  
   } catch (err) {
     console.log({err});
+  }finally {
+    Query.end();
   }
 })();
