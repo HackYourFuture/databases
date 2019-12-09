@@ -121,9 +121,7 @@ The server is the actual database management system and runs as a process on a m
 
 The client is a program that talks to the database management system (the server), so it has to know where that server is running.
 
-
 The client then creates a TCP connection (if you're interested in some more details look up the TCP protocol, otherwise you can forget about TCP for now) to the server.
-
 
 To do this the client needs to know:
 
