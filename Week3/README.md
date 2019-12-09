@@ -14,49 +14,79 @@ These are the topics for week 3:
 
 ## 1. Normalization
 
-When developing the schema of a relational database, one of the most important aspects to be taken into account is to ensure that the duplication is minimized. This is done for 2 purposes:
+## 1. Normalization and normal forms
 
-- Reducing the amount of storage needed to store the data.
-- Avoiding unnecessary data conflicts that may creep in because of multiple copies of the same data getting stored.
+When seting up a database, one of the most important aspects to be taken into account is to ensure that duplication of data is minimized. This is done for 2 purposes:  
+* Reducing the amount of storage needed to store the data.
+* Avoiding unnecessary data conflicts that may creep in because of multiple copies of the same data getting stored.
 
-`Database Normalization` is a technique that helps in designing the schema of the database in an optimal manner so as to ensure the above points.
+![if you dont do database normalization you will have a bad time](https://i.imgflip.com/1uidqc.jpg)
 
-**The core idea of `database normalization` is to divide the tables into smaller subtables and store pointers to data rather than replicating it.**
+Database normalization is a technique that helps in designing the database in an optimal manner so as to ensure the above points. The core idea of database normalization is to divide large tables into smaller subtables and store pointers to data rather than replicating it. 
 
-There are various database “Normal” forms. Each normal form (NF) has an importance which helps in optimising the database to save storage and to reduce redundancies. These normal forms build incrementally. e.g. a database is in 3NF if it is already in 2NF and satisfied the rules for 3rd normal form. Below you'll find details for the primary forms:
-
-### Normal forms
+There are various database “Normal” forms. Each normal form (NF) has an importance which helps in optimizing the database to save storage and to reduce redundancies. These normal forms build incrementally. e.g. a database is in 3NF if it is already in 2NF and satisfied the rules for 3rd normal form.
 
 #### 1st normal form (1NF) (4 rules)
 
-- Rule 1 : Single valued attributes (each column should have atomic value, no multiple values)
-- Rule 2 : Attribute domain should not change
-- Rule 3 : Unique names for attributes / columns
-- Rule 4 : Order does not matter
+The rules for first normal form are:
+* Rule 1 : Single valued attributes (each column should have atomic value, no multiple values)
+* Rule 2 : Attribute domain should not change
+* Rule 3 : Unique names for attributes / columns
+* Rule 4 : Order does not matter
+
+Did you get that? Neither did I! These normal form rules are writen abstractly in a hard-to-understand formal language. 
+
+Let us look at an example:
+
+| Customer ID |	First Name	| Surname |	Telephone Number |
+|-------------|-------------|---------|------------------|
+| 123 |	Pooja | Singh       |	555-861-2025, 192-122-1111 |
+| 456 |	San |	Zhang       |	(555) 403-1659 Ext. 53; 182-929-2929 |
+| 789 |	John |	Doe         |	555-808-9633 |
+
+This table violates rule 1 because the column for telephone numbers has multiple values. The easiest way to fix this is to have two separate phone columns: one for a landline and one for mobile.
 
 #### 2nd normal form (2NF)
+There is only one rule for second normal form: no non-prime attribute should be functionally dependent on any proper subset of a candidate key. 
 
-No partial dependency. (i.e. no field should depend on part of the primary key)
-Example
+You do not need to memorize this very formal definition. Instead let us try and understand what this really means by looking at an example:
 
-```sql
-Score table (student_ID, subject_ID, score, teacher)
-Subject table (subject_ID, subject Name)
-```
+| Manufacturer |	Model	| Manufacturer country |
+|-------------|-------------|---------|
+| Apple |	MacBook Air	| United States |
+| Apple |	Macbook Pro	| United States |
+| Lenovo |	ThinkPad |	China |
+| Lenovo |	IdeaPad  |	China |
+
+This table violates the rule of 2NF because data in the column `Manufacturer country` depends on the `Manufacturer` column (which can be considered a subset of the key {`Manufacturer`,`Model`}). To make that database comply with the 2NF, we have to split up the table into two smaller tables:
+
+| Manufacturer | Manufacturer country |
+|-------------|-----------|
+| Apple |	 United States |
+| Lenovo |	China |
+
+| Manufacturer |	Model	| 
+|-------------|-------------|
+| Apple |	MacBook Air	|
+| Apple |	Macbook Pro	|
+| Lenovo |	ThinkPad |
+| Lenovo |	IdeaPad  |
 
 #### 3rd normal form (3NF)
+There is only one rule for third normal form:  No transitive dependency (i.e. no field should depend on non-key attributes).
 
-No transitive dependency (i.e. no field should depend on non-key attributes).
+This rule is very similar to the rule for 2NF with the exception that it applies to non-key attiriutes. The approach for making your database comply with 3NF is also similar: split up your table. You can find a complete example [here](https://en.wikipedia.org/wiki/Third_normal_form).
 
-#### Boyce-Codd normal form (3.5 NF)
+#### Higher normal forms
 
-For any dependency A → B, A should be a super key.
+Besides these three normal forms, there are other higher normal forms, for example, the Boyce-Codd normal form (3.5 NF). Not all of these normal forms are equally important. Most of the time while designing databases you should aim for the third normal form. If you still did not get what are the rules for the differet normal forms, don't worry. Over time you will develop a feel for it.
 
 To increase your understanding, study the following materials:
 
-- [Database Normalization in Simple English](https://www.essentialsql.com/get-ready-to-learn-sql-database-normalization-explained-in-simple-english/)
-- [Database Normalization with examples](https://www.studytonight.com/dbms/database-normalization.php)
-- [Normalization and normal forms](https://hackr.io/blog/dbms-normalization)
+* [Database Normalization in Simple English](https://www.essentialsql.com/get-ready-to-learn-sql-database-normalization-explained-in-simple-english/)
+* [Database Normalization with examples](https://www.studytonight.com/dbms/database-normalization.php)
+* [Normalization and normal forms](https://hackr.io/blog/dbms-normalization)
+* [Normal forms through examples](https://medium.com/@mattburgess/critical-concepts-normalization-f9b5b1bf417e)
 
 ## 2. Transactions
 
