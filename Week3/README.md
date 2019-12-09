@@ -90,15 +90,21 @@ To increase your understanding, study the following materials:
 
 ## 2. Transactions
 
+## 2. Transactions
+
 A transaction is a set of SQL commands that you want to treat as "one command." It has to either happen in full or not at all.
 
-Imagine writing a program for transferring money from one bank account to another. To do that you have first to withdraw the amount from the source account, and then deposit it to the destination account. The operation has to succeed in full. If you there is an error halfway, the money will be lost.
+Imagine writing a program for transferring money from one bank account to another. To do that you have first to withdraw the amount from the source account, and then deposit it to the destination account. The operation has to succeed in full. If there is an error halfway, the money will be lost.
 
-To start transaction in MySQL we use the keyword `begin transaction;`. Then we execute the series of commands. For example, in our money transfer example: `UPDATE account SET balance = balance - 100 WHERE account_no = 987654 ;` then `UPDATE account SET balance = balance + 100 WHERE account_no = 123456 ;`. If there are no errors you can use `commit;` which makes the changes final in the database. If there was an error and you want to abort you can use `rollback;`. This will _undo_ all the commands from the transaction.
+![he did not use transactions](https://i.imgflip.com/3hkxnl.jpg)
+
+To start a transaction in MySQL we use the keyword `begin transaction;`. Then we execute a series of commands. More concretely, in our money transfer example: `UPDATE account SET balance = balance - 100 WHERE account_no = 987654 ;` and `UPDATE account SET balance = balance + 100 WHERE account_no = 123456 ;`. If there are no errors we use the command `commit;` which finalizes the changes from both update commands. If there was an error we can use the command `rollback;` which will *undo* the changes from all commands in the transaction.
+
+Transactions are essentials when building aplications, since it is very rare that a functionality can be written as a single SQL command. To do anything usefull, several SQL commands need to be executed and in that case transactions are there to ensure that if something fails halfway the data does not stay in this half-changed state.
 
 To increase your understanding, study the following materials:
 
-- [Transaction examples](https://www.w3resource.com/sql/controlling-transactions.php)
+* [Transaction examples](https://www.w3resource.com/sql/controlling-transactions.php)
 
 ## 3. SQL injection
 
