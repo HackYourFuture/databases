@@ -60,7 +60,7 @@ mysql> create user 'hyfuser'@'localhost' identified by 'hyfpassword';
 
 # Step 2: This command gives all permissions to user 'hyfuser'. The (_._) means every table of every database.
 
-mysql> grant all privileges on _._ to 'hyfuser'@'localhost';
+mysql> grant all privileges on *.* to 'hyfuser'@'localhost';
 
 # Step 3: This command creates a database named 'userdb'
 
