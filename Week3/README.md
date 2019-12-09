@@ -12,8 +12,6 @@ These are the topics for week 3:
    - How to do CRUD operations
 5. Non-relational vs. relational
 
-## 1. Normalization
-
 ## 1. Normalization and normal forms
 
 When seting up a database, one of the most important aspects to be taken into account is to ensure that duplication of data is minimized. This is done for 2 purposes:  
@@ -87,8 +85,6 @@ To increase your understanding, study the following materials:
 * [Database Normalization with examples](https://www.studytonight.com/dbms/database-normalization.php)
 * [Normalization and normal forms](https://hackr.io/blog/dbms-normalization)
 * [Normal forms through examples](https://medium.com/@mattburgess/critical-concepts-normalization-f9b5b1bf417e)
-
-## 2. Transactions
 
 ## 2. Transactions
 
