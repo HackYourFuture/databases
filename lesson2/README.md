@@ -1,55 +1,42 @@
-# Lesson 2: Practical Database Usage
+# Lesson 2: Data Models, Relationships, and Schemas
 
 In this class, students will learn how to use more complex SQL queries to retrieve information across tables, and interact with data including write operations.
 
-Objective: Students should be able to build CRUD functionality using SQL statements, including INSERT INTO, UPDATE and DELETE.
+Objective: Students should be able to build CRUD functionality using SQL statements, including INSERT INTO, UPDATE and DELETE. Students should also be able to create an entity relationship diagram based on a qualitative description of data requirements, and translate that into a MySQL database schema.
+
 
 ## Pre-Class Readings
-
-Before arriving to class on Sunday, please watch all of the videos in [this video playlist](https://www.lynda.com/SharedPlaylist/0d62f3e4428e44ada89466cdbc296fc0) on Lynda.
-- Inserting, Updating, and Deleting
-- Understanding Write Conflicts
-- Planning Your Database
-- The Data Definition Language
-- Understanding Stored Procedures and Injection Attacks
-
-Also, please read the following pages that explains the ACID database model and connecting to MySQL from node.
-- [The ACID Database Model](https://www.thoughtco.com/the-acid-model-1019731)
-- [Node MySQL Documentation on Github](https://github.com/mysqljs/mysql)
+- [Falsehoods Programmers Believe About Names](http://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/)
+- [What is a Database Foreign Key](http://databases.about.com/cs/specificproducts/g/foreignkey.htm)
+- [Example Entity Relationship Diagram (including associative entities)](http://users.csc.calpoly.edu/~jdalbey/308/Lectures/HOWTO-ERD.html)
 
 ## Main Topics
 
-- INSERT INTO
-- UPDATE
-- DELETE
-- Connecting to MySQL from node
-- Security
-    - SQL Injection
-    - User GRANTS
-- Writing SQL in your node application
-    - Raw SQL strings
-    - Parameter validation
-    - Escaping
-    - Prepared statements
-    - Stored procedures
-    - Enumeration
 - Data definition language
     - Creating tables
     - Altering tables
     - Indexes
+- Foreign key constraints
+- INSERT INTO
+- UPDATE
+- DELETE
+- More complex entity relationship diagrams
+    - Associative entities from many-to-many relationships
+    - Introduction to normalisation
+- Complicated values to store in MySQL
+    - Storing prices (floating point errors)
+    - Storing date and time (datetime vs. timestamp)
+    - Timezones when storing date and time
+- Creating an ER model and a database from existing data
+
 
 
 ## Reference Material
 
-- [OWASP on SQL Injection](https://www.owasp.org/index.php/SQL_injection)
-- [Parameter Validation on Wikipedia](https://en.wikipedia.org/wiki/Parameter_validation)
-- [Node MySQL Escaping Query Values](https://github.com/mysqljs/mysql#escaping-query-values)
-- [Node MySQL Preparing Queries (automatic escaping)](https://github.com/mysqljs/mysql#preparing-queries)
-- [MySQL SHOW GRANTS](https://dev.mysql.com/doc/refman/5.7/en/show-grants.html)
-- [Falsehoods Programmers Believe About Names](http://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/)
-- [Rewatch the previously recorded session: part 1](https://www.youtube.com/watch?v=G6v1po3zvNk)
-- [Rewatch the previously recorded session: part 2](https://www.youtube.com/watch?v=5fv1vV1TciM)
-- [Rewatch the previously recorded session: part 3](https://www.youtube.com/watch?v=ZNLhHUDj6jo)
+- [Floating Point Inaccuracy](http://stackoverflow.com/questions/2100490/floating-point-inaccuracy-examples#2100502)
+- [TutorialsPoint MySQL Introduction](http://www.tutorialspoint.com/mysql/mysql-introduction.htm)
+- [w3schools tutorial (easy to find how specific commands work)](https://www.w3schools.com/sql/default.asp)
+- [Official MySQL Documentation](https://dev.mysql.com/doc/refman/5.7/en/)
 
 
 ## Homework
@@ -57,18 +44,20 @@ Also, please read the following pages that explains the ACID database model and 
 ### Working with tasks
 
 Write the following sql queries:
-- Add a task with the these attributes: `title, description, created, updated, dueDate, statusID, userID`
-- Change the title of a task with these attributes: `taskID, newTitle`
-- Change the task due date with these attributes: `taskID, newDueDate`
-- Change the task status with these attributes: `taskID, newStatus`
-- Mark a task as complete with this attribute: `taskID`
-- Delete task with this attribute: `taskID`
+- Add a task with these attributes: `title, description, created, updated, due_date, status_id, user_id`
+- Change the title of a task
+- Change a task due date
+- Change a task status
+- Mark a task as complete
+- Delete a task
 
-### School database
 
-- Create a new database containing the following tables:
-    - **Class**: with the columns: id, name, begins (date), ends (date)
-    - **Student**: with the columns: id, name, email, phone, class_id (foreign key)
-- If you are done with the above tasks, you can continue with these advanced tasks:
-    - Create an index on the name column of the student table.
-    - Add a new column to the class table named **status** which can only have the following values: not-started, ongoing, finished (hint: enumerations).
+### Creating a database
+
+Using an entity relationship diagram, design the data model for an application of your choice. This can be anything, previous students have used a small business (with staff, offices, and job titles), a library (with books, genres, racks, members, and a borrowing log), or a farm (with animals, barns, and farmers).
+
+Your application must include at least one many-to-many relationship and any supporting tables (linking tables) that are needed. The entity relationship diagram must describe what tables you will need, the columns in these tables, which column is the primary key, and the relationships between tables.
+
+Next, using the entity relationship diagram as a starting point, write all the necessary `CREATE TABLE` statements to create all tables and relationships (foreign key constraints) for this data model.
+
+Submit an image or PDF of your entity relationship diagram, and a `.sql` file with the `CREATE TABLE` statements.
