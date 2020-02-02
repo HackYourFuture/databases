@@ -41,7 +41,8 @@ Objective: Students should be able to build CRUD functionality using SQL stateme
 
 ## Homework
 
-### Working with tasks
+
+### Part 1: Working with tasks
 
 Write the following sql queries:
 - Add a task with these attributes: `title, description, created, updated, due_date, status_id, user_id`
@@ -51,13 +52,97 @@ Write the following sql queries:
 - Mark a task as complete
 - Delete a task
 
+In all the above queries, you choose which is the task that you will modify/delete.
 
-### Creating a database
 
-Using an entity relationship diagram, design the data model for an application of your choice. This can be anything, previous students have used a small business (with staff, offices, and job titles), a library (with books, genres, racks, members, and a borrowing log), or a farm (with animals, barns, and farmers).
+### Part 2: School database
 
-Your application must include at least one many-to-many relationship and any supporting tables (linking tables) that are needed. The entity relationship diagram must describe what tables you will need, the columns in these tables, which column is the primary key, and the relationships between tables.
+- Create a new database containing the following tables:
+    - **Class**: with the columns: id, name, begins (date), ends (date)
+    - **Student**: with the columns: id, name, email, phone, class_id (foreign key)
+- If you are done with the above tasks, you can continue with these advanced tasks:
+    - Create an index on the name column of the student table.
+    - Add a new column to the class table named **status** which can only have the following values: not-started, ongoing, finished (hint: enumerations).
 
-Next, using the entity relationship diagram as a starting point, write all the necessary `CREATE TABLE` statements to create all tables and relationships (foreign key constraints) for this data model.
 
-Submit an image or PDF of your entity relationship diagram, and a `.sql` file with the `CREATE TABLE` statements.
+### Part 3: More queries
+
+You should do these queries on the database `hyf_lesson2`, which we created last class.
+You can find the data [here](https://github.com/HackYourFuture-CPH/databases/blob/class12/lesson2/lesson2-data.sql) if you need to create the DB again.
+
+- Get all the tasks assigned to users whose email ends in `@spotify.com`
+- Get all the tasks for 'Donald Duck' with status 'Not started'
+- Get all the tasks for 'Maryrose Meadows' that were created in september (hint: `month(created)=month_number`)
+- Find how many tasks where created in each month, e.g. how many tasks were created in october, how many tasks were created in november, etc. (hint: use group by)
+
+
+### Part 4: Meal application
+
+By the end of the DB module we want to have created a database and respective CRUD queries for an application that we will continue working on in the [node js class](https://github.com/HackYourFuture-CPH/node.js).
+
+So we will start working on it this week. It is not crucial that you finish everything this week, but you'll definitely have to finish it next week. And if you start early you'll have a chance to ask more questions :)
+
+The application will be a meal sharing website, where users can book a reservation at a meal another user has created.
+
+So as a user you can both
+- Create a new meal for people to join
+- Book a reservation at a meal
+
+It will be kind of similar to this website: https://www.mealsharing.com/
+
+### Data model
+Lets first start with creating the data model.
+
+Create all the sql for creating this data model: https://dbdiagram.io/d/5d5bff66ced98361d6ddc18c
+
+### Queries
+
+Create these queries
+
+### Meal
+
+|  Queries to write |
+| ---- |
+| Get all meals |
+| Add a new meal |
+| Get a meal with any id, fx 1 |
+| Update a meal with any id, fx 1. Update any attribute fx the title or multiple attributes |
+| Delete a meal with any id, fx 1 |
+
+
+### Reservation
+
+|  Queries to write |
+| ---- |
+| Get all reservations |
+| Add a new reservation |
+| Get a reservation with any id, fx 1 |
+| Update a reservation with any id, fx 1. Update any attribute fx the title or multiple attributes |
+| Delete a reservation with any id, fx 1 |
+
+### Review
+
+|  Queries to write |
+| ---- |
+| Get all reviews |
+| Add a new review |
+| Get a review with any id, fx 1 |
+| Update a review with any id, fx 1. Update any attribute fx the title or multiple attributes |
+| Delete a review with any id, fx 1 |
+
+### Additional queries
+
+Now add a couple of different meals, reservations and reviews with different attributes. With those meals create the following queries
+
+|  Functionality |
+| ---- |
+| Get meals that has a price smaller than a specific price fx 90 |
+| Get meals that still has available reservations |
+| Get meals that partially match a title. `Rød grød med` will match the meal with the title `Rød grød med fløde` |
+| Get meals that has been created between two dates |
+| Get only specific number of meals fx return only 5 meals |
+| Get the meals that have good reviews |
+| Get reservations for a specific meal sorted by created_date |
+| Sort all meals by average number of stars in the reviews |
+
+
