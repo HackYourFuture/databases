@@ -148,6 +148,8 @@ db.students.find({})
 
 db.students.find({}).limit(3)
 
+db.students.find({}).limit(3).skip(3)
+
 db.students.find({}).limit(3).pretty()
 
 db.students.find({}).limit(3).sort({birthday:-1}).pretty()
@@ -169,6 +171,7 @@ var cursor = db.students.find({
         {first_name: "Aretha"}
         ]
 })
+
 while(cursor.hasNext()) {
     printjson(cursor.next())
 }
@@ -303,3 +306,40 @@ db.students.remove({})
 db.students.find()
 
 db.students.insertMany(students)
+
+
+//relations
+db.classes.insert({teacher_ids:[], student_ids:[], subject_ids:[]})
+db.classes.find()
+db.classes.find({teacher_ids:{$size:0}})
+// { "_id" : ObjectId("5e3f2d103820343c8cf9737f"), "teacher_ids" : [ ], "student_ids" : [ ], "subject_ids" : [ ] }
+db.teachers.find()
+// { "_id" : ObjectId("5e3d4887e23e7698f4364d48"), "first_name" : "Michal", "last_name" : "Ledger", "email" : "mledger0@harvard.edu", "gender" : "Female", "birthday" : "5/24/2011" }
+// { "_id" : ObjectId("5e3d4887e23e7698f4364d49"), "first_name" : "Krystal", "last_name" : "Goadbie", "email" : "kgoadbie1@yandex.ru", "gender" : "Female", "birthday" : "6/28/1987" }
+// { "_id" : ObjectId("5e3d4887e23e7698f4364d4a"), "first_name" : "Bili", "last_name" : "Ridsdale", "email" : "bridsdale2@bizjournals.com", "gender" : "Female", "birthday" : "11/17/1992" }
+// { "_id" : ObjectId("5e3d4887e23e7698f4364d4b"), "first_name" : "Ula", "last_name" : "Belcham", "email" : "ubelcham3@aboutads.info", "gender" : "Female", "birthday" : "10/8/1980" }
+// { "_id" : ObjectId("5e3d4887e23e7698f4364d4c"), "first_name" : "Thorsten", "last_name" : "Kingsman", "email" : "tkingsman4@clickbank.net", "gender" : "Male", "birthday" : "4/22/2012" }
+// { "_id" : ObjectId("5e3d4887e23e7698f4364d4d"), "first_name" : "Bryan", "last_name" : "Stennett", "email" : "bstennett5@usgs.gov", "gender" : "Male", "birthday" : "1/25/1986" }
+// { "_id" : ObjectId("5e3d4887e23e7698f4364d4e"), "first_name" : "Charley", "last_name" : "Sallarie", "email" : "csallarie6@usnews.com", "gender" : "Male", "birthday" : "11/15/1981" }
+// { "_id" : ObjectId("5e3d4887e23e7698f4364d4f"), "first_name" : "Grady", "last_name" : "Robertelli", "email" : "grobertelli7@sourceforge.net", "gender" : "Male", "birthday" : "6/25/2017" }
+// { "_id" : ObjectId("5e3d4887e23e7698f4364d50"), "first_name" : "Merrily", "last_name" : "McDermot", "email" : "mmcdermot8@latimes.com", "gender" : "Female", "birthday" : "1/3/1997" }
+// { "_id" : ObjectId("5e3d4887e23e7698f4364d51"), "first_name" : "Mendie", "last_name" : "Sinclar", "email" : "msinclar9@businessinsider.com", "gender" : "Male", "birthday" : "12/12/2006" }
+db.classes.update({_id: ObjectId("5e3f2d103820343c8cf9737f")}, {$addToSet: {teacher_ids:ObjectId("5e3d4887e23e7698f4364d48")}})
+
+db.classes.find()
+// { "_id" : ObjectId("5e3f2d103820343c8cf9737f"), "teacher_ids" : [ ObjectId("5e3d4887e23e7698f4364d48") ], "student_ids" : [ ], "subject_ids" : [ ] }
+
+var result = db.classes.findOne()
+result
+// {
+//     "_id" : ObjectId("5e3f2d103820343c8cf9737f"),
+//     "teacher_ids" : [
+//     ObjectId("5e3d4887e23e7698f4364d48")
+// ],
+//     "student_ids" : [ ],
+//     "subject_ids" : [ ]
+// }
+
+var teacher = db.teachers.find({_id: {$in: result["teacher_ids"]}})
+teacher
+// { "_id" : ObjectId("5e3d4887e23e7698f4364d48"), "first_name" : "Michal", "last_name" : "Ledger", "email" : "mledger0@harvard.edu", "gender" : "Female", "birthday" : "5/24/2011" }
