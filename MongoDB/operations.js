@@ -271,6 +271,10 @@ db.students.find({
 })
 
 db.students.find({
+    first_name: {$in: ["Wilmar", "Aretha"]}
+})
+
+db.students.find({
     first_name: {
         $exists: true,
         $nin: [ "Wilmar", "Aretha" ]
