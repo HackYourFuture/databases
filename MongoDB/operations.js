@@ -104,11 +104,11 @@ let students = [
 students
 
 students.map(student => {
-    student.birthday = Date.parse(student.birthday);
+    student.birthday = new Date(student.birthday);
     return student;
 })
 
-students
+// students
 
 db.students.insertMany(students)
 
@@ -156,26 +156,54 @@ db.students.find({}).sort({birthday:-1}).limit(3).pretty()
 
 db.students.find({first_name: "Wilmar"}).pretty()
 
-db.students.find({$or:[{first_name: "Wilmar"}, {first_name: "Aretha"}]}).pretty()
+db.students.find({
+    $or:[
+        {first_name: "Wilmar"},
+        {first_name: "Aretha"}
+        ]
+}).pretty()
 
-var cursor = db.students.find({$or:[{first_name: "Wilmar"}, {first_name: "Aretha"}]})
+var cursor = db.students.find({
+    $or:[
+        {first_name: "Wilmar"},
+        {first_name: "Aretha"}
+        ]
+})
 while(cursor.hasNext()) {
     printjson(cursor.next())
 }
 
-var cursor = db.students.find({$or:[{first_name: "Wilmar"}, {first_name: "Aretha"}]})
+var cursor = db.students.find({
+    $or:[
+        {first_name: "Wilmar"},
+        {first_name: "Aretha"}
+        ]
+})
+
 while(cursor.hasNext()) {
     var student = cursor.next()
     printjson(student)
 }
 
-var cursor = db.students.find({$or:[{first_name: "Wilmar"}, {first_name: "Aretha"}]})
+var cursor = db.students.find({
+    $or:[
+        {first_name: "Wilmar"},
+        {first_name: "Aretha"}
+        ]
+})
+
 while(cursor.hasNext()) {
     var student = cursor.next()
     printjson(student.birthday)
 }
 
-var cursor = db.students.find({$or:[{first_name: "Wilmar"}, {first_name: "Aretha"}]})
+var cursor = db.students.find({
+    $or:[
+        {first_name: "Wilmar"},
+        {first_name: "Aretha"}
+        ]
+})
+
 while(cursor.hasNext()) {
     var student = cursor.next()
     var birthday = new Date(student.birthday)
@@ -183,7 +211,13 @@ while(cursor.hasNext()) {
     printjson(student)
 }
 
-var cursor = db.students.find({$or:[{first_name: "Wilmar"}, {first_name: "Aretha"}]})
+var cursor = db.students.find({
+    $or:[
+        {first_name: "Wilmar"},
+        {first_name: "Aretha"}
+        ]
+})
+
 while(cursor.hasNext()) {
     var student = cursor.next()
     var birthday = new Date(student.birthday)
@@ -191,18 +225,72 @@ while(cursor.hasNext()) {
     printjson(student)
 }
 
-var cursor = db.students.find({$or:[{first_name: "Wilmar"}, {first_name: "Aretha"}]}).sort({birthday:-1})
+var cursor = db.students.find({
+    $or:[
+        {first_name: "Wilmar"},
+        {first_name: "Aretha"}
+        ]
+}).sort({birthday:-1})
+
 while(cursor.hasNext()) {
-    var student = cursor.next()
-    var birthday = new Date(student.birthday)
-    student.birthday = birthday.getFullYear() + '-' + (birthday.getMonth()+1) + '-' + birthday.getDate()
-    printjson(student)
+    var student = cursor.next();
+    var birthday = new Date(student.birthday);
+    student.birthday = birthday.getFullYear() + '-' + (birthday.getMonth()+1) + '-' + birthday.getDate();
+    printjson(student);
 }
+
+var cursor = db.students.find()
+while(cursor.hasNext()) {
+    var student = cursor.next();
+    print(new Date(student.birthday));
+}
+
+db.students.find( {
+    $and : [
+        { $or : [ {first_name: "Wilmar"}, {first_name: "Aretha"}] },
+        { gender : "Male" }
+    ]
+} );
+
+db.students.find( {
+    $and : [
+        { $or : [ {first_name: "Wilmar"}, {first_name: "Aretha"}] },
+        { $or : [ { gender : "Male" } ] }
+    ]
+} );
+
+db.students.find({
+    gender: {$not: {$eq: "Male"}}
+})
+
+db.students.find({
+    $nor: [ { first_name: "Wilmar" }, { gender: "Male" } ]
+})
+
+db.students.find({
+    first_name: {
+        $exists: true,
+        $nin: [ "Wilmar", "Aretha" ]
+    }
+})
+
+db.students.stats()
+
+db.students.stats().count
+
+var cursor = db.students.find({
+        birthday: {
+            $gt: new Date('1980-01-01'),
+            $lt: new Date('1990-01-01')
+        }
+})
+cursor.length()
 
 db.students.update(
     {'first_name':'Wilmar'},
     {$set:{'Address':'Enhavevej 81C, 4. th.'}},
-    {multi:true})
+    {multi:true}
+    )
 
 db.students.find({first_name: "Wilmar"})
 
@@ -213,10 +301,5 @@ db.students.find({first_name: "Aretha"})
 db.students.remove({})
 
 db.students.find()
-
-students.map(student => {
-    student.birthday = Date.parse(student.birthday);
-    return student;
-})
 
 db.students.insertMany(students)
