@@ -1,5 +1,5 @@
-DROP database IF EXISTS hyf_musicians;
-CREATE database hyf_musicians;
+DROP DATABASE IF EXISTS hyf_musicians;
+CREATE DATABASE hyf_musicians;
 USE hyf_musicians;
 
 CREATE TABLE Musicians(

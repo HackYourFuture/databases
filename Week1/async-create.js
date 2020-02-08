@@ -47,11 +47,11 @@ async function seedDatabase() {
   connection.connect();
 
   try {
-    await execQuery(CREATE_STUDENTS_TABLE);
-    await execQuery(CREATE_TEACHERS_TABLE);
-    students.forEach(async student => {
-      await execQuery('INSERT INTO students SET ?', student);
-    });
+    await Promise.all[execQuery(CREATE_STUDENTS_TABLE), execQuery(CREATE_TEACHERS_TABLE)];
+    
+    await Promise.all(students.map(student =>
+      execQuery('INSERT INTO students SET ?', student)
+    );
   } catch (error) {
     console.error(error);
   }
