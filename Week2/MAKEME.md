@@ -12,11 +12,16 @@ about prepared statements.
 1. What is the capital of country X ? (Accept X from user)
 2. List all the languages spoken in the region Y (Accept Y from user)
 3. Find the number of cities in which language Z is spoken (Accept Z from user)
-4. Are there any countries that have
-    A) Same official language
-    B) Same region
+4. Accept the region and language from the user.
+   Are there any countries in this region with the given language
+   as the official language ?
    If yes, display those countries.
-   If no, display TRUE or FALSE
+   If no, display FALSE.
+   E.g.
+   (A) input region : 'Western Europe' and input language : 'Dutch'
+   output should be Belgium and Netherlands
+   (B) input region : 'Western Europe' and input language : 'Hindi'
+   output should be 'FALSE'
 5. List all the continents with the number of languages spoken in each continent
 
 

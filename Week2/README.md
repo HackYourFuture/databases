@@ -10,7 +10,8 @@ understood by students. The program can be found in the Week2 folder (Credits:
 
 ## Pre-Class Readings
 
-Before arriving to class on Sunday, please watch all of the videos in [this video playlist](https://www.lynda.com/SharedPlaylist/0d62f3e4428e44ada89466cdbc296fc0) on Lynda.
+[This YouTube video by freeCodeCamp.org](https://www.youtube.com/watch?v=HXV3zeQKqGY) explains
+all the important topics.
 
 Also, please read the following page that explains the ACID database model.
 - [The ACID Database Model](https://www.thoughtco.com/the-acid-model-1019731)
@@ -95,6 +96,35 @@ update Department set dept_head = 'Lucas' where dept_id = 3;
 - self join use case : Employee table with (*eid* field and *reports_to* field)
 - left and right join : reverse of each other
 - [Join manual](https://dev.mysql.com/doc/refman/8.0/en/join.html)
+
+### Triggers
+* Triggers are a mechanism in SQL to prevent seemingly impossible data in the tables.
+* Triggers are fired before/after insertion or updation of the database tables.
+* Following is an example trigger which fires before any row is inserted into employee table.
+Let the insert command be `insert into project values (104, "ironman", 1, "2007-01-01")`.
+Then the variable `new` contains (104, "ironman", 1, "2007-01-01").
+i.e. `new` automatically gets all the column names of the project table.
+```
+mysql> delimiter $$
+mysql> CREATE TRIGGER date_trigger
+    BEFORE INSERT
+        ON project
+            FOR EACH ROW
+            BEGIN
+                DECLARE message VARCHAR(100);
+                DECLARE sd datetime ;
+                SET sd= (select starting_date from employee where eno=new.manager_id);
+                IF new.start_date < sd
+                THEN
+                    set message= 'Project date cannot be earlier than manager starting date';
+                    SET lc_messages=message; SIGNAL SQLSTATE '45000';
+                END IF;
+            END $$
+
+mysql> delimiter ;
+```
+This trigger gives error if the start date of the project is earlier than the starting date
+of the manager of the project.
 
 ## Reference Material
 
