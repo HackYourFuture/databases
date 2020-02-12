@@ -25,7 +25,7 @@ ManogoDB Lesson 1 for Hack Your Future ***Class12***
 
 ## There are no tables vs. RDBMS which has a static design 
 
-## installing MongoDB
+## Installing MongoDB on Mincrosoft Windows Windows
 
 [Download] (https://www.mongodb.com/download-center/community)
 
@@ -36,6 +36,19 @@ ManogoDB Lesson 1 for Hack Your Future ***Class12***
 5. Starting the server Run c:\MongoDb\bin\mongod.exe
 6. Open a command prompt
 7. Run c:\MongoDB\bin\mongo.exe
+
+## Installing MongoDB on Mac
+
+##### First Install Homebrew
+`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+
+Then:
+
+1. Install Homebrew: **/usr/bin/ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Hom...)”**
+2. Tap the MongoDB Homebrew Tap: **brew tap mongodb/brew**
+3. Install MongoDB: **brew install mongodb-community@4.2**
+4. Run MongoDB: **mongod --config /usr/local/etc/mongod.conf OR brew services start mongodb-community@4.2**
+5. Connect and Use MongoDB: **mongo**
 
 ## Basic commands
 
