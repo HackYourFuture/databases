@@ -11,7 +11,7 @@ and explain the concepts better in the class.
 4. What is the role of a database in an application?
 5. What is Structured Query Language (SQL)?
 6. What are data types (as applied to databases)?
-7. How to use SQL to Create, Read, Update and Delete (CRUD)
+7. How to use SQL to Create, Read, Update and Delete (CRUD) ?
 8. What is a database dump?
 
 > Before you start, ask around and make sure that everyone has successfully installed the [MySQL Community Edition Server](https://dev.mysql.com/downloads/mysql/)
@@ -143,9 +143,9 @@ MySQL data types are used to define what types of values the columns of the tabl
 
 ## 7. How to use SQL to Create, Read, Update and Delete (CRUD)
 ### Explanation
+We explain with examples below:
 
 ### Example
-
 
 #### CREATE
 The following command creates a table called `employees` (in the `company` database)
@@ -184,10 +184,10 @@ INSERT INTO employees (employee_name , salary, employee_no, gender, joining_date
 
 The following command uses the SET syntax to insert values in a random order of columns:
 ```
-INSERT INTO employees SET employee_name = "fede", salary = 4000, joining_date = "2019-07-01", gender = 'f', employee_no = 100;
+INSERT INTO employees SET employee_name = "Joe", salary = 4000, joining_date = "2019-07-01", gender = 'f', employee_no = 100;
 ```
 
-_If you don't remember the column names, then use describe employees; command which lists the column names and their data types._
+> If you don't remember the column names, then use describe employees; command which lists the column names and their data types.
 
 #### SELECT
 
@@ -245,14 +245,6 @@ when tables have long names and joins are used.
 
 #### Example (without nested query)
 `SELECT employee_no as "Employee Number", employee_name as "Employee Name", salary as Earnings from employees;`
-
-### Aggregate functions
-
-The following command counts the number of rows in the table.
-`SELECT count(*) FROM employees;`
-
-The following commands sums the total of the salary column
-`SELECT sum(salary) FROM employees;`
 
 ### NOT NULL and DEFAULT values for columns
 
