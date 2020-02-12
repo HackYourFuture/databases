@@ -52,8 +52,30 @@ A database is a collection of tables and users and permissions given to those us
 the access of tables. DataBase Management System (DBMS) is the term often used to describe
 the system that manages the access of database. This management involves storing the database,
 creating users, giving users appropriate permissions, supporting query language etc.
-### Example (of  DBMS implementations)
-MySQL, MongoDB, PostgreSQL, DynamoDB etc.
+### Example
+Examples of  DBMS implementations: MySQL, MongoDB, PostgreSQL, DynamoDB etc.
+We use MySQL for the demonstration.
+
+The following command shows all existing database:
+```
+show databases;
+```
+
+The following command creates a database:
+```
+CREATE DATABASE company;
+```
+
+The following command selects (switches to) a database:
+```
+USE company;
+```
+
+The following command shows you the current database:
+```
+select database();
+```
+
 ### Exercise
 _Explain how the database is an example of a client/server system._
 ### Essence
@@ -94,7 +116,7 @@ SQL is a language to interact with the database. It consists of four categories.
 ### Exercise
 _Guess the difference between ALTER And UPDATE commands_
 ### Essence
-SQL supporst variety of command to interact with the database.
+SQL supports variety of command to interact with the database.
 
 ## 6. What are data types (in the context of  databases)?
 ### Explanation
@@ -124,15 +146,6 @@ MySQL data types are used to define what types of values the columns of the tabl
 
 ### Example
 
-Following command creates a database:
-```
-CREATE DATABASE company;
-```
-
-Following command selects (switches to) a database:
-```
-USE company;
-```
 
 #### CREATE
 The following command creates a table called `employees` (in the `company` database)
@@ -169,6 +182,10 @@ The following command uses the same syntax to add multiple rows at a time
 INSERT INTO employees (employee_name , salary, employee_no, gender, joining_date) VALUES("Ben", 7000, 103, 'm', "2019-07-20"), ("Benta", 3000, 104, 'f', "2019-10-12"), ("Raj", 9000, 105, 'm', "2019-01-01");
 ```
 
+The following command uses the SET syntax to insert values in a random order of columns:
+```
+INSERT INTO employees SET employee_name = "fede", salary = 4000, joining_date = "2019-07-01", gender = 'f', employee_no = 100;
+```
 
 _If you don't remember the column names, then use describe employees; command which lists the column names and their data types._
 
@@ -214,29 +231,92 @@ WHERE joining_date > "2019-07-01";
 2. Write an SQL query to insert 4 more records in the table of employees.
 3. Write an SQL query to update the salary of all female employees to 12000.
 4. Write an SQL query to delete all the employees whose name starts with a 'B'.
-5. Write an SQL quert to create a table called `departments` with following columns: `dept_no`, `dept_name`, `manager`.
+5. Write an SQL query to create a table called `departments` with following columns: `dept_no`, `dept_name`, `manager`.
 ### Essence
 SQL commands provide a neat and structured way to interact with the database tables.
 
 ## 7.5 Miscellaneous concepts
 
-### NULL and DEFAULT values for columns
+### Aliases in SELECT queries
 
 #### Explanation
+Aliases give nicknames to column names when displaying them. They are especially useful in case of nested queries
+when tables have long names and joins are used.
+
+#### Example (without nested query)
+`SELECT employee_no as "Employee Number", employee_name as "Employee Name", salary as Earnings from employees;`
+
+### Aggregate functions
+
+The following command counts the number of rows in the table.
+`SELECT count(*) FROM employees;`
+
+The following commands sums the total of the salary column
+`SELECT sum(salary) FROM employees;`
+
+### NOT NULL and DEFAULT values for columns
+
+#### Explanation
+While creating a table, some columns may be declared as `NOT NULL` or `DEFAULT` with a value,
+or both. For example, `gender` of the employee can NOT be null. Also some columns like
+`Number of holidays` can have default values. It is a good practice to explicitly mark
+the columns as `NOT NULL` so that MySQL can do optimizations in storing/indexing.
 
 #### Example
+
+Demonstrate the difference with the live execution of the following sequence of commands:
+```
+CREATE TABLE default_not_null_demo(num1 int, num2 int NOT NULL, num3 int default 5555, num4 int not null default 1111);
+DESCRIBE default_not_null_demo;
+INSERT INTO default_not_null_demo set num2 = 1, num4 = default;
+SELECT * from default_not_null_demo;
+INSERT INTO default_not_null_demo set num2 = 1, num3 = 233, num4 = default;
+```
 
 ### What is int(N) ?
 
 #### Explanation
-
+The number N represents the number of decimal spaces that may be padded when displaying the number.
+It does not indicate the highest number that can be stored in the column. E.g. The column `cost int(3)`
+can hold numbers greater than 999.
 #### Example
+
+Illustrate the difference with the live execution of the following sequence of commands:
+```
+CREATE TABLE test_int(num1 int(4) ZEROFILL, num2 int(6));
+INSERT INTO test_int values (23,34);
+INSERT INTO test_int values (3,534);
+INSERT INTO test_int values (14563,534);
+INSERT INTO test_int values (12345,98534);
+INSERT INTO test_int values (12345,1234567);
+SELECT * FROM test_int;
+```
 
 ### Datetime vs Timestamp
 
 #### Explanation
+Both Datetime and Timestamp accept values in the format `YYYY-MM-DD HH:MM:SS`.
+However, MySQL stored the timestamp value along with the current system time zone information.
+If the time zone is changed, the value stored in the database is changed accordingly.
+Datetime may be a suitable data type for the `joining date`, while timestamp
+may be a suitable data type for `last login` where the exact time and time zone might be crucial.
 
 #### Example
+
+Demonstrate with the live execution of the following sequence of commands:
+```
+CREATE TABLE test_timestamp (dt datetime, ts timestamp);
+
+INSERT INTO test_timestamp VALUES ("2020-01-01 00:00:00", "2020-01-01 00:00:00");
+
+SELECT * FROM test_timestamp;
+
+SET time_zone = '+05:30';
+
+SELECT * FROM test_timestamp;
+
+```
+
 
 ## 8. What is a database dump?
 ### Explanation
