@@ -96,6 +96,9 @@ In a ticket reservation system, the database contains the information
 about all passengers, trains, timetables, stations etc. All this information
 can be stored in a database and the external application can query the relevant
 details per request.
+```
+Use connection-test.js file to demonstrate the database connection.
+```
 ### Exercise
 _Find out 2 applications on your laptop/phone that require a database and 2 applications that do not require a database._
 ### Essence
@@ -143,9 +146,18 @@ MySQL data types are used to define what types of values the columns of the tabl
 
 ## 7. How to use SQL to Create, Read, Update and Delete (CRUD)
 ### Explanation
-We explain with examples below:
+
+We will use both MySQL command line client and the JavaScript client to demonstrate the
+interaction with the SQL server.
+
+`Use create-table.js, insert-values.js` files to show how the table creation, insertion etc.
+can be done via JavaScript client
 
 ### Example
+
+All examples can be executed in the `MySQL command line client`.
+Remember that all these commands can also be sent via JavaScript clients.
+Please check the available `.js` files in the `Week1` folder.
 
 #### CREATE
 The following command creates a table called `employees` (in the `company` database)
