@@ -67,7 +67,8 @@ mysql> grant all privileges on *.* to 'hyfuser'@'localhost';
 mysql> create database userdb;
 ```
 
-**Making sure that everything works**
+**Step 3: Installing MySQL drivers for node**
+
 We want to use MySQL with JavaScript and to this end, we use `mysqljs` driver.
 * Use `node install mysql` command to install them.
 * Run `node connection-test.js` from VScode (Windows/MAC) or the terminal (Linux/MAC).
