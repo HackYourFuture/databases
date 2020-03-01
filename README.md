@@ -67,6 +67,12 @@ mysql> grant all privileges on *.* to 'hyfuser'@'localhost';
 mysql> create database userdb;
 ```
 
+**Making sure that everything works**
+We want to use MySQL with JavaScript and to this end, we use `mysqljs` driver.
+* Use `node install mysql` command to install them.
+* Run `node connection-test.js` from VScode (Windows/MAC) or the terminal (Linux/MAC).
+The output should be `The solution is: 2`. The `connection-test.js` file can be found in the Week1 folder.
+
 For a step-by-step walkthrough on video, you can watch the following video:
 
 - [MySQL Installation on Linux (Ubuntu)](https://www.youtube.com/watch?v=Y_LibBhOGOY)
