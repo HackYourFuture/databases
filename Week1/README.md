@@ -4,14 +4,14 @@
 
 These are the topics for week 1:
 
-1. What's information?
+1. What is an information (system)?
 2. What are entities?
-3. What's a database?
-4. What's the role of a database in an application?
+3. What is a database?
+4. What is the role of a database in an application?
 5. What is Structured Query Language (SQL)?
 6. What are data types (as applied to databases)?
 7. How to use SQL to Create, Read, Update and Delete (CRUD)
-8. What's a database dump?
+8. What is a database dump?
 
    <!-- - SQL vs. NoSQL
    - When to use either an SQL or NoSQL database?
@@ -21,7 +21,7 @@ These are the topics for week 1:
    - What does a database do for our apps?
    - How to connect with Node.js -->
 
-## 1. What's information?
+## 1. What is an information (system)?
 
 Information is something that adds knowledge. It tells you something you didn't know before.
 
@@ -75,7 +75,7 @@ Learn more about entities with the following resources:
 - [Entities vs. Database](https://www.youtube.com/watch?v=hBu2pdphYaA)
 - [Entities, Attributes, and Relationships](https://www.youtube.com/watch?v=hveVlCHZtsI)
 
-## 3. What's a database?
+## 3. What is a database?
 
 A database's primary purpose is to provide a mechanism for `storing` and `retrieving` structured information.
 
@@ -103,7 +103,7 @@ musicians.push("Steve Lehman");
 console.log(musicians[0]); // prints: 'John Coltrane'
 ```
 
-While this JavaScript database is a nice and simple example, in practice you'll work with much more complicated datasets.
+While this JavaScript database is a nice and simple example, in practice you'll work with much more complicated databases.
 
 In this module you will focus primarily on much more sophisticated relational databases, in particular MySQL.
 
@@ -113,7 +113,7 @@ To learn more, check out the following resources:
 - [What are databases?](https://www.youtube.com/watch?v=Ls_LzOZ7x0c)
 - [What is a database?](https://www.youtube.com/watch?v=t8jgX1f8kc4)
 
-## 4. What's the role of a database in an application?
+## 4. What is the role of a database in an application?
 
 A database setup typically involves two components, a server and a client.
 
@@ -121,7 +121,7 @@ The server is the actual database management system and runs as a process on a m
 
 The client is a program that talks to the database management system (the server), so it has to know where that server is running.
 
-The client then creates a TCP connection (if you're interested in some more details look up the TCP protocol, otherwise you can forget about TCP for now) to the server.
+The client then creates a [TCP connection](https://www.youtube.com/watch?v=EkNq4TrHP_U) to the server.
 
 To do this the client needs to know:
 
@@ -138,7 +138,7 @@ The reason why you would want to use a database is that you can store informatio
 
 ## 5. What is Structured Query Language (SQL)?
 
-SQL (Structured Query Language) is a programming language used for managing the data that is stored in a DBMS (DataBase Management System). The `Query` part in SQL refers to the act of "asking a database" for a certain type of information; you are `quering the database`.
+SQL (Structured Query Language) is a programming language used for managing the data that is stored in a DBMS (DataBase Management System). The `Query` part in SQL refers to the act of "asking a database" for a certain type of information; you are `querying the database`.
 
 There are several implementations (software) of DBMS. Each software provides its own query language. For this course, you will learn [MySQL](https://www.mysql.com/).
 
@@ -186,7 +186,7 @@ Check out the following to learn more about how to apply SQL:
 - [Learn basic SQL in 10 minutes](https://www.youtube.com/watch?v=bEtnYWuo2Bw)
 - [Learn Basic SQL Commands](https://www.youtube.com/watch?v=OlT3FispsMU)
 
-## 8. What's a database dump?
+## 8. What is a database dump?
 
 A database `dump` (aka SQL dump) contains a record of the table structure and/or the data from a database and is usually in the form of a list of SQL statements. (An example file named `world.sql` is present in the Week1 folder, look for `databases`)
 
