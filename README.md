@@ -58,7 +58,7 @@ mysql> create user 'hyfuser'@'localhost' identified with mysql_native_password b
 
 mysql> create user 'hyfuser'@'localhost' identified by 'hyfpassword';
 
-# Step 2: This command gives all permissions to user 'hyfuser'. The (_._) means every table of every database.
+# Step 2: This command gives all permissions to user 'hyfuser'. The (*.*) means every table of every database.
 
 mysql> grant all privileges on *.* to 'hyfuser'@'localhost';
 
@@ -66,6 +66,14 @@ mysql> grant all privileges on *.* to 'hyfuser'@'localhost';
 
 mysql> create database userdb;
 ```
+
+**Step 3: Installing MySQL drivers for node**
+
+We want to use MySQL with JavaScript and to this end, we use [mysqljs driver](https://github.com/mysqljs/mysql).
+* Use `npm install -g mysql` command to install them.
+* Run `node connection-test.js` by navigating to the `Week1` folder from the VScode terminal.
+
+The output should be `The solution is: 2`.
 
 For a step-by-step walkthrough on video, you can watch the following video:
 
