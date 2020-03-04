@@ -24,16 +24,13 @@ Also make time to do lesson 1-5 from the following:
 
 Write a JavaScript file (to be executed with Node.js) that creates and makes a connection to a MySQL database. Do so using the `mysql` package (https://www.npmjs.com/package/mysql).
 
-> Before working on the exercise, first get a working version of the [example](https://www.npmjs.com/package/mysql#introduction) going. This will help you understand the basic structure of making a database connection and query. When doing this, make sure you replace the `user`, `password` and `database` values with the ones you've created for this module: `hyfuser`, `hyfpassword` and `user_db`.
+Remember, It's always  better to test your queries as soon as you have created them. Feel free to first write them in any sql viewer tool or mysql console before writing the node program.
 
-When you feel familiar with the library, you can go on with the exercise. Inside of your JavaScript file, make queries that:
-It's always  better to test your queries as soon as you have created them. Feel free to first write them in any sql viewer tool or mysql console before writing the node program.
-
-1. Create a database called `company`
+1. Create a database called `meetup`
 2. Make a connection to your database, using your MySQL `hyfuser` login credentials
-3. Create a table called `Employee` with the following fields (`emp_no`, `emp_name`, `salary` and `reports_to`).
-4. Create a table called `Department` with the following fields (`dept_no`, `dept_name` and `manager`)
-5. Create a table called `Project` with the following fields (`proj_no, proj_name, starting_date, ending_date`)
+3. Create a table called `Invitee` with the following fields (`invitee_no`, `invitee_name` and `invited_by`).
+4. Create a table called `Room` with the following fields (`room_no`, `room_name` and `floor_number`)
+5. Create a table called `Meeting` with the following fields (`meeting_no, meeting_title, starting_time, ending_time`,`room_no`)
 6. Insert 5 rows into each table with relevant fields. Find a way to create the data for those fields
 7. Test your code by executing `node <FILE_NAME>` in the terminal. Then check your MySQL database and see if everything has been created as expected. Please, be sure your file can be run more than once. You can drop and create the database every time the file is run.
 
@@ -55,7 +52,7 @@ Don't omit to test your queries evey time.
 9. What's the top 10 most populated cities?
 10. What is the population number of the world?
 
-After you've written your queries, and tested them, see if the file work by executing `node <FILE_NAME>`.
+After you've written your **tested** queries, test to see if everything work by executing `node <FILE_NAME>`.
 
 ## 3. **Code along**
 
