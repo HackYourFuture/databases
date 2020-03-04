@@ -27,20 +27,22 @@ Write a JavaScript file (to be executed with Node.js) that creates and makes a c
 > Before working on the exercise, first get a working version of the [example](https://www.npmjs.com/package/mysql#introduction) going. This will help you understand the basic structure of making a database connection and query. When doing this, make sure you replace the `user`, `password` and `database` values with the ones you've created for this module: `hyfuser`, `hyfpassword` and `user_db`.
 
 When you feel familiar with the library, you can go on with the exercise. Inside of your JavaScript file, make queries that:
+It's always  better to test your queries as soon as you have created them. Feel free to first write them in any sql viewer tool or mysql console before writing the node program.
 
 1. Create a database called `company`
 2. Make a connection to your database, using your MySQL `hyfuser` login credentials
-3. Create a table called `Employees` with the following fields (`emp_no`, `emp_name`, `salary` and `reports_to`).
-4. Create a table called `Departments` with the following fields (`dept_no`, `dept_name` and `manager`)
-5. Create a table called `Projects` with the following fields (`proj_no, proj_name, starting_date, ending_date`)
-6. Insert 10 rows into each table with relevant fields. Find a way to create the data for those fields
-7. Test your code by executing `node <FILE_NAME>` in the terminal. Then check your MySQL database and see if everything has been created as expected
+3. Create a table called `Employee` with the following fields (`emp_no`, `emp_name`, `salary` and `reports_to`).
+4. Create a table called `Department` with the following fields (`dept_no`, `dept_name` and `manager`)
+5. Create a table called `Project` with the following fields (`proj_no, proj_name, starting_date, ending_date`)
+6. Insert 5 rows into each table with relevant fields. Find a way to create the data for those fields
+7. Test your code by executing `node <FILE_NAME>` in the terminal. Then check your MySQL database and see if everything has been created as expected. Please, be sure your file can be run more than once. You can drop and create the database every time the file is run.
 
 **Exercise 2 : Select queries on the "world" database**
 
-> For this part of the homework, use the `world.sql` file in the `week1/databases` folder. Before you go on, execute the file to create a database instance of the `world` database. Test to see if it's created. Make sure all the tables (`city`, `country` and `countrylanguage`) and the containing data are there.
+> For this part of the homework, use the `world.sql` file in the `week1/databases` folder to create the database and tables. Before you go on, execute the file to create a database instance of the `world` database, using mysql console or any tool. Test to see if it's created. Make sure all the tables (`city`, `country` and `countrylanguage`) and the containing data are there.
 
 Write a JavaScript file (to be executed with Node.js) that queries (using select statements) the `world` database. The results given back should answer following questions:
+Don't omit to test your queries evey time.
 
 1. What are the names of countries with population greater than 8 million?
 2. What are the names of countries that have “land” in their names?
@@ -53,7 +55,7 @@ Write a JavaScript file (to be executed with Node.js) that queries (using select
 9. What's the top 10 most populated cities?
 10. What is the population number of the world?
 
-After you've written your queries, test to see if they work by executing `node <FILE_NAME>`.
+After you've written your queries, and tested them, see if the file work by executing `node <FILE_NAME>`.
 
 ## 3. **Code along**
 
