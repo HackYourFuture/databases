@@ -66,7 +66,7 @@ After you've finished your todo list it's time to show us what you got! The home
 
 1. MySQL exercises
 
-Upload your code to your forked Databases repository in GitHub. Make a pull request to HackYourFuture's forked repository.
+Upload your code to your forked Databases repository in GitHub. Make a pull request to `HackYourHomework/databases`  repository.
 
 > Forgotten how to upload your homework? Go through the [guide](../hand-in-homework-guide.md) to learn how to do this again.
 

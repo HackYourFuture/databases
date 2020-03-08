@@ -29,7 +29,8 @@ Before you start you need to install the software we'll use to store our data: M
 
 Note: Make sure you select the right operating system: MacOS, Windows or Ubuntu/Linux.
 
-> For a step-by-step tutorial, check out this MySQL [tutorial](http://www.mysqltutorial.org/getting-started-with-mysql/)
+> For a step-by-step tutorial, check out this MySQL [tutorial](http://www.mysqltutorial.org/getting-started-with-mysql/) or
+ [MySQL Installation on Linux (Ubuntu)](https://www.youtube.com/watch?v=Y_LibBhOGOY) if you are using Ubuntu Linux.
 
 After you've finished installing the software, open it through your command line interface:
 
@@ -75,9 +76,6 @@ We want to use MySQL with JavaScript and to this end, we use [mysqljs driver](ht
 
 The output should be `The solution is: 2`.
 
-For a step-by-step walkthrough on video, you can watch the following video:
-
-- [MySQL Installation on Linux (Ubuntu)](https://www.youtube.com/watch?v=Y_LibBhOGOY)
 
 ## Planning
 
