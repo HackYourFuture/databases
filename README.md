@@ -41,8 +41,6 @@ Open the `Terminal` to type following commands.
 
 2. Install MySQL server and client using `brew install mysql`.
 
-> For a step-by-step tutorial, check out this MySQL [tutorial](http://www.mysqltutorial.org/getting-started-with-mysql/) or
-
 After you've finished installing the software, open it through your command line interface:
 
 - Windows users should use `Microsoft MySQL Command Line client`.
