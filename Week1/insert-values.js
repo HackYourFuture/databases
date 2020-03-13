@@ -3,13 +3,13 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'hyfuser',
   password : 'hyfpassword',
-  database : 'userdb'
+  database : 'company'
 });
 
 connection.connect();
 var insert_queries = [
-                    "insert into student values ('Mehmet', 40, 'm', 'Turkey','1979-03-10', 178)",
-                    "insert into student values ('Arya', 32, 'f', 'Turkey','1986-10-20', 173)"
+                    "insert into employess values (106, 'Ibrahim', 2000, '2019-03-10', 'm')",
+                    "insert into employess values (107, 'Ali', 3000, '2019-03-10', 'm')",
                     ]
 
 for(var i in insert_queries){
