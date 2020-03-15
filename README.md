@@ -23,14 +23,23 @@ In this module you will get familiar with the complexity of storing data. By the
 
 ## Before you start
 
-Before you start you need to install the software we'll use to store our data: MySQL.
+Before you start you need to install the necessary software: MySQL.
 
-- Download the [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
+### Installation on Windows machine
+Download the [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
 
-Note: Make sure you select the right operating system: MacOS, Windows or Ubuntu/Linux.
+### Installation on Linux (Ubuntu)
+[MySQL Installation on Linux (Ubuntu)](https://www.youtube.com/watch?v=Y_LibBhOGOY) if you are using Ubuntu Linux.
 
-> For a step-by-step tutorial, check out this MySQL [tutorial](http://www.mysqltutorial.org/getting-started-with-mysql/) or
- [MySQL Installation on Linux (Ubuntu)](https://www.youtube.com/watch?v=Y_LibBhOGOY) if you are using Ubuntu Linux.
+### Installation on MAC
+Open the `Terminal` to type following commands.
+
+1. Install Homebrew if you don't have it:
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+2. Install MySQL server and client using `brew install mysql`.
 
 After you've finished installing the software, open it through your command line interface:
 
@@ -38,19 +47,22 @@ After you've finished installing the software, open it through your command line
 - Linux users should use `Gnome Terminal`
 - MacOS users should use `Terminal`.
 
-**Step 1: Creating a `root` user**
+**Step 1: Logging in with the `root` user**
 
-To get started with your new MySQL client, we first have to create a `root` user.
+To get started with your new MySQL client, we first have to login with the `root` user.
 
 > A root user, also known as a `superuser` is a special user account that has access to all commands and files of any particular software.
 
-The Microsoft MySQL Command Line client gives you a `msql>` prompt after typing in your root password. Note that this password is the one you used for the `root user` of the mysql. Linux and MAC users can execute `mysql -uroot -p` and then type your password.
+In Windows OS, if you click on the Start menu and type `MySQL Command line Client`, then
+the MySQL Command Line Client gives you a `msql>` prompt after typing in your root password.
+Note that this password is the one you used for the `root user` of the mysql during the installation.
+Linux and MAC users can execute `mysql -uroot -p` and then type your root password.
 
 **Step 2: Creating a `hyfuser` account**
 
-After creating the root user, it's time to create the account we'll be using for this module. Execute the following commands, one after the other:
+After loggin in with the root user, it's time to create the account we'll be using for this module. Execute the following commands, one after the other:
 
-```md
+```
 # Step 1: This command creates a user 'hyfuser' with password 'hyfpassword' for the database server at 'localhost'
 
 mysql> create user 'hyfuser'@'localhost' identified with mysql_native_password by 'hyfpassword';
