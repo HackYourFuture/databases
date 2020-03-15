@@ -1,13 +1,11 @@
 > This homework assumes you have installed the software [MySQL](https://dev.mysql.com/downloads/installer/) to your computer. If not please do that first!
 
-# Homework Databases Week 1
+# Homework Databases Week 2
 
 ## **Todo list**
 
 1. Practice the concepts
 2. MySQL exercises
-3. Code along
-   <!-- 4. PROJECT: Hack Your World -->
 
 ## 1. **Practice the concepts**
 
@@ -53,7 +51,6 @@ Write some queries to retrieve the following rows:
 4. Sum of the research papers of the authors per university.
 5. Minimum and maximum of the h-index of all authors per university.
 
-<!-- ## 4. **PROJECT: Hack Your World* -->
 
 ## **SUBMIT YOUR HOMEWORK!**
 
