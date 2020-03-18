@@ -59,7 +59,7 @@ that is declared as PRIMARY KEY (In other words, this is a PRIMARY KEY CONSTRAIN
 
 #### Example
 Consider the following commands (# represents comments, mysql> is the prompt).
-```
+```sql
 # create table with two columns. one with primary key and one with unique key constraint
 mysql>CREATE TABLE pri_uniq_demo(id_pr int PRIMARY KEY, id_un int UNIQUE);
 
@@ -84,6 +84,7 @@ mysql> insert into pri_uniq_demo values (2, 3);
 ERROR 1062 (23000): Duplicate entry '2' for key 'PRIMARY'
 
 ```
+
 #### Exercise
 ```
 # Find out type T and Constraint C for each column.
@@ -125,7 +126,7 @@ In the Employees table, `dept_id` is the column that acts as the foreign key whi
 dept_id column of the departments table in which it works as the primary key.**
 
 #### Example
-```
+```sql
 # Add the column dept_id to the employees table
 mysql> ALTER TABLE employees ADD COLUMN dept_id int;
 
@@ -187,7 +188,7 @@ key is called as the **Composite Key**
 
 #### Example
 
-```
+```sql
 # create projects table
 mysql> CREATE TABLE projects (proj_id int, proj_name varchar(50), start_date datetime);
 
@@ -236,7 +237,7 @@ clause.
 
 
 #### Example
-```
+```sql
 #We must join the tables `employees` and `departments` and then choose the relevant rows.
 
 # INNER JOIN
@@ -284,7 +285,7 @@ we want to print all employees who come from the same city as `John Smith`
 For both of these cases, a table must be joined to itself (self join).
 for self join, we must use **aliases** so that disambiguation of column names can be achieved.
 #### Example
-```
+```sql
 When we want to print employees and their reporting mangagers.
 mysql> SELECT E.employee_name as Employee, E2. employee_name as Manager
     -> FROM employees as E1
@@ -296,7 +297,7 @@ mysql> SELECT E.employee_name as Employee, E2. employee_name as Manager
 
 #### Exercise
 
-```
+```sql
 # Add the city column, update records in the employees table
 mysql> ALTER TABLE employees add column city varchar(50);
 mysql> UPDATE employees SET city = 'Berlin' where employee_name = 'John';
@@ -313,7 +314,7 @@ Write a query to print names of employees that come from the same city as John u
 <details><summary>Reveal Query</summary>
 <p>
 
-```SQL
+```sql
 mysql> SELECT E1.employee_name, E2.city
     -> FROM employees as E1
     -> INNER JOIN employees as E2
@@ -355,7 +356,7 @@ Note that it should include the employees who don't have mangers too.
 <details><summary>Reveal Query</summary>
 <p>
 
-```
+```sql
 mysql> SELECT E.employee_name as Employee, E2. employee_name as Manager
     -> FROM employees as E1
     -> LEFT JOIN
@@ -370,104 +371,107 @@ mysql> SELECT E.employee_name as Employee, E2. employee_name as Manager
 * LEFT JOIN : All rows from the LEFT table
 * RIGHT JOIN: All rows from the RIGHT table
 
-### C. Domain Modeling
+### 4.1. Aggregate Functions
 #### Explanation
-Entity Relationship Diagrams (ERD) are used widely in domain modeling. 
-In this diagram, **entities** are showing by boxes and are connected to each other with a 
-line (**relationships**).
-
+In database management an aggregate function is a function where the values of multiple rows are grouped
+together as input on certain criteria.
+Some important aggregate functions are
+1. SUM
+2. COUNT
+3. MAX
+4. MIN
+5. AVG
 #### Example
-Draw the **ERD** diagram for the teacher, student, compensation entities. In this diagram all types of the relationships should be shown.
-#### Exercise
-Base on what students did on previous part, they should be able to draw ERD diagram for the office scenario.
-#### Essence
-Domain Modeling using ERD diagrams helps the system analysts and database designers to have a concrete view to the system and how to apply it in databses
-
-
-_SECOND HALF (14:00 - 16:00)_
-### D. Joins
-#### Explanation
-A JOIN clause combines columns from one or more tables in a relational database. It creates a set that can be saved as a table or used as it is. A JOIN is a means for combining columns from one or more tables by using values common to each. 
-There are different types of JOINS:
--   INNER JOIN: Select records that have matching values in both tables
--   SELF JOIN: If the tables in both sides are the same, it's called SELF JOIN
--   LEFT and RIGHT OUTER JOIN: Select records from the left-most (or right-most) table with matching left table records.
-#### Example
-Give all teacher names with their corresponding compensation amount:
-
+We want to return the sum of the salaries of all female employees:
 ```sql
-SELECT t.name, c.amount FROM teachers t INNER JOIN compensations c
+SELECT SUM(E.salary) AS Expenses FROM employees as E WHERE gender = 'f';
 ```
 
-Give all students with their corresponding teachers. Return them, if they don't have teacher
-
+Or get the number of employees:
 ```sql
-SELECT s.*, t.name FROM students s LEFT OUTER JOIN teachers t
-```
-
-#### Exercise
-Ask the students to write the query to retrieve all employees with the one that they should report to.
-
-#### Essence
-Using JOINS, we can retrieve our requested data from two or more tables. Without JOINS, we should retrieve all data from one table and iterating over them, get the values from other tables as well. Using JOINS, database, itself, does all this job and retrieves us the desired data.
-
-### E. Aggregate Functions
-#### Explanation
-In database management an aggregate function is a function where the values of multiple rows are grouped together as input on certain criteria to form a single value of more significant meaning.
-Some important ones are
-- SUM
-- COUNT
-- MAX, MIN
-- AVG
-#### Example
-We want to return the sum of the wages of all teachers:
-```sql
-SELECT SUM(c.amount) AS sum FROM compensations c
-```
-
-Or get the number of students:
-```sql
-SELECT COUNT(*) FROM students s
+SELECT COUNT(*) FROM employees;
 ```
 #### Exercise
-Ask the students to get the maximum and average of all teachers' wages.
+Write SQL queries to get the maximum and average of all employees' salaries.
+
 #### Essence
 Using these functions, you can do some data processing on Database level. For example, you can get max or min of the data that exists in database with no need to process them. 
 
-### D. DISTINCT, GROUP By, and HAVING keywords
+### 4.2. DISTINCT
+
 #### Explanation
-Here, some keywords that used a lot in queries are discussed. All of them can be combined with aggregate functions to have more powerful queries:
+Distinct: this statement is used to return only distinct (different) values. This keyword prevents the duplicate values.
 
--   Distinct: this statement is used to return only distinct (different) values. This keyword prevents the duplicate values.
--   Group by: this statement groups rows that have the same values into summary rows
--   Having:  this clause was added to SQL because the WHERE keyword could not be used with aggregate functions. Using this clause you can have conditional clauses on aggregate funtions.
-             
 #### Example
-We want to to get the number of the teachers that teach to at least one student:
+We want to to get the number of the departments that have at least one employee:
 ```sql
-SELECT COUNT(DISTINCT s.teacher_number) AS no_teachersgg
-FROM students s
-```
-Next, we want to get the number of students that each teacher has:
-```sql
-SELECT COUNT(s.techer_number) AS student_no, s.techer_number AS teacher_number
-FROM students s
-GROUP BY s.teacher_number
-```
-Then, we want to retrieve the numeber of students for each teacher that has more than three students:
-
-```sql
-SELECT COUNT(s.techer_number) AS no_students, s.techer_number AS teacher_number
-FROM students s
-GROUP BY s.teacher_number
-HAVING COUNT(s.teacher_number) > 3
+SELECT COUNT(DISTINCT E.dept_id) AS Working_Departments
+FROM employees as E
 ```
 
 #### Exercise
 
-Ask the students to write a query that retrieves all managers with the number of employees that are reporting to them. In this query they should use DISTINCT and GROUP BY keywords.
 
-Next, ask them to extend the query to retrieve the managers who have more than 5 employees are reporting to them.
+#### Essence
+Distinct gives unique values.
 
+#### 4.3 Group by
 
+#### Explanation
+Group by: this statement groups rows that have the same value in a certain column and generally
+applies an aggregate function on another column
 
+#### Example
+We want to get the sum of salary and number of employees grouped by gender:
+```sql
+SELECT gender, count(employee_id), sum(salary)
+FROM employees
+GROUP BY gender;
+```
+
+#### Exercise
+Write a query that retrieves all managers with the number of employees that are reporting to them. In this query they should use DISTINCT and GROUP BY keywords.
+
+#### Essence
+Group by clause can only print columns that are grouped by or apply aggregate functions on the other columns.
+
+### 4.4 Having
+#### Explanation
+Having clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
+Using having clause you can have conditional clauses on aggregate funtions.
+
+#### Example
+
+Print all departments that are spending more than 5000 in salaries
+(In other words, all departments where the sum of salaries of employees working in them is more than 5000)
+```sql
+
+SELECT dept_name, sum(salary)
+FROM employees as E
+INNER JOIN
+departments as D
+ON E.dept_no = D.dept_no
+GROUP BY dept_name
+HAVING sum(salary) > 5000;
+```
+
+#### Exercise
+
+Write a query that retrieves all managers with more than 3 employees reporting to them. In this query they should use DISTINCT and GROUP BY keywords with HAVING clause.
+
+#### Essence
+Having clause can only filter the rows with columns selected by the GROUP BY clause.
+
+### 5. Domain Modeling
+#### Explanation
+Entity Relationship Diagrams (ERD) are used widely in domain modeling. 
+In this diagram, **entities** are showing by boxes and are connected to each other with a 
+line (**relationships**). Columns are showed by **attributes**. UML (Unified Modeling Language) uses
+Class diagrams to represent entities.
+
+#### Example
+Draw the **ERD**  for the employees, departments and projects.
+#### Exercise
+Draw the **ERD** for the school database. Identify tables, attributes and relationships.
+#### Essence
+Domain Modeling using ERD diagrams helps the system analysts and database designers to have a concrete view to the system and how to apply it in databases.
