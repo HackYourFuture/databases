@@ -306,8 +306,9 @@ mysql> UPDATE employees SET city = 'Berlin' where employee_name = 'Another frien
 mysql> SELECT employee_name, city
     -> FROM employees
     -> WHERE city = (SELECT city FROM employees WHERE employee_name = 'John');
+```
 
-* Write a query to print names of employees that come from the same city as John using **self join**.
+Write a query to print names of employees that come from the same city as John using **self join**.
 
 <details><summary>Reveal Query</summary>
 <p>
@@ -323,7 +324,6 @@ mysql> SELECT E1.employee_name, E2.city
 </p>
 </details>
 
-```
 
 #### Essence
 For self joins, aliases for tables must be used. Otherwise, column names are ambiguous.
@@ -340,7 +340,6 @@ In a LEFT JOIN, we print **all rows** from the LEFT table even though they don't
 In the following statement `FROM A RIGHT JOIN B ON A.col = B.col`,
 the table A is the LEFT table and the table B i the RIGHT table.
 In a RIGHT JOIN, we print **all rows** from the RIGHT table even though they don't have a match in the LEFT table.
-
 
 #### Example
 Some employees may not have a department associated with them but they
