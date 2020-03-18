@@ -464,10 +464,15 @@ Having clause can only filter the rows with columns selected by the GROUP BY cla
 
 ### 5. Domain Modeling
 #### Explanation
-Entity Relationship Diagrams (ERD) are used widely in domain modeling. 
-In this diagram, **entities** are showing by boxes and are connected to each other with a 
-line (**relationships**). Columns are showed by **attributes**. UML (Unified Modeling Language) uses
-Class diagrams to represent entities.
+* Domain modeling is making the models for the domain of the problem or the system.
+* It makes use of the concepts like entities and relations.
+* Entity Relationship Diagrams (ERD) are used widely in domain modeling. 
+* In ERD, **entities** are shown by boxes and are abstract things. E.g. John Smith is an instance. Student is the entity. An entity in ERD is converted to a table in MySQL.
+* Entities are connected to each other with a  line (**relationships**) with **cardinalities** (1-1, 1-M etc.).
+* Entities have **attributes** shown in the shape of an ellipse. An attribute of the entity is translated to
+the column of the corresponding table.
+
+
 
 #### Example
 Draw the **ERD**  for the employees, departments and projects.
