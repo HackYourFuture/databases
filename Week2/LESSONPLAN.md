@@ -55,10 +55,10 @@ is declared as UNIQUE (In other words, this is a UNIQUE CONSTRAINT on that colum
 They cannot be NULL values. Thus two rows can NEVER have same values in the column
 that is declared as PRIMARY KEY (In other words, this is a PRIMARY KEY CONSTRAINT on that column).
 
-> There are more constraints in MySQL. Read more about them [here](https://www.w3resource.com/mysql/creating-table-advance/constraint.php).
+> There are more constraints in MySQL. Read more about them [here](https://www.w3resource.com//creating-table-advance/constraint.php).
 
 #### Example
-Consider the following commands (# represents comments, mysql> is the prompt).
+Consider the following commands (# represents comments, > is the prompt).
 ```sql
 # create table with two columns. one with primary key and one with unique key constraint
 CREATE TABLE pri_uniq_demo(id_pr int PRIMARY KEY, id_un int UNIQUE);
@@ -68,19 +68,19 @@ INSERT INTO pri_uniq_demo VALUES (NULL, NULL);
 #ERROR 1048 (23000): Column 'id_pr' cannot be null
 
 # Note that the UNIQUE key column can be NULL
-insert into pri_uniq_demo values (1, NULL);
+INSERT INTO pri_uniq_demo VALUES (1, NULL);
 #Query OK, 1 row affected (0.00 sec)
 
 # Normal insertion
-insert into pri_uniq_demo values (2, 2);
+INSERT INTO pri_uniq_demo VALUES (2, 2);
 #Query OK, 1 row affected (0.05 sec)
 
 # Note that you cannot insert 2 in the id_un column because it should be UNIQUE
-insert into pri_uniq_demo values (3, 2);
+INSERT INTO pri_uniq_demo VALUES (3, 2);
 #ERROR 1062 (23000): Duplicate entry '2' for key 'id_un'
 
 # Note that you cannot insert 2 in the id_pr column because it is PRIMARY KEY
-insert into pri_uniq_demo values (2, 3);
+INSERT INTO pri_uniq_demo VALUES (2, 3);
 #ERROR 1062 (23000): Duplicate entry '2' for key 'PRIMARY'
 
 ```
@@ -128,25 +128,25 @@ dept_id column of the departments table in which it works as the primary key.**
 #### Example
 ```sql
 # Add the column dept_id to the employees table
-mysql> ALTER TABLE employees ADD COLUMN dept_id int;
+> ALTER TABLE employees ADD COLUMN dept_id int;
 
 # Add the constraint foreign key
-mysql> ALTER TABLE employees ADD CONSTRAINT fk_dept FOREIGN KEY(dept_id) REFERENCES departments(dept_id);
+> ALTER TABLE employees ADD CONSTRAINT fk_dept FOREIGN KEY(dept_id) REFERENCES departments(dept_id);
 
 # Add some sample rows in the departments table
-mysql> INSERT INTO departments VALUES (5001, "Sales");
-mysql> INSERT INTO departments VALUES (5002, "Development");
-mysql> INSERT INTO departments VALUES (5003, "Marketing");
+> INSERT INTO departments VALUES (5001, "Sales");
+> INSERT INTO departments VALUES (5002, "Development");
+> INSERT INTO departments VALUES (5003, "Marketing");
 
 # Try updating the dept_id of an employee with an existing department
-mysql> UPDATE employees SET dept_id = 5001 where employee_id = 101;
+> UPDATE employees SET dept_id = 5001 where employee_id = 101;
 
 # Try updating the dept_id of an employee with a department that does not exist
-mysql> UPDATE employees SET dept_id = 9999 where employee_id = 101;
+> UPDATE employees SET dept_id = 9999 where employee_id = 101;
 
 # Example of 1-1 relationship
 # Creating table Account with the same primary key as the Employees table
-mysql> CREATE TABLE Account(
+> CREATE TABLE Account(
     -> employee_id int, 
     -> email varchar(50),
     -> primary key (employee_id),
@@ -190,15 +190,15 @@ key is called as the **Composite Key**
 
 ```sql
 # create projects table
-mysql> CREATE TABLE projects (proj_id int, proj_name varchar(50), start_date datetime);
+> CREATE TABLE projects (proj_id int, proj_name varchar(50), start_date datetime);
 
 # Insert sample values
-mysql> INSERT INTO projects VALUES(9001, "Jazz", "2018-01-01");
-mysql> INSERT INTO projects VALUES(9002, "Mellow", "2019-03-01");
-mysql> INSERT INTO projects VALUES(9003, "Classical", "2020-01-01");
+> INSERT INTO projects VALUES(9001, "Jazz", "2018-01-01");
+> INSERT INTO projects VALUES(9002, "Mellow", "2019-03-01");
+> INSERT INTO projects VALUES(9003, "Classical", "2020-01-01");
 
 # create emp_proj relationship table with composite primary key
-mysql> CREATE TABLE emp_proj (
+> CREATE TABLE emp_proj (
     -> emp_id int,
     -> proj_id int,
     -> PRIMARY KEY(emp_id, proj_id),
@@ -241,7 +241,7 @@ clause.
 #We must join the tables `employees` and `departments` and then choose the relevant rows.
 
 # INNER JOIN
-mysql> SELECT employee_name
+> SELECT employee_name
     -> FROM employees as E
     -> INNER JOIN
     -> departments as D
@@ -249,7 +249,7 @@ mysql> SELECT employee_name
     -> WHERE D.dept_name = "Sales";
 
 # Comma (,) or CROSS join
-mysql> SELECT employee_name
+> SELECT employee_name
     -> FROM employees as E, departments as D
     -> where E.dept_id = D.dept_id
     -> and D.dept_name = "Sales";
@@ -287,7 +287,7 @@ for self join, we must use **aliases** so that disambiguation of column names ca
 #### Example
 ```sql
 When we want to print employees and their reporting mangagers.
-mysql> SELECT E.employee_name as Employee, E2. employee_name as Manager
+> SELECT E.employee_name as Employee, E2. employee_name as Manager
     -> FROM employees as E1
     -> INNER JOIN
     -> employees as E2
@@ -299,12 +299,12 @@ mysql> SELECT E.employee_name as Employee, E2. employee_name as Manager
 
 ```sql
 # Add the city column, update records in the employees table
-mysql> ALTER TABLE employees add column city varchar(50);
-mysql> UPDATE employees SET city = 'Berlin' where employee_name = 'John';
-mysql> UPDATE employees SET city = 'Berlin' where employee_name = 'Friend of John';
-mysql> UPDATE employees SET city = 'Berlin' where employee_name = 'Another friend of John';
+> ALTER TABLE employees add column city varchar(50);
+> UPDATE employees SET city = 'Berlin' where employee_name = 'John';
+> UPDATE employees SET city = 'Berlin' where employee_name = 'Friend of John';
+> UPDATE employees SET city = 'Berlin' where employee_name = 'Another friend of John';
 
-mysql> SELECT employee_name, city
+> SELECT employee_name, city
     -> FROM employees
     -> WHERE city = (SELECT city FROM employees WHERE employee_name = 'John');
 ```
@@ -315,7 +315,7 @@ Write a query to print names of employees that come from the same city as John u
 <p>
 
 ```sql
-mysql> SELECT E1.employee_name, E2.city
+> SELECT E1.employee_name, E2.city
     -> FROM employees as E1
     -> INNER JOIN employees as E2
     -> ON E1.city = E2.city
@@ -346,7 +346,7 @@ In a RIGHT JOIN, we print **all rows** from the RIGHT table even though they don
 Some employees may not have a department associated with them but they
 are still employed by the company.
 Thus, if we want to print all employees and their department names,
-then a LEFT JOIN (from employees to departments) allows us to print **everything** from the LEFT table
+then a LEFT JOIN (FROM employees to departments) allows us to print **everything** from the LEFT table
 and the matching rows from the other table.
 
 #### Exercise
@@ -357,7 +357,7 @@ Note that it should include the employees who don't have mangers too.
 <p>
 
 ```sql
-mysql> SELECT E.employee_name as Employee, E2. employee_name as Manager
+> SELECT E.employee_name as Employee, E2. employee_name as Manager
     -> FROM employees as E1
     -> LEFT JOIN
     -> employees as E2
