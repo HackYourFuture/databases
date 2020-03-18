@@ -42,7 +42,9 @@ Add a select query to that program using await and promisify.
 
 #### Essence
 > async keyword : to create asynchronous function and ensure they return promise without having to worry
+
 > await : to call a function returning promise without having to call .then() over that promise
+
 > promisify() : to convert a callback based function to a promise based one.
 
 
@@ -58,7 +60,7 @@ that is declared as PRIMARY KEY (In other words, this is a PRIMARY KEY CONSTRAIN
 > There are more constraints in MySQL. Read more about them [here](https://www.w3resource.com//creating-table-advance/constraint.php).
 
 #### Example
-Consider the following commands (# represents comments, > is the prompt).
+Consider the following commands (# represents comments).
 ```sql
 # create table with two columns. one with primary key and one with unique key constraint
 CREATE TABLE pri_uniq_demo(id_pr int PRIMARY KEY, id_un int UNIQUE);
@@ -128,30 +130,30 @@ dept_id column of the departments table in which it works as the primary key.**
 #### Example
 ```sql
 # Add the column dept_id to the employees table
-> ALTER TABLE employees ADD COLUMN dept_id int;
+ ALTER TABLE employees ADD COLUMN dept_id int;
 
 # Add the constraint foreign key
-> ALTER TABLE employees ADD CONSTRAINT fk_dept FOREIGN KEY(dept_id) REFERENCES departments(dept_id);
+ ALTER TABLE employees ADD CONSTRAINT fk_dept FOREIGN KEY(dept_id) REFERENCES departments(dept_id);
 
 # Add some sample rows in the departments table
-> INSERT INTO departments VALUES (5001, "Sales");
-> INSERT INTO departments VALUES (5002, "Development");
-> INSERT INTO departments VALUES (5003, "Marketing");
+ INSERT INTO departments VALUES (5001, "Sales");
+ INSERT INTO departments VALUES (5002, "Development");
+ INSERT INTO departments VALUES (5003, "Marketing");
 
 # Try updating the dept_id of an employee with an existing department
-> UPDATE employees SET dept_id = 5001 where employee_id = 101;
+ UPDATE employees SET dept_id = 5001 where employee_id = 101;
 
 # Try updating the dept_id of an employee with a department that does not exist
-> UPDATE employees SET dept_id = 9999 where employee_id = 101;
+ UPDATE employees SET dept_id = 9999 where employee_id = 101;
 
 # Example of 1-1 relationship
 # Creating table Account with the same primary key as the Employees table
-> CREATE TABLE Account(
-    -> employee_id int, 
-    -> email varchar(50),
-    -> primary key (employee_id),
-    -> CONSTRAINT fk_emp FOREIGN KEY(employee_id) REFERENCES employees(employee_id)
-    -> );
+CREATE TABLE Account(
+employee_id int, 
+email varchar(50),
+primary key (employee_id),
+CONSTRAINT fk_emp FOREIGN KEY(employee_id) REFERENCES employees(employee_id)
+);
 
 ```
 
@@ -190,21 +192,21 @@ key is called as the **Composite Key**
 
 ```sql
 # create projects table
-> CREATE TABLE projects (proj_id int, proj_name varchar(50), start_date datetime);
+CREATE TABLE projects (proj_id int, proj_name varchar(50), start_date datetime);
 
 # Insert sample values
-> INSERT INTO projects VALUES(9001, "Jazz", "2018-01-01");
-> INSERT INTO projects VALUES(9002, "Mellow", "2019-03-01");
-> INSERT INTO projects VALUES(9003, "Classical", "2020-01-01");
+INSERT INTO projects VALUES(9001, "Jazz", "2018-01-01");
+INSERT INTO projects VALUES(9002, "Mellow", "2019-03-01");
+INSERT INTO projects VALUES(9003, "Classical", "2020-01-01");
 
 # create emp_proj relationship table with composite primary key
-> CREATE TABLE emp_proj (
-    -> emp_id int,
-    -> proj_id int,
-    -> PRIMARY KEY(emp_id, proj_id),
-    -> CONSTRAINT fk_emp FOREIGN KEY(emp_id) REFERENCES employees(employee_id),
-    -> CONSTRAINT fk_pro FOREIGN KEY(proj_id) REFERENCES projects(proj_id)
-    -> );
+CREATE TABLE emp_proj (
+emp_id int,
+proj_id int,
+PRIMARY KEY(emp_id, proj_id),
+CONSTRAINT fk_emp FOREIGN KEY(emp_id) REFERENCES employees(employee_id),
+CONSTRAINT fk_pro FOREIGN KEY(proj_id) REFERENCES projects(proj_id)
+);
 ```
 
 #### Exercise
@@ -241,18 +243,18 @@ clause.
 #We must join the tables `employees` and `departments` and then choose the relevant rows.
 
 # INNER JOIN
-> SELECT employee_name
-    -> FROM employees as E
-    -> INNER JOIN
-    -> departments as D
-    -> ON E.dept_id = D.dept_id
-    -> WHERE D.dept_name = "Sales";
+SELECT employee_name
+FROM employees as E
+INNER JOIN
+departments as D
+ON E.dept_id = D.dept_id
+WHERE D.dept_name = "Sales";
 
 # Comma (,) or CROSS join
-> SELECT employee_name
-    -> FROM employees as E, departments as D
-    -> where E.dept_id = D.dept_id
-    -> and D.dept_name = "Sales";
+SELECT employee_name
+FROM employees as E, departments as D
+where E.dept_id = D.dept_id
+and D.dept_name = "Sales";
 ```
 #### Exercise
 
@@ -287,11 +289,11 @@ for self join, we must use **aliases** so that disambiguation of column names ca
 #### Example
 ```sql
 When we want to print employees and their reporting mangagers.
-> SELECT E.employee_name as Employee, E2. employee_name as Manager
-    -> FROM employees as E1
-    -> INNER JOIN
-    -> employees as E2
-    -> ON E1.reports_to = E2.employee_id
+SELECT E.employee_name as Employee, E2. employee_name as Manager
+FROM employees as E1
+INNER JOIN
+employees as E2
+ON E1.reports_to = E2.employee_id
 ```
 
 
@@ -299,27 +301,27 @@ When we want to print employees and their reporting mangagers.
 
 ```sql
 # Add the city column, update records in the employees table
-> ALTER TABLE employees add column city varchar(50);
-> UPDATE employees SET city = 'Berlin' where employee_name = 'John';
-> UPDATE employees SET city = 'Berlin' where employee_name = 'Friend of John';
-> UPDATE employees SET city = 'Berlin' where employee_name = 'Another friend of John';
+ALTER TABLE employees add column city varchar(50);
+UPDATE employees SET city = 'Berlin' where employee_name = 'John';
+UPDATE employees SET city = 'Berlin' where employee_name = 'Friend of John';
+UPDATE employees SET city = 'Berlin' where employee_name = 'Another friend of John';
 
-> SELECT employee_name, city
-    -> FROM employees
-    -> WHERE city = (SELECT city FROM employees WHERE employee_name = 'John');
+SELECT employee_name, city
+FROM employees
+WHERE city = (SELECT city FROM employees WHERE employee_name = 'John');
 ```
 
-Write a query to print names of employees that come from the same city as John using **self join**.
+Re-Write the above query to print names of employees that come from the same city as John using **self join**.
 
 <details><summary>Reveal Query</summary>
 <p>
 
 ```sql
-> SELECT E1.employee_name, E2.city
-    -> FROM employees as E1
-    -> INNER JOIN employees as E2
-    -> ON E1.city = E2.city
-    -> WHERE E2.employee_name = 'John';
+SELECT E1.employee_name, E2.city
+FROM employees as E1
+INNER JOIN employees as E2
+ON E1.city = E2.city
+WHERE E2.employee_name = 'John';
 ```
 
 </p>
@@ -357,11 +359,11 @@ Note that it should include the employees who don't have mangers too.
 <p>
 
 ```sql
-> SELECT E.employee_name as Employee, E2. employee_name as Manager
-    -> FROM employees as E1
-    -> LEFT JOIN
-    -> employees as E2
-    -> ON E1.reports_to = E2.employee_id
+SELECT E.employee_name as Employee, E2. employee_name as Manager
+FROM employees as E1
+LEFT JOIN
+employees as E2
+ON E1.reports_to = E2.employee_id
 ```
 
 </p>
@@ -410,7 +412,7 @@ FROM employees as E
 ```
 
 #### Exercise
-
+N/A
 
 #### Essence
 Distinct gives unique values.
@@ -457,7 +459,8 @@ HAVING sum(salary) > 5000;
 
 #### Exercise
 
-Write a query that retrieves all managers with more than 3 employees reporting to them. In this query they should use DISTINCT and GROUP BY keywords with HAVING clause.
+Write a query that retrieves all managers with more than 3 employees reporting to them.
+Hint: In this query use DISTINCT and GROUP BY keywords with HAVING clause.
 
 #### Essence
 Having clause can only filter the rows with columns selected by the GROUP BY clause.
@@ -471,8 +474,6 @@ Having clause can only filter the rows with columns selected by the GROUP BY cla
 * Entities are connected to each other with a  line (**relationships**) with **cardinalities** (1-1, 1-M etc.).
 * Entities have **attributes** shown in the shape of an ellipse. An attribute of the entity is translated to
 the column of the corresponding table.
-
-
 
 #### Example
 Draw the **ERD**  for the employees, departments and projects.
