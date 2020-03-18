@@ -30,11 +30,11 @@ with the await() method.
 #### Example(s)
 Demonstrate with four programs at [this repository](https://github.com/unmeshvrije/database_examples)
 how
-1. 1-db-naive.js fails because the connection is closed prematurely.
-2. 2-db-callback.js solves the problem but looks ugly because of the callback-hell.
-3. 3-db-promise.js uses the promise chaining to make it better.
+1. Program `1-db-naive.js` fails because the connection is closed prematurely.
+2. Program `2-db-callback.js` solves the problem but looks ugly because of the callback-hell.
+3. Program `3-db-promise.js` uses the promise chaining to make it better.
 about building those promises
-4. 4-db-await.js uses promisify() and await() to make it the best.
+4. Program `4-db-await.js` uses promisify() and await() to make it the best.
 
 #### Exercise
 The program called `async-create-insert.js` can be found in `Week2` folder.
@@ -61,27 +61,27 @@ that is declared as PRIMARY KEY (In other words, this is a PRIMARY KEY CONSTRAIN
 Consider the following commands (# represents comments, mysql> is the prompt).
 ```sql
 # create table with two columns. one with primary key and one with unique key constraint
-mysql>CREATE TABLE pri_uniq_demo(id_pr int PRIMARY KEY, id_un int UNIQUE);
+CREATE TABLE pri_uniq_demo(id_pr int PRIMARY KEY, id_un int UNIQUE);
 
 # Note the error that says that the primary key column cannot be NULL
-mysql> INSERT INTO pri_uniq_demo VALUES (NULL, NULL);
-ERROR 1048 (23000): Column 'id_pr' cannot be null
+INSERT INTO pri_uniq_demo VALUES (NULL, NULL);
+#ERROR 1048 (23000): Column 'id_pr' cannot be null
 
 # Note that the UNIQUE key column can be NULL
-mysql> insert into pri_uniq_demo values (1, NULL);
-Query OK, 1 row affected (0.00 sec)
+insert into pri_uniq_demo values (1, NULL);
+#Query OK, 1 row affected (0.00 sec)
 
 # Normal insertion
-mysql> insert into pri_uniq_demo values (2, 2);
-Query OK, 1 row affected (0.05 sec)
+insert into pri_uniq_demo values (2, 2);
+#Query OK, 1 row affected (0.05 sec)
 
 # Note that you cannot insert 2 in the id_un column because it should be UNIQUE
-mysql> insert into pri_uniq_demo values (3, 2);
-ERROR 1062 (23000): Duplicate entry '2' for key 'id_un'
+insert into pri_uniq_demo values (3, 2);
+#ERROR 1062 (23000): Duplicate entry '2' for key 'id_un'
 
 # Note that you cannot insert 2 in the id_pr column because it is PRIMARY KEY
-mysql> insert into pri_uniq_demo values (2, 3);
-ERROR 1062 (23000): Duplicate entry '2' for key 'PRIMARY'
+insert into pri_uniq_demo values (2, 3);
+#ERROR 1062 (23000): Duplicate entry '2' for key 'PRIMARY'
 
 ```
 
