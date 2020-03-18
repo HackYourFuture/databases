@@ -268,6 +268,109 @@ work on "Jazz" project.
 (1) An INNER JOIN with columns-matching condition after ON and
 (2) The join using a comma (,) between tables and where clause with condition for columns-matching.
 
+
+### 3.2 Joins (self)
+
+#### Explanation
+When the answer of the query cannot be easily found with a where clause but the answer(s) can be found
+in the same table, then consider the following case:
+
+1. One column of the table contains values from the other column of the same table (but different rows)
+E.g. `reports_to` column of Employees table contains values from the `employee_id`.
+2. We want to print rows that share column values from other rows
+E.g. Say we add a column `city` to Employees table, then
+we want to print all employees who come from the same city as `John Smith`
+
+For both of these cases, a table must be joined to itself (self join).
+for self join, we must use **aliases** so that disambiguation of column names can be achieved.
+#### Example
+```
+When we want to print employees and their reporting mangagers.
+mysql> SELECT E.employee_name as Employee, E2. employee_name as Manager
+    -> FROM employees as E1
+    -> INNER JOIN
+    -> employees as E2
+    -> ON E1.reports_to = E2.employee_id
+```
+
+
+#### Exercise
+
+```
+# Add the city column, update records in the employees table
+mysql> ALTER TABLE employees add column city varchar(50);
+mysql> UPDATE employees SET city = 'Berlin' where employee_name = 'John';
+mysql> UPDATE employees SET city = 'Berlin' where employee_name = 'Friend of John';
+mysql> UPDATE employees SET city = 'Berlin' where employee_name = 'Another friend of John';
+
+mysql> SELECT employee_name, city
+    -> FROM employees
+    -> WHERE city = (SELECT city FROM employees WHERE employee_name = 'John');
+
+* Write a query to print names of employees that come from the same city as John using **self join**.
+
+<details><summary>Reveal Query</summary>
+<p>
+
+```SQL
+mysql> SELECT E1.employee_name, E2.city
+    -> FROM employees as E1
+    -> INNER JOIN employees as E2
+    -> ON E1.city = E2.city
+    -> WHERE E2.employee_name = 'John';
+```
+
+</p>
+</details>
+
+```
+
+#### Essence
+For self joins, aliases for tables must be used. Otherwise, column names are ambiguous.
+
+
+### 3.3 Joins (LEFT OUTER and RIGHT OUTER)
+
+#### Explanation
+When we join two tables based on a common column, some rows do not have a match in the other table.
+In the following statement `FROM A LEFT JOIN B ON A.col = B.col`,
+the table A is the LEFT table and the table B i the RIGHT table.
+In a LEFT JOIN, we print **all rows** from the LEFT table even though they don't have a match in the RIGHT table.
+
+In the following statement `FROM A RIGHT JOIN B ON A.col = B.col`,
+the table A is the LEFT table and the table B i the RIGHT table.
+In a RIGHT JOIN, we print **all rows** from the RIGHT table even though they don't have a match in the LEFT table.
+
+
+#### Example
+Some employees may not have a department associated with them but they
+are still employed by the company.
+Thus, if we want to print all employees and their department names,
+then a LEFT JOIN (from employees to departments) allows us to print **everything** from the LEFT table
+and the matching rows from the other table.
+
+#### Exercise
+Use Self left join to print all employees and their managers.
+Note that it should include the employees who don't have mangers too.
+
+<details><summary>Reveal Query</summary>
+<p>
+
+```
+mysql> SELECT E.employee_name as Employee, E2. employee_name as Manager
+    -> FROM employees as E1
+    -> LEFT JOIN
+    -> employees as E2
+    -> ON E1.reports_to = E2.employee_id
+```
+
+</p>
+</details>
+
+#### Essence
+* LEFT JOIN : All rows from the LEFT table
+* RIGHT JOIN: All rows from the RIGHT table
+
 ### C. Domain Modeling
 #### Explanation
 Entity Relationship Diagrams (ERD) are used widely in domain modeling. 
