@@ -19,7 +19,7 @@ const create_table =
   date_of_birth date, 
   h_index int, 
   gender enum('m' , 'f', 'non'),
-  friend int REFERENCES Employee (author_no),
+  friend int REFERENCES authors (author_no),
   PRIMARY KEY(author_no))` ;
 
 connection.query( create_table, function (error, result, fields) {
