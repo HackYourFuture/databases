@@ -1,6 +1,4 @@
 
-
-
 /*/////--------------notes
 -
  to avoid writing the date myself I used some packages that produces random data :)
@@ -14,8 +12,6 @@ let DateGenerator = require('random-date-generator');
 const { uniqueNamesGenerator, adjectives, colors, animals } = require('unique-names-generator');
 var generate = require('project-name-generator');
 
-
-
 //Values for the author table 
 const universities = ['Oxford', 'VU', 'UVA', 'Damascus','Cambridge', 'MIT']; 
 const gender = ['m', 'f', 'non'];
@@ -25,7 +21,6 @@ function randomValueFromArr (arr){
     const randomNum = Math.floor(Math.random() * arr.length );
     return arr[randomNum]
 }
-
 
 // Generates random animal
 function getFunkyAnimal() {
@@ -134,3 +129,5 @@ for(var i in insert_queries_research_papers){
 }
 
  connection.end();
+
+
