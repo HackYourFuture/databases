@@ -71,7 +71,7 @@ Different way of laying out data conceptually (also physically on disk)
 Different syntax which we discuss in example and exercises
 
 ### Example
-The script [create.js](mongo-crud/create.js) launches, creates and populates a database. The documents do not need to have the same fields. Documents can have sub-documents. Show the CLI. Explain the syntax in particular db.<collectionName>.<crudoperation>(<args>)
+The script [create.js](mongo-crud/create.js) launches, creates and populates a database. The documents do not need to have the same fields. Documents can have sub-documents. Show the CLI. Explain the syntax in particular `db.<collectionName>.<crudoperation>(<args>)`
 
 ### Exercise
 Students find in the 4 crud.js scripts where the mongodb console calls are and investigate in [documentation](https://docs.mongodb.com/manual/tutorial/getting-started/) how to write them as database calls. 
