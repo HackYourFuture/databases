@@ -1,0 +1,15 @@
+brew install mongodb/brew/mongodb-community-shell
+/usr/local/bin/mongo "mongodb+srv://cluster0-7ofa4.mongodb.net/test"  --username hyfadmin
+
+# in mongo
+show databases
+use sample_airbnb
+show collections
+db.listingsAndReviews.find()
+db.listingsAndReviews.insertOne(
+   { name: "amsterdam",
+                summary: "free from tourists",
+                property_type: "apartment",
+		bedrooms: 2
+   }
+)
