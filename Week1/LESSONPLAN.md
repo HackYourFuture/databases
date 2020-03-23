@@ -330,8 +330,16 @@ that reflect the current state of the database.
 ### Example
 To create the SQL dump, execute the following command from the terminal of MAC/Linux.
 ```
-mysqldump -uhyfuser -p company > company-db-snapshot.sql
+mysqldump -uhyfuser -p company > /path/to/store/dump/file/company-db-snapshot.sql
 ```
+To create the SQL dump in Windows, you will have to
+[include the path of your MySQL installation in the `Path` environment variable](https://www.computerhope.com/issues/ch000549.htm).
+Then you can execute the following command
+```
+mysqldump.exe -uhyfuser -p company > /path/to/store/dump/file/company-db-snapshot.sql
+```
+Note that the path should be a location where the user has `write` permission (E.g. Desktop),
+otherwise, you will get permission errors.
 
 To apply the dump from mysql command prompt (`mysql>`), use the following command
 ```
