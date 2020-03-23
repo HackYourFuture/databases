@@ -14,8 +14,6 @@ Let's do a warming up with some interactive exercises! Let's start with doing le
 
 ## 2. **MySQL exercises**
 
-> In the following 3 exercises you will make use of the `company` database (which you made in your week 1 homework). Before you start, double check in the command line to see if it's still there.
-
 **Exercise 1 : Normalization**
 
 The manager of the dinner club would like to manage the information system that assists him to keep track of who attends the dinners.
@@ -55,7 +53,7 @@ Show step by step
 6. Transfer the amount of 1000 from account number 101 to account number 102 and log the changes in the table `account_changes`.
 Do this in a _single transaction_ (Write transaction.js file)
 
-Submit all three files (`tr-create-tables.js`, `tr-insert-values.js` and `transaction.js`.
+Submit all three files (`tr-create-tables.js`, `tr-insert-values.js` and `transaction.js`).
 
 **Exercise 3 : SQL injection**
 
@@ -106,8 +104,8 @@ After you've finished your todo list it's time to show us what you got! The home
 
 1. MySQL exercises
 
-Upload your code to your forked Databases repository in GitHub. Make a pull request to HackYourFuture's forked repository.
+Upload your code to your forked Databases repository in GitHub. Make a pull request to HackYourHomework's forked repository.
 
 > Forgotten how to upload your homework? Go through the [guide](../hand-in-homework-guide.md) to learn how to do this again.
 
-_Deadline Saturday 23.59 CET_
+_Deadline Thursday 23.59 CET_
