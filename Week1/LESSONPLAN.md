@@ -162,14 +162,14 @@ Please check the available `.js` files in the `Week1` folder.
 #### CREATE
 The following command creates a table called `employees` (in the `company` database)
 with five columns:
-1. `employee_no` that contains integer number.
+1. `employee_id` that contains integer number.
 2. `employee_name` that contains alphabetical names (of max 50 characters).
 3. `salary` that contains a decimal number.
 4. `joining_date` that contains a date time.
 5. `gender` than can either be `'m'` or `'f'`.
 ```
 CREATE TABLE employees (
-    employee_no int,
+    employee_id int,
     employee_name varchar(50),
     salary float,
     joining_date datetime,
@@ -186,17 +186,17 @@ INSERT INTO employees VALUES (101, "Dan", 5000, "2019-06-24", 'm');
 
 The following command uses column name (also known as field name sometimes) syntax:
 ```
-INSERT INTO employees (employee_name , salary, employee_no, gender, joining_date) VALUES("Dany", 5000, 102, 'f', "2019-05-20");
+INSERT INTO employees (employee_name , salary, employee_id, gender, joining_date) VALUES("Dany", 5000, 102, 'f', "2019-05-20");
 ```
 
 The following command uses the same syntax to add multiple rows at a time
 ```
-INSERT INTO employees (employee_name , salary, employee_no, gender, joining_date) VALUES("Ben", 7000, 103, 'm', "2019-07-20"), ("Benta", 3000, 104, 'f', "2019-10-12"), ("Raj", 9000, 105, 'm', "2019-01-01");
+INSERT INTO employees (employee_name , salary, employee_id, gender, joining_date) VALUES("Ben", 7000, 103, 'm', "2019-07-20"), ("Benta", 3000, 104, 'f', "2019-10-12"), ("Raj", 9000, 105, 'm', "2019-01-01");
 ```
 
 The following command uses the SET syntax to insert values in a random order of columns:
 ```
-INSERT INTO employees SET employee_name = "Joe", salary = 4000, joining_date = "2019-07-01", gender = 'f', employee_no = 100;
+INSERT INTO employees SET employee_name = "Joe", salary = 4000, joining_date = "2019-07-01", gender = 'f', employee_id = 100;
 ```
 
 > If you don't remember the column names, then use describe employees; command which lists the column names and their data types.
@@ -220,13 +220,13 @@ WHERE salary > 3000;
 
 #### UPDATE
 
-The following command updates the salary of the employee whose `employee_no` is 102.
+The following command updates the salary of the employee whose `employee_id` is 102.
 Note that `=` works as an assignment operator in `SET salary = 8000`
-but works as a comparison operator in the WHERE clause `employee_no = 102`.
+but works as a comparison operator in the WHERE clause `employee_id = 102`.
 ```
 UPDATE employees
 SET salary = 8000
-WHERE employee_no = 102;
+WHERE employee_id = 102;
 ```
 
 #### DELETE
@@ -243,7 +243,7 @@ WHERE joining_date > "2019-07-01";
 2. Write an SQL query to insert 4 more records in the table of employees.
 3. Write an SQL query to update the salary of all female employees to 12000.
 4. Write an SQL query to delete all the employees whose name starts with a 'B'.
-5. Write an SQL query to create a table called `departments` with following columns: `dept_no`, `dept_name`, `manager`.
+5. Write an SQL query to create a table called `departments` with following columns: `dept_id`, `dept_name`, `manager`.
 ### Essence
 SQL commands provide a neat and structured way to interact with the database tables.
 
@@ -256,7 +256,7 @@ Aliases give nicknames to column names when displaying them. They are especially
 when tables have long names and joins are used.
 
 #### Example (without nested query)
-`SELECT employee_no as "Employee Number", employee_name as "Employee Name", salary as Earnings from employees;`
+`SELECT employee_id as "Employee Number", employee_name as "Employee Name", salary as Earnings from employees;`
 
 ### NOT NULL and DEFAULT values for columns
 
@@ -330,8 +330,16 @@ that reflect the current state of the database.
 ### Example
 To create the SQL dump, execute the following command from the terminal of MAC/Linux.
 ```
-mysqldump -uhyfuser -p company > company-db-snapshot.sql
+mysqldump -uhyfuser -p company > /path/to/store/dump/file/company-db-snapshot.sql
 ```
+To create the SQL dump in Windows, you will have to
+[include the path of your MySQL installation in the `Path` environment variable](https://www.computerhope.com/issues/ch000549.htm).
+Then you can execute the following command
+```
+mysqldump.exe -uhyfuser -p company > /path/to/store/dump/file/company-db-snapshot.sql
+```
+Note that the path should be a location where the user has `write` permission (E.g. Desktop),
+otherwise, you will get permission errors.
 
 To apply the dump from mysql command prompt (`mysql>`), use the following command
 ```

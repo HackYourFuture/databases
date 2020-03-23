@@ -6,8 +6,8 @@ const connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'hyfuser',
   password : 'hyfpassword',
-  database : 'class22',
-  multipleStatements: false
+  database : 'company',
+  multipleStatements: true
 });
 
 const execQuery = util.promisify(connection.query.bind(connection))
@@ -22,19 +22,13 @@ async function queryDatabase() {
         input_number = result.employee_number
 
         // 1. Naive way of passing the parameter to the query
-        //const select_query = `select * from students WHERE student_number =  ${input_number};`
-        //const select_query = `select * from employees WHERE eid =  ${input_number};`
+        const select_query = `select * from employees WHERE employee_id =  ${input_number};`
 
         // 2. Escaping the parameter ( replacing the unwanted characters)
-        //const select_query = `select * from students WHERE student_number =` + connection.escape(input_number);
-        //const select_query = `select * from animal WHERE gender =` + connection.escape(input_number);
-        //const select_query = `select * from employees WHERE eid =` + connection.escape(input_number);
+        //const select_query = `select * from employees WHERE employee_id =` + connection.escape(input_number);
 
         // 3. Using a question mark syntax to do the escaping 
-        //const select_query = `select * from students WHERE student_number = ?`
-        //const select_query = `select * from employees WHERE eid = ?`
-        const select_query = `delete from employees WHERE salary > ?`
-        //const select_query = `select * from animal WHERE gender = ?`;
+        //const select_query = `select * from employees WHERE employee_id = ?`
 
         connection.connect();
         console.log(select_query);

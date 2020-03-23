@@ -16,55 +16,56 @@ Let's do a warming up with some interactive exercises! Let's start with doing le
 
 > In the following 3 exercises you will make use of the `company` database (which you made in your week 1 homework). Before you start, double check in the command line to see if it's still there.
 
-**Exercise 1 : Employee Skills**
+**Exercise 1 : Normalization**
 
-The Human Resources department (HR) wants to keep track of the skills of different employees. For this, they suggest adding a `skills` column in the `employee` table.
-
-The idea is to write the skills as a string, for example: `"Node.JS, SQL, React" or "SCRUM, product management"` etc. This is what they came up with:
-
-```sql
-| emp_no | emp_name | salary | reports_to | skills                    |
-| ------ | -------- | ------ | ---------- | ------------------------- |
-| 1      | John     | 5000   |            | SCRUM, product management |
-| 2      | Daenerys | 3000   | 1          | Node.JS, SQL, React       |
+The manager of the dinner club would like to manage the information system that assists him to keep track of who attends the dinners.
+Because the manager is not an expert of Information Systems, (s)he uses the following table to store the information.
+Please help the manger by using the knowledge of database normal forms.
+Show step by step
+* How can you convert the table into 1NF ?
+* What are the super, candidate, primary keys ?
+* What are the potential relationships between different possible tables ?
+* How can you develop the set of 2NF tables?
+* How can you develop the set of 3NF tables?
 ```
 
-You know that this is **not** good database design, so you suggest an alternative approach that complies with database `normal forms`: you need to add extra table(s).
++-----------+---------------+----------------+-----------+-------------+------------+-------------------+-----------+------------------+
+| member_id | member_name   | member_address | dinner_id | dinner_date | venue_code | venue_description | food_code | food_description |
++-----------+---------------+----------------+-----------+-------------+------------+-------------------+-----------+------------------+
+|         1 | Amit          | 325 Max park   | D00001001 | 2020-03-15  | B01        | Grand Ball Room   | C1, C2    | Curry, Cake      |
+|         2 | Ben           | 24 Hudson lane | D00001002 | 2020-03-15  | B02        | Zoku Roof Top     | S1, C2    | Soup, Cake       |
+|         3 | Cristina      | 516 6th Ave    | D00001002 | 2020-03-15  | B02        | Zoku Roof Top     | S1, C2    | Soup, Cake       |
+|         4 | Dan           | 89 John St     | D00001003 | 2020-03-20  | B03        | Goat Farm         | P1, T1, M1| Pie, Tea, Mousse |
+|         5 | Ema           | 91 Pixar St    | D00001003 | 2020-03-20  | B03        | Goat Farm         | P1, T1, M1| Pie, Tea, Mousse |
+|         6 | Fatima        | 56 8th Ave     | D00001004 | 2020-03-20  | B04        | Mama's Kitchen    | F1, M1    | Falafal, Mousse  |
+|         7 | Gabor         | 54 Vivaldi St  | D00001005 | 2020-02-20  | B05        | Hungry Hungary    | G1, P2    | Goulash, Pasca   |
+|         8 | Hema          | 9 Peter St     | D00001003 | 2020-03-20  | B03        | Goat Farm         | P1, T1, M1| Pie, Tea, Mousse |
++-----------+---------------+----------------+-----------+-------------+------------+-------------------+-----------+------------------+
 
-Here are your instructions:
 
-1. Think about how many new tables are needed.
-2. Write a query for each table that needs to be created. Make sure to also specify the correct data types for each column
-3. Add 5 rows to each table. Create the dataset yourself (it needs to be relevant to the table)
+```
 
 **Exercise 2 : Transactions**
 
-It turns out that many departments are adopting a flat structure.
+1. Create two tables `account` and `account_changes` (write tr-create-tables.js file)
+2. `account` table should have following fields : `account_number, balance`.
+3. `account_changes` table should the the following fields : `change_number, account_number, amount, changed_date, remark`.
+4. Choose the appropriate data types, keys for these tables.
+5. Insert some sample data in these tables. (write tr-insert-values.js file)
+6. Transfer the amount of 1000 from account number 101 to account number 102 and log the changes in the table `account_changes`.
+Do this in a _single transaction_ (Write transaction.js file)
 
-In this flat structure, there is one manager for the department and everyone reports to him. There are no middle-managers.
-
-In this exercise you need to write a JavaScript function that receives 2 arguments: a department number and an employee number.
-
-```js
-function flatify(dept_no, emp_no)`
-```
-
-Here's what the function should do:
-
-- Make the employee (identified by the employee number) a manager for the department (identified by the department number)
-- Set all employees in that department to report to this new manager
-
-Hint: Make sure to use `transactions`.
+Submit all three files (`tr-create-tables.js`, `tr-insert-values.js` and `transaction.js`.
 
 **Exercise 3 : SQL injection**
 
-You are given the below function which returns the population of a specific country or city.
+You are given the below function which returns the population of a specific country from the [world](../Week2/world.sql) database.
 
 ```js
-function getPopulation(cityOrCountry, name, cb) {
+function getPopulation(Country, name, code, cb) {
   // assuming that connection to the database is established and stored as conn
   conn.query(
-    `SELECT Population FROM ${cityOrCountry} WHERE Name = ${name}`,
+    `SELECT Population FROM ${Country} WHERE Name = '${name}' and code = ${code}`,
     function(err, result) {
       if (err) cb(err);
       if (result.length == 0) cb(new Error("Not found"));
@@ -74,49 +75,24 @@ function getPopulation(cityOrCountry, name, cb) {
 }
 ```
 
-1. Give an example of a value that can be passed as `name` that would take advantage of SQL-injection (for example, to insert new fake data in the database)
+1. Give an example of a value that can be passed as `name` and `code` that would take advantage of SQL-injection and
+(fetch all the records in the database)
 2. Rewrite the function so that it is no longer vulnerable to SQL injection
 
 **Exercise 4 : MongoDB CRUD**
 
-Use the SQL of the [world](../Week1/databases/world.sql) database into [Atlas](https://www.mongodb.com/cloud/atlas) that was shown in class.
+Convert the MySQL [world](../Week2/world.sql) database into MongoDB either on your local machine or in the cloud
+[Atlas](https://www.mongodb.com/cloud/atlas).
 
-`CRUD` stands for `Create`, `Read`, `Update`, `Delete`. You will:
+* Write down all the steps of conversion (installation, commands etc.) in a text file / MD file.
 
+Write the following queries using MongoDB syntax in the JavaScript files.
 1. Create a new record (document) for a new city (your home town, say)
 2. Update that record with a new population
 3. Read the document that you just updated in two ways : finding by the city name, and then by the country code
 4. Delete the city
 
-You will
-(A) do the above steps in the database directly,
-(B) and again using node.js libraries Mongoose and Express
-
-A) Submit the 5 mongodb commands in a file called `mongoqueries.txt`
-
-B) Edit the code from your _own_ Week 3 Node.js homework by creating a new branch.
-
-    git checkout my-week3-nodejs-branch-already-existed
-    git checkout -b dbweek3-mongo-new-branchname
-
-Require mongoose. Create a new route which allows you to CRUD the above. Use your atlas connection details. Follow this [guide](https://alligator.io/nodejs/crud-operations-mongoose-mongodb-atlas/) . When done, commit and make a pull request to your own repository:
-
-    git push -u origin
-    git request-pull my-week3-nodejs-branch-already-existed origin dbweek3-mongo-new-branchname
-
-Find the pull request in github, assign the homework grader to notify them, and copy the url to the TOP of your makeme file
-
-```
-cd databases/Week3
-{ echo -n 'https://github.com/MYGITHUBNAME/Node.js/pull/123456/files '; cat MAKEME.md; } > MAKEME.md
-```
-
-**Exercise 5 : Relational vs Not-Only-SQL**
-
-Add 2 more queries to your `mongoqueries.txt` file, which answer:
-
-1. Amongst the countries with more than 50% Arabic speakers, what is the average percentage Arabic speakers? Use [this mongo sql comparison](https://docs.mongodb.com/manual/reference/sql-aggregation-comparison/)
-2. List the top 10 cities of Western Europe in descending order of population. If aggregation pipelines were covered in class, follow a [stackoverflow guideline](https://stackoverflow.com/questions/35583569/mongodb-aggregation-with-lookup-limit-some-fields-to-return-from-query) . Otherwise, use the `lookup` [function](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#lookup-single-equality) . You can also choose instead to do this in node & mongo
+* Submit the javascript files for these queries.
 
 ## 3. **Code along**
 
