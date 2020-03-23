@@ -37,9 +37,9 @@ all queries in the exercises  3 and 4 will return some answers
 
 **Exercise 3: Joins**
 
-1. Write a query that prints names of all `authors` and their corresponding `collaborators`.
-2. Write a query that prints all columns of `authors` and their pubished `research paper title`.
-If there is an author without any research papers, print the information of that author too.
+1. Write a query that prints names of all `Authors` and their corresponding `Collaborators`.
+2. Write a query that prints all columns of `Authors` and their pubished `paper_title`.
+If there is an author without any `Research_Papers`, print the information of that `Author` too.
 
 **Exercise 4: Aggregate Functions**
 
