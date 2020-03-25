@@ -1,0 +1,122 @@
+[
+  {
+    "author_no": "1",
+    "author_name": "A",
+    "university": "Collège de France",
+    "date_of_birth": "1926-10-15",
+    "h_index": "89",
+    "gender": "m"
+  },
+  {
+    "author_no": "2",
+    "author_name": "B",
+    "university": "Washington University in St Louis",
+    "date_of_birth": "1951-11-01",
+    "h_index": "82",
+    "gender": "m"
+  },
+  {
+    "author_no": "3",
+    "author_name": "C",
+    "university": "Harvard University",
+    "date_of_birth": "1947-04-26",
+    "h_index": "80",
+    "gender": "m"
+  },
+  {
+    "author_no": "4",
+    "author_name": "D",
+    "university": "Harvard Medical School",
+    "date_of_birth": "1953-02-01",
+    "h_index": "70",
+    "gender": "f"
+  },
+  {
+    "author_no": "5",
+    "author_name": "E",
+    "university": "University of Vienna",
+    "date_of_birth": "1856-05-06",
+    "h_index": "69",
+    "gender": "m"
+  },
+  {
+    "author_no": "6",
+    "author_name": "F",
+    "university": "Osaka University",
+    "date_of_birth": "1967-07-26",
+    "h_index": "69",
+    "gender": "m"
+  },
+  {
+    "author_no": "7",
+    "author_name": "G",
+    "university": "MIT",
+    "date_of_birth": "1968-03-26",
+    "h_index": "63",
+    "gender": "m"
+  },
+  {
+    "author_no": "8",
+    "author_name": "H",
+    "university": "MIT",
+    "date_of_birth": "1965-12-29",
+    "h_index": "63",
+    "gender": "m"
+  },
+  {
+    "author_no": "9",
+    "author_name": "I",
+    "university": "Harvard Medical School",
+    "date_of_birth": "1955-04-26",
+    "h_index": "61",
+    "gender": "m"
+  },
+  {
+    "author_no": "10",
+    "author_name": "J",
+    "university": "Harvard University",
+    "date_of_birth": "1975-04-26",
+    "h_index": "47",
+    "gender": "m"
+  },
+  {
+    "author_no": "11",
+    "author_name": "K",
+    "university": "California Institute of Technology",
+    "date_of_birth": "1965-04-26",
+    "h_index": "01",
+    "gender": "f"
+  },
+  {
+    "author_no": "12",
+    "author_name": "L",
+    "university": "State University of New York",
+    "date_of_birth": "1968-11-16",
+    "h_index": "99",
+    "gender": "f"
+  },
+  {
+    "author_no": "13",
+    "author_name": "M",
+    "university": "MIT",
+    "date_of_birth": "1970-04-26",
+    "h_index": "98",
+    "gender": "f"
+  },
+  {
+    "author_no": "14",
+    "author_name": "N",
+    "university": "Harvard University",
+    "date_of_birth": "1975-06-26",
+    "h_index": "90",
+    "gender": "f"
+  },
+  {
+    "author_no": "15",
+    "author_name": "O",
+    "university": "California Institute of Technology",
+    "date_of_birth": "1965-04-06",
+    "h_index": "90",
+    "gender": "f"
+  }
+]
