@@ -3,8 +3,10 @@
 
 How can you convert the table into 1NF ?
 
-First, the food_code contains multiple values. It should have only atomic values.
-Second, the second column's name should be change to member_name because the it has the same attribute as the first column.
+First, the food_code contains multiple values. It should have only atomic values. So there should be another
+table with food_code and from that table there can be a foriegn  key. 
+Second, the second column's name should be change to member_name because the it has the same attribute 
+as the first column.
 
 ////////////////////////////////////////////////////////////
 What are the super, candidate, primary keys ?
@@ -25,11 +27,15 @@ Dinner_id is probably a foreign key from another table. The same goes for venue_
 How can you develop the set of 2NF tables?
 
 For a table to be in the 2NF, there should be no non-primary-key attribute dependency. 
-In this table venue_description depends on venue_code and doesn't depend on the primary keys (like member_id)
+In this table venue_description depends on venue_code and doesn't depend on the primary keys (like member_id). 
+They need to be moved to another table and 
 
 ////////////////////////////////////////////////////////////
 How can you develop the set of 3NF tables?
 
+To be in the 3NF the table should only have columns that are non-transitively dependent on the primary key.
+Here dinner_id depends on dinner_date and venue_code on which venue_description depends on. 
+They should be in a different table. 
 
 ////////////////////////////////////////////////////////////
 
@@ -45,5 +51,8 @@ How can you develop the set of 3NF tables?
 |         7 | Gabor         | 54 Vivaldi St  | D00001005 | 2020-02-20  | B05        | Hungry Hungary    | G1, P2    | Goulash, Pasca   |
 |         8 | Hema          | 9 Peter St     | D00001003 | 2020-03-20  | B03        | Goat Farm         | P1, T1, M1| Pie, Tea, Mousse |
 +-----------+---------------+----------------+-----------+-------------+------------+-------------------+-----------+------------------+
+
+
+
 
 */ 
