@@ -64,15 +64,22 @@ https://github.com/HackYourFuture/databases/blob/master/Week3/sql-injection.js
 ### Essence
 Students know about the dangers of SQL injection and how to protect their app by using prepared statements.
 
-## 4. No SQL
+## 4. MongoDb as an example of NoSQL
 ### Explanation
-### Example
-### Exercise
-### Essence
+MongoDb is a document store. A document is like a record, but each document need not conform to a schema.  It optimizes for availability (read/write speed) and simplicity (which also allows to scale horizontally in the cloud), rather than for storage (a single truth; minimize duplication)
+Different way of laying out data conceptually (also physically on disk) 
+Different syntax which we discuss in example and exercises
 
-## 5. Non-relational vs. relational
-### Explanation
-### Example (in the format Language : Commands)
+### Example
+The script [create.js](mongo-crud/create.js) launches, creates and populates a database. The documents do not need to have the same fields. Documents can have sub-documents. Show the CLI. Explain the syntax in particular `db.<collectionName>.<crudoperation>(<args>)`
+
 ### Exercise
+Students find in the 4 crud.js scripts where the mongodb console calls are and investigate in [documentation](https://docs.mongodb.com/manual/tutorial/getting-started/) how to write them as database calls. 
+Discuss in pairs or threes your findings. Discuss differences to the sql syntax
+
 ### Essence
+1. syntax difference. like a new language
+2. data model difference
+3. there are many flavours of nosql database products, with different support for relations and transactions and query speeds and write speeds.
+
 
