@@ -20,6 +20,7 @@ async function main() {
 
         // Make the appropriate DB calls
         await listDatabases(client);
+
         // UPDATE
         // Print the Doma listing
         await findListingByName(client, 'Doma');
@@ -38,7 +39,7 @@ async function main() {
 main().catch(console.error);
 
 /**
- * Update an Airbnb listing with the given name
+ * Update a listing with the given name
  * Note: If more than one listing has the same name, only the first listing the database finds will be updated.
  *       It's best to use updateOne when querying on fields that are guaranteed to be unique.
  * @param {MongoClient} client A MongoClient that is connected to a cluster with the sample_airbnb database
@@ -53,7 +54,7 @@ async function updateListingByName(client, nameOfListing, updatedListing) {
 }
 
 /**
- * Print an Airbnb listing with the given name
+ * Print listing with the given name
  * Note: If more than one listing has the same name, only the first listing the database finds will be printed.
  *       It's best to use findOne when querying on fields that are guaranteed to be unique.
  * @param {MongoClient} client A MongoClient that is connected to a cluster with the sample_airbnb database
