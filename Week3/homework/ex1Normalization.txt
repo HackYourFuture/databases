@@ -1,0 +1,47 @@
++-----------+---------------+----------------+-----------+-------------+------------+-------------------+-----------+------------------+
+| member_id | member_name   | member_address | dinner_id | dinner_date | venue_code | venue_description | food_code | food_description |
++-----------+---------------+----------------+-----------+-------------+------------+-------------------+-----------+------------------+
+|         1 | Amit          | 325 Max park   | D00001001 | 2020-03-15  | B01        | Grand Ball Room   | C1, C2    | Curry, Cake      |
+|         2 | Ben           | 24 Hudson lane | D00001002 | 2020-03-15  | B02        | Zoku Roof Top     | S1, C2    | Soup, Cake       |
+|         3 | Cristina      | 516 6th Ave    | D00001002 | 2020-03-15  | B02        | Zoku Roof Top     | S1, C2    | Soup, Cake       |
+|         4 | Dan           | 89 John St     | D00001003 | 2020-03-20  | B03        | Goat Farm         | P1, T1, M1| Pie, Tea, Mousse |
+|         5 | Ema           | 91 Pixar St    | D00001003 | 2020-03-20  | B03        | Goat Farm         | P1, T1, M1| Pie, Tea, Mousse |
+|         6 | Fatima        | 56 8th Ave     | D00001004 | 2020-03-20  | B04        | Mama's Kitchen    | F1, M1    | Falafal, Mousse  |
+|         7 | Gabor         | 54 Vivaldi St  | D00001005 | 2020-02-20  | B05        | Hungry Hungary    | G1, P2    | Goulash, Pasca   |
+|         8 | Hema          | 9 Peter St     | D00001003 | 2020-03-20  | B03        | Goat Farm         | P1, T1, M1| Pie, Tea, Mousse |
++-----------+---------------+----------------+-----------+-------------+------------+-------------------+-----------+------------------+
+
+
+q.1 How can you convert the table into 1NF ?
+a.1 to convert table into 1NF I make an 3 seperate column for food-code column and 3 seperate column for food_description,
+as Single valued attributes (each column should have atomic value, no multiple values)
+
+q.2 What are the super, candidate, primary keys ?
+a.2 the super key is : member_id, member_address, venue_code, dinner id.
+the candidate key is : (member id- member_name), (venue_code- venur-description)
+the primary key is : member_id.
+
+q.3: What are the potential relationships between different possible tables ?
+a.3: There could be these tables
+
+    Invitees Tables
+    member_id | member_name | member_address|dinner_id
+
+    Dinner Tables
+    dinner_id | dinner_date | food_code | venue_code
+
+    food details
+    food_code | food_description 
+
+    place details
+    venue_code | venue_description
+
+q.4: How can you develop the set of 2NF tables?
+a.4: first it should be satisfied conditions of 1NF and 
+tables should not have partial dependency if we say member_name and dinner_id are together primary key
+ venue_description and  food_description are nothing to do with dinner id so they should be seperated.
+
+q.5: How can you develop the set of 3NF tables?
+a.5: first it should be satisfied conditions of 1NF and 
+tables should not have partial dependency dinner_date and venue_description and food_description columns should be sepearated as a different tables,
+because they do not depend on directly primary keys.
