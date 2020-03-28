@@ -1,13 +1,11 @@
 > This homework assumes you have installed the software [MySQL](https://dev.mysql.com/downloads/installer/) to your computer. If not please do that first!
 
-# Homework Databases Week 1
+# Homework Databases Week 2
 
 ## **Todo list**
 
 1. Practice the concepts
 2. MySQL exercises
-3. Code along
-   <!-- 4. PROJECT: Hack Your World -->
 
 ## 1. **Practice the concepts**
 
@@ -23,35 +21,36 @@ Also make time to do lesson 6-12 from the following:
 
 This week we'll practice some more with writing SQL queries using JavaScript. For each exercise make a separate `.js` file; make sure to give it an appropriate name!
 
-**Exercise 1: Identifiers**
+**Exercise 1: Keys**
 
-1. Create a table, called `employee`. Give it the following fields: `(employee_no(Primary Key), full_name, salary, address)`
-2. Insert 20 rows in this table, use SQL Dump and write the query too.
-3. Write a query that adds a `foreign key` to `Employee` table that points to itself, call it as `manager`.
+1. Create a table, called `Authors`. Give it the following fields: `(author_no(Primary Key), author_name, university, date_of_birth, h_index, gender)`
+2. Write a query that adds a `foreign key` column to `Authors` table that references the column `author_no`.
+Call this column `Collaborator`.
 
-**Exercise 2: Relationships**​
+**Exercise 2: Relationships**
 
-1. Create another table, called `department with fields:`(dept_no(Primary Key), title, description, address)`
-2. Each department can have some employees working there. What type of relationship should we implement? Do the required changes in order to implement it.
-   ​
+1. Create another table, called `Research_Papers` with the following fields: `(paper_id, paper_title, conference, publish_date, ...)`
+2. What is the relationship between Authors and Research papers ? Make necessary changes to `Authors` and
+`Research_Papers` tables and add more tables if necessary.
+3. Read exercises 3 and 4 and then add information (insert rows) of 15 authors and 30 research papers such that
+all queries in the exercises  3 and 4 will return some answers
 
 **Exercise 3: Joins**
 
-1. Write a query that retrieves all `employees` and their corresponding `manager's full name`.
-2. Write a query that retrieves all `employees` and their working `department` title. If no `employee` worked in a specific `department`, return the `department` too.
+1. Write a query that prints names of all `Authors` and their corresponding `Collaborators`.
+2. Write a query that prints all columns of `Authors` and their pubished `paper_title`.
+If there is an author without any `Research_Papers`, print the information of that `Author` too.
 
 **Exercise 4: Aggregate Functions**
 
 Write some queries to retrieve the following rows:
 
-1. All department numbers and the number of employees working there.
-2. Sum of the salaries of all employees.
-3. Average of the salaries of all employees.
-4. Sum of the salaries of the employees per department.
-5. Minimum and maximum od the salaries per department.
-6. For each salary value, return the number of employees paid.
+1. All research papers and the number of authors that wrote that paper.
+2. Sum of the research papers published by all female authors.
+3. Average of the h-index of all authors per university.
+4. Sum of the research papers of the authors per university.
+5. Minimum and maximum of the h-index of all authors per university.
 
-<!-- ## 4. **PROJECT: Hack Your World* -->
 
 ## **SUBMIT YOUR HOMEWORK!**
 
@@ -63,4 +62,4 @@ Upload both to your forked Databases repository in GitHub. Make a pull request t
 
 > Forgotten how to upload your homework? Go through the [guide](../hand-in-homework-guide.md) to learn how to do this again.
 
-_Deadline Saturday 23.59 CET_
+_Deadline Thursday 23.59 CET_
