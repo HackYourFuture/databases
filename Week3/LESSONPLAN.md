@@ -15,7 +15,7 @@ and explain the concepts better in the class.
 ## 1. Normalization and normal forms
 
 ### Explanation
-Goal of normalization is to reduce duplication. This is done for 2 purposes:  
+The goal of normalization is to reduce duplication. This is done for 2 purposes:  
 * Reducing the amount of storage needed to store the data.
 * Avoiding unnecessary data conflicts that may creep in because of multiple copies of the same data getting stored.
 
@@ -30,11 +30,12 @@ Students should split in groups and discuss how to normalize the following table
 5 minutes
 Ask a group of students to present their idea.
 ### Essence
-What is normalization, why we do it, and the existence of normal forms. How to normalize a table to 2nd NF.
+Normalization as a process to have good quality database design. Normal forms give engineers a way to talk about normalization with a shared vocabulary.
+Normalizing a table to 2nd NF means no multi-value columns and no columns that depend on a super-key.
 
 ## 2. Transactions
 ### Explanation
-Transactions are used every day in programing. Kind of like prepared statements they only make sense when a program interacts with the database. They are not useful in the sense of providing new features but are necessary if we want to keep the data correct or *consistent*.
+Transactions are used every day in programming. Kind of like prepared statements they only make sense when a program interacts with the database. They are not useful in the sense of providing new features but are necessary if we want to keep the data correct, or as we say in the software world keep the data *consistent*.
 
 ### Example
 ![transaction example](https://lh3.googleusercontent.com/proxy/8RnA6wqcQxTQKJvmE7KNnhwWkWTYLXRS4lnwwpdwECLDbRoN4yEgaclhZ1pDzLi0eEHULy-_V5Lk2HkH_yFCNUa5i165WVhCR3-DvprDYem7Ai_jrP0XDSo9-L61MM4)
@@ -44,7 +45,7 @@ Transactions are used every day in programing. Kind of like prepared statements 
 No time. There will be an exercise in the homework.
 
 ### Essence
-THe students should now about the existence of transaction and have some idea of what they do and how to use them.
+The students should know about the existence of a transaction and have some idea of what they do and how to use them.
 
 ## 3. SQL injection
 
@@ -57,6 +58,8 @@ See examples from `readme`
 For use of prepared statements some minimal codes are available here: https://evertpot.com/executing-a-mysql-query-in-nodejs/
 
 ### Exercise
+
+This is an interactive exercise that takes 5-10 minutes, does not explain prepared statements, only how SQL injection works.
 https://www.hacksplaining.com/exercises/sql-injection#/start
 
 https://github.com/HackYourFuture/databases/blob/master/Week3/sql-injection.js
@@ -67,7 +70,13 @@ Students know about the dangers of SQL injection and how to protect their app by
 ## 4. No SQL
 ### Explanation
 ### Example
+
+> use the same tables (as Week 1 lessonplan) here to be consistent and show students how to make similar databases using MySQL and NoSQL
+
 ### Exercise
+
+
+
 ### Essence
 
 ## 5. Non-relational vs. relational
