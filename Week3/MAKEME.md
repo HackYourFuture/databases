@@ -20,11 +20,10 @@ The manager of the dinner club would like to manage the information system that 
 Because the manager is not an expert of Information Systems, (s)he uses the following table to store the information.
 Please help the manger by using the knowledge of database normal forms.
 Show step by step
-* How can you convert the table into 1NF ?
-* What are the super, candidate, primary keys ?
-* What are the potential relationships between different possible tables ?
-* How can you develop the set of 2NF tables?
-* How can you develop the set of 3NF tables?
+1. How can you convert the table into 1NF ?
+2. What are the super, candidate, primary keys in the table created in step (1)?
+3. How can you develop the set of 2NF tables? (Think of relationships between different tables).
+4. How can you develop the set of 3NF tables?
 ```
 
 +-----------+---------------+----------------+-----------+-------------+------------+-------------------+-----------+------------------+
