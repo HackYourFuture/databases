@@ -93,7 +93,7 @@ In other words, for a dependency A => B, A cannot be a non-prime column, if B i
 #### 1NF
 
 Consider the following table
-
+```
 +-------------+------------+-----------------------+
 | Employee Id |   Name     |   Contact             |
 +-------------+------------+-----------------------+
@@ -102,6 +102,7 @@ Consider the following table
 |       103   |   Cathy    | 0647882102, cat@dog.us|
 |       104   |   Dua      | 0622467559            |
 +-------------+------------+-----------------------+
+```
 
 This table is not in 1NF because rule (1) of 1NF is violated because
 row 2 and row 3 contain multiple values for the column `Contact`.
@@ -110,6 +111,7 @@ numeric values (for phone numbers) and string value (for emails).
 
 This table could be converted to 1NF as follows:
 
+```
 +-------------+------------+------------------------+
 | Employee Id |   Name     | Phone      | Email     |
 +-------------+------------+------------------------+
@@ -118,6 +120,7 @@ This table could be converted to 1NF as follows:
 |       103   |   Cathy    | 0647882102 | cat@dog.us|
 |       104   |   Dua      | 0622467559 | NULL      |
 +-------------+------------+----------------------- +
+```
 
 In real life, you actually need to
 * DROP column Contact.
@@ -127,6 +130,7 @@ In real life, you actually need to
 #### 2NF
 
 Consider the following table (employee-project M-M relationship table).
+```
 +-------------+------------+-----------------------+
 | Employee Id | Project ID |  Project Budget       |
 +-------------+------------+-----------------------+
@@ -135,6 +139,7 @@ Consider the following table (employee-project M-M relationship table).
 |       103   |   2001     | 102                   |
 |       104   |   2001     | 559                   |
 +-------------+------------+-----------------------+
+```
 
 2NF is violated here because
 
@@ -151,6 +156,7 @@ adding it to the project table.
 
 #### 3NF
 Consider the following table (employees)
+```
 +-------------+------------+-----------------------+
 | Employee Id | Dept Id    |  Dept Location        |
 +-------------+------------+-----------------------+
@@ -159,6 +165,7 @@ Consider the following table (employees)
 |       103   |   3335     | Rome                  |
 |       104   |   3335     | Rome                  |
 +-------------+------------+-----------------------+
+```
 
 This table violates the 3NF because there is a transitive dependency.
 `Employee Id => Dept Id` and  `Dept Id => Dept Location.`
@@ -166,6 +173,7 @@ This table violates the 3NF because there is a transitive dependency.
 
 #### 3.5 NF (AKA BCNF)
 Consider the following table (students opting for subjects)
+```
 +-------------+------------+-----------------------+
 | Student Id  | Subject    |  Professor            |
 +-------------+------------+-----------------------+
@@ -176,12 +184,14 @@ Consider the following table (students opting for subjects)
 |       103   |   Java     | X                     |
 |       104   |   C++      | Y                     |
 +-------------+------------+-----------------------+
+```
 
 This table violates the 3.5NF because there is a functional dependency
 `Professor => Subject` and `Professor` is not a super key.
 `Student Id + Subject` is the primary key. Hence `Subject` is a prime column.
 
 This table could be converted to 3.5NF as follows:
+```
 +-------------+------------+
 | Student Id  | Prof Id    |
 +-------------+------------+
@@ -192,19 +202,23 @@ This table could be converted to 3.5NF as follows:
 |       103   |   P0001    |
 |       104   |   P0002    |
 +-------------+------------+
+```
 
 and 
 
+```
 +-------------+------------+----------+
 | Prof Id     | Professor  |  Subject |
 +-------------+------------+----------+
 |   P0001     |   X        | C++      |
 |   P0002     |   Y        | Java     |
 +-------------+------------+----------+
+```
 
 
 #### 4NF
 Consider the following table (students opting for subjects)
+```
 +-------------+------------+-----------+
 | Student     | Subject    |  Hobby    |
 +-------------+------------+-----------+
@@ -214,10 +228,12 @@ Consider the following table (students opting for subjects)
 |    Lukas    |  Java      |  Running  |
 |    Lukas    |  C++       |  Reading  |
 +-------------+------------+-----------+
+```
 
 This table violates 4NF because `Subject` and `Hobby` are independent of each other.
 Hence the hobby of the student must be repeated in the table with each subject
 the student chooses. 
+```
 +-------------+------------+-----------------------+
 | Student     | Subject    |  Hobby                |
 +-------------+------------+-----------------------+
@@ -231,10 +247,12 @@ the student chooses.
 |    Benno    |  Dutch     |  Woodwork             |
 |    Benno    |  Dutch     |  Paint                |
 +-------------+------------+-----------------------+
+```
 
 It leads to a lot of repetition.
 This table could be converted to 4NF by splitting it into two.
 
+```
 +-------------+------------+
 | Student     | Subject    |
 +-------------+------------+
@@ -244,8 +262,10 @@ This table could be converted to 4NF by splitting it into two.
 |    Lukas    |  Java      |
 |    Lukas    |  C++       |
 +-------------+------------+
+```
 and 
 
+```
 +-------------+-----------+
 | Student     |  Hobby    |
 +-------------+-----------+
@@ -255,6 +275,7 @@ and
 |    Lukas    |  Running  |
 |    Lukas    |  Reading  |
 +-------------+-----------+
+```
 
 ### Exercise
 
