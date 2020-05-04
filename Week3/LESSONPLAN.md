@@ -411,28 +411,56 @@ A transaction is a set of SQL commands that is treated as ONE command.
 ## 3. SQL injection
 
 ### Explanation
-SQL injection is a form of hacker attack where the attacker tries to get our program to execute a query to read/write data that they should not have access to.
+SQL injection is a type of hacker attack where the attacker tries to get the program to execute a query to read/write
+the data that they should not have access to.
 
 ### Example
-See examples from `readme`
 
-For use of prepared statements some minimal codes are available here: https://evertpot.com/executing-a-mysql-query-in-nodejs/
+Use the `prompt` package in `input-demo.js` to simulate the input from HTML forms.
+
+`sql-injection.js` contains three ways of passing the input to the select query
+
+```
+// 1. Naive way of passing the parameter to the query
+const select_query = `select * from employees WHERE employee_id =  ${input_number};`
+```
+This way is vulnerable to the following attacks.
+```
+$ node sql-injection.js # Execute the Javascript program from the (VS code) terminal.
+
+prompt: employee_number: 1234 OR 1=1
+# select * from employees where employee_id = 1234 OR 1=1;
+
+
+prompt: employee_number: 1234 OR 1=1; show tables;
+# select * from employees where employee_id = 1234 OR 1=1; show tables;
+
+
+prompt: employee_number: 1234 OR 1=1; drop table demo;
+# select * from employees where employee_id = 1234 OR 1=1; drop table demo;
+```
+
+To solve this problem, there are two ways of sanitizing the input:
+```
+// 1. Escaping the parameter ( replacing the unwanted characters)
+const select_query = `select * from employees WHERE employee_id =` + connection.escape(input_number);
+
+// 2. Using a question mark syntax to do the escaping
+const select_query = `select * from employees WHERE employee_id = ?`
+```
 
 ### Exercise
 
-This is an interactive exercise that takes 5-10 minutes, does not explain prepared statements, only how SQL injection works.
 https://www.hacksplaining.com/exercises/sql-injection#/start
 
-https://github.com/HackYourFuture/databases/blob/master/Week3/sql-injection.js
-
 ### Essence
-Students know about the dangers of SQL injection and how to protect their app by using prepared statements.
+SQL injections are dangerous. Always sanitize the input from your HTML forms.
 
 ## 4. No SQL
 ### Explanation
 ### Example
 
-> use the same tables (as Week 1 lessonplan) here to be consistent and show students how to make similar databases using MySQL and NoSQL
+> use the same tables here (as Week 1 lessonplan)  to be consistent and show students how to make similar databases using MySQL and MongoDB
 
 ### Exercise
 
