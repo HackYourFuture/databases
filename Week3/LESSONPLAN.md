@@ -400,6 +400,8 @@ select * from employees; # Will hang because First client has the WRITE lock on 
 As soon as the First client executes `UNLOCK TABLES;` command,
 the Second client will get the output of the `select` command.
 
+> Transactions can also be created from the JavaScript client. Demo program is [async-transaction](async-transaction.js).
+
 ### Exercise
 
 Discuss the transaction in the context of an Uber ride. How many operations/actions are involved in the successful transaction ?
