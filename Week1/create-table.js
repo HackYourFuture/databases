@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-var create_query = "create table teachers (teacher_number int, teacher_name varchar(50), date_of_birth date, subject text, gender enum('m', 'f'))"
+var create_query = "create table projects (project_id int, project_name varchar(50), start_date date, manager varchar(50))"
 
 connection.query(create_query, function (error, results, fields) {
     if (error) {
