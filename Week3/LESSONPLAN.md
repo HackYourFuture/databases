@@ -280,6 +280,7 @@ and
 ### Exercise
 
 Normalize the following table.
+```
 +-------------+------------+-----------------------------------------------+------------+
 | Full name   | Adddress   |  Movies rented                                | Salutation |
 +-------------+------------+-----------------------------------------------+------------+
@@ -287,7 +288,7 @@ Normalize the following table.
 | Rob Smith   | 12 Ann St  |  Shawshank Redemption, Beautiful mind         |     Mr.    |
 | Rob Smith   | 9 Joy St   |  Clash of the Titans                          |     Mr.    |
 +-------------+------------+-----------------------------------------------+------------+
-
+```
 ### Essence
 Normal forms help in a better database design mostly by reducing redundancy.
 
