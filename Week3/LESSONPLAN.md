@@ -272,17 +272,141 @@ Normal forms help in a better database design mostly by reducing redundancy.
 
 ## 2. Transactions
 ### Explanation
-Transactions are used every day in programming. Kind of like prepared statements they only make sense when a program interacts with the database. They are not useful in the sense of providing new features but are necessary if we want to keep the data correct, or as we say in the software world keep the data *consistent*.
+
+We explain the need for the transaction with the following anecdotal illustration:
+
+Assume that the balance in Ali's bank is 500€ and
+the balance in the bank account of Birgul is 700€.
+Imagine that Ali is transferring 50€ to Birgul. Then, at the end
+of this money transaction, Ali should have 450€ and Birgul should have 750€.
+Note that this involved two database queries.
+1. Update the row of the account of Ali and *subtract* the balance by 50.
+2. Update the row of the account of Birgul and *add* the balance by 50.
+
+These two database queries together form a transaction. If we execute only
+one of them, then there is inconsistency.
+
+Transactions have the following syntax:
+```
+start transaction;
+SQL command 1
+SQL command 2 ...
+SQL command N
+
+rollback OR commit; 
+
+# "rollback" aborts the transaction (also ends the transaction)
+# "commit" commits the transaction (also ends the transaction)
+```
+
+> Note that there is no "end transaction" command. To end the transaction,
+ we have to either commit the transaction or rollback the transaction.
+
+#### ACID properties
+
+Transactions in relational databases (like MySQL) follow the
+following properties.
+1. Atomicity : Execute all commands in the transaction or execute zero commands in the transaction (all or none).
+2. Consistency : A transaction brings database from one valid state to the next valid state.
+3. Isolation : Concurrent execution of transactions (possibly by different users) should leave the database in a consistent state.
+4. Durability : When a transaction is committed, it will remain committed even in the case of system failure. In other words,
+committed transactions are recorded on the disk.
 
 ### Example
-![transaction example](https://lh3.googleusercontent.com/proxy/8RnA6wqcQxTQKJvmE7KNnhwWkWTYLXRS4lnwwpdwECLDbRoN4yEgaclhZ1pDzLi0eEHULy-_V5Lk2HkH_yFCNUa5i165WVhCR3-DvprDYem7Ai_jrP0XDSo9-L61MM4)
+
+Atomicity can be demonstrated with the following `rollback` and `commit` examples:
+
+#### Rollback example
+```
+set autocommit = 0; # default is 1 which automatically commits every command as transaction.
+
+start transaction;
+
+select * from employees; # Show all the rows of the table
+
+update employees set salary = 10000 where employee_id = 101; # Update the salary of one employee
+
+select * from employees; # Show the new salary
+
+rollback; # Does not show any output but actually rolls back the transaction
+
+select * from employees; # Show the old salary
+```
+
+> There can be hundreds of commands after `start transaction`. rollback command will undo all of them.
+
+
+#### Commit example
+```
+set autocommit = 0; # default is 1 which automatically commits every command as transaction.
+
+start transaction;
+
+select * from employees; # Show all the rows of the table
+
+update employees set salary = 10000 where employee_id = 101; # Update the salary of one employee
+
+select * from employees; # Show the new salary
+
+commit; # Does not show any output but actually commits the transaction
+
+select * from employees; # Show the new salary
+```
+
+> After commit, the changes are written permanently on the disk.
+
+
+#### Isolation and Consistency examples
+
+
+Start two `mysql` command line clients.
+```
+# First client
+
+update employees set city = 'Mumbai' where employee_id = 101;
+
+commit;
+```
+
+In the second client, show that the value is updated.
+```
+# Second client
+select * from employees;
+
+```
+
+> The change made by one database client in the database server will be seen by the other client(s). Thus,
+both clients have the consistent view on the database.
+
+
+```
+# First client
+
+set autocommit = 1;
+
+LOCK TABLES employees WRITE;
+
+update employees set salary = 7000 where employee_id = 101;
+
+```
+
+
+```
+# Second client
+
+select * from employees; # Will hang because First client has the WRITE lock on that table
+```
+
+As soon as the First client executes `UNLOCK TABLES;` command,
+the Second client will get the output of the `select` command.
 
 ### Exercise
 
-No time. There will be an exercise in the homework.
+Discuss the transaction in the context of an Uber ride. How many operations/actions are involved in the successful transaction ?
+When can the transaction be aborted ? What would be the database tables ?
 
 ### Essence
-The students should know about the existence of a transaction and have some idea of what they do and how to use them.
+A transaction is a set of SQL commands that is treated as ONE command.
 
 ## 3. SQL injection
 
