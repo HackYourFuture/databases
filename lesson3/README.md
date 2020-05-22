@@ -33,7 +33,7 @@ Also, please read the following pages that explains the ACID database model and 
 - [Parameter Validation on Wikipedia](https://en.wikipedia.org/wiki/Parameter_validation)
 - [Node MySQL Escaping Query Values](https://github.com/mysqljs/mysql#escaping-query-values)
 - [Node MySQL Preparing Queries (automatic escaping)](https://github.com/mysqljs/mysql#preparing-queries)
-- [MySQL SHOW GRANTS](https://dev.mysql.com/doc/refman/5.7/en/show-grants.html)
+- [MySQL SHOW GRANTS](https://dev.mysql.com/doc/refman/8.0/en/show-grants.html)
 
 
 ## Homework
@@ -104,4 +104,3 @@ Now add a couple of different meals, reservations and reviews with different att
 | Get the meals that have good reviews |
 | Get reservations for a specific meal sorted by created_date |
 | Sort all meals by average number of stars in the reviews |
-

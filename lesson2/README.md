@@ -36,7 +36,7 @@ Objective: the students should be able to build CRUD functionality using SQL sta
 - [Floating Point Inaccuracy](http://stackoverflow.com/questions/2100490/floating-point-inaccuracy-examples#2100502)
 - [TutorialsPoint MySQL Introduction](http://www.tutorialspoint.com/mysql/mysql-introduction.htm)
 - [w3schools tutorial (easy to find how specific commands work)](https://www.w3schools.com/sql/default.asp)
-- [Official MySQL Documentation](https://dev.mysql.com/doc/refman/5.7/en/)
+- [Official MySQL Documentation](https://dev.mysql.com/doc/refman/8.0/en/)
 
 
 ## Homework
