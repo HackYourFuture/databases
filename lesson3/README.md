@@ -1,52 +1,46 @@
 # Lesson 3: Data Models, Relationships, and Schemas
 
-In the final week, additional theory will be covered to discuss more complex relational data. Students will learn about entity relationship modelling and how to convert these models to a database schema using normalisation and foreign-key constraints. Non-relational data will also be considered, as well as the benefits and drawbacks of relational and non-relational models.
+In the final week, the students will be introduced to SQL injections and common security practices around MySQL permissions. MongoDB, as an example of a non-relational database, will also be introduced, as well as the benefits and drawbacks of relational and non-relational models.
 
-Objective: Students should be able to create an entity relationship diagram based on a qualitative description of data requirements, and translate that into a MySQL database schema. Students should also be able to compare and contrast relational (like MySQL) and NoSQL databases (considering their benefits and drawbacks).
+Objective: the students should know how SQL injections happen, and how to define user permissions in MySQL to limit the potential damage that can be done with a SQL injection. The students should also be able to compare and contrast relational (like MySQL) and NoSQL databases (considering their benefits and drawbacks).
+
 
 ## Pre-Class Readings
 
-Before arriving to class on Sunday, please watch all of the videos in [this video playlist](https://www.lynda.com/SharedPlaylist/ae29ea2f495c432793abc220da47baa6) on Lynda.
-- Choosing Primary Keys
-- Defining One-to-Many Relationships
-- Exploring One-to-One Relationships
-- Exploring Many-to-Many Relationships
-- Understanding Relationship Rules and Referential Integrity
-- Defining Table Relationships
-- NoSQL databases
-- GraphQL: Introduction and History
-- Why use GraphQL?
+Also, please read the following pages that explains the ACID database model and connecting to MySQL from node.
+- [The ACID Database Model](https://www.thoughtco.com/the-acid-model-1019731)
+- [Why you should never use MongoDB](http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb)
 
-Also, please read the following page that explains database foreign keys.
-- [What is a Database Foreign Key](http://databases.about.com/cs/specificproducts/g/foreignkey.htm)
 
 ## Main Topics
 
-- More complex entity relationship diagrams
-    - Associative entities from many-to-many relationships
-    - Introduction to normalisation
-- Foreign key constraints
-- Complicated values to store in MySQL
-    - Storing prices (floating point errors)
-    - Storing date and time (datetime vs. timestamp)
-    - Timezones when storing date and time
-- Brief introduction to non-relational data
-- Scaffolding and application generators
-- Creating an ER model and a database from existing data
+- Security
+    - SQL Injection
+    - User GRANTS
+- Introduction to non-relational data with MongoDB
+    - MongoDB vs. SQL
+    - Create/Drop database
+    - Insert/Update/Delete data
+    - Query data
+    - Relationships: embedded vs. referenced
+    - Replication and sharding
+    - Atomicity
+
 
 ## Reference Material
 
-- [Floating Point Inaccuracy](http://stackoverflow.com/questions/2100490/floating-point-inaccuracy-examples#2100502)
-- [Example Entity Relationship Diagram (including associative entities)](http://users.csc.calpoly.edu/~jdalbey/308/Lectures/HOWTO-ERD.html)
-- Scaffolding tools:
-    - [Yeoman](http://yeoman.io) - General framework for creating and scaffolding all types of projects
-    - [Sails](http://sails.js) - Lightweight framework for generating APIs and web server apps in Node
-    - [Loopback](http://loopback.io/) - A more "enterprise-ready" framework for generating and managing APIs.
-- [Rewatch the previously recorded session](https://www.youtube.com/watch?v=ZNLhHUDj6jo)
+- [OWASP on SQL Injection](https://www.owasp.org/index.php/SQL_injection)
+- [Parameter Validation on Wikipedia](https://en.wikipedia.org/wiki/Parameter_validation)
+- [Node MySQL Escaping Query Values](https://github.com/mysqljs/mysql#escaping-query-values)
+- [Node MySQL Preparing Queries (automatic escaping)](https://github.com/mysqljs/mysql#preparing-queries)
+- [MySQL SHOW GRANTS](https://dev.mysql.com/doc/refman/8.0/en/show-grants.html)
+
 
 ## Homework
 
 For the homework this week we will create the database and queries for an application we will continue working on in the [node js class](https://github.com/HackYourFuture-CPH/node.js). 
+
+For those who haven't finished this part of the homework last week, now it's the time to finish :)
 
 The application will be a meal sharing website, where users can book a reservation at a meal another user has created.
 
@@ -110,4 +104,3 @@ Now add a couple of different meals, reservations and reviews with different att
 | Get the meals that have good reviews |
 | Get reservations for a specific meal sorted by created_date |
 | Sort all meals by average number of stars in the reviews |
-
