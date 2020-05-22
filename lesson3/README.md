@@ -1,8 +1,8 @@
 # Lesson 3: Data Models, Relationships, and Schemas
 
-In the final week, the students will be introduced to SQL injection and how to use MySQL permissions to avoid it. MongoDB, as an example of a non-relational database, will also be introduced, as well as the benefits and drawbacks of relational and non-relational models.
+In the final week, the students will be introduced to SQL injections and common security practices around MySQL permissions. MongoDB, as an example of a non-relational database, will also be introduced, as well as the benefits and drawbacks of relational and non-relational models.
 
-Objective: the students should know how SQL injection happens, and how to define user permissions in MySQL to avoid part of it. The students should also be able to compare and contrast relational (like MySQL) and NoSQL databases (considering their benefits and drawbacks).
+Objective: the students should know how SQL injections happen, and how to define user permissions in MySQL to limit the potential damage that can be done with a SQL injection. The students should also be able to compare and contrast relational (like MySQL) and NoSQL databases (considering their benefits and drawbacks).
 
 
 ## Pre-Class Readings
