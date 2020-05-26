@@ -1,0 +1,39 @@
+EXPLANATION
+show how syntax of query and insert in mongo is similar to sql - u will do more of this in homework
+show that insert does not need to conform to any schema
+show i can still write queries to join tables in mongo
+recap why a schema in sql is useful, and contrast with the benefits nosql/no schema -nosql does not need a schema. nosql is faster in case of high load. most nosql eventually consistent
+
+EXAMPLE -
+propose a situation in which u choose between a nosql and sql database: employees-departments-projects. set up a database for “linkedin” with employees showcasing their departments (jobs/where they work), and projects (free form; not clear what the fields are/could be)
+discuss how for some features you would benefit from nosql: projects where future functionality is unclear and the structure of storage also )
+discuss how for some features you would benefit from sql: integrity that a manager of a department must also be an employee
+
+example features to explain
+schema evolution: salary to salaries as a list
+feature join/enforce: in order for manager to advertise a job in their department, the manager must also be in the employee table
+feature trx: one person edits their project; hyf recruitment wants to print the cv and send it to someone
+
+suggestions
+feature suggesting sql: multiple employees can work on a project and the information about the project should be consistent
+feature: recruiters can find employees by programming language
+feature: a recuiter can send email to the departments of employees that meet some criteria
+feature set: the company takes over stackoverflow and programming language tags become central to the product
+feature set: HYF becomes a partner and the employees work permit status becomes important
+
+
+EXERCISE: This is a think/pair/share exercise. Come up with one feature which seems to suggest to use nosql. Come up with one that would benefit from sql
+Situation: imagine a much-expanded linkedin product. now a worldwide company directory/addressbook ; social media for career networking, recruitment, finding jobs etc
+(central structure in the db is still employees-departments-projects)
+
+Individually think for 2min first. Then discuss in pairs.
+Bring back everyone; each pair presents one of their ideas for 1min
+
+
+Essence:
+sql and nosql have pros and cons
+you have thought through some situations where in the features we develop a nosql solution seems advantageous, and features where sql seems advantageous
+better understand the purpose of a schema
+
+
+Community of graduates: website; board support;  db module as whole; Tjebbe and coordination; q&a vs breakout rooms and interaction (big blue button); codio and interactive;

@@ -1,4 +1,4 @@
-# from mongodb-developer/nodejs-quickstart
+// from mongodb-developer/nodejs-quickstart
 
 const { MongoClient } = require('mongodb');
 
