@@ -14,80 +14,34 @@ In this module you'll learn all about a fundamental part of any software applica
 
 In this module you will get familiar with the complexity of storing data. By the end of it you have learned:
 
-- What the meaning is of a `database entity`
-- How to work with `Structured Query Language` (SQL)
-- Learn all about the `relational model`
-- Recognize the `basic setup of a database`
-- Know about `MySQL` as an example of a relational database system
-- Learn about `NoSQL` databases, with an emphasis on `MongoDB`
+-   What the meaning is of a `database entity`
+-   How to work with `Structured Query Language` (SQL)
+-   Learn all about the `relational model`
+-   Recognize the `basic setup of a database`
+-   Know about `MySQL` as an example of a relational database system
+-   Learn about `NoSQL` databases, with an emphasis on `MongoDB`
+
+## How to use this repository
+
+This repository consists of 3 essential parts:
+
+1. `README`: this document contains all the required theory you need to understand **before** class. It's also meant as a reference to understand what you're doing while you're coding.
+2. `MAKEME`: this document contains the instructions for each week's homework.
+3. `LESSONPLAN`: this document is meant for teachers as a reference. However, as a student don't be shy to take a look at it as well!
+
+**Before** the first class of the module you should start off with the [Week 1 Reading](/Week1/README.md). Study all the concepts and try to get the gist of everything. After your first class, you can get started with the [Week 1 Homework](/Week1/MAKEME.md).
+
+If you have any questions or if something is not entirely clear ¯\\\_(ツ)\_/¯, please ask/comment on Slack!
 
 ## Before you start
 
-Before you start you need to install the necessary software: MySQL.
+**Before** your first class you start you need to install the necessary software: MySQL. This differs depending on your operating system:
 
-### Installation on Windows machine
-Download the [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
+-   For Windows, download the [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
+-   For Linux (Ubuntu), watch the following video: [MySQL Installation on Linux (Ubuntu)](https://www.youtube.com/watch?v=Y_LibBhOGOY)
+-   For MacOS, watch the following video: [Installing MySQL on MacOS](https://www.youtube.com/watch?v=HxCXyxFEA0s)
 
-### Installation on Linux (Ubuntu)
-[MySQL Installation on Linux (Ubuntu)](https://www.youtube.com/watch?v=Y_LibBhOGOY) if you are using Ubuntu Linux.
-
-### Installation on MAC
-Open the `Terminal` to type following commands.
-
-1. Install Homebrew if you don't have it:
-```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-2. Install MySQL server and client using `brew install mysql`.
-
-After you've finished installing the software, open it through your command line interface:
-
-- Windows users should use `Microsoft MySQL Command Line client`.
-- Linux users should use `Gnome Terminal`
-- MacOS users should use `Terminal`.
-
-**Step 1: Logging in with the `root` user**
-
-To get started with your new MySQL client, we first have to login with the `root` user.
-
-> A root user, also known as a `superuser` is a special user account that has access to all commands and files of any particular software.
-
-In Windows OS, if you click on the Start menu and type `MySQL Command line Client`, then
-the MySQL Command Line Client gives you a `msql>` prompt after typing in your root password.
-Note that this password is the one you used for the `root user` of the mysql during the installation.
-Linux and MAC users can execute `mysql -uroot -p` and then type your root password.
-
-**Step 2: Creating a `hyfuser` account**
-
-After loggin in with the root user, it's time to create the account we'll be using for this module. Execute the following commands, one after the other:
-
-```
-# Step 1: This command creates a user 'hyfuser' with password 'hyfpassword' for the database server at 'localhost'
-
-mysql> create user 'hyfuser'@'localhost' identified with mysql_native_password by 'hyfpassword';
-
-# If this does not work try the alternative command:
-
-mysql> create user 'hyfuser'@'localhost' identified by 'hyfpassword';
-
-# Step 2: This command gives all permissions to user 'hyfuser'. The (*.*) means every table of every database.
-
-mysql> grant all privileges on *.* to 'hyfuser'@'localhost';
-
-# Step 3: This command creates a database named 'userdb'
-
-mysql> create database userdb;
-```
-
-**Step 3: Installing MySQL drivers for node**
-
-We want to use MySQL with JavaScript and to this end, we use [mysqljs driver](https://github.com/mysqljs/mysql).
-* Use `npm install -g mysql` command to install them.
-* Run `node connection-test.js` by navigating to the `Week1` folder from the VScode terminal.
-
-The output should be `The solution is: 2`.
-
+Afterwards, read the following [document](./setup-db.md) to learn how to setup your database **before** your first class.
 
 ## Planning
 
