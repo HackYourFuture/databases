@@ -24,7 +24,7 @@ exports.seed = async function (knex) {
   for (let i = 0; i < amount; i++) {
     let project = createProject(i);
     if(codes.includes(project.code)){
-      project.code + i;
+      project.code += i;
     }
     codes.push(project.code);
     fakes.push(project);
