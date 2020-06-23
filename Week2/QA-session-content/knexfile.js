@@ -8,10 +8,13 @@ module.exports = {
       host : '127.0.0.1',
       user : 'root',
       password : '',
-      database : 'epic_todolist'
+      database : 'db_qa_session'
     },
     seeds: {
       directory: __dirname + '/seeds'
+    },
+    migrations: {
+      directory: __dirname + '/migrations'
     }
   },
 
