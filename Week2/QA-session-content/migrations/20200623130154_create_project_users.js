@@ -9,6 +9,7 @@ exports.up = async (knex) => {
       .unsigned()
       .references('id')
       .inTable('projects');
+    table.string('project_alias').nullable();
   })
 };
 

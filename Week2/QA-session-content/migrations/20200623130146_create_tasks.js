@@ -11,6 +11,7 @@ exports.up = async (knex) => {
       .unsigned()
       .references('id')
       .inTable('projects');
+    table.integer('is_done',1).defaultTo(0);
   })
 };
 
