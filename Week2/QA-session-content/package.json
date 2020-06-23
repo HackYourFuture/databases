@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "faker": "^4.1.0",
     "knex": "^0.21.1",
     "mysql": "^2.18.1"
   }
