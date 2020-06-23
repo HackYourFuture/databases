@@ -6,7 +6,6 @@ exports.up = async (knex) => {
     table.date('start_date');
     table.date('end_date');
     table.string('code').unique();
-    table.timestamps();
   })
 };
 

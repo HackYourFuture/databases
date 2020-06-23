@@ -11,7 +11,6 @@ exports.up = async (knex) => {
       .unsigned()
       .references('id')
       .inTable('projects');
-    table.timestamps();
   })
 };
 
