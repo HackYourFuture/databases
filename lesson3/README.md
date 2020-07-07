@@ -53,7 +53,7 @@ It will be kind of similar to this website: https://www.mealsharing.com/
 ### Data model
 Lets first start with creating the data model.
 
-Create all the sql for creating this data model: https://dbdiagram.io/d/5d5bff66ced98361d6ddc18c
+Create all the sql for creating this data model: https://dbdiagram.io/d/5f0460690425da461f045a29
 
 ### Queries
 
