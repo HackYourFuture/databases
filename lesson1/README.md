@@ -43,8 +43,8 @@ Before arriving to class on Sunday, please watch all of the videos in [this vide
 
 - [TutorialsPoint MySQL Introduction](http://www.tutorialspoint.com/mysql/mysql-introduction.htm)
 - [w3schools tutorial (easy to find how specific commands work)](https://www.w3schools.com/sql/default.asp)
-- [Official MySQL Documentation](https://dev.mysql.com/doc/refman/5.7/en/)
-- [Official MySQL Tutorial (pretty dense)](https://dev.mysql.com/doc/refman/5.7/en/tutorial.html)
+- [Official MySQL Documentation](https://dev.mysql.com/doc/refman/8.0/en/)
+- [Official MySQL Tutorial (pretty dense)](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html)
 - [Joel Spolsky - Character Sets and Unicode](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
 
 ## Homework
