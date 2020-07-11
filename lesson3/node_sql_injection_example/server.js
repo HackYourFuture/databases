@@ -42,25 +42,7 @@ app.post('/login', (req, res, next) => {
 		res.redirect('/wrong.html');
 	});
 
-	// Better (uses escaping of values)
-	// const email = connection.escape(req.body.email);
-	// const password = connection.escape(req.body.password);
-	// console.log('Escaped values', email, password);
-	// connection.query(`SELECT * FROM users WHERE email = '${email}' AND password = '${password}'`, (err, result, fields) => {
-	// 	if (err) {
-	// 		next(err);
-	// 		return;
-	// 	}
-
-	// 	if (result && result.length == 1) {
-	// 		console.log(result[0]);
-	// 		res.redirect('/secret.html');
-	// 		return;
-	// 	}
-	// 	res.redirect('/wrong.html');
-	// });
-
-	// Best (uses implicit escaping)
+	// Good (uses implicit escaping to avoid SQL injections)
 	// connection.query('SELECT * FROM users WHERE email = ? AND password = ?', [
 	// 	req.body.email,
 	// 	req.body.password,
