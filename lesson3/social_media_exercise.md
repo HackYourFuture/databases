@@ -35,7 +35,8 @@ If you have extra time you can expand on the list of entities. What else could b
 - Creation datetime
 - Update datetime
 - Relation to author
-- Optional relation to parent post
+- Relation to post
+- Relation to optional parent comment
 
 **Reaction**
 
