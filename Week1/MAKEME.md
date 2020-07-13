@@ -20,6 +20,9 @@ Also make time to do lesson 1-5 from the following:
 
 ## 2. **MySQL exercises**
 
+> You will need to do some research to solve these exercises. All the concepts necessary to solve
+these exercises are NOT covered in the reading material. This is on purpose.
+
 **Exercise 1: Create and insert queries**
 
 Write a JavaScript file (to be executed with Node.js) that creates and makes a connection to a MySQL database. Do so using the `mysql` package (https://www.npmjs.com/package/mysql).

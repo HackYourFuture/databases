@@ -14,6 +14,9 @@ Let's do a warming up with some interactive exercises! Let's start with doing le
 
 ## 2. **MySQL exercises**
 
+> You will need to do some research to solve these exercises. All the concepts necessary to solve
+these exercises are NOT covered in the reading material. This is on purpose.
+
 **Exercise 1 : Normalization**
 
 The manager of the dinner club would like to manage the information system that assists him to keep track of who attends the dinners.
