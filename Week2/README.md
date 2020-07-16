@@ -99,7 +99,6 @@ CREATE TABLE students
 
 For more information, check out the following:
 
-- [Tables and keys](https://www.youtube.com/watch?v=ia4eCxPPc_o)
 - [Linked Tables and keys](https://www.youtube.com/watch?v=ia4eCxPPc_o)
 
 ## 2. What are the 3 types of relationships?
