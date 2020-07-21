@@ -25,7 +25,7 @@ Also, please read the following pages that explains the ACID database model and 
     - Relationships: embedded vs. referenced
     - Replication and sharding
     - Atomicity
-
+- [Advanced database schema exercise](social_media_exercise.md)
 
 ## Reference Material
 

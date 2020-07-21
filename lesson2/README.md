@@ -68,7 +68,7 @@ In all the above queries, you choose which is the task that you will modify/dele
 ### Part 3: More queries
 
 You should do these queries on the database `hyf_lesson2`, which we created last class.
-You can find the data [here](https://github.com/HackYourFuture-CPH/databases/blob/class12/lesson2/lesson2-data.sql) if you need to create the DB again.
+You can find the data [here](lesson2-data.sql) if you need to create the DB again.
 
 - Get all the tasks assigned to users whose email ends in `@spotify.com`
 - Get all the tasks for 'Donald Duck' with status 'Not started'
