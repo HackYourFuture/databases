@@ -4,20 +4,11 @@ In this class, students will be introduced to relational data terminology (row, 
 
 Objective: Students should be able to retrieve data from a database table using SELECT statements that include WHERE, GROUP BY, and ORDER BY.
 
-## Pre-Class Readings
+## Pre-Class Preparation
 
-Before arriving to class on Sunday, please watch all of the videos in [this video playlist](https://www.lynda.com/SharedPlaylist/0299ced540444d7197460e7f1f74ddab) on Lynda.
-- What are databases?
-- Exploring databases and database management systems
-- The features of a relational database
-- Introduction to database modeling
-- Using the basic SELECT statement
-- Creating SQL queries
-- Structuring the WHERE clause
-- Sorting query results
-- Using aggregate functions
-- Joining tables
-
+Before the class you should install MySQL on your computer:
+- Instructions for macOS: [click here](https://www.youtube.com/watch?v=7S_tz1z_5bA&t=290s)
+- Instructions for Windows: [click here](https://www.youtube.com/watch?v=7S_tz1z_5bA&t=588s)
 
 ## Main Topics
 
