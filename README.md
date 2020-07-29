@@ -18,10 +18,6 @@ By the end of this module, students should have a familiarity with and basic und
 - Non-relational data and NoSQL
 - MongoDB as an example of a NoSQL database
 
-## The Practice Database
-
-The login information for the student practice database will be provided during the first class. If you don't have them, send us a message - you will need the username, password, hostname, port, and database name.
-
 ## Lesson Plan
 
 ### Lesson 1: Retrieving Data
