@@ -32,7 +32,7 @@ In this class, the students will learn how to use more complex SQL queries to re
 
 Objective: the students should be able to build CRUD functionality using SQL statements, including INSERT INTO, UPDATE and DELETE. The students should also be able to create an entity relationship diagram based on a qualitative description of data requirements, and translate that into a MySQL database schema.
 
-### [Lesson 3](lesson3/): Data Models, Relationships, and Schemas
+### [Lesson 3](lesson3/): Security and Non-Relational Databases
 
 In the final week, the students will be introduced to SQL injection and how to use MySQL permissions to avoid it. MongoDB, as an example of a non-relational database, will also be introduced, as well as the benefits and drawbacks of relational and non-relational models.
 
