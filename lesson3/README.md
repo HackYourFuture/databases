@@ -7,7 +7,7 @@ Objective: the students should know how SQL injections happen, and how to define
 
 ## Pre-Class Readings
 
-Also, please read the following pages that explains the ACID database model and connecting to MySQL from node.
+Please read the following pages that explains the ACID database model:
 - [The ACID Database Model](https://www.thoughtco.com/the-acid-model-1019731)
 - [Why you should never use MongoDB](http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb)
 
@@ -29,7 +29,7 @@ Also, please read the following pages that explains the ACID database model and 
 
 ## Reference Material
 
-- [OWASP on SQL Injection](https://www.owasp.org/index.php/SQL_injection)
+- [OWASP on SQL Injection](https://owasp.org/www-community/attacks/SQL_Injection)
 - [Parameter Validation on Wikipedia](https://en.wikipedia.org/wiki/Parameter_validation)
 - [Node MySQL Escaping Query Values](https://github.com/mysqljs/mysql#escaping-query-values)
 - [Node MySQL Preparing Queries (automatic escaping)](https://github.com/mysqljs/mysql#preparing-queries)
