@@ -1,4 +1,4 @@
-# Lesson 3: Data Models, Relationships, and Schemas
+# Lesson 3: Security and Non-Relational Databases
 
 In the final week, the students will be introduced to SQL injections and common security practices around MySQL permissions. MongoDB, as an example of a non-relational database, will also be introduced, as well as the benefits and drawbacks of relational and non-relational models.
 
