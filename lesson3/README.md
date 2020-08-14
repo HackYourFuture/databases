@@ -29,7 +29,7 @@ Please read the following pages that explains the ACID database model:
 
 ## Reference Material
 
-- [OWASP on SQL Injection](https://www.owasp.org/index.php/SQL_injection)
+- [OWASP on SQL Injection](https://owasp.org/www-community/attacks/SQL_Injection)
 - [Parameter Validation on Wikipedia](https://en.wikipedia.org/wiki/Parameter_validation)
 - [Node MySQL Escaping Query Values](https://github.com/mysqljs/mysql#escaping-query-values)
 - [Node MySQL Preparing Queries (automatic escaping)](https://github.com/mysqljs/mysql#preparing-queries)
