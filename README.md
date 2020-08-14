@@ -26,7 +26,7 @@ In this class, students will be introduced to retrieving data from a MySQL datab
 
 Objective: Students should be able to retrieve data from a database table using SELECT statements that include WHERE, GROUP BY, ORDER BY, LIMIT, and JOIN.
 
-### [Lesson 2](lesson2/): Practical Database Usage
+### [Lesson 2](lesson2/): Data Models, Relationships, and Schemas
 
 In this class, the students will learn how to use more complex SQL queries to retrieve information across tables, and interact with data including write operations.
 
