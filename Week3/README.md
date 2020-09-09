@@ -14,9 +14,9 @@ These are the topics for week 3:
 
 ## 0. Video Lectures
 
-Your teachers Igor and Unmesh have made video lectures for this week's material. You can find them here: [Videos 11 - 13](https://www.youtube.com/watch?v=LnR-gvhWMR4&list=PLVYDhqbgYpYVq-rHFB1x2-P7esnWotCB7)
+Your teachers Igor and Unmesh have made video lectures for this week's material. You can find them here: [Videos 11 - 13](https://www.youtube.com/playlist?list=PLVYDhqbgYpYVq-rHFB1x2-P7esnWotCB7)
 
-<a href="https://www.youtube.com/watch?v=LnR-gvhWMR4&list=PLVYDhqbgYpYVq-rHFB1x2-P7esnWotCB7" target="_blank"><img src="../assets/playlist-thumbnail.png" width="600" height="350" alt="HYF Video" /></a>
+<a href="https://www.youtube.com/playlist?list=PLVYDhqbgYpYVq-rHFB1x2-P7esnWotCB7" target="_blank"><img src="../assets/playlist-thumbnail.png" width="600" height="350" alt="HYF Video" /></a>
 
 ## 1. Normalization and normal forms
 
