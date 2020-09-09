@@ -21,6 +21,12 @@ These are the topics for week 1:
    - What does a database do for our apps?
    - How to connect with Node.js -->
 
+## 0. Video Lectures
+
+Your teachers Igor and Unmesh have made video lectures for this week's material. You can find them here: [Videos 1 - 8](https://www.youtube.com/watch?v=LnR-gvhWMR4&list=PLVYDhqbgYpYVq-rHFB1x2-P7esnWotCB7)
+
+<a href="https://www.youtube.com/watch?v=LnR-gvhWMR4&list=PLVYDhqbgYpYVq-rHFB1x2-P7esnWotCB7" target="_blank"><img src="../assets/playlist-thumbnail.png" width="600" height="350" alt="HYF Video" /></a>
+
 ## 1. What is an information (system)?
 
 Information is something that adds knowledge. It tells you something you didn't know before.
@@ -91,7 +97,7 @@ const musicians = [
   "John Coltrane",
   "Miles Davis",
   "Thelonious Monk",
-  "Sonny Rollins"
+  "Sonny Rollins",
 ];
 
 musicians.push("Steve Lehman");
