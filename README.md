@@ -63,13 +63,12 @@ To have a more detailed overview of the guidelines, please read [this document](
 
 ### Video lectures
 
-For each module HackYourFuture provides you with video lectures. These are made by experienced software developers who know what they're talking about. This module will include 2 main teachers, [Unmesh Joshi]() and [Igor Budasov]()
+For each module HackYourFuture provides you with video lectures. These are made by experienced software developers who know what they're talking about. This module will include 2 main teachers, [Unmesh Joshi](https://hackyourfuture.slack.com/team/U2JJ624UE) and [Igor Budasov](https://hackyourfuture.slack.com/team/UH2T65P5X)
 
-You can find out more about him here:
+You can find out more about them here:
 
-- [Personal Website](https://gajd.uk/)
-- [GitHub](https://github.com/gajduk)
-- [@gajduk on Slack](https://hackyourfuture.slack.com/team/UL0P2MB52)
+- [Unmesh's GitHub](https://github.com/unmeshvrije) & [Igor's GitHub](https://github.com/ibudasov)
+- [@Unmesh on Slack](https://hackyourfuture.slack.com/team/U2JJ624UE) & [@Igor on Slack](https://hackyourfuture.slack.com/team/UH2T65P5X)
 
 Learn from Unmesh & Igor in the following playlist of videos they have made for you! (Click on the image to open the link)
 
