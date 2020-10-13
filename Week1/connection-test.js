@@ -3,7 +3,9 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'hyfuser',
   password : 'hyfpassword',
-  database : 'userdb'
+  database : 'userdb',
+  port : 3307 // this line was not added before to the file. I added according to my selected port. It could be changed according to your selected port
+  
 });
 
 connection.connect();
