@@ -4,8 +4,8 @@ var connection = mysql.createConnection({
   user     : 'hyfuser',
   password : 'hyfpassword',
   database : 'userdb',
-  port : 3307 // this line was not added before to the file. I added according to my selected port. It could be changed according to your selected port
-  
+  // port : xxxx // Uncomment this line and replace xxxx with the selected port number if you are not using default 3306. I also suggest to download MySQL version 5.7 because recent versions has authentication problems
+
 });
 
 connection.connect();
