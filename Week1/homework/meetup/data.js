@@ -23,6 +23,6 @@ const meetingsInfo = [
   [05, 'Administration Meeting', '2020-11-07 10:00:00', '2020-11-01 15:00:00', 05 ],
 ]
 
-module.exports = inviteesInfo;
-module.exports = roomsInfo;
-module.exports = meetingsInfo;
+module.exports.inviteesInfo = inviteesInfo;
+module.exports.roomsInfo = roomsInfo;
+module.exports.meetingsInfo = meetingsInfo;
