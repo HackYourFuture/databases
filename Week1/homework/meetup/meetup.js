@@ -1,8 +1,8 @@
 // Require the data module
-require('./data');
-const inviteesInfo = inviteesInfo;
-const roomsInfo = roomsInfo;
-const meetingsInfo = meetingsInfo;
+const data = require('./data.js');
+const inviteesInfo = data.inviteesInfo;
+const roomsInfo = data.roomsInfo;
+const meetingsInfo = data.meetingsInfo;
 
 // Create the connection
 const mysql      = require('mysql');
