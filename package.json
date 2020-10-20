@@ -1,0 +1,23 @@
+{
+  "name": "databases",
+  "version": "1.0.0",
+  "description": "> If you are following the HackYourFuture curriculum we recommend you to start with module 1: [HTML/CSS/GIT](https://github.com/HackYourFuture/HTML-CSS). To get a complete overview of the HackYourFuture curriculum first, click [here](https://github.com/HackYourFuture/curriculum).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FatmaHameed/databases.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FatmaHameed/databases/issues"
+  },
+  "homepage": "https://github.com/FatmaHameed/databases#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}

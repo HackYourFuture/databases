@@ -1,2 +1,5 @@
 package.json
 package-lock.json
+connection-test.js
+create-table.js
+

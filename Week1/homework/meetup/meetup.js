@@ -18,13 +18,11 @@ const connection = mysql.createConnection({
 });
 
 connection.connect();
+
 // Create tables
 const invitees = "CREATE TABLE invitees (invitee_no INT AUTO_INCREMENT, invitee_name VARCHAR(50), invited_by VARCHAR(50), PRIMARY KEY(invitee_no))";
-
 const rooms = "CREATE TABLE Rooms (room_no INT, room_name VARCHAR(50), floor_no INT, PRIMARY KEY(room_no))";
-
 const meetings = "CREATE TABLE Meetings (meeting_no INT, meeting_title VARCHAR(50),starting_time datetime, ending_time datetime, room_no INT, PRIMARY KEY(meeting_no))";
-
 
 // activate the creating tables queries
 function createTable(table) {
@@ -34,16 +32,16 @@ function createTable(table) {
     }
     console.log(results);
   });
-}
+};
+
 createTable(invitees);
 createTable(rooms);
 createTable(meetings);
 
 // insert the data
-const insertInviteesData = `INSERT INTO invitees( invitee_name, invited_by ) VALUES ? `
-const insertRoomsData = `INSERT INTO Rooms(room_no, room_name, floor_no ) VALUES ? `
-const insertMeetingsData = `INSERT INTO Meetings(meeting_no, meeting_title, starting_time, ending_time, room_no) VALUES ? `
-
+const insertInviteesData = "INSERT INTO invitees( invitee_name, invited_by ) VALUES ?";
+const insertRoomsData = "INSERT INTO Rooms(room_no, room_name, floor_no ) VALUES ?";
+const insertMeetingsData = "INSERT INTO Meetings(meeting_no, meeting_title, starting_time, ending_time, room_no) VALUES ?";
 
 // make the inserting queries
 function insertData(data, dataInfo){
@@ -52,12 +50,13 @@ function insertData(data, dataInfo){
       return console.error(err.message);
     }
     // get inserted rows
-    console.log('Row inserted:' + results.affectedRows);
+    console.log("Row inserted:" + results.affectedRows);
   });
-}
+};
+
 insertData(insertInviteesData, inviteesInfo);
 insertData(insertRoomsData, roomsInfo);
-insertData(insertMeetingsData, meetingsInfo)
+insertData(insertMeetingsData, meetingsInfo);
 
 // end the connection
 connection.end();

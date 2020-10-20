@@ -15,6 +15,7 @@ const roomsInfo = [
   [04, 'The Developers Hall', 02 ],
   [05, 'The Small Hall', 02 ]
 ];
+
 const meetingsInfo = [
   [01, 'Cluster Meeting', '2020-11-01 10:00:00', '2020-11-01 12:00:00', 01 ],
   [02, 'Marketing Training', '2020-11-02 10:00:00', '2020-11-05 17:00:00', 02 ],
