@@ -289,7 +289,7 @@ for self join, we must use **aliases** so that disambiguation of column names ca
 #### Example
 ```sql
 When we want to print employees and their reporting mangagers.
-SELECT E.employee_name as Employee, E2. employee_name as Manager
+SELECT E1.employee_name as Employee, E2. employee_name as Manager
 FROM employees as E1
 INNER JOIN
 employees as E2
@@ -432,7 +432,20 @@ GROUP BY gender;
 ```
 
 #### Exercise
-Write a query that retrieves all managers with the number of employees that are reporting to them. In this query they should use DISTINCT and GROUP BY keywords.
+Write a query that retrieves all managers with the number of employees that are reporting to them.
+
+<details><summary>Reveal Query</summary>
+<p>
+
+```sql
+SELECT E2.employee_name , count(E1.employee_name) as Employee_cnt
+FROM employee as E1 LEFT JOIN employee as E2
+ON E1.reports_to = E2.employee_id
+group by E2.employee_name;
+```
+
+</p>
+</details>
 
 #### Essence
 Group by clause can only print columns that are grouped by or apply aggregate functions on the other columns.
