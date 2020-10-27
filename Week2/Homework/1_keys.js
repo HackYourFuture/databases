@@ -36,8 +36,6 @@ db.query('CREATE TABLE IF NOT EXISTS authors(author_no INT PRIMARY KEY, author_n
     console.log('table created');
 });
 
-connection.end();
-
 //Write a query that adds a foreign key column to Authors table that references the column author_no. Call this column Collaborator.
 db.query('ALTER TABLE authors ADD COLUMN collaborator INT', (err, result) => {
     if(err) throw err;
@@ -49,4 +47,4 @@ db.query('ALTER TABLE authors ADD CONSTRAINT FK_COLLABORATOR FOREIGN KEY (collab
     console.log('foreign key added');
 });
 
-connection.end();
+db.end();
