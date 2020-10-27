@@ -6,7 +6,7 @@ const authorsArray = [
     [4, 'Lina Bo Bardi', 'Oxford', '1935-10-10', 500, 'f', 10],
     [5, 'Maya Lin', 'Harvard', '1955-10-10', 250, 'f', 9],
     [6, 'Tiago Calatrava', 'Oxford', '1935-10-10', 250, 'm', 8],
-    [7, 'Odile Decq', 'Harvard', '1935-10-10', 250, 'f', 7],
+    [7, 'Odile Decq', 'Harvard', '1935-10-10', 250, 'f', 1],
     [8, 'Antoni Gaudí', 'Yale', '1985-10-10', 250, 'm', 6],
     [9, 'Shahira Fahmy', 'Yale', '1985-10-10', 250, 'f', 5],
     [10, 'Oscar Niemeyer', 'Brown', '1975-10-10', 250, 'm', 4],
