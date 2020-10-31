@@ -28,14 +28,17 @@ db.connect((err) => {
 });
 
 //create table research_rapers
-db.query('CREATE TABLE IF NOT EXISTS research_papers(paper_id INT PRIMARY KEY, paper_title VARCHAR(200), conference VARCHAR(100), publish_date DATE)', (err, result) => {
+db.query(`CREATE TABLE IF NOT EXISTS research_papers(paper_id INT PRIMARY KEY,
+    paper_title VARCHAR(200),
+    conference VARCHAR(100), 
+    publish_date DATE)`, (err, result) => {
     if(err) throw err;
     console.log('table research_papers created');
 });
 
 //AUTHORS DATA
 //Make SQL statement:
-const sql = "INSERT IGNORE INTO authors(author_no, author_name, university, date_of_birth, h_index, gender, collaborator) VALUES ?";
+const sql = 'INSERT IGNORE INTO authors(author_no, author_name, university, date_of_birth, h_index, gender, collaborator) VALUES ?';
 
 const query = db.query(sql, [authorsArray], function(err, result) {
     if (err) throw err;
@@ -43,7 +46,7 @@ const query = db.query(sql, [authorsArray], function(err, result) {
 }); 
 
 //RESEARCH DATA
-const research_sql = "INSERT IGNORE INTO research_papers(paper_id, paper_title, conference, publish_date) VALUES ?";
+const research_sql = 'INSERT IGNORE INTO research_papers(paper_id, paper_title, conference, publish_date) VALUES ?';
 
 const research_query = db.query(research_sql, [papersArray], function(err, result) {
     if (err) throw err;
@@ -51,7 +54,10 @@ const research_query = db.query(research_sql, [papersArray], function(err, resul
 }); 
 
 //create ADDITIONAL TABLE: authors_papers
-db.query('CREATE TABLE IF NOT EXISTS authors_papers(author_no INT, paper_id INT, PRIMARY KEY(author_no, paper_id), CONSTRAINT FK_AUTH FOREIGN KEY (author_no) REFERENCES authors(author_no), CONSTRAINT FK_PAPER FOREIGN KEY(paper_id) REFERENCES research_papers(paper_id))', (err, result) => {
+db.query(`CREATE TABLE IF NOT EXISTS authors_papers(author_no INT, paper_id INT, 
+    PRIMARY KEY(author_no, paper_id), 
+    CONSTRAINT FK_AUTH FOREIGN KEY (author_no) REFERENCES authors(author_no), 
+    CONSTRAINT FK_PAPER FOREIGN KEY(paper_id) REFERENCES research_papers(paper_id))`, (err, result) => {
     if(err) throw err;
     console.log('table authors_papers created');
 });

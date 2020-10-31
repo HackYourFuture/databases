@@ -25,7 +25,10 @@ db.connect((err) => {
 });
 
 //query authors and their collaborators
-const sql = "SELECT a.author_name auth_name, c.author_name coll_name FROM authors a, authors c WHERE a.collaborator = c.author_no";
+const sql = `
+SELECT a.author_name auth_name, c.author_name coll_name 
+FROM authors a, authors c 
+WHERE a.collaborator = c.author_no`;
 
 const query = db.query(sql, function(err, result) {
     if (err) throw err;
@@ -33,7 +36,14 @@ const query = db.query(sql, function(err, result) {
 }); 
 
 //Authors and their published paper_title
-const sql_authorsAndPapers = "SELECT author_name, university, date_of_birth, h_index, gender, collaborator, paper_title FROM authors au INNER JOIN authors_papers ap ON au.author_no = ap.author_no INNER JOIN research_papers rp ON rp.paper_id = ap.paper_id";
+//use LEFT JOIN in case of asymmetric data (ie. authors with no research_paper)
+const sql_authorsAndPapers = `
+SELECT author_name, university, date_of_birth, h_index, gender, collaborator, paper_title 
+FROM authors
+LEFT JOIN authors_papers
+ON authors.author_no = authors_papers.author_no
+LEFT JOIN research_papers
+ON authors_papers.paper_id = research_papers.paper_id`;
 
 const query_authorsAndPapers = db.query(sql_authorsAndPapers, function(err, result) {
     if (err) throw err;
