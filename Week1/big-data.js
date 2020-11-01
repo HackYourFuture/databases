@@ -23,7 +23,7 @@ async function seedDatabase() {
 
     execQuery(CREATE_TABLE);
     let rows = []
-    for (i = 1; i <= 10000000; i++) {
+    for (i = 1; i <= 1000000; i++) {
         rows.push([i]);
         if(i%10000 === 0){
             console.log("i="+i);
