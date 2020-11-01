@@ -39,6 +39,7 @@ The rules for first normal form are:
 - Rule 2 : Attribute domain should not change
 - Rule 3 : Unique names for attributes / columns
 - Rule 4 : Order does not matter
+- Rule 5 : Repeating columns are not allowed (ie TelephoneNumber1, TelephoneNumber2, etc.)
 
 Did you get that? Neither did I! These normal form rules are written abstractly in a hard-to-understand formal language.
 
@@ -50,7 +51,7 @@ Let us look at an example:
 | 456         | San        | Zhang   | (555) 403-1659 Ext. 53; 182-929-2929 |
 | 789         | John       | Doe     | 555-808-9633                         |
 
-This table violates rule 1 because the column for telephone numbers has multiple values. The easiest way to fix this is to have two separate phone columns: one for landline and one for mobile.
+This table violates rule 1 because the column for telephone numbers has multiple values. The easiest way to fix this is to have two separate phone columns: one for landline and one for mobile. If multiple mobile telephone numbers are used then creating a new table with a foreign key refering to `customerId` would be required for 1NF.
 
 #### 2nd normal form (2NF)
 
