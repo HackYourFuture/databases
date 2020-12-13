@@ -6,8 +6,9 @@ Create a database called `db_qa_session` or make changes to the `knexfile.js`
 
 ```
 npm install
-npx knex migrate:latest
-npx knex seed:run
+npm install -g knex 
+knex migrate:latest
+knex seed:run
 ```
 
 Your database should be filled with some demo content :)
