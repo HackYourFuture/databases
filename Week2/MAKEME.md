@@ -19,6 +19,9 @@ Also make time to do lesson 6-12 from the following:
 
 ## 2. **MySQL exercises**
 
+> You will need to do some research to solve these exercises. All the concepts necessary to solve
+these exercises are NOT covered in the reading material. This is on purpose.
+
 This week we'll practice some more with writing SQL queries using JavaScript. For each exercise make a separate `.js` file; make sure to give it an appropriate name!
 
 **Exercise 1: Keys**

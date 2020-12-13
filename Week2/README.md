@@ -21,6 +21,12 @@ These are the topics for week 2:
    - Group By
    - Having
 
+## 0. Video Lectures
+
+Your teachers Igor and Unmesh have made video lectures for this week's material. You can find them here: [Videos 9 - 10](https://www.youtube.com/playlist?list=PLVYDhqbgYpYVq-rHFB1x2-P7esnWotCB7)
+
+<a href="https://www.youtube.com/playlist?list=PLVYDhqbgYpYVq-rHFB1x2-P7esnWotCB7" target="_blank"><img src="../assets/playlist-thumbnail.png" width="600" height="350" alt="HYF Video" /></a>
+
 ## 1. What’s an identifier (keys)?
 
 A key or identifier is a single or combination of multiple fields in a table which is used to fetch or retrieve records/data-rows from data table according to the condition/requirement.
@@ -99,7 +105,6 @@ CREATE TABLE students
 
 For more information, check out the following:
 
-- [Tables and keys](https://www.youtube.com/watch?v=ia4eCxPPc_o)
 - [Linked Tables and keys](https://www.youtube.com/watch?v=ia4eCxPPc_o)
 
 ## 2. What are the 3 types of relationships?
