@@ -26,23 +26,23 @@ This week we'll practice some more with writing SQL queries using JavaScript. Fo
 
 **Exercise 1: Keys**
 
-1. Create a table, called `Authors`. Give it the following fields: `(author_no(Primary Key), author_name, university, date_of_birth, h_index, gender)`
+1. Create a table, called `authors`. Give it the following fields: `(author_no(Primary Key), author_name, university, date_of_birth, h_index, gender)`
 2. Write a query that adds a `foreign key` column to `Authors` table that references the column `author_no`.
 Call this column `Collaborator`.
 
 **Exercise 2: Relationships**
 
-1. Create another table, called `Research_Papers` with the following fields: `(paper_id, paper_title, conference, publish_date, ...)`
-2. What is the relationship between Authors and Research papers ? Make necessary changes to `Authors` and
-`Research_Papers` tables and add more tables if necessary.
+1. Create another table, called `research_Papers` with the following fields: `(paper_id, paper_title, conference, publish_date, ...)`
+2. What is the relationship between Authors and Research papers ? Make necessary changes to `authors` and
+`research_Papers` tables and add more tables if necessary.
 3. Read exercises 3 and 4 and then add information (insert rows) of 15 authors and 30 research papers such that
 all queries in the exercises  3 and 4 will return some answers
 
 **Exercise 3: Joins**
 
-1. Write a query that prints names of all `Authors` and their corresponding `Collaborators`.
-2. Write a query that prints all columns of `Authors` and their pubished `paper_title`.
-If there is an author without any `Research_Papers`, print the information of that `Author` too.
+1. Write a query that prints names of all `authors` and their corresponding `collaborators`.
+2. Write a query that prints all columns of `authors` and their published `paper_title`.
+If there is an author without any `research_Papers`, print the information of that `author` too.
 
 **Exercise 4: Aggregate Functions**
 
