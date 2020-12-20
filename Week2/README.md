@@ -59,12 +59,6 @@ If you already have the table, and you just want to change a column to Primary K
 ALTER TABLE teachers ADD PRIMARY KEY (teacher_number);
 ```
 
-or you can define a primary key later:
-
-```sql
-ALTER TABLE teachers ADD CONSTRAINT PK_Person PRIMARY KEY (ID,LastName);
-```
-
 ### Foreign Key
 
 A FOREIGN KEY is a key used to link two tables together. This KEY is a field
