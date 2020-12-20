@@ -178,20 +178,20 @@ To learn more about this topic, check out the following:
 Let’s say we wanted to get a list of those students and the details of their teacher. This would be a perfect fit for an inner join, since an inner join returns records at the intersection of the two tables.
 
 ```sql
-SELECT s.first_name, s.last_name, s.gender, s.grade, t.full_name
-FROM students s
-INNER JOIN teachers t
-ON s.teacher_number = t.teacher_number
+SELECT students.first_name, students.last_name, students.gender, students.grade, teachers.full_name
+FROM students
+INNER JOIN teachers
+ON students.teacher_number = teachers.teacher_number
 ```
 
-#### Self Joins
-
-A self join is a join in which a table is joined with itself (which is also called Unary relationships), especially when the table has a FOREIGN KEY which references its own PRIMARY KEY. To join a table itself means that each row of the table is combined with itself and with every other row of the table. In department, we want to get the employee's information with their direct manager. Here, each row in employees has a foreign key to itself as manager_id:
+When you join two tables there can be columns in both tables with the same name.
+To be explicit about the column you need you have to prefix the column with the table name like `table.column`
+If you want to type less you can create an alias for table names using `table as alias` or `table alias` leaving out `AS`
 
 ```sql
-SELECT a.full_name AS full_name, b.full_name AS manager_name
-FROM employee a, employee b
-WHERE a.manager_id = b.id;
+SELECT teachers.*, tq.title
+FROM teachers
+JOIN teacher_qualifications as `tq` ON tq.teacher_id = teacher.id
 ```
 
 #### Right and Left Joins
@@ -199,10 +199,9 @@ WHERE a.manager_id = b.id;
 If we wanted to simply append information about teachers to our students table regardless of whether a student has a teacher or not, we would use a left join. A left join returns all records from table A and any matching records from table B.
 
 ```sql
-SEKECT s.first_name, s.last_name, t.full_name
-FROM studetns s
-LEFT JOIN teachers t
-ON s.teacher_number = t.teacher_number
+SELECT students.first_name, students.last_name, teachers.full_name
+FROM students
+LEFT JOIN teachers ON students.teacher_number = teachers.number
 ```
 
 It can be reversed. The reverse way of querying is called RIGHT JOIN.
@@ -216,19 +215,19 @@ Check out the following to get a more visual idea of what `joins` are:
 
 In database management an **Aggregate Function** is a function where the values of multiple rows are grouped together as input on certain criteria to form a single value of more significant meaning.
 
-- `Count()`
-- `Sum()`
-- `Avg()`
-- `Min()`
-- `Max()`
+- `COUNT()`
+- `SUM()`
+- `AVG()`
+- `MIN()`
+- `MAX()`
 
 ### Distinct Keyword
 
 DISTINCT statement is used to return only distinct (different) values. It can be used with aggregation functions. In below example, we retrieve the numbers of teachers from students table.
 
 ```sql
-SELECT Count(DISTINCT s.teacher_number) AS no_teachers
-FROM students s
+SELECT COUNT(DISTINCT teacher_number) AS no_teachers
+FROM students
 ```
 
 ### Group By
@@ -238,9 +237,9 @@ The **GROUP BY** statement groups rows that have the same values into summary ro
 The **GROUP BY** statement is often used with aggregate functions to group the result-set by one or more columns.
 
 ```sql
-SELECT Count(s.techer_number) AS no_teachers, s.techer_number AS teacher_number
-FROM students s
-GROUP BY s.teacher_number
+SELECT COUNT(techer_number) AS no_teachers, techer_number AS teacher_number
+FROM students
+GROUP BY teacher_number
 ```
 
 ### Having
@@ -250,10 +249,10 @@ The **Having** clause makes the aggregate functions conditional. It restricts th
 For example in below example, we just retrieve the teachers who teach more that three students.
 
 ```sql
-SELECT Count(s.techer_number) AS no_teachers, s.techer_number AS teacher_number
-FROM students s
-GROUP BY s.teacher_number
-HAVING Count(s.teacher_number) > 3
+SELECT COUNT(techer_number) AS no_teachers, techer_number AS teacher_number
+FROM students
+GROUP BY teacher_number
+HAVING COUNT(teacher_number) > 3
 ```
 
 ## Finished?
