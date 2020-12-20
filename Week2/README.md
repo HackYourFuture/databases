@@ -246,9 +246,9 @@ FROM students
 
 ### Group By
 
-The **GROUP BY** statement groups rows that have the same values into summary rows, like "find the number of students for each teacher".
+The `GROUP BY` statement groups rows that have the same values into summary rows, like "find the number of students for each teacher".
 
-The **GROUP BY** statement is often used with aggregate functions to group the result-set by one or more columns.
+The `GROUP BY` statement is often used with aggregate functions to group the result-set by one or more columns.
 
 ```sql
 SELECT COUNT(techer_number) AS no_teachers, techer_number AS teacher_number
@@ -258,7 +258,7 @@ GROUP BY teacher_number
 
 ### Having
 
-The **Having** clause makes the aggregate functions conditional. It restricts the query results of _group by_ clause.
+The `Having` clause is like a `WHERE` statement but applied after the grouping has happened. It restricts the query results of `GROUP BY` clause.
 
 For example in below example, we just retrieve the teachers who teach more that three students.
 
