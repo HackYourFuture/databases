@@ -204,7 +204,8 @@ FROM students
 LEFT JOIN teachers ON students.teacher_number = teachers.number
 ```
 
-It can be reversed. The reverse way of querying is called RIGHT JOIN.
+If you tried to keep all the teachers and wanted to see teachers with or without students you need a right join.
+The right join will keep all records from the joined table and discard records, from the preceding tables, that can't be joined
 
 Check out the following to get a more visual idea of what `joins` are:
 
