@@ -45,10 +45,10 @@ To define a Primary Key while creating the table, you should determine the attri
 ```sql
 CREATE TABLE teachers (
       teacher_number INT,
-      teacher_name VARCHAR(50),
+      name VARCHAR(50),
       date_of_birth DATE,
       subject TEXT,
-      gender ENUM('m', 'f'),
+      email VARCHAR(200),
       CONSTRAINT PK_Teacher PRIMARY KEY (teacher_number)
 );
 ```
@@ -75,12 +75,17 @@ To define a Foreign Key while creating the table, you can use the below query:
 ```sql
 CREATE TABLE students (
     student_number int,
-    student_name VARCHAR(50),
-    gender ENUM('m', 'f'),
+    name VARCHAR(50),
+    teacher_id int,
+    email VARCHAR(200),
     PRIMARY KEY (student_number),
     CONSTRAINT FK_TEACHER FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_number)
 );
 ```
+
+A foreign key does two useful things;
+- It will verify if the related record exists, so you can't insert a row referencing a non-existing relation.
+- It will create an index on this column, giving faster results when querying on the particular column. 
 
 or you can add a foreign key later:
 
@@ -89,19 +94,33 @@ ALTER TABLE students
     ADD CONSTRAINT FK_TEACHER FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_number);
 ```
 
+### Unique key
+
+The unique key is quite similar to a primary key, they both serve to check the uniqueness of a column value.
+The difference is that there can be only a single primary key, to define the record, and multiple unique keys, to define unique values.
+Foreign keys can only reference primary keys and not unique keys
+
+```sql
+ALTER TABLE teachers ADD UNIQUE KEY (email);
+```
+
 ### Composite Key
 
 A composite key is a key composed of two or more columns in a table that can be used to uniquely identify
 each row in the table when the columns are combined **uniqueness is guaranteed**, but when it taken individually
 it does not guarantee uniqueness.
 
+For example in a database with students from several schools you'd expect the same `student_number` across schools.
 ```sql
-CREATE TABLE students
+CREATE TABLE students (
     student_number int,
-    student_name VARCHAR(50),
-    gender ENUM('m', 'f'),
-    PRIMARY KEY (student_number, student_name));
+    name VARCHAR(50),
+    school_id int,
+    PRIMARY KEY (student_number, school_id))
 ```
+
+Although composite keys show up in theoretical examples it isn't common to use them in practice.
+Most frameworks will add an `id` column or a prefixed id column like `student_id` 
 
 For more information, check out the following:
 
