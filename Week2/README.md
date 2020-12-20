@@ -251,7 +251,7 @@ The `GROUP BY` statement groups rows that have the same values into summary rows
 The `GROUP BY` statement is often used with aggregate functions to group the result-set by one or more columns.
 
 ```sql
-SELECT COUNT(techer_number) AS no_teachers, techer_number AS teacher_number
+SELECT COUNT(teacher_number) AS no_teachers, teacher_number AS teacher_number
 FROM students
 GROUP BY teacher_number
 ```
@@ -263,7 +263,7 @@ The `Having` clause is like a `WHERE` statement but applied after the grouping h
 For example in below example, we just retrieve the teachers who teach more that three students.
 
 ```sql
-SELECT COUNT(techer_number) AS no_teachers, techer_number AS teacher_number
+SELECT COUNT(teacher_number) AS no_teachers, teacher_number AS teacher_number
 FROM students
 GROUP BY teacher_number
 HAVING COUNT(teacher_number) > 3
