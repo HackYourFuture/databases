@@ -188,7 +188,8 @@ To learn more about this topic, check out the following:
 
 #### Inner Joins
 
-Let’s say we wanted to get a list of those students and the details of their teacher. This would be a perfect fit for an inner join, since an inner join returns records at the intersection of the two tables.
+Let’s say we wanted to get a list of students and the details of their teacher, dismissing students without a teacher.
+This would be a perfect fit for an inner join, since an inner join returns records at the intersection of the two tables.
 
 ```sql
 SELECT students.first_name, students.last_name, students.gender, students.grade, teachers.full_name
@@ -197,15 +198,21 @@ INNER JOIN teachers
 ON students.teacher_number = teachers.teacher_number
 ```
 
+The keyword `INNER` is optional and writing `JOIN teachers` will result in an inner join.
+
+#### Aliases
+
 When you join two tables there can be columns in both tables with the same name.
 To be explicit about the column you need you have to prefix the column with the table name like `table.column`
-If you want to type less you can create an alias for table names using `table as alias` or `table alias` leaving out `AS`
+If you want to type less you can create an alias for table names using `table AS alias`
 
 ```sql
 SELECT teachers.*, tq.title
 FROM teachers
-JOIN teacher_qualifications as `tq` ON tq.teacher_id = teacher.id
+JOIN teacher_qualifications AS `tq` ON tq.teacher_id = teacher.id
 ```
+
+The `AS` keyword is optional, so you could write it also like `teacher_qualifications tq`
 
 #### Right and Left Joins
 
@@ -224,6 +231,9 @@ Check out the following to get a more visual idea of what `joins` are:
 
 - [Understand SQL Joins in 10 Minutes](https://www.youtube.com/watch?v=tvMGoxmQzgQ)
 - [Joins in SQL](https://www.youtube.com/watch?v=efpFCd8iFAQ)
+
+Other types of joins are less common but can sometimes be needed.
+If you're interested you can read more about [self joins](https://www.w3schools.com/sql/sql_join_self.asp) and [full outer joins](https://www.w3schools.com/sql/sql_join_full.asp).
 
 ### Aggregate Functions in SQL
 
