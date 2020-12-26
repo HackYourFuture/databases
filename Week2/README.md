@@ -45,10 +45,10 @@ To define a Primary Key while creating the table, you should determine the attri
 ```sql
 CREATE TABLE teachers (
       teacher_number INT,
-      teacher_name VARCHAR(50),
+      name VARCHAR(50),
       date_of_birth DATE,
       subject TEXT,
-      gender ENUM('m', 'f'),
+      email VARCHAR(200),
       CONSTRAINT PK_Teacher PRIMARY KEY (teacher_number)
 );
 ```
@@ -57,12 +57,6 @@ If you already have the table, and you just want to change a column to Primary K
 
 ```sql
 ALTER TABLE teachers ADD PRIMARY KEY (teacher_number);
-```
-
-or you can define a primary key later:
-
-```sql
-ALTER TABLE teachers ADD CONSTRAINT PK_Person PRIMARY KEY (ID,LastName);
 ```
 
 ### Foreign Key
@@ -75,12 +69,17 @@ To define a Foreign Key while creating the table, you can use the below query:
 ```sql
 CREATE TABLE students (
     student_number int,
-    student_name VARCHAR(50),
-    gender ENUM('m', 'f'),
+    name VARCHAR(50),
+    teacher_id int,
+    email VARCHAR(200),
     PRIMARY KEY (student_number),
     CONSTRAINT FK_TEACHER FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_number)
 );
 ```
+
+A foreign key does two useful things;
+- It will verify if the related record exists, so you can't insert a row referencing a non-existing relation.
+- It will create an index on this column, giving faster results when querying on the particular column. 
 
 or you can add a foreign key later:
 
@@ -89,19 +88,33 @@ ALTER TABLE students
     ADD CONSTRAINT FK_TEACHER FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_number);
 ```
 
+### Unique key
+
+The unique key is quite similar to a primary key, they both serve to check the uniqueness of a column value.
+The difference is that there can be only a single primary key, to define the record, and multiple unique keys, to define unique values.
+Foreign keys can only reference primary keys and not unique keys
+
+```sql
+ALTER TABLE teachers ADD UNIQUE KEY (email);
+```
+
 ### Composite Key
 
 A composite key is a key composed of two or more columns in a table that can be used to uniquely identify
 each row in the table when the columns are combined **uniqueness is guaranteed**, but when it taken individually
 it does not guarantee uniqueness.
 
+For example in a database with students from several schools you'd expect the same `student_number` across schools.
 ```sql
-CREATE TABLE students
+CREATE TABLE students (
     student_number int,
-    student_name VARCHAR(50),
-    gender ENUM('m', 'f'),
-    PRIMARY KEY (student_number, student_name));
+    name VARCHAR(50),
+    school_id int,
+    PRIMARY KEY (student_number, school_id))
 ```
+
+Although composite keys show up in theoretical examples it isn't common to use them in practice.
+Most frameworks will add an `id` column or a prefixed id column like `student_id` 
 
 For more information, check out the following:
 
@@ -175,85 +188,95 @@ To learn more about this topic, check out the following:
 
 #### Inner Joins
 
-Let’s say we wanted to get a list of those students and the details of their teacher. This would be a perfect fit for an inner join, since an inner join returns records at the intersection of the two tables.
+Let’s say we wanted to get a list of students and the details of their teacher, dismissing students without a teacher.
+This would be a perfect fit for an inner join, since an inner join returns records at the intersection of the two tables.
 
 ```sql
-SELECT s.first_name, s.last_name, s.gender, s.grade, t.full_name
-FROM students s
-INNER JOIN teachers t
-ON s.teacher_number = t.teacher_number
+SELECT students.first_name, students.last_name, students.gender, students.grade, teachers.full_name
+FROM students
+INNER JOIN teachers
+ON students.teacher_number = teachers.teacher_number
 ```
 
-#### Self Joins
+The keyword `INNER` is optional and writing `JOIN teachers` will result in an inner join.
 
-A self join is a join in which a table is joined with itself (which is also called Unary relationships), especially when the table has a FOREIGN KEY which references its own PRIMARY KEY. To join a table itself means that each row of the table is combined with itself and with every other row of the table. In department, we want to get the employee's information with their direct manager. Here, each row in employees has a foreign key to itself as manager_id:
+#### Aliases
+
+When you join two tables there can be columns in both tables with the same name.
+To be explicit about the column you need you have to prefix the column with the table name like `table.column`
+If you want to type less you can create an alias for table names using `table AS alias`
 
 ```sql
-SELECT a.full_name AS full_name, b.full_name AS manager_name
-FROM employee a, employee b
-WHERE a.manager_id = b.id;
+SELECT teachers.*, tq.title
+FROM teachers
+JOIN teacher_qualifications AS `tq` ON tq.teacher_id = teacher.id
 ```
+
+The `AS` keyword is optional, so you could write it also like `teacher_qualifications tq`
 
 #### Right and Left Joins
 
 If we wanted to simply append information about teachers to our students table regardless of whether a student has a teacher or not, we would use a left join. A left join returns all records from table A and any matching records from table B.
 
 ```sql
-SEKECT s.first_name, s.last_name, t.full_name
-FROM studetns s
-LEFT JOIN teachers t
-ON s.teacher_number = t.teacher_number
+SELECT students.first_name, students.last_name, teachers.full_name
+FROM students
+LEFT JOIN teachers ON students.teacher_number = teachers.number
 ```
 
-It can be reversed. The reverse way of querying is called RIGHT JOIN.
+If you tried to keep all the teachers and wanted to see teachers with or without students you need a right join.
+The right join will keep all records from the joined table and discard records, from the preceding tables, that can't be joined
 
 Check out the following to get a more visual idea of what `joins` are:
 
 - [Understand SQL Joins in 10 Minutes](https://www.youtube.com/watch?v=tvMGoxmQzgQ)
 - [Joins in SQL](https://www.youtube.com/watch?v=efpFCd8iFAQ)
 
+Other types of joins are less common but can sometimes be needed.
+If you're interested you can read more about [self joins](https://www.w3schools.com/sql/sql_join_self.asp) and [full outer joins](https://www.w3schools.com/sql/sql_join_full.asp).
+
 ### Aggregate Functions in SQL
 
 In database management an **Aggregate Function** is a function where the values of multiple rows are grouped together as input on certain criteria to form a single value of more significant meaning.
 
-- `Count()`
-- `Sum()`
-- `Avg()`
-- `Min()`
-- `Max()`
+- `COUNT()`
+- `SUM()`
+- `AVG()`
+- `MIN()`
+- `MAX()`
 
 ### Distinct Keyword
 
 DISTINCT statement is used to return only distinct (different) values. It can be used with aggregation functions. In below example, we retrieve the numbers of teachers from students table.
 
 ```sql
-SELECT Count(DISTINCT s.teacher_number) AS no_teachers
-FROM students s
+SELECT COUNT(DISTINCT teacher_number) AS no_teachers
+FROM students
 ```
 
 ### Group By
 
-The **GROUP BY** statement groups rows that have the same values into summary rows, like "find the number of students for each teacher".
+The `GROUP BY` statement groups rows that have the same values into summary rows, like "find the number of students for each teacher".
 
-The **GROUP BY** statement is often used with aggregate functions to group the result-set by one or more columns.
+The `GROUP BY` statement is often used with aggregate functions to group the result-set by one or more columns.
 
 ```sql
-SELECT Count(s.techer_number) AS no_teachers, s.techer_number AS teacher_number
-FROM students s
-GROUP BY s.teacher_number
+SELECT COUNT(teacher_number) AS no_teachers, teacher_number AS teacher_number
+FROM students
+GROUP BY teacher_number
 ```
 
 ### Having
 
-The **Having** clause makes the aggregate functions conditional. It restricts the query results of _group by_ clause.
+The `Having` clause is like a `WHERE` statement but applied after the grouping has happened. It restricts the query results of `GROUP BY` clause.
 
 For example in below example, we just retrieve the teachers who teach more that three students.
 
 ```sql
-SELECT Count(s.techer_number) AS no_teachers, s.techer_number AS teacher_number
-FROM students s
-GROUP BY s.teacher_number
-HAVING Count(s.teacher_number) > 3
+SELECT COUNT(teacher_number) AS no_teachers, teacher_number AS teacher_number
+FROM students
+GROUP BY teacher_number
+HAVING COUNT(teacher_number) > 3
 ```
 
 ## Finished?
