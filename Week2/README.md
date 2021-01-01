@@ -205,7 +205,8 @@ The keyword `INNER` is optional and writing `JOIN teachers` will result in an in
 
 When you join two tables there can be columns in both tables with the same name.
 To be explicit about the column you need you have to prefix the column with the table name like `table.column`
-If you want to type less you can create an alias for table names using `table AS alias`
+If you have long table names you can create an alias for a table using `table AS alias`.
+The goal is to make queries easier to read, so be aware that using short or meaningless aliases (like `a`,`b`,`c`) can make it worse.
 
 ```sql
 SELECT teachers.*, tq.title
