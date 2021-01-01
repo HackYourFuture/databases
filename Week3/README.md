@@ -20,77 +20,93 @@ Your teachers Igor and Unmesh have made video lectures for this week's material.
 
 ## 1. Normalization and normal forms
 
-When setting up a database, one of the most important aspects to be taken into account is to ensure that duplication of data is minimized. This is done for 2 purposes:
+When setting up a database, one of the most important aspects to be taken into account is to ensure that duplication of data is minimized.
+If you do store data twice in your database, but on update forget to update all locations you will end up with a data conflict.
 
-- Reducing the amount of storage needed to store the data.
-- Avoiding unnecessary data conflicts that may creep in because of multiple copies of the same data getting stored.
+A second advantage of a fully normalized database is that it allows its structure to be extended later to accommodate new types of data without changing existing structure too much.
+As a result, code interacting with the database is minimally affected.
 
 ![if you dont do database normalization you will have a bad time](https://i.imgflip.com/1uidqc.jpg)
 
 Database normalization is a technique that helps in optimally designing the database to ensure the above points. The core idea of database normalization is to divide large tables into smaller subtables and store pointers to data rather than replicating it.
 
 There are various database “Normal” forms. Each normal form (NF) has an importance which helps in optimizing the database to save storage and to reduce redundancies. These normal forms build incrementally. e.g. a database is in 3NF if it is already in 2NF and satisfied the rules for 3rd normal form.
+The normal forms are written abstractly in a hard-to-understand formal language, we will keep it short and practical. 
 
-#### 1st normal form (1NF) (4 rules)
+#### 1st normal form (1NF)
 
-The rules for first normal form are:
+The first normal form requires your attributes to stay proper, in essence coming down to this list:
 
-- Rule 1 : Single valued attributes (each column should have atomic value, no multiple values)
-- Rule 2 : Attribute domain should not change
-- Rule 3 : Unique names for attributes / columns
-- Rule 4 : Order does not matter
-- Rule 5 : Repeating columns are not allowed (ie TelephoneNumber1, TelephoneNumber2, etc.)
-
-Did you get that? Neither did I! These normal form rules are written abstractly in a hard-to-understand formal language.
+- Prevent duplicate records by applying Primary Keys
+- Every column should only contain a single value
+- Repeating columns are not allowed
 
 Let us look at an example:
 
-| Customer ID | First Name | Surname | Telephone Number                     |
-| ----------- | ---------- | ------- | ------------------------------------ |
-| 123         | Pooja      | Singh   | 555-861-2025, 192-122-1111           |
-| 456         | San        | Zhang   | (555) 403-1659 Ext. 53; 182-929-2929 |
-| 789         | John       | Doe     | 555-808-9633                         |
+| Customer ID | First Name | Surname | Telephone Numbers                    | Shipping Address 1 | Shipping Address 2 | 
+| ----------- | ---------- | ------- | ------------------------------------ | ------------------ | ------------------ |
+| 123         | Pooja      | Singh   | 555-861-2025, 192-122-1111           | Hoogweg 1          |                    |
+| 456         | San        | Zhang   | (555) 403-1659 Ext. 53; 182-929-2929 | High av. 3254      | Low street 2       |
+| 789         | John       | Doe     | 555-808-9633                         | Bergweg 2          |                    |
 
-This table violates rule 1 because the column for telephone numbers has multiple values. The easiest way to fix this is to have two separate phone columns: one for landline and one for mobile. If multiple mobile telephone numbers are used then creating a new table with a foreign key refering to `customerId` would be required for 1NF.
+This table violates rule 1 because the column for telephone numbers has multiple values.
+The easiest way to fix this is to have two separate phone columns: one for landline and one for mobile.
 
-#### 2nd normal form (2NF)
+The second problem involves `Shipping Address 1` and `Shipping Address 2`
+The proper way to solve this type of problem would be to identify entities represented in the table and separate them into their own respective tables.
+A new table called `Shipping Addresses` would be an option or a table `Addresses` with a column `type ENUM('shipping','financial')` 
 
-There is only one rule for second normal form: no non-prime attribute should be functionally dependent on any proper subset of a candidate key.
+#### 2nd normal form (2NF) and 3rd normal form (3NF)
 
-You do not need to memorize this very formal definition. Instead, let us try and understand what this means by looking at an example:
+The second and third rules are both about eliminating redundant data.
+When attributes can be split into separate entities you should split them.
 
-| Manufacturer | Model       | Manufacturer country |
-| ------------ | ----------- | -------------------- |
-| Apple        | MacBook Air | United States        |
-| Apple        | Macbook Pro | United States        |
-| Lenovo       | ThinkPad    | China                |
-| Lenovo       | IdeaPad     | China                |
+Let's look at an example:
 
-This table violates the rule of 2NF because data in the column `Manufacturer country` depends on the `Manufacturer` column (which can be considered a subset of the key {`Manufacturer`,`Model`}). To make that database comply with the 2NF, we have to split up the table into two smaller tables:
+| Manufacturer (PK) | Model (PK)  | Manufacturer country | Manufacturer country code |
+| ----------------- | ----------- | -------------------- | ------------------------- |
+| Apple             | MacBook Air | United States        | US |
+| Apple             | Macbook Pro | United States        | US |
+| Lenovo            | ThinkPad    | China                | CN |
+| Lenovo            | IdeaPad     | China                | CN |
 
-| Manufacturer | Manufacturer country |
-| ------------ | -------------------- |
-| Apple        | United States        |
-| Lenovo       | China                |
+This table violates the rule of 2NF and 3NF because data in the column `Manufacturer country` and `Manufacturer country code` depend on the Primary Key that is actually unrelated.
+To make the database comply, we have to split up the table into three smaller tables (Countries, Models, Manufacturers):
 
-| Manufacturer | Model       |
-| ------------ | ----------- |
-| Apple        | MacBook Air |
-| Apple        | Macbook Pro |
-| Lenovo       | ThinkPad    |
-| Lenovo       | IdeaPad     |
+**Countries**
 
-#### 3rd normal form (3NF)
+| Country Code | Country Name  |
+| ------------ | ------------- |
+| US           | United States |
+| CN           | China         |
 
-There is only one rule for third normal form: No transitive dependency (i.e. no field should depend on non-key attributes).
+**Models**
 
-This rule is very similar to the rule for 2NF with the exception that it applies to non-key attributes. The approach for making your database comply with 3NF is also similar: split up your table. You can find a complete example [here](https://en.wikipedia.org/wiki/Third_normal_form).
+| Model       | Manufacturer |
+| ----------- | ------------ |
+| MacBook Air | Apple        |
+| Macbook Pro | Apple        |
+| ThinkPad    | Lenovo       |
+| IdeaPad     | Lenovo       |
+
+**Manufacturers**
+
+| Manufacturer | Country Code |
+| ------------ | ------------ |
+| Apple        | US           |
+| Lenovo       | CN           |
+
+Update anomalies cannot occur in these tables, unlike before because there is only one value for country name for each country code.
 
 #### Higher normal forms
 
-Besides these three normal forms, there are other higher normal forms, for example, the Boyce-Codd normal form (3.5 NF). Not all of these normal forms are equally important. Most of the time while designing databases you should aim for the third normal form. If you still did not get what are the rules for thedifferentt normal forms, don't worry. Over time you will develop a feel for it.
+Besides these three normal forms, there are other higher normal forms, for example, the Boyce-Codd normal form (3.5 NF).
+Not all of these normal forms are equally important.
+Most of the time while designing databases you should aim for the third normal form.
+If you still did not get what are the rules for the different normal forms, don't worry.
+Over time, you will develop a feel for it.
 
-To increase your understanding, study the following materials:
+If you want to increase your understanding, you can study the following materials:
 
 - [Database Normalization in Simple English](https://www.essentialsql.com/get-ready-to-learn-sql-database-normalization-explained-in-simple-english/)
 - [Database Normalization with examples](https://www.studytonight.com/dbms/database-normalization.php)
