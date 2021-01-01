@@ -44,12 +44,12 @@ To define a Primary Key while creating the table, you should determine the attri
 
 ```sql
 CREATE TABLE teachers (
-      teacher_number INT,
+      teacher_number INT NOT NULL AUTO_INCREMENT,
       name VARCHAR(50),
       date_of_birth DATE,
       subject TEXT,
       email VARCHAR(200),
-      CONSTRAINT PK_Teacher PRIMARY KEY (teacher_number)
+      PRIMARY KEY (teacher_number)
 );
 ```
 
@@ -68,12 +68,12 @@ To define a Foreign Key while creating the table, you can use the below query:
 
 ```sql
 CREATE TABLE students (
-    student_number int,
+    student_number INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50),
-    teacher_id int,
+    teacher_id INT,
     email VARCHAR(200),
     PRIMARY KEY (student_number),
-    CONSTRAINT FK_TEACHER FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_number)
+    FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_number)
 );
 ```
 
@@ -107,10 +107,11 @@ it does not guarantee uniqueness.
 For example in a database with students from several schools you'd expect the same `student_number` across schools.
 ```sql
 CREATE TABLE students (
-    student_number int,
+    student_number INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50),
-    school_id int,
-    PRIMARY KEY (student_number, school_id))
+    school_id INT,
+    PRIMARY KEY (student_number, school_id)
+);
 ```
 
 Although composite keys show up in theoretical examples it isn't common to use them in practice.
@@ -261,7 +262,7 @@ The `GROUP BY` statement groups rows that have the same values into summary rows
 The `GROUP BY` statement is often used with aggregate functions to group the result-set by one or more columns.
 
 ```sql
-SELECT COUNT(teacher_number) AS no_teachers, teacher_number AS teacher_number
+SELECT COUNT(teacher_number) AS no_teachers, teacher_number
 FROM students
 GROUP BY teacher_number
 ```
@@ -273,7 +274,7 @@ The `Having` clause is like a `WHERE` statement but applied after the grouping h
 For example in below example, we just retrieve the teachers who teach more that three students.
 
 ```sql
-SELECT COUNT(teacher_number) AS no_teachers, teacher_number AS teacher_number
+SELECT COUNT(teacher_number) AS no_teachers, teacher_number
 FROM students
 GROUP BY teacher_number
 HAVING COUNT(teacher_number) > 3
