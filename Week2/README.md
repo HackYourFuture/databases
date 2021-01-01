@@ -132,12 +132,11 @@ cause you to change the relationship.)
 
 A pair of tables bears a one-to-one relationship when a single record in the first table is
 related to only one record in the second table, and a single record in the second table is
-related to only one record in the first table. To implement this relationship, we should
-put a foreign key in One side that is referring to another One side.
+related to only one record in the first table. 
 
-For example, each teacher has a specific compensation for himself (Not more than one as a teacher)
-and each compensation only belongs to one (and just one) teacher. So there is a One-to_one
-relationship between entity teacher and entity compensation.
+For example: each teacher has a personal account and a personal inbox (not more than one per account)
+and each inbox only belongs to a single account. 
+So there is a One-to-One relationship between entity account and entity inbox.
 
 ### Many-to-One (1-M)
 
@@ -146,16 +145,21 @@ first table can be related to **one or more** records in the second table, but a
 in the second table can be related to only one record in the first table. To implement this
 relationship, we should put a foreign key in Many side that is referring to One side.
 
-For example, each teacher can teach to some (zero to several) students, but in reverse direction
-each student in one time has just one teacher. So there is a Many-to-One relationship
-between entity student and entity teacher.
+For example: each mentor can help some students,
+but in reverse direction each student at one time has just one mentor.
+So there is a Many-to-One relationship between entity student and entity mentor.
 
 ### Many-to-Many (M-M)
 
 A pair of tables bears a many-to-many relationship when a single record in the first table
 can be related to one or more records in the second table and a single record in the second
-table can be related to one or more records in the first table. We will see how to implement
-this relationship in week 3.
+table can be related to one or more records in the first table. To implement this
+relationship, we should create an extra table. This concept is called a junction table.
+The table should (at least) contain the primary keys from both entities. 
+
+For example: each teacher will teach a course to multiple classes
+and these classes will be following several courses from different teachers.
+So there is a Many-to-Many relationship between the entities course and class
 
 To learn more about relationships, check out the following:
 
