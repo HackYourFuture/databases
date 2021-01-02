@@ -7,9 +7,9 @@ and explain the concepts better in the class.
 ## Topics
 
 0. Async nature of MySQL-Nodejs interaction
-1. Keys (unique, primary)
+1. Keys (primary, unique)
 2. Relationships (1-M with foreign keys, M-M with composite keys)
-3. Joins (comma (cross), implicit inner, self, left, right)
+3. Joins (inner, left and right) and aliases
 4. More SQL clauses (group by, having, distinct and Aggregate functions)
 5. Domain modeling (ERD)
 
