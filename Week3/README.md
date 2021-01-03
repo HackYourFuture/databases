@@ -74,28 +74,29 @@ To make the database comply, we have to split up the table into three smaller ta
 
 **Countries**
 
-| Country Code | Country Name  |
-| ------------ | ------------- |
-| US           | United States |
-| CN           | China         |
+| Country Code (PK) | Country Name  |
+| ----------------- | ------------- |
+| US                | United States |
+| CN                | China         |
 
 **Models**
 
-| Model       | Manufacturer |
-| ----------- | ------------ |
-| MacBook Air | Apple        |
-| Macbook Pro | Apple        |
-| ThinkPad    | Lenovo       |
-| IdeaPad     | Lenovo       |
+| ID (PK) | Name        | Manufacturer ID (FK) |
+| ------- | ----------- | -------------------- |
+| 1       | MacBook Air | 1                    |
+| 2       | Macbook Pro | 1                    |
+| 3       | ThinkPad    | 2                    |
+| 4       | IdeaPad     | 2                    |
 
 **Manufacturers**
 
-| Manufacturer | Country Code |
-| ------------ | ------------ |
-| Apple        | US           |
-| Lenovo       | CN           |
+| ID (PK) | Name         | Country Code (FK) |
+| ------- | ------------ | ----------------- |
+| 1       | Apple        | US                |
+| 2       | Lenovo       | CN                |
 
-Update anomalies cannot occur in these tables, unlike before because there is only one value for country name for each country code.
+Before there was a risk for inconsistencies because it was possible to update a country name in just one record.
+That cannot occur anymore in these normalized tables because there is only one value for country name for each country code.
 
 #### Higher normal forms
 
