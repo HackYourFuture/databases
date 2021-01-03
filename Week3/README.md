@@ -36,7 +36,7 @@ There are various database “Normal” forms. Each normal form (NF) has an impo
 
 The rules for first normal form are:
 
-- Every column should only contain a single value
+- All data must be atomic (Every column should only contain a single value)
 - Repeating columns are not allowed
 - Prevent duplicate records by applying primary keys
 
