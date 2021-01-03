@@ -31,15 +31,14 @@ As a result, code interacting with the database is minimally affected.
 Database normalization is a technique that helps in optimally designing the database to ensure the above points. The core idea of database normalization is to divide large tables into smaller subtables and store pointers to data rather than replicating it.
 
 There are various database “Normal” forms. Each normal form (NF) has an importance which helps in optimizing the database to save storage and to reduce redundancies. These normal forms build incrementally. e.g. a database is in 3NF if it is already in 2NF and satisfied the rules for 3rd normal form.
-The normal forms are written abstractly in a hard-to-understand formal language, we will keep it short and practical. 
 
 #### 1st normal form (1NF)
 
-The first normal form requires your attributes to stay proper, in essence coming down to this list:
+The rules for first normal form are:
 
-- Prevent duplicate records by applying Primary Keys
 - Every column should only contain a single value
 - Repeating columns are not allowed
+- Prevent duplicate records by applying primary keys
 
 Let us look at an example:
 
