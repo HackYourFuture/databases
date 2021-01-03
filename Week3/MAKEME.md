@@ -47,15 +47,15 @@ Show step by step
 
 **Exercise 2 : Transactions**
 
-1. Create two tables `account` and `account_changes` (write tr-create-tables.js file)
+1. Create two tables `account` and `account_changes` (write transactions-create-tables.js file)
 2. `account` table should have following fields : `account_number, balance`.
-3. `account_changes` table should the the following fields : `change_number, account_number, amount, changed_date, remark`.
-4. Choose the appropriate data types, keys for these tables.
-5. Insert some sample data in these tables. (write tr-insert-values.js file)
+3. `account_changes` table should have the following fields : `change_number, account_number, amount, changed_date, remark`.
+4. Choose the appropriate data types and keys for these tables.
+5. Insert some sample data in these tables. (write transactions-insert-values.js file)
 6. Transfer the amount of 1000 from account number 101 to account number 102 and log the changes in the table `account_changes`.
 Do this in a _single transaction_ (Write transaction.js file)
 
-Submit all three files (`tr-create-tables.js`, `tr-insert-values.js` and `transaction.js`).
+Submit all three files (`transactions-create-tables.js`, `transactions-insert-values.js` and `transaction.js`).
 
 **Exercise 3 : SQL injection**
 
@@ -65,7 +65,7 @@ You are given the below function which returns the population of a specific coun
 function getPopulation(Country, name, code, cb) {
   // assuming that connection to the database is established and stored as conn
   conn.query(
-    `SELECT Population FROM ${Country} WHERE Name = '${name}' and code = ${code}`,
+    `SELECT Population FROM ${Country} WHERE Name = '${name}' and code = '${code}'`,
     function(err, result) {
       if (err) cb(err);
       if (result.length == 0) cb(new Error("Not found"));
