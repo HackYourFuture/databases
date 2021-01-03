@@ -108,10 +108,9 @@ Over time, you will develop a feel for it.
 
 If you want to increase your understanding, you can study the following materials:
 
-- [Database Normalization in Simple English](https://www.essentialsql.com/get-ready-to-learn-sql-database-normalization-explained-in-simple-english/)
-- [Database Normalization with examples](https://www.studytonight.com/dbms/database-normalization.php)
-- [Normalization and normal forms](https://hackr.io/blog/dbms-normalization)
-- [Normal forms through examples](https://medium.com/@mattburgess/critical-concepts-normalization-f9b5b1bf417e)
+- [Normalization in common English](https://medium.com/@mattburgess/critical-concepts-normalization-f9b5b1bf417e)
+- [Reasons for Database Normalization](https://www.essentialsql.com/get-ready-to-learn-sql-database-normalization-explained-in-simple-english/)
+- [Normalization Video Tutorials](https://www.studytonight.com/dbms/database-normalization.php)
 
 ## 2. Transactions
 
