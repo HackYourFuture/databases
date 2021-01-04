@@ -36,13 +36,14 @@ There are various database “Normal” forms. Each normal form (NF) has an impo
 
 The rules for first normal form are:
 
-- All data must be atomic (Every column should only contain a single value)
+- All data must be atomic (every column should only contain a single value)
 - Repeating columns are not allowed
-- Prevent duplicate records by applying primary keys
+- Prevent duplicate records (by applying primary keys)
+- Attribute domain should not change (all values in a column must be of the same kind or type).
 
 Let us look at an example:
 
-| Customer ID | First Name | Surname | Telephone Numbers                    | Shipping Address 1 | Shipping Address 2 | 
+| Customer ID | First Name | Surname | Telephone Numbers                    | Shipping Address 1 | Shipping Address 2 |
 | ----------- | ---------- | ------- | ------------------------------------ | ------------------ | ------------------ |
 | 123         | Pooja      | Singh   | 555-861-2025, 192-122-1111           | Hoogweg 1          |                    |
 | 456         | San        | Zhang   | (555) 403-1659 Ext. 53; 182-929-2929 | High av. 3254      | Low street 2       |
