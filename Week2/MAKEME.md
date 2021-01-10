@@ -27,7 +27,7 @@ This week we'll practice some more with writing SQL queries using JavaScript. Fo
 **Exercise 1: Keys**
 
 1. Create a table, called `authors`. Give it the following fields: `(author_no(Primary Key), author_name, university, date_of_birth, h_index, gender)`
-2. Write a query that adds a column called `collaborator` to `authors` table that references the column `author_no`.
+2. Write a query that adds a column called `mentor` to `authors` table that references the column `author_no`.
 For integrity add a `foreign key` on this column.
 
 **Exercise 2: Relationships**
@@ -40,7 +40,7 @@ all queries in the exercises  3 and 4 will return some answers
 
 **Exercise 3: Joins**
 
-1. Write a query that prints names of all `authors` and their corresponding `collaborators`.
+1. Write a query that prints names of all `authors` and their corresponding `mentors`.
 2. Write a query that prints all columns of `authors` and their published `paper_title`.
 If there is an author without any `research_Papers`, print the information of that `author` too.
 
