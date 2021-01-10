@@ -1,9 +1,9 @@
-const express = require('express');
-const bodyParser = require('body-parser')
+import express from 'express';
+import bodyParser from 'body-parser';
 const app = express();
-const ObjectID = require('mongodb').ObjectID;
-const MongoClient = require('mongodb').MongoClient
-const config = require('./secrets.json');
+import { default as mongodb } from 'mongodb';
+const MongoClient = mongodb.MongoClient;
+import config from './secrets.js';
 
 async function getMongoCollection() {
     const client = new MongoClient(config.mongoConnection);
