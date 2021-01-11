@@ -11,6 +11,8 @@ Please read the following pages that explains the ACID database model:
 - [The ACID Database Model](https://www.thoughtco.com/the-acid-model-1019731)
 - [Why you should never use MongoDB](http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb)
 
+Also the students should watch this video: https://youtu.be/HSt4nlUIF-A
+
 ## Main Topics
 
 - Security
