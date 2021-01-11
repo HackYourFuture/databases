@@ -11,6 +11,8 @@ Before the class you should install MySQL on your computer:
 - Instructions for macOS: [click here](https://www.youtube.com/watch?v=7S_tz1z_5bA&t=290s)
 - Instructions for Windows: [click here](https://www.youtube.com/watch?v=7S_tz1z_5bA&t=588s)
 
+And watch this video: https://youtu.be/geetitV4u3s
+
 ## Main Topics
 
 - The relational model of data
