@@ -10,7 +10,7 @@ Objective: the students should be able to build CRUD functionality using SQL sta
 - [What is a Database Foreign Key](http://databases.about.com/cs/specificproducts/g/foreignkey.htm)
 - [Example Entity Relationship Diagram (including associative entities)](http://users.csc.calpoly.edu/~jdalbey/308/Lectures/HOWTO-ERD.html)
 
-The students should watch this video before class: https://youtu.be/geetitV4u3s
+The students should watch this video before class: https://youtu.be/9hTKUT_SZWU
 
 ## Main Topics
 
