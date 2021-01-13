@@ -121,7 +121,7 @@ Imagine writing a program for transferring money from one bank account to anothe
 
 ![he did not use transactions](https://i.imgflip.com/3hkxnl.jpg)
 
-To start a transaction in MySQL we use the keyword `BEGIN TRANSACTION;`. Then we execute a series of commands. More concretely, in our money transfer example: `UPDATE account SET balance = balance - 100 WHERE account_no = 987654 ;` and `UPDATE account SET balance = balance + 100 WHERE account_no = 123456 ;`. If there are no errors we use the command `COMMIT;` which finalizes the changes from both update commands. If there was an error we can use the command `ROLLBACK;` which will _undo_ the changes from all commands in the transaction.
+To start a transaction in MySQL we use the keyword `START TRANSACTION;`. Then we execute a series of commands. More concretely, in our money transfer example: `UPDATE account SET balance = balance - 100 WHERE account_no = 987654 ;` and `UPDATE account SET balance = balance + 100 WHERE account_no = 123456 ;`. If there are no errors we use the command `COMMIT;` which finalizes the changes from both update commands. If there was an error we can use the command `ROLLBACK;` which will _undo_ the changes from all commands in the transaction.
 
 Transactions are essentials when building applications since it is very rare that a certain complex functionality can be written as a single SQL command. To do anything useful, several SQL commands need to be executed and in that case transactions are there to ensure that if something fails halfway the data does not stay in this half-changed state.
 
