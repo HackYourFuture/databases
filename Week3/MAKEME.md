@@ -79,8 +79,19 @@ function getPopulation(Country, name, code, cb) {
 
 **Exercise 4 : MongoDB CRUD**
 
-Convert the MySQL [world](../Week2/world.sql) database into MongoDB either on your local machine or in the cloud
-[Atlas](https://www.mongodb.com/cloud/atlas).
+In week 1, you used a mysql database that had 3 tables: `cities`, `countries`, and `countrylanguage`.
+
+We are going to migrate these tables into your Atlas MongoDB account
+
+```sql
+select * into outfile 'city.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' from city;
+
+select * into outfile 'country.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' from country;
+
+select * into outfile 'countrylanguage.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' from countrylanguage;
+```
+
+Then in Atlas , follow [add my own data](https://docs.atlas.mongodb.com/tutorial/insert-data-into-your-cluster) to import the csv data into new collections.
 
 * Write down all the steps of conversion (installation, commands etc.) in a text file / MD file.
 

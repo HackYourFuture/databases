@@ -170,13 +170,21 @@ To increase your understanding check the following materials:
 
 ## 4. NoSQL (with MongoDB)
 
+In NoSQL the concepts of tables and rows have different names, that's because they behave differently.
+But you could map them like this:
+
 ![rdb-mongo-pic](https://beginnersbook.com/wp-content/uploads/2017/09/RDBMS_MongoDB_Mapping.jpg)
 
-https://beginnersbook.com/2017/09/mapping-relational-databases-to-mongodb/
+A schema need not be enforced or even exist, you can simply store JSON objects as documents.
 
-A schema need not be enforced or even exist:
+For a good understanding of MongoDB you should watch this 36-minute video:
+[MongoDB Crash Course](https://www.youtube.com/watch?v=-56x56UppqQ)
 
-![noschema](https://image.slidesharecdn.com/nosql-and-mongodb-sig-14march2017-170315090521/95/introducing-nosql-and-mongodb-to-complement-relational-databases-amis-sig-14032017-45-638.jpg?cb=1489568959)
+A small example how to work with Mongo can be found in the folder `/Week3/mongodb`
+
+To increase your understanding check the following materials:
+- https://beginnersbook.com/2017/09/mapping-relational-databases-to-mongodb/
+- [Transitioning from relational databases to MongoDB](https://www.mongodb.com/blog/post/transitioning-from-relational-databases-to-mongodb)
 
 ## 5. Non-relational vs. relational
 
@@ -223,27 +231,6 @@ UPDATE proj_name = "HackYourMongo"  where proj_no = 123  and  project_tag = "bac
 ```
 
 Oh no! We lost integrity!
-
-### Preparing you for the homework:
-
-In week 1, you used a mysql database that was 3 tables: `cities`, `countries`, and `countrylanguage`.
-
-We are going to migrate these tables into your Atlas MongoDB account
-
-```sql
-select * into outfile 'city.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' from city;
-
-select * into outfile 'country.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' from country;
-
-select * into outfile 'countrylanguage.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' from countrylanguage;
-```
-
-Then in Atlas , follow [add my own data](https://docs.atlas.mongodb.com/getting-started/#insert-data-into-your-cluster) to import the csv data into new collections.
-
-For homework, you will perform CRUD operations and aggregations on them. Also queries with joins (you will see perhaps how hard this is).
-
-- [Relational Database Essentials](https://www.youtube.com/watch?v=GfBtPAB7NH0)
-- [Transitioning from relational databases to MongoDB](https://www.mongodb.com/blog/post/transitioning-from-relational-databases-to-mongodb)
 
 ## Finished?
 
