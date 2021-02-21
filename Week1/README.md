@@ -78,7 +78,6 @@ Together these entities and relationships form the **domain model** for your app
 
 Learn more about entities with the following resources:
 
-- [Entities vs. Database](https://www.youtube.com/watch?v=hBu2pdphYaA)
 - [Entities, Attributes, and Relationships](https://www.youtube.com/watch?v=hveVlCHZtsI)
 
 ## 3. What is a database?
