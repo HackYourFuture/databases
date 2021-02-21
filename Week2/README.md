@@ -92,7 +92,8 @@ ALTER TABLE students
 
 The unique key is quite similar to a primary key, they both serve to check the uniqueness of a column value.
 The difference is that there can be only a single primary key, to define the record, and multiple unique keys, to define unique values.
-Foreign keys can only reference primary keys and not unique keys
+Columns with a unique constraint can be null unlike primary keys.
+Foreign keys can only reference primary keys and not unique keys.
 
 ```sql
 ALTER TABLE teachers ADD UNIQUE KEY (email);
