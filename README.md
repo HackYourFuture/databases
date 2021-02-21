@@ -14,6 +14,10 @@ In this module you'll learn all about a fundamental part of any software applica
 
 **Before** your first class you start you need to install the necessary software: MySQL. This differs depending on your operating system:
 
+During installation in one of the last steps you will configure the password encryption.
+Here is [a screenshot of the step](https://i.stack.imgur.com/nFnWV.jpg).
+**You must select _Legacy_ for all the given scripts to be able to connect.**
+
 - For Windows, download the [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
 - For Linux (Ubuntu), watch the following video: [MySQL Installation on Linux (Ubuntu)](https://www.youtube.com/watch?v=Y_LibBhOGOY)
 - For MacOS, watch the following video: [Installing MySQL on MacOS](https://www.youtube.com/watch?v=HxCXyxFEA0s)
