@@ -6,13 +6,13 @@ const db = mysql.createConnection({
     password: "tarek123321",
 });
 
-let deleteTableifExist = "DROP DATABASE IF EXISTS meetup";
+let deleteDatabaseIfExists = "DROP DATABASE IF EXISTS meetup";
 let createDataBase = "CREATE DATABASE meetup;";
 
 // deleting the database if it's exist in order to be able  create it again without having errors
-db.query(deleteTableifExist, (err, results) => {
+db.query(deleteDatabaseIfExists, (err, results) => {
     if (err) {
-        console.log("faild to delete database meetup", err);
+        throw err;  
     }
     console.log("database meetup deleted!");
 });
