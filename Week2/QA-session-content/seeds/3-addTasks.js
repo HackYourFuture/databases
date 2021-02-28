@@ -1,10 +1,10 @@
 const faker = require('faker');
 
 const createTask = (i) => ({
-  name: faker.random.words(),
+  name: faker.hacker.verb() + ' '+ faker.hacker.adjective() + ' '+ faker.hacker.noun(),
   project_id: Math.ceil(Math.random() * 20),
   assigned_to: (i % 3 ? null : Math.ceil(Math.random() * 10)),
-  is_done: (i % 4 ? 1 : 0)
+  done_at: (i % 4 ? faker.date.past() : null)
 })
 
 exports.seed = async function (knex) {
