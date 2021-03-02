@@ -1,0 +1,129 @@
+[
+    {
+      "author_name": "Mark Smith",
+      "university": "University of amsterdam",
+      "date_of_birth": "1959-05-22",
+      "h_index": "3",
+      "gender": "m",
+      "mentor": "2"
+    },
+    {
+      "author_name": "Marry marks",
+      "university": "University of utrecht",
+      "date_of_birth": "1981-10-09",
+      "h_index": "9",
+      "gender": "f",
+      "mentor": "1"
+    },
+    {
+      "author_name": "karl de jong",
+      "university": "University of Eindhoven",
+      "date_of_birth": "1969-04-22",
+      "h_index": "2",
+      "gender": "m",
+      "mentor": "3"
+    },
+    {
+      "author_name": "Tarek Mosh",
+      "university": "University of Amsterdam",
+      "date_of_birth": "1980-12-10",
+      "h_index": "11",
+      "gender": "m",
+      "mentor": "4"
+    },
+    {
+      "author_name": "Charles anderson",
+      "university": "University of Leiden",
+      "date_of_birth": "1990-12-12",
+      "h_index": "5",
+      "gender": "m",
+      "mentor": "5"
+    },
+    {
+      "author_name": "Ahmad Halabi",
+      "university": "University of Amsterdam",
+      "date_of_birth": "1982-01-07",
+      "h_index": "1",
+      "gender": "m",
+      "mentor": "6"
+    },
+    {
+      "author_name": "Rita Mali",
+      "university": "University of Utrecth",
+      "date_of_birth": "1991-02-11",
+      "h_index": "1",
+      "gender": "f",
+      "mentor": "7"
+    },
+    {
+      "author_name": "Malek Takriti",
+      "university": "University of utrecth",
+      "date_of_birth": "1981-01-06",
+      "h_index": "2",
+      "gender": "m",
+      "mentor": "8"
+    },
+    {
+      "author_name": "Waref Tello",
+      "university": "University of Amsterdam",
+      "date_of_birth": "1980-09-06",
+      "h_index": "6",
+      "gender": "m",
+      "mentor": "10"
+    },
+    {
+      "author_name": "Khaled Mekari",
+      "university": "University of Leiden",
+      "date_of_birth": "1989-07-18",
+      "h_index": "11",
+      "gender": "m",
+      "mentor": "12"
+    },
+    {
+      "author_name": "Yoss Hamadani",
+      "university": "University of Utrecht",
+      "date_of_birth": "1970-09-19",
+      "h_index": "11",
+      "gender": "m",
+      "mentor": "12"
+    },
+    {
+      "author_name": "Petter the big",
+      "university": "University of Amsterdam",
+      "date_of_birth": "1991-10-11",
+      "h_index": "5",
+      "gender": "m",
+      "mentor": "11"
+    },
+    {
+      "author_name": "Tomas green",
+      "university": "University of Eidnhoven",
+      "date_of_birth": "1988-12-11",
+      "h_index": "8",
+      "gender": "m",
+      "mentor": "5"
+    },
+    {
+      "author_name": "John Doe",
+      "university": "University of Amsterdam",
+      "date_of_birth": "1992-05-16",
+      "h_index": "4",
+      "gender": "m",
+      "mentor": "10"
+    },
+    {
+      "author_name": "Maria sentia",
+      "university": "University of Leiden",
+      "date_of_birth": "1988-11-12",
+      "h_index": "12",
+      "gender": "f",
+      "mentor": "12"
+    }
+  ]
+
+
+
+
+
+
+ 
