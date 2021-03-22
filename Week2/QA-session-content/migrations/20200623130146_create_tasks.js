@@ -10,8 +10,9 @@ exports.up = async (knex) => {
     table.integer('project_id')
       .unsigned()
       .references('id')
-      .inTable('projects');
-    table.integer('is_done',1).defaultTo(0);
+      .inTable('projects')
+      .notNullable();
+    table.dateTime('done_at').defaultTo(null);
   })
 };
 

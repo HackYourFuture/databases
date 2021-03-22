@@ -9,9 +9,9 @@ const createProject = function (i) {
     .join('');
 
   return {
-    name: companyName + ' ' + (i % 2 ? 'website' : 'app'),
+    name: companyName + ' - ' + (i % 2 ? 'website' : 'app'),
     start_date: faker.date.past(),
-    end_date: faker.date.future(),
+    end_date: (i % 5 ? faker.date.future() : faker.date.past()),
     code: abbreviation
   }
 }
