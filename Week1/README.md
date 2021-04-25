@@ -130,7 +130,7 @@ The client is  a program that talks to the DBMS server, so it has to know where 
 The client then creates a [TCP connection](https://www.youtube.com/watch?v=EkNq4TrHP_U) to the server.
 
 A client would be your web application talking to the database or a GUI to interact with your database during development.
-Examples of free GUIs are [SequalPro for mac](sequalpro.com) and [HeidiSQL for Windows](heidisql.com).
+Examples of free GUIs are [SequelPro for mac](https://www.sequelpro.com) and [HeidiSQL for Windows](https://www.heidisql.com/).
 These GUIs allow you to easily show the structure and contents of your database, and run your own queries.
 
 To do this the client needs to know:
