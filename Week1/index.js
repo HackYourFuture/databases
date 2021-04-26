@@ -54,7 +54,7 @@ app.get('/createdb', (req, res) => {
 
 // Create table of Meeting 
 // app.get('/createMeetingtable', (req, res) => {
-//     let sql = "CREATE TABLE Meeting (meeting_no INT AUTO_INCREMENT PRIMARY KEY, meeting_title   VARCHAR(255), starting_time  TIME, ending_time TIME, room_no INT comment 'FOREIGN KEY to Room table')";
+//     let sql = "CREATE TABLE Meeting (meeting_no INT AUTO_INCREMENT PRIMARY KEY, meeting_title   VARCHAR(255), starting_time  TIME, ending_time TIME, room_no INT)";
 //     db.query(sql, (err, result) => {
 //         if(err) throw err;
 //         console.log(result);
@@ -92,13 +92,13 @@ app.get('/createdb', (req, res) => {
 
 // Insert multiple rows of meeting table
 // app.get('/addmultipleposts', (req, res) => {
-//     let sql = `INSERT INTO Meeting(meeting_title,starting_time,ending_time)  VALUES ?  `;
+//     let sql = `INSERT INTO Meeting(meeting_title,starting_time,ending_time, room_no)  VALUES ?  `;
 //     let post = [
-//         ['First meeting',  '08:00:00','10:00:00'],
-//         ['Second meeting', '10:00:00','12:00:00'],
-//         ['Third meeting',  '12:00:00','14:00:00'],
-//         ['Fourth meeting', '14:00:00','16:00:00'],
-//         ['Fifth meeting',  '16:00:00','18:00:00']
+//         ['First meeting',  '08:00:00','10:00:00' , 1],
+//         ['Second meeting', '10:00:00','12:00:00' , 2],
+//         ['Third meeting',  '12:00:00','14:00:00' , 3],
+//         ['Fourth meeting', '14:00:00','16:00:00' , 4],
+//         ['Fifth meeting',  '16:00:00','18:00:00' , 5]
 //       ];
 //     let query = db.query(sql, [post], (err, result) => {
 //         if(err) throw err;
