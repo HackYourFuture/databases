@@ -62,6 +62,17 @@ app.get('/createdb', (req, res) => {
 //     });
 // });
 
+// Insert just one row into Invitee table
+// app.get('/addpost1', (req, res) => {
+//     let post = {invitee_name:'Post One', invited_by:'This is post number one'};
+//     let sql = 'INSERT INTO Invitee SET ?';
+//     let query = db.query(sql, post, (err, result) => {
+//         if(err) throw err;
+//         console.log(result);
+//         res.send('Post 1 added...');
+//     });
+// });
+
 // Insert multiple rows of room table
 // app.get('/addmultipleposts', (req, res) => {
 //     let sql = `INSERT INTO Room(room_name,floor_number)  VALUES ?  `;
@@ -80,21 +91,21 @@ app.get('/createdb', (req, res) => {
 // });
 
 // Insert multiple rows of meeting table
-app.get('/addmultipleposts', (req, res) => {
-    let sql = `INSERT INTO Meeting(meeting_title,starting_time,ending_time)  VALUES ?  `;
-    let post = [
-        ['First meeting',  '08:00:00','10:00:00'],
-        ['Second meeting', '10:00:00','12:00:00'],
-        ['Third meeting',  '12:00:00','14:00:00'],
-        ['Fourth meeting', '14:00:00','16:00:00'],
-        ['Fifth meeting',  '16:00:00','18:00:00']
-      ];
-    let query = db.query(sql, [post], (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Multiple rows into meeting table added...');
-    });
-});
+// app.get('/addmultipleposts', (req, res) => {
+//     let sql = `INSERT INTO Meeting(meeting_title,starting_time,ending_time)  VALUES ?  `;
+//     let post = [
+//         ['First meeting',  '08:00:00','10:00:00'],
+//         ['Second meeting', '10:00:00','12:00:00'],
+//         ['Third meeting',  '12:00:00','14:00:00'],
+//         ['Fourth meeting', '14:00:00','16:00:00'],
+//         ['Fifth meeting',  '16:00:00','18:00:00']
+//       ];
+//     let query = db.query(sql, [post], (err, result) => {
+//         if(err) throw err;
+//         console.log(result);
+//         res.send('Multiple rows into meeting table added...');
+//     });
+// });
 
 
 
