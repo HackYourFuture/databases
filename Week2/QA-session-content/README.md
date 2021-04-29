@@ -25,7 +25,7 @@ Some exercise that cover the topics of this week:
 
 2. List all projects
     1. reduce the list to the projects that aren't ended
-    2. add a column wit the amount of tasks on the project
+    2. add a column with the amount of tasks on the project
     
 3. List the users
     1. add a column with the amount of projects for each user
