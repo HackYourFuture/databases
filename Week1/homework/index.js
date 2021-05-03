@@ -21,18 +21,11 @@ const addQuery = (query, msg) => {
   });
 };
 
-const insertQuery = (query, post, msg) => {
-  connection.query(query, post, (err) => {
-    if (err) throw err;
-    console.log(msg);
-  });
-};
-
 // Create DB
 const deleteDb = "DROP DATABASE IF EXISTS meetup";
 const createDb = "CREATE DATABASE meetup";
 const useDb = "USE meetup";
-const newBurak = "INSERT INTO Room(room_name,floor_number)  VALUES ?";
+
 
 addQuery(deleteDb, `Deleted.`);
 addQuery(createDb, `Database is created.`);
@@ -46,6 +39,15 @@ const queries = [
 
 // Create tables
 queries.forEach((query) => addQuery(query, `Table is created`));
+
+
+// Inserting values into tables
+const insertQuery = (query, post, msg) => {
+  connection.query(query, post, (err) => {
+    if (err) throw err;
+    console.log(msg);
+  });
+};
 
 const valuesQueries = [
   `INSERT INTO Invitee  (invitee_name,invited_by) VALUES ?`,
@@ -82,3 +84,5 @@ const allValues = [inviteeValues, roomValues, meetingValues ];
 for (let i = 0; i < allValues.length; i++) {
   insertQuery(valuesQueries[i], [allValues[i]], `Inserted`);
 }
+
+connection.end();
