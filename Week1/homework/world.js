@@ -4,8 +4,8 @@ const mysql = require("mysql");
 // Create connection
 const db = mysql.createConnection({
   host: "localhost",
-  user: "root",
-  password: "Giresun3428@",
+  user: "hyfuser",
+  password: "hyfpassword",
   database: "world",
 });
 
@@ -37,8 +37,7 @@ app.get("/two", (req, res) => {
     if (err) throw err;
     console.log(`2.What are the names of countries that have “land” in their names?`);
     console.log(result);
-    res.send("The second question is answered...");
-  });
+    res.send(result);
 });
 
 // Third Query

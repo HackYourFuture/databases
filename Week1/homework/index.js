@@ -1,107 +1,84 @@
-const express = require('express');
-const mysql = require('mysql');
+const mysql = require("mysql");
 
 // Create connection
-const db = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : 'Giresun3428@',
-    database : 'meetup'
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "Giresun3428@",
 });
 
 // Connect
-db.connect((err) => {
-    if(err) throw err;
-    console.log('MySql Connected...');
+connection.connect((err) => {
+  if (err) throw err;
+  console.log("MySql Connected...");
 });
 
-const app = express();
+// Adding query for Database
+const addQuery = (query, msg) => {
+  connection.query(query, (err) => {
+    if (err) throw err;
+    console.log(msg);
+  });
+};
+
+const insertQuery = (query, post, msg) => {
+  connection.query(query, post, (err) => {
+    if (err) throw err;
+    console.log(msg);
+  });
+};
 
 // Create DB
-app.get('/createdb', (req, res) => {
-    let sql = 'CREATE DATABASE meetup';
-    db.query(sql, (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Database created...');
-    });
-});
+const deleteDb = "DROP DATABASE IF EXISTS meetup";
+const createDb = "CREATE DATABASE meetup";
+const useDb = "USE meetup";
+const newBurak = "INSERT INTO Room(room_name,floor_number)  VALUES ?";
 
-// Create table of Invitee
-app.get('/createInviteetable', (req, res) => {
-    let sql = "CREATE TABLE Invitee (invitee_no INT AUTO_INCREMENT PRIMARY KEY, invitee_name  VARCHAR(255), invited_by  VARCHAR(255))";
-    db.query(sql, (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Invitee table created...');
-    });
-});
+addQuery(deleteDb, `Deleted.`);
+addQuery(createDb, `Database is created.`);
+addQuery(useDb, `Connected.`);
 
-// Create table of Room
-app.get('/createRoomtable', (req, res) => {
-    let sql = "CREATE TABLE Room (room_no INT AUTO_INCREMENT PRIMARY KEY, room_name   VARCHAR(255), floor_number  INT)";
-    db.query(sql, (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Room table created...');
-    });
-});
+const queries = [
+  "CREATE TABLE Invitee (invitee_no INT AUTO_INCREMENT PRIMARY KEY, invitee_name  VARCHAR(50), invited_by  VARCHAR(50))",
+  "CREATE TABLE Room (room_no INT AUTO_INCREMENT PRIMARY KEY, room_name   VARCHAR(50), floor_number  INT)",
+  "CREATE TABLE Meeting (meeting_no INT AUTO_INCREMENT PRIMARY KEY, meeting_title   VARCHAR(50), starting_time  TIME, ending_time TIME, room_no INT)",
+];
 
-// Create table of Meeting 
-app.get('/createMeetingtable', (req, res) => {
-    let sql = "CREATE TABLE Meeting (meeting_no INT AUTO_INCREMENT PRIMARY KEY, meeting_title   VARCHAR(255), starting_time  TIME, ending_time TIME, room_no INT)";
-    db.query(sql, (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Meeting table created...');
-    });
-});
+// Create tables
+queries.forEach((query) => addQuery(query, `Table is created`));
 
-// Insert just one row into Invitee table
-app.get('/addpost1', (req, res) => {
-    let post = {invitee_name:'Post One', invited_by:'This is post number one'};
-    let sql = 'INSERT INTO Invitee SET ?';
-    let query = db.query(sql, post, (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Post 1 added...');
-    });
-});
+const valuesQueries = [
+  `INSERT INTO Invitee  (invitee_name,invited_by) VALUES ?`,
+  `INSERT INTO Room     (room_name,floor_number)  VALUES ?`,
+  `INSERT INTO Meeting  (meeting_title,starting_time,ending_time, room_no)  VALUES ?`,
+];
 
-// Insert multiple rows of room table
-app.get('/addmultipleposts', (req, res) => {
-    let sql = `INSERT INTO Room(room_name,floor_number)  VALUES ?  `;
-    let post = [
-        ['First room', 1],
-        ['Second room', 2],
-        ['Third room', 3],
-        ['Fourth room', 4],
-        ['Fifth room', 5]
-      ];
-    let query = db.query(sql, [post], (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Multiple rows added...');
-    });
-});
+const inviteeValues = [
+  ["John", "Mary"],
+  ["Bob", "Sofia"],
+  ["Johnny", "Will"],
+  ["Sara", "George"],
+  ["Lisa", "Kyle"],
+];
 
-// Insert multiple rows of meeting table
-app.get('/addmultipleposts', (req, res) => {
-    let sql = `INSERT INTO Meeting(meeting_title,starting_time,ending_time, room_no)  VALUES ?  `;
-    let post = [
-        ['First meeting',  '08:00:00','10:00:00' , 1],
-        ['Second meeting', '10:00:00','12:00:00' , 2],
-        ['Third meeting',  '12:00:00','14:00:00' , 3],
-        ['Fourth meeting', '14:00:00','16:00:00' , 4],
-        ['Fifth meeting',  '16:00:00','18:00:00' , 5]
-      ];
-    let query = db.query(sql, [post], (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Multiple rows into meeting table added...');
-    });
-});
+let roomValues = [
+  ["First room", 1],
+  ["Second room", 2],
+  ["Third room", 3],
+  ["Fourth room", 4],
+  ["Fifth room", 5],
+];
 
-app.listen('3000', () => {
-    console.log('Server started on port 3000');
-});
+const meetingValues = [
+  ["First meeting", "08:00:00", "10:00:00", 1],
+  ["Second meeting", "10:00:00", "12:00:00", 2],
+  ["Third meeting", "12:00:00", "14:00:00", 3],
+  ["Fourth meeting", "14:00:00", "16:00:00", 4],
+  ["Fifth meeting", "16:00:00", "18:00:00", 5],
+];
+
+const allValues = [inviteeValues, roomValues, meetingValues ];
+
+for (let i = 0; i < allValues.length; i++) {
+  insertQuery(valuesQueries[i], [allValues[i]], `Inserted`);
+}
