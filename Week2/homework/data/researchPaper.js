@@ -1,6 +1,4 @@
-const { v4: uuidv4 } = require('uuid');
-
-const research_Paprer = [
+const research_Papers = [
   {
     paper_id: 1,
     paper_title: 'The Future of Public Service',
@@ -8,56 +6,56 @@ const research_Paprer = [
     publish_date: '2017-04-10',
   },
   {
-    paper_id: 2,
+    paper_id: 5,
     paper_title: 'Arthritis & Rheumatism',
     conference: 'International Chapel Hill Consensus Conference',
     publish_date: '2019-02-11',
   },
   {
-    paper_id: 3,
+    paper_id: 9,
     paper_title: 'Constitution of the World Health Organization',
     conference: 'International Health Conference',
     publish_date: '2013-07-29',
   },
   {
-    paper_id: 4,
-    paper_title: 'Clinical Management of Metabolic Syndrome',
+    paper_id: 2,
+    paper_title: 'The Future of Public Service',
     conference: 'American Diabetes Association Conference',
     publish_date: '2012-05-22',
   },
   {
-    paper_id: 5,
-    paper_title: 'Revised classification/nomenclature of vitiligo ',
+    paper_id: 10,
+    paper_title: 'Constitution of the World Health Organization',
     conference: 'AVitiligo Global Issues Consensus Conference',
     publish_date: '2002-01-12',
   },
   {
-    paper_id: 6,
+    paper_id: 12,
     paper_title: 'American Academy of Clinical Neuropsychology',
     conference: 'A consensus conference',
     publish_date: '2012-11-23',
   },
   {
-    paper_id: 7,
+    paper_id: 1,
     paper_title: 'Frontotemporal dementia and parkinsonism',
     conference:
       'Consensus Conference Statement on the Neuropsychological Assessment',
     publish_date: '2012-11-23',
   },
   {
-    paper_id: 8,
+    paper_id: 0,
     paper_title: 'Allergic Bronchopulmonary',
     conference: 'Cystic Fibrosis Foundation Consensus Conference',
     publish_date: '2011-10-13',
   },
   {
     paper_id: 9,
-    paper_title: 'Sepsis and Infection in Burns',
+    paper_title: 'The Future of Public Service',
     conference: 'American Burn Association Consensus Conference ',
     publish_date: '2012-12-10',
   },
   {
-    paper_id: 10,
+    paper_id: 13,
     paper_title: 'Pediatric Acute Respiratory Distress Syndrome',
     conference: 'Lung Injury Consensus Conference',
     publish_date: '2001-03-11',
@@ -82,115 +80,108 @@ const research_Paprer = [
   },
   {
     paper_id: 14,
-    paper_title: 'Analytical methods validation',
+    paper_title: 'Constitution of the World Health Organization',
     conference: 'Conference report',
     publish_date: '2019-04-12',
   },
   {
-    paper_id: 15,
+    paper_id: 1,
     paper_title:
       'The role of sentinel lymph node biopsy in carcinoma of the breast',
     conference: 'Proceedings of the Consensus Conference',
     publish_date: '2020-04-13',
   },
   {
-    paper_id: 16,
-    paper_title:
-      'Selective Ablation of Acute Myeloid Leukemia Using Antibody-Targeted Chemotherapy:',
+    paper_id: 10,
+    paper_title: 'American Academy of Clinical Neuropsychology',
     conference: 'The 1997 European Cancer Conference,',
     publish_date: '2009-02-22',
   },
   {
-    paper_id: 17,
-    paper_title: 'Definitions for sepsis and organ dysfunction in pediatrics',
+    paper_id: 4,
+    paper_title: 'Arthritis & Rheumatism',
     conference: 'International pediatric sepsis consensus conference',
     publish_date: '2019-04-12',
   },
   {
-    paper_id: 18,
+    paper_id: 1,
     paper_title: 'A a Voluntary Disclosure Medium',
     conference: 'An Empirical Examination of Conference Calls',
     publish_date: '1999-05-05',
   },
   {
-    paper_id: 19,
+    paper_id: 8,
     paper_title: 'Improving the Quality of Spiritual Care',
     conference: 'The Report of the Consensus Conference',
     publish_date: '1989-09-15',
   },
   {
-    paper_id: 20,
-    paper_title: 'Carotid Artery Stenosis',
+    paper_id: 5,
+    paper_title: 'Constitution of the World Health Organization',
     conference: 'Society of Radiologists in Ultrasound Consensus Conference',
     publish_date: '1984-10-25',
   },
   {
-    paper_id: 21,
-    paper_title:
-      'Acute renal failure – definition, outcome measures, animal models, fluid therapy and information technology needs',
+    paper_id: 4,
+    paper_title: 'American Academy of Clinical Neuropsychology',
     conference: 'The Second International Consensus Conference',
     publish_date: '1989-11-08',
   },
   {
-    paper_id: 22,
-    paper_title:
-      'Acute renal failure – definition, outcome measures,  models, fluid therapy and information technology needs',
+    paper_id: 5,
+    paper_title: 'American Academy of Clinical Neuropsychology',
     conference: 'Phoenix Consensus Conference',
     publish_date: '1999-08-18',
   },
   {
-    paper_id: 23,
+    paper_id: 3,
     paper_title: 'Consensus Statement on Concussion in Sport',
-    conference:
-      'The 4th International Conference on Concussion in Sport Held in Zurich',
+    conference: 'Frontotemporal dementia and parkinsonism',
     publish_date: '2009-03-27',
   },
   {
-    paper_id: 24,
-    paper_title:
-      'The definition, classification, and prognosis of chronic kidney disease',
+    paper_id: 2,
+    paper_title: 'Frontotemporal dementia and parkinsonism',
     conference: 'KDIGO Controversies Conference',
     publish_date: '1987-12-11',
   },
   {
-    paper_id: 25,
-    paper_title:
-      'Examining the motivation, perceived performance, and behavioral intentions of convention attendees',
+    paper_id: 8,
+    paper_title: 'American Academy of Clinical Neuropsychology',
     conference: 'Regional conference',
     publish_date: '1992-02-01',
   },
   {
-    paper_id: 26,
-    paper_title:
-      'Examining the motivation, perceived performance, and behavioral intentions of convention attendees',
+    paper_id: 7,
+    paper_title: 'Arthritis & Rheumatism',
     conference: 'Regional conference',
     publish_date: '1992-02-01',
   },
   {
-    paper_id: 27,
+    paper_id: 11,
     paper_title:
       'Manual of the international statistical classification of diseases, injuries, and causes of death',
     conference: 'The Eighth Revision Conference',
     publish_date: '1981-12-05',
   },
   {
-    paper_id: 28,
+    paper_id: 14,
     paper_title:
       'Manual of the international statistical classification of diseases, injuries, and causes of death',
     conference: 'The Eighth Revision Conference',
     publish_date: '1989-08-16',
   },
   {
-    paper_id: 29,
-    paper_title: 'Clinical Management of Hepatocellular Carcinoma.',
+    paper_id: 12,
+    paper_title: 'Constitution of the World Health Organization',
     conference: 'The Barcelona-2000 EASL Conference',
     publish_date: '1984-01-21',
   },
   {
-    paper_id: 30,
-    paper_title: 'ESMO-ESGO-ESTRO Consensus Conference on Endometrial Cancer',
+    paper_id: 0,
+    paper_title: 'Arthritis & Rheumatism',
     conference: 'Diagnosis, Treatment and Follow-up ',
     publish_date: '1984-01-21',
   },
 ];
-module.exports = research_Paprer;
+module.exports = research_Papers;
