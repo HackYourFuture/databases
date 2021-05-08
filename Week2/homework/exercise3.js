@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
 connection.connect();
 
 connection.query(
-  'SELECT A1.author_name as Author, A2.author_name as Mentor from authors as a1 inner join `authors` as a2 on a1.`author_no` = a2.`mentor`',
+  'SELECT A1.author_name AS Author, A2.author_name AS Mentor FROM authors AS a1 INNER JOIN `authors` AS a2 ON a1.`author_no` = a2.`mentor`',
   ifErrorAndConsole,
 );
 
