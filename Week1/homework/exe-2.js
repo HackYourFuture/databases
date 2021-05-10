@@ -4,6 +4,7 @@ const connection = mysql.createConnection({
   user: "hyfuser",
   password: "hyfpassword",
   Database: "world",
+  port: 3306,
 });
 connection.connect();
 
