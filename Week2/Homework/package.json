@@ -1,0 +1,16 @@
+{
+  "name": "Homework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ex1_keys.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "util": "^0.12.3"
+  }
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "author_no": 5,
+    "author-name": "Jhony White",
+    "university": "TU Delft",
+    "date_of_birth": "1981-01-12",
+    "h_index": 1,
+    "gender": "m",
+    "mentor": 188
+  },
+  {
+    "author_no": 7,
+    "author-name": "Kristine Cash",
+    "university": "Eindhoven University",
+    "date_of_birth": "1985-07-04",
+    "h_index": 2,
+    "gender": "f",
+    "mentor": 190
+  },
+  {
+    "author_no": 8,
+    "author-name": "Andrew Cruise",
+    "university": "Utrecht UNiversity",
+    "date_of_birth": "1982-08-11",
+    "h_index": 3,
+    "gender": "m",
+    "mentor": 190
+  },
+  {
+    "author_no": 10,
+    "author-name": "Marwa Kwara",
+    "university": "Damascus University",
+    "date_of_birth": "1990-07-22",
+    "h_index": 4,
+    "gender": "f",
+    "mentor": 189
+  },
+  {
+    "author_no": 11,
+    "author-name": "Jeroen Smulders",
+    "university": "Utrecht University",
+    "date_of_birth": "1965-05-03",
+    "h_index": 1,
+    "gender": "m",
+    "mentor": 180
+  }
+]

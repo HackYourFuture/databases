@@ -1,0 +1,22 @@
+[
+  {
+    "authorNumber": 100,
+    "paperNumber": 110
+  },
+  {
+    "authorNumber": 101,
+    "paperNumber": 120
+  },
+  {
+    "authorNumber": 102,
+    "paperNumber": 130
+  },
+  {
+    "authorNumber": 103,
+    "paperNumber": 140
+  },
+  {
+    "authorNumber": 104,
+    "paperNumber": 150
+  }
+]
