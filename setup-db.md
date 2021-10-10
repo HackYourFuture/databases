@@ -30,7 +30,11 @@ mysql> create user 'hyfuser'@'localhost' identified by 'hyfpassword';
 
 mysql> grant all privileges on *.* to 'hyfuser'@'localhost';
 
-# Step 3: This command creates a database named 'userdb'
+# Step 3: This command flushes all privileges
+
+msyql> flush privileges;
+
+# Step 4: This command creates a database named 'userdb'
 
 mysql> create database userdb;
 ```
