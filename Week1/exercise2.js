@@ -14,10 +14,10 @@ const queries = [
   'SELECT name FROM country WHERE population > 8000000;',
   'SELECT name FROM country WHERE name LIKE "%land%";',
   'SELECT name FROM city WHERE population BETWEEN 500000 AND 1000000;',
-  'SELECT name FROM country WHERE continent LIKE "Europe";',
+  'SELECT name FROM country WHERE continent = "Europe";',
   'SELECT * FROM country ORDER BY surfaceArea DESC;',
-  'SELECT name FROM city WHERE CountryCode LIKE "NLD";',
-  'SELECT population FROM city WHERE name LIKE "Rotterdam";',
+  'SELECT name FROM city WHERE CountryCode = "NLD";',
+  'SELECT population FROM city WHERE name = "Rotterdam";',
   'SELECT name FROM country ORDER BY surfaceArea DESC LIMIT 10;',
   'SELECT name FROM city ORDER BY population DESC LIMIT 10;',
   'SELECT SUM(population) AS "population_number_of_the_world" FROM country'  
