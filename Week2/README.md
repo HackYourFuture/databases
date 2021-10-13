@@ -184,7 +184,7 @@ An example of ER diagrams are shown below:
 
 To learn more about this topic, check out the following:
 
-- [The Domain Model](https://www.youtube.com/watch?v=acQxZ80Lt10)
+- [The Domain Model](https://www.youtube.com/watch?v=bduWjKNrnAg)
 - [Entity Relationship Diagram Training Video](https://www.youtube.com/watch?v=-fQ-bRllhXc)
 - [Entity-Relationship Diagrams](https://www.youtube.com/watch?v=c0_9Y8QAstg)
 
