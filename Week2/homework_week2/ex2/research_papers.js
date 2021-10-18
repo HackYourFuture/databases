@@ -74,3 +74,5 @@ connection.query(insertConferences, [conferencesValues], (error, results) => {
   }
   console.log("the reply is ", results[0]);
 });
+
+connection.end();
