@@ -1,8 +1,8 @@
 {
-  "name": "ex1",
+  "name": "ex4",
   "version": "1.0.0",
   "description": "",
-  "main": "key.js",
+  "main": "agregate_fun.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

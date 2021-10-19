@@ -1,14 +1,14 @@
-const mysql = require("mysql");
-const connection = mysql.createConnection({
+import { createConnection } from "mysql";
+
+const connection = createConnection({
   host: "localhost",
   user: "hyfuser",
   password: "hyfpassword",
   database: "papers",
 });
 
-connection.connect();
-
-const author = `CREATE TABLE authors (
+async function createAuthors() {
+  const author = `CREATE TABLE authors (
     author_no INT NOT NULL AUTO_INCREMENT,
     author_name VARCHAR(50),
     university VARCHAR(50),
@@ -17,20 +17,20 @@ const author = `CREATE TABLE authors (
     gender ENUM('m', 'f'),
     PRIMARY KEY(author_no))`;
 
-const mentor = `ALTER TABLE authors ADD mentor INT, ADD FOREIGN KEY(mentor) REFERENCES authors(author_no); `;
-//creating Autors table
-connection.query(author, function (error, results) {
-  if (error) {
-    throw error;
+  const mentor = `ALTER TABLE authors ADD mentor INT, ADD FOREIGN KEY(mentor) REFERENCES authors(author_no); `;
+  connection.connect();
+  try {
+    await Promise.all[
+      (connection.query(author, (error, results) => {
+        error ? error : console.log("the reply is ", results[0]); //creating Authors table
+      }),
+      connection.query(mentor, (error, results) => {
+        error ? error : console.log("the reply is ", results[0]); //inserting Mentor column
+      }))
+    ];
+  } catch (error) {
+    console.error(error);
   }
-  console.log("the reply is ", results[0]);
-});
-//inserting Mentor column
-connection.query(mentor, function (error, results) {
-  if (error) {
-    throw error;
-  }
-  console.log("the reply is ", results[0]);
-});
-
-connection.end();
+  connection.end();
+}
+createAuthors();

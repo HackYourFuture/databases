@@ -11,68 +11,49 @@ import {
   conferencesValues,
 } from "./values.js";
 
-export const connection = createConnection({
+const connection = createConnection({
   host: "localhost",
   user: "hyfuser",
   password: "hyfpassword",
   database: "papers",
 });
-
-connection.connect();
-
-//creating research_ papers table
-connection.query(researchPapers, (error, results) => {
-  if (error) {
-    throw error;
+async function creatingTablesAndData() {
+  connection.connect();
+  try {
+    await Promise.all[
+      ((((((connection.query(researchPapers, (error, results) => {
+        error ? error : console.log("the reply is ", results[0]); // creating research papers table
+      }),
+      connection.query(mentors, (error, results) => {
+        error ? error : console.log("the reply is ", results[0]); //creating mentors table
+      })),
+      connection.query(insertAuthors, [authorsValues], (error, results) => {
+        error ? error : console.log("the reply is ", results[0]); //inserting authors
+      })),
+      connection.query(insertMentors, [mentorsValues], (error, results) => {
+        error ? error : console.log("the reply is ", results[0]); //Inserting mentors
+      })),
+      connection.query(
+        insertResearchPapers,
+        [researchPapersValues],
+        (error, results) => {
+          error ? error : console.log("the reply is ", results[0]); //Inserting Research Papers values
+        }
+      )),
+      connection.query(conferences, (error, results) => {
+        error ? error : console.log("the reply is ", results[0]); //Creating conferences table
+      })),
+      connection.query(
+        insertConferences,
+        [conferencesValues],
+        (error, results) => {
+          error ? error : console.log("the reply is ", results[0]); //Inserting values into conferences
+        }
+      ))
+    ];
+  } catch (error) {
+    console.error(error);
   }
-  console.log("the reply is ", results[0]);
-});
-
-//creating mentors table
-connection.query(mentors, (error, results) => {
-  if (error) {
-    throw error;
-  }
-  console.log("the reply is ", results[0]);
-});
-//inserting authors
-connection.query(insertAuthors, [authorsValues], (error, results) => {
-  if (error) {
-    throw error;
-  }
-  console.log("the reply is ", results[0]);
-});
-//Inserting mentors
-connection.query(insertMentors, [mentorsValues], (error, results) => {
-  if (error) {
-    throw error;
-  }
-  console.log("the reply is ", results[0]);
-});
-//Inserting Research Papers values
-connection.query(
-  insertResearchPapers,
-  [researchPapersValues],
-  (error, results) => {
-    if (error) {
-      throw error;
-    }
-    console.log("the reply is ", results[0]);
-  }
-);
-//Creating conferences table
-connection.query(conferences, (error, results) => {
-  if (error) {
-    throw error;
-  }
-  console.log("the reply is ", results[0]);
-});
-//Inserting values into conferences
-connection.query(insertConferences, [conferencesValues], (error, results) => {
-  if (error) {
-    throw error;
-  }
-  console.log("the reply is ", results[0]);
-});
-
-connection.end();
+  connection.end();
+}
+creatingTablesAndData();
