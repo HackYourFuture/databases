@@ -7,7 +7,7 @@ const connection = createConnection({
   database: "papers",
 });
 
-//show all authors , their mentors and their papers in two queries
+//show all authors and their mentors
 async function multipleQueries() {
   const authorAndMentor = `SELECT author_name, mentor_name FROM authors JOIN mentors ON authors.author_no = mentors.mentor;`;
   const authorAndPaper = `SELECT author_name, paper_title FROM authors JOIN research_Papers ON authors.author_no = research_Papers.author_no;`;
