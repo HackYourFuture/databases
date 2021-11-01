@@ -1,11 +1,11 @@
-const util = require("util");
-const mysql = require("mysql");
+const util = require('util');
+const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "hyfuser",
-  password: "hyfpassword",
-  database: "class19",
+  host: 'localhost',
+  user: 'hyfuser',
+  password: 'hyfpassword',
+  database: 'class19',
 });
 
 const execQuery = util.promisify(connection.query.bind(connection));
@@ -30,31 +30,27 @@ async function seedDatabase() {
   const students = [
     {
       student_number: 1001,
-      student_name: "Ben",
-      date_of_birth: "1995-04-26",
+      student_name: 'Ben',
+      date_of_birth: '1995-04-26',
       grade: 8.3,
-      gender: "m",
+      gender: 'm',
     },
     {
       student_number: 1002,
-      student_name: "Henri",
-      date_of_birth: "1998-05-12",
+      student_name: 'Henri',
+      date_of_birth: '1998-05-12',
       grade: 8.5,
-      gender: "m",
+      gender: 'm',
     },
   ];
 
   connection.connect();
 
   try {
-    await Promise.all[
-      (execQuery(CREATE_STUDENTS_TABLE), execQuery(CREATE_TEACHERS_TABLE))
-    ];
-
-    await Promise.all(
-      students.map((student) =>
-        execQuery("INSERT INTO students SET ?", student)
-      )
+    await Promise.all[execQuery(CREATE_STUDENTS_TABLE), execQuery(CREATE_TEACHERS_TABLE)];
+    
+    await Promise.all(students.map(student =>
+      execQuery('INSERT INTO students SET ?', student)
     );
   } catch (error) {
     console.error(error);
