@@ -76,9 +76,8 @@ When creating an application you need to think of all the entities and their rel
 that are relevant to our application, you call this the application's **domain**.
 Together these entities and relationships form the **domain model** for your application.
 
-Learn more about entities with the following resources:
+Learn more about entities with the following resource:
 
-- [Entities vs. Database](https://www.youtube.com/watch?v=hBu2pdphYaA)
 - [Entities, Attributes, and Relationships](https://www.youtube.com/watch?v=hveVlCHZtsI)
 
 ## 3. What is a database?
