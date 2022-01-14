@@ -73,4 +73,4 @@ Upload your code to your forked Databases repository in GitHub. Make a pull requ
 
 > Forgotten how to upload your homework? Go through the [guide](../hand-in-homework-guide.md) to learn how to do this again.
 
-_Deadline Saturday 23.59 CET_
+_Deadline Tuesday 23.59 CET_
