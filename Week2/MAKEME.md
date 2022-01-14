@@ -65,4 +65,4 @@ Upload both to your forked Databases repository in GitHub. Make a pull request t
 
 > Forgotten how to upload your homework? Go through the [guide](../hand-in-homework-guide.md) to learn how to do this again.
 
-_Deadline Thursday 23.59 CET_
+_Deadline Tuesday 23.59 CET_
