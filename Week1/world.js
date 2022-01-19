@@ -79,7 +79,7 @@ connection.query(countries_surfaces, function (error, results, fields) {
     'All the countries in the descending order of their surface areas',
     results,
   );
-  console.table(results);
+  //console.table(results);
 });
 
 //TODO 6) The names of all the cities in the Netherlands
