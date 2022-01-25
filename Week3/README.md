@@ -178,7 +178,7 @@ But you could map them like this:
 A schema need not be enforced or even exist, you can simply store JSON objects as documents.
 
 For a good understanding of MongoDB you should watch this 36-minute video:
-[MongoDB Crash Course](https://www.youtube.com/watch?v=-56x56UppqQ)
+[MongoDB Crash Course](https://www.youtube.com/watch?v=2QQGWYe7IDU&t=823s)
 
 A small example how to work with Mongo can be found in the folder `/Week3/mongodb`
 
