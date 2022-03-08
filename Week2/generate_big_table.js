@@ -18,7 +18,7 @@ async function seedDatabase() {
         CREATE TABLE IF NOT EXISTS big
         (
             id_pk INT PRIMARY KEY AUTO_INCREMENT,
-            id_no_index   INT
+            number   INT
         );`;
 
     execQuery(CREATE_TABLE);
@@ -27,7 +27,7 @@ async function seedDatabase() {
         rows.push([i]);
         if(i%10000 === 0){
             console.log("i="+i);
-            await execQuery('INSERT INTO big(id_no_index) VALUES ?',[rows]);
+            await execQuery('INSERT INTO big(number) VALUES ?',[rows]);
             rows = [];
         }
     }
@@ -42,7 +42,7 @@ async function queries() {
 
 
     start = new Date();
-    await execQuery('select * from big where id_no_index = 230');
+    await execQuery('select * from big where number = 230');
     end = new Date() - start
     console.info('Execution time with no index: %dms', end)
 

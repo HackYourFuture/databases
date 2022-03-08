@@ -11,7 +11,8 @@ and explain the concepts better in the class.
 2. Relationships (1-M with foreign keys, M-M with composite keys)
 3. Joins (inner, left and right) and aliases
 4. More SQL clauses (group by, having, distinct and Aggregate functions)
-5. Domain modeling (ERD)
+5. Indexes
+6. Domain modeling (ERD)
 
 
 ### 0. Async nature of MySQL-Nodejs interaction
@@ -478,7 +479,163 @@ Hint: In this query use DISTINCT and GROUP BY keywords with HAVING clause.
 #### Essence
 Having clause can only filter the rows with columns selected by the GROUP BY clause.
 
-### 5. Domain Modeling
+### 5. Indexes
+
+#### Explanation
+Indexes are a type of a look-up table where the database server can quickly look up rows in the database tables.
+Indexes are created when rows are inserted or they are updated when the indexed columns are updated in the database.
+Creating or updating indexes takes computation time and storing indexes takes up data storage space.
+However, when retrieving a specific row from the database, the database can use these stored indexes to find the requested row(s) much faster.
+Therefore, indexes make update or insertion operations more expensive/slow, however  they speed-up data retrieval (SELECT/JOIN/WHERE/...) operations.
+Also, they increase the total size of the database, as they are stored together with their corresponding tables.
+
+##### Analogy
+Imagine a (technical) textbook which has the index at the end. This index contains keywords in that book and it tells you on which pages those keyword appear.
+It helps to find pages that contains a word `promise` instead of looking for each page one by one. Note that a keyword may appear on more than one pages.
+In this case, you will see all pages on which this keyword appears. In a JavaScript book, the word `function` may appear on many pages while the word
+`prototype chaining` may appear only once. In the index, you can quickly find on which page these words appear.
+
+Here is a [link to a Medium article](https://medium.com/javarevisited/indexes-when-to-use-and-when-to-avoid-them-39c56e5a7329) that describes indexes concisely.
+
+#### Example
+
+First we will create a table with a large number of records.
+The full program can be found in `Week2/generate_big_table.js`, but here is the snippet
+```
+async function seedDatabase() {
+
+    const CREATE_TABLE = `
+        CREATE TABLE IF NOT EXISTS big
+        (
+            id_pk INT PRIMARY KEY AUTO_INCREMENT,
+            number   INT
+        );`;
+
+    execQuery(CREATE_TABLE);
+    let rows = []
+    for (i = 1; i <= 1000000; i++) {
+        rows.push([i]);
+        if(i%10000 === 0){
+            console.log("i="+i);
+            await execQuery('INSERT INTO big(number) VALUES ?',[rows]);
+            rows = [];
+        }
+    }
+}
+```
+The following two queries will show the difference (in execution time) between using the index and not using the index when we retrieve the data.
+
+```
+mysql> SELECT * FROM big WHERE id_pk = 1000;
++-------+--------+
+| id_pk | number |
++-------+--------+
+|  1000 |   1000 |
++-------+--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM big WHERE number = 1000;
++-------+--------+
+| id_pk | number |
++-------+--------+
+|  1000 |   1000 |
++-------+--------+
+1 row in set (0.19 sec)
+```
+
+The first query's result is instant because the `WHERE` clause uses the `id_pk` column which is a primary key.
+Note that for a primary key column, MySQL automatically creates an index. This can be confirmed with the following query
+
+```
+mysql> SHOW indexes from big;
++-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+
+| Table | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type |
++-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+
+| big   |          0 | PRIMARY  |            1 | id_pk       | A         |    12769223 |     NULL |   NULL |      | BTREE      |
++-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+
+1 row in set (0.01 sec)
+```
+
+The query `SELECT * FROM big WHERE number = 1000` takes longer to run because the column `number` is not indexed. MySQL has to
+go in the `big` table and search row by row to check which row contains the value 1000 in `number` column.
+
+The `describe` command shows how many rows are accessed to fetch the result of the query.
+Check the `rows` column in the output of the following queries.
+
+```
+mysql> DESCRIBE SELECT * FROM big WHERE number = 1000;
++----+-------------+-------+------------+------+---------------+------+---------+------+----------+----------+-------------+
+| id | select_type | table | partitions | type | possible_keys | key  | key_len | ref  | rows     | filtered | Extra       |
++----+-------------+-------+------------+------+---------------+------+---------+------+----------+----------+-------------+
+|  1 | SIMPLE      | big   | NULL       | ALL  | NULL          | NULL | NULL    | NULL | 998568   |    10.00 | Using where |
++----+-------------+-------+------------+------+---------------+------+---------+------+----------+----------+-------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> DESCRIBE SELECT * FROM big WHERE id_pk = 1000;
++----+-------------+-------+------------+-------+---------------+---------+---------+-------+------+----------+-------+
+| id | select_type | table | partitions | type  | possible_keys | key     | key_len | ref   | rows | filtered | Extra |
++----+-------------+-------+------------+-------+---------------+---------+---------+-------+------+----------+-------+
+|  1 | SIMPLE      | big   | NULL       | const | PRIMARY       | PRIMARY | 4       | const |    1 |   100.00 | NULL  |
++----+-------------+-------+------------+-------+---------------+---------+---------+-------+------+----------+-------+
+```
+
+We can now create an index on the `number` column as follows:
+```
+CREATE INDEX idx_number ON big(number);
+```
+
+Now we can re-run the select query which will be faster:
+```
+mysql> SELECT * FROM big WHERE number = 1000;
++-------+--------+
+| id_pk | number |
++-------+--------+
+|  1000 |   1000 |
++-------+--------+
+1 row in set (0.00 sec)
+```
+
+We have seen that having an index helps in fetching the data faster. However, for updates/inserts, having an index
+is more expensive. After doing an update to the indexed column, MySQL also has to internally update indexes for that column.
+
+Look at the query below:
+```
+mysql> UPDATE big SET number = number + 100000;
+Query OK, 1000000 rows affected (14.01 sec)
+Rows matched: 1000000  Changed: 1000000  Warnings: 0
+```
+
+Now, let us remove the index
+```
+mysql> DROP INDEX idx_number ON big;
+Query OK, 0 rows affected (1.59 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+```
+
+and re-run the update query.
+```
+mysql> UPDATE big SET number = number + 100000;
+Query OK, 1000000 rows affected (6.14 sec)
+Rows matched: 1000000  Changed: 1000000  Warnings: 0
+```
+
+We can see that without the index, update of the number column is much faster (6 seconds as compared to 14).
+
+#### Exercise
+Create a composite index using columns (`employee_name and salary`) on the `employees` table and check the query performance of following queries
+```
+DESCRIBE SELECT * FROM employees WHERE employee_name = 'John' and salary = 50000
+DESCRIBE SELECT * FROM employees WHERE employee_name = 'John'
+DESCRIBE SELECT * FROM employees WHERE salary = 50000
+```
+Make sure to have at least 100 records in the `employees` table including someone named `John` with salary 50000.
+
+#### Essence
+Indexes in databases can be used to increase the performance for finding and retrieving specific rows.
+However, they do also add overhead to the database (especially for updates/inserts), so they should be used with care.
+
+
+### 6. Domain Modeling
 #### Explanation
 * Domain modeling is making the models for the domain of the problem or the system.
 * It makes use of the concepts like entities and relations.

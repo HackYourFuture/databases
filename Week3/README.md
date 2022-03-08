@@ -14,7 +14,7 @@ These are the topics for week 3:
 
 ## 0. Video Lectures
 
-Your teachers Igor and Unmesh have made video lectures for this week's material. You can find them here: [Videos 11 - 13](https://www.youtube.com/playlist?list=PLVYDhqbgYpYVq-rHFB1x2-P7esnWotCB7)
+Your teachers Igor and Unmesh have made video lectures for this week's material. You can find them here: [Videos 12 - 14](https://www.youtube.com/playlist?list=PLVYDhqbgYpYVq-rHFB1x2-P7esnWotCB7)
 
 <a href="https://www.youtube.com/playlist?list=PLVYDhqbgYpYVq-rHFB1x2-P7esnWotCB7" target="_blank"><img src="../assets/playlist-thumbnail.png" width="600" height="350" alt="HYF Video" /></a>
 
@@ -54,7 +54,7 @@ The easiest way to fix this is to have two separate phone columns: one for landl
 
 The second problem involves `Shipping Address 1` and `Shipping Address 2`
 The proper way to solve this type of problem would be to identify entities represented in the table and separate them into their own respective tables.
-A new table called `Shipping Addresses` would be an option or a table `Addresses` with a column `type ENUM('shipping','financial')` 
+A new table called `Shipping Addresses` would be an option or a table `Addresses` with a column `type ENUM('shipping','financial')`
 
 #### 2nd normal form (2NF) and 3rd normal form (3NF)
 
@@ -65,10 +65,10 @@ Let's look at an example:
 
 | Manufacturer (PK) | Model (PK)  | Manufacturer country | Manufacturer country code |
 | ----------------- | ----------- | -------------------- | ------------------------- |
-| Apple             | MacBook Air | United States        | US |
-| Apple             | Macbook Pro | United States        | US |
-| Lenovo            | ThinkPad    | China                | CN |
-| Lenovo            | IdeaPad     | China                | CN |
+| Apple             | MacBook Air | United States        | US                        |
+| Apple             | Macbook Pro | United States        | US                        |
+| Lenovo            | ThinkPad    | China                | CN                        |
+| Lenovo            | IdeaPad     | China                | CN                        |
 
 This table violates the rule of 2NF and 3NF because data in the column `Manufacturer country` and `Manufacturer country code` depend on the Primary Key that is actually unrelated.
 To make the database comply, we have to split up the table into three smaller tables (Countries, Models, Manufacturers):
@@ -91,10 +91,10 @@ To make the database comply, we have to split up the table into three smaller ta
 
 **Manufacturers**
 
-| ID (PK) | Name         | Country Code (FK) |
-| ------- | ------------ | ----------------- |
-| 1       | Apple        | US                |
-| 2       | Lenovo       | CN                |
+| ID (PK) | Name   | Country Code (FK) |
+| ------- | ------ | ----------------- |
+| 1       | Apple  | US                |
+| 2       | Lenovo | CN                |
 
 Before there was a risk for inconsistencies because it was possible to update a country name in just one record.
 That cannot occur anymore in these normalized tables because there is only one value for country name for each country code.
@@ -183,6 +183,7 @@ For a good understanding of MongoDB you should watch this 36-minute video:
 A small example how to work with Mongo can be found in the folder `/Week3/mongodb`
 
 To increase your understanding check the following materials:
+
 - https://beginnersbook.com/2017/09/mapping-relational-databases-to-mongodb/
 - [Transitioning from relational databases to MongoDB](https://www.mongodb.com/blog/post/transitioning-from-relational-databases-to-mongodb)
 

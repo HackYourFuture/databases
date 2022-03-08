@@ -12,9 +12,10 @@ These are the topics for week 2:
    - One-to-One (1-1)
    - One-to-Many (1-M)
    - Many-to-Many (M-M)
-3. What’s domain modeling?
+3. What are indexes?
+4. What’s domain modeling?
    - Entity Relationship Diagram (ERD)
-4. How to use SQL: joins, aggregate Functions, distinct, group by, having
+5. How to use SQL: joins, aggregate Functions, distinct, group by, having
    - Joins
    - Aggregate functions
    - Distinct
@@ -23,7 +24,7 @@ These are the topics for week 2:
 
 ## 0. Video Lectures
 
-Your teachers Igor and Unmesh have made video lectures for this week's material. You can find them here: [Videos 9 - 10](https://www.youtube.com/playlist?list=PLVYDhqbgYpYVq-rHFB1x2-P7esnWotCB7)
+Your teachers Igor and Unmesh have made video lectures for this week's material. You can find them here: [Videos 9 - 11](https://www.youtube.com/playlist?list=PLVYDhqbgYpYVq-rHFB1x2-P7esnWotCB7)
 
 <a href="https://www.youtube.com/playlist?list=PLVYDhqbgYpYVq-rHFB1x2-P7esnWotCB7" target="_blank"><img src="../assets/playlist-thumbnail.png" width="600" height="350" alt="HYF Video" /></a>
 
@@ -78,8 +79,9 @@ CREATE TABLE students (
 ```
 
 A foreign key does two useful things;
+
 - It will verify if the related record exists, so you can't insert a row referencing a non-existing relation.
-- It will create an index on this column, giving faster results when querying on the particular column. 
+- It will create an index on this column, giving faster results when querying on the particular column.
 
 or you can add a foreign key later:
 
@@ -106,6 +108,7 @@ each row in the table when the columns are combined **uniqueness is guaranteed**
 it does not guarantee uniqueness.
 
 For example in a database with students from several schools you'd expect the same `student_number` across schools.
+
 ```sql
 CREATE TABLE students (
     student_number INT NOT NULL AUTO_INCREMENT,
@@ -116,7 +119,7 @@ CREATE TABLE students (
 ```
 
 Although composite keys show up in theoretical examples it isn't common to use them in practice.
-Most frameworks will add an `id` column or a prefixed id column like `student_id` 
+Most frameworks will add an `id` column or a prefixed id column like `student_id`
 
 For more information, check out the following:
 
@@ -134,10 +137,10 @@ cause you to change the relationship.)
 
 A pair of tables bears a one-to-one relationship when a single record in the first table is
 related to only one record in the second table, and a single record in the second table is
-related to only one record in the first table. 
+related to only one record in the first table.
 
 For example: each teacher has a personal account and a personal inbox (not more than one per account)
-and each inbox only belongs to a single account. 
+and each inbox only belongs to a single account.
 So there is a One-to-One relationship between entity account and entity inbox.
 
 ### Many-to-One (1-M)
@@ -157,7 +160,7 @@ A pair of tables bears a many-to-many relationship when a single record in the f
 can be related to one or more records in the second table and a single record in the second
 table can be related to one or more records in the first table. To implement this
 relationship, we should create an extra table. This concept is called a junction table.
-The table should (at least) contain the primary keys from both entities. 
+The table should (at least) contain the primary keys from both entities.
 
 For example: each teacher will teach a course to multiple classes
 and these classes will be following several courses from different teachers.
@@ -168,7 +171,22 @@ To learn more about relationships, check out the following:
 - [Defining table relationships](https://www.youtube.com/watch?v=V5DyvUfsboA)
 - [Relational Database concepts](https://www.youtube.com/watch?v=NvrpuBAMddw)
 
-## 3. What’s domain modeling?
+## 3. What are indexes?
+
+Indexes are a type of a look-up table where the database server can quickly look up rows in the database tables. Imagine a (technical) textbook which has the index at the end. This index contains keywords in that book and it tells you on which pages those keyword appear. It helps to find pages that contains a word `promise` instead of looking for each page one by one. Note that a keyword may appear on more than one pages.
+
+In this case, you will see all pages on which this keyword appears. In a JavaScript book, the word `function` may appear on many pages while the word
+`prototype chaining` may appear only once. In the index, you can quickly find on which page these words appear.
+
+A primary key is always an index, but you can add other indexes to the table yourself if you know that you are going to do many queries using that column. This will speed up your querying, but be aware that adding indexes will slow down writing to the table. As every time a change is made it needs to update all of the indexes.
+
+Have a look at the video on indexes in the video playlist at the top of the page for a rundown of how this works and how you can add/remove indexes to a table.
+
+To learn more about this topic, check out the following:
+
+- [Indexes, when to use and when to avoid](https://medium.com/javarevisited/indexes-when-to-use-and-when-to-avoid-them-39c56e5a7329)
+
+## 4. What’s domain modeling?
 
 Domain Modeling is a way to describe and model real world entities and the relationships between them, which collectively describe the problem domain space.
 
@@ -188,7 +206,7 @@ To learn more about this topic, check out the following:
 - [Entity Relationship Diagram Training Video](https://www.youtube.com/watch?v=-fQ-bRllhXc)
 - [Entity-Relationship Diagrams](https://www.youtube.com/watch?v=c0_9Y8QAstg)
 
-## 4. How to use SQL: joins, group by, having
+## 5. How to use SQL: joins, group by, having
 
 ### Joins
 
