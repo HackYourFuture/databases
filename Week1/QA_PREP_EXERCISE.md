@@ -1,17 +1,19 @@
-As a preparation step for the upcoming Q&A, you will work through the following exercise. The expected result is a list of SQL `CREATE TABLE` statements that represent the tables you're being asked to design. We suggest you first think of the design of the tables (names, columns, types) and then proceed to write the SQL statements, that way you are thinking about the problem you're trying to solve (creating a database for a website), rather than the implementation first (creating a set of SQL statements).
+As a preparation step for the upcoming Q&A, you will work through the following exercise. The expected result is a list of SQL `CREATE TABLE` statements representing the tables you will design.
 
-### Option 1
+We suggest you first think of the design of the tables (names, columns, types) and then proceed to write the SQL statements. That way, you're thinking about the problem you're trying to solve (creating a database that holds data) rather than the implementation first (creating a set of SQL statements).
 
-Design the tables for a database that represents a website with food recipes. You don't need to write any specific queries at the moment, but the design should consider the need for some future queries.
+### Exercise
 
-- Each recipe should have a name, a category, a list of ingredients, and a list of steps to follow to complete the recipe. Many recipes might share the same ingredients or the same list of steps (For example, cook pasta according to the package instructions).
-- The website will show a general page with all the recipes.
-- The website will also show recipes under a single category (Salads, Mexican, etc).
+Design the tables for a database that contains food recipes. 
 
-### Option 2
+- Each recipe should have a name, a category, a list of ingredients, and a list of steps to follow to complete the recipe. 
+  - Many recipes might share the same ingredients or the same list of steps (For example, "cook pasta according to the package instructions" could be a regular step seen in multiple recipes).
 
-Design the tables for a database that represents a website for movies. You don't need to write any specific queries at the moment, but the design should consider the need for some future queries.
+You don't need to write any specific queries now, but the design should consider that we will execute queries on the tables to extract data such as:
 
-- Each movie has a name, a category, a rating, a director, and a list of actors. An actor might be present in multiple movies and even be a director of others.
-- The website will show a general page with all the movies. The movies will be sorted by rating.
-- The website will show all movies under a single category (Comedy, drama, etc).
+- You should be able to list all the recipes.
+- You should be able to list recipes under a single category (Salads, Mexican, etc).
+
+There's a short video[1] explaining how relationships work, and you can use this for inspiration. We will expand this topic the following week.
+
+[1] https://www.youtube.com/watch?v=C3icLzBtg8I
