@@ -14,6 +14,12 @@ You don't need to write any specific queries now, but the design should consider
 - You should be able to list all the recipes.
 - You should be able to list recipes under a single category (Salads, Mexican, etc).
 
+Some questions you can ask yourself:
+
+- Which entities can you spot in the above problem ?
+- Which tables do you need to create to store the above data?
+- What are the relationships between those entities?
+
 There's a short video[1] explaining how relationships work, and you can use this for inspiration. We will expand this topic the following week.
 
 [1] https://www.youtube.com/watch?v=C3icLzBtg8I
