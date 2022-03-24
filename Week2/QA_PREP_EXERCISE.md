@@ -4,6 +4,8 @@ As a preparation step for the upcoming Q&A, you need to work on the following ex
 
 Last week you designed a database for storing food recipes. How can you improve your tables, based on what you learned this week?
 
+- What changes do you need to make to include [these new recipes](recipes.md) in your database?
+
 - Where can you add a primary key?
 - Which tables should be linked with a foreign key?
 - What type of relationships do you see between the tables?
