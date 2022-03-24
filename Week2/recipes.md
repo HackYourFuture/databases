@@ -64,6 +64,31 @@
     Add cheddar cheese
     Add the macaroni
 
+# Tamagoyaki Japanese Omelette
+
+### Categories:
+    Vegetarian
+    Japanese
+
+### Ingredients:
+    Eggs
+    Soy sauce
+    Sugar
+    Salt
+    Olive Oil
+
+### Steps:
+    Beat the eggs
+    Add soya sauce, sugar and salt
+    Add oil to a sauce pan 
+    Bring to medium heat
+    Add some mix to the sauce pan
+    Let is cook for 1'
+    Add oil to a sauce pan
+    Add some mix to the sauce pan
+    Let is cook for 1'
+    Remove pan from fire
+
 
 
 
