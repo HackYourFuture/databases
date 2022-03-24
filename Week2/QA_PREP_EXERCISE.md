@@ -15,7 +15,8 @@ Last week you designed a database for storing food recipes. How can you improve 
     > All the cakes that do not need baking
     > All the vegan and Japanese recipes
 
-(Since your table data might be different from the above questions, feel free to improvise.)
+Since your table data might be different from the above questions, feel free to improvise.
+Make sure that your database is running locally and that your queries are reproducable in .js files. 
 
 
 Having learned what an ERD is, how would you design one for the database you created? The diagram must visualize:
