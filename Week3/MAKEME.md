@@ -22,7 +22,7 @@ Then let's practice some MongoDB queries! Start by creating an Atlas account ove
 
 > Save all of your files in the `homework` folder inside `Week3`!
 
-**Exercise 1 : Normalization**
+### 2.1. **Exercise 1 : Normalization**
 
 The manager of the dinner club would like to manage the information system that assists him to keep track of the dinners had by members.
 Because the manager is not an expert of Information Systems, (s)he uses the following table to store the information.
@@ -48,7 +48,7 @@ Save all answers in a text file / MD file.
 +-----------+---------------+----------------+-----------+-------------+------------+-------------------+-----------+------------------+
 ```
 
-**Exercise 2 : Transactions**
+### 2.2. **Exercise 2 : Transactions**
 
 1. Create two tables `account` and `account_changes` (write transactions-create-tables.js file)
 2. `account` table should have following fields : `account_number, balance`.
@@ -60,7 +60,7 @@ Save all answers in a text file / MD file.
 
 Submit all three files (`transactions-create-tables.js`, `transactions-insert-values.js` and `transaction.js`).
 
-**Exercise 3 : SQL injection**
+### 2.3. **Exercise 3 : SQL injection**
 
 You are given the below function which returns the population of a specific country from the [world](../Week2/world.sql) database.
 
@@ -82,7 +82,7 @@ function getPopulation(Country, name, code, cb) {
    (fetch all the records in the database)
 2. Rewrite the function so that it is no longer vulnerable to SQL injection
 
-**Exercise 4 : MongoDB CRUD**
+### 2.4. **Exercise 4 : MongoDB CRUD**
 
 You should already have an atlas account that we will use again for this exercise. Let's first create a new database that this exercise can use: `databaseWeek3` and the collection `bob_ross_episodes`. You can do this manually in Atlas, look up how to do that yourself.
 
@@ -96,7 +96,7 @@ Now that everything is set up, have a look at `index.js` to see what we would li
 
 In this exercise we are going to work with the Bob Ross episode data, if you haven't heard of Bob Ross he was a painter that made a legendary TV show called [The Joy of Painting](https://en.wikipedia.org/wiki/The_Joy_of_Painting). In every episode he created a landscape painting that was easy to follow along to, have a look at the [official youtube channel](https://www.youtube.com/c/BobRossIncVideos) to watch some! The data in the `data.json` file is a list of all the episodes, with their title and the elements he painted in that episode. Note that we massage this data a bit in the `seedDatabase` file so have a look there and in your database on what the structure is in the end.
 
-## 3. **Code along**
+## **3. Code along**
 
 In this week's code along you'll be building a complete CRUD app. However, instead of using MySQL it'll be MongoDB you'll use as a database!
 
