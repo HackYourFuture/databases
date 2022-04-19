@@ -12,10 +12,15 @@ Let's do a warming up with some interactive exercises! Let's start with doing le
 
 - [SQLBolt](https://sqlbolt.com/lesson/select_queries_introduction)
 
-## 2. **MySQL exercises**
+Then let's practice some MongoDB queries! Start by creating an Atlas account over [here](https://www.mongodb.com/cloud/atlas/lp/try2). Atlas is MongoDB's own cloud service that hosts mongodb databases and luckily they offer a very gracious free tier to play around with. Once you have created an account make sure to create a database cluster which can be your playground for the following:
 
-> You will need to do some research to solve these exercises. All the concepts necessary to solve
-these exercises are NOT covered in the reading material. This is on purpose.
+- [MongoDB practice exercises](https://gist.githubusercontent.com/theRemix/7305403e1ab6fc8674f0/raw/c068ab51e930eb133a9443caa314205a89ef4d61/exercise.md) Note that this is a raw markdown file so you may want to copy it into your editor and save it as `.md` to get syntax highlighting. The live version has comments with answers which you can check out after over [here](https://gist.github.com/theRemix/7305403e1ab6fc8674f0#file-exercise-md).
+
+## 2. **Database exercises**
+
+> You will need to do some research to solve these exercises. All the concepts necessary to solve these exercises are NOT covered in the reading material. This is on purpose.
+
+> Save all of your files in the `homework` folder inside `Week3`!
 
 **Exercise 1 : Normalization**
 
@@ -51,7 +56,7 @@ Save all answers in a text file / MD file.
 4. Choose the appropriate data types and keys for these tables.
 5. Insert some sample data in these tables. (write transactions-insert-values.js file)
 6. Transfer the amount of 1000 from account number 101 to account number 102 and log the changes in the table `account_changes`.
-Do this in a _single transaction_ (Write transaction.js file)
+   Do this in a _single transaction_ (Write transaction.js file)
 
 Submit all three files (`transactions-create-tables.js`, `transactions-insert-values.js` and `transaction.js`).
 
@@ -64,7 +69,7 @@ function getPopulation(Country, name, code, cb) {
   // assuming that connection to the database is established and stored as conn
   conn.query(
     `SELECT Population FROM ${Country} WHERE Name = '${name}' and code = '${code}'`,
-    function(err, result) {
+    function (err, result) {
       if (err) cb(err);
       if (result.length == 0) cb(new Error("Not found"));
       cb(null, result[0].name);
@@ -74,34 +79,22 @@ function getPopulation(Country, name, code, cb) {
 ```
 
 1. Give an example of a value that can be passed as `name` and `code` that would take advantage of SQL-injection and
-(fetch all the records in the database)
+   (fetch all the records in the database)
 2. Rewrite the function so that it is no longer vulnerable to SQL injection
 
 **Exercise 4 : MongoDB CRUD**
 
-In week 1, you used a mysql database that had 3 tables: `cities`, `countries`, and `countrylanguage`.
+You should already have an atlas account that we will use again for this exercise. Let's first create a new database that this exercise can use: `databaseWeek3` and the collection `bob_ross_episodes`. You can do this manually in Atlas, look up how to do that yourself.
 
-We are going to migrate these tables into your Atlas MongoDB account
+Once you have created the database it is time to set up our environment so that our code can connect to this database. In the past you may have put this connection information (think of API keys) in your PRs, but from now on that should not happen anymore. The way we usually do this is by creating a `.env` file and adding that to the `.gitignore` file so that it does not get pushed to git. We have set up the `.gitignore` file and provided you with an `.env.example` file that gives an example of what you `.env` file should look like. Have a look in it to see how you should create the `.env` file.
 
-```sql
-select * into outfile 'city.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' from city;
+> You will need to figure out a way to get these `.env` variables into the process environment. This is almost always done using a library, but it is up to you to figure out which one this is and set it up correctly.
 
-select * into outfile 'country.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' from country;
+Now that everything is set up, have a look at `index.js` to see what we would like you to do. We have provided a `seedDatabase` file that cleans up the database and collection to ensure that you are working with the same data every time.
 
-select * into outfile 'countrylanguage.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' from countrylanguage;
-```
+> The `index.js` file also assumes some things are set up, when you run it you will encounter an error that you will need to solve.
 
-Then in Atlas , follow [add my own data](https://docs.atlas.mongodb.com/tutorial/insert-data-into-your-cluster) to import the csv data into new collections.
-
-* Write down all the steps of conversion (installation, commands etc.) in a text file / MD file.
-
-Write the following queries using MongoDB syntax in the JavaScript files.
-1. Create a new record (document) for a new city (your home town, say)
-2. Update that record with a new population
-3. Read the document that you just updated in two ways : finding by the city name, and then by the country code
-4. Delete the city
-
-* Submit the javascript files for these queries.
+In this exercise we are going to work with the Bob Ross episode data, if you haven't heard of Bob Ross he was a painter that made a legendary TV show called [The Joy of Painting](https://en.wikipedia.org/wiki/The_Joy_of_Painting). In every episode he created a landscape painting that was easy to follow along to, have a look at the [official youtube channel](https://www.youtube.com/c/BobRossIncVideos) to watch some! The data in the `data.json` file is a list of all the episodes, with their title and the elements he painted in that episode. Note that we massage this data a bit in the `seedDatabase` file so have a look there and in your database on what the structure is in the end.
 
 ## 3. **Code along**
 
@@ -113,7 +106,7 @@ In this week's code along you'll be building a complete CRUD app. However, inste
 
 After you've finished your todo list it's time to show us what you got! The homework that needs to be submitted is the following:
 
-1. MySQL exercises
+1. Database exercises
 
 Upload your code to your forked Databases repository in GitHub. Make a pull request to HackYourHomework's forked repository.
 
