@@ -3,7 +3,7 @@
 ## **Todo list**
 
 1. Practice the concepts
-2. MySQL exercises
+2. Database exercises
 3. Code along
 
 ## 1. **Practice the concepts**
@@ -78,8 +78,7 @@ function getPopulation(Country, name, code, cb) {
 }
 ```
 
-1. Give an example of a value that can be passed as `name` and `code` that would take advantage of SQL-injection and
-   (fetch all the records in the database)
+1. Give an example of a value that can be passed as `name` and `code` that would take advantage of SQL-injection and (fetch all the records in the database)
 2. Rewrite the function so that it is no longer vulnerable to SQL injection
 
 ### 2.4. **Exercise 4 : MongoDB CRUD**
