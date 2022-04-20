@@ -6,7 +6,8 @@
 
 1. Practice the concepts
 2. MySQL exercises
-3. Code along
+3. Prep exercises
+4. Code along
 
 ## 1. **Practice the concepts**
 
@@ -57,7 +58,13 @@ Don't omit to test your queries evey time.
 
 After you've written your **tested** queries, test to see if everything work by executing `node <FILE_NAME>`.
 
-## 3. **Code along**
+## 3. **Prep exercises**
+
+> Prep exercises are exercises that you should work on _before_ the session on Sunday. These are a little more difficult or show an important concept and as such are a great exercise to talk about with your mentor. Have a solution ready by Sunday as you may be asked to show what you did.
+
+Inside your `databases` fork, go to the folder `week1`. Inside of that folder, navigate to `QA_PREP_EXERCISE.md` file which explains what needs to be done. There will also be some questions at the bottom to think about. Go through them _before_ the session on Sunday as it will be covered then.
+
+## 4. **Code along**
 
 In this week's code along you won't be building a complete app, but get familiar with using MySQL together with Node.js.
 

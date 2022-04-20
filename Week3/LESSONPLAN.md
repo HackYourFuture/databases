@@ -52,11 +52,12 @@ Different levels of normalization are called *normal forms*.
 A table is said to be in `X normal form` if it satisfies all rules
 defined by that normal form and all the normal forms before X.
 
-#### 1NF (4 rules)
+#### 1NF (5 rules)
 1. Single valued columns (each column should have atomic value, no multiple values)
 2. Column domain (for any column) should not change.
 3. Unique names for columns.
 4. Order (of rows/columns) does not matter.
+5. No duplicate records (every record has a primary key).
 
 #### 2NF (1NF + rule)
 * no non-prime column that is not a part of primary key

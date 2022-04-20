@@ -6,12 +6,13 @@ These are the topics for week 2:
 
 1. [Identifiers (Primary key, Foreign key, Composite key)](https://hackyourfuture.github.io/study/#/databases/sql/identifiers)
 2. [Relationships (One-to-One, One-to-Many, Many-to-Many)](https://hackyourfuture.github.io/study/#/databases/sql/relationships)
-3. [Domain modeling](https://hackyourfuture.github.io/study/#/databases/sql/domain-modeling)
-4. [Advanced SQL commands](https://hackyourfuture.github.io/study/#/databases/sql/advanced-sql)
+3. [Indexes](https://hackyourfuture.github.io/study/#/databases/sql/indexes)
+4. [Domain modeling](https://hackyourfuture.github.io/study/#/databases/sql/domain-modeling)
+5. [Advanced SQL commands](https://hackyourfuture.github.io/study/#/databases/sql/advanced-sql)
 
 ## Week goals
 
-This week we are going to start diving deeper into SQL and how to structure your tables. Let's start by looking into identifiers that allow you to add constraints to your database [here](https://hackyourfuture.github.io/study/#/databases/sql/identifiers). After that, let's look into relationships between tables. There are three types of relationships (one-to-one, one-to-many and many-to-many), read about when to use them over [here](https://hackyourfuture.github.io/study/#/databases/sql/relationships).
+This week we are going to start diving deeper into SQL and how to structure your tables. Let's start by looking into identifiers that allow you to add constraints to your database [here](https://hackyourfuture.github.io/study/#/databases/sql/identifiers). After that, let's look into relationships between tables. There are three types of relationships (one-to-one, one-to-many and many-to-many), read about when to use them over [here](https://hackyourfuture.github.io/study/#/databases/sql/relationships). With more complex and bigger databases performance can become a problem. To help you solve this, you can configure your database in such a way to speed up specific queries using [Indexes](https://hackyourfuture.github.io/study/#/databases/sql/indexes).
 
 With all of these relationships between multiple tables it can become a little hard to keep track. To help visualise your databases we generally use what is called an Entity Relationship Diagram, read all about them [here](https://hackyourfuture.github.io/study/#/databases/sql/domain-modeling).
 
