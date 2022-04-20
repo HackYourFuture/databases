@@ -3,8 +3,9 @@
 ## **Todo list**
 
 1. Practice the concepts
-2. MongoDB exercises
-3. Code along
+2. Prep exercises
+3. MongoDB exercises
+4. Code along
 
 ## 1. **Practice the concepts**
 
@@ -12,11 +13,17 @@ Let's practice some advanced MongoDB queries. Have a look at the following exerc
 
 - [Advanced MongoDB exercises](https://github.com/mattdavis0351/mongodb-labs/blob/master/exercises/03_advanced-mongo-queries.md)
 
-## 2. **MongoDB exercises**
+## 2. **Prep exercises**
+
+> Prep exercises are exercises that you should work on _before_ the session on Sunday. These are a little more difficult or show an important concept and as such are a great exercise to talk about with your mentor. Have a solution ready by Sunday as you may be asked to show what you did.
+
+Inside your `databases` fork, go to the folder `Week4`. Inside of that folder, navigate to `QA_PREP_EXERCISE.md` file which explains what needs to be done. There will also be some questions at the bottom to think about. Go through them _before_ the session on Sunday as it will be covered then.
+
+## 3. **MongoDB exercises**
 
 Let's create a fresh database for this week's homework. You can create a database called `databaseWeek4` that you can use for the following exercises.
 
-### 2.1 **Exercise 1 : Aggregation**
+### 3.1 **Exercise 1 : Aggregation**
 
 Let's practice some aggregation queries, for that we will have to use some data and luckily [kaggle](https://www.kaggle.com/) is a great website that provides datasets to use. In the `ex1-aggregation` folder you will find a csv file with data for you.
 
@@ -110,7 +117,7 @@ Let's practice some aggregation queries, for that we will have to use some data 
 ];
 ```
 
-### 2.2 **Exercise 2 : Transactions**
+### 3.2 **Exercise 2 : Transactions**
 
 Just like last week, let's solve the same transaction problem but then in MongoDB. Note that you will need to include some libraries which means you will need to set that up as well (use the `ex2-transactions` folder for this). You will also probably want to add an `index.js` that calls the functions we will create to test it out, we leave the implementation of that up to you. Now let's get started, we will split our code into multiple files again, first being the setup file:
 
@@ -127,7 +134,7 @@ Then it is time to write our transaction function:
 
 Submit the `setup.js` and `transfer.js` files.
 
-## 3. **Code Along**
+## 4. **Code Along**
 
 This week we have a small code along to show how to implement pagination and make it reusable for all your routes!
 
