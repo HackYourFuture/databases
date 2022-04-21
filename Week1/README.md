@@ -5,16 +5,14 @@
 These are the topics for week 1:
 
 1. [Introduction to databases](https://hackyourfuture.github.io/study/#/databases/README)
+   - What is an information (system)?
+   - What are entities?
+   - What is a database?
+   - What is the role of a database in an application?
 2. [Introduction to Structured Query Language (SQL)](https://hackyourfuture.github.io/study/#/databases/sql/README)
+   - What are data types (as applied to databases)?
+   - How to use SQL to Create, Read, Update and Delete (CRUD)
 3. [Using database dumps](https://hackyourfuture.github.io/study/#/databases/sql/dumps)
-
-   <!-- - SQL vs. NoSQL
-   - When to use either an SQL or NoSQL database?
-   - What is MySQL? -->
-
-   <!-- 9. The role of a database in a full-stack application
-   - What does a database do for our apps?
-   - How to connect with Node.js -->
 
 ## Week goals
 
