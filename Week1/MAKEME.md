@@ -22,13 +22,13 @@ Also make time to do lesson 1-5 from the following:
 ## 2. **MySQL exercises**
 
 > You will need to do some research to solve these exercises. All the concepts necessary to solve
-these exercises are NOT covered in the reading material. This is on purpose.
+> these exercises are NOT covered in the reading material. This is on purpose.
 
 **Exercise 1: Create and insert queries**
 
 Write a JavaScript file (to be executed with Node.js) that creates and makes a connection to a MySQL database. Do so using the `mysql` package (https://www.npmjs.com/package/mysql).
 
-Remember, It's always  better to test your queries as soon as you have created them. Feel free to first write them in any sql viewer tool or mysql console before writing the node program.
+Remember, It's always better to test your queries as soon as you have created them. Feel free to first write them in any sql viewer tool or mysql console before writing the node program.
 
 1. Create a database called `meetup`
 2. Make a connection to your database, using your MySQL `hyfuser` login credentials
@@ -62,7 +62,7 @@ After you've written your **tested** queries, test to see if everything work by 
 
 > Prep exercises are exercises that you should work on _before_ the session on Sunday. These are a little more difficult or show an important concept and as such are a great exercise to talk about with your mentor. Have a solution ready by Sunday as you may be asked to show what you did.
 
-Inside your `databases` fork, go to the folder `week1`. Inside of that folder, navigate to `QA_PREP_EXERCISE.md` file which explains what needs to be done. There will also be some questions at the bottom to think about. Go through them _before_ the session on Sunday as it will be covered then.
+Inside your `databases` fork, go to the folder `Week1`. Inside of that folder, navigate to `QA_PREP_EXERCISE.md` file which explains what needs to be done. There will also be some questions at the bottom to think about. Go through them _before_ the session on Sunday as it will be covered then.
 
 ## 4. **Code along**
 
@@ -76,7 +76,7 @@ After you've finished your todo list it's time to show us what you got! The home
 
 1. MySQL exercises
 
-Upload your code to your forked Databases repository in GitHub. Make a pull request to `HackYourHomework/databases`  repository.
+Upload your code to your forked Databases repository in GitHub. Make a pull request to `HackYourHomework/databases` repository.
 
 > Forgotten how to upload your homework? Go through the [guide](../hand-in-homework-guide.md) to learn how to do this again.
 

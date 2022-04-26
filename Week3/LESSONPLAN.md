@@ -4,55 +4,64 @@ The lesson plan is primarily written for teachers so that they can
 use examples and anecdotes from this document in conjunction with the README
 and explain the concepts better in the class.
 
-##  Topics (essentially same as the README file)
+## Topics (essentially same as the README file)
+
 0. Super Key vs Candidate Key vs Primary key
 1. Normalization
 2. Transactions
 3. SQL injection
 4. NoSQL (with MongoDB)
-5. Non-relational vs. relational
 
 ## 0. Super Key vs Candidate Key vs Primary key
 
 #### Explanation
+
 1. Super key is a set of columns that uniquely identify a row.
 2. Candidate key is a minimal super key that can uniquely identify a row.
 3. Primary key is a choice of candidate key chosen by the database designer.
 
 #### Example
+
 For the following table
 `Employee (employee_id, employee_name, gender, salary, department, age, city)`
-* Two super keys from this table are
+
+- Two super keys from this table are
+
 1. SK1 = `{employee_name, department, age, city}`
 2. SK2 = `{employee_id, employee_name, salary}`
 
-* The candidate keys derived from these super key can be 
-1. CK1 from SK1 = `{employee_name, city}` 
-if two employees with the same name always come from different city.
-Then, we don't need the `age` and `department` columns in this candidate key.
-2. CK2 from SK2 = `{employee_id}` if different identifier is generated for every
-employee. Then we don't need the `employee_name` and `salary` columns in this candidate key.
+- The candidate keys derived from these super key can be
 
-* The primary key chosen from these candidate keys could be `employee_id`.
+1. CK1 from SK1 = `{employee_name, city}`
+   if two employees with the same name always come from different city.
+   Then, we don't need the `age` and `department` columns in this candidate key.
+2. CK2 from SK2 = `{employee_id}` if different identifier is generated for every
+   employee. Then we don't need the `employee_name` and `salary` columns in this candidate key.
+
+- The primary key chosen from these candidate keys could be `employee_id`.
 
 #### Exercise
+
 Consider the following table:
 `Book (ISBN int, book_name, author_name, publication_year, publisher, book_language)`.
 Find out 2 sets of super keys, candidate keys and choose an appropriate primary key.
 
 #### Essence
+
 Primary key uniquely identifies rows.
 Super keys and Candidate keys are used in database design.
 
 ## 1. Normalization and normal forms
 
 ### Explanation
+
 The goal of normalization is to reduce duplication of data.
-Different levels of normalization are called *normal forms*.
+Different levels of normalization are called _normal forms_.
 A table is said to be in `X normal form` if it satisfies all rules
 defined by that normal form and all the normal forms before X.
 
 #### 1NF (5 rules)
+
 1. Single valued columns (each column should have atomic value, no multiple values)
 2. Column domain (for any column) should not change.
 3. Unique names for columns.
@@ -60,10 +69,11 @@ defined by that normal form and all the normal forms before X.
 5. No duplicate records (every record has a primary key).
 
 #### 2NF (1NF + rule)
-* no non-prime column that is not a part of primary key
-should be functionally dependent on any proper subset of a candidate key.
-In other words, there should be
-No partial dependency (no column should depend on the part of the primary key).
+
+- no non-prime column that is not a part of primary key
+  should be functionally dependent on any proper subset of a candidate key.
+  In other words, there should be
+  No partial dependency (no column should depend on the part of the primary key).
 
 ```
 Functional dependency: Denoted with A => B.
@@ -79,21 +89,24 @@ I cannot tell the student number from the name because there could be multiple s
 If you feel adventurous, then read this [Functional Dependency Wikipage](https://en.wikipedia.org/wiki/Functional_dependency)
 
 #### 3NF (2NF + rule)
-* No transitive dependency (i.e. no column should depend on non-key column).
 
+- No transitive dependency (i.e. no column should depend on non-key column).
 
 #### 3.5NF AKA BCNF (3NF + rule)
-* For any dependency A => B, A should be a super key.
-In other words, for a dependency A => B, A cannot be a non-prime column, if B is a prime column.
+
+- For any dependency A => B, A should be a super key.
+  In other words, for a dependency A => B, A cannot be a non-prime column, if B is a prime column.
 
 #### 4NF (3NF + rule)
-* No multi-value dependency.
+
+- No multi-value dependency.
 
 ### Example
 
 #### 1NF
 
 Consider the following table
+
 ```
 +-------------+------------+-----------------------+
 | Employee Id |   Name     |   Contact             |
@@ -124,13 +137,15 @@ This table could be converted to 1NF as follows:
 ```
 
 In real life, you actually need to
-* DROP column Contact.
-* ADD column Phone with the type int.
-* ADD column Email with the type varchar(50).
+
+- DROP column Contact.
+- ADD column Phone with the type int.
+- ADD column Email with the type varchar(50).
 
 #### 2NF
 
 Consider the following table (employee-project M-M relationship table).
+
 ```
 +-------------+------------+-----------------------+
 | Employee Id | Project ID |  Project Budget       |
@@ -154,9 +169,10 @@ emp_no + proj_no (is a candidate key)
 This table could be converted to 2NF by removing the `Project Budget` column and
 adding it to the project table.
 
-
 #### 3NF
+
 Consider the following table (employees)
+
 ```
 +-------------+------------+-----------------------+
 | Employee Id | Dept Id    |  Dept Location        |
@@ -169,11 +185,13 @@ Consider the following table (employees)
 ```
 
 This table violates the 3NF because there is a transitive dependency.
-`Employee Id => Dept Id` and  `Dept Id => Dept Location.`
+`Employee Id => Dept Id` and `Dept Id => Dept Location.`
 `Dept Location` column depends on the `Dept Id` which is not a primary key column.
 
 #### 3.5 NF (AKA BCNF)
+
 Consider the following table (students opting for subjects)
+
 ```
 +-------------+------------+-----------------------+
 | Student Id  | Subject    |  Professor            |
@@ -192,6 +210,7 @@ This table violates the 3.5NF because there is a functional dependency
 `Student Id + Subject` is the primary key. Hence `Subject` is a prime column.
 
 This table could be converted to 3.5NF as follows:
+
 ```
 +-------------+------------+
 | Student Id  | Prof Id    |
@@ -205,7 +224,7 @@ This table could be converted to 3.5NF as follows:
 +-------------+------------+
 ```
 
-and 
+and
 
 ```
 +-------------+------------+----------+
@@ -216,9 +235,10 @@ and
 +-------------+------------+----------+
 ```
 
-
 #### 4NF
+
 Consider the following table (students opting for subjects)
+
 ```
 +-------------+------------+-----------+
 | Student     | Subject    |  Hobby    |
@@ -233,7 +253,8 @@ Consider the following table (students opting for subjects)
 
 This table violates 4NF because `Subject` and `Hobby` are independent of each other.
 Hence the hobby of the student must be repeated in the table with each subject
-the student chooses. 
+the student chooses.
+
 ```
 +-------------+------------+-----------------------+
 | Student     | Subject    |  Hobby                |
@@ -264,7 +285,8 @@ This table could be converted to 4NF by splitting it into two.
 |    Lukas    |  C++       |
 +-------------+------------+
 ```
-and 
+
+and
 
 ```
 +-------------+-----------+
@@ -281,6 +303,7 @@ and
 ### Exercise
 
 Normalize the following table.
+
 ```
 +-------------+------------+-----------------------------------------------+------------+
 | Full name   | Adddress   |  Movies rented                                | Salutation |
@@ -290,10 +313,13 @@ Normalize the following table.
 | Rob Smith   | 9 Joy St   |  Clash of the Titans                          |     Mr.    |
 +-------------+------------+-----------------------------------------------+------------+
 ```
+
 ### Essence
+
 Normal forms help in a better database design mostly by reducing redundancy.
 
 ## 2. Transactions
+
 ### Explanation
 
 We explain the need for the transaction with the following anecdotal illustration:
@@ -303,43 +329,47 @@ the balance in the bank account of Birgul is 700€.
 Imagine that Ali is transferring 50€ to Birgul. Then, at the end
 of this money transaction, Ali should have 450€ and Birgul should have 750€.
 Note that this involved two database queries.
-1. Update the row of the account of Ali and *subtract* the balance by 50.
-2. Update the row of the account of Birgul and *add* the balance by 50.
+
+1. Update the row of the account of Ali and _subtract_ the balance by 50.
+2. Update the row of the account of Birgul and _add_ the balance by 50.
 
 These two database queries together form a transaction. If we execute only
 one of them, then there is inconsistency.
 
 Transactions have the following syntax:
+
 ```
 start transaction;
 SQL command 1
 SQL command 2 ...
 SQL command N
 
-rollback OR commit; 
+rollback OR commit;
 
 # "rollback" aborts the transaction (also ends the transaction)
 # "commit" commits the transaction (also ends the transaction)
 ```
 
 > Note that there is no "end transaction" command. To end the transaction,
- we have to either commit the transaction or rollback the transaction.
+> we have to either commit the transaction or rollback the transaction.
 
 #### ACID properties
 
 Transactions in relational databases (like MySQL) follow the
 following properties.
+
 1. Atomicity : Execute all commands in the transaction or execute zero commands in the transaction (all or none).
 2. Consistency : A transaction brings database from one valid state to the next valid state.
 3. Isolation : Concurrent execution of transactions (possibly by different users) should leave the database in a consistent state.
 4. Durability : When a transaction is committed, it will remain committed even in the case of system failure. In other words,
-committed transactions are recorded on the disk.
+   committed transactions are recorded on the disk.
 
 ### Example
 
 Atomicity can be demonstrated with the following `rollback` and `commit` examples:
 
 #### Rollback example
+
 ```
 set autocommit = 0; # default is 1 which automatically commits every command as transaction.
 
@@ -358,8 +388,8 @@ select * from employees; # Show the old salary
 
 > There can be hundreds of commands after `start transaction`. rollback command will undo all of them.
 
-
 #### Commit example
+
 ```
 set autocommit = 0; # default is 1 which automatically commits every command as transaction.
 
@@ -378,11 +408,10 @@ select * from employees; # Show the new salary
 
 > After commit, the changes are written permanently on the disk.
 
-
 #### Isolation and Consistency examples
 
-
 Start two `mysql` command line clients.
+
 ```
 # First client
 
@@ -392,6 +421,7 @@ commit;
 ```
 
 In the second client, show that the value is updated.
+
 ```
 # Second client
 select * from employees;
@@ -399,8 +429,7 @@ select * from employees;
 ```
 
 > The change made by one database client in the database server will be seen by the other client(s). Thus,
-both clients have the consistent view on the database.
-
+> both clients have the consistent view on the database.
 
 ```
 # First client
@@ -412,7 +441,6 @@ LOCK TABLES employees WRITE;
 update employees set salary = 7000 where employee_id = 101;
 
 ```
-
 
 ```
 # Second client
@@ -431,11 +459,13 @@ Discuss the transaction in the context of an Uber ride. How many operations/acti
 When can the transaction be aborted ? What would be the database tables ?
 
 ### Essence
+
 A transaction is a set of SQL commands that is treated as ONE command.
 
 ## 3. SQL injection
 
 ### Explanation
+
 SQL injection is a type of hacker attack where the attacker tries to get the program to execute a query to read/write
 the data that they should not have access to.
 
@@ -449,7 +479,9 @@ Use the `prompt` package in `input-demo.js` to simulate the input from HTML form
 // 1. Naive way of passing the parameter to the query
 const select_query = `select * from employees WHERE employee_id =  ${input_number};`
 ```
+
 This way is vulnerable to the following attacks.
+
 ```
 $ node sql-injection.js # Execute the Javascript program from the (VS code) terminal.
 
@@ -466,6 +498,7 @@ prompt: employee_number: 1234 OR 1=1; drop table demo;
 ```
 
 To solve this problem, there are two ways of sanitizing the input:
+
 ```
 // 1. Escaping the parameter ( replacing the unwanted characters)
 const select_query = `select * from employees WHERE employee_id =` + connection.escape(input_number);
@@ -479,23 +512,17 @@ const select_query = `select * from employees WHERE employee_id = ?`
 https://www.hacksplaining.com/exercises/sql-injection#/start
 
 ### Essence
+
 SQL injections are dangerous. Always sanitize the input from your HTML forms.
 
 ## 4. No SQL
+
 ### Explanation
+
 ### Example
 
-> use the same tables here (as Week 1 lessonplan)  to be consistent and show students how to make similar databases using MySQL and MongoDB
+> use the same tables here (as Week 1 lessonplan) to be consistent and show students how to make similar databases using MySQL and MongoDB
 
 ### Exercise
 
-
-
 ### Essence
-
-## 5. Non-relational vs. relational
-### Explanation
-### Example (in the format Language : Commands)
-### Exercise
-### Essence
-
