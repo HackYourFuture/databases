@@ -65,26 +65,14 @@ In summary:
 
 To have a more detailed overview of the guidelines, please read [this document](https://docs.google.com/document/d/1JUaEbxMQTyljAPFsWIbbLwwvvIXZ0VCHmCCN8RaeVIc/edit?usp=sharing) or ask your mentor/class on Slack!
 
-### Video lectures
-
-For each module HackYourFuture provides you with video lectures. These are made by experienced software developers who know what they're talking about. This module will include 2 main teachers, [Unmesh Joshi](https://hackyourfuture.slack.com/team/U2JJ624UE) and [Igor Budasov](https://hackyourfuture.slack.com/team/UH2T65P5X)
-
-You can find out more about them here:
-
-- [Unmesh's GitHub](https://github.com/unmeshvrije) & [Igor's GitHub](https://github.com/ibudasov)
-- [@Unmesh on Slack](https://hackyourfuture.slack.com/team/U2JJ624UE) & [@Igor on Slack](https://hackyourfuture.slack.com/team/UH2T65P5X)
-
-Learn from Unmesh & Igor in the following playlist of videos they have made for you! (Click on the image to open the link)
-
-<a href="https://www.youtube.com/playlist?list=PLVYDhqbgYpYVq-rHFB1x2-P7esnWotCB7" target="_blank"><img src="./assets/playlist-thumbnail.png" width="600" height="350" alt="HYF Video" /></a>
-
 ## Planning
 
 | Week | Topic                                                                         | Readings                       | Homework                       | Lesson Plan                           |
 | ---: | ----------------------------------------------------------------------------- | ------------------------------ | ------------------------------ | ------------------------------------- |
 |   1. | What's a database, Entities, Data structures, Structured Query Language (SQL) | [Readings W1](Week1/README.md) | [Homework W1](Week1/MAKEME.md) | [Lesson Plan W1](Week1/LESSONPLAN.md) |
 |   2. | Identifiers, Relationships, Domain Modeling, Advanced SQL commands            | [Readings W2](Week2/README.md) | [Homework W2](Week2/MAKEME.md) | [Lesson Plan W2](Week2/LESSONPLAN.md) |
-|   3. | Normalization, Transactions, SQL Injection, NoSQL (with MongoDB)              | [Readings W3](Week3/README.md) | [Homework W3](Week3/MAKEME.md) | [Lesson Plan W3](Week3/LESSONPLAN.md) |
+|   3. | Normalization, Transactions, SQL Injection, NoSQL basics (with MongoDB)       | [Readings W3](Week3/README.md) | [Homework W3](Week3/MAKEME.md) | [Lesson Plan W3](Week3/LESSONPLAN.md) |
+|   4. | NoSQL advanced commands, Pagination, SQL vs NoSQL                             | [Readings W4](Week4/README.md) | [Homework W4](Week4/MAKEME.md) |  |
 
 ## Finished?
 
