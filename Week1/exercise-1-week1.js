@@ -57,61 +57,64 @@ const insertRoomTable = `INSERT INTO Room (room_no, room_name, floor_number)
   (105, 'HYF-Database', 2);`;
 
 const insertDataIntoInviteeTable = () => {
-  connection.query(insertInviteeTable, (err, result) => {
-    err && console.log(err);
-    console.log(result, 'Invitee table populated');
+  connection.query(insertInviteeTable, (err, res) => {
+    err ? console.log(err) :
+    console.log(res, 'Invitee table populated');
   });
 };
 const insertDataIntoRoomTable = () => {
-  connection.query(insertRoomTable, (err, result) => {
-    err && console.log(err);
-    console.log(result, 'Room table populated');
+  connection.query(insertRoomTable, (err, res) => {
+    err ? console.log(err) :
+    console.log(res, 'Room table populated');
   });
 };
 const insertDataIntoMeetingTable = () => {
-  connection.query(insertMeetingTable, (err, result) => {
-    err && console.log(err);
-    console.log(result, 'Meeting table populated');
+  connection.query(insertMeetingTable, (err, res) => {
+    err ? console.log(err) :
+    console.log(res, 'Meeting table populated');
   });
 };
 
 const dropDatabases = () => {
-  connection.query(dropDatabase, (error, result) => {
-    error ? console.log(error) : console.log('database dropped');
+  connection.query(dropDatabase, (err, res) => {
+    err ? console.log(err) : 
+    console.log(res, 'database dropped');
   });
 };
 
 const dropTables = () => {
-  connection.query(dropTable, (error, result) => {
-    error ? console.log(error) : console.log('Tables dropped');
+  connection.query(dropTable, (err, res) => {
+    err ? console.log(err) : 
+    console.log(res, 'Tables dropped');
   });
 };
 
 const createDatabases = () => {
-  connection.query(createDatabase, (error, result) => {
-    error ? console.log(error) : console.log('Database created');
+  connection.query(createDatabase, (err, res) => {
+    err ? console.log(error) :
+    console.log(res, 'Database created');
   });
 };
 
 const useDatabases = () => {
-  connection.query(useDatabase, (error, result) => {
-    error ? console.log(error) : console.log('Database used');
+  connection.query(useDatabase, (err, res) => {
+    err ? console.log(err) :
+    console.log(res, 'Database used');
   });
 };
 
 const createTable = () => {
-  connection.query(createInviteeTable, (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log('Invitee table created');
-    }
+  connection.query(createInviteeTable, (err, res) => {
+      err ? console.log(err) :
+      console.log(res, 'Invitee table created');
+    })
+  connection.query(createRoomTable, (err, res) => {
+    err ? console.log(err) :
+    console.log(res, 'Room table created');
   });
-  connection.query(createRoomTable, (err, result) => {
-    err ? console.log(err) : console.log('Room table created');
-  });
-  connection.query(createMeetingTable, (err, result) => {
-    err ? console.log(err) : console.log('Meeting table created');
+  connection.query(createMeetingTable, (err, res) => {
+    err ? console.log(err) :
+    console.log(res, 'Meeting table created');
   });
 };
 
