@@ -41,9 +41,4 @@ mysql> create database userdb;
 
 **Step 3: Installing MySQL driver to use with Node.js**
 
-We want to use MySQL with JavaScript and to this end, we use the following [package](https://github.com/mysqljs/mysql).
-
--   Use `npm install -g mysql` command to install it.
--   Navigate to the `Week1` folder from the VScode terminal and then execute the command `node connection-test.js`
-
-The output should be `The solution is: 2`.
+We want to use MySQL with JavaScript and to this end, we use the following [package](https://github.com/mysqljs/mysql). You can create an project wherever you want and install it. To test everything is working you can use the `connection-test.js` file. If you run it it should output `The solution is: 2`.
