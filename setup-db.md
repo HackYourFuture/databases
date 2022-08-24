@@ -30,7 +30,7 @@ mysql> create user 'hyfuser'@'localhost' identified by 'hyfpassword';
 
 mysql> grant all privileges on *.* to 'hyfuser'@'localhost';
 
-# Step 3: This command flushes all privileges
+# Step 3: This command flushes all privileges so that mysql reloads the grant table and our changes are enabled  
 
 msyql> flush privileges;
 
