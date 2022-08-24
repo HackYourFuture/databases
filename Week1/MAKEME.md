@@ -5,8 +5,8 @@
 ## **Todo list**
 
 1. Practice the concepts
-2. MySQL exercises
-3. Prep exercises
+2. Prep exercises
+3. MySQL exercises
 4. Code along
 
 ## 1. **Practice the concepts**
@@ -19,7 +19,13 @@ Also make time to do lesson 1-5 from the following:
 
 - [SQLBolt](https://sqlbolt.com/lesson/select_queries_introduction)
 
-## 2. **MySQL exercises**
+## 2. **Prep exercises**
+
+> Prep exercises are exercises that you should work on _before_ the session on Sunday. These are a little more difficult or show an important concept and as such are a great exercise to talk about with your mentor. Have a solution ready by Sunday as you may be asked to show what you did.
+
+Inside your `databases` fork, go to the folder `Week1`. Inside of that folder, navigate to `QA_PREP_EXERCISE.md` file which explains what needs to be done. There will also be some questions at the bottom to think about. Go through them _before_ the session on Sunday as it will be covered then.
+
+## 3. **MySQL exercises**
 
 > You will need to do some research to solve these exercises. All the concepts necessary to solve
 > these exercises are NOT covered in the reading material. This is on purpose.
@@ -57,12 +63,6 @@ Don't omit to test your queries evey time.
 10. What is the population number of the world?
 
 After you've written your **tested** queries, test to see if everything work by executing `node <FILE_NAME>`.
-
-## 3. **Prep exercises**
-
-> Prep exercises are exercises that you should work on _before_ the session on Sunday. These are a little more difficult or show an important concept and as such are a great exercise to talk about with your mentor. Have a solution ready by Sunday as you may be asked to show what you did.
-
-Inside your `databases` fork, go to the folder `Week1`. Inside of that folder, navigate to `QA_PREP_EXERCISE.md` file which explains what needs to be done. There will also be some questions at the bottom to think about. Go through them _before_ the session on Sunday as it will be covered then.
 
 ## 4. **Code along**
 
