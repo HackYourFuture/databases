@@ -13,9 +13,9 @@ Last week you designed a database for storing food recipes. How can you improve 
 - What type of relationships do you see between the tables?
 
 - Can you make queries to get:
-  > All the vegetarian recipes with potatoes
-  > All the cakes that do not need baking
-  > All the vegan and Japanese recipes
+  - All the vegetarian recipes with potatoes
+  - All the cakes that do not need baking
+  - All the vegan and Japanese recipes
 
 Since your table data might be different from the above questions, feel free to improvise.
 Make sure that your database is running locally and that your queries are reproducable in .js files.
