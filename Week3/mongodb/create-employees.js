@@ -1,6 +1,6 @@
 const util = require('util')
 const MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
+var url = "mongodb://127.0.0.1:27017/";
 
 async function seedDatabase() {
     const client = new MongoClient(url);
