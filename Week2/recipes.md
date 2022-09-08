@@ -14,10 +14,10 @@
 
 ### Steps:
     Beat Cream Cheese
-    Add condenced Milk and blend
+    Add condensed Milk and blend
     Add Lemon Juice and blend
     Add the mix to the pie crust
-    Spead the Cherry Jam
+    Spread the Cherry Jam
     Place in refrigerator for 3h.
 
 
