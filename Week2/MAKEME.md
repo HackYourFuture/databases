@@ -33,8 +33,8 @@ This week we'll practice some more with writing SQL queries using JavaScript. Fo
 
 **Exercise 1: Keys**
 
-1. Create a table, called `authors`. Give it the following fields: `(author_no(Primary Key), author_name, university, date_of_birth, h_index, gender)`
-2. Write a query that adds a column called `mentor` to `authors` table that references the column `author_no`.
+1. Create a table, called `authors`. Give it the following fields: `(author_id(Primary Key), author_name, university, date_of_birth, h_index, gender)`
+2. Write a query that adds a column called `mentor` to `authors` table that references the column `author_id`.
    For integrity add a `foreign key` on this column.
 
 **Exercise 2: Relationships**
