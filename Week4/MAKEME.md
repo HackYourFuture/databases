@@ -119,7 +119,7 @@ Let's practice some aggregation queries, for that we will have to use some data 
 
 ### 3.2 **Exercise 2 : Transactions**
 
-Just like last week, let's solve the same transaction problem but then in MongoDB. Note that you will need to include some libraries which means you will need to set that up as well (use the `ex2-transactions` folder for this). You will also probably want to add an `index.js` that calls the functions we will create to test it out, we leave the implementation of that up to you. Now let's get started, we will split our code into multiple files again, first being the setup file:
+Just like last week, let's solve the same transaction problem but then in MongoDB. You can use the same data as in Week3. Note that you will need to include some libraries which means you will need to set that up as well (create a `ex2-transactions` folder for this). You will also probably want to create an `index.js` that calls the functions we will create to test it out, we leave the implementation of that up to you. Now let's get started, we will split our code into multiple files again, first being the setup file:
 
 1. Create a `setup.js` file.
 2. It should clean up the `accounts` array and then fill it with some sample data. Just like last last week we want an account document to have an `account_number` and `balance` field. Then it should have another field called `account_changes` that is an array that contains the fields: `change_number, amount, changed_date, remark`.
