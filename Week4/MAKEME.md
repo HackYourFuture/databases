@@ -9,7 +9,7 @@
 
 ## 1. **Practice the concepts**
 
-Let's practice some advanced MongoDB queries. Have a look at the following exercises. If you feel unsure about the commands you used last week then feel free to also do 01 and 02 of this series. You will need to go back to 00 to import the data into your database:
+Let's practice some advanced MongoDB queries. Have a look at the following exercises. If you feel unsure about the commands you used last week then feel free to also do 01 and 02 of this series. You will need to go back to 00 to import the data into your database, the datasets can be found [here](https://github.com/mattdavis0351/mongodb/tree/master/datasets):
 
 - [Advanced MongoDB exercises](https://github.com/mattdavis0351/mongodb-labs/blob/master/exercises/03_advanced-mongo-queries.md)
 
