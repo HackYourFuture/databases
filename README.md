@@ -22,7 +22,51 @@ Here is [a screenshot of the step](https://i.stack.imgur.com/nFnWV.jpg).
 - For Linux (Ubuntu), watch the following video: [MySQL Installation on Linux (Ubuntu)](https://www.youtube.com/watch?v=Y_LibBhOGOY)
 - For MacOS, watch the following video: [Installing MySQL on MacOS](https://www.youtube.com/watch?v=HxCXyxFEA0s)
 
-Afterwards, read the following [document](./setup-db.md) to learn how to setup your database **before** your first class.
+
+### Setup your first database
+
+In this document you'll learn how to setup your first database. Most of the commands are done in the command line, so make sure you have yours open before you start.
+
+**Step 1: Logging in with the `root` user**
+
+To get started with your new MySQL client, we first have to login with the `root` user.
+
+> A root user, also known as a `superuser` is a special user account that has access to all commands and files of any particular software.
+
+In Windows OS, if you click on the Start menu and type `MySQL Command line Client`, then
+the MySQL Command Line Client gives you a `msql>` prompt after typing in your root password.
+Note that this password is the one you used for the `root user` of the mysql during the installation.
+Linux and MAC users can execute `mysql -uroot -p` and then type your root password.
+
+**Step 2: Creating a `hyfuser` account**
+
+After loggin in with the root user, it's time to create the account we'll be using for this module. Execute the following commands, one after the other:
+
+```bash
+# Step 1: This command creates a user 'hyfuser' with password 'hyfpassword' for the database server at 'localhost'
+
+mysql> create user 'hyfuser'@'localhost' identified with mysql_native_password by 'hyfpassword';
+
+# If this does not work try the alternative command:
+
+mysql> create user 'hyfuser'@'localhost' identified by 'hyfpassword';
+
+# Step 2: This command gives all permissions to user 'hyfuser'. The (*.*) means every table of every database.
+
+mysql> grant all privileges on *.* to 'hyfuser'@'localhost';
+
+# Step 3: This command flushes all privileges so that mysql reloads the grant table and our changes are enabled
+
+msyql> flush privileges;
+
+# Step 4: This command creates a database named 'userdb'
+
+mysql> create database userdb;
+```
+
+**Step 3: Installing MySQL driver to use with Node.js**
+
+We want to use MySQL with JavaScript and to this end, we use the following [package](https://github.com/mysqljs/mysql). You can create an project wherever you want and install it. To test everything is working you can use the `connection-test.js` file. If you run it it should output `The solution is: 2`.
 
 ## Learning goals
 
@@ -65,26 +109,14 @@ In summary:
 
 To have a more detailed overview of the guidelines, please read [this document](https://docs.google.com/document/d/1JUaEbxMQTyljAPFsWIbbLwwvvIXZ0VCHmCCN8RaeVIc/edit?usp=sharing) or ask your mentor/class on Slack!
 
-### Video lectures
-
-For each module HackYourFuture provides you with video lectures. These are made by experienced software developers who know what they're talking about. This module will include 2 main teachers, [Unmesh Joshi](https://hackyourfuture.slack.com/team/U2JJ624UE) and [Igor Budasov](https://hackyourfuture.slack.com/team/UH2T65P5X)
-
-You can find out more about them here:
-
-- [Unmesh's GitHub](https://github.com/unmeshvrije) & [Igor's GitHub](https://github.com/ibudasov)
-- [@Unmesh on Slack](https://hackyourfuture.slack.com/team/U2JJ624UE) & [@Igor on Slack](https://hackyourfuture.slack.com/team/UH2T65P5X)
-
-Learn from Unmesh & Igor in the following playlist of videos they have made for you! (Click on the image to open the link)
-
-<a href="https://www.youtube.com/playlist?list=PLVYDhqbgYpYVq-rHFB1x2-P7esnWotCB7" target="_blank"><img src="./assets/playlist-thumbnail.png" width="600" height="350" alt="HYF Video" /></a>
-
 ## Planning
 
 | Week | Topic                                                                         | Readings                       | Homework                       | Lesson Plan                           |
 | ---: | ----------------------------------------------------------------------------- | ------------------------------ | ------------------------------ | ------------------------------------- |
 |   1. | What's a database, Entities, Data structures, Structured Query Language (SQL) | [Readings W1](Week1/README.md) | [Homework W1](Week1/MAKEME.md) | [Lesson Plan W1](Week1/LESSONPLAN.md) |
 |   2. | Identifiers, Relationships, Domain Modeling, Advanced SQL commands            | [Readings W2](Week2/README.md) | [Homework W2](Week2/MAKEME.md) | [Lesson Plan W2](Week2/LESSONPLAN.md) |
-|   3. | Normalization, Transactions, SQL Injection, NoSQL (with MongoDB)              | [Readings W3](Week3/README.md) | [Homework W3](Week3/MAKEME.md) | [Lesson Plan W3](Week3/LESSONPLAN.md) |
+|   3. | Normalization, Transactions, SQL Injection, NoSQL basics (with MongoDB)       | [Readings W3](Week3/README.md) | [Homework W3](Week3/MAKEME.md) | [Lesson Plan W3](Week3/LESSONPLAN.md) |
+|   4. | NoSQL advanced commands, Pagination, SQL vs NoSQL                             | [Readings W4](Week4/README.md) | [Homework W4](Week4/MAKEME.md) |  |
 
 ## Finished?
 
