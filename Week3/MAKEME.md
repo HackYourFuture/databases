@@ -21,7 +21,7 @@ Then let's practice some MongoDB queries! Start by creating an Atlas account ove
 
 > Prep exercises are exercises that you should work on _before_ the session on Sunday. These are a little more difficult or show an important concept and as such are a great exercise to talk about with your mentor. Have a solution ready by Sunday as you may be asked to show what you did.
 
-Inside your `databases` fork, go to the folder `Week3`. Inside of that folder, navigate to `QA_PREP_EXERCISE.md` file which explains what needs to be done. There will also be some questions at the bottom to think about. Go through them _before_ the session on Sunday as it will be covered then.
+The [QA_PREP_EXERCISES.md](./QA_PREP_EXERCISES.md) file explains what needs to be done for the prep exercise this week. There will also be some questions at the bottom to think about. Go through them _before_ the session on Sunday as it will be covered then.
 
 ## 3. **Database exercises**
 
