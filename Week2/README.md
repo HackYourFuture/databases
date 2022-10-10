@@ -6,7 +6,7 @@ These are the topics for week 2:
 
 1. [Identifiers (Primary key, Foreign key, Composite key)](https://hackyourfuture.github.io/study/#/databases/sql/identifiers)
 2. [Relationships (One-to-One, One-to-Many, Many-to-Many)](https://hackyourfuture.github.io/study/#/databases/sql/relationships)
-3. [Advanced SQL commands](https://hackyourfuture.github.io/study/#/databases/sql/advanced-sql)
+3. [SQL clauses](https://hackyourfuture.github.io/study/#/databases/sql/advanced-sql)
    - Joins
    - Aggregate functions
    - Distinct
