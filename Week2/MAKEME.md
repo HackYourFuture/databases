@@ -7,6 +7,7 @@
 1. Practice the concepts
 2. Prep exercises
 3. MySQL exercises
+4. Keep practicing (Optional)
 
 ## 1. **Practice the concepts**
 
@@ -60,6 +61,12 @@ Write some queries to retrieve the following rows:
 3. Average of the h-index of all authors per university.
 4. Sum of the research papers of the authors per university.
 5. Minimum and maximum of the h-index of all authors per university.
+
+## 4. **Keep practicing (Optional)**
+
+It is always good to keep practicing, so if you have time then have a go at the following:
+
+- [SQL Murder Mystery: Solve a crime using SQL](https://mystery.knightlab.com/)
 
 ## **SUBMIT YOUR HOMEWORK!**
 
