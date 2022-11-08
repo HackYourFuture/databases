@@ -2,8 +2,7 @@
 export async function setup(client){
 
     const accountsCollection = client
-        .db("databaseWeek4")
-        .collection("accounts")
+        .db("databaseWeek4").collection("accounts")
 
     // Remove all the documents
     await accountsCollection.deleteMany({});
