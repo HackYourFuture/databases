@@ -22,7 +22,7 @@ const connection = mysql.createConnection({
 
 connection.connect((err) => {
     if (err) throw err;
-    console.log('connected...');
+    console.log('connected..');
 });
 
 const processQuery = (query) => {
