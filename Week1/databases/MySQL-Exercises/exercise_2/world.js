@@ -77,14 +77,14 @@ connection.query(sql6, (err, results, fields) => {
 
 // What is the population number of the world?
 const sql7 =
-  "select name from country where population = (select max(population) from country)";
+  "select sum(population) as World_Population from country;";
 connection.query(sql7, (err, results) => {
   if (err) throw err;
   console.log("The World Population", results);
 });
 
 const sql8 =
-  "select name from country where population = (select max(population) from country)";
+  "select name, population from country where population = (select max(population) from country)";
 connection.query(sql8, (err, results) => {
   if (err) throw err;
   console.log("The World Population", results);
