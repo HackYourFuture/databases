@@ -41,7 +41,7 @@ connection.query(sql1, (err, results, fields) => {
 });
 
 // List all the countries in the descending order of their surface areas.
-const sql2 = "select * from country order by surfacearea desc limit 6";
+const sql2 = "select * from country order by surfacearea desc";
 connection.query(sql2, (err, results, fields) => {
   if (err) throw err;
   console.log("The Countries Desc: ", results);
@@ -79,13 +79,6 @@ connection.query(sql6, (err, results, fields) => {
 const sql7 =
   "select sum(population) as World_Population from country;";
 connection.query(sql7, (err, results) => {
-  if (err) throw err;
-  console.log("The World Population", results);
-});
-
-const sql8 =
-  "select name, population from country where population = (select max(population) from country)";
-connection.query(sql8, (err, results) => {
   if (err) throw err;
   console.log("The World Population", results);
 });
