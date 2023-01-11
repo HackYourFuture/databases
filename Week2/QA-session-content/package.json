@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "faker": "^4.1.0",
-    "knex": "^0.21.1",
+    "knex": "^2.4.0",
     "mysql": "^2.18.1",
     "node-fetch": "^3.1.1"
   }
