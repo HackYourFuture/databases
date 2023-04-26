@@ -15,7 +15,8 @@ and explain the concepts better in the class.
 7. How to use SQL to Create, Read, Update and Delete (CRUD) ?
 8. What is a database dump?
 
-> Before you start, ask around and make sure that everyone has successfully installed the [MySQL Community Edition Server](https://dev.mysql.com/downloads/mysql/)
+> Before you start, ask around and make sure that everyone has successfully installed
+> the [MySQL Community Edition Server](https://dev.mysql.com/downloads/mysql/)
 
 ## 1. What is an information (system) ?
 
@@ -133,7 +134,8 @@ Use connection-test.js file to demonstrate the database connection.
 
 ### Exercise
 
-_Find out 2 applications on your laptop/phone that require a database and 2 applications that do not require a database._
+_Find out 2 applications on your laptop/phone that require a database and 2 applications that do not require a
+database._
 
 ### Essence
 
@@ -260,7 +262,8 @@ The following command uses the SET syntax to insert values in a random order of 
 INSERT INTO employees SET employee_name = "Joe", salary = 4000, joining_date = "2019-07-01", gender = 'f', employee_id = 100;
 ```
 
-> If you don't remember the column names, then use describe employees; command which lists the column names and their data types.
+> If you don't remember the column names, then use describe employees; command which lists the column names and their
+> data types.
 
 #### SELECT
 
@@ -413,7 +416,8 @@ mysqldump -uhyfuser -p company > /path/to/store/dump/file/company-db-snapshot.sq
 ```
 
 To create the SQL dump in Windows, you will have to
-[include the path of your MySQL installation in the `Path` environment variable](https://www.computerhope.com/issues/ch000549.htm).
+[include the path of your MySQL installation in the `Path` environment variable](https://www.computerhope.com/issues/ch000549.htm)
+.
 Then you can execute the following command
 
 ```

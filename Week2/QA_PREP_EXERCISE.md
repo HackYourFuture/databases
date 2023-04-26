@@ -26,4 +26,4 @@ Having learned what an ERD is, how would you design one for the database you cre
 - Their attributes
 - The relationships between the tables
 
-You can use [Lucidchart](lucidchart.com/pages/) or [draw.io](draw.io) for creating your diagrams.
+You can use [Lucidchart](lucidchart.com/pages/) or [draw.io](draw.io) to create your diagrams.
