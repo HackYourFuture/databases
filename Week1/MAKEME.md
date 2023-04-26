@@ -1,4 +1,4 @@
-> This homework assumes you have installed the software [MySQL](https://dev.mysql.com/downloads/installer/) to your computer. If not please do that first!
+> This homework assumes you have installed the software [MySQL](https://dev.mysql.com/downloads/installer/) on your computer. If not, please do that first!
 
 # Homework Databases Week 1
 
@@ -27,24 +27,24 @@ The [QA_PREP_EXERCISE.md](./QA_PREP_EXERCISE.md) file explains what needs to be 
 
 ## 3. **MySQL exercises**
 
-> You will need to do some research to solve these exercises. All the concepts necessary to solve
-> these exercises are NOT covered in the reading material. This is on purpose.
+> You will need to do some research to solve these exercises. NOT all the concepts necessary to solve
+> these exercises are covered in the reading material. This is on purpose.
 
-**Exercise 1: Create and insert queries**
+### Exercise 1: Create and insert queries
 
 Write a JavaScript file (to be executed with Node.js) that creates and makes a connection to a MySQL database. Do so using the `mysql` package (https://www.npmjs.com/package/mysql).
 
-Remember, It's always better to test your queries as soon as you have created them. Feel free to first write them in any sql viewer tool or mysql console before writing the node program.
+Remember, It's always better to test your queries as soon as you have created them. Feel free to first write them in any SQL viewer tool or MySQL console before writing the Node program.
 
 1. Create a database called `meetup`
 2. Make a connection to your database, using your MySQL `hyfuser` login credentials
-3. Create a table called `Invitee` with the following fields (`invitee_no`, `invitee_name` and `invited_by`).
+3. Create a table called `Invitee` with the following fields (`invitee_no`, `invitee_name` and `invited_by`)
 4. Create a table called `Room` with the following fields (`room_no`, `room_name` and `floor_number`)
 5. Create a table called `Meeting` with the following fields (`meeting_no, meeting_title, starting_time, ending_time`,`room_no`)
 6. Insert 5 rows into each table with relevant fields. Find a way to create the data for those fields
 7. Test your code by executing `node <FILE_NAME>` in the terminal. Then check your MySQL database and see if everything has been created as expected. Please, be sure your file can be run more than once. You can drop and create the database every time the file is run.
 
-**Exercise 2 : Select queries on the "world" database**
+### Exercise 2 : Select queries on the "world" database
 
 > For this part of the homework, use the `world.sql` file in the `week1/databases` folder to create the database and tables. Before you go on, execute the file to create a database instance of the `world` database, using mysql console or any tool. Test to see if it's created. Make sure all the tables (`city`, `country` and `countrylanguage`) and the containing data are there.
 

@@ -23,4 +23,4 @@ Some questions you can ask yourself:
 - Which tables do you need to create to store the above data?
 - What are the relationships between those entities?
 
-There's a [short video](https://www.youtube.com/watch?v=C3icLzBtg8I) explaining how relationships work, and you can use this for inspiration. We will expand this topic the following week.
+[This short video](https://www.youtube.com/watch?v=C3icLzBtg8I) explains how relationships work, and you can use this for inspiration. We will expand this topic the following week.
