@@ -6,7 +6,8 @@
 
 ![Databases](./assets/databases.png)
 
-Have you ever thought about how your brain remembers things? It happens automatically for humans, but that's not so for computers. Any time you go to a website and you fill in some details, in for example a form, that `information` needs to be saved somewhere. This "somewhere" is called a `database`.
+Have you ever thought about how your brain remembers things? It happens automatically for humans, but that's not the case for computers. 
+Any time you go to a website and fill in some details in a form, for example, that information needs to be saved somewhere. This "somewhere" is called a `database`.
 
 In this module you'll learn all about a fundamental part of any software application: how to (safely) store data, so that it can be used on-demand. You'll learn how to structure and group data so your apps know where to find and store the correct data.
 
@@ -124,6 +125,7 @@ Did you finish the module? You're almost at the top!
 
 If you feel ready for the next challenge, click [here](https://www.github.com/HackYourFuture/react) to go to React!
 
+### Copyright 
 _The HackYourFuture curriculum is subject to CC BY copyright. This means you can freely use our materials, but just make sure to give us credit for it :)_
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
