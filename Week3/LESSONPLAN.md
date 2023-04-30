@@ -86,7 +86,8 @@ I can tell the name of the student from student number, but
 I cannot tell the student number from the name because there could be multiple students with the same name.
 ```
 
-If you feel adventurous, then read this [Functional Dependency Wikipage](https://en.wikipedia.org/wiki/Functional_dependency)
+If you feel adventurous, then read
+this [Functional Dependency Wikipage](https://en.wikipedia.org/wiki/Functional_dependency)
 
 #### 3NF (2NF + rule)
 
@@ -94,8 +95,8 @@ If you feel adventurous, then read this [Functional Dependency Wikipage](https:/
 
 #### 3.5NF AKA BCNF (3NF + rule)
 
-- For any dependency A => B, A should be a super key.
-  In other words, for a dependency A => B, A cannot be a non-prime column, if B is a prime column.
+- For any dependency A => B, A should be a super key.
+  In other words, for a dependency A => B, A cannot be a non-prime column, if B is a prime column.
 
 #### 4NF (3NF + rule)
 
@@ -360,8 +361,10 @@ following properties.
 
 1. Atomicity : Execute all commands in the transaction or execute zero commands in the transaction (all or none).
 2. Consistency : A transaction brings database from one valid state to the next valid state.
-3. Isolation : Concurrent execution of transactions (possibly by different users) should leave the database in a consistent state.
-4. Durability : When a transaction is committed, it will remain committed even in the case of system failure. In other words,
+3. Isolation : Concurrent execution of transactions (possibly by different users) should leave the database in a
+   consistent state.
+4. Durability : When a transaction is committed, it will remain committed even in the case of system failure. In other
+   words,
    committed transactions are recorded on the disk.
 
 ### Example
@@ -451,11 +454,13 @@ select * from employees; # Will hang because First client has the WRITE lock on 
 As soon as the First client executes `UNLOCK TABLES;` command,
 the Second client will get the output of the `select` command.
 
-> Transactions can also be created from the JavaScript client. Demo program is [async-transaction](async-transaction.js).
+> Transactions can also be created from the JavaScript client. Demo program is [async-transaction](async-transaction.js)
+> .
 
 ### Exercise
 
-Discuss the transaction in the context of an Uber ride. How many operations/actions are involved in the successful transaction ?
+Discuss the transaction in the context of an Uber ride. How many operations/actions are involved in the successful
+transaction ?
 When can the transaction be aborted ? What would be the database tables ?
 
 ### Essence
@@ -521,7 +526,8 @@ SQL injections are dangerous. Always sanitize the input from your HTML forms.
 
 ### Example
 
-> use the same tables here (as Week 1 lessonplan) to be consistent and show students how to make similar databases using MySQL and MongoDB
+> use the same tables here (as Week 1 lessonplan) to be consistent and show students how to make similar databases using
+> MySQL and MongoDB
 
 ### Exercise
 

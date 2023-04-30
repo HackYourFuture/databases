@@ -1,6 +1,7 @@
 # Prep exercise week 3
 
-As a preparation step for the upcoming Q&A, you need to work on the following exercise, which is based on the prep exercise of the previous week.
+As a preparation step for the upcoming Q&A, you need to work on the following exercise, which is based on the prep
+exercise of the previous week.
 
 ## Exercise
 

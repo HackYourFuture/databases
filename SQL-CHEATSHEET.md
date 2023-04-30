@@ -17,6 +17,7 @@ FROM table
 ## Only extract rows where the condition holds
 
 (Used with an operator: `>, <, >=, <=, =, <>, BETWEEN, LIKE, IN`)
+
 ```sql
 WHERE column = 'value'
 ```
@@ -24,6 +25,7 @@ WHERE column = 'value'
 ## Combining `WHERE` clauses:
 
 (Used with: `AND, OR`)
+
 ```sql
 WHERE column = 'value' OR
       column = 'other value'
@@ -32,14 +34,17 @@ WHERE column = 'value' OR
 ## Aggregating results:
 
 (Used with: `SUM, COUNT, MIN, MAX, AVG`)
+
 ```sql
-SELECT SUM(column)
+SELECT
+    SUM(column)
 FROM table
 ```
 
 ## Aliasing tables
 
 ```sql
-SELECT column AS alias
+SELECT
+    column AS alias
 FROM table
 ```

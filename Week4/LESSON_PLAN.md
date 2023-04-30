@@ -120,7 +120,8 @@ client.db("logging").collection("bugs").find().sort({ timestamp: -1 });
 
 #### Limit
 
-The above query will give you back all of the bugs which may not be what you want. You may want to have a dashboard with the last 10 bugs, to do this we can use the limit command as follows:
+The above query will give you back all of the bugs which may not be what you want. You may want to have a dashboard with
+the last 10 bugs, to do this we can use the limit command as follows:
 
 ```js
 client
@@ -131,7 +132,8 @@ client
   .limit(10);
 ```
 
-This will give only the last 10 bugs rather than all of them. Note that you can put the `sort` and `limit` commands in any order!
+This will give only the last 10 bugs rather than all of them. Note that you can put the `sort` and `limit` commands in
+any order!
 
 #### Aggregate
 
@@ -151,7 +153,8 @@ client
   ]);
 ```
 
-This will give back an object with the page field in the `_id` field and the number of bugs that were logged on that page is in the `count` field!
+This will give back an object with the page field in the `_id` field and the number of bugs that were logged on that
+page is in the `count` field!
 
 ### Exercise
 
@@ -160,7 +163,8 @@ This will give back an object with the page field in the `_id` field and the num
 
 ### Essence
 
-MongoDB does a lot for you, the syntax is a little different than you are probably used to, but the documentation is very detailed so make use of it!
+MongoDB does a lot for you, the syntax is a little different than you are probably used to, but the documentation is
+very detailed so make use of it!
 
 ## 3. Pagination
 
@@ -168,7 +172,11 @@ Using the same bugs collection, let's look at offset and cursor-based pagination
 
 ### Explanation
 
-Pagination is the splitting of content into different pages, which is done if there are too many results to put into one web page. Think for example of the search results in Google where the user can click through to find what they are looking for. We use pagination to restrict the amount of data that we send to the user as sometimes sending everything will make the request too big. The application will become sluggish as it waits for the request and we will have unhappy users.
+Pagination is the splitting of content into different pages, which is done if there are too many results to put into one
+web page. Think for example of the search results in Google where the user can click through to find what they are
+looking for. We use pagination to restrict the amount of data that we send to the user as sometimes sending everything
+will make the request too big. The application will become sluggish as it waits for the request which would result in 
+unhappy users.
 
 ### Example
 
@@ -205,7 +213,8 @@ const cursorToGiveToUser = latestBugs[latestBugs.length - 1].timestamp;
 
 Two important things here:
 
-- You need to always have the data sorted if you do cursor-based sorting as you are including the point you are at in the query.
+- You need to always have the data sorted if you do cursor-based sorting as you are including the point you are at in
+  the query.
 - You have to provide the user of your endpoint the information they need to send for the next query
 
 In the above code we do it with the timestamp, in other implementations an ID can be given.
@@ -216,7 +225,11 @@ Discuss the advantages and disadvantages of both approaches.
 
 ### Essence
 
-Pagination can be very useful when dealing with big datasets to limit the amount of data needing to be prepared. There are multiple ways of implementing pagination and it is dependent on the situation on how you want to implement it. Something with a relatively low amount of pages can easily be done using the `skip/limit` combination, but when it comes to huge data sets this approach becomes slow. A cursor-based approach is more complex to implement, but provides a better performance. As usual it is up to you to balance what is needed for the situation.
+Pagination can be very useful when dealing with big datasets to limit the amount of data needing to be prepared. There
+are multiple ways of implementing pagination and it is dependent on the situation on how you want to implement it.
+Something with a relatively low amount of pages can easily be done using the `skip/limit` combination, but when it comes
+to huge data sets this approach becomes slow. A cursor-based approach is more complex to implement, but provides a
+better performance. As usual it is up to you to balance what is needed for the situation.
 
 ## 4. Indexes
 
@@ -224,7 +237,8 @@ Pagination can be very useful when dealing with big datasets to limit the amount
 
 ### Explanation
 
-The idea behind an index and a transaction should already be clear as it has been handled in SQL. So purely syntax here, but if students cannot explain why we do these things, then go through it with them again.
+The idea behind an index and a transaction should already be clear as it has been handled in SQL. So purely syntax here,
+but if students cannot explain why we do these things, then go through it with them again.
 
 ### Example
 

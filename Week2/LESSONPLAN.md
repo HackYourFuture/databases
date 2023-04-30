@@ -63,35 +63,47 @@ Add a select query to that program using await and promisify.
    They cannot be NULL values. Thus two rows can NEVER have same values in the column
    that is declared as PRIMARY KEY (In other words, this is a PRIMARY KEY CONSTRAINT on that column).
 
-> There are more constraints in MySQL. Read more about them [here](https://www.w3resource.com//creating-table-advance/constraint.php).
+> There are more constraints in MySQL. Read more about
+> them [here](https://www.w3resource.com//creating-table-advance/constraint.php).
 
 #### Example
 
 Consider the following commands (# represents comments).
 
 ```sql
-# create table with two columns. one with primary key and one with unique key constraint
-CREATE TABLE pri_uniq_demo(id_pr int PRIMARY KEY, id_un int UNIQUE);
+#
+create table with two columns.one with primary key and one with unique key constraint
+CREATE TABLE pri_uniq_demo
+(
+    id_pr int PRIMARY KEY,
+    id_un int UNIQUE
+);
 
-# Note the error that says that the primary key column cannot be NULL
+#
+Note the error that says that the primary key column cannot be NULL
 INSERT INTO pri_uniq_demo VALUES (NULL, NULL);
-#ERROR 1048 (23000): Column 'id_pr' cannot be null
+#ERROR
+1048 (23000): Column 'id_pr' cannot be null
 
 # Note that the UNIQUE key column can be NULL
 INSERT INTO pri_uniq_demo VALUES (1, NULL);
-#Query OK, 1 row affected (0.00 sec)
+#Query
+OK, 1 row affected (0.00 sec)
 
 # Normal insertion
 INSERT INTO pri_uniq_demo VALUES (2, 2);
-#Query OK, 1 row affected (0.05 sec)
+#Query
+OK, 1 row affected (0.05 sec)
 
 # Note that you cannot insert 2 in the id_un column because it should be UNIQUE
 INSERT INTO pri_uniq_demo VALUES (3, 2);
-#ERROR 1062 (23000): Duplicate entry '2' for key 'id_un'
+#ERROR
+1062 (23000): Duplicate entry '2' for key 'id_un'
 
 # Note that you cannot insert 2 in the id_pr column because it is PRIMARY KEY
 INSERT INTO pri_uniq_demo VALUES (2, 3);
-#ERROR 1062 (23000): Duplicate entry '2' for key 'PRIMARY'
+#ERROR
+1062 (23000): Duplicate entry '2' for key 'PRIMARY'
 
 ```
 
@@ -143,30 +155,45 @@ dept_id column of the departments table in which it works as the primary key.**
 #### Example
 
 ```sql
-# Add the column dept_id to the employees table
- ALTER TABLE employees ADD COLUMN dept_id int;
+#
+Add the column dept_id to the employees table
+ALTER TABLE employees
+    ADD COLUMN dept_id int;
 
-# Add the constraint foreign key
- ALTER TABLE employees ADD CONSTRAINT fk_dept FOREIGN KEY(dept_id) REFERENCES departments(dept_id);
+#
+Add the constraint foreign key
+ALTER TABLE employees
+    ADD CONSTRAINT fk_dept FOREIGN KEY (dept_id) REFERENCES departments (dept_id);
 
-# Add some sample rows in the departments table
+#
+Add some sample rows in the departments table
  INSERT INTO departments VALUES (5001, "Sales");
- INSERT INTO departments VALUES (5002, "Development");
- INSERT INTO departments VALUES (5003, "Marketing");
+INSERT INTO departments
+VALUES (5002, "Development");
+INSERT INTO departments
+VALUES (5003, "Marketing");
 
-# Try updating the dept_id of an employee with an existing department
- UPDATE employees SET dept_id = 5001 where employee_id = 101;
+#
+Try updating the dept_id of an employee with an existing department
+UPDATE employees
+SET dept_id = 5001
+where employee_id = 101;
 
-# Try updating the dept_id of an employee with a department that does not exist
- UPDATE employees SET dept_id = 9999 where employee_id = 101;
+#
+Try updating the dept_id of an employee with a department that does not exist
+UPDATE employees
+SET dept_id = 9999
+where employee_id = 101;
 
-# Example of 1-1 relationship
+#
+Example of 1-1 relationship
 # Creating table Account with the same primary key as the Employees table
-CREATE TABLE Account(
-employee_id int,
-email varchar(50),
-primary key (employee_id),
-CONSTRAINT fk_emp FOREIGN KEY(employee_id) REFERENCES employees(employee_id)
+CREATE TABLE Account
+(
+    employee_id int,
+    email       varchar(50),
+    primary key (employee_id),
+    CONSTRAINT fk_emp FOREIGN KEY (employee_id) REFERENCES employees (employee_id)
 );
 
 ```
@@ -207,21 +234,34 @@ key is called as the **Composite Key**
 #### Example
 
 ```sql
-# create projects table
-CREATE TABLE projects (proj_id int, proj_name varchar(50), start_date datetime);
+#
+create
+projects table
+CREATE TABLE projects
+(
+    proj_id    int,
+    proj_name  varchar(50),
+    start_date datetime
+);
 
-# Insert sample values
+#
+Insert sample values
 INSERT INTO projects VALUES(9001, "Jazz", "2018-01-01");
-INSERT INTO projects VALUES(9002, "Mellow", "2019-03-01");
-INSERT INTO projects VALUES(9003, "Classical", "2020-01-01");
+INSERT INTO projects
+VALUES (9002, "Mellow", "2019-03-01");
+INSERT INTO projects
+VALUES (9003, "Classical", "2020-01-01");
 
-# create emp_proj relationship table with composite primary key
-CREATE TABLE emp_proj (
-emp_id int,
-proj_id int,
-PRIMARY KEY(emp_id, proj_id),
-CONSTRAINT fk_emp FOREIGN KEY(emp_id) REFERENCES employees(employee_id),
-CONSTRAINT fk_pro FOREIGN KEY(proj_id) REFERENCES projects(proj_id)
+#
+create
+emp_proj relationship table with composite primary key
+CREATE TABLE emp_proj
+(
+    emp_id  int,
+    proj_id int,
+    PRIMARY KEY (emp_id, proj_id),
+    CONSTRAINT fk_emp FOREIGN KEY (emp_id) REFERENCES employees (employee_id),
+    CONSTRAINT fk_pro FOREIGN KEY (proj_id) REFERENCES projects (proj_id)
 );
 ```
 
@@ -258,21 +298,26 @@ clause.
 #### Example
 
 ```sql
-#We must join the tables `employees` and `departments` and then choose the relevant rows.
+#We
+must join the tables `employees` and `departments` and then choose the relevant rows.
 
 # INNER JOIN
-SELECT employee_name
+SELECT
+    employee_name
 FROM employees as E
-INNER JOIN
-departments as D
-ON E.dept_id = D.dept_id
+     INNER JOIN
+     departments as D
+     ON E.dept_id = D.dept_id
 WHERE D.dept_name = "Sales";
 
-# Comma (,) or CROSS join
-SELECT employee_name
-FROM employees as E, departments as D
+#
+Comma (,) or CROSS join
+SELECT
+    employee_name
+FROM employees as E,
+     departments as D
 where E.dept_id = D.dept_id
-and D.dept_name = "Sales";
+  and D.dept_name = "Sales";
 ```
 
 #### Exercise
@@ -321,13 +366,24 @@ ON E1.reports_to = E2.employee_id
 #### Exercise
 
 ```sql
-# Add the city column, update records in the employees table
-ALTER TABLE employees add column city varchar(50);
-UPDATE employees SET city = 'Berlin' where employee_name = 'John';
-UPDATE employees SET city = 'Berlin' where employee_name = 'Friend of John';
-UPDATE employees SET city = 'Berlin' where employee_name = 'Another friend of John';
+#
+Add the city column,
+update records in the employees table
+ALTER TABLE employees
+    add column city varchar(50);
+UPDATE employees
+SET city = 'Berlin'
+where employee_name = 'John';
+UPDATE employees
+SET city = 'Berlin'
+where employee_name = 'Friend of John';
+UPDATE employees
+SET city = 'Berlin'
+where employee_name = 'Another friend of John';
 
-SELECT employee_name, city
+SELECT
+    employee_name,
+    city
 FROM employees
 WHERE city = (SELECT city FROM employees WHERE employee_name = 'John');
 ```
@@ -338,10 +394,12 @@ Re-Write the above query to print names of employees that come from the same cit
 <p>
 
 ```sql
-SELECT E1.employee_name, E2.city
+SELECT
+    E1.employee_name,
+    E2.city
 FROM employees as E1
-INNER JOIN employees as E2
-ON E1.city = E2.city
+     INNER JOIN employees as E2
+                ON E1.city = E2.city
 WHERE E2.employee_name = 'John';
 ```
 
@@ -382,11 +440,13 @@ Note that it should include the employees who don't have mangers too.
 <p>
 
 ```sql
-SELECT E.employee_name as Employee, E2. employee_name as Manager
+SELECT
+    E.employee_name as Employee,
+    E2.employee_name as Manager
 FROM employees as E1
-LEFT JOIN
-employees as E2
-ON E1.reports_to = E2.employee_id
+     LEFT JOIN
+     employees as E2
+     ON E1.reports_to = E2.employee_id
 ```
 
 </p>
@@ -416,13 +476,18 @@ Some important aggregate functions are
 We want to return the sum of the salaries of all female employees:
 
 ```sql
-SELECT SUM(E.salary) AS Expenses FROM employees as E WHERE gender = 'f';
+SELECT
+    SUM(E.salary) AS Expenses
+FROM employees as E
+WHERE gender = 'f';
 ```
 
 Or get the number of employees:
 
 ```sql
-SELECT COUNT(*) FROM employees;
+SELECT
+    COUNT(*)
+FROM employees;
 ```
 
 #### Exercise
@@ -431,7 +496,8 @@ Write SQL queries to get the maximum and average of all employees' salaries.
 
 #### Essence
 
-Using these functions, you can do some data processing on Database level. For example, you can get max or min of the data that exists in database with no need to process them.
+Using these functions, you can do some data processing on Database level. For example, you can get max or min of the
+data that exists in database with no need to process them.
 
 ### 4.2. DISTINCT
 
@@ -444,7 +510,8 @@ Distinct: this statement is used to return only distinct (different) values. Thi
 We want to to get the number of the departments that have at least one employee:
 
 ```sql
-SELECT COUNT(DISTINCT E.dept_id) AS Working_Departments
+SELECT
+    COUNT(DISTINCT E.dept_id) AS Working_Departments
 FROM employees as E
 ```
 
@@ -468,7 +535,10 @@ applies an aggregate function on another column
 We want to get the sum of salary and number of employees grouped by gender:
 
 ```sql
-SELECT gender, count(employee_id), sum(salary)
+SELECT
+    gender,
+    count(employee_id),
+    sum(salary)
 FROM employees
 GROUP BY gender;
 ```
@@ -481,9 +551,12 @@ Write a query that retrieves all managers with the number of employees that are 
 <p>
 
 ```sql
-SELECT E2.employee_name , count(E1.employee_name) as Employee_cnt
-FROM employee as E1 LEFT JOIN employee as E2
-ON E1.reports_to = E2.employee_id
+SELECT
+    E2.employee_name,
+    count(E1.employee_name) as Employee_cnt
+FROM employee as E1
+     LEFT JOIN employee as E2
+               ON E1.reports_to = E2.employee_id
 group by E2.employee_name;
 ```
 
@@ -508,11 +581,13 @@ Print all departments that are spending more than 5000 in salaries
 
 ```sql
 
-SELECT dept_name, sum(salary)
+SELECT
+    dept_name,
+    sum(salary)
 FROM employees as E
-INNER JOIN
-departments as D
-ON E.dept_no = D.dept_no
+     INNER JOIN
+     departments as D
+     ON E.dept_no = D.dept_no
 GROUP BY dept_name
 HAVING sum(salary) > 5000;
 ```
@@ -533,18 +608,25 @@ Having clause can only filter the rows with columns selected by the GROUP BY cla
 Indexes are a type of a look-up table where the database server can quickly look up rows in the database tables.
 Indexes are created when rows are inserted or they are updated when the indexed columns are updated in the database.
 Creating or updating indexes takes computation time and storing indexes takes up data storage space.
-However, when retrieving a specific row from the database, the database can use these stored indexes to find the requested row(s) much faster.
-Therefore, indexes make update or insertion operations more expensive/slow, however they speed-up data retrieval (SELECT/JOIN/WHERE/...) operations.
+However, when retrieving a specific row from the database, the database can use these stored indexes to find the
+requested row(s) much faster.
+Therefore, indexes make update or insertion operations more expensive/slow, however they speed-up data retrieval (
+SELECT/JOIN/WHERE/...) operations.
 Also, they increase the total size of the database, as they are stored together with their corresponding tables.
 
 ##### Analogy
 
-Imagine a (technical) textbook which has the index at the end. This index contains keywords in that book and it tells you on which pages those keyword appear.
-It helps to find pages that contains a word `promise` instead of looking for each page one by one. Note that a keyword may appear on more than one pages.
-In this case, you will see all pages on which this keyword appears. In a JavaScript book, the word `function` may appear on many pages while the word
+Imagine a (technical) textbook which has the index at the end. This index contains keywords in that book and it tells
+you on which pages those keyword appear.
+It helps to find pages that contains a word `promise` instead of looking for each page one by one. Note that a keyword
+may appear on more than one pages.
+In this case, you will see all pages on which this keyword appears. In a JavaScript book, the word `function` may appear
+on many pages while the word
 `prototype chaining` may appear only once. In the index, you can quickly find on which page these words appear.
 
-Here is a [link to a Medium article](https://medium.com/javarevisited/indexes-when-to-use-and-when-to-avoid-them-39c56e5a7329) that describes indexes concisely.
+Here is
+a [link to a Medium article](https://medium.com/javarevisited/indexes-when-to-use-and-when-to-avoid-them-39c56e5a7329)
+that describes indexes concisely.
 
 #### Example
 
@@ -574,7 +656,8 @@ async function seedDatabase() {
 }
 ```
 
-The following two queries will show the difference (in execution time) between using the index and not using the index when we retrieve the data.
+The following two queries will show the difference (in execution time) between using the index and not using the index
+when we retrieve the data.
 
 ```
 mysql> SELECT * FROM big WHERE id_pk = 1000;
@@ -607,7 +690,8 @@ mysql> SHOW indexes from big;
 1 row in set (0.01 sec)
 ```
 
-The query `SELECT * FROM big WHERE number = 1000` takes longer to run because the column `number` is not indexed. MySQL has to
+The query `SELECT * FROM big WHERE number = 1000` takes longer to run because the column `number` is not indexed. MySQL
+has to
 go in the `big` table and search row by row to check which row contains the value 1000 in `number` column.
 
 The `describe` command shows how many rows are accessed to fetch the result of the query.
@@ -649,7 +733,8 @@ mysql> SELECT * FROM big WHERE number = 1000;
 ```
 
 We have seen that having an index helps in fetching the data faster. However, for updates/inserts, having an index
-is more expensive. After doing an update to the indexed column, MySQL also has to internally update indexes for that column.
+is more expensive. After doing an update to the indexed column, MySQL also has to internally update indexes for that
+column.
 
 Look at the query below:
 
@@ -679,7 +764,8 @@ We can see that without the index, update of the number column is much faster (6
 
 #### Exercise
 
-Create a composite index using columns (`employee_name and salary`) on the `employees` table and check the query performance of following queries
+Create a composite index using columns (`employee_name and salary`) on the `employees` table and check the query
+performance of following queries
 
 ```
 DESCRIBE SELECT * FROM employees WHERE employee_name = 'John' and salary = 50000
@@ -701,7 +787,8 @@ However, they do also add overhead to the database (especially for updates/inser
 - Domain modeling is making the models for the domain of the problem or the system.
 - It makes use of the concepts like entities and relations.
 - Entity Relationship Diagrams (ERD) are used widely in domain modeling.
-- In ERD, **entities** are shown by boxes and are abstract things. E.g. John Smith is an instance. Student is the entity. An entity in ERD is converted to a table in MySQL.
+- In ERD, **entities** are shown by boxes and are abstract things. E.g. John Smith is an instance. Student is the
+  entity. An entity in ERD is converted to a table in MySQL.
 - Entities are connected to each other with a line (**relationships**) with **cardinalities** (1-1, 1-M etc.).
 - Entities have **attributes** shown in the shape of an ellipse. An attribute of the entity is translated to
   the column of the corresponding table.
@@ -716,4 +803,5 @@ Draw the **ERD** for the school database. Identify tables, attributes and relati
 
 #### Essence
 
-Domain Modeling using ERD diagrams helps the system analysts and database designers to have a concrete view to the system and how to apply it in databases.
+Domain Modeling using ERD diagrams helps the system analysts and database designers to have a concrete view to the
+system and how to apply it in databases.
