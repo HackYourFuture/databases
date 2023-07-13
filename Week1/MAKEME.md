@@ -9,6 +9,7 @@
 2. Prep exercises
 3. MySQL exercises
 4. Code along
+5. Career Training 2 (If not completed yet)
 
 ## 1. Practice the concepts
 
@@ -84,6 +85,13 @@ After you've written your **tested** queries, test to see if everything work by 
 In this week's code along you won't be building a complete app, but get familiar with using MySQL together with Node.js.
 
 - [Using MySQL with Node.js](https://www.youtube.com/watch?v=EN6Dx22cPRI)
+
+## **5. Career Training 2 (If not completed yet)**
+
+Remember that the Career Training 2 session is coming up (check your class channel on slack for the exact date). Before the session make sure you have:
+
+- Read the whole [‘Interview Preparation’ Repo](https://github.com/HackYourFuture/interviewpreparation).
+- Done the homework: make a copy of [this file](https://docs.google.com/document/u/2/d/114rTGS4eG6tpkrMAyVIdvgTrnpmkRL6ax_smkw1B0HI/copy) and submit your answers to the team [here](https://hackyourfuture.typeform.com/to/s6zYAugm).
 
 ## SUBMIT YOUR HOMEWORK!
 
