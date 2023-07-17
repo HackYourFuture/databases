@@ -40,7 +40,7 @@ will be covered then.
 
 > Save all of your files in the `homework` folder inside `Week3`!
 
-### 3.1. Exercise 1 : Normalization
+### 3.1. Exercise 1 : SQL Normalization
 
 The manager of the dinner club would like to manage the information system that assists him to keep track of the dinners
 had by members.
@@ -67,7 +67,7 @@ Save all answers in a text file / MD file.
 +-----------+---------------+----------------+-----------+-------------+------------+-------------------+-----------+------------------+
 ```
 
-### 3.2. Exercise 2 : Transactions
+### 3.2. Exercise 2 : SQL Transactions
 
 1. Create two tables `account` and `account_changes` (write transactions-create-tables.js file)
 2. `account` table should have following fields : `account_number, balance`.
