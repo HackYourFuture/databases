@@ -1,8 +1,6 @@
 # Lesson Plan Databases Week 4
 
-The lesson plan is primarily written for teachers so that they can
-use examples and anecdotes from this document in conjunction with the README
-and explain the concepts better in the class.
+The lesson plan is primarily written for mentors so that they can use examples and anecdotes from this document in conjunction with the README and explain the concepts better during the session.
 
 ## Topics
 
@@ -238,7 +236,7 @@ better performance. As usual it is up to you to balance what is needed for the s
 ### Explanation
 
 The idea behind an index and a transaction should already be clear as it has been handled in SQL. So purely syntax here,
-but if students cannot explain why we do these things, then go through it with them again.
+but if trainees cannot explain why we do these things, then go through it with them again.
 
 ### Example
 
