@@ -1,8 +1,6 @@
 # Lesson Plan Databases Week 1
 
-The lesson plan is primarily written for teachers so that they can
-use examples and anecdotes from this document in conjunction with the README
-and explain the concepts better in the class.
+The lesson plan is primarily written for mentors so that they can use examples and anecdotes from this document in conjunction with the README and explain the concepts better in the session.
 
 ## Topics (essentially same as the README file)
 
