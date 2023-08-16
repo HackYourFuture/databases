@@ -1,7 +1,7 @@
-> This homework assumes you have installed the software [MySQL](https://dev.mysql.com/downloads/installer/) on your
+> This assignment assumes you have installed the software [MySQL](https://dev.mysql.com/downloads/installer/) on your
 > computer. If not, please do that first!
 
-# Homework Databases Week 1
+# Assignment Databases Week 1
 
 ## Todo list
 
@@ -58,7 +58,7 @@ SQL viewer tool or MySQL console before writing the Node program.
 
 ### 3.2. Exercise 2 : Select queries on the "world" database
 
-> For this part of the homework, use the `world.sql` file in the `week1/databases` folder to create the database and
+> For this part of the assignment, use the `world.sql` file in the `week1/databases` folder to create the database and
 > tables. Before you go on, execute the file to create a database instance of the `world` database, using mysql console or
 > any tool. Test to see if it's created. Make sure all the tables (`city`, `country` and `countrylanguage`) and the
 > containing data are there.
@@ -88,14 +88,14 @@ In this week's code along you won't be building a complete app, but get familiar
 
 ## **5. Career Training 2 (If not completed yet)**
 
-Remember that the Career Training 2 session is coming up (check your class channel on slack for the exact date). Before the session make sure you have:
+Remember that the Career Training 2 session is coming up (check your cohort channel on slack for the exact date). Before the session make sure you have:
 
 - Read the whole [‘Interview Preparation’ Repo](https://github.com/HackYourFuture/interviewpreparation).
-- Done the homework: make a copy of [this file](https://docs.google.com/document/u/2/d/114rTGS4eG6tpkrMAyVIdvgTrnpmkRL6ax_smkw1B0HI/copy) and submit your answers to the team [here](https://hackyourfuture.typeform.com/to/s6zYAugm).
+- Done the assignment: make a copy of [this file](https://docs.google.com/document/u/2/d/114rTGS4eG6tpkrMAyVIdvgTrnpmkRL6ax_smkw1B0HI/copy) and submit your answers to the team [here](https://hackyourfuture.typeform.com/to/s6zYAugm).
 
-## SUBMIT YOUR HOMEWORK!
+## SUBMIT YOUR ASSIGNMENT!
 
-After you've finished your todo list it's time to show us what you got! The homework that needs to be submitted is the
+After you've finished your todo list it's time to show us what you got! The assignment that needs to be submitted is the
 following:
 
 1. MySQL exercises
@@ -103,7 +103,7 @@ following:
 Upload your code to your forked Databases repository in GitHub. Make a pull request to `HackYourHomework/databases`
 repository.
 
-> Forgotten how to upload your homework? Go through the [guide](../hand-in-homework-guide.md) to learn how to do this
+> Forgotten how to upload your assignment? Go through the [guide](../hand-in-assignments-guide.md) to learn how to do this
 > again.
 
 _Deadline Tuesday 23.59 CET_
