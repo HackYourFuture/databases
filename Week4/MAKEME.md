@@ -1,4 +1,4 @@
-# Homework Databases Week 4
+# Assignment Databases Week 4
 
 ## **Todo list**
 
@@ -28,7 +28,7 @@ will be covered then.
 
 ## 3. MongoDB exercises
 
-Let's create a fresh database for this week's homework. You can create a database called `databaseWeek4` that you can
+Let's create a fresh database for this week's assignment. You can create a database called `databaseWeek4` that you can
 use for the following exercises.
 
 ### 3.1 Exercise 1 : Aggregation
@@ -207,9 +207,9 @@ This week we have a small code along to show how to implement pagination and mak
 - [Paginated API with Node and Mongoose](https://www.youtube.com/watch?v=ZX3qt0UWifc). We will be working in Mongoose in
   the final project, but this gives a little teaser on what mongoose is!
 
-## SUBMIT YOUR HOMEWORK!
+## SUBMIT YOUR ASSIGNMENT!
 
-After you've finished your todo list it's time to show us what you got! The homework that needs to be submitted is the
+After you've finished your todo list it's time to show us what you got! The assignment that needs to be submitted is the
 following:
 
 1. MongoDB exercises
@@ -217,7 +217,7 @@ following:
 Upload your code to your forked Databases repository in GitHub. Make a pull request to HackYourHomework's forked
 repository.
 
-> Forgotten how to upload your homework? Go through the [guide](../hand-in-homework-guide.md) to learn how to do this
+> Forgotten how to upload your assignment? Go through the [guide](../hand-in-assignments-guide.md) to learn how to do this
 > again.
 
 _Deadline Tuesday 23.59 CET_
