@@ -20,7 +20,7 @@ the correct data.
 
 ## Before you start
 
-**Before** your first class you start you need to install the necessary software: MySQL. This differs depending on your
+**Before** your first session you start you need to install the necessary software: MySQL. This differs depending on your
 operating system:
 
 During installation of MySQL v8, in one of the last steps you will configure the password encryption.
@@ -99,12 +99,12 @@ In this module you will get familiar with the complexity of storing data. By the
 
 This repository consists of 3 essential parts:
 
-1. `README`: this document contains all the required theory you need to understand **while** working on the homework. It
-   contains not only the right resources to learn about the concepts, but also lectures done by HackYourFuture teachers.
+1. `README`: this document contains all the required theory you need to understand **while** working on the weekly assignment. It
+   contains not only the right resources to learn about the concepts, but also lectures done by HackYourFuture mentors.
    This is the **first thing** you should start with every week
-2. `MAKEME`: this document contains the instructions for each week's homework. Start with the exercises rather quickly,
+2. `MAKEME`: this document contains the instructions for each week's assignment. Start with the exercises rather quickly,
    so that you can ground the concepts you read about earlier.
-3. `LESSONPLAN`: this document is meant for teachers as a reference. However, as a student don't be shy to take a look
+3. `LESSONPLAN`: this document is meant for mentors as a reference. However, as a trainee don't be shy to take a look
    at it as well!
 
 ### How to study
@@ -114,16 +114,16 @@ Let's say you are just starting out with the Databases module. This is what you 
 1. The week always starts on **Wednesday**. First thing you'll do is open the `README.md` for that week. For the first
    week of `Databases`, that would be [Week1 Reading](/Week1/README.md)
 2. You spend **Wednesday** and **Thursday** going over the resources and try to get a basic understanding of the
-   concepts. In the meanwhile, you'll also implement any feedback you got on last week's homework (from the Node.js
+   concepts. In the meanwhile, you'll also implement any feedback you got on last week's assignment (from the Node.js
    module)
-3. On **Friday** you start with the homework, found in the `MAKEME.md`. For the first week of `Databases`, that would
-   be [Week1 Homework](/Week1/MAKEME.md)
+3. On **Friday** you start with the weekly assignment, found in the `MAKEME.md`. For the first week of `Databases`, that would
+   be [Assignment W1](/Week1/MAKEME.md)
 4. You spend **Friday** and **Saturday** playing around with the exercises and write down any questions you might have
-5. **DEADLINE 1**: You'll submit any questions you might have before **Saturday 23.59**, in the class channel
-6. On **Sunday** you'll attend class. It'll be of the Q&A format, meaning that there will be no new material. Instead
+5. **DEADLINE 1**: You'll submit any questions you might have before **Saturday 23.59**, in the cohort channel
+6. On **Sunday** you'll attend the Q&A session. It'll be of the Q&A format, meaning that there will be no new material. Instead
    your questions shall be discussed and you can learn from others
-7. You spend **Monday** and **Tuesday** finalizing your homework
-8. **DEADLINE 2**: You submit your homework to the right channels (GitHub) before **Tuesday 23.59**. If you can't make
+7. You spend **Monday** and **Tuesday** finalizing your assignment
+8. **DEADLINE 2**: You submit your assignment to the right channels (GitHub) before **Tuesday 23.59**. If you can't make
    it on time, please communicate it with your mentor
 9. Start the new week by going back to point 1!
 
@@ -133,16 +133,16 @@ In summary:
 
 To have a more detailed overview of the guidelines, please
 read [this document](https://docs.google.com/document/d/1JUaEbxMQTyljAPFsWIbbLwwvvIXZ0VCHmCCN8RaeVIc/edit?usp=sharing)
-or ask your mentor/class on Slack!
+or ask your mentor/cohort on Slack!
 
 ## Planning
 
-| Week | Topic                                                                         | Readings                       | Homework                       | Lesson Plan                           |
+| Week | Topic                                                                         | Readings                       | Assignment                       | Lesson Plan                           |
 | ---: | ----------------------------------------------------------------------------- | ------------------------------ | ------------------------------ | ------------------------------------- |
-|   1. | What's a database, Entities, Data structures, Structured Query Language (SQL) | [Readings W1](Week1/README.md) | [Homework W1](Week1/MAKEME.md) | [Lesson Plan W1](Week1/LESSONPLAN.md) |
-|   2. | Identifiers, Relationships, Domain Modeling, Advanced SQL commands            | [Readings W2](Week2/README.md) | [Homework W2](Week2/MAKEME.md) | [Lesson Plan W2](Week2/LESSONPLAN.md) |
-|   3. | Normalization, Transactions, SQL Injection, NoSQL basics (with MongoDB)       | [Readings W3](Week3/README.md) | [Homework W3](Week3/MAKEME.md) | [Lesson Plan W3](Week3/LESSONPLAN.md) |
-|   4. | NoSQL advanced commands, Pagination, SQL vs NoSQL                             | [Readings W4](Week4/README.md) | [Homework W4](Week4/MAKEME.md) |  |
+|   1. | What's a database, Entities, Data structures, Structured Query Language (SQL) | [Readings W1](Week1/README.md) | [Assignment W1](Week1/MAKEME.md) | [Lesson Plan W1](Week1/LESSONPLAN.md) |
+|   2. | Identifiers, Relationships, Domain Modeling, Advanced SQL commands            | [Readings W2](Week2/README.md) | [Assignment W2](Week2/MAKEME.md) | [Lesson Plan W2](Week2/LESSONPLAN.md) |
+|   3. | Normalization, Transactions, SQL Injection, NoSQL basics (with MongoDB)       | [Readings W3](Week3/README.md) | [Assignment W3](Week3/MAKEME.md) | [Lesson Plan W3](Week3/LESSONPLAN.md) |
+|   4. | NoSQL advanced commands, Pagination, SQL vs NoSQL                             | [Readings W4](Week4/README.md) | [Assignment W4](Week4/MAKEME.md) |  |
 
 ## Finished?
 
