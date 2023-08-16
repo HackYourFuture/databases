@@ -1,4 +1,4 @@
-# Homework Databases Week 3
+# Assignment Databases Week 3
 
 ## Todo list
 
@@ -38,7 +38,7 @@ will be covered then.
 > You will need to do some research to solve these exercises. NOT all the concepts necessary to solve these exercises are
 > covered in the reading material. This is on purpose.
 
-> Save all of your files in the `homework` folder inside `Week3`!
+> Save all of your files in the `assignment` folder inside `Week3`!
 
 ### 3.1. Exercise 1 : SQL Normalization
 
@@ -142,9 +142,9 @@ ll use as a database!
 
 - [CRUD app from scratch using Node.js](https://www.youtube.com/watch?v=CyTWPr_WwdI)
 
-## SUBMIT YOUR HOMEWORK!
+## SUBMIT YOUR ASSIGNMENT!
 
-After you've finished your todo list it's time to show us what you got! The homework that needs to be submitted is the
+After you've finished your todo list it's time to show us what you got! The assignment that needs to be submitted is the
 following:
 
 1. Database exercises
@@ -152,7 +152,7 @@ following:
 Upload your code to your forked Databases repository in GitHub. Make a pull request to HackYourHomework's forked
 repository.
 
-> Forgotten how to upload your homework? Go through the [guide](../hand-in-homework-guide.md) to learn how to do this
+> Forgotten how to upload your assignment? Go through the [guide](../hand-in-assignments-guide.md) to learn how to do this
 > again.
 
 _Deadline Tuesday 23.59 CET_
