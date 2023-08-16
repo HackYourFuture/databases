@@ -13,6 +13,7 @@ and this week to explain the changes.
 - Was your database already in 2NF / 3 NF?
 - What changes did you have to do to normalize your database?
 
-## Discussion (Try to write answers to these questions in text, provide queries and commands when necessary)
+## Discussion
 
 - If you want to add thousands of recipes to your database, what challenges do you foresee?
+- Try to write answers to these questions in text, provide queries and commands when necessary.
