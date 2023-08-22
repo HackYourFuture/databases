@@ -7,22 +7,22 @@ const con = mysql.createConnection({
 });
 
 // Connect to MySQL server
-con.connect(function (err) {
+con.connect((err) => {
   if (err) throw err;
 
   console.log("Connected!");
 
   // Drop 'meetup' database if it exists already
-  con.query("DROP DATABASE IF EXISTS meetup", function (error) {
+  con.query("DROP DATABASE IF EXISTS meetup", (error) => {
     if (error) throw error;
 
     // Create 'meetup' database
-    con.query("CREATE DATABASE meetup", function (err, result) {
+    con.query("CREATE DATABASE meetup", (err, result) => {
       if (err) throw err;
       console.log("Database created");
 
       // Switch to 'meetup' database
-      con.query("USE meetup", function (err) {
+      con.query("USE meetup", (err) => {
         if (err) throw err;
 
         // Create table called 'Invitee'
@@ -34,35 +34,35 @@ con.connect(function (err) {
           )
          `;
 
-        con.query(inviteeTable, function (err, result) {
+        con.query(inviteeTable, (err, result) => {
           if (err) throw err;
           console.log("Table 'inviteeTable' created");
 
           // Create a table called `Room`
           const roomTable = `
-          CREATE TABLE IF NOT EXISTS Room (
+           CREATE TABLE IF NOT EXISTS Room (
             room_no INT AUTO_INCREMENT PRIMARY KEY,
             room_name VARCHAR(255) NOT NULL,
             floor_number VARCHAR(255) NOT NULL
-          );
-          `;
+            );
+            `;
 
-          con.query(roomTable, function (err, result) {
+          con.query(roomTable, (err, result) => {
             if (err) throw err;
             console.log("Table 'roomTable' created");
 
             // Create a table called `Meeting`
             const meetingTable = `
-          CREATE TABLE IF NOT EXISTS Meeting (
+            CREATE TABLE IF NOT EXISTS Meeting (
             meeting_no INT AUTO_INCREMENT PRIMARY KEY,
             meeting_title VARCHAR(255) NOT NULL,
             starting_time DATETIME NOT NULL,
             ending_time DATETIME NOT NULL,
             room_no INT NOT NULL
-          );
-          `;
+            );
+            `;
 
-            con.query(meetingTable, function (err, result) {
+            con.query(meetingTable, (err, result) => {
               if (err) throw err;
               console.log("Table 'meetingTable' created");
 
@@ -142,6 +142,7 @@ con.connect(function (err) {
               });
 
               // Run the result or test
+
               // Test SELECT * FROM Invitee
               con.query("SELECT * FROM Invitee", (err, inviteeTest) => {
                 if (err) throw err;
