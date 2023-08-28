@@ -8,10 +8,10 @@ const connection = mysql.createConnection({
 
 connection.connect((err) => {
   if (err) {
-    console.error("can not connect to the database:", err);
+    console.error("Can not connect to the database:", err);
     return;
   }
-  console.log("you are Connected to the database!");
+  console.log("You are connected to the database!");
 
   createDatabase();
 });
@@ -19,8 +19,7 @@ connection.connect((err) => {
 function createDatabase() {
   connection.query("CREATE DATABASE IF NOT EXISTS meetup", (err) => {
     if (err) {
-      console.error("Error creating database:", err);
-      connection.end();
+      handleDatabaseError(err, "creating database");
       return;
     }
     console.log("Database meetup created!");
@@ -31,8 +30,7 @@ function createDatabase() {
 function useDatabase() {
   connection.query("USE meetup", (err) => {
     if (err) {
-      console.error("Error selecting database:", err);
-      connection.end();
+      handleDatabaseError(err, "selecting database");
       return;
     }
     console.log("Database meetup selected!");
@@ -49,8 +47,7 @@ function createInviteesTable() {
 
   connection.query(createInviteeTable, (err) => {
     if (err) {
-      console.error("Error creating invitees table:", err);
-      connection.end();
+      handleDatabaseError(err, "creating invitees table");
       return;
     }
     console.log("Invitees table created!");
@@ -67,8 +64,7 @@ function createRoomTable() {
 
   connection.query(createRoomTableQuery, (err) => {
     if (err) {
-      console.error("Error creating Room table:", err);
-      connection.end();
+      handleDatabaseError(err, "creating Room table");
       return;
     }
     console.log("Room table created!");
@@ -87,8 +83,7 @@ function createMeetingTable() {
 
   connection.query(createMeetingTableQuery, (err) => {
     if (err) {
-      console.error("Error creating Meeting table:", err);
-      connection.end();
+      handleDatabaseError(err, "creating Meeting table");
       return;
     }
     console.log("Meeting table created!");
@@ -106,8 +101,7 @@ function insertInviteeData() {
 
   connection.query(insertInviteeDataQuery, (err) => {
     if (err) {
-      console.error("Error inserting invitee data:", err);
-      connection.end();
+      handleDatabaseError(err, "inserting invitee data");
       return;
     }
     console.log("Invitees data inserted!");
@@ -116,7 +110,7 @@ function insertInviteeData() {
 }
 
 function insertRoomData() {
-  const insertRoomDataQuery = `INSERT INTO Room (room_name, floor_name) VALUES
+  const insertRoomDataQuery = `INSERT INTO Room (room_name, floor_number) VALUES
     ('Room 1', 1),
     ('Room 2', 2),
     ('Room 3', 3),
@@ -125,8 +119,7 @@ function insertRoomData() {
 
   connection.query(insertRoomDataQuery, (err) => {
     if (err) {
-      console.error("Error inserting room data:", err);
-      connection.end();
+      handleDatabaseError(err, "inserting room data");
       return;
     }
     console.log("Room data inserted!");
@@ -144,17 +137,25 @@ function insertMeetingData() {
 
   connection.query(insertMeetingDataQuery, (err) => {
     if (err) {
-      console.error("Error inserting meeting data:", err);
-      connection.end();
+      handleDatabaseError(err, "inserting meeting data");
       return;
     }
     console.log("Meeting data inserted!");
-    connection.end((err) => {
-      if (err) {
-        console.error("Error disconnecting from the database:", err);
-        return;
-      }
-      console.log("Disconnected from database!");
-    });
+    disconnectFromDatabase();
+  });
+}
+
+function handleDatabaseError(err, operation) {
+  console.error(`Error ${operation}:`, err);
+  connection.end();
+}
+
+function disconnectFromDatabase() {
+  connection.end((err) => {
+    if (err) {
+      console.error("Error disconnecting from the database:", err);
+      return;
+    }
+    console.log("Disconnected from database!");
   });
 }
