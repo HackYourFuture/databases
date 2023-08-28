@@ -143,19 +143,25 @@ function insertMeetingData() {
     ('Meeting 4', '2023-08-21 16:00:00', '2023-08-21 17:00:00', 4),
     ('Meeting 5', '2023-08-21 18:00:00', '2023-08-21 19:00:00', 5)`;
 
-  connection.query(insertMeetingDataQuery, (err) => {
+    connection.query(insertMeetingDataQuery, (err) => {
     if (err) {
       console.error('Error inserting meeting data:', err);
       connection.end();
       return;
     }
-    console.log('Meeting data inserted!');
-    connection.end((err) => {
-      if (err) {
-        console.error('Error disconnecting from the database:', err);
-        return;
-      }
-      console.log('Disconnected from database!');
-    });
+    if (results.affectedRows === 0) {
+      console.log('No meeting data inserted because of foreign key violation.');
+    } else {
+      console.log('Meeting data inserted!');
+    }
+
+    connection.end();
+  });
+  connection.end((err) => {
+    if (err) {
+      console.error('Error disconnecting from the database:', err);
+      return;
+    }
+    console.log('Disconnected from database!');
   });
 }
