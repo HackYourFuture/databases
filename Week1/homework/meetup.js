@@ -44,7 +44,8 @@ function createInviteesTable() {
   const createInviteeTable = `CREATE TABLE IF NOT EXISTS invitees (
     invitee_no INT(10) AUTO_INCREMENT PRIMARY KEY,
     invitee_name VARCHAR(50),
-    invitee_by VARCHAR(50)
+    invitee_by VARCHAR(50),
+    FOREIGN KEY (invitee_by) REFERENCES invitees(invitee_no)
   )`;
 
   connection.query(createInviteeTable, (err) => {
