@@ -63,7 +63,7 @@ function createRoomTable() {
   const createRoomTableQuery = `CREATE TABLE IF NOT EXISTS Room (
     room_no INT(10) AUTO_INCREMENT PRIMARY KEY,
     room_name VARCHAR(50),
-    floor_number INT(10)
+    floor_number TINYINT
   )`;
 
   connection.query(createRoomTableQuery, (err) => {
