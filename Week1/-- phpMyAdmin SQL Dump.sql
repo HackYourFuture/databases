@@ -30,18 +30,18 @@ CREATE TABLE Recipes (
     RecipeID INT PRIMARY KEY,
     RecipeName VARCHAR(255),
     Description TEXT,
-    CookingTime INT
+   
 );
 /*Categories Table*/
 CREATE TABLE Categories (
     CategoryID INT PRIMARY KEY,
-    CategoryName VARCHAR
+    Category VARCHAR
 );
 /*Ingredients Table*/
 CREATE TABLE Instruction (
     instruction_id Integer NOT NULL,
     instruction_description TEXT NOT NULL,
-    CONSTRAINT instructionPk PRIMARY KEY(instruction_id)
+    
 );
 /*Steps Table*/
 CREATE TABLE Steps (
