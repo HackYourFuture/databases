@@ -23,4 +23,4 @@ Last, now that you have an idea of what both SQL and NoSQL mean and how they wor
 
 ## Finished?
 
-Are you finished with going through the materials? High five! If you feel ready to get practical, click [here](./MAKEME.md).
+Have you gone through all of the materials? High five! If you feel ready to get practical, click [here](./MAKEME.md).
