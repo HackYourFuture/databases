@@ -25,4 +25,4 @@ Most of NoSQL is out of the scope of our curriculum, as storing data in specific
 
 ## Finished?
 
-Are you finished with going through the materials? High five! If you feel ready to get practical, click [here](./MAKEME.md).
+Have you gone through all of the materials? High five! If you feel ready to get practical, click [here](./MAKEME.md).
