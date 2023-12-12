@@ -66,6 +66,7 @@ These are the topics for week 1:
     - What are data types (as applied to databases)?
     - How to use SQL to Create, Read, Update and Delete (CRUD)
 3. [Using database dumps](https://hackyourfuture.github.io/study/#/databases/sql/dumps)
+4. [Career Training II (Interview preparation)](https://github.com/HackYourFuture/interviewpreparation)
 
 ## Week goals
 
@@ -80,6 +81,9 @@ relational databases. Have a look [here](https://hackyourfuture.github.io/study/
 
 Lastly, let's go over some practical information that will allow you to save your databases and share it with others!
 Learn all about database dumps [here](https://hackyourfuture.github.io/study/#/databases/sql/dumps)
+
+## Career training II (Interview preparation)
+Finally it is time to continue with developing your soft skills to ace those job interviews. For that, have a look at the [interview preparation repo](https://github.com/HackYourFuture/interviewpreparation). It is a lot to get through, so you may need some time next week as well. There is no assignments for this week, but there is some assignments for the career training next week, you can already have a look at it if you find these things difficult.
 
 ## Finished?
 
