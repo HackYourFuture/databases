@@ -70,22 +70,16 @@ These are the topics for week 1:
 
 ## Week goals
 
-This week we want to introduce you to the world of databases! We will start with a general introduction to what
-databases are, going over some terms and how to start thinking about your application's data. Have a look for the
-introduction [here](https://hackyourfuture.github.io/study/#/databases/README).
+This week we want to introduce you to the world of databases! We will start with a general introduction of what databases are, go over some terms and explain how to start thinking about your application's data. Have a look at the introduction [here](https://hackyourfuture.github.io/study/#/databases/README).
 
-In this module we will be covering both the relational type of databases (SQL) as well as document based databases (
-NoSQL). For now you do not need to know the difference, that will become apparent when we have covered both. We will
-start by going into relational database by learning about SQL, which is the language used when interacting with most
-relational databases. Have a look [here](https://hackyourfuture.github.io/study/#/databases/sql/README).
+In this module, we will be cover both the relational type of databases (SQL), as well as document based databases (NoSQL). For now you do not need to know the difference, that will become apparent when we have covered both. We will start by going into relational database by learning about SQL, which is the language used when interacting with most relational databases. Have a look [here](https://hackyourfuture.github.io/study/#/databases/sql/README).
 
-Lastly, let's go over some practical information that will allow you to save your databases and share it with others!
-Learn all about database dumps [here](https://hackyourfuture.github.io/study/#/databases/sql/dumps)
+Lastly, let's go over some practical information that will allow you to save your databases and share it with others! Learn all about database dumps [here](https://hackyourfuture.github.io/study/#/databases/sql/dumps).
 
 ## Career training II (Interview preparation)
-Finally it is time to continue with developing your soft skills to ace those job interviews. For that, have a look at the [interview preparation repo](https://github.com/HackYourFuture/interviewpreparation). It is a lot to get through, so you may need some time next week as well. There is no assignments for this week, but there is some assignments for the career training next week, you can already have a look at it if you find these things difficult.
+Finally, it is time to continue with developing your soft skills to ace those job interviews. For that, have a look at the [interview preparation repo](https://github.com/HackYourFuture/interviewpreparation). It is a lot to get through, so you may need some time next week as well. There is an assignment for the career training next week, you can already have a look at it if you find these things difficult.
 
 ## Finished?
 
-Are you finished with going through the materials? High five! If you feel ready to get practical,
+Are you done going through the materials? High five! If you feel ready to get practical,
 click [here](./MAKEME.md).
