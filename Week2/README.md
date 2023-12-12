@@ -32,5 +32,4 @@ If you haven't finished all the material yet, then continue with it this week.
 
 ## Finished?
 
-Are you finished with going through the materials? High five! If you feel ready to get practical,
-click [here](./MAKEME.md).
+Have you gone through all of the materials? High five! If you feel ready to get practical, click [here](./MAKEME.md).
