@@ -42,6 +42,9 @@ Bonus 2: A second bonus video [here](https://www.youtube.com/watch?v=H08wAwrWEec
 of this week: keys, relationships and joins. Again it is @Unmesh on slack, a thanks if this helped you is much
 appreciated!
 
+## Career training II (Interview preparation)
+If you haven't finished all the material yet, then continue with it this week.
+
 ## Finished?
 
 Are you finished with going through the materials? High five! If you feel ready to get practical,
