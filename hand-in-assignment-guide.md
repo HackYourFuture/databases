@@ -2,7 +2,7 @@
 
 In this module you'll submit your assignments only using Git and GitHub.
 
-1. [GitHub account containing the assignment hand-in repositories](https://github.com/HackYourHomework)
+1. [GitHub account containing the assignment hand-in repositories](https://github.com/HackYourAssignment)
 
 ## 1. GitHub assignment guide
 
@@ -13,8 +13,8 @@ Watch the video (by clicking the image) or go through the following walk-through
 ### ONE TIME ONLY (START OF EVERY MODULE)
 
 1. Create a [fork](https://help.github.com/en/articles/fork-a-repo) of
-   the [HackYourHomework](https://github.com/HackYourHomework) module repository.
-   For Databases, the assignment module repository is `https://www.github.com/HackYourHomework/databases-cohort##` where '
+   the [HackYourAssignment](https://github.com/HackYourAssignment) module repository.
+   For Databases, the assignment module repository is `https://www.github.com/HackYourAssignment/databases-cohort##` where '
    ##' is your cohort number.
    You do this by using the `fork` option on the top right
 2. Navigate to the URL of the cloned repository (it should be in your personal GitHub account, under "repositories")

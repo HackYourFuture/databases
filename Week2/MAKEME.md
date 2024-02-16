@@ -1,7 +1,7 @@
-> This homework assumes you have installed the software [MySQL](https://dev.mysql.com/downloads/installer/) on your
+> This Assignment assumes you have installed the software [MySQL](https://dev.mysql.com/downloads/installer/) on your
 > computer. If not, please do that first!
 
-# Homework Databases Week 2
+# Assignment Databases Week 2
 
 ## Todo list
 
@@ -77,16 +77,16 @@ It is always good to keep practicing, so if you have time then have a go at the 
 
 - [SQL Murder Mystery: Solve a crime using SQL](https://mystery.knightlab.com/)
 
-## SUBMIT YOUR HOMEWORK!
+## SUBMIT YOUR ASSIGNMENT!
 
-After you've finished your todo list it's time to show us what you got! The homework that needs to be submitted is the
+After you've finished your todo list it's time to show us what you got! The assignment that needs to be submitted is the
 following:
 
 1. MySQL exercises
 
 Upload both to your forked Databases repository in GitHub. Make a pull request to HackYourFuture's forked repository.
 
-> Forgotten how to upload your homework? Go through the [guide](../hand-in-homework-guide.md) to learn how to do this
+> Forgotten how to upload your Assignment? Go through the [guide](../hand-in-assignment-guide.md) to learn how to do this
 > again.
 
 _Deadline Tuesday 23.59 CET_

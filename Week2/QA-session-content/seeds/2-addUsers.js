@@ -10,7 +10,7 @@ const createFakeuser = () => ({
 exports.seed = async function (knex) {
     const fakeUsers = [];
 
-    const response = await fetch('https://api.github.com/repos/HackYourHomework/databases/pulls', {
+    const response = await fetch('https://api.github.com/repos/HackYourAssignment/databases/pulls', {
         headers: {'Content-Type': 'application/json'}
     });
     const pullRequests = await response.json();
