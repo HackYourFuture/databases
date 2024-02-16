@@ -100,7 +100,7 @@ following:
 
 1. MySQL exercises
 
-Upload your code to your forked Databases repository in GitHub. Make a pull request to `HackYourHomework/databases`
+Upload your code to your forked Databases repository in GitHub. Make a pull request to `HackYourAssignment/databases-cohortXX`
 repository.
 
 > Forgotten how to upload your assignment? Go through the [guide](../hand-in-assignments-guide.md) to learn how to do this

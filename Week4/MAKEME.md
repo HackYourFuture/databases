@@ -214,7 +214,7 @@ following:
 
 1. MongoDB exercises
 
-Upload your code to your forked Databases repository in GitHub. Make a pull request to HackYourHomework's forked
+Upload your code to your forked Databases repository in GitHub. Make a pull request to HackYourAssignments's forked
 repository.
 
 > Forgotten how to upload your assignment? Go through the [guide](../hand-in-assignments-guide.md) to learn how to do this
