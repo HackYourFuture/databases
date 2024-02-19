@@ -1,90 +1,72 @@
--- Create Recipe table
-CREATE TABLE Recipe (
-  recipe_id INT PRIMARY KEY AUTO_INCREMENT,
-  recipe_name VARCHAR(255),
-  instructions TEXT
-);
+-- Inserting test data into the Recipes table
+INSERT INTO Recipes (recipe_id, recipe_name, cooking_time, preparation_time, spiciness) VALUES
+(1, 'Spaghetti Carbonara', 30, 15, 2),
+(2, 'Margherita Pizza', 20, 30, 1),
+(3, 'Chicken Curry', 40, 20, 4);
 
--- Create RecipeDetails table (One-to-One Relationship)
-CREATE TABLE RecipeDetails (
-  recipe_id INT PRIMARY KEY,
-  preparation_time INT,
-  cooking_time INT,
-  servings INT,
-  FOREIGN KEY (recipe_id) REFERENCES Recipe(recipe_id)
-);
+-- Inserting test data into the Ingredients table
+INSERT INTO Ingredients (ingredient_id, ingredient_name) VALUES
+(1, 'Pasta'),
+(2, 'Bacon'),
+(3, 'Eggs'),
+(4, 'Cheese'),
+(5, 'Tomato Sauce'),
+(6, 'Pizza Dough'),
+(7, 'Mozzarella'),
+(8, 'Basil'),
+(9, 'Chicken'),
+(10, 'Curry Powder'),
+(11, 'Coconut Milk');
 
--- Create Ingredient table
-CREATE TABLE Ingredient (
-  ingredient_id INT PRIMARY KEY AUTO_INCREMENT,
-  ingredient_name VARCHAR(255)
-);
+-- Inserting test data into the Directions table
+INSERT INTO Directions (direction_id, instruction) VALUES
+(1, 'Boil pasta until al dente.'),
+(2, 'Cook bacon until crispy.'),
+(3, 'Mix eggs and cheese in a bowl.'),
+(4, 'Combine pasta with bacon, eggs, and cheese.'),
+(5, 'Spread tomato sauce on prepared pizza dough.'),
+(6, 'Top with slices of mozzarella and fresh basil.'),
+(7, 'Bake in preheated oven at 220C for 15 minutes.'),
+(8, 'Brown chicken pieces in a skillet.'),
+(9, 'Add curry powder and other spices.'),
+(10, 'Pour in coconut milk and simmer until chicken is cooked through.');
 
--- Create RecipeIngredient table (Many-to-Many Relationship)
-CREATE TABLE RecipeIngredient (
-  recipe_id INT,
-  ingredient_id INT,
-  FOREIGN KEY (recipe_id) REFERENCES Recipe(recipe_id),
-  FOREIGN KEY (ingredient_id) REFERENCES Ingredient(ingredient_id),
-  PRIMARY KEY (recipe_id, ingredient_id)
-);
+-- Inserting test data into the RecipeDirections table
+INSERT INTO RecipeDirections (recipe_id, direction_id, step_number) VALUES
+(1, 1, 1),
+(1, 2, 2),
+(1, 3, 3),
+(1, 4, 4),
+(2, 5, 1),
+(2, 6, 2),
+(2, 7, 3),
+(3, 8, 1),
+(3, 9, 2),
+(3, 10, 3);
 
--- Create Category table
-CREATE TABLE Category (
-  category_id INT PRIMARY KEY AUTO_INCREMENT,
-  category_name VARCHAR(255)
-);
+-- Inserting test data into the Categories table
+INSERT INTO Categories (category_id, category_name) VALUES
+(1, 'Italian'),
+(2, 'Fast Food'),
+(3, 'Indian');
 
--- Create RecipeCategory table (Many-to-Many Relationship)
-CREATE TABLE RecipeCategory (
-  recipe_id INT,
-  category_id INT,
-  FOREIGN KEY (recipe_id) REFERENCES Recipe(recipe_id),
-  FOREIGN KEY (category_id) REFERENCES Category(category_id),
-  PRIMARY KEY (recipe_id, category_id)
-);
+-- Inserting test data into the RecipeCategories table
+INSERT INTO RecipeIngredients (recipe_id, ingredient_id, quantity, unit, prep_type) VALUES
+(1, 1, 100, 'grams', 'None'),
+(1, 2, 50, 'grams', 'Sliced'),
+(1, 3, 2, 'units', 'None'),
+(1, 4, 50, 'grams', 'Shredded'),
+(2, 5, 100, 'grams', 'None'),
+(2, 6, 1, 'unit', 'None'),
+(2, 7, 100, 'grams', 'Sliced'),
+(2, 8, 5, 'leaves', 'None'),
+(3, 9, 200, 'grams', 'Cubed'),
+(3, 10, 2, 'tablespoons', 'None'),
+(3, 11, 400, 'ml', 'None');
 
--- Insert data into Category table
-INSERT INTO Category (category_name) VALUES
-('Japanese'),
-('Cake'),
-('Vegetarian');
-
--- Insert data into Ingredient table
-INSERT INTO Ingredient (ingredient_name) VALUES
-('Rice'),
-('Nori'),
-('Soy sauce'),
-('Sugar'),
-('Flour'),
-('Eggs'),
-('Milk'),
-('Vegetables');
-
--- Insert data into Recipe table
-INSERT INTO Recipe (recipe_name, instructions) VALUES
-('Sushi', '1. Cook rice. 2. Prepare nori. 3. Roll rice and nori. 4. Add fillings. 5. Slice and serve.'),
-('Japanese Curry', '1. Prepare vegetables. 2. Cook vegetables and meat. 3. Add curry roux. 4. Simmer until thickened.'),
-('Chocolate Cake', '1. Preheat oven. 2. Mix dry ingredients. 3. Mix wet ingredients. 4. Combine wet and dry ingredients. 5. Bake.'),
-('Vegetable Stir-fry', '1. Prepare vegetables. 2. Heat oil in a pan. 3. Add vegetables and stir-fry. 4. Add sauce. 5. Serve.');
-
--- Insert data into RecipeCategory table
-INSERT INTO RecipeCategory (recipe_id, category_id) VALUES
+-- Inserting test data into the RecipeIngredients table
+INSERT INTO RecipeCategories (recipe_id, category_id) VALUES
 (1, 1),
 (2, 1),
-(3, 2),
-(4, 3);
-
--- Insert data into RecipeIngredient table
-INSERT INTO RecipeIngredient (recipe_id, ingredient_id) VALUES
-(1, 1),
-(1, 2),
-(1, 3),
-(2, 1),
-(2, 7),
-(2, 8),
-(3, 4),
-(3, 5),
-(3, 6),
-(4, 7),
-(4, 8);
+(2, 2),
+(3, 3);
