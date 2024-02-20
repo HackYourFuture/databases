@@ -49,9 +49,9 @@ async function seedDatabase() {
   try {
     await Promise.all[execQuery(CREATE_STUDENTS_TABLE), execQuery(CREATE_TEACHERS_TABLE)];
     
-    await Promise.all(students.map(student =>
+    await Promise.all(students.map(student =>{
       execQuery('INSERT INTO students SET ?', student)
-    );
+  }));
   } catch (error) {
     console.error(error);
   }
