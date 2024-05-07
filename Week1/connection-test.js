@@ -3,7 +3,7 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'hyfuser',
   password : 'hyfpassword',
-  database : 'userdb',
+  database : 'meetup',
   // If you get connection with
   // errno: -61,
   // code: 'ECONNREFUSED',
