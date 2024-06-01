@@ -24,7 +24,7 @@ const CREATE_AUTHORS_TABLE = `
 `;
 
 const ADD_MENTOR_COLUMN = `
-    ALTER TABLE authors ADD COLUMN mentor INT, ADD FOREIGN KEY (mentor) REFERENCES authors(author_id);
+    ALTER TABLE authors ADD COLUMN mentor INT, ADD FOREIGN KEY (mentor) REFERENCES authors(author_id) ON DELETE CASCADE ON UPDATE CASCADE;
 `;
 
 const CREATE_RESEARCH_PAPERS_TABLE = `
@@ -44,8 +44,8 @@ const CREATE_AUTHORS_RESEARCH_PAPERS_TABLE = `
         author_id INT,
         paper_id INT,
         PRIMARY KEY (author_id, paper_id),
-        FOREIGN KEY (author_id) REFERENCES authors(author_id) ON DELETE CASCADE,
-        FOREIGN KEY (paper_id) REFERENCES research_papers(paper_id) ON DELETE CASCADE
+        FOREIGN KEY (author_id) REFERENCES authors(author_id) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (paper_id) REFERENCES research_papers(paper_id) ON DELETE CASCADE ON UPDATE CASCADE
     );
 `;
 
@@ -152,8 +152,9 @@ const EX_3_QUERIES = [
 
     {
         question: `Names of all authors and their corresponding mentors:`,
-        query: `select author_name, mentor as mentor_id
-                from authors;`
+        query: `select a1.author_name, a2.author_name as mentor_name 
+                from authors a1, authors a2 
+                where a2.author_id = a1.mentor;`
     },
     {
         question: `All columns of authors and their published paper_title:`,
