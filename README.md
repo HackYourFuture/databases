@@ -3,7 +3,7 @@
 > curriculum first, click [here](https://github.com/HackYourFuture/curriculum).
 
 > Please help us improve and share your feedback! If you find better tutorials or links, please share them
-> by [opening a pull request](https://github.com/HackYourFuture/JavaScript1/pulls).
+> by [opening a pull request](https://github.com/HackYourFuture/databases/pulls).
 
 # Module #6 - Databases: Store and retrieve data with MySQL (Backend)
 
