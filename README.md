@@ -17,7 +17,7 @@ In this module, you learn all about a fundamental part of any software applicati
 
 **Before** your first session, you need to install the necessary software: MySQL. This differs depending on your operating system.
 
-During the installation of MySQL v8, in one of the last steps, you must configure the password encryption. Here is [a screenshot of the step](https://i.stack.imgur.com/nFnWV.jpg). **You must select _Legacy_ for all the given scripts to be able to connect.**
+During the installation of MySQL v8, in one of the last steps, you must configure the password encryption. Here is [a screenshot of the step](./assets/MySQL-security-setup.jpg). **You must select _Legacy_ for all the given scripts to be able to connect.**
 
 - For Windows, download the [MySQL Community Server](https://dev.mysql.com/downloads/mysql/);
 - For Linux (Ubuntu), watch the following;
