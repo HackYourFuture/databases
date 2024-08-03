@@ -6,6 +6,7 @@ var connection = mysql.createConnection({
   database : 'company'
 });
 
+
 connection.connect();
 var insert_queries = [
                     "insert into employees values (106, 'Ibrahim', 2000, '2019-03-10', 'm')",

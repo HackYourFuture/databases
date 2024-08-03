@@ -10,6 +10,7 @@ var connection = mysql.createConnection({
   // Then, the following line will solve it
   // Note that your socket file path may be different
   
+  
   //  * this line run in linux and mac not in window and should commented
   // socketPath: '/tmp/mysql.sock'
   

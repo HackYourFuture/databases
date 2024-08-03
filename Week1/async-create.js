@@ -8,13 +8,14 @@ const connection = mysql.createConnection({
   // database: 'class19',
 });
 
+
 const execQuery = util.promisify(connection.query.bind(connection));
 
 async function seedDatabase() {
   const CREATE_DATABASE = `CREATE DATABASE IF NOT EXISTS meetup`;
   const USE_DATABASE =`USE meetup`;
 
-  const CREATE_STUDENTS_TABLE = `
+  const CREATE_STUDENTS_TABLE =`
     CREATE TABLE IF NOT EXISTS students (
       student_number INT,
       student_name VARCHAR(50),
@@ -22,7 +23,7 @@ async function seedDatabase() {
       grade FLOAT,
       gender ENUM('m', 'f')
     );`;
-  const CREATE_TEACHERS_TABLE = `
+  const CREATE_TEACHERS_TABLE =`
     CREATE TABLE IF NOT EXISTS teachers (
       teacher_number INT,
       teacher_name VARCHAR(50),
@@ -30,7 +31,7 @@ async function seedDatabase() {
       subject TEXT,
       gender ENUM('m', 'f')
     );`;
-  const CREATE_INVITEE_TABLE = `
+  const CREATE_INVITEE_TABLE =`
   CREATE TABLE IF NOT EXISTS Invitee (
     invitee_no INT AUTO_INCREMENT,
     invitee_name VARCHAR(50),

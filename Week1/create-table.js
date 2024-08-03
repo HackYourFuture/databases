@@ -7,6 +7,7 @@ var connection = mysql.createConnection({
   // port : 3306
 });
 
+
 connection.connect();
 
 const createDatabaseQuery = 'CREATE DATABASE IF NOT EXISTS company';
