@@ -1,0 +1,9 @@
+Are your tables in 2NF / 3NF?
+
+The tables Recipe, Category, Ingredient, and Step satisfy 2NF and 3NF. In RecipeCategory, RecipeIngredient, and RecipeStep, non-key attributes depend only on primary keys.
+
+What normalization changes were made?
+
+We created junction tables like RecipeCategory, RecipeIngredient, and RecipeStep and ensured atomicity in fields.
+
+really?
