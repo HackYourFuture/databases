@@ -1,5 +1,7 @@
 const data = require("./data.json");
-
+const dotenv= require("dotenv").config();
+const mongoLink = process.env.MONGODB_URL;
+console.log(mongoLink);
 /**
  * This function will drop and recreate the collection of sample data in our csv file.
  * By doing this we ensure that your functions are working on the same data, very similar to how you would set up a test environment.
