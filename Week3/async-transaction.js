@@ -23,10 +23,9 @@ async function seedDatabase() {
   } catch (error) {
     console.error(error);
     await execQuery("ROLLBACK");
+  } finally {
     connection.end();
   }
-
-  connection.end();
 }
 
 seedDatabase();
