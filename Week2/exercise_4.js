@@ -158,7 +158,11 @@ const exerciseFour = async () => {
     }
 };
 
-// Only run this script if it's executed directly (not imported)
-if (require.main === module) {
+// Only run this script if it's executed directly (not imported)~
+// ~because running the script on import causes duplicated connections
+
+/* `file://${process.argv[1]}` is used to get the full path to the script that is being executed
+* `file://${process.argv[1]}` is compared to import.meta.url to determine if the current module is the main module*/
+if (import.meta.url === `file://${process.argv[1]}`) {
     exerciseFour();
 }
