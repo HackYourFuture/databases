@@ -1,8 +1,11 @@
+//C:\Users\knowl\Documents\hyf\databases\Week2\exercise_4.js
 import {createNewConnection, useDatabase} from './connection_query.js';
+import path from 'path';
 
+console.log(`running the file exercise_4.js`);
 const connection = createNewConnection();
 
-const getPapersAndAuthorCount = () => {
+const getPapersAndAuthorCount = (connection)  => {
     return new Promise((resolve, reject) => {
         const query = `
             SELECT 
@@ -29,7 +32,7 @@ const getPapersAndAuthorCount = () => {
 };
 
 
-const getSumOfPapersByFemaleAuthors = () => {
+const getSumOfPapersByFemaleAuthors = (connection)  => {
     return new Promise((resolve, reject) => {
         const query = `
             SELECT 
@@ -54,7 +57,7 @@ const getSumOfPapersByFemaleAuthors = () => {
 
 
 
-const getAverageHIndexPerUniversity = () => {
+const getAverageHIndexPerUniversity = (connection)  => {
     return new Promise((resolve, reject) => {
         const query = `
             SELECT 
@@ -79,7 +82,7 @@ const getAverageHIndexPerUniversity = () => {
 };
 
 
-const getSumOfPapersPerUniversity = () => {
+const getSumOfPapersPerUniversity = (connection)  => {
     return new Promise((resolve, reject) => {
         const query = `
             SELECT 
@@ -107,7 +110,7 @@ const getSumOfPapersPerUniversity = () => {
 
 
 
-const getMinMaxHIndexPerUniversity = () => {
+const getMinMaxHIndexPerUniversity = (connection)  => {
     return new Promise((resolve, reject) => {
         const query = `
             SELECT 
@@ -133,9 +136,10 @@ const getMinMaxHIndexPerUniversity = () => {
 };
 
 
-const exerciseFour = async () => {
+const exerciseFour = async (connection) => {
     /*Prevents the connection from running twice*/
 // Check if connect() has already been called on this instance
+    console.log('Attempting to connect to the database...');
     if (!connection._connectCalled) {
         connection.connect(err => {
             if (err) {
@@ -143,14 +147,16 @@ const exerciseFour = async () => {
             }
             console.log('Connected!');
         });
+    } else {
+        console.log('Connection already established.');
     }
     try {
-        await useDatabase();                  // Ensure the database is selected
-        await getPapersAndAuthorCount();      // Get all research papers and number of authors
-        await getSumOfPapersByFemaleAuthors();// Get sum of research papers by female authors
-        await getAverageHIndexPerUniversity();// Get average h-index per university
-        await getSumOfPapersPerUniversity();  // Get sum of research papers per university
-        await getMinMaxHIndexPerUniversity(); // Get min and max h-index per university
+        await useDatabase(connection);                  // Ensure the database is selected
+        await getPapersAndAuthorCount(connection) ;      // Get all research papers and number of authors
+        await getSumOfPapersByFemaleAuthors(connection) ;// Get sum of research papers by female authors
+        await getAverageHIndexPerUniversity(connection) ;// Get average h-index per university
+        await getSumOfPapersPerUniversity(connection) ;  // Get sum of research papers per university
+        await getMinMaxHIndexPerUniversity(connection) ; // Get min and max h-index per university
     } catch (err) {
         console.error('An error occurred:', err);
     } finally {
@@ -158,11 +164,23 @@ const exerciseFour = async () => {
     }
 };
 
+
+// console.log(`import.meta.url: ${import.meta.url}`);
+// console.log(`file://${process.argv[1]}`);
+// const filePath = `file://${path.resolve(process.argv[1]).replace(/\\/g, '/')}`;
+// console.log(`Normalized file path: ${filePath}`);
+
 // Only run this script if it's executed directly (not imported)~
 // ~because running the script on import causes duplicated connections
 
 /* `file://${process.argv[1]}` is used to get the full path to the script that is being executed
 * `file://${process.argv[1]}` is compared to import.meta.url to determine if the current module is the main module*/
-if (import.meta.url === `file://${process.argv[1]}`) {
-    exerciseFour();
-}
+// if (import.meta.url === filePath) {
+//     console.log('Executing exerciseFour function.');
+//     exerciseFour(connection);
+// } else {
+//     console.log('Condition not met, not executing exerciseFour.');
+// }
+
+
+exerciseFour(connection);
