@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}

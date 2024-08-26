@@ -1,4 +1,8 @@
+//C:\Users\knowl\Documents\hyf\databases\Week3\homework\mongodb\seedDatabase.js
 const data = require("./data.json");
+const dotenv = require('dotenv');
+dotenv.config();
+
 
 /**
  * This function will drop and recreate the collection of sample data in our csv file.
@@ -7,15 +11,21 @@ const data = require("./data.json");
  * @param {MongoClient} client - The client that is connected to your database
  */
 const seedDatabase = async (client) => {
+  const db = client.db("databaseWeek3");  // Define the db variable
+  const collectionName = "bob_ross_episodes";
+
   const hasCollection = await client
     .db("databaseWeek3")
     .listCollections({ name: "bob_ross_episodes" })
     .hasNext();
 
-  if (hasCollection) {
-    const bobRossCollection = await client
-      .db("databaseWeek3")
-      .collection("bob_ross_episodes");
+  if (!hasCollection) {
+    // Create the collection if it doesn't exist
+    await db.createCollection(collectionName);
+  }
+
+  const bobRossCollection = db.collection(collectionName);
+
 
     // Remove all the documents
     await bobRossCollection.deleteMany({});
@@ -41,9 +51,7 @@ const seedDatabase = async (client) => {
 
     // Add our documents
     await bobRossCollection.insertMany(documents);
-  } else {
-    throw Error("The collection `bob_ross_episodes` does not exist!");
-  }
+
 };
 
 module.exports = {
