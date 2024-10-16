@@ -238,25 +238,25 @@ CREATE TABLE employees (
 The following command inserts a row in the table `employees`.
 Note that the sequence of columns must be followed.
 
-```
+```sql
 INSERT INTO employees VALUES (101, "Dan", 5000, "2019-06-24", 'm');
 ```
 
 The following command uses column name (also known as field name sometimes) syntax:
 
-```
+```sql
 INSERT INTO employees (employee_name , salary, employee_id, gender, joining_date) VALUES("Dany", 5000, 102, 'f', "2019-05-20");
 ```
 
 The following command uses the same syntax to add multiple rows at a time
 
-```
+```sql
 INSERT INTO employees (employee_name , salary, employee_id, gender, joining_date) VALUES("Ben", 7000, 103, 'm', "2019-07-20"), ("Benta", 3000, 104, 'f', "2019-10-12"), ("Raj", 9000, 105, 'm', "2019-01-01");
 ```
 
 The following command uses the SET syntax to insert values in a random order of columns:
 
-```
+```sql
 INSERT INTO employees SET employee_name = "Joe", salary = 4000, joining_date = "2019-07-01", gender = 'f', employee_id = 100;
 ```
 
@@ -267,7 +267,7 @@ INSERT INTO employees SET employee_name = "Joe", salary = 4000, joining_date = "
 
 The following command displays the entire table. The `*` means all columns.
 
-```
+```sql
 SELECT * FROM employees;
 ```
 
@@ -277,7 +277,7 @@ The condition is applied on the column `salary` of each row.
 `SELECT employee_name` will only print the `employee_name` column of the rows
 where `salary` column has the value `>3000`.
 
-```
+```sql
 SELECT employee_name from employees
 WHERE salary > 3000;
 ```
@@ -288,7 +288,7 @@ The following command updates the salary of the employee whose `employee_id` is 
 Note that `=` works as an assignment operator in `SET salary = 8000`
 but works as a comparison operator in the WHERE clause `employee_id = 102`.
 
-```
+```sql
 UPDATE employees
 SET salary = 8000
 WHERE employee_id = 102;
@@ -298,7 +298,7 @@ WHERE employee_id = 102;
 
 The following command deletes all (rows of) employees who joined after the 1st of July 2019.
 
-```
+```sql
 DELETE from employees
 WHERE joining_date > "2019-07-01";
 ```
@@ -341,7 +341,7 @@ the columns as `NOT NULL` so that MySQL can do optimizations in storing/indexing
 
 Demonstrate the difference with the live execution of the following sequence of commands:
 
-```
+```sql
 CREATE TABLE default_not_null_demo(num1 int, num2 int NOT NULL, num3 int default 5555, num4 int not null default 1111);
 DESCRIBE default_not_null_demo;
 INSERT INTO default_not_null_demo set num2 = 1, num4 = default;
@@ -361,7 +361,7 @@ can hold numbers greater than 999.
 
 Illustrate the difference with the live execution of the following sequence of commands:
 
-```
+```sql
 CREATE TABLE test_int(num1 int(4) ZEROFILL, num2 int(6));
 INSERT INTO test_int values (23,34);
 INSERT INTO test_int values (3,534);
@@ -385,7 +385,7 @@ may be a suitable data type for `last login` where the exact time and time zone 
 
 Demonstrate with the live execution of the following sequence of commands:
 
-```
+```sql
 CREATE TABLE test_timestamp (dt datetime, ts timestamp);
 
 INSERT INTO test_timestamp VALUES ("2020-01-01 00:00:00", "2020-01-01 00:00:00");

@@ -106,7 +106,7 @@ this [Functional Dependency Wikipage](https://en.wikipedia.org/wiki/Functional_d
 
 Consider the following table
 
-```
+```sql
 +-------------+------------+-----------------------+
 | Employee Id |   Name     |   Contact             |
 +-------------+------------+-----------------------+
@@ -124,7 +124,7 @@ numeric values (for phone numbers) and string value (for emails).
 
 This table could be converted to 1NF as follows:
 
-```
+```sql
 +-------------+------------+------------------------+
 | Employee Id |   Name     | Phone      | Email     |
 +-------------+------------+------------------------+
@@ -145,7 +145,7 @@ In real life, you actually need to
 
 Consider the following table (employee-project M-M relationship table).
 
-```
+```sql
 +-------------+------------+-----------------------+
 | Employee Id | Project ID |  Project Budget       |
 +-------------+------------+-----------------------+
@@ -172,7 +172,7 @@ adding it to the project table.
 
 Consider the following table (employees)
 
-```
+```sql
 +-------------+------------+-----------------------+
 | Employee Id | Dept Id    |  Dept Location        |
 +-------------+------------+-----------------------+
@@ -191,7 +191,7 @@ This table violates the 3NF because there is a transitive dependency.
 
 Consider the following table (students opting for subjects)
 
-```
+```sql
 +-------------+------------+-----------------------+
 | Student Id  | Subject    |  Professor            |
 +-------------+------------+-----------------------+
@@ -210,7 +210,7 @@ This table violates the 3.5NF because there is a functional dependency
 
 This table could be converted to 3.5NF as follows:
 
-```
+```sql
 +-------------+------------+
 | Student Id  | Prof Id    |
 +-------------+------------+
@@ -225,7 +225,7 @@ This table could be converted to 3.5NF as follows:
 
 and
 
-```
+```sql
 +-------------+------------+----------+
 | Prof Id     | Professor  |  Subject |
 +-------------+------------+----------+
@@ -238,7 +238,7 @@ and
 
 Consider the following table (students opting for subjects)
 
-```
+```sql
 +-------------+------------+-----------+
 | Student     | Subject    |  Hobby    |
 +-------------+------------+-----------+
@@ -254,7 +254,7 @@ This table violates 4NF because `Subject` and `Hobby` are independent of each ot
 Hence the hobby of the student must be repeated in the table with each subject
 the student chooses.
 
-```
+```sql
 +-------------+------------+-----------------------+
 | Student     | Subject    |  Hobby                |
 +-------------+------------+-----------------------+
@@ -273,7 +273,7 @@ the student chooses.
 It leads to a lot of repetition.
 This table could be converted to 4NF by splitting it into two.
 
-```
+```sql
 +-------------+------------+
 | Student     | Subject    |
 +-------------+------------+
@@ -287,7 +287,7 @@ This table could be converted to 4NF by splitting it into two.
 
 and
 
-```
+```sql
 +-------------+-----------+
 | Student     |  Hobby    |
 +-------------+-----------+
@@ -303,7 +303,7 @@ and
 
 Normalize the following table.
 
-```
+```sql
 +-------------+------------+-----------------------------------------------+------------+
 | Full name   | Adddress   |  Movies rented                                | Salutation |
 +-------------+------------+-----------------------------------------------+------------+
@@ -337,7 +337,7 @@ one of them, then there is inconsistency.
 
 Transactions have the following syntax:
 
-```
+```sql
 start transaction;
 SQL command 1
 SQL command 2 ...
@@ -345,8 +345,8 @@ SQL command N
 
 rollback OR commit;
 
-# "rollback" aborts the transaction (also ends the transaction)
-# "commit" commits the transaction (also ends the transaction)
+-- "rollback" aborts the transaction (also ends the transaction)
+-- "commit" commits the transaction (also ends the transaction)
 ```
 
 > Note that there is no "end transaction" command. To end the transaction,
@@ -371,7 +371,7 @@ Atomicity can be demonstrated with the following `rollback` and `commit` example
 
 #### Rollback example
 
-```
+```sql
 set autocommit = 0; # default is 1 which automatically commits every command as transaction.
 
 start transaction;
@@ -391,7 +391,7 @@ select * from employees; # Show the old salary
 
 #### Commit example
 
-```
+```sql
 set autocommit = 0; # default is 1 which automatically commits every command as transaction.
 
 start transaction;
@@ -413,8 +413,8 @@ select * from employees; # Show the new salary
 
 Start two `mysql` command line clients.
 
-```
-# First client
+```sql
+--- First client
 
 update employees set city = 'Mumbai' where employee_id = 101;
 
@@ -423,8 +423,8 @@ commit;
 
 In the second client, show that the value is updated.
 
-```
-# Second client
+```sql
+--- Second client
 select * from employees;
 
 ```
@@ -432,8 +432,8 @@ select * from employees;
 > The change made by one database client in the database server will be seen by the other client(s). Thus,
 > both clients have the consistent view on the database.
 
-```
-# First client
+```sql
+--- First client
 
 set autocommit = 1;
 
@@ -443,8 +443,8 @@ update employees set salary = 7000 where employee_id = 101;
 
 ```
 
-```
-# Second client
+```sql
+-- Second client
 
 select * from employees; # Will hang because First client has the WRITE lock on that table
 ```
@@ -478,14 +478,14 @@ Use the `prompt` package in `input-demo.js` to simulate the input from HTML form
 
 `sql-injection.js` contains three ways of passing the input to the select query
 
-```
+```js
 // 1. Naive way of passing the parameter to the query
-const select_query = `select * from employees WHERE employee_id =  ${input_number};`
+const select_query = `select * from employees WHERE employee_id =  ${input_number};`;
 ```
 
 This way is vulnerable to the following attacks.
 
-```
+```bash
 $ node sql-injection.js # Execute the Javascript program from the (VS code) terminal.
 
 prompt: employee_number: 1234 OR 1=1
@@ -502,12 +502,14 @@ prompt: employee_number: 1234 OR 1=1; drop table demo;
 
 To solve this problem, there are two ways of sanitizing the input:
 
-```
+```js
 // 1. Escaping the parameter ( replacing the unwanted characters)
-const select_query = `select * from employees WHERE employee_id =` + connection.escape(input_number);
+const select_query =
+  `select * from employees WHERE employee_id =` +
+  connection.escape(input_number);
 
 // 2. Using a question mark syntax to do the escaping
-const select_query = `select * from employees WHERE employee_id = ?`
+const select_query = `select * from employees WHERE employee_id = ?`;
 ```
 
 ### Exercise

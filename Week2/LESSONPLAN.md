@@ -71,49 +71,42 @@ Add a select query to that program using await and promisify.
 Consider the following commands (# represents comments).
 
 ```sql
-#
-create table with two columns.one with primary key and one with unique key constraint
+-- create table with two columns: one with primary key and one with unique key constraint
 CREATE TABLE pri_uniq_demo
 (
     id_pr int PRIMARY KEY,
     id_un int UNIQUE
 );
 
-#
-Note the error that says that the primary key column cannot be NULL
+-- Note the error that says that the primary key column cannot be NULL
 INSERT INTO pri_uniq_demo VALUES (NULL, NULL);
-#ERROR
-1048 (23000): Column 'id_pr' cannot be null
+ERROR 1048 (23000): Column 'id_pr' cannot be null
 
-# Note that the UNIQUE key column can be NULL
+-- Note that the UNIQUE key column can be NULL
 INSERT INTO pri_uniq_demo VALUES (1, NULL);
-#Query
-OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.00 sec)
 
-# Normal insertion
+-- Normal insertion
 INSERT INTO pri_uniq_demo VALUES (2, 2);
-#Query
-OK, 1 row affected (0.05 sec)
+Query OK, 1 row affected (0.05 sec)
 
-# Note that you cannot insert 2 in the id_un column because it should be UNIQUE
+-- Note that you cannot insert 2 in the id_un column because it should be UNIQUE
 INSERT INTO pri_uniq_demo VALUES (3, 2);
-#ERROR
-1062 (23000): Duplicate entry '2' for key 'id_un'
+ERROR 1062 (23000): Duplicate entry '2' for key 'id_un'
 
-# Note that you cannot insert 2 in the id_pr column because it is PRIMARY KEY
+-- Note that you cannot insert 2 in the id_pr column because it is PRIMARY KEY
 INSERT INTO pri_uniq_demo VALUES (2, 3);
-#ERROR
-1062 (23000): Duplicate entry '2' for key 'PRIMARY'
+ERROR 1062 (23000): Duplicate entry '2' for key 'PRIMARY'
 
 ```
 
 #### Exercise
 
-```
-# Find out type T and Constraint C for each column.
+```sql
+-- Find out type T and Constraint C for each column.
 CREATE TABLE Airline_passengers(ticket_numer T C, passenger_name T C, date_of_birth T C, passport_number T C);
 
-Hint: A very young baby may not need a ticket!
+-- Hint: A very young baby may not need a ticket!
 ```
 
 #### Essence
@@ -155,39 +148,33 @@ dept_id column of the departments table in which it works as the primary key.**
 #### Example
 
 ```sql
-#
-Add the column dept_id to the employees table
+-- Add the column dept_id to the employees table
 ALTER TABLE employees
     ADD COLUMN dept_id int;
 
-#
-Add the constraint foreign key
+-- Add the constraint foreign key
 ALTER TABLE employees
     ADD CONSTRAINT fk_dept FOREIGN KEY (dept_id) REFERENCES departments (dept_id);
 
-#
-Add some sample rows in the departments table
+-- Add some sample rows in the departments table
  INSERT INTO departments VALUES (5001, "Sales");
 INSERT INTO departments
 VALUES (5002, "Development");
 INSERT INTO departments
 VALUES (5003, "Marketing");
 
-#
-Try updating the dept_id of an employee with an existing department
+-- Try updating the dept_id of an employee with an existing department
 UPDATE employees
 SET dept_id = 5001
 where employee_id = 101;
 
-#
-Try updating the dept_id of an employee with a department that does not exist
+-- Try updating the dept_id of an employee with a department that does not exist
 UPDATE employees
 SET dept_id = 9999
 where employee_id = 101;
 
-#
-Example of 1-1 relationship
-# Creating table Account with the same primary key as the Employees table
+-- Example of 1-1 relationship
+-- Creating table Account with the same primary key as the Employees table
 CREATE TABLE Account
 (
     employee_id int,
@@ -234,9 +221,7 @@ key is called as the **Composite Key**
 #### Example
 
 ```sql
-#
-create
-projects table
+-- create projects table
 CREATE TABLE projects
 (
     proj_id    int,
@@ -244,17 +229,14 @@ CREATE TABLE projects
     start_date datetime
 );
 
-#
-Insert sample values
+-- Insert sample values
 INSERT INTO projects VALUES(9001, "Jazz", "2018-01-01");
 INSERT INTO projects
 VALUES (9002, "Mellow", "2019-03-01");
 INSERT INTO projects
 VALUES (9003, "Classical", "2020-01-01");
 
-#
-create
-emp_proj relationship table with composite primary key
+-- create emp_proj relationship table with composite primary key
 CREATE TABLE emp_proj
 (
     emp_id  int,
@@ -298,10 +280,9 @@ clause.
 #### Example
 
 ```sql
-#We
-must join the tables `employees` and `departments` and then choose the relevant rows.
+-- We must join the tables `employees` and `departments` and then choose the relevant rows.
 
-# INNER JOIN
+-- INNER JOIN
 SELECT
     employee_name
 FROM employees as E
@@ -310,8 +291,7 @@ FROM employees as E
      ON E.dept_id = D.dept_id
 WHERE D.dept_name = "Sales";
 
-#
-Comma (,) or CROSS join
+-- Comma (,) or CROSS join
 SELECT
     employee_name
 FROM employees as E,
@@ -355,7 +335,7 @@ for self join, we must use **aliases** so that disambiguation of column names ca
 #### Example
 
 ```sql
-When we want to print employees and their reporting mangagers.
+-- When we want to print employees and their reporting mangagers.
 SELECT E1.employee_name as Employee, E2. employee_name as Manager
 FROM employees as E1
 INNER JOIN
@@ -366,9 +346,7 @@ ON E1.reports_to = E2.employee_id
 #### Exercise
 
 ```sql
-#
-Add the city column,
-update records in the employees table
+-- Add the city column, update records in the employees table
 ALTER TABLE employees
     add column city varchar(50);
 UPDATE employees
@@ -633,33 +611,32 @@ that describes indexes concisely.
 First we will create a table with a large number of records.
 The full program can be found in `Week2/generate_big_table.js`, but here is the snippet
 
-```
+```js
 async function seedDatabase() {
-
-    const CREATE_TABLE = `
+  const CREATE_TABLE = `
         CREATE TABLE IF NOT EXISTS big
         (
             id_pk INT PRIMARY KEY AUTO_INCREMENT,
             number   INT
         );`;
 
-    execQuery(CREATE_TABLE);
-    let rows = []
-    for (i = 1; i <= 1000000; i++) {
-        rows.push([i]);
-        if(i%10000 === 0){
-            console.log("i="+i);
-            await execQuery('INSERT INTO big(number) VALUES ?',[rows]);
-            rows = [];
-        }
+  execQuery(CREATE_TABLE);
+  let rows = [];
+  for (i = 1; i <= 1000000; i++) {
+    rows.push([i]);
+    if (i % 10000 === 0) {
+      console.log("i=" + i);
+      await execQuery("INSERT INTO big(number) VALUES ?", [rows]);
+      rows = [];
     }
+  }
 }
 ```
 
 The following two queries will show the difference (in execution time) between using the index and not using the index
 when we retrieve the data.
 
-```
+```sql
 mysql> SELECT * FROM big WHERE id_pk = 1000;
 +-------+--------+
 | id_pk | number |
@@ -680,7 +657,7 @@ mysql> SELECT * FROM big WHERE number = 1000;
 The first query's result is instant because the `WHERE` clause uses the `id_pk` column which is a primary key.
 Note that for a primary key column, MySQL automatically creates an index. This can be confirmed with the following query
 
-```
+```sql
 mysql> SHOW indexes from big;
 +-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+
 | Table | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type |
@@ -697,7 +674,7 @@ go in the `big` table and search row by row to check which row contains the valu
 The `describe` command shows how many rows are accessed to fetch the result of the query.
 Check the `rows` column in the output of the following queries.
 
-```
+```sql
 mysql> DESCRIBE SELECT * FROM big WHERE number = 1000;
 +----+-------------+-------+------------+------+---------------+------+---------+------+----------+----------+-------------+
 | id | select_type | table | partitions | type | possible_keys | key  | key_len | ref  | rows     | filtered | Extra       |
@@ -716,13 +693,13 @@ mysql> DESCRIBE SELECT * FROM big WHERE id_pk = 1000;
 
 We can now create an index on the `number` column as follows:
 
-```
+```sql
 CREATE INDEX idx_number ON big(number);
 ```
 
 Now we can re-run the select query which will be faster:
 
-```
+```sql
 mysql> SELECT * FROM big WHERE number = 1000;
 +-------+--------+
 | id_pk | number |
@@ -746,7 +723,7 @@ Rows matched: 1000000  Changed: 1000000  Warnings: 0
 
 Now, let us remove the index
 
-```
+```sql
 mysql> DROP INDEX idx_number ON big;
 Query OK, 0 rows affected (1.59 sec)
 Records: 0  Duplicates: 0  Warnings: 0
@@ -754,7 +731,7 @@ Records: 0  Duplicates: 0  Warnings: 0
 
 and re-run the update query.
 
-```
+```sql
 mysql> UPDATE big SET number = number + 100000;
 Query OK, 1000000 rows affected (6.14 sec)
 Rows matched: 1000000  Changed: 1000000  Warnings: 0
@@ -767,7 +744,7 @@ We can see that without the index, update of the number column is much faster (6
 Create a composite index using columns (`employee_name and salary`) on the `employees` table and check the query
 performance of following queries
 
-```
+```sql
 DESCRIBE SELECT * FROM employees WHERE employee_name = 'John' and salary = 50000
 DESCRIBE SELECT * FROM employees WHERE employee_name = 'John'
 DESCRIBE SELECT * FROM employees WHERE salary = 50000
