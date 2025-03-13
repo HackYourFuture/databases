@@ -5,7 +5,7 @@ async function setupDatabase() {
     const connection = await mysql.createConnection({
         host: 'localhost',
         user: 'hyfuser',
-        password: 'Samira2280067511@',
+        password: 'hyfpassword',
         database: 'meetup',
         multipleStatements: true // Allow multiple SQL statements
     });
