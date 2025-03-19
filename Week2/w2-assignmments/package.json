@@ -1,0 +1,17 @@
+{
+  "name": "w2-assignmments",
+  "version": "1.0.0",
+  "main": "aggregate.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "mysql2": "^3.13.0"
+  }
+}
