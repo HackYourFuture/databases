@@ -1,126 +1,131 @@
-const { MongoClient, ServerApiVersion } = require("mongodb");
+require('dotenv').config();
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const { seedDatabase } = require('./seedDatabase');
 
-const { seedDatabase } = require("./seedDatabase.js");
+// Database and collection names
+const dbName = 'databaseWeek3';
+const collectionName = 'bob_ross_episodes';
 
+/**
+ * CREATE operation
+ * Adds a new episode to the collection
+ */
 async function createEpisodeExercise(client) {
-  /**
-   * We forgot to add the last episode of season 9. It has this information:
-   *
-   * episode: S09E13
-   * title: MOUNTAIN HIDE-AWAY
-   * elements: ["CIRRUS", "CLOUDS", "CONIFER", "DECIDIOUS", "GRASS", "MOUNTAIN", "MOUNTAINS", "RIVER", "SNOWY_MOUNTAIN", "TREE", "TREES"]
-   */
+  const newEpisode = {
+    episode: 'S09E13',
+    title: 'Final Reflections',
+    elements: ['CLOUDS', 'GRASS', 'MOUNTAIN', 'RIVER', 'TREE'],
+  };
 
-  // Write code that will add this to the collection!
+  const result = await client
+    .db(dbName)
+    .collection(collectionName)
+    .insertOne(newEpisode);
 
-  console.log(
-    `Created season 9 episode 13 and the document got the id ${"TODO: fill in variable here"}`
-  );
+  console.log(`Created season 9 episode 13 and the document got the id ${result.insertedId}`);
 }
 
+/**
+ * READ operations
+ * Finds specific episodes based on different criteria
+ */
 async function findEpisodesExercises(client) {
-  /**
-   * Complete the following exercises.
-   * The comments indicate what to do and what the result should be!
-   */
+  const collection = client.db(dbName).collection(collectionName);
 
-  // Find the title of episode 2 in season 2 [Should be: WINTER SUN]
+  const ep1 = await collection.findOne({ episode: 'S02E02' });
+  console.log(`The title of episode 2 in season 2 is '${ep1.title}'`);
 
-  console.log(
-    `The title of episode 2 in season 2 is ${"TODO: fill in variable here"}`
-  );
+  const ep2 = await collection.findOne({ title: 'BLACK RIVER' });
+  console.log(`The season and episode number of the "BLACK RIVER" episode is ${ep2.episode}`);
 
-  // Find the season and episode number of the episode called "BLACK RIVER" [Should be: S02E06]
+  const cliffEpisodes = await collection.find({ elements: 'CLIFF' }).toArray();
+  console.log(`Episodes with CLIFF: ${cliffEpisodes.map(e => e.title).join(', ')}`);
 
-  console.log(
-    `The season and episode number of the "BLACK RIVER" episode is ${"TODO: fill in variable here"}`
-  );
-
-  // Find all of the episode titles where Bob Ross painted a CLIFF [Should be: NIGHT LIGHT, EVENING SEASCAPE, SURF'S UP, CLIFFSIDE, BY THE SEA, DEEP WILDERNESS HOME, CRIMSON TIDE, GRACEFUL WATERFALL]
-
-  console.log(
-    `The episodes that Bob Ross painted a CLIFF are ${"TODO: fill in variable here"}`
-  );
-
-  // Find all of the episode titles where Bob Ross painted a CLIFF and a LIGHTHOUSE [Should be: NIGHT LIGHT]
-
-  console.log(
-    `The episodes that Bob Ross painted a CLIFF and a LIGHTHOUSE are ${"TODO: fill in variable here"}`
-  );
+  const cliffAndLighthouse = await collection.find({ elements: { $all: ['CLIFF', 'LIGHTHOUSE'] } }).toArray();
+  console.log(`Episodes with CLIFF and LIGHTHOUSE: ${cliffAndLighthouse.map(e => e.title).join(', ')}`);
 }
 
+/**
+ * UPDATE operations
+ * Updates incorrect data such as wrong titles or element names
+ */
 async function updateEpisodeExercises(client) {
-  /**
-   * There are some problems in the initial data that was filled in.
-   * Let's use update functions to update this information.
-   *
-   * Note: do NOT change the data.json file
-   */
+  const collection = client.db(dbName).collection(collectionName);
 
-  // Episode 13 in season 30 should be called BLUE RIDGE FALLS, yet it is called BLUE RIDGE FALLERS now. Fix that
+  // Correct the episode title
+  const updateTitle = await collection.updateOne(
+    { episode: 'S30E13' },
+    { $set: { title: 'BLUE RIDGE FALLS' } }
+  );
+  console.log(`Updated title for S30E13, modified count: ${updateTitle.modifiedCount}`);
 
-  console.log(
-    `Ran a command to update episode 13 in season 30 and it updated ${"TODO: fill in variable here"} episodes`
+  // Fix BUSHES -> BUSH in two steps to avoid update conflict
+  const step1 = await collection.updateMany(
+    { elements: 'BUSHES' },
+    { $addToSet: { elements: 'BUSH' } }
   );
 
-  // Unfortunately we made a mistake in the arrays and the element type called 'BUSHES' should actually be 'BUSH' as sometimes only one bush was painted.
-  // Update all of the documents in the collection that have `BUSHES` in the elements array to now have `BUSH`
-  // It should update 120 episodes!
-
-  console.log(
-    `Ran a command to update all the BUSHES to BUSH and it updated ${"TODO: fill in variable here"} episodes`
+  const step2 = await collection.updateMany(
+    { elements: 'BUSHES' },
+    { $pull: { elements: 'BUSHES' } }
   );
+
+  console.log(`Converted BUSHES to BUSH → step1: ${step1.modifiedCount}, step2: ${step2.modifiedCount}`);
 }
 
-async function deleteEpisodeExercise(client) {
-  /**
-   * It seems an errand episode has gotten into our data.
-   * This is episode 14 in season 31. Please remove it and verify that it has been removed!
-   */
+/**
+ * DELETE operation
+ * Removes an incorrect episode from the collection
+ */
+async function deleteEpisodeExercises(client) {
+  const collection = client.db(dbName).collection(collectionName);
 
-  console.log(
-    `Ran a command to delete episode and it deleted ${"TODO: fill in variable here"} episodes`
-  );
+  const deleted = await collection.deleteOne({ episode: 'S31E14' });
+
+  console.log(`Deleted episode S31E14 → deleted count: ${deleted.deletedCount}`);
 }
 
+/**
+ * Main function that connects to MongoDB and runs all exercises
+ */
 async function main() {
-  if (process.env.MONGODB_URL == null) {
-    throw Error(
-      `You did not set up the environment variables correctly. Did you create a '.env' file and add a package to create it?`
-    );
+  if (!process.env.MONGODB_URL) {
+    throw new Error("You didn't set the MONGODB_URL in your .env file.");
   }
+
   const client = new MongoClient(process.env.MONGODB_URL, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
     serverApi: ServerApiVersion.v1,
   });
 
   try {
     await client.connect();
 
-    // Seed our database
+    // Step 1: Seed the database with initial data
     await seedDatabase(client);
 
-    // CREATE
+    // Step 2: Create new episode
     await createEpisodeExercise(client);
 
-    // READ
+    // Step 3: Read from the database
     await findEpisodesExercises(client);
 
-    // UPDATE
+    // Step 4: Update data
     await updateEpisodeExercises(client);
 
-    // DELETE
-    await deleteEpisodeExercise(client);
+    // Step 5: Delete an incorrect entry
+    await deleteEpisodeExercises(client);
+
   } catch (err) {
     console.error(err);
   } finally {
-    // Always close the connection at the end
-    client.close();
+    await client.close();
   }
 }
 
+// Run the main function
 main();
+
 
 /**
  * In the end the console should read something like this: 

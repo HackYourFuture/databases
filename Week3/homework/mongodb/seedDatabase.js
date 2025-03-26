@@ -1,51 +1,54 @@
-const data = require("./data.json");
+const data = require('./data.json');
 
 /**
- * This function will drop and recreate the collection of sample data in our csv file.
- * By doing this we ensure that your functions are working on the same data, very similar to how you would set up a test environment.
- *
- * @param {MongoClient} client - The client that is connected to your database
+ * Seeds the MongoDB collection 'bob_ross_episodes' with cleaned episode data.
+ * - Checks if the collection exists
+ * - If it exists: deletes all documents
+ * - If not: creates the collection
+ * - Transforms raw JSON data into a clean format:
+ *   { episode, title, elements[] }
+ * - Inserts all cleaned documents into the collection
  */
+
 const seedDatabase = async (client) => {
-  const hasCollection = await client
-    .db("databaseWeek3")
-    .listCollections({ name: "bob_ross_episodes" })
+  const db = client.db('databaseWeek3');
+  const collectionName = 'bob_ross_episodes';
+
+  // Check if the collection already exists
+  const hasCollection = await db
+    .listCollections({ name: collectionName })
     .hasNext();
 
+  let bobRossCollection;
+
   if (hasCollection) {
-    const bobRossCollection = await client
-      .db("databaseWeek3")
-      .collection("bob_ross_episodes");
-
-    // Remove all the documents
+    // If the collection exists, delete its contents
+    bobRossCollection = db.collection(collectionName);
+    console.log(`Collection '${collectionName}' found. Clearing existing documents...`);
     await bobRossCollection.deleteMany({});
-
-    // Convert data to array version of elements
-    const documents = data.map((dataItem) => {
-      const { EPISODE, TITLE } = dataItem;
-
-      const depictionElementKeys = Object.keys(dataItem).filter(
-        (key) => !["EPISODE", "TITLE"].includes(key)
-      );
-      const depictionElements = depictionElementKeys.filter(
-        (key) => dataItem[key] === 1
-      );
-
-      return {
-        episode: EPISODE,
-        // Remove the extra quotation marks
-        title: TITLE.replaceAll('"', ""),
-        elements: depictionElements,
-      };
-    });
-
-    // Add our documents
-    await bobRossCollection.insertMany(documents);
   } else {
-    throw Error("The collection `bob_ross_episodes` does not exist!");
+    // If the collection doesn't exist, create it
+    console.log(`Collection '${collectionName}' not found. Creating new one...`);
+    bobRossCollection = await db.createCollection(collectionName);
   }
+
+  // Transform raw data into clean episode documents
+  const documents = data.map((item) => {
+    const episode = item.EPISODE;
+    const title = item.TITLE.replaceAll('"', '');
+
+    // Extract elements where value === 1 (meaning true)
+    const elements = Object.keys(item)
+      .filter((key) => !['EPISODE', 'TITLE'].includes(key) && item[key] === 1);
+
+    return { episode, title, elements };
+  });
+
+  // Insert the cleaned documents into the collection
+  const result = await bobRossCollection.insertMany(documents);
+  console.log(`Seeding completed: ${result.insertedCount} episodes added to '${collectionName}'.`);
 };
 
 module.exports = {
-  seedDatabase,
+  seedDatabase
 };
