@@ -38,7 +38,7 @@ export async function importCSV() {
 }
 
 /* Write a function that will return the array of the
- total population (M + F over all age groups) for a given per year.*/
+ total population (M + F over all age groups) for a given per year. */
 export async function getTotalPopulationPerYear(country) {
     const result = await Population.aggregate([
         { $match: { Country: country } },
