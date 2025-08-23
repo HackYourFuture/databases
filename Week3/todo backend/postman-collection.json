@@ -1,0 +1,114 @@
+{
+  "info": {
+    "_postman_id": "35e0d81a-cf4f-41d0-b7d8-95905f20ff25",
+    "name": "ToDo app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:3000/todos",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "todos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "title",
+              "value": "chill out",
+              "type": "text"
+            },
+            {
+              "key": "is_checked",
+              "value": "false",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "localhost:3000/todos",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "todos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "title",
+              "value": "evaluate after done",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "is_checked",
+              "value": "true",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "localhost:3000/todos/5ffa3c8c10402b00e6af7c57",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "todos",
+            "5ffa3c8c10402b00e6af7c57"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "localhost:3000/todos/5ffa3b277c5cfb007e758be3",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "todos",
+            "5ffa3b277c5cfb007e758be3"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
