@@ -28,7 +28,7 @@ In this module, you get familiar with the complexity of storing data. By the end
 
 ### Repository content
 
-This repository consists of 3 essential parts:
+Each week's directory in this repository consists of 3 essential parts:
 
 1. `README`: this document contains all the required theory you need to understand **while** working on the weekly assignment. It contains not only the right resources to learn about the concepts, but also lectures done by HackYourFuture mentors. This is the **first thing** you should start with every week
 2. `MAKEME`: this document contains the instructions for each week's assignment. Start with the exercises rather quickly, so that you can ground the concepts you read about earlier.
